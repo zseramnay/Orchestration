@@ -17,7 +17,9 @@ from docx.enum.table import WD_TABLE_ALIGNMENT
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 
-BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# __file__ = .../Formants/Scripts/v3-html-docx-instr-renamed/build2v2_bois_html_docx.py
+# Go up 3 levels to reach .../Formants
+BASE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 OUT_DIR = os.path.join(BASE, "Versions html and docx")
 OUT_IMG = os.path.join(OUT_DIR, "media")
 os.makedirs(OUT_IMG, exist_ok=True)
