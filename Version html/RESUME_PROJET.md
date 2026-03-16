@@ -1,6 +1,0 @@
-RÉSUMÉ PROJET FORMANTS — 12 Mars 2026
-Repo GitHub : https://github.com/zseramnay/Formants.git
-Pipeline validé : specenv brut → script v22 (Scripts/extract_formants_all_techniques_v2_fixed.py) → CSV. 16/16 instruments SOL2020 reproduits à Δ=0 Hz. Deux CSV dans Resultats/ : formants_all_techniques.csv (SOL2020, 487 lignes) et formants_yan_adds.csv (23 instruments, 46 lignes).
-Fp centroïde : nouvelle mesure (centroïde spectral pondéré en énergie dans une bande par instrument). Plus stable que F2 pour 22/30 instruments. Cas clés : Violon Fp=893 Hz (σ=92) vs F2 σ=651 ; Trompette Fp=1046 (σ=98) vs F2 σ=1018.
-Sections HTML terminées dans Version html/ : section_bois.html (12 graphiques), section_saxophones_cuivres.html (19 graphiques, incl. sourdines), section_cordes.html (18 graphiques, incl. sourdines + ensembles). Scripts de génération dans Scripts/build_*_html.py. Chaque section : bar charts F1-F6 + zones vocaliques Meyer + Fp diamant + tableaux toutes techniques + commentaires sonores.
-Reste à faire : sections de synthèse (convergences formantiques, cluster 450-502 Hz, espace vocalique F1/F2, matrice de convergence, applications orchestration, tableau doublures vérifiées, principes d'orchestration acoustique). Aussi : guitare, harpe, accordéon n'ont pas encore de section HTML.
