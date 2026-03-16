@@ -2,8 +2,6 @@ Merci de travailler en créant une nouvelle versions de chaque script contenus d
 Ces scripts on été transformés (build2v2) avec des noms d'instruments corrigés et ils génèrent aussi bien le html que le docx.
 Les images d'enveloppes spectrales sont maintenant 2 par ligne et j'ai aussi fait build2_envelopes_individual_html_docx.py qui fait de images individuelles ce qui permettra de changer leur disposition plus facilement si besoin.
 
-tu peux regarder RESUME_PROJET.md avant de commencer.
-
 Voici ce qui est à faire :
 
 * Je trouve les nouvelles sections beaucoup moins informantes que ce que nous avions dans "Version html/v33-REFERENCE_FORMANTIQUE_v8_graphiques_complets.html".
