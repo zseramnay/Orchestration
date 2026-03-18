@@ -525,12 +525,7 @@ def build_docx(output_path):
     add_heading(doc, "6 Principes d'Orchestration Acoustique", level=2, color=(26, 35, 126))
     for titre, texte in PRINCIPES_ORCHESTRATION:
         add_heading(doc, titre, level=3, color=(74, 20, 140))
-        from html.parser import HTMLParser
-        class Strip(HTMLParser):
-            def __init__(self): super().__init__(); self.fed=[]
-            def handle_data(self,d): self.fed.append(d)
-        s = Strip(); s.feed(texte)
-        add_paragraph(doc, ''.join(s.fed), size=10)
+        add_paragraph(doc, clean_text(texte), size=10)
 
     doc.save(output_path)
     print(f"  ✓ DOCX: {output_path}")

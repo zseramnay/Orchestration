@@ -505,6 +505,27 @@ def ref_table_docx(doc, rows_data):
         for cell, width in zip(row_obj.cells, widths_cm):
             cell.width = Cm(width)
 
+def clean_text(text):
+    """
+    Nettoie un texte pour le DOCX :
+    - Supprime l'indentation Python des triples guillemets
+    - Supprime les balises HTML simples (<strong>, <em>, <br>, etc.)
+    - Retourne un texte propre sur une seule ligne cohérente
+    """
+    import re
+    # Supprimer les balises HTML courantes
+    text = re.sub(r'<strong>(.*?)</strong>', r'\1', text, flags=re.DOTALL)
+    text = re.sub(r'<em>(.*?)</em>', r'\1', text, flags=re.DOTALL)
+    text = re.sub(r'<b>(.*?)</b>', r'\1', text, flags=re.DOTALL)
+    text = re.sub(r'<br\s*/?>', ' ', text)
+    text = re.sub(r'<[^>]+>', '', text)
+    # Normaliser : strip chaque ligne puis rejoindre
+    lines = [l.strip() for l in text.split('\n')]
+    result = ' '.join(l for l in lines if l)
+    # Nettoyer les espaces multiples
+    result = re.sub(r'  +', ' ', result)
+    return result.strip()
+
 def doublures_table_docx(doc, dbl_items, header_color='F57F17'):
     """
     Rend un tableau de doublures en DOCX avec colonne Rapport de tessiture.

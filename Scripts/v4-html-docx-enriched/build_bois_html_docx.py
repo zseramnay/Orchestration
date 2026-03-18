@@ -358,21 +358,27 @@ def add_instrument_docx(doc, gfx):
         p_img.alignment = WD_ALIGN_PARAGRAPH.CENTER
         p_img.add_run().add_picture(info['img'], width=Inches(6.5))
 
+    # Analyse — texte nettoyé (sans indentation ni balises HTML)
     analysis = ANALYSIS.get(display, '')
     if analysis:
-        add_paragraph(doc, analysis, italic=True, size=10)
+        add_paragraph(doc, clean_text(analysis), italic=True, size=10)
 
     if fp:
         add_paragraph(doc, f"Fp (centroïde) = {fp} Hz", bold=True, size=10,
                       color=(27, 94, 32))
 
-    # Ref table
+    # Note technique contrebasson
+    if csv_name == 'Contrabassoon':
+        add_paragraph(doc, "⚠ Technique analysée : non-vibrato (pas d'ordinario dans la base).",
+                      italic=True, size=9)
+
+    # Tableau références
     ref_rows = REF_TABLES.get(display, [])
     if ref_rows:
-        add_heading(doc, "Valeurs de référence", level=3)
+        add_heading(doc, "Valeurs de référence (sources académiques)", level=3)
         ref_table_docx(doc, ref_rows)
 
-    # Techniques table
+    # Tableau techniques
     add_heading(doc, "Analyse spectrale complète (toutes techniques)", level=3)
     tech_table_docx(doc, csv_name)
 
@@ -388,23 +394,66 @@ def add_instrument_docx(doc, gfx):
 def build_docx(output_path):
     doc = new_docx()
 
+    # Titre section
     add_heading(doc, "II. Les Bois", level=1, color=(26, 35, 126))
-    p = doc.add_paragraph()
-    p.add_run("Plage formantique : ").bold = True
-    p.add_run("226–2 638 Hz (voyelles /u/ → /i/). ")
-    p.add_run("Découverte clé : ").bold = True
-    p.add_run("cor anglais (452 Hz) et basson (502 Hz) dans le cluster de convergence 450–502 Hz. "
-              "Basson–violoncelle : Δ=3 Hz — la doublure formantiquement la plus parfaite du corpus.")
 
-    add_heading(doc, "Flûtes", level=1, color=(46, 125, 50))
+    # Intro section — même contenu que le HTML
+    p = doc.add_paragraph()
+    r = p.add_run("Plage formantique : ")
+    r.bold = True
+    p.add_run("226–2 638 Hz (voyelles /u/ → /i/). Grande diversité timbrale selon le type d'anche et le profil du tuyau.")
+
+    add_heading(doc, "Caractéristiques principales", level=3)
+    bullets = [
+        ("Anches doubles", "(hautbois, cor anglais, basson, contrebasson) : zone formantique commune autour de 900–1 200 Hz, coloration vocalique /a/."),
+        ("Clarinettes", "(tuyau cylindrique, harmoniques impairs) : pas de formant fixe au sens strict — le spectre dépend fortement du registre."),
+        ("Flûtes", "(tuyau ouvert) : pas de formant fixe — spectre décroît linéairement au-dessus du fondamental."),
+    ]
+    for label, text in bullets:
+        p = doc.add_paragraph(style='List Bullet')
+        r = p.add_run(label + " ")
+        r.bold = True
+        r.font.size = Pt(10)
+        r2 = p.add_run(text)
+        r2.font.size = Pt(10)
+
+    p = doc.add_paragraph()
+    r = p.add_run("Découverte clé : ")
+    r.bold = True
+    r.font.color.rgb = RGBColor(198, 40, 40)
+    p.add_run("le cor anglais (F1=452 Hz) et le basson (F1=502 Hz) tombent dans le cluster de "
+              "convergence 450–502 Hz, aux côtés du cor, du trombone et du violoncelle. "
+              "Le basson présente une convergence Δ=3 Hz avec le violoncelle — "
+              "la doublure formantiquement la plus parfaite du corpus.")
+
+    # Famille Flûtes
+    add_heading(doc, "Flûtes", level=2, color=(46, 125, 50))
+    add_paragraph(doc,
+        "La famille des flûtes se distingue par l'absence de formant fixe strict. Le spectre est dominé "
+        "par la fondamentale, avec une décroissance quasi-linéaire en dB. Le Fp (centroïde spectral) "
+        "permet néanmoins de caractériser la zone d'énergie principale.",
+        size=10)
     for gfx in ['bois_piccolo', 'bois_flute', 'bois_bass_flute', 'bois_contrabass_flute']:
         add_instrument_docx(doc, gfx)
 
-    add_heading(doc, "Anches doubles", level=1, color=(46, 125, 50))
+    # Famille Anches doubles
+    add_heading(doc, "Anches doubles", level=2, color=(46, 125, 50))
+    add_paragraph(doc,
+        "Les instruments à anche double (hautbois, cor anglais, basson, contrebasson) partagent un profil "
+        "formantique similaire avec une zone d'énergie principale autour de 900–1 200 Hz. "
+        "Cette famille acoustique explique leur tendance à fusionner naturellement dans l'orchestre.",
+        size=10)
     for gfx in ['bois_hautbois', 'bois_cor_anglais', 'bois_basson', 'bois_contrebasson']:
         add_instrument_docx(doc, gfx)
 
-    add_heading(doc, "Clarinettes", level=1, color=(46, 125, 50))
+    # Famille Clarinettes
+    add_heading(doc, "Clarinettes", level=2, color=(46, 125, 50))
+    add_paragraph(doc,
+        "La famille des clarinettes (tuyau cylindrique fermé) présente un comportement acoustique "
+        "radicalement différent des autres bois : suppression des harmoniques pairs, dominance des "
+        "partiels impairs. Cette spécificité rend difficile la définition d'un formant fixe et "
+        "explique les divergences entre sources académiques.",
+        size=10)
     for gfx in ['bois_clarinet_eb', 'bois_clarinet_bb', 'bois_clarinet_basse', 'bois_clarinet_cb']:
         add_instrument_docx(doc, gfx)
 

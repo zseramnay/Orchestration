@@ -292,14 +292,14 @@ def add_instrument_docx(doc, gfx, show_ref=True, show_all_tech=True):
 
     analysis = ANALYSIS.get(display) or ANALYSIS_SORDINES.get(display, '')
     if analysis:
-        add_paragraph(doc, analysis, italic=True, size=10)
+        add_paragraph(doc, clean_text(analysis), italic=True, size=10)
     if fp:
         add_paragraph(doc, f"Fp (centroïde) = {fp} Hz", bold=True, size=10, color=(27,94,32))
 
     if show_ref:
         ref_rows = REF_TABLES.get(display, [])
         if ref_rows:
-            add_heading(doc, "Valeurs de référence", level=3)
+            add_heading(doc, "Valeurs de référence (sources académiques)", level=3)
             ref_table_docx(doc, ref_rows)
 
     if show_all_tech:
@@ -316,23 +316,56 @@ def add_instrument_docx(doc, gfx, show_ref=True, show_all_tech=True):
 
 def build_docx(output_path):
     doc = new_docx()
-    add_heading(doc, "III. Les Cuivres", level=1, color=(26, 35, 126))
-    p = doc.add_paragraph()
-    p.add_run("Cluster de convergence 450–502 Hz (zone /o/) : ").bold = True
-    p.add_run("Cor (457), Trombone (491), Tuba contrebasse (471) + Basson et Violoncelle.")
 
-    add_heading(doc, "Cuivres principaux", level=1, color=(198, 40, 40))
-    for *_, gfx, __ in [(x[0],x[1],x[2],x[3]) for x in CUIVRES_PRINCIPAUX]:
+    add_heading(doc, "III. Les Cuivres", level=1, color=(26, 35, 126))
+
+    # Intro section
+    p = doc.add_paragraph()
+    r = p.add_run("Plage formantique : ")
+    r.bold = True
+    p.add_run("162–2 358 Hz (voyelles /u/ → /i/ avec sourdines). "
+              "Formants bien définis, grande stabilité spectrale inter-dynamiques (sauf trompette).")
+
+    p2 = doc.add_paragraph()
+    r2 = p2.add_run("Cluster de convergence 450–502 Hz (zone /o/) : ")
+    r2.bold = True
+    r2.font.color.rgb = RGBColor(198, 40, 40)
+    p2.add_run("Cor (457), Trombone (491), Tuba contrebasse (471) — fondement acoustique des doublures "
+               "classiques de la section cuivres avec le basson et le violoncelle.")
+
+    p3 = doc.add_paragraph()
+    r3 = p3.add_run("Ordre des instruments : ")
+    r3.bold = True
+    p3.add_run("Cor · Trompette · Trombone ténor · Trombone basse · Tuba basse · Tuba contrebasse.")
+
+    # Cuivres principaux
+    add_heading(doc, "Cuivres principaux", level=2, color=(198, 40, 40))
+    for csv_name, display, gfx, *_ in CUIVRES_PRINCIPAUX:
         add_instrument_docx(doc, gfx)
 
-    add_heading(doc, "Cuivres avec sourdine", level=1, color=(198, 40, 40))
-    for gfx in (['cuivres_cor_sord'] +
-                ['cuivres_trb_cup','cuivres_trb_straight','cuivres_trb_harmon',
-                 'cuivres_trb_wah_open','cuivres_trb_wah_closed'] +
-                ['cuivres_tpt_cup','cuivres_tpt_straight','cuivres_tpt_harmon',
-                 'cuivres_tpt_wah_open','cuivres_tpt_wah_closed'] +
-                ['cuivres_tuba_sord']):
+    # Sourdines — intro
+    add_heading(doc, "Cuivres avec sourdine", level=2, color=(198, 40, 40))
+    add_paragraph(doc,
+        "Les sourdines modifient profondément le profil formantique. Résultats analysés en technique "
+        "ordinario (ou ordinario_open/closed pour les wah). Seuls les graphiques et descriptions "
+        "sont fournis (sans tableau de techniques complet).",
+        size=10)
+
+    add_heading(doc, "Cor avec sourdine", level=3)
+    add_instrument_docx(doc, 'cuivres_cor_sord', show_ref=False, show_all_tech=False)
+
+    add_heading(doc, "Trombone avec sourdines", level=3)
+    for gfx in ['cuivres_trb_cup','cuivres_trb_straight','cuivres_trb_harmon',
+                 'cuivres_trb_wah_open','cuivres_trb_wah_closed']:
         add_instrument_docx(doc, gfx, show_ref=False, show_all_tech=False)
+
+    add_heading(doc, "Trompette avec sourdines", level=3)
+    for gfx in ['cuivres_tpt_cup','cuivres_tpt_straight','cuivres_tpt_harmon',
+                 'cuivres_tpt_wah_open','cuivres_tpt_wah_closed']:
+        add_instrument_docx(doc, gfx, show_ref=False, show_all_tech=False)
+
+    add_heading(doc, "Tuba avec sourdine", level=3)
+    add_instrument_docx(doc, 'cuivres_tuba_sord', show_ref=False, show_all_tech=False)
 
     doc.save(output_path)
     print(f"  ✓ DOCX: {output_path}")

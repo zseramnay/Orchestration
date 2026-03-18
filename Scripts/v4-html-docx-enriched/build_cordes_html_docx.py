@@ -327,14 +327,17 @@ def add_instrument_docx(doc, gfx, show_ref=True, show_all_tech=True):
 
     analysis = ANALYSIS.get(display, '')
     if analysis:
-        add_paragraph(doc, analysis, italic=True, size=10)
+        add_paragraph(doc, clean_text(analysis), italic=True, size=10)
     if fp:
         add_paragraph(doc, f"Fp (centroïde) = {fp} Hz", bold=True, size=10, color=(27,94,32))
+
+    if csv_name == 'Contrabass_Ensemble':
+        add_paragraph(doc, "⚠ Technique : non-vibrato uniquement dans la base.", italic=True, size=9)
 
     if show_ref:
         ref_rows = REF_TABLES.get(display, [])
         if ref_rows:
-            add_heading(doc, "Valeurs de référence", level=3)
+            add_heading(doc, "Valeurs de référence (sources académiques)", level=3)
             ref_table_docx(doc, ref_rows)
 
     if show_all_tech:
@@ -350,23 +353,63 @@ def add_instrument_docx(doc, gfx, show_ref=True, show_all_tech=True):
 
 def build_docx(output_path):
     doc = new_docx()
+
     add_heading(doc, "V. Les Cordes", level=1, color=(26, 35, 126))
+
+    # Intro
     p = doc.add_paragraph()
-    p.add_run("Découverte clé : ").bold = True
-    p.add_run("Violoncelle (499 Hz) + Basson (502 Hz) = Δ=3 Hz — doublure la plus parfaite du corpus. "
-              "Cluster /o/ : Cor (457), Trombone (491), Basson (502), Violoncelle (499).")
+    r = p.add_run("Plage formantique : ")
+    r.bold = True
+    p.add_run("200–1 556 Hz (voyelles /u/ → /e/). La famille des cordes présente la plus grande "
+              "variabilité spectrale de l'orchestre, compensée par la mesure Fp (centroïde).")
 
-    add_heading(doc, "Cordes solistes", level=1, color=(21, 101, 192))
-    for gfx in ['cordes_violon','cordes_vln_sord','cordes_vln_piombo',
-                'cordes_alto','cordes_alt_sord','cordes_alt_piombo',
-                'cordes_violoncelle','cordes_vcl_sord','cordes_vcl_piombo',
-                'cordes_contrebasse','cordes_cb_sord']:
-        is_base = gfx in ['cordes_violon','cordes_alto','cordes_violoncelle','cordes_contrebasse']
-        add_instrument_docx(doc, gfx, show_ref=is_base, show_all_tech=is_base)
+    p2 = doc.add_paragraph()
+    r2 = p2.add_run("Découverte clé : ")
+    r2.bold = True
+    r2.font.color.rgb = RGBColor(198, 40, 40)
+    p2.add_run("Violoncelle (499 Hz) + Basson (502 Hz) = Δ=3 Hz — la doublure la plus parfaite du corpus. "
+               "L'ensemble de violons (F1=1 556 Hz) développe une zone /e/ très différente "
+               "du soliste (893 Hz Fp) : effet de section spectral clairement quantifié.")
 
-    add_heading(doc, "Cordes d'ensemble", level=1, color=(21, 101, 192))
-    for gfx in ['cordes_vln_ens','cordes_vln_ens_sord','cordes_alt_ens','cordes_alt_ens_sord',
-                'cordes_vcl_ens','cordes_vcl_ens_sord','cordes_cb_ens']:
+    # Cordes solistes
+    add_heading(doc, "Cordes solistes", level=2, color=(21, 101, 192))
+
+    add_heading(doc, "Violon", level=3, color=(183, 28, 28))
+    for gfx in ['cordes_violon', 'cordes_vln_sord', 'cordes_vln_piombo']:
+        add_instrument_docx(doc, gfx,
+                            show_ref=(gfx == 'cordes_violon'),
+                            show_all_tech=(gfx == 'cordes_violon'))
+
+    add_heading(doc, "Alto", level=3, color=(21, 101, 192))
+    for gfx in ['cordes_alto', 'cordes_alt_sord', 'cordes_alt_piombo']:
+        add_instrument_docx(doc, gfx,
+                            show_ref=(gfx == 'cordes_alto'),
+                            show_all_tech=(gfx == 'cordes_alto'))
+
+    add_heading(doc, "Violoncelle", level=3, color=(27, 94, 32))
+    for gfx in ['cordes_violoncelle', 'cordes_vcl_sord', 'cordes_vcl_piombo']:
+        add_instrument_docx(doc, gfx,
+                            show_ref=(gfx == 'cordes_violoncelle'),
+                            show_all_tech=(gfx == 'cordes_violoncelle'))
+
+    add_heading(doc, "Contrebasse", level=3, color=(74, 20, 140))
+    for gfx in ['cordes_contrebasse', 'cordes_cb_sord']:
+        add_instrument_docx(doc, gfx,
+                            show_ref=(gfx == 'cordes_contrebasse'),
+                            show_all_tech=(gfx == 'cordes_contrebasse'))
+
+    # Cordes d'ensemble
+    add_heading(doc, "Cordes d'ensemble", level=2, color=(21, 101, 192))
+    add_paragraph(doc,
+        "Les données d'ensemble montrent un effet de section (compression formantique) systématique : "
+        "le F1 collectif est significativement plus haut qu'en solo. "
+        "Exemple le plus marqué : Violon solo F1=506 Hz (Fp=893) → Ensemble de violons F1=1 556 Hz.",
+        size=10)
+
+    for gfx in ['cordes_vln_ens','cordes_vln_ens_sord',
+                'cordes_alt_ens','cordes_alt_ens_sord',
+                'cordes_vcl_ens','cordes_vcl_ens_sord',
+                'cordes_cb_ens']:
         is_base = gfx in ['cordes_vln_ens','cordes_alt_ens','cordes_vcl_ens','cordes_cb_ens']
         add_instrument_docx(doc, gfx, show_ref=is_base, show_all_tech=is_base)
 

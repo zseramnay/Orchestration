@@ -166,12 +166,28 @@ def build_docx(output_path):
     doc = new_docx()
 
     add_heading(doc, "IV. Les Saxophones", level=1, color=(26, 35, 126))
+
+    # Intro complète
     p = doc.add_paragraph()
-    p.add_run("Corpus disponible : ").bold = True
-    p.add_run("saxophone alto uniquement (SOL2020 IRCAM). ")
-    p.add_run("Note remarquable : ").bold = True
-    p.add_run("Giesler (1985) place le saxophone ténor dans le cluster /o/ (400–600 Hz) "
-              "avec Basson, Cor et Trombone.")
+    r = p.add_run("Corpus disponible : ")
+    r.bold = True
+    p.add_run("saxophone alto uniquement (SOL2020 IRCAM). "
+              "Les saxophones soprano, ténor et baryton ne disposent pas de données specenv dans le corpus actuel.")
+
+    p2 = doc.add_paragraph()
+    r2 = p2.add_run("Intérêt acoustique : ")
+    r2.bold = True
+    p2.add_run("le saxophone est le seul instrument de l'orchestre à combiner un tuyau conique "
+               "(comme le basson et le hautbois) avec une anche simple (comme la clarinette). "
+               "Cette dualité acoustique lui confère un spectre riche et une grande versatilité timbrale.")
+
+    p3 = doc.add_paragraph()
+    r3 = p3.add_run("Position dans le cluster : ")
+    r3.bold = True
+    r3.font.color.rgb = RGBColor(198, 40, 40)
+    p3.add_run("F1=398 Hz — légèrement en-deçà du cluster /o/ (452–502 Hz) mais très proche. "
+               "Giesler (1985) place explicitement le saxophone ténor dans le cluster avec "
+               "Basson, Cor et Trombone.")
 
     info = all_info.get('sax_alto')
     if info:
@@ -183,31 +199,51 @@ def build_docx(output_path):
 
         analysis = ANALYSIS.get(info['display'], '')
         if analysis:
-            add_paragraph(doc, analysis, italic=True, size=10)
+            add_paragraph(doc, clean_text(analysis), italic=True, size=10)
         if info['fp']:
             add_paragraph(doc, f"Fp (centroïde) = {info['fp']} Hz", bold=True, size=10,
                           color=(27, 94, 32))
 
         ref_rows = REF_TABLES.get(info['display'], [])
         if ref_rows:
-            add_heading(doc, "Valeurs de référence", level=3)
+            add_heading(doc, "Valeurs de référence (sources académiques)", level=3)
             ref_table_docx(doc, ref_rows)
 
         add_heading(doc, "Analyse spectrale complète", level=3)
         tech_table_docx(doc, info['csv'])
 
         # Note saxophone ténor
-        p = doc.add_paragraph()
-        r = p.add_run("Note — Saxophone ténor dans le cluster /o/ : ")
-        r.bold = True
-        r.font.color.rgb = RGBColor(230, 81, 0)
-        p.add_run("Giesler (1985) cite explicitement le saxophone ténor parmi les instruments "
-                  "du cluster 400–600 Hz, aux côtés du Basson, Cor et Trombone.")
+        p_note = doc.add_paragraph()
+        r_note = p_note.add_run("Note — Saxophone ténor dans le cluster /o/ : ")
+        r_note.bold = True
+        r_note.font.color.rgb = RGBColor(230, 81, 0)
+        p_note.add_run("Giesler (1985) cite explicitement le saxophone ténor parmi les instruments "
+                       "du cluster 400–600 Hz, aux côtés du Basson, Cor et Trombone. "
+                       "Données Giesler : F1 ≈ 400–600 Hz — correspondance directe avec la zone /o/.")
 
         dbl_items = DOUBLURES.get(info['display'], [])
         if dbl_items:
             add_heading(doc, "Doublures recommandées", level=3, color=(245, 127, 23))
             doublures_table_docx(doc, dbl_items)
+
+    # Saxophones absents
+    add_heading(doc, "Saxophones absents du corpus", level=2, color=(173, 20, 87))
+    table = doc.add_table(rows=1, cols=4)
+    table.style = 'Table Grid'
+    for idx, h in enumerate(['Instrument', 'F1 estimé (Giesler)', 'Zone vocalique', 'Statut corpus']):
+        set_cell_text(table.rows[0].cells[idx], h, bold=True, size=9, color=(255,255,255))
+        set_cell_shading(table.rows[0].cells[idx], 'AD1457')
+    for row_data in [
+        ('Saxophone soprano', '~1 200–1 500 Hz', '/a/–/e/', 'Absent SOL2020 / Yan_Adds'),
+        ('Saxophone ténor',   '400–600 Hz',       '/o/ — cluster', 'Absent SOL2020 / Yan_Adds'),
+        ('Saxophone baryton', '~250–400 Hz',       '/u/–/o/', 'Absent SOL2020 / Yan_Adds'),
+    ]:
+        row = table.add_row().cells
+        for idx, v in enumerate(row_data):
+            set_cell_text(row[idx], v, bold=(idx == 0), size=9)
+    for row_obj in table.rows:
+        for cell, w in zip(row_obj.cells, [3.5, 3.0, 2.5, 5.0]):
+            cell.width = Cm(w)
 
     doc.save(output_path)
     print(f"  ✓ DOCX: {output_path}")
