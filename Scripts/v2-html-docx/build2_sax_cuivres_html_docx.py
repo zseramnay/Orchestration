@@ -16,7 +16,7 @@ from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-OUT_DIR = os.path.join(BASE, "Versions html and docx")
+OUT_DIR = os.path.join(BASE, "Versions-html-and-docx")
 OUT_IMG = os.path.join(OUT_DIR, 'media')
 os.makedirs(OUT_IMG, exist_ok=True)
 

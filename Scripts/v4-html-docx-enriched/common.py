@@ -24,7 +24,7 @@ from docx.oxml.ns import qn
 # Ce module est dans Formants/Scripts/v4-html-docx-enriched/
 # BASE = Formants/
 BASE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-OUT_DIR = os.path.join(BASE, "Versions html and docx")
+OUT_DIR = os.path.join(BASE, "Versions-html-and-docx")
 OUT_IMG = os.path.join(OUT_DIR, "media")
 os.makedirs(OUT_IMG, exist_ok=True)
 

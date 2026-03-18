@@ -23,7 +23,7 @@ freqs = np.arange(1024) * FREQ_RES
 BASE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 SOL = os.path.join(BASE, 'Data', 'FullSOL2020_specenv par instrument')
 YAN = os.path.join(BASE, 'Data', 'Yan_Adds-Divers_specenv par instrument')
-OUT_DIR = os.path.join(BASE, "Versions html and docx")
+OUT_DIR = os.path.join(BASE, "Versions-html-and-docx")
 OUT = os.path.join(OUT_DIR, 'media')
 os.makedirs(OUT, exist_ok=True)
 
