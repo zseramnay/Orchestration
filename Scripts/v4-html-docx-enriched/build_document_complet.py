@@ -584,36 +584,165 @@ TOC_ENTRIES = [
 ]
 
 
-def add_static_toc(doc):
+
+
+# ─── Niveaux de titres à inclure dans la TDM ─────────────────
+TOC_HEADING_LEVELS = {'Heading 1': 1, 'Heading 2': 2, 'Heading 3': 3}
+
+# Titres à exclure de la TDM (trop génériques, répétés pour chaque instrument)
+TOC_EXCLUDE = {
+    'Valeurs de référence (sources académiques)',
+    'Valeurs de référence',
+    'Analyse spectrale complète (toutes techniques)',
+    'Analyse spectrale complète',
+    'Doublures recommandées',
+    'Caractéristiques principales',
+    'Paramètres d\'analyse',
+}
+
+
+def _bookmark_name_from_text(text, seen):
+    """Génère un nom de signet unique depuis un texte de titre."""
+    import unicodedata as _ud, re as _re
+    bm = _ud.normalize('NFD', text)
+    bm = ''.join(c for c in bm if _ud.category(c) != 'Mn')
+    bm = _re.sub(r'[^a-zA-Z0-9]+', '_', bm).strip('_')[:40]
+    # Déduplication
+    base, n = bm, 1
+    while bm in seen:
+        bm = f"{base}_{n}"
+        n += 1
+    seen.add(bm)
+    return bm
+
+
+def _inject_bookmarks(doc):
     """
-    Insère une table des matières statique sous forme de paragraphes
-    avec indentation et numérotation de page symbolique.
-    Fonctionne sans mise à jour dans LibreOffice et Word.
+    Parcourt tous les paragraphes Heading du document,
+    injecte un bookmark Word sur chacun (sauf ceux exclus),
+    et retourne la liste (level, text, bookmark_name) pour la TDM.
     """
-    # Styles par niveau
+    toc_items = []
+    seen_bookmarks = set()
+    bid_counter = [1000]  # démarrer à 1000 pour éviter les conflits avec bookmarks existants
+
+    for p in doc.paragraphs:
+        style = p.style.name
+        level = TOC_HEADING_LEVELS.get(style)
+        if level is None:
+            continue
+        text = p.text.strip()
+        if not text or text in TOC_EXCLUDE:
+            continue
+
+        bm_name = _bookmark_name_from_text(text, seen_bookmarks)
+        bid = str(bid_counter[0])
+        bid_counter[0] += 1
+
+        # Injecter bookmarkStart au début du paragraphe
+        bm_start = OxmlElement('w:bookmarkStart')
+        bm_start.set(qn('w:id'), bid)
+        bm_start.set(qn('w:name'), bm_name)
+        p._p.insert(0, bm_start)
+
+        # Injecter bookmarkEnd à la fin
+        bm_end = OxmlElement('w:bookmarkEnd')
+        bm_end.set(qn('w:id'), bid)
+        p._p.append(bm_end)
+
+        toc_items.append((level, text, bm_name))
+
+    return toc_items
+
+
+def _add_toc_with_hyperlinks(doc, toc_items):
+    """
+    Insère la TDM cliquable avant le premier paragraphe non-vide du document.
+    Chaque entrée est un hyperlien Word interne vers le bookmark du titre.
+    """
     level_styles = {
-        1: dict(size=11, bold=True,  indent=0,    color=RGBColor(26, 35, 126)),
-        2: dict(size=10, bold=False, indent=0.4,  color=RGBColor(46, 125, 50)),
-        3: dict(size=9,  bold=False, indent=0.8,  color=RGBColor(80, 80, 80)),
+        1: dict(size=12, bold=True,  indent=0.0, color='1A237E'),
+        2: dict(size=10, bold=False, indent=0.5, color='1B5E20'),
+        3: dict(size=9,  bold=False, indent=1.0, color='424242'),
     }
 
-    for level, label, bookmark in TOC_ENTRIES:
+    # Trouver le premier paragraphe du body pour insérer avant lui
+    body = doc.element.body
+    # On va insérer les paragraphes TDM juste avant le premier paragraphe existant
+    first_para = body[0]
+
+    toc_paras = []
+
+    # Titre "Table des matières"
+    h = OxmlElement('w:p')
+    hPr = OxmlElement('w:pPr')
+    hStyle = OxmlElement('w:pStyle')
+    hStyle.set(qn('w:val'), 'Heading1')
+    hPr.append(hStyle)
+    h.append(hPr)
+    hR = OxmlElement('w:r')
+    hT = OxmlElement('w:t')
+    hT.text = 'Table des matières'
+    hR.append(hT)
+    h.append(hR)
+    toc_paras.append(h)
+
+    for level, text, bookmark in toc_items:
         s = level_styles[level]
-        p = doc.add_paragraph()
-        p.paragraph_format.left_indent   = Cm(s['indent'])
-        p.paragraph_format.space_before  = Pt(2 if level > 1 else 6)
-        p.paragraph_format.space_after   = Pt(1)
 
-        # Ligne pointillée entre label et numéro de page (style TDM)
-        run = p.add_run(label)
-        run.bold = s['bold']
-        run.font.size = Pt(s['size'])
-        run.font.color.rgb = s['color']
+        p_elem = OxmlElement('w:p')
 
-        # Séparateur (tabulation + points de suite visuels)
-        sep = p.add_run("  " + ("·" * max(1, 60 - len(label) - int(s['indent']*8))))
-        sep.font.size = Pt(7)
-        sep.font.color.rgb = RGBColor(200, 200, 200)
+        # Propriétés du paragraphe
+        pPr = OxmlElement('w:pPr')
+        ind = OxmlElement('w:ind')
+        ind.set(qn('w:left'), str(int(s['indent'] * 720)))  # 720 twips = 1.27 cm ≈ 0.5 inch
+        pPr.append(ind)
+        spc = OxmlElement('w:spacing')
+        spc.set(qn('w:before'), '40')
+        spc.set(qn('w:after'), '20')
+        pPr.append(spc)
+        p_elem.append(pPr)
+
+        # Hyperlien interne vers le bookmark
+        hyperlink = OxmlElement('w:hyperlink')
+        hyperlink.set(qn('w:anchor'), bookmark)
+
+        rPr = OxmlElement('w:rPr')
+        # Style hyperlien : souligné + couleur
+        u = OxmlElement('w:u')
+        u.set(qn('w:val'), 'single')
+        rPr.append(u)
+        clr = OxmlElement('w:color')
+        clr.set(qn('w:val'), s['color'])
+        rPr.append(clr)
+        sz = OxmlElement('w:sz')
+        sz.set(qn('w:val'), str(int(s['size'] * 2)))
+        rPr.append(sz)
+        if s['bold']:
+            rPr.append(OxmlElement('w:b'))
+
+        run_elem = OxmlElement('w:r')
+        run_elem.append(rPr)
+        t = OxmlElement('w:t')
+        t.set(qn('xml:space'), 'preserve')
+        t.text = text
+        run_elem.append(t)
+        hyperlink.append(run_elem)
+        p_elem.append(hyperlink)
+        toc_paras.append(p_elem)
+
+    # Saut de page après la TDM
+    pb_p = OxmlElement('w:p')
+    pb_r = OxmlElement('w:r')
+    pb_br = OxmlElement('w:br')
+    pb_br.set(qn('w:type'), 'page')
+    pb_r.append(pb_br)
+    pb_p.append(pb_r)
+    toc_paras.append(pb_p)
+
+    # Insérer avant le premier élément du body
+    for i, elem in enumerate(toc_paras):
+        body.insert(i, elem)
 
 
 def add_page_break(doc):
@@ -627,8 +756,10 @@ def add_page_break(doc):
 def build_docx_complet():
     """
     Assemble les sections en un seul DOCX propre avec docxcompose.
-    Chaque section commence sur une nouvelle page.
-    Table des matières Word automatique en début de document.
+    Stratégie TDM cliquable :
+      1. docxcompose fusionne les 6 sections (les styles Heading survivent)
+      2. On scanne tous les paragraphes Heading et on injecte des bookmarks
+      3. On insère la TDM avec hyperliens cliquables vers ces bookmarks en tête de doc
     """
     from docxcompose.composer import Composer
 
@@ -643,7 +774,7 @@ def build_docx_complet():
         ('build_synthese_html_docx.py', 'section_synthese_v4.docx'),
     ]
 
-    # Générer les DOCX de section si absents ou forcer la régénération
+    # Générer les DOCX de section si absents
     section_docx_paths = []
     for script_name, out_filename in section_scripts:
         script_path = os.path.join(BASE, 'Scripts', 'v4-html-docx-enriched', script_name)
@@ -658,7 +789,7 @@ def build_docx_complet():
         section_docx_paths.append(out_path)
         print(f"  ✓ {out_filename}")
 
-    # ── Créer le document maître (page de garde + TDM) ──────────
+    # ── Document maître : page de garde seulement ────────────────
     master = new_docx()
     for sec in master.sections:
         sec.top_margin    = Cm(2.5)
@@ -694,29 +825,41 @@ def build_docx_complet():
 
     add_page_break(master)
 
-    # Table des matières statique
-    h_toc = master.add_paragraph("Table des matières", style='Heading 1')
-    h_toc.runs[0].font.color.rgb = RGBColor(26, 35, 126)
-    add_static_toc(master)
-    add_page_break(master)
-
-    # ── Fusionner avec docxcompose ───────────────────────────────
+    # ── Fusionner les sections avec docxcompose ───────────────────
     composer = Composer(master)
-    for i, path in enumerate(section_docx_paths):
+    for path in section_docx_paths:
         print(f"  → Fusion : {os.path.basename(path)}", flush=True)
         try:
-            sub_doc = Document(path)
-            # Saut de page entre sections (sauf avant la première)
-            composer.append(sub_doc)
+            composer.append(Document(path))
             print(f"  ✓ {os.path.basename(path)}")
         except Exception as e:
             print(f"  ⚠ Erreur fusion {os.path.basename(path)}: {e}")
 
-    composer.save(OUT_DOCX)
+    # Sauvegarder une version intermédiaire
+    tmp_path = OUT_DOCX.replace('.docx', '_tmp.docx')
+    composer.save(tmp_path)
+    print("  ✓ Fusion terminée")
+
+    # ── Post-processing : bookmarks + TDM cliquable ───────────────
+    print("  → Injection bookmarks et TDM cliquable ...")
+    merged = Document(tmp_path)
+
+    # 1. Scanner les titres et injecter les bookmarks
+    toc_items = _inject_bookmarks(merged)
+    print(f"  ✓ {len(toc_items)} bookmarks injectés")
+
+    # 2. Insérer la TDM avec hyperliens en tête du document
+    _add_toc_with_hyperlinks(merged, toc_items)
+    print(f"  ✓ TDM cliquable insérée ({len(toc_items)} entrées)")
+
+    merged.save(OUT_DOCX)
+    os.remove(tmp_path)
+
     size = os.path.getsize(OUT_DOCX)
     print(f"\n✓ DOCX complet : {OUT_DOCX}")
     print(f"  Taille : {size:,} octets")
-    print("  ⟳ À l'ouverture : Ctrl+A puis F9 pour mettre à jour la table des matières.")
+    print(f"  TDM : {len(toc_items)} entrées cliquables")
+    print("  Aucune manipulation requise à l'ouverture.")
 
 
 # ═══════════════════════════════════════════════════════════

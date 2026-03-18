@@ -671,6 +671,94 @@ def add_heading(doc, text, level=1, color=None):
         run.font.color.rgb = RGBColor(*color)
     return p
 
+
+def _make_bookmark_id():
+    """Génère un ID numérique unique pour chaque bookmark."""
+    if not hasattr(_make_bookmark_id, '_counter'):
+        _make_bookmark_id._counter = 1
+    bid = _make_bookmark_id._counter
+    _make_bookmark_id._counter += 1
+    return bid
+
+
+def add_bookmark(paragraph, bookmark_name):
+    """
+    Ajoute un signet (bookmark) Word sur un paragraphe existant.
+    Le signet entoure le run du paragraphe.
+    bookmark_name doit être unique dans le document et sans espaces.
+    """
+    bid = str(_make_bookmark_id())
+    # bookmarkStart
+    bm_start = OxmlElement('w:bookmarkStart')
+    bm_start.set(qn('w:id'), bid)
+    bm_start.set(qn('w:name'), bookmark_name)
+    paragraph._p.insert(0, bm_start)
+    # bookmarkEnd
+    bm_end = OxmlElement('w:bookmarkEnd')
+    bm_end.set(qn('w:id'), bid)
+    paragraph._p.append(bm_end)
+
+
+def add_heading_bookmarked(doc, text, level=1, color=None, bookmark=None):
+    """
+    Ajoute un titre avec un signet Word pour permettre les hyperliens TDM.
+    bookmark : nom du signet (str, sans espaces). Si None, généré depuis text.
+    """
+    import unicodedata, re as _re
+    p = add_heading(doc, text, level=level, color=color)
+    if bookmark is None:
+        # Générer un nom de signet depuis le texte
+        bm = unicodedata.normalize('NFD', text)
+        bm = ''.join(c for c in bm if unicodedata.category(c) != 'Mn')
+        bm = _re.sub(r'[^a-zA-Z0-9]+', '_', bm).strip('_')
+        bookmark = bm[:40]
+    add_bookmark(p, bookmark)
+    return p, bookmark
+
+
+def add_toc_hyperlink(paragraph, text, bookmark, size=10, bold=False,
+                      color=None):
+    """
+    Ajoute un hyperlien interne (vers un bookmark) dans un paragraphe.
+    """
+    # Relation hyperlien interne
+    hyperlink = OxmlElement('w:hyperlink')
+    hyperlink.set(qn('w:anchor'), bookmark)
+
+    run_elem = OxmlElement('w:r')
+
+    # Style du lien (souligné, couleur)
+    rPr = OxmlElement('w:rPr')
+    rStyle = OxmlElement('w:rStyle')
+    rStyle.set(qn('w:val'), 'Hyperlink')
+    rPr.append(rStyle)
+
+    sz = OxmlElement('w:sz')
+    sz.set(qn('w:val'), str(int(size * 2)))
+    rPr.append(sz)
+
+    if bold:
+        b = OxmlElement('w:b')
+        rPr.append(b)
+
+    if color:
+        clr = OxmlElement('w:color')
+        if isinstance(color, RGBColor):
+            clr.set(qn('w:val'), f'{color.red:02X}{color.green:02X}{color.blue:02X}')
+        else:
+            clr.set(qn('w:val'), color)
+        rPr.append(clr)
+
+    run_elem.append(rPr)
+
+    t = OxmlElement('w:t')
+    t.set(qn('xml:space'), 'preserve')
+    t.text = text
+    run_elem.append(t)
+
+    hyperlink.append(run_elem)
+    paragraph._p.append(hyperlink)
+
 def add_paragraph(doc, text, italic=False, bold=False, size=10, color=None):
     p = doc.add_paragraph()
     run = p.add_run(text)
