@@ -562,20 +562,14 @@ def add_page_break(doc):
 
 def build_docx_complet():
     """
-    Assemble les sections en un seul DOCX.
+    Assemble les sections en un seul DOCX propre avec docxcompose.
     Chaque section commence sur une nouvelle page.
     Table des matières Word automatique en début de document.
     """
+    from docxcompose.composer import Composer
+
     print("\n=== BUILD DOCX COMPLET ===")
 
-    # On importe chaque module de section et on appelle build_docx
-    # sur un fichier temporaire, puis on copie le contenu dans le doc final.
-    # Approche plus simple et robuste : lancer chaque build_docx,
-    # puis fusionner les fichiers avec python-docx (copie de sections).
-
-    import importlib.util
-
-    # Générer les DOCX de section
     section_scripts = [
         ('build_intro_html_docx.py',    'section_intro_v4.docx'),
         ('build_bois_html_docx.py',     'section_bois_v4.docx'),
@@ -585,46 +579,46 @@ def build_docx_complet():
         ('build_synthese_html_docx.py', 'section_synthese_v4.docx'),
     ]
 
+    # Générer les DOCX de section si absents ou forcer la régénération
     section_docx_paths = []
     for script_name, out_filename in section_scripts:
         script_path = os.path.join(BASE, 'Scripts', 'v4-html-docx-enriched', script_name)
-        out_path = os.path.join(OUT_DIR, out_filename)
+        out_path    = os.path.join(OUT_DIR, out_filename)
         if not os.path.exists(out_path):
-            print(f"  → Génération {script_name} pour DOCX ...", flush=True)
+            print(f"  → Génération {script_name} ...", flush=True)
             result = subprocess.run(['python3', script_path], cwd=BASE,
-                                     capture_output=True, text=True)
+                                    capture_output=True, text=True)
             if result.returncode != 0:
-                print(f"  ⚠ Erreur : {result.stderr[:300]}")
+                print(f"  ⚠ Erreur : {result.stderr[:400]}")
                 continue
         section_docx_paths.append(out_path)
         print(f"  ✓ {out_filename}")
 
-    # Créer le document final
-    doc = new_docx()
-    # Marges légèrement plus grandes pour le doc complet
-    for section in doc.sections:
-        section.top_margin    = Cm(2.5)
-        section.bottom_margin = Cm(2.5)
-        section.left_margin   = Cm(3.0)
-        section.right_margin  = Cm(2.5)
+    # ── Créer le document maître (page de garde + TDM) ──────────
+    master = new_docx()
+    for sec in master.sections:
+        sec.top_margin    = Cm(2.5)
+        sec.bottom_margin = Cm(2.5)
+        sec.left_margin   = Cm(3.0)
+        sec.right_margin  = Cm(2.5)
 
-    # ── Page de garde ──
-    p = doc.add_paragraph()
+    # Page de garde
+    p = master.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     run = p.add_run("Référence Formantique de l'Orchestre")
     run.bold = True
     run.font.size = Pt(24)
     run.font.color.rgb = RGBColor(26, 35, 126)
 
-    doc.add_paragraph()
-    p2 = doc.add_paragraph()
+    master.add_paragraph()
+    p2 = master.add_paragraph()
     p2.alignment = WD_ALIGN_PARAGRAPH.CENTER
     r2 = p2.add_run("Étude quantitative des formants spectraux instrumentaux")
     r2.font.size = Pt(14)
     r2.font.color.rgb = RGBColor(70, 70, 70)
 
-    doc.add_paragraph()
-    p3 = doc.add_paragraph()
+    master.add_paragraph()
+    p3 = master.add_paragraph()
     p3.alignment = WD_ALIGN_PARAGRAPH.CENTER
     r3 = p3.add_run(
         "5 914 échantillons · 30 instruments · Mars 2026\n"
@@ -634,74 +628,31 @@ def build_docx_complet():
     r3.font.size = Pt(10)
     r3.font.color.rgb = RGBColor(100, 100, 100)
 
-    add_page_break(doc)
+    add_page_break(master)
 
-    # ── Table des matières ──
-    h_toc = doc.add_paragraph("Table des matières", style='Heading 1')
+    # Table des matières
+    h_toc = master.add_paragraph("Table des matières", style='Heading 1')
     h_toc.runs[0].font.color.rgb = RGBColor(26, 35, 126)
+    add_toc_field(master)
+    add_page_break(master)
 
-    add_toc_field(doc)
-    add_page_break(doc)
-
-    # ── Fusion des sections ──
-    # On utilise la technique de copy de body XML entre documents
-    from lxml import etree
-
-    def copy_body_content(src_path, dest_doc):
-        """
-        Copie le contenu body d'un document source dans dest_doc.
-        Réinsère les images avec des rId uniques pour éviter les doublons.
-        """
-        src_doc = Document(src_path)
-        add_page_break(dest_doc)
-
-        src_body  = src_doc.element.body
-        src_rels  = src_doc.part.rels
-        dest_part = dest_doc.part
-
-        # Map rId source → rId destination (pour éviter les doublons)
-        rid_map = {}
-
-        # Pré-enregistrer toutes les images du document source
-        for rid, rel in src_rels.items():
-            if "image" in rel.reltype:
-                try:
-                    img_part = rel.target_part
-                    # Créer une relation dans dest_doc et mémoriser le nouveau rId
-                    new_rid = dest_part.relate_to(
-                        img_part,
-                        'http://schemas.openxmlformats.org/officeDocument/2006/relationships/image'
-                    )
-                    rid_map[rid] = new_rid
-                except Exception:
-                    rid_map[rid] = rid  # fallback
-
-        import copy
-        for child in src_body:
-            if child.tag.endswith('}sectPr'):
-                continue
-            new_child = copy.deepcopy(child)
-
-            # Remapper les références d'images (blipFill)
-            for blip in new_child.iter(qn('a:blip')):
-                embed = blip.get(qn('r:embed'))
-                if embed and embed in rid_map:
-                    blip.set(qn('r:embed'), rid_map[embed])
-
-            dest_doc.element.body.append(new_child)
-
-    for path in section_docx_paths:
+    # ── Fusionner avec docxcompose ───────────────────────────────
+    composer = Composer(master)
+    for i, path in enumerate(section_docx_paths):
         print(f"  → Fusion : {os.path.basename(path)}", flush=True)
         try:
-            copy_body_content(path, doc)
+            sub_doc = Document(path)
+            # Saut de page entre sections (sauf avant la première)
+            composer.append(sub_doc)
             print(f"  ✓ {os.path.basename(path)}")
         except Exception as e:
             print(f"  ⚠ Erreur fusion {os.path.basename(path)}: {e}")
 
-    doc.save(OUT_DOCX)
+    composer.save(OUT_DOCX)
+    size = os.path.getsize(OUT_DOCX)
     print(f"\n✓ DOCX complet : {OUT_DOCX}")
-    print(f"  Taille : {os.path.getsize(OUT_DOCX):,} octets")
-    print("  ⚠ Ouvrir le DOCX et appuyer sur Ctrl+A puis F9 pour mettre à jour la table des matières.")
+    print(f"  Taille : {size:,} octets")
+    print("  ⟳ À l'ouverture : Ctrl+A puis F9 pour mettre à jour la table des matières.")
 
 
 # ═══════════════════════════════════════════════════════════
