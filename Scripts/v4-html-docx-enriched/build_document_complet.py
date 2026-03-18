@@ -611,7 +611,7 @@ def add_static_toc(doc):
         run.font.color.rgb = s['color']
 
         # Séparateur (tabulation + points de suite visuels)
-        sep = p.add_run("  " + ("·" * max(1, 60 - len(label) - s['indent']*8)))
+        sep = p.add_run("  " + ("·" * max(1, 60 - len(label) - int(s['indent']*8))))
         sep.font.size = Pt(7)
         sep.font.color.rgb = RGBColor(200, 200, 200)
 
