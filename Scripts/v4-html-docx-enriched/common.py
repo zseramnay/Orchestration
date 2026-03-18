@@ -214,6 +214,116 @@ def make_graph(display, filename, n, formants, fp=None, family_color='#2E7D32', 
     plt.close(fig)
     return out
 
+
+# ─── Calcul Fp depuis specenv brut ───────────────────────────
+SAMPLE_RATE = 44100
+FFT_SIZE    = 4096
+FREQ_RES    = SAMPLE_RATE / FFT_SIZE   # ~10.77 Hz/bin
+
+# Bandes de centroïde par instrument (même que build2v2_envelopes)
+FP_BANDS_SPECENV = {
+    'Horn':                  (600,  1400),
+    'Horn+sordina':          (600,  1400),
+    'Trumpet_C':             (600,  1400),
+    'Trumpet_C+sordina_cup':     (600, 1400),
+    'Trumpet_C+sordina_straight':(600, 1400),
+    'Trumpet_C+sordina_harmon':  (800, 2000),
+    'Trumpet_C+sordina_wah':     (600, 1400),
+    'Trombone':              (1000, 2000),
+    'Trombone+sordina_cup':      (1000, 2000),
+    'Trombone+sordina_straight': (1000, 2000),
+    'Trombone+sordina_harmon':   (800,  2000),
+    'Trombone+sordina_wah':      (1000, 2000),
+    'Bass_Tuba':             (1000, 2000),
+    'Bass_Tuba+sordina':     (1000, 2000),
+    'Bass_Trombone':         (1000, 2000),
+    'Contrabass_Tuba':       (1000, 2000),
+}
+
+SOL_DIR = os.path.join(BASE, 'Data', 'FullSOL2020_specenv par instrument')
+YAN_DIR = os.path.join(BASE, 'Data', 'Yan_Adds-Divers_specenv par instrument')
+
+def _band_centroid(env_vals, lo_hz, hi_hz):
+    """Centroïde spectral pondéré en énergie dans une bande Hz."""
+    lo_bin = max(0, int(lo_hz / FREQ_RES))
+    hi_bin = min(len(env_vals) - 1, int(hi_hz / FREQ_RES))
+    region = env_vals[lo_bin:hi_bin + 1]
+    if not region:
+        return None
+    linear = [10 ** (v / 10) for v in region]
+    total  = sum(linear)
+    if total <= 0:
+        return None
+    return sum(linear[i] * (lo_bin + i) * FREQ_RES for i in range(len(linear))) / total
+
+def compute_fp_from_specenv(instrument_key, techs=('ordinario',),
+                             specenv_dir=None, specenv_filename=None):
+    """
+    Calcule le Fp (centroïde spectral) directement depuis le fichier specenv brut.
+    
+    instrument_key  : ex. 'Trombone+sordina_cup', 'Horn+sordina'
+    techs           : tuple de techniques à inclure, ex. ('ordinario',) ou ('ordinario_open',)
+    specenv_dir     : répertoire du fichier (défaut : SOL_DIR)
+    specenv_filename: nom du fichier (défaut : auto-construit depuis instrument_key)
+    
+    Retourne le Fp médian arrondi à l'entier, ou None si pas de données.
+    """
+    if specenv_dir is None:
+        specenv_dir = SOL_DIR
+    if specenv_filename is None:
+        specenv_filename = f"FullSOL2020_specenv.db_{instrument_key}.txt"
+
+    filepath = os.path.join(specenv_dir, specenv_filename)
+    if not os.path.exists(filepath):
+        return None
+
+    # Bande Fp pour cet instrument
+    band = FP_BANDS_SPECENV.get(instrument_key, (800, 1800))
+    lo_hz, hi_hz = band
+
+    fps = []
+    try:
+        with open(filepath, encoding='utf-8') as f:
+            f.readline()  # en-tête
+            for line in f:
+                parts = line.strip().split(';')
+                if len(parts) < 10:
+                    continue
+                path = parts[0]
+                if not path.startswith('/'):
+                    continue
+                # Filtrer par technique (champ [3] du chemin /Famille/Instrument/technique/...)
+                path_parts = path.split('/')
+                if len(path_parts) < 5:
+                    continue
+                tech = path_parts[3]
+                if tech not in techs:
+                    continue
+                try:
+                    vals = [float(v) for v in parts[1:]]
+                except ValueError:
+                    continue
+                if len(vals) < 100:
+                    continue
+                # Les valeurs specenv sont en dB (négatives) — on vérifie juste
+                # que le tableau n'est pas vide et non constant
+                max_amp = max(vals)
+                min_amp = min(vals)
+                if max_amp == min_amp:
+                    continue   # spectre plat = données invalides
+                fp = _band_centroid(vals, lo_hz, hi_hz)
+                if fp:
+                    fps.append(fp)
+    except Exception:
+        return None
+
+    if not fps:
+        return None
+
+    fps.sort()
+    median = fps[len(fps) // 2]
+    return round(median)
+
 # ─── Tableaux techniques HTML ────────────────────────────────
 SUSTAINED_TECHS = {
     'ordinario', 'non-vibrato', 'non_vibrato', 'vibrato',

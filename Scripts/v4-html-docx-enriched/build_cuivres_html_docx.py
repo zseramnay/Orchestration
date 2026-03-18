@@ -172,6 +172,14 @@ DOUBLURES = {
     ],
 }
 
+# ─── Mapping technique CSV → technique specenv ───────────────
+# Pour les wah, le fichier specenv contient les deux positions
+TECH_TO_SPECENV_TECHS = {
+    'ordinario':        ('ordinario',),
+    'ordinario_open':   ('ordinario_open',),
+    'ordinario_closed': ('ordinario_closed',),
+}
+
 # ─── Génération graphiques ────────────────────────────────────
 all_info = {}
 for csv_name, display, gfx, tech, fp, color in CUIVRES_PRINCIPAUX + CUIVRES_SOURDINES:
@@ -179,6 +187,14 @@ for csv_name, display, gfx, tech, fp, color in CUIVRES_PRINCIPAUX + CUIVRES_SOUR
     if not d:
         print(f"  ⚠ MANQUANT: {csv_name}/{tech}")
         continue
+
+    # Calculer Fp depuis specenv brut si pas défini (sourdines)
+    if fp is None:
+        specenv_techs = TECH_TO_SPECENV_TECHS.get(tech, ('ordinario',))
+        fp = compute_fp_from_specenv(csv_name, techs=specenv_techs)
+        if fp:
+            print(f"  ◆ Fp calculé depuis specenv : {display} → {fp} Hz")
+
     img = make_graph(display, gfx, d['n'], d['F'], fp,
                      family_color=color, family_label='Cuivres')
     img_rel = os.path.relpath(img, OUT_DIR).replace(os.sep, '/') if img else None
@@ -186,7 +202,8 @@ for csv_name, display, gfx, tech, fp, color in CUIVRES_PRINCIPAUX + CUIVRES_SOUR
         'csv': csv_name, 'display': display, 'tech': tech,
         'data': d, 'fp': fp, 'img': img, 'img_rel': img_rel,
     }
-    print(f"  ✓ {display:<40s} N={d['n']:>4d} F1={d['F'][0]:>5d}")
+    print(f"  ✓ {display:<40s} N={d['n']:>4d} F1={d['F'][0]:>5d}" +
+          (f"  Fp={fp}" if fp else ""))
 
 
 # ═══════════════════════════════════════════════════════════
