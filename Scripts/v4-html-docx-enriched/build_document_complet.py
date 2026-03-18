@@ -521,35 +521,99 @@ def build_html_complet():
 # BUILD DOCX COMPLET avec Table des matières
 # ═══════════════════════════════════════════════════════════
 
-def add_toc_field(doc):
+
+# ─── Structure TDM statique ──────────────────────────────────
+# (niveau, label, bookmark_name)
+# bookmark_name doit correspondre exactement aux titres dans les sections DOCX
+TOC_ENTRIES = [
+    (1, "I. Introduction et Méthodologie",          "I__Introduction_et_Methodologie"),
+    (2, "Sources des données",                       "Sources_des_donnees"),
+    (2, "Méthodologie d'extraction formantique",     "Methodologie_extraction"),
+    (2, "Le Formant Principal (Fp)",                 "Le_Formant_Principal_Fp"),
+    (2, "Correspondance voyelles–fréquences",        "Correspondance_voyelles"),
+    (1, "II. Les Bois",                              "II__Les_Bois"),
+    (2, "Flûtes",                                    "Flutes"),
+    (3, "Petite flûte",                              "Petite_flute"),
+    (3, "Flûte",                                     "Flute"),
+    (3, "Flûte basse",                               "Flute_basse"),
+    (3, "Flûte contrebasse",                         "Flute_contrebasse"),
+    (2, "Anches doubles",                            "Anches_doubles"),
+    (3, "Hautbois",                                  "Hautbois"),
+    (3, "Cor anglais",                               "Cor_anglais"),
+    (3, "Basson",                                    "Basson"),
+    (3, "Contrebasson",                              "Contrebasson"),
+    (2, "Clarinettes",                               "Clarinettes"),
+    (3, "Clarinette en Mib",                         "Clarinette_en_Mib"),
+    (3, "Clarinette en Sib",                         "Clarinette_en_Sib"),
+    (3, "Clarinette basse en Sib",                   "Clarinette_basse_en_Sib"),
+    (3, "Clarinette contrebasse en Sib",             "Clarinette_contrebasse_en_Sib"),
+    (1, "III. Les Cuivres",                          "III__Les_Cuivres"),
+    (2, "Cuivres principaux",                        "Cuivres_principaux"),
+    (3, "Cor en Fa",                                 "Cor_en_Fa"),
+    (3, "Trompette en Ut",                           "Trompette_en_Ut"),
+    (3, "Trombone ténor",                            "Trombone_tenor"),
+    (3, "Trombone basse",                            "Trombone_basse"),
+    (3, "Tuba basse",                                "Tuba_basse"),
+    (3, "Tuba contrebasse",                          "Tuba_contrebasse"),
+    (2, "Cuivres avec sourdine",                     "Cuivres_avec_sourdine"),
+    (3, "Cor avec sourdine",                         "Cor_avec_sourdine"),
+    (3, "Trombone avec sourdines",                   "Trombone_avec_sourdines"),
+    (3, "Trompette avec sourdines",                  "Trompette_avec_sourdines"),
+    (3, "Tuba avec sourdine",                        "Tuba_avec_sourdine"),
+    (1, "IV. Les Saxophones",                        "IV__Les_Saxophones"),
+    (2, "Saxophone alto",                            "Saxophone_alto"),
+    (2, "Saxophones absents du corpus",              "Saxophones_absents"),
+    (1, "V. Les Cordes",                             "V__Les_Cordes"),
+    (2, "Cordes solistes",                           "Cordes_solistes"),
+    (3, "Violon",                                    "Violon"),
+    (3, "Alto",                                      "Alto"),
+    (3, "Violoncelle",                               "Violoncelle"),
+    (3, "Contrebasse",                               "Contrebasse"),
+    (2, "Cordes d'ensemble",                         "Cordes_densemble"),
+    (3, "Ensemble de violons",                       "Ensemble_de_violons"),
+    (3, "Ensemble d'altos",                          "Ensemble_daltos"),
+    (3, "Ensemble de violoncelles",                  "Ensemble_de_violoncelles"),
+    (3, "Ensemble de contrebasses",                  "Ensemble_de_contrebasses"),
+    (1, "VI. Synthèse — Convergences Formantiques",  "VI__Synthese"),
+    (2, "Cluster de convergence 450–502 Hz",         "Cluster_de_convergence"),
+    (2, "Positions F1/Fp",                           "Positions_F1_Fp"),
+    (2, "Matrices de convergence",                   "Matrices_de_convergence"),
+    (2, "Tableau des doublures vérifiées",           "Tableau_des_doublures"),
+    (2, "6 Principes d'orchestration acoustique",    "Principes_dorchestration"),
+    (2, "Concordance multi-sources",                 "Concordance_multi_sources"),
+]
+
+
+def add_static_toc(doc):
     """
-    Insère un champ TOC Word automatique (mis à jour à l'ouverture du doc).
+    Insère une table des matières statique sous forme de paragraphes
+    avec indentation et numérotation de page symbolique.
+    Fonctionne sans mise à jour dans LibreOffice et Word.
     """
-    paragraph = doc.add_paragraph()
-    run = paragraph.add_run()
-    fld_char_begin = OxmlElement('w:fldChar')
-    fld_char_begin.set(qn('w:fldCharType'), 'begin')
-    run._r.append(fld_char_begin)
+    # Styles par niveau
+    level_styles = {
+        1: dict(size=11, bold=True,  indent=0,    color=RGBColor(26, 35, 126)),
+        2: dict(size=10, bold=False, indent=0.4,  color=RGBColor(46, 125, 50)),
+        3: dict(size=9,  bold=False, indent=0.8,  color=RGBColor(80, 80, 80)),
+    }
 
-    instr_text = OxmlElement('w:instrText')
-    instr_text.set(qn('xml:space'), 'preserve')
-    instr_text.text = 'TOC \\o "1-3" \\h \\z \\u'
-    run._r.append(instr_text)
+    for level, label, bookmark in TOC_ENTRIES:
+        s = level_styles[level]
+        p = doc.add_paragraph()
+        p.paragraph_format.left_indent   = Cm(s['indent'])
+        p.paragraph_format.space_before  = Pt(2 if level > 1 else 6)
+        p.paragraph_format.space_after   = Pt(1)
 
-    fld_char_sep = OxmlElement('w:fldChar')
-    fld_char_sep.set(qn('w:fldCharType'), 'separate')
-    run._r.append(fld_char_sep)
+        # Ligne pointillée entre label et numéro de page (style TDM)
+        run = p.add_run(label)
+        run.bold = s['bold']
+        run.font.size = Pt(s['size'])
+        run.font.color.rgb = s['color']
 
-    fld_char_end = OxmlElement('w:fldChar')
-    fld_char_end.set(qn('w:fldCharType'), 'end')
-    run._r.append(fld_char_end)
-
-    # Note utilisateur
-    note = doc.add_paragraph()
-    r = note.add_run("⟳ Faire un clic droit sur la table des matières → Mettre à jour les champs → Mettre à jour toute la table")
-    r.font.size = Pt(9)
-    r.font.italic = True
-    r.font.color.rgb = RGBColor(150, 150, 150)
+        # Séparateur (tabulation + points de suite visuels)
+        sep = p.add_run("  " + ("·" * max(1, 60 - len(label) - s['indent']*8)))
+        sep.font.size = Pt(7)
+        sep.font.color.rgb = RGBColor(200, 200, 200)
 
 
 def add_page_break(doc):
@@ -630,10 +694,10 @@ def build_docx_complet():
 
     add_page_break(master)
 
-    # Table des matières
+    # Table des matières statique
     h_toc = master.add_paragraph("Table des matières", style='Heading 1')
     h_toc.runs[0].font.color.rgb = RGBColor(26, 35, 126)
-    add_toc_field(master)
+    add_static_toc(master)
     add_page_break(master)
 
     # ── Fusionner avec docxcompose ───────────────────────────────
