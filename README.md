@@ -1,6 +1,6 @@
 # Formants   
 Projet d'analyse formantique des sons instrumentaux pour l'orchestration à partir d'échantillons sonores issus de :   
-- Banque de son SOL de l'IRCAM   
+- Banque de sons SOL de l'IRCAM   
 - Ensemble d'échantillons divers issus de la [Vienna Symphonic Library (VSL)](https://www.vsl.co.at/), de [Con Timbre](https://www.contimbre.com/), et d'échantillons personnels   
    
 Les résultats issus des nouvelles analyses sont confrontés aux données issues des sources suivantes :   
