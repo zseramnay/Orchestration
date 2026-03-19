@@ -332,13 +332,40 @@ DOUBLURES_VERIFIEES = [
 
 PRINCIPES_ORCHESTRATION = [
     ("1. Convergence formantique (fusion)",
-     "Quand deux instruments partagent un F1 similaire (Δ ≤ 80 Hz), leurs timbres <em>fusionnent</em> : l'oreille perçoit une couleur homogène. Cas archétypal : Basson (502) + Violoncelle (499) = Δ=3 Hz."),
+     """Quand deux instruments partagent un F1 similaire (Δ ≤ 80 Hz), leurs timbres <strong>fusionnent</strong> : l'oreille perçoit une couleur homogène plutôt que deux voix distinctes. Ce phénomène est la base acoustique des doublures classiques les plus efficaces.
+
+<strong>Seuils mesurés dans le corpus :</strong>
+<ul>
+<li><strong>Δ = 0 Hz — unisson formantique :</strong> Flûte (743) + Hautbois (743) ; Tuba contrebasse + Contrebasson + Tuba basse (tous à 226 Hz) — trois familles, une seule couleur.</li>
+<li><strong>Δ ≤ 30 Hz — fusion quasi-parfaite :</strong> Basson (495) + Violoncelle (205) Δ=11 Hz ; Cor (388) + Alto (377) Δ=11 Hz ; Trombone (237) + Tuba basse (226) Δ=11 Hz ; Trombone (237) + Trombone basse (258) Δ=21 Hz.</li>
+<li><strong>Δ 30–80 Hz — fusion efficace :</strong> Cor anglais (452) + Clarinette Sib (463) Δ=11 Hz.</li>
+</ul>
+<strong>Conséquence pratique :</strong> la fusion ne dépend pas de l'unisson mélodique — Basson et Violoncelle fusionnent à n'importe quel intervalle harmonique. C'est pourquoi ces doublures fonctionnent sur plusieurs octaves. La convergence formantique est une propriété du <em>timbre</em>, pas de la hauteur."""),
 
     ("2. Complémentarité spectrale (enrichissement)",
-     "Quand deux instruments ont des F1 très différents, ils s'enrichissent mutuellement en couvrant des zones vocaliques complémentaires. Exemple : Flûte (/e/) + Cor anglais (/o/) = timbre bois large bande."),
+     """Quand deux instruments occupent des zones vocaliques distinctes (Δ F1 > 200 Hz), leurs spectres se complètent sans se couvrir : l'ensemble couvre une large bande formantique inaccessible à chaque instrument seul.
 
-    ("3. Effet de section (compression formantique)",
-     "Les cordes en ensemble développent un F1 collectif significativement plus haut qu'en solo (Violon solo: 506 Hz → Ensemble: 1 556 Hz). Cet effet de section est un paramètre d'orchestration distinct du solo."),
+<strong>Exemples mesurés :</strong>
+<ul>
+<li><strong>Trompette (786 Hz, /a/) + Trombone (237 Hz, /u/) :</strong> Δ=549 Hz — la plus grande complémentarité de la section cuivres. Le trombone apporte la fondation grave, la trompette la brillance et la projection.</li>
+<li><strong>Flûte (743 Hz, /å/) + Clarinette Sib (463 Hz, /o/) :</strong> Δ=280 Hz — doublure bois classique, spectre du médium au médium-aigu.</li>
+<li><strong>Violon solo (506 Hz, /o/) + Violoncelle (205 Hz, /u/) :</strong> Δ=301 Hz — la section à cordes couvre /u/→/o/ en deux voix complémentaires.</li>
+<li><strong>Hautbois (743 Hz, /å/) + Basson (495 Hz, /o/) :</strong> Δ=248 Hz — dialogue bois classique, coloration /o/–/å/.</li>
+</ul>
+<strong>Règle pratique :</strong> pour un enrichissement spectral optimal sans risque de masquage, viser un écart d'au moins deux zones vocaliques entre les F1 des instruments doublés (Δ ≥ 200–300 Hz)."""),
+
+    ("3. Effet de section (homogénéisation formantique)",
+     """Les données SOL2020 révèlent que le passage du soliste à l'ensemble produit un effet mesurable sur le spectre, mais <strong>différent de l'intuition</strong> : ce n'est pas F1 qui monte, c'est F2 et F3 qui s'abaissent, indiquant une homogénéisation collective des harmoniques supérieurs.
+
+<strong>Mesures comparées (ordinario) :</strong>
+<table class="ref-table">
+<tr class="header"><th>Instrument</th><th>Solo F1</th><th>Ens. F1</th><th>Δ F1</th><th>Solo F2</th><th>Ens. F2</th><th>Δ F2</th></tr>
+<tr><td>Violon</td><td>506 Hz</td><td>495 Hz</td><td>−2 %</td><td>1 518 Hz</td><td>1 163 Hz</td><td>−23 %</td></tr>
+<tr><td>Alto</td><td>377 Hz</td><td>366 Hz</td><td>−3 %</td><td>829 Hz</td><td>764 Hz</td><td>−8 %</td></tr>
+<tr><td>Violoncelle</td><td>205 Hz</td><td>205 Hz</td><td>0 %</td><td>506 Hz</td><td>474 Hz</td><td>−6 %</td></tr>
+<tr><td>Contrebasse</td><td>172 Hz</td><td>172 Hz</td><td>0 %</td><td>474 Hz</td><td>441 Hz</td><td>−7 %</td></tr>
+</table>
+<strong>Interprétation :</strong> l'effet de section ne déplace pas le premier formant — il <em>lisse</em> les harmoniques supérieurs. F2 et F3 s'abaissent parce que les irrégularités spectrales individuelles se moyennent dans le collectif. Le résultat perceptif est un timbre plus <em>fondu</em>, moins caractérisé spectralement qu'un soliste — c'est précisément la différence de texture entre un quatuor à cordes et une section orchestrale complète."""),
 
     ("4. La sourdine comme transposition timbrale",
      """L'effet de la sourdine sur le spectre formantique est <strong>prévisible par type, mais non uniforme entre familles</strong>. L'affirmation intuitive d'un « abaissement systématique du F1 » ne résiste pas aux données.
@@ -355,14 +382,38 @@ PRINCIPES_ORCHESTRATION = [
 <li><strong>Harmon :</strong> déplacement extrême et opposé selon l'instrument : Trompette +200 % (786 → 2 358 Hz, zone /i/) ; Trombone −32 % (237 → 162 Hz).</li>
 <li><strong>Tuba basse :</strong> aucun effet mesurable (Δ=0 Hz).</li>
 </ul>
-
 <strong>Conclusion :</strong> la transposition timbrale vers le grave est valide pour les <strong>cordes</strong> et le <strong>cor</strong>. Pour les cuivres, les sourdines cup et harmon produisent l'effet <em>opposé</em> — une transposition vers l'aigu, parfois extrême. La sourdine harmon trompette est le cas le plus spectaculaire du corpus : elle déplace le F1 de la zone /a/ à la zone /i/, soit un saut de deux voyelles vers l'aigu."""),
 
     ("5. Familles formantiques transversales",
-     "Le cluster /o/ (450–502 Hz) réunit des instruments de trois familles différentes (Bois, Cuivres, Cordes), créant une famille acoustique transversale plus pertinente que les familles traditionnelles pour prédire les fusions timbrales."),
+     """Les familles instrumentales traditionnelles (Bois, Cuivres, Cordes) ne correspondent pas aux regroupements formantiques. L'analyse par zones vocaliques révèle des <strong>familles acoustiques transversales</strong> qui traversent les frontières organologiques — et qui sont plus pertinentes pour prédire les fusions timbrales.
 
-    ("6. Masquage évité",
-     "Placer deux instruments dans la même zone vocalique sans convergence formantique (Δ = 80–200 Hz) peut créer du masquage spectral — l'un couvre l'autre. La divergence intentionnelle (Δ > 300 Hz) garantit la lisibilité timbrale de chaque voix."),
+<strong>Famille /u/ (200–400 Hz) — Profondeur :</strong> Contrebasson (226 Hz), Tuba basse (226), Tuba contrebasse (226), Clarinette basse (323), Contrebasse (172). Trois familles instrumentales, une même couleur sombre et grave.
+
+<strong>Famille /o/ (400–600 Hz) — Plénitude :</strong> Cor anglais (452), Cor (388 Hz, Fp), Trombone (491 Hz, Fp), Violoncelle (495), Basson (495), Saxophone alto (398). C'est le <em>cluster de convergence</em> — la famille acoustique la plus documentée du corpus, réunissant bois, cuivres et cordes.
+
+<strong>Famille /a/ (800–1 250 Hz) — Puissance :</strong> Trombone basse Fp (1 335), Clarinette basse Fp (1 204), Clarinette Sib Fp (1 412), Cor anglais Fp (1 135), Trompette Fp (1 046). Ces instruments partagent une zone de présence et de projection commune dans le médium.
+
+<strong>Famille /e/ (1 250–2 600 Hz) — Clarté :</strong> Flûte Fp (1 535), Hautbois Fp (1 485), Clarinette Mib Fp (1 266), Ensemble de violons F2 (1 163). Instruments de brillance et d'articulation spectrale.
+
+<strong>Conséquence orchestrale :</strong> un compositeur qui veut renforcer la couleur /o/ peut doubler librement entre Cor anglais, Cor, Basson et Violoncelle — la famille acoustique transcende les familles instrumentales. À l'inverse, mélanger deux familles formantiques adjacentes produit la complémentarité spectrale du principe 2."""),
+
+    ("6. Masquage spectral évité",
+     """Le masquage spectral — phénomène par lequel un instrument couvre acoustiquement un autre — est particulièrement risqué quand deux instruments partagent une zone vocalique similaire <strong>sans convergence formantique</strong> (Δ F1 entre 80 et 200 Hz). Dans cette zone grise, les spectres se chevauchent partiellement sans fusionner, créant une concurrence pour la même bande de fréquences.
+
+<strong>Paires à risque identifiées dans le corpus (Δ 80–200 Hz) :</strong>
+<ul>
+<li>Clarinette Sib (463 Hz) + Alto (377 Hz) : Δ=86 Hz — ni fusion ni complémentarité claire.</li>
+<li>Basson (495 Hz) + Cor (388 Hz) : Δ=107 Hz — zone de concurrence /o/ ; fonctionne mieux comme convergence intentionnelle (voir principe 1).</li>
+<li>Cor (388 Hz) + Violon (506 Hz) : Δ=118 Hz — le cor peut couvrir le violon en nuance forte.</li>
+<li>Trombone basse (258 Hz) + Contrebasse (172 Hz) : Δ=86 Hz — les deux occupent /u/ sans fusionner.</li>
+</ul>
+<strong>Trois stratégies d'évitement :</strong>
+<ul>
+<li><strong>Convergence intentionnelle (Δ ≤ 30 Hz) :</strong> pousser les deux instruments vers la fusion complète — le masquage se résout en couleur unique.</li>
+<li><strong>Divergence intentionnelle (Δ ≥ 300 Hz) :</strong> zones spectrales assez éloignées pour coexister — lisibilité timbrale garantie.</li>
+<li><strong>Différenciation dynamique ou de registre :</strong> deux instruments en zone /o/ placés à des dynamiques distinctes (<em>p</em> / <em>f</em>) ou dans des registres éloignés réduisent le chevauchement spectral effectif.</li>
+</ul>
+<strong>Note :</strong> le masquage n'est pas toujours à éviter — utilisé intentionnellement, il peut créer un épaississement timbral recherché (tutti à cordes en doublures serrées). C'est un outil d'orchestration, pas seulement un risque."""),
 ]
 
 
