@@ -1,0 +1,213 @@
+<svg viewBox="0 0 1100 640" xmlns="http://www.w3.org/2000/svg" font-family="Georgia,'Times New Roman',serif">
+  <rect width="1100" height="640" fill="#fafaf7"/>
+  <text x="550" y="26" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a1a2e">POSITIONS FORMANTIQUES DES VOYELLES — ALPHABET PHONÉTIQUE INTERNATIONAL</text>
+  <text x="550" y="42" text-anchor="middle" font-size="9.5" fill="#666" font-style="italic">F1 et F2 sur axe fréquentiel linéaire · d'après Meyer (2009), Giesler (1985)</text>
+  <rect x="194" y="54" width="37" height="380" fill="#f5c542" fill-opacity="0.13"/>
+  <text x="213" y="51" text-anchor="middle" font-size="7.5" fill="#b8860b" font-weight="bold">cluster 420–550 Hz</text>
+  <rect x="274" y="150" width="569" height="76" rx="5" fill="#f5e8e8" fill-opacity="0.4"/>
+  <rect x="146" y="316" width="185" height="76" rx="5" fill="#e8e8f5" fill-opacity="0.4"/>
+  <line x1="75" y1="450" x2="1060" y2="450" stroke="#333" stroke-width="1.5"/>
+  <polygon points="1070,450 1060,445 1060,455" fill="#333"/>
+  <text x="1076" y="454" font-size="10" fill="#444" font-style="italic">Hz</text>
+  <g text-anchor="middle" font-size="9">
+    <line x1="75" y1="447" x2="75" y2="454" stroke="#444" stroke-width="1.2"/>
+    <text x="75" y="465" fill="#444">0</text>
+    <line x1="217" y1="447" x2="217" y2="454" stroke="#999" stroke-width="0.8"/>
+    <text x="217" y="465" fill="#999">500</text>
+    <line x1="359" y1="447" x2="359" y2="454" stroke="#444" stroke-width="1.2"/>
+    <text x="359" y="465" fill="#444">1k</text>
+    <line x1="501" y1="447" x2="501" y2="454" stroke="#999" stroke-width="0.8"/>
+    <text x="501" y="465" fill="#999">1500</text>
+    <line x1="644" y1="447" x2="644" y2="454" stroke="#444" stroke-width="1.2"/>
+    <text x="644" y="465" fill="#444">2k</text>
+    <line x1="786" y1="447" x2="786" y2="454" stroke="#999" stroke-width="0.8"/>
+    <text x="786" y="465" fill="#999">2500</text>
+    <line x1="928" y1="447" x2="928" y2="454" stroke="#444" stroke-width="1.2"/>
+    <text x="928" y="465" fill="#444">3k</text>
+  </g>
+  <g stroke="#e0ddd4" stroke-width="0.7" stroke-dasharray="3,5">
+    <line x1="217" y1="54" x2="217" y2="448"/>
+    <line x1="359" y1="54" x2="359" y2="448"/>
+    <line x1="501" y1="54" x2="501" y2="448"/>
+    <line x1="644" y1="54" x2="644" y2="448"/>
+    <line x1="786" y1="54" x2="786" y2="448"/>
+    <line x1="928" y1="54" x2="928" y2="448"/>
+  </g>
+  <line x1="75" y1="190" x2="1050" y2="190" stroke="#cc9999" stroke-width="0.8" stroke-dasharray="2,5"/>
+  <text x="67" y="194" text-anchor="end" font-size="10" fill="#aa5555" font-weight="bold">F2</text>
+  <text x="77" y="160" font-size="8" fill="#aa5555" font-style="italic">antériorité →</text>
+  <line x1="75" y1="360" x2="1050" y2="360" stroke="#9999cc" stroke-width="0.8" stroke-dasharray="2,5"/>
+  <text x="67" y="364" text-anchor="end" font-size="10" fill="#5555aa" font-weight="bold">F1</text>
+  <text x="77" y="330" font-size="8" fill="#5555aa" font-style="italic">hauteur →</text>
+  <!-- F2 -->
+  <line x1="814" y1="190" x2="814" y2="210" stroke="#1a3a8b" stroke-width="0.7" stroke-dasharray="3,4" opacity="0.5"/>
+  <circle cx="814" cy="210" r="11" fill="white" stroke="#1a3a8b" stroke-width="1.3"/>
+  <text x="814" y="215" text-anchor="middle" font-size="13" fill="#1a3a8b" font-weight="bold">i</text>
+  <text x="814" y="230" text-anchor="middle" font-size="6" fill="#888">2600</text>
+  <line x1="615" y1="190" x2="615" y2="210" stroke="#1a3a8b" stroke-width="0.7" stroke-dasharray="3,4" opacity="0.5"/>
+  <circle cx="615" cy="210" r="11" fill="white" stroke="#1a3a8b" stroke-width="1.3"/>
+  <text x="615" y="215" text-anchor="middle" font-size="12" fill="#1a3a8b" font-weight="bold">y</text>
+  <text x="615" y="230" text-anchor="middle" font-size="6" fill="#888">1900</text>
+  <line x1="288" y1="190" x2="288" y2="166" stroke="#1a3a8b" stroke-width="0.7" stroke-dasharray="3,4" opacity="0.5"/>
+  <circle cx="288" cy="166" r="11" fill="white" stroke="#1a3a8b" stroke-width="1.3"/>
+  <text x="288" y="171" text-anchor="middle" font-size="13" fill="#1a3a8b" font-weight="bold">u</text>
+  <text x="288" y="186" text-anchor="middle" font-size="6" fill="#888">750</text>
+  <line x1="686" y1="190" x2="686" y2="166" stroke="#2a7a2a" stroke-width="0.7" stroke-dasharray="3,4" opacity="0.5"/>
+  <circle cx="686" cy="166" r="11" fill="white" stroke="#2a7a2a" stroke-width="1.3"/>
+  <text x="686" y="171" text-anchor="middle" font-size="13" fill="#2a7a2a" font-weight="bold">e</text>
+  <text x="686" y="186" text-anchor="middle" font-size="6" fill="#888">2150</text>
+  <line x1="516" y1="190" x2="516" y2="166" stroke="#b8860b" stroke-width="0.7" stroke-dasharray="3,4" opacity="0.5"/>
+  <circle cx="516" cy="166" r="13" fill="#fffbe6" stroke="#b8860b" stroke-width="2"/>
+  <text x="516" y="171" text-anchor="middle" font-size="12" fill="#b8860b" font-weight="bold">ø</text>
+  <text x="516" y="188" text-anchor="middle" font-size="6" fill="#888">1550</text>
+  <line x1="317" y1="190" x2="317" y2="210" stroke="#b8860b" stroke-width="0.7" stroke-dasharray="3,4" opacity="0.5"/>
+  <circle cx="317" cy="210" r="13" fill="#fffbe6" stroke="#b8860b" stroke-width="2"/>
+  <text x="317" y="215" text-anchor="middle" font-size="13" fill="#b8860b" font-weight="bold">o</text>
+  <text x="317" y="232" text-anchor="middle" font-size="6" fill="#888">850</text>
+  <line x1="516" y1="190" x2="545" y2="210" stroke="#b8860b" stroke-width="0.7" stroke-dasharray="3,4" opacity="0.5"/>
+  <circle cx="545" cy="210" r="13" fill="#fffbe6" stroke="#b8860b" stroke-width="2"/>
+  <text x="545" y="215" text-anchor="middle" font-size="12" fill="#b8860b" font-weight="bold">ə</text>
+  <text x="545" y="232" text-anchor="middle" font-size="6" fill="#888">1550</text>
+  <line x1="587" y1="190" x2="587" y2="166" stroke="#8b4500" stroke-width="0.7" stroke-dasharray="3,4" opacity="0.5"/>
+  <circle cx="587" cy="166" r="11" fill="white" stroke="#8b4500" stroke-width="1.3"/>
+  <text x="587" y="171" text-anchor="middle" font-size="12" fill="#8b4500" font-weight="bold">ɛ</text>
+  <text x="587" y="186" text-anchor="middle" font-size="6" fill="#888">1800</text>
+  <line x1="473" y1="190" x2="473" y2="210" stroke="#8b4500" stroke-width="0.7" stroke-dasharray="3,4" opacity="0.5"/>
+  <circle cx="473" cy="210" r="11" fill="white" stroke="#8b4500" stroke-width="1.3"/>
+  <text x="473" y="215" text-anchor="middle" font-size="12" fill="#8b4500" font-weight="bold">œ</text>
+  <text x="473" y="230" text-anchor="middle" font-size="6" fill="#888">1400</text>
+  <line x1="331" y1="190" x2="344" y2="166" stroke="#8b4500" stroke-width="0.7" stroke-dasharray="3,4" opacity="0.5"/>
+  <circle cx="344" cy="166" r="11" fill="white" stroke="#8b4500" stroke-width="1.3"/>
+  <text x="344" y="171" text-anchor="middle" font-size="12" fill="#8b4500" font-weight="bold">ɔ</text>
+  <text x="344" y="186" text-anchor="middle" font-size="6" fill="#888">900</text>
+  <line x1="445" y1="190" x2="445" y2="166" stroke="#6b0000" stroke-width="0.7" stroke-dasharray="3,4" opacity="0.5"/>
+  <circle cx="445" cy="166" r="11" fill="white" stroke="#6b0000" stroke-width="1.3"/>
+  <text x="445" y="171" text-anchor="middle" font-size="13" fill="#6b0000" font-weight="bold">a</text>
+  <text x="445" y="186" text-anchor="middle" font-size="6" fill="#888">1300</text>
+  <line x1="345" y1="190" x2="369" y2="210" stroke="#6b0000" stroke-width="0.7" stroke-dasharray="3,4" opacity="0.5"/>
+  <circle cx="369" cy="210" r="11" fill="white" stroke="#6b0000" stroke-width="1.3" stroke-dasharray="4,2"/>
+  <text x="369" y="215" text-anchor="middle" font-size="12" fill="#6b0000" font-weight="bold">ɑ</text>
+  <text x="369" y="230" text-anchor="middle" font-size="6" fill="#888">950</text>
+  <!-- F1 -->
+  <line x1="155" y1="360" x2="155" y2="336" stroke="#1a3a8b" stroke-width="0.7" stroke-dasharray="3,4" opacity="0.5"/>
+  <circle cx="155" cy="336" r="11" fill="white" stroke="#1a3a8b" stroke-width="1.3"/>
+  <text x="155" y="341" text-anchor="middle" font-size="13" fill="#1a3a8b" font-weight="bold">i</text>
+  <text x="155" y="356" text-anchor="middle" font-size="6" fill="#888">280</text>
+  <line x1="155" y1="360" x2="180" y2="380" stroke="#1a3a8b" stroke-width="0.7" stroke-dasharray="3,4" opacity="0.5"/>
+  <circle cx="180" cy="380" r="11" fill="white" stroke="#1a3a8b" stroke-width="1.3"/>
+  <text x="180" y="385" text-anchor="middle" font-size="12" fill="#1a3a8b" font-weight="bold">y</text>
+  <text x="180" y="400" text-anchor="middle" font-size="6" fill="#888">280</text>
+  <line x1="163" y1="360" x2="205" y2="336" stroke="#1a3a8b" stroke-width="0.7" stroke-dasharray="3,4" opacity="0.5"/>
+  <circle cx="205" cy="336" r="11" fill="white" stroke="#1a3a8b" stroke-width="1.3"/>
+  <text x="205" y="341" text-anchor="middle" font-size="13" fill="#1a3a8b" font-weight="bold">u</text>
+  <text x="205" y="356" text-anchor="middle" font-size="6" fill="#888">310</text>
+  <line x1="189" y1="360" x2="230" y2="380" stroke="#2a7a2a" stroke-width="0.7" stroke-dasharray="3,4" opacity="0.5"/>
+  <circle cx="230" cy="380" r="11" fill="white" stroke="#2a7a2a" stroke-width="1.3"/>
+  <text x="230" y="385" text-anchor="middle" font-size="13" fill="#2a7a2a" font-weight="bold">e</text>
+  <text x="230" y="400" text-anchor="middle" font-size="6" fill="#888">400</text>
+  <line x1="189" y1="360" x2="257" y2="336" stroke="#b8860b" stroke-width="0.7" stroke-dasharray="3,4" opacity="0.5"/>
+  <circle cx="257" cy="336" r="13" fill="#fffbe6" stroke="#b8860b" stroke-width="2"/>
+  <text x="257" y="341" text-anchor="middle" font-size="12" fill="#b8860b" font-weight="bold">ø</text>
+  <text x="257" y="358" text-anchor="middle" font-size="6" fill="#888">400</text>
+  <line x1="206" y1="360" x2="286" y2="380" stroke="#b8860b" stroke-width="0.7" stroke-dasharray="3,4" opacity="0.5"/>
+  <circle cx="286" cy="380" r="13" fill="#fffbe6" stroke="#b8860b" stroke-width="2"/>
+  <text x="286" y="385" text-anchor="middle" font-size="13" fill="#b8860b" font-weight="bold">o</text>
+  <text x="286" y="402" text-anchor="middle" font-size="6" fill="#888">460</text>
+  <line x1="211" y1="360" x2="315" y2="336" stroke="#b8860b" stroke-width="0.7" stroke-dasharray="3,4" opacity="0.5"/>
+  <circle cx="315" cy="336" r="13" fill="#fffbe6" stroke="#b8860b" stroke-width="2"/>
+  <text x="315" y="341" text-anchor="middle" font-size="12" fill="#b8860b" font-weight="bold">ə</text>
+  <text x="315" y="358" text-anchor="middle" font-size="6" fill="#888">480</text>
+  <line x1="240" y1="360" x2="367" y2="336" stroke="#8b4500" stroke-width="0.7" stroke-dasharray="3,4" opacity="0.5"/>
+  <circle cx="367" cy="336" r="11" fill="white" stroke="#8b4500" stroke-width="1.3"/>
+  <text x="367" y="341" text-anchor="middle" font-size="12" fill="#8b4500" font-weight="bold">ɛ</text>
+  <text x="367" y="356" text-anchor="middle" font-size="6" fill="#888">580</text>
+  <line x1="240" y1="360" x2="392" y2="380" stroke="#8b4500" stroke-width="0.7" stroke-dasharray="3,4" opacity="0.5"/>
+  <circle cx="392" cy="380" r="11" fill="white" stroke="#8b4500" stroke-width="1.3"/>
+  <text x="392" y="385" text-anchor="middle" font-size="12" fill="#8b4500" font-weight="bold">œ</text>
+  <text x="392" y="400" text-anchor="middle" font-size="6" fill="#888">580</text>
+  <line x1="234" y1="360" x2="342" y2="380" stroke="#8b4500" stroke-width="0.7" stroke-dasharray="3,4" opacity="0.5"/>
+  <circle cx="342" cy="380" r="11" fill="white" stroke="#8b4500" stroke-width="1.3"/>
+  <text x="342" y="385" text-anchor="middle" font-size="12" fill="#8b4500" font-weight="bold">ɔ</text>
+  <text x="342" y="400" text-anchor="middle" font-size="6" fill="#888">560</text>
+  <line x1="302" y1="360" x2="442" y2="380" stroke="#6b0000" stroke-width="0.7" stroke-dasharray="3,4" opacity="0.5"/>
+  <circle cx="442" cy="380" r="11" fill="white" stroke="#6b0000" stroke-width="1.3"/>
+  <text x="442" y="385" text-anchor="middle" font-size="13" fill="#6b0000" font-weight="bold">a</text>
+  <text x="442" y="400" text-anchor="middle" font-size="6" fill="#888">800</text>
+  <line x1="288" y1="360" x2="417" y2="336" stroke="#6b0000" stroke-width="0.7" stroke-dasharray="3,4" opacity="0.5"/>
+  <circle cx="417" cy="336" r="11" fill="white" stroke="#6b0000" stroke-width="1.3" stroke-dasharray="4,2"/>
+  <text x="417" y="341" text-anchor="middle" font-size="12" fill="#6b0000" font-weight="bold">ɑ</text>
+  <text x="417" y="356" text-anchor="middle" font-size="6" fill="#888">750</text>
+  <line x1="75" y1="478" x2="1070" y2="478" stroke="#ccc" stroke-width="0.8"/>
+  <text x="550" y="491" text-anchor="middle" font-size="8.5" fill="#555" font-style="italic">Correspondances IPA · exemples en français standard</text>
+  <circle cx="75" cy="504" r="5" fill="white" stroke="#1a3a8b" stroke-width="1.2"/>
+  <text x="84" y="508" font-size="8" fill="#1a3a8b">Fermées</text>
+  <circle cx="205" cy="504" r="5" fill="#fffbe6" stroke="#b8860b" stroke-width="1.2"/>
+  <text x="214" y="508" font-size="8" fill="#b8860b">Mi-fermées (cluster)</text>
+  <circle cx="370" cy="504" r="5" fill="white" stroke="#2a7a2a" stroke-width="1.2"/>
+  <text x="379" y="508" font-size="8" fill="#2a7a2a">Mi-fermées</text>
+  <circle cx="500" cy="504" r="5" fill="white" stroke="#8b4500" stroke-width="1.2"/>
+  <text x="509" y="508" font-size="8" fill="#8b4500">Mi-ouvertes</text>
+  <circle cx="630" cy="504" r="5" fill="white" stroke="#6b0000" stroke-width="1.2"/>
+  <text x="639" y="508" font-size="8" fill="#6b0000">Ouvertes</text>
+  <circle cx="80" cy="519" r="5" fill="white" stroke="#1a3a8b" stroke-width="1.2"/>
+  <text x="80" y="522" text-anchor="middle" font-size="7" fill="#1a3a8b" font-weight="bold">i</text>
+  <text x="91" y="522" font-size="8.5" fill="#222">/i/</text>
+  <text x="117" y="522" font-size="8.5" fill="#555" font-style="italic">« vie »</text>
+  <text x="180" y="522" font-size="7.5" fill="#888">— fermée  ·  F1 280 Hz · F2 2600 Hz</text>
+  <circle cx="80" cy="536" r="5" fill="white" stroke="#1a3a8b" stroke-width="1.2"/>
+  <text x="80" y="539" text-anchor="middle" font-size="7" fill="#1a3a8b" font-weight="bold">y</text>
+  <text x="91" y="539" font-size="8.5" fill="#222">/y/</text>
+  <text x="117" y="539" font-size="8.5" fill="#555" font-style="italic">« lune »</text>
+  <text x="180" y="539" font-size="7.5" fill="#888">— fermée  ·  F1 280 Hz · F2 1900 Hz</text>
+  <circle cx="80" cy="553" r="5" fill="white" stroke="#1a3a8b" stroke-width="1.2"/>
+  <text x="80" y="556" text-anchor="middle" font-size="7" fill="#1a3a8b" font-weight="bold">u</text>
+  <text x="91" y="556" font-size="8.5" fill="#222">/u/</text>
+  <text x="117" y="556" font-size="8.5" fill="#555" font-style="italic">« tout »</text>
+  <text x="180" y="556" font-size="7.5" fill="#888">— fermée  ·  F1 310 Hz · F2 750 Hz</text>
+  <circle cx="80" cy="570" r="5" fill="white" stroke="#2a7a2a" stroke-width="1.2"/>
+  <text x="80" y="573" text-anchor="middle" font-size="7" fill="#2a7a2a" font-weight="bold">e</text>
+  <text x="91" y="573" font-size="8.5" fill="#222">/e/</text>
+  <text x="117" y="573" font-size="8.5" fill="#555" font-style="italic">« été »</text>
+  <text x="180" y="573" font-size="7.5" fill="#888">— mi-fermée  ·  F1 400 Hz · F2 2150 Hz</text>
+  <circle cx="80" cy="587" r="5" fill="#fffbe6" stroke="#b8860b" stroke-width="1.2"/>
+  <text x="80" y="590" text-anchor="middle" font-size="7" fill="#b8860b" font-weight="bold">ø</text>
+  <text x="91" y="590" font-size="8.5" fill="#222">/ø/</text>
+  <text x="117" y="590" font-size="8.5" fill="#555" font-style="italic">« feu »</text>
+  <text x="180" y="590" font-size="7.5" fill="#888">— mi-fermée  ·  F1 400 Hz · F2 1550 Hz</text>
+  <circle cx="80" cy="604" r="5" fill="#fffbe6" stroke="#b8860b" stroke-width="1.2"/>
+  <text x="80" y="607" text-anchor="middle" font-size="7" fill="#b8860b" font-weight="bold">o</text>
+  <text x="91" y="607" font-size="8.5" fill="#222">/o/</text>
+  <text x="117" y="607" font-size="8.5" fill="#555" font-style="italic">« eau »</text>
+  <text x="180" y="607" font-size="7.5" fill="#888">— mi-fermée  ·  F1 460 Hz · F2 850 Hz</text>
+  <circle cx="580" cy="519" r="5" fill="#fffbe6" stroke="#b8860b" stroke-width="1.2"/>
+  <text x="580" y="522" text-anchor="middle" font-size="7" fill="#b8860b" font-weight="bold">ə</text>
+  <text x="591" y="522" font-size="8.5" fill="#222">/ə/</text>
+  <text x="617" y="522" font-size="8.5" fill="#555" font-style="italic">« le »</text>
+  <text x="680" y="522" font-size="7.5" fill="#888">— mi-fermée  ·  F1 480 Hz · F2 1550 Hz</text>
+  <circle cx="580" cy="536" r="5" fill="white" stroke="#8b4500" stroke-width="1.2"/>
+  <text x="580" y="539" text-anchor="middle" font-size="7" fill="#8b4500" font-weight="bold">ɛ</text>
+  <text x="591" y="539" font-size="8.5" fill="#222">/ɛ/</text>
+  <text x="617" y="539" font-size="8.5" fill="#555" font-style="italic">« fête »</text>
+  <text x="680" y="539" font-size="7.5" fill="#888">— mi-ouverte  ·  F1 580 Hz · F2 1800 Hz</text>
+  <circle cx="580" cy="553" r="5" fill="white" stroke="#8b4500" stroke-width="1.2"/>
+  <text x="580" y="556" text-anchor="middle" font-size="7" fill="#8b4500" font-weight="bold">œ</text>
+  <text x="591" y="556" font-size="8.5" fill="#222">/œ/</text>
+  <text x="617" y="556" font-size="8.5" fill="#555" font-style="italic">« peur »</text>
+  <text x="680" y="556" font-size="7.5" fill="#888">— mi-ouverte  ·  F1 580 Hz · F2 1400 Hz</text>
+  <circle cx="580" cy="570" r="5" fill="white" stroke="#8b4500" stroke-width="1.2"/>
+  <text x="580" y="573" text-anchor="middle" font-size="7" fill="#8b4500" font-weight="bold">ɔ</text>
+  <text x="591" y="573" font-size="8.5" fill="#222">/ɔ/</text>
+  <text x="617" y="573" font-size="8.5" fill="#555" font-style="italic">« or »</text>
+  <text x="680" y="573" font-size="7.5" fill="#888">— mi-ouverte  ·  F1 560 Hz · F2 900 Hz</text>
+  <circle cx="580" cy="587" r="5" fill="white" stroke="#6b0000" stroke-width="1.2"/>
+  <text x="580" y="590" text-anchor="middle" font-size="7" fill="#6b0000" font-weight="bold">a</text>
+  <text x="591" y="590" font-size="8.5" fill="#222">/a/</text>
+  <text x="617" y="590" font-size="8.5" fill="#555" font-style="italic">« patte »</text>
+  <text x="680" y="590" font-size="7.5" fill="#888">— ouverte  ·  F1 800 Hz · F2 1300 Hz</text>
+  <circle cx="580" cy="604" r="5" fill="white" stroke="#6b0000" stroke-width="1.2"/>
+  <text x="580" y="607" text-anchor="middle" font-size="7" fill="#6b0000" font-weight="bold">ɑ</text>
+  <text x="591" y="607" font-size="8.5" fill="#222">/ɑ/</text>
+  <text x="617" y="607" font-size="8.5" fill="#555" font-style="italic">« pâte »</text>
+  <text x="680" y="607" font-size="7.5" fill="#888">— ouverte  ·  F1 750 Hz · F2 950 Hz</text>
+  <line x1="555" y1="516" x2="555" y2="632" stroke="#e0e0e0" stroke-width="0.8"/>
+</svg>

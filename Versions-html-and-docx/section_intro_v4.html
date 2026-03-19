@@ -20,7 +20,7 @@ h4 { color: #555; margin-top: 16px; font-size: 1.05em; }
   background: white; border: 1px solid #ddd; border-radius: 8px;
   padding: 22px; margin: 24px 0; box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
-.formant-graph { max-width: 100%; border: 1px solid #eee; border-radius: 4px; }
+.formant-graph { max-width: 75%; border: 1px solid #eee; border-radius: 4px; display: block; }
 .description {
   font-style: italic; color: #555; background: #e8f5e9;
   padding: 12px 16px; border-left: 4px solid #4caf50; margin: 12px 0; border-radius: 0 4px 4px 0;
@@ -143,8 +143,8 @@ Le taux de concordance global est de 93 % (27/29 instruments comparables).</p></
 <tr><td><b>Backus (1969)</b></td><td>The Acoustical Foundations of Music</td><td>Référence historique, mesures ciblées cuivres et bois</td><td>W.W. Norton & Co.</td></tr>
 <tr><td><b>Giesler (1985)</b></td><td>Instrumentation: Ein Hand- und Lehrbuch</td><td>Mesures détaillées, associations vocaliques explicites, 13 instruments</td><td>Breitkopf & Härtel</td></tr>
 <tr><td><b>Meyer (2009)</b></td><td>Acoustics and the Performance of Music (5e éd.)</td><td>Analyse acoustique avec couleurs vocales, zones vocaliques définies</td><td>Springer-Verlag</td></tr>
-<tr><td><b>SOL2020 IRCAM</b></td><td>Studio On Line / Orchestre de Lyon</td><td>12 instruments solistes, 2 391 échantillons sustained analysés</td><td>IRCAM / Orchestre de Lyon</td></tr>
-<tr><td><b>Yan_Adds</b></td><td>Extension personnelle</td><td>18 instruments supplémentaires, 1 646 échantillons (ensembles, bois auxiliaires, cuivres graves)</td><td>Analyse propre</td></tr>
+<tr><td><b>SOL2020 IRCAM</b></td><td>Studio On Line</td><td>12 instruments solistes, 2 391 échantillons sustained analysés</td><td>IRCAM / EIC</td></tr>
+<tr><td><b>Yan_Adds</b></td><td>Ajouts de provenances diverses</td><td>18 instruments supplémentaires, 1 646 échantillons (ensembles, bois auxiliaires, cuivres graves)</td><td>VSL, Con Timbre, échantillons personnels</td></tr>
 <tr><td><b>McCarty/CCRMA (2003)</b></td><td>Vowel space chart for orchestral instruments</td><td>Référence directionnelle — limitations d'exactitude reconnues par l'auteur</td><td>CCRMA Stanford</td></tr>
 </table>
 <h3 id="methodo">Méthodologie d'extraction formantique</h3>
@@ -216,14 +216,25 @@ Meyer (2009) établit des correspondances entre zones formantiques et voyelles d
 langue allemande/française. Ce tableau étend cette correspondance à l'ensemble du
 corpus SOL2020 + Yan_Adds.</p>
 <table class="vowel-table">
-<tr class="header"><th>Voyelle</th><th>Fréquence (Hz)</th><th>Perception timbrale</th><th>Instruments représentatifs (F1 ou Fp)</th></tr>
-<tr style="background-color:#DCEEFB40;"><td><strong>u (oo)</strong></td><td>200–400</td><td>Profondeur, gravité</td><td style="text-align:left;">Tuba basse (249), Contrebasse (200), Contrebasson (226), Flûte basse (301)</td></tr>
-<tr style="background-color:#D5ECD540;"><td><strong>o (oh)</strong></td><td>400–600</td><td>Plénitude, rondeur</td><td style="text-align:left;">Cor (457), Tuba contrebasse (471), Contrebasson (478), Trombone (491), Violoncelle (499), Basson (502), Cor anglais (452), Vcl-Ens (587)</td></tr>
-<tr style="background-color:#FDE8CE40;"><td><strong>å (aw)</strong></td><td>~600–800</td><td>Transition, chaleur</td><td style="text-align:left;">Vcl-Ens sourdine (587), Alto sourdine (683), Flûte basse (737)</td></tr>
-<tr style="background-color:#F8D5D540;"><td><strong>a (ah)</strong></td><td>800–1 250</td><td>Puissance, présence</td><td style="text-align:left;">Trb. basse (894), Cl. basse (909), Cl. Sib (1 016), Cor anglais Fp (1 135), Trompette (1 046, Fp), Alto-Ens (1 190), Basson Fp (1 079)</td></tr>
-<tr style="background-color:#E8D5F040;"><td><strong>e (eh)</strong></td><td>1 250–2 600</td><td>Clarté, brillance</td><td style="text-align:left;">Flûte (1 354), Hautbois (1 460), Vln-Ens (1 556), Cl. Mib (1 747), Piccolo (2 336), Violon Fp (893)</td></tr>
-<tr style="background-color:#FFF8D040;"><td><strong>i (ee)</strong></td><td>> 2 600</td><td>Brillance extrême, stridence</td><td style="text-align:left;">Petite flûte (2 336 ≈ limite), Trompette+sourdine harmon (2 358)</td></tr>
+<tr class="header"><th>Voyelle</th><th>Fréquence (Hz)</th><th>Exemples français</th><th>Perception timbrale</th><th>Instruments représentatifs (F1 ou Fp)</th></tr>
+<tr style="background-color:#DCEEFB40;"><td><strong>u (oo)</strong></td><td>200–400</td><td style="font-style:italic;color:#444;">b<u>ou</u>che, t<u>ou</u>r, l<u>u</u>ne</td><td>Profondeur, gravité</td><td style="text-align:left;">Contrebasse (172), Tuba basse (226), Tuba CB (226), Contrebasson (226), Trombone (237), Flûte basse (301)</td></tr>
+<tr style="background-color:#D5ECD540;"><td><strong>o (oh)</strong></td><td>400–600</td><td style="font-style:italic;color:#444;">b<u>eau</u>, s<u>o</u>l, voi<u>x</u></td><td>Plénitude, rondeur</td><td style="text-align:left;">Alto (377), Cor (388), Sax alto (398), Cor anglais (452), Cl. Sib (463), Basson (495), Ens. Violons (495), Violon (506)</td></tr>
+<tr style="background-color:#FDE8CE40;"><td><strong>å (aw)</strong></td><td>~600–800</td><td style="font-style:italic;color:#444;">p<u>â</u>te, âm<u>e</u>, (entre o et a)</td><td>Transition, chaleur</td><td style="text-align:left;">Cl. Mib (678), Flûte (743), Hautbois (743), Trompette (786)</td></tr>
+<tr style="background-color:#F8D5D540;"><td><strong>a (ah)</strong></td><td>800–1 250</td><td style="font-style:italic;color:#444;">p<u>a</u>s, cl<u>a</u>sse, ch<u>a</u>nt</td><td>Puissance, présence</td><td style="text-align:left;">Cor Fp (738), Violon Fp (893), Basson Fp (1 079), Trompette Fp (1 046), Cor anglais Fp (1 135)</td></tr>
+<tr style="background-color:#E8D5F040;"><td><strong>e (eh)</strong></td><td>1 250–2 600</td><td style="font-style:italic;color:#444;">f<u>é</u>e, <u>é</u>toile, r<u>e</u>gard</td><td>Clarté, brillance</td><td style="text-align:left;">Cl. Sib Fp (1 412), Flûte Fp (1 535), Hautbois Fp (1 485), Cl. Mib Fp (1 266), Petite flûte (1 109)</td></tr>
+<tr style="background-color:#FFF8D040;"><td><strong>i (ee)</strong></td><td>> 2 600</td><td style="font-style:italic;color:#444;">v<u>i</u>e, s<u>i</u>ffl<u>e</u>r, <u>i</u>ci</td><td>Brillance extrême, stridence</td><td style="text-align:left;">Petite flûte (1 992 F2), Trompette+sourdine harmon (2 358)</td></tr>
 </table>
+
+<div style="margin:24px 0;">
+<figure style="margin:0;">
+  <img src="../media/voyelles_IPA.svg" alt="Positions formantiques des voyelles IPA — F1 et F2 sur axe fréquentiel"
+       style="max-width:100%;display:block;margin:0 auto;border:1px solid #eee;border-radius:6px;"/>
+  <figcaption style="text-align:center;font-size:0.85em;color:#666;margin-top:8px;font-style:italic;">
+    Positions F1 et F2 des 11 voyelles cardinales françaises sur axe fréquentiel linéaire ·
+    zone cluster /o/–/å/ surlignée · d'après Meyer (2009), Giesler (1985)
+  </figcaption>
+</figure>
+</div>
 
 <div class="note-v4">
 <strong>Note sur le i (ee) &gt;2 600 Hz :</strong> Très peu d'instruments de l'orchestre

@@ -219,6 +219,22 @@ corpus SOL2020 + Yan_Adds.</p>
                  f'<td style="text-align:left;">{row["instruments"]}</td>'
                  f'</tr>\n')
     html += '</table>\n'
+
+    # SVG voyelles IPA — inline depuis le fichier média
+    svg_path = os.path.join(os.path.dirname(OUT_DIR), 'media', 'voyelles_IPA.svg')
+    svg_rel  = os.path.relpath(svg_path, OUT_DIR).replace(os.sep, '/')
+    html += f'''
+<div style="margin:24px 0;">
+<figure style="margin:0;">
+  <img src="{svg_rel}" alt="Positions formantiques des voyelles IPA — F1 et F2 sur axe fréquentiel"
+       style="max-width:100%;display:block;margin:0 auto;border:1px solid #eee;border-radius:6px;"/>
+  <figcaption style="text-align:center;font-size:0.85em;color:#666;margin-top:8px;font-style:italic;">
+    Positions F1 et F2 des 11 voyelles cardinales françaises sur axe fréquentiel linéaire ·
+    zone cluster /o/–/å/ surlignée · d'après Meyer (2009), Giesler (1985)
+  </figcaption>
+</figure>
+</div>
+'''
     html += """
 <div class="note-v4">
 <strong>Note sur le i (ee) &gt;2 600 Hz :</strong> Très peu d'instruments de l'orchestre
