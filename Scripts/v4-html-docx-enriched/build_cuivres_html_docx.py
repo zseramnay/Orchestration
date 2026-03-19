@@ -26,18 +26,18 @@ CUIVRES_PRINCIPAUX = [
 CUIVRES_SOURDINES = [
     # Cor
     ('Horn+sordina',             'Cor + sourdine',                'cuivres_cor_sord',       'ordinario',        None, '#388E3C'),
-    # Trombone
-    ('Trombone+sordina_cup',     'Trombone + sourd. cup',         'cuivres_trb_cup',        'ordinario',        None, '#7B1FA2'),
-    ('Trombone+sordina_straight','Trombone + sourd. sèche',       'cuivres_trb_straight',   'ordinario',        None, '#7B1FA2'),
-    ('Trombone+sordina_harmon',  'Trombone + sourd. harmon',      'cuivres_trb_harmon',     'ordinario',        None, '#7B1FA2'),
-    ('Trombone+sordina_wah',     'Trombone + sourd. wah (ouvert)','cuivres_trb_wah_open',   'ordinario_open',   None, '#7B1FA2'),
-    ('Trombone+sordina_wah',     'Trombone + sourd. wah (fermé)', 'cuivres_trb_wah_closed', 'ordinario_closed', None, '#7B1FA2'),
     # Trompette
     ('Trumpet_C+sordina_cup',    'Trompette + sourd. cup',        'cuivres_tpt_cup',        'ordinario',        None, '#C62828'),
     ('Trumpet_C+sordina_straight','Trompette + sourd. sèche',     'cuivres_tpt_straight',   'ordinario',        None, '#C62828'),
     ('Trumpet_C+sordina_harmon', 'Trompette + sourd. harmon',     'cuivres_tpt_harmon',     'ordinario',        None, '#C62828'),
     ('Trumpet_C+sordina_wah',    'Trompette + sourd. wah (ouvert)','cuivres_tpt_wah_open',  'ordinario_open',   None, '#C62828'),
     ('Trumpet_C+sordina_wah',    'Trompette + sourd. wah (fermé)','cuivres_tpt_wah_closed', 'ordinario_closed', None, '#C62828'),
+    # Trombone
+    ('Trombone+sordina_cup',     'Trombone + sourd. cup',         'cuivres_trb_cup',        'ordinario',        None, '#7B1FA2'),
+    ('Trombone+sordina_straight','Trombone + sourd. sèche',       'cuivres_trb_straight',   'ordinario',        None, '#7B1FA2'),
+    ('Trombone+sordina_harmon',  'Trombone + sourd. harmon',      'cuivres_trb_harmon',     'ordinario',        None, '#7B1FA2'),
+    ('Trombone+sordina_wah',     'Trombone + sourd. wah (ouvert)','cuivres_trb_wah_open',   'ordinario_open',   None, '#7B1FA2'),
+    ('Trombone+sordina_wah',     'Trombone + sourd. wah (fermé)', 'cuivres_trb_wah_closed', 'ordinario_closed', None, '#7B1FA2'),
     # Tuba
     ('Bass_Tuba+sordina',        'Tuba basse + sourdine',         'cuivres_tuba_sord',      'ordinario',        None, '#455A64'),
 ]
@@ -276,12 +276,12 @@ classiques de la section cuivres avec le basson et le violoncelle.</p>
     html += '<h3>Cor avec sourdine</h3>\n'
     html += instrument_html('cuivres_cor_sord', show_ref=False, show_all_tech=False)
 
-    html += '<h3>Trombone avec sourdines</h3>\n'
-    for gfx in ['cuivres_trb_cup','cuivres_trb_straight','cuivres_trb_harmon','cuivres_trb_wah_open','cuivres_trb_wah_closed']:
-        html += instrument_html(gfx, show_ref=False, show_all_tech=False)
-
     html += '<h3>Trompette avec sourdines</h3>\n'
     for gfx in ['cuivres_tpt_cup','cuivres_tpt_straight','cuivres_tpt_harmon','cuivres_tpt_wah_open','cuivres_tpt_wah_closed']:
+        html += instrument_html(gfx, show_ref=False, show_all_tech=False)
+
+    html += '<h3>Trombone avec sourdines</h3>\n'
+    for gfx in ['cuivres_trb_cup','cuivres_trb_straight','cuivres_trb_harmon','cuivres_trb_wah_open','cuivres_trb_wah_closed']:
         html += instrument_html(gfx, show_ref=False, show_all_tech=False)
 
     html += '<h3>Tuba avec sourdine</h3>\n'
@@ -377,14 +377,14 @@ def build_docx(output_path):
     add_heading(doc, "Cor avec sourdine", level=3)
     add_instrument_docx(doc, 'cuivres_cor_sord', show_ref=False, show_all_tech=False)
 
-    add_heading(doc, "Trombone avec sourdines", level=3)
-    for gfx in ['cuivres_trb_cup','cuivres_trb_straight','cuivres_trb_harmon',
-                 'cuivres_trb_wah_open','cuivres_trb_wah_closed']:
-        add_instrument_docx(doc, gfx, show_ref=False, show_all_tech=False)
-
     add_heading(doc, "Trompette avec sourdines", level=3)
     for gfx in ['cuivres_tpt_cup','cuivres_tpt_straight','cuivres_tpt_harmon',
                  'cuivres_tpt_wah_open','cuivres_tpt_wah_closed']:
+        add_instrument_docx(doc, gfx, show_ref=False, show_all_tech=False)
+
+    add_heading(doc, "Trombone avec sourdines", level=3)
+    for gfx in ['cuivres_trb_cup','cuivres_trb_straight','cuivres_trb_harmon',
+                 'cuivres_trb_wah_open','cuivres_trb_wah_closed']:
         add_instrument_docx(doc, gfx, show_ref=False, show_all_tech=False)
 
     add_heading(doc, "Tuba avec sourdine", level=3)
