@@ -229,42 +229,58 @@ def make_convergence_matrix(instruments_dict, filename, title, threshold=80):
 
 
 def make_cluster_chart(filename):
-    """Graphique du cluster de convergence 450-502 Hz."""
+    """Graphique du cluster de convergence — valeurs CSV v22."""
+    # Valeurs F1 strictes CSV v22 — zone /o/–/å/ (377–510 Hz)
     cluster_instruments = {
-        'Cor anglais': 452, 'Tuba contrebasse': 471, 'Cor': 457,
-        'Trombone': 491, 'Violoncelle': 499, 'Basson': 502,
+        'Alto':        377,  # Viola ordinario
+        'Cor':         388,  # Horn ordinario
+        'Sax alto':    398,  # Sax_Alto ordinario
+        'Cor anglais': 452,  # English_Horn ordinario
+        'Cl. Sib':     463,  # Clarinet_Bb ordinario
+        'Basson':      495,  # Bassoon ordinario
+        'Ens. Violons':495,  # Violin_Ensemble ordinario
+        'Violon':      506,  # Violin ordinario
     }
     names = list(cluster_instruments.keys())
-    f1s = list(cluster_instruments.values())
+    f1s   = list(cluster_instruments.values())
 
-    fig, ax = plt.subplots(figsize=(9, 4), dpi=150)
+    fig, ax = plt.subplots(figsize=(10, 4.5), dpi=150)
 
     # Zone cluster
-    ax.axvspan(440, 515, alpha=0.2, color='red', zorder=0)
-    ax.text(477, 0.95, 'Cluster /o/\n450–502 Hz', ha='center', va='top',
-            fontsize=9, color='#C62828', fontweight='bold',
+    ax.axvspan(370, 515, alpha=0.15, color='red', zorder=0)
+    ax.text(443, 0.96, 'Zone de convergence\n377–510 Hz  (/o/–/å/)',
+            ha='center', va='top', fontsize=9, color='#C62828', fontweight='bold',
             transform=ax.get_xaxis_transform())
 
-    colors = ['#BF360C','#37474F','#1B5E20','#4A148C','#1565C0','#4E342E']
+    colors = ['#1565C0','#1565C0','#AD1457',
+              '#2E7D32','#558B2F','#4E342E','#283593','#0D47A1']
     for i, (name, f1, color) in enumerate(zip(names, f1s, colors)):
-        ax.bar(f1, 1.0 - i*0.08, width=12, color=color, alpha=0.85,
-               edgecolor='white', linewidth=1.5, zorder=3)
-        ax.text(f1, 1.02 - i*0.08, f"{name}\n{f1} Hz",
-                ha='center', va='bottom', fontsize=8, fontweight='bold', color=color)
+        ax.bar(f1, 1.0 - i*0.07, width=10, color=color, alpha=0.82,
+               edgecolor='white', linewidth=1.2, zorder=3)
+        ax.text(f1, 1.02 - i*0.07, f"{name}\n{f1} Hz",
+                ha='center', va='bottom', fontsize=7.5, fontweight='bold', color=color)
 
-    ax.set_xlim(420, 530)
-    ax.set_ylim(0, 1.4)
+    ax.set_xlim(355, 525)
+    ax.set_ylim(0, 1.45)
     ax.set_xlabel("Fréquence F1 (Hz)", fontsize=10, fontweight='bold')
     ax.set_yticks([])
-    ax.set_title("Cluster de convergence 450–502 Hz — Zone vocalique /o/ (Plénitude)",
-                 fontsize=11, fontweight='bold', pad=12, color='#C62828')
+    ax.set_title("Cluster de convergence — Zone vocalique /o/–/å/ (377–510 Hz)\n"
+                 "8 instruments de 4 familles · données CSV v22",
+                 fontsize=10, fontweight='bold', pad=10, color='#C62828')
     for s in ['top','right','left']:
         ax.spines[s].set_visible(False)
 
-    # Annotation delta max
-    ax.annotate('', xy=(502, 0.2), xytext=(452, 0.2),
+    # Annotation delta max (Alto→Violon = 129 Hz)
+    ax.annotate('', xy=(506, 0.18), xytext=(377, 0.18),
                 arrowprops=dict(arrowstyle='<->', color='#555', lw=1.5))
-    ax.text(477, 0.22, 'Δmax = 52 Hz', ha='center', va='bottom', fontsize=8, color='#555')
+    ax.text(443, 0.20, 'Δmax = 129 Hz  (Alto→Violon)',
+            ha='center', va='bottom', fontsize=8, color='#555')
+
+    # Annotation sous-cluster le plus serré (Basson/Ens.Violons/Violon Δ=11 Hz)
+    ax.annotate('', xy=(506, 0.08), xytext=(495, 0.08),
+                arrowprops=dict(arrowstyle='<->', color='#C62828', lw=1.2))
+    ax.text(500, 0.10, 'Δ=11 Hz ★', ha='center', va='bottom',
+            fontsize=7.5, color='#C62828')
 
     plt.tight_layout()
     out = os.path.join(OUT_IMG, f"{filename}.png")
