@@ -165,71 +165,120 @@ def make_fig1():
 
 
 def make_fig2():
-    """Fig 2 — Espace vocalique F1/F2."""
-    fig, ax = plt.subplots(figsize=(13, 9), dpi=150)
+    """Fig 2 — Espace vocalique F1/F2, lisible avec adjustText."""
+    from adjustText import adjust_text
 
-    for lo, hi, col, label in VOWEL_ZONES:
-        if lo < 3000:
-            ax.axvspan(lo, min(hi,3000), alpha=0.20, color=col, zorder=0, ymin=0, ymax=1)
+    fig, ax = plt.subplots(figsize=(14, 11), dpi=150)
 
+    # ── Zones vocaliques en fond ─────────────────────────────
+    # Rectangles obliques suivant la diagonale F2≈2×F1 (caractéristique phonétique)
+    # On utilise des axvspan + gradient vertical pour suggérer la diagonale
+    vz_x = [(100,420,'#DCEEFB','/u/'),(380,620,'#D5ECD5','/o/'),
+             (580,850,'#FDE8CE','/å/'),(780,1350,'#F8D5D5','/a/'),
+             (1200,2700,'#E8D5F0','/e/'),(2500,4500,'#FFF8D0','/i/')]
+    for x0, x1, col, label in vz_x:
+        ax.axvspan(x0, x1, alpha=0.22, color=col, zorder=0)
+        ax.text(np.sqrt(x0*x1), 260, label, ha='center', va='bottom',
+                fontsize=8.5, color='#888', fontweight='bold')
+
+    # ── Ligne de tendance F2 ≈ 2×F1 (repère phonétique) ─────
+    xref = np.logspace(np.log10(120), np.log10(3000), 100)
+    ax.plot(xref, 2.2 * xref, color='#ccc', lw=1.2, ls='--',
+            alpha=0.6, zorder=1, label='_')
+    ax.text(1400, 2.2*1400*1.05, 'F2 ≈ 2·F1', fontsize=7.5,
+            color='#bbb', fontstyle='italic', rotation=22)
+
+    # ── Scatter + labels ─────────────────────────────────────
     FAM_MK = {'Bois':'D','Saxophones':'P','Cuivres':'s',
                'Cordes sol.':'o','Cordes ens.':'^'}
-    seen = set()
+    seen_fam = set()
+    texts    = []   # pour adjustText
+
     for instr in instruments:
         f1, f2 = instr['F'][0], instr['F'][1]
-        if not f1 or not f2: continue
+        if not f1 or not f2:
+            continue
         fam = instr['famille']
-        col = FAM_COLORS.get(fam,'#555')
-        mk  = FAM_MK.get(fam,'o')
-        lbl = fam if fam not in seen else '_'
-        seen.add(fam)
-        ax.scatter(f1, f2, s=80, color=col, marker=mk,
-                   edgecolors='white', linewidths=0.7,
-                   zorder=5, label=lbl, alpha=0.9)
+        col = FAM_COLORS.get(fam, '#555')
+        mk  = FAM_MK.get(fam, 'o')
+        lbl = fam if fam not in seen_fam else '_'
+        seen_fam.add(fam)
+
+        # Point principal F1/F2
+        ax.scatter(f1, f2, s=100, color=col, marker=mk,
+                   edgecolors='white', linewidths=0.8,
+                   zorder=5, label=lbl, alpha=0.92)
+
+        # Fp : point vert + trait horizontal vers F1
         if instr['fp']:
-            ax.scatter(instr['fp'], f2, s=32, color='#1B5E20',
-                       marker='D', edgecolors='black', lw=0.5, zorder=6, alpha=0.75, label='_')
-            ax.plot([f1, instr['fp']], [f2,f2], color='#1B5E20', lw=0.6, alpha=0.3, zorder=3)
-        ax.annotate(instr['display'], (f1, f2), xytext=(5,3),
-                    textcoords='offset points', fontsize=6,
-                    color=col, fontweight='bold', zorder=7)
+            ax.scatter(instr['fp'], f2, s=40, color='#1B5E20',
+                       marker='D', edgecolors='black', lw=0.5,
+                       zorder=6, alpha=0.80, label='_')
+            ax.annotate('', xy=(instr['fp'], f2), xytext=(f1, f2),
+                        arrowprops=dict(arrowstyle='->', color='#1B5E20',
+                                        lw=0.8, alpha=0.4))
 
-    # Ellipse convergence
+        # Label texte — on collecte pour adjustText
+        t = ax.text(f1, f2, instr['display'],
+                    fontsize=7, color=col, fontweight='bold', zorder=7)
+        texts.append(t)
+
+    # ── adjustText : déplace les labels pour éviter les chevauchements ──
+    adjust_text(
+        texts, ax=ax,
+        expand_points=(1.5, 1.8),
+        expand_text=(1.3, 1.5),
+        force_text=(0.4, 0.6),
+        force_points=(0.3, 0.4),
+        arrowprops=dict(arrowstyle='-', color='#aaa', lw=0.5),
+        lim=300,
+    )
+
+    # ── Ellipse zone convergence ─────────────────────────────
     from matplotlib.patches import Ellipse
-    ax.add_patch(Ellipse((443, 820), width=195, height=950, angle=12,
-                          fill=False, edgecolor='red', lw=2, ls='--', zorder=8))
-    ax.text(443, 1400, 'Zone /o/–/å/\n377–510 Hz',
-            ha='center', fontsize=8, color='red', fontweight='bold', zorder=9)
+    ax.add_patch(Ellipse((443, 780), width=200, height=700, angle=10,
+                          fill=True, facecolor='#ffebee', edgecolor='#e53935',
+                          lw=2, ls='--', zorder=2, alpha=0.5))
+    ax.text(443, 1230, 'Zone /o/–/å/\n377–510 Hz',
+            ha='center', fontsize=8, color='#c62828',
+            fontweight='bold', zorder=9)
 
-    ax.set_xlim(80, 2800); ax.set_ylim(200, 3800)
-    ax.set_xscale('log'); ax.set_yscale('log')
-    xt = [100,150,200,300,400,600,800,1200,2000]
-    yt = [200,300,500,700,1000,1500,2000,3000]
-    ax.set_xticks(xt); ax.set_xticklabels([str(t) for t in xt], fontsize=7.5)
-    ax.set_yticks(yt); ax.set_yticklabels([str(t) for t in yt], fontsize=7.5)
+    # ── Axes ─────────────────────────────────────────────────
+    ax.set_xlim(100, 3500)
+    ax.set_ylim(250, 4200)
+    ax.set_xscale('log')
+    ax.set_yscale('log')
+    xt = [100, 150, 200, 300, 400, 600, 800, 1200, 2000, 3000]
+    yt = [300, 400, 500, 700, 1000, 1500, 2000, 3000, 4000]
+    ax.set_xticks(xt); ax.set_xticklabels([str(t) for t in xt], fontsize=8)
+    ax.set_yticks(yt); ax.set_yticklabels([str(t) for t in yt], fontsize=8)
     ax.get_xaxis().set_major_formatter(matplotlib.ticker.ScalarFormatter())
     ax.get_yaxis().set_major_formatter(matplotlib.ticker.ScalarFormatter())
-    ax.set_xlabel("F1 — Premier formant (Hz)", fontsize=10, fontweight='bold')
-    ax.set_ylabel("F2 — Deuxième formant (Hz)", fontsize=10, fontweight='bold')
-    ax.grid(True, alpha=0.14)
-    for s in ['top','right']: ax.spines[s].set_visible(False)
+    ax.set_xlabel("F1 — Premier formant (Hz)", fontsize=11, fontweight='bold')
+    ax.set_ylabel("F2 — Deuxième formant (Hz)", fontsize=11, fontweight='bold')
+    ax.grid(True, alpha=0.12, which='both')
+    for s in ['top', 'right']:
+        ax.spines[s].set_visible(False)
 
+    # ── Légende ──────────────────────────────────────────────
     hs, ls2 = ax.get_legend_handles_labels()
-    ch, cl = [], []
-    seen2 = set()
+    ch, cl, seen2 = [], [], set()
     for h, l in zip(hs, ls2):
         if l not in seen2 and not l.startswith('_'):
             seen2.add(l); ch.append(h); cl.append(l)
     ch.append(mlines.Line2D([],[],marker='D',color='w',markerfacecolor='#1B5E20',
                               markeredgecolor='black',markersize=7,label='Fp centroïde'))
     cl.append('Fp centroïde')
-    ax.legend(ch, cl, loc='upper left', fontsize=8, framealpha=0.9,
-              title='Familles', title_fontsize=8)
+    ax.legend(ch, cl, loc='lower right', fontsize=8.5, framealpha=0.95,
+              title='Familles', title_fontsize=9, borderpad=0.8)
 
-    ax.set_title("Figure 2 — Espace vocalique F1/F2 · convention phonétique · "
-                 "ellipse = zone de convergence · CSV v22",
-                 fontsize=9, fontweight='bold', pad=10)
-    fig.subplots_adjust(left=0.09, right=0.97, top=0.93, bottom=0.09)
+    ax.set_title(
+        "Figure 2 — Espace vocalique F1/F2 des 27 instruments de l'orchestre\n"
+        "Convention phonétique : F1 (horizontal) × F2 (vertical) · "
+        "zones Meyer (2009) · données CSV v22",
+        fontsize=10, fontweight='bold', pad=12)
+
+    fig.subplots_adjust(left=0.09, right=0.97, top=0.93, bottom=0.08)
     out = os.path.join(OUT_IMG, 'synthese_fig2_espace_vocalique.png')
     fig.savefig(out, dpi=150, facecolor='white')
     plt.close(fig)
