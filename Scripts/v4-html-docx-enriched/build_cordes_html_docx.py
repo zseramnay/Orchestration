@@ -48,7 +48,7 @@ REF_TABLES = {
     'Alto': [
         {'source':'Giesler (1985)', 'f1':'220–600','f2':'—','f3':'—','f4':'—','voyelle':'registre-dépendant','n':'—','accord':'approx'},
         {'source':'Meyer (2009)',   'f1':'~400–600','f2':'~800–1 200','f3':'—','f4':'—','voyelle':'o–a','n':'—','accord':'approx'},
-        {'source':'SOL2020',        'f1':'369 ±14','f2':'766 ±217','f3':'1 282','f4':'1 957','voyelle':'å/a','n':'35','accord':'approx'},
+        {'source':'SOL2020',        'f1':'377 ±14','f2':'766 ±217','f3':'1 282','f4':'1 957','voyelle':'å/a','n':'35','accord':'approx'},
     ],
     'Violoncelle': [
         {'source':'Backus (1969)',  'f1':'600–900','f2':'—','f3':'—','f4':'—','voyelle':'—','n':'—','accord':'approx'},
