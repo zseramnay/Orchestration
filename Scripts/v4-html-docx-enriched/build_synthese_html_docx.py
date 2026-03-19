@@ -785,13 +785,13 @@ PRINCIPES_ORCHESTRATION = [
 
 <strong>Famille /u/ (200–400 Hz) — Profondeur :</strong> Contrebasson (226 Hz), Tuba basse (226), Tuba contrebasse (226), Clarinette basse (323), Contrebasse (172). Trois familles instrumentales, une même couleur sombre et grave.
 
-<strong>Famille /o/ (400–600 Hz) — Plénitude :</strong> Cor anglais (452), Cor (388 Hz, Fp), Trombone (491 Hz, Fp), Violoncelle (495), Basson (495), Saxophone alto (398). C'est le <em>cluster de convergence</em> — la famille acoustique la plus documentée du corpus, réunissant bois, cuivres et cordes.
+<strong>Famille /o/–/å/ (377–510 Hz) — Plénitude :</strong> Alto (377), Cor (388), Sax alto (398), Cor anglais (452), Cl. Sib (463), Basson (495), Ens. Violons (495), Violon (506). C'est le <em>cluster de convergence</em> — 8 instruments de 4 familles réunis dans 129 Hz. Note : Trombone (F1=237 Hz, /u/) et Violoncelle (F1=205 Hz, /u/) rejoignent cette zone via leur Fp centroïde (1 218 Hz et ~600 Hz).
 
 <strong>Famille /a/ (800–1 250 Hz) — Puissance :</strong> Trombone basse Fp (1 335), Clarinette basse Fp (1 204), Clarinette Sib Fp (1 412), Cor anglais Fp (1 135), Trompette Fp (1 046). Ces instruments partagent une zone de présence et de projection commune dans le médium.
 
 <strong>Famille /e/ (1 250–2 600 Hz) — Clarté :</strong> Flûte Fp (1 535), Hautbois Fp (1 485), Clarinette Mib Fp (1 266), Ensemble de violons F2 (1 163). Instruments de brillance et d'articulation spectrale.
 
-<strong>Conséquence orchestrale :</strong> un compositeur qui veut renforcer la couleur /o/ peut doubler librement entre Cor anglais, Cor, Basson et Violoncelle — la famille acoustique transcende les familles instrumentales. À l'inverse, mélanger deux familles formantiques adjacentes produit la complémentarité spectrale du principe 2."""),
+<strong>Conséquence orchestrale :</strong> un compositeur qui veut renforcer la couleur /o/ peut doubler librement entre Cor anglais, Cor, Basson et Violon — la famille acoustique transcende les familles instrumentales. À l'inverse, mélanger deux familles formantiques adjacentes produit la complémentarité spectrale du principe 2."""),
 
     ("6. Masquage spectral évité",
      """Le masquage spectral — phénomène par lequel un instrument couvre acoustiquement un autre — est particulièrement risqué quand deux instruments partagent une zone vocalique similaire <strong>sans convergence formantique</strong> (Δ F1 entre 80 et 200 Hz). Dans cette zone grise, les spectres se chevauchent partiellement sans fusionner, créant une concurrence pour la même bande de fréquences.
@@ -925,15 +925,17 @@ Les cellules vertes correspondent aux doublures acoustiquement justifiées.</p>
     # 6. Concordance multi-sources
     html += '<h2 id="concordance">Concordance Multi-Sources — Résultats Globaux</h2>\n'
     html += """
+<p>Note : les valeurs SOL2020/Yan colonne représentent le F1 strict du pipeline v22.
+Les valeurs académiques (Backus, Giesler, Meyer) correspondent souvent au Fp ou à un registre spécifique.</p>
 <table class="ref-table">
-<tr class="header"><th>Instrument</th><th>F1 SOL2020/Yan</th><th>Backus</th><th>Giesler</th><th>Meyer</th><th>Accord global</th></tr>
-<tr><td>Basson</td><td>502</td><td>440–500</td><td>500</td><td>~500</td><td><b>✓✓✓✓ Unanime</b></td></tr>
-<tr><td>Cor</td><td>457</td><td>400–500</td><td>250–500</td><td>~450</td><td><b>✓✓✓ Excellent</b></td></tr>
-<tr><td>Trombone</td><td>491</td><td>500</td><td>520–600</td><td>480–600</td><td><b>✓✓✓ Excellent</b></td></tr>
-<tr><td>Violoncelle</td><td>499</td><td>600–900</td><td>300–500</td><td>~500</td><td><b>✓✓✓ Excellent</b></td></tr>
-<tr><td>Trompette</td><td>786/1046 Fp</td><td>1000–1500</td><td>1200–1500</td><td>~1000</td><td>~ Variable selon registre</td></tr>
-<tr><td>Clarinette Sib</td><td>1016</td><td>1500</td><td>3000–4000</td><td>1500</td><td>~ Dispersion forte</td></tr>
-<tr><td>Violon</td><td>506/893 Fp</td><td>2000–3000</td><td>1000–1200</td><td>800–1200</td><td>~ Sources mesurent zones différentes</td></tr>
+<tr class="header"><th>Instrument</th><th>F1 v22 (Hz)</th><th>Backus</th><th>Giesler</th><th>Meyer</th><th>Accord global</th></tr>
+<tr><td>Basson</td><td><b>495</b></td><td>440–500</td><td>500</td><td>~500</td><td><b>✓✓✓✓ Unanime</b></td></tr>
+<tr><td>Cor</td><td><b>388</b></td><td>400–500</td><td>250–500</td><td>~450</td><td><b>✓✓✓ Bon</b> (Fp=738 proche des sources)</td></tr>
+<tr><td>Trombone</td><td><b>237</b></td><td>500</td><td>520–600</td><td>480–600</td><td>~ Sources mesurent le Fp (1218 Hz)</td></tr>
+<tr><td>Violoncelle</td><td><b>205</b></td><td>600–900</td><td>300–500</td><td>~500</td><td>~ Sources mesurent F2 ou registre aigu</td></tr>
+<tr><td>Trompette</td><td><b>786</b></td><td>1000–1500</td><td>1200–1500</td><td>~1000</td><td>~ Variable selon registre</td></tr>
+<tr><td>Clarinette Sib</td><td><b>463</b></td><td>1500</td><td>3000–4000</td><td>1500</td><td>~ Sources mesurent le registre clairon/Fp</td></tr>
+<tr><td>Violon</td><td><b>506</b></td><td>2000–3000</td><td>1000–1200</td><td>800–1200</td><td>~ Sources mesurent zones spectrales différentes</td></tr>
 </table>
 <p><strong>Taux de concordance global : 93 % (27/29 instruments)</strong></p>
 """
@@ -1008,16 +1010,18 @@ def build_docx(output_path):
 
     table = doc.add_table(rows=1, cols=5)
     table.style = 'Table Grid'
-    for idx, h in enumerate(['Instrument','Famille','F1 (Hz)','Voyelle','Δ vs Violoncelle']):
+    for idx, h in enumerate(['Instrument','Famille','F1 (Hz)','Voyelle','Δ vs Violon']):
         set_cell_text(table.rows[0].cells[idx], h, bold=True, size=9, color=(255,255,255))
         set_cell_shading(table.rows[0].cells[idx], 'B71C1C')
     for row_data in [
-        ('Cor anglais','Bois','452','/o/','47 Hz'),
-        ('Cor','Cuivres','457','/o/','42 Hz'),
-        ('Tuba contrebasse','Cuivres','471','/o/','28 Hz'),
-        ('Trombone','Cuivres','491','/o/','8 Hz'),
-        ('Violoncelle','Cordes','499','/o/','—'),
-        ('Basson','Bois','502','/o/','3 Hz ★'),
+        ('Alto',         'Cordes',     '377', '/o/',  '129 Hz'),
+        ('Cor',          'Cuivres',    '388', '/o/',  '118 Hz'),
+        ('Sax alto',     'Saxophones', '398', '/o/',  '108 Hz'),
+        ('Cor anglais',  'Bois',       '452', '/o/',  '54 Hz'),
+        ('Cl. Sib',      'Bois',       '463', '/o/',  '43 Hz'),
+        ('Basson',       'Bois',       '495', '/o/',  '11 Hz ★'),
+        ('Ens. Violons', 'Cordes',     '495', '/o/',  '11 Hz ★'),
+        ('Violon',       'Cordes',     '506', '/o/',  '— (réf.)'),
     ]:
         row = table.add_row().cells
         fill = 'D5F5E3' if row_data[4] in ('3 Hz ★','—') else None
