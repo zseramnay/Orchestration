@@ -274,17 +274,16 @@ def get_section_body(script_name, tmp_dir):
 CSS_COMPLET = """
 /* ─── Reset & layout ─── */
 *, *::before, *::after { box-sizing: border-box; }
-html { margin: 0; padding: 0; background: #e6e9ed; }
+html { margin: 0; padding: 0; background: #f5f5f5; }
 body {
   font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
   font-size: 13px; line-height: 1.5; color: #333;
   background: #ffffff;
-  max-width: 900px;
-  margin: 0 auto;
   margin-left: 340px;   /* laisser place au sidebar (320px + 20px) */
-  padding: 40px 50px;
+  margin-right: 0;
+  padding: 24px 32px;
   min-height: 100vh;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  box-shadow: -3px 0 12px rgba(0,0,0,0.06);
   transition: margin-left 0.3s;
 }
 
