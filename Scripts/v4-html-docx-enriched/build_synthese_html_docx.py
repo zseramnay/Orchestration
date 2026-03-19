@@ -9,6 +9,9 @@ import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import *
 import numpy as np
+import matplotlib.patches as mpatches
+import matplotlib.lines as mlines
+import matplotlib.ticker
 
 load_all_csvs()
 
@@ -295,20 +298,262 @@ print(f"  ✓ Matrice complète")
 img_cluster = make_cluster_chart('synthese_cluster')
 print(f"  ✓ Cluster chart")
 
-# Figures 1–3 (via make_synthese_figures.py)
-_fig_script = os.path.join(os.path.dirname(__file__), 'make_synthese_figures.py')
-try:
-    import importlib.util
-    _spec = importlib.util.spec_from_file_location('make_synthese_figures', _fig_script)
-    _mod  = importlib.util.module_from_spec(_spec)
-    _spec.loader.exec_module(_mod)
-    import matplotlib.ticker
-    img_fig1 = _mod.make_fig1()
-    img_fig2 = _mod.make_fig2()
-    img_fig3 = _mod.make_fig3()
-except Exception as e:
-    print(f"  ⚠ Figures 1–3 non générées : {e}")
-    img_fig1 = img_fig2 = img_fig3 = None
+# ─── Figures 1–3 intégrées directement ──────────────────────
+def make_fig1():
+    n = len(instruments_fig)
+    fig_h = n * 0.38 + 1.8
+    fig, ax = plt.subplots(figsize=(15, fig_h), dpi=150)
+    for lo, hi, col, _ in VOWEL_ZONES_FIG:
+        ax.axvspan(lo, hi, alpha=0.25, color=col, zorder=0)
+    ax.axvspan(377, 510, alpha=0.12, color='red', zorder=1)
+    for lo, hi, col, label in VOWEL_ZONES_FIG:
+        mid = np.sqrt(lo * min(hi, 4000))
+        if mid < 4000:
+            ax.text(mid, n - 0.3, label, ha='center', va='bottom',
+                    fontsize=6, color='#666', fontweight='bold')
+    FC = ['#D32F2F','#E64A19','#F57C00','#FBC02D']
+    SZ = [100, 65, 42, 22]
+    for yi, instr in enumerate(instruments_fig):
+        fam = instr['famille']; col = FAM_COLORS_FIG.get(fam,'#555')
+        mk = ('^' if 'ens' in fam.lower() else 's' if fam=='Cuivres'
+              else 'P' if fam=='Saxophones' else 'o')
+        for fi,(fv,sz) in enumerate(zip(instr['F'],SZ)):
+            if fv:
+                ax.scatter(fv, yi, s=sz, color=FC[fi], alpha=1.0-fi*0.15,
+                           zorder=4+fi, marker=mk, edgecolors='white', linewidths=0.3)
+        if instr['fp']:
+            ax.scatter(instr['fp'], yi, s=42, color='#1B5E20',
+                       zorder=9, marker='D', edgecolors='black', linewidths=0.6)
+        ax.axhline(yi, color='#ebebeb', lw=0.4, zorder=1)
+    prev = instruments_fig[0]['famille']
+    for yi, instr in enumerate(instruments_fig):
+        if instr['famille'] != prev:
+            ax.axhline(yi-0.5, color='#bbb', lw=0.8, ls='--', zorder=2)
+            prev = instr['famille']
+    ax.set_xlim(100,4500); ax.set_ylim(-0.8, n-0.1); ax.set_xscale('log')
+    ticks=[100,200,300,400,500,700,1000,1500,2000,3000,4000]
+    ax.set_xticks(ticks); ax.set_xticklabels([str(t) for t in ticks], fontsize=8)
+    ax.get_xaxis().set_major_formatter(matplotlib.ticker.ScalarFormatter())
+    ax.tick_params(axis='x', which='minor', bottom=False)
+    ax.set_xlabel("Fréquence (Hz)", fontsize=10, fontweight='bold')
+    ax.set_yticks(range(n))
+    ax.set_yticklabels([i['display'] for i in instruments_fig], fontsize=7.5)
+    for i, instr in enumerate(instruments_fig):
+        tk = ax.get_yticklabels()[i]
+        tk.set_color(FAM_COLORS_FIG.get(instr['famille'],'#555'))
+        tk.set_fontweight('bold')
+    for s in ['top','right']: ax.spines[s].set_visible(False)
+    leg = [mlines.Line2D([],[],marker='o',color='w',markerfacecolor=c,markersize=s,label=l)
+           for c,s,l in zip(FC,[8,6,5,3.5],['F1','F2','F3','F4'])]
+    leg.append(mlines.Line2D([],[],marker='D',color='w',markerfacecolor='#1B5E20',
+                              markeredgecolor='black',markersize=6,label='Fp centroïde'))
+    for fam,col in FAM_COLORS_FIG.items():
+        leg.append(mpatches.Patch(facecolor=col, label=fam))
+    ax.legend(handles=leg, loc='lower right', fontsize=7, framealpha=0.95,
+              ncol=2, title='Marqueurs / Familles', title_fontsize=7.5)
+    ax.set_title("Figure 1 — Positions formantiques des 27 instruments · "
+                 "F1–F4 + Fp centroïde · zones Meyer (2009) · CSV v22",
+                 fontsize=9, fontweight='bold', pad=8)
+    fig.subplots_adjust(left=0.14, right=0.97, top=0.95, bottom=0.07)
+    out = os.path.join(OUT_IMG, 'synthese_fig1_positions.png')
+    fig.savefig(out, dpi=150, facecolor='white'); plt.close(fig)
+    print(f"  ✓ Figure 1 : {out}"); return out
+
+
+def make_fig2():
+    try:
+        from adjustText import adjust_text
+        _has_adjusttext = True
+    except ImportError:
+        _has_adjusttext = False
+
+    fig, ax = plt.subplots(figsize=(14, 11), dpi=150)
+    vz_x = [(100,420,'#DCEEFB','/u/'),(380,620,'#D5ECD5','/o/'),
+             (580,850,'#FDE8CE','/å/'),(780,1350,'#F8D5D5','/a/'),
+             (1200,2700,'#E8D5F0','/e/'),(2500,4500,'#FFF8D0','/i/')]
+    for x0,x1,col,label in vz_x:
+        ax.axvspan(x0,x1,alpha=0.22,color=col,zorder=0)
+        ax.text(np.sqrt(x0*x1), 260, label, ha='center', va='bottom',
+                fontsize=8.5, color='#888', fontweight='bold')
+    xref = np.logspace(np.log10(120), np.log10(3000), 100)
+    ax.plot(xref, 2.2*xref, color='#ccc', lw=1.2, ls='--', alpha=0.6, zorder=1, label='_')
+    ax.text(1400, 2.2*1400*1.05, 'F2 ≈ 2·F1', fontsize=7.5,
+            color='#bbb', fontstyle='italic', rotation=22)
+    FAM_MK = {'Bois':'D','Saxophones':'P','Cuivres':'s','Cordes sol.':'o','Cordes ens.':'^'}
+    seen_fam = set(); texts = []
+    for instr in instruments_fig:
+        f1,f2 = instr['F'][0], instr['F'][1]
+        if not f1 or not f2: continue
+        fam = instr['famille']; col = FAM_COLORS_FIG.get(fam,'#555')
+        mk = FAM_MK.get(fam,'o')
+        lbl = fam if fam not in seen_fam else '_'; seen_fam.add(fam)
+        ax.scatter(f1, f2, s=100, color=col, marker=mk,
+                   edgecolors='white', linewidths=0.8, zorder=5, label=lbl, alpha=0.92)
+        if instr['fp']:
+            ax.scatter(instr['fp'], f2, s=40, color='#1B5E20', marker='D',
+                       edgecolors='black', lw=0.5, zorder=6, alpha=0.80, label='_')
+            ax.annotate('', xy=(instr['fp'],f2), xytext=(f1,f2),
+                        arrowprops=dict(arrowstyle='->', color='#1B5E20', lw=0.8, alpha=0.4))
+        t = ax.text(f1, f2, instr['display'], fontsize=7, color=col,
+                    fontweight='bold', zorder=7)
+        texts.append(t)
+    if _has_adjusttext:
+        adjust_text(texts, ax=ax, expand_points=(1.5,1.8), expand_text=(1.3,1.5),
+                    force_text=(0.4,0.6), force_points=(0.3,0.4),
+                    arrowprops=dict(arrowstyle='-', color='#aaa', lw=0.5), lim=300)
+    from matplotlib.patches import Ellipse
+    ax.add_patch(Ellipse((443,780), width=200, height=700, angle=10,
+                          fill=True, facecolor='#ffebee', edgecolor='#e53935',
+                          lw=2, ls='--', zorder=2, alpha=0.5))
+    ax.text(443, 1230, 'Zone /o/–/å/\n377–510 Hz', ha='center', fontsize=8,
+            color='#c62828', fontweight='bold', zorder=9)
+    ax.set_xlim(100,3500); ax.set_ylim(250,4200)
+    ax.set_xscale('log'); ax.set_yscale('log')
+    xt=[100,150,200,300,400,600,800,1200,2000,3000]
+    yt=[300,400,500,700,1000,1500,2000,3000,4000]
+    ax.set_xticks(xt); ax.set_xticklabels([str(t) for t in xt], fontsize=8)
+    ax.set_yticks(yt); ax.set_yticklabels([str(t) for t in yt], fontsize=8)
+    ax.get_xaxis().set_major_formatter(matplotlib.ticker.ScalarFormatter())
+    ax.get_yaxis().set_major_formatter(matplotlib.ticker.ScalarFormatter())
+    ax.set_xlabel("F1 — Premier formant (Hz)", fontsize=11, fontweight='bold')
+    ax.set_ylabel("F2 — Deuxième formant (Hz)", fontsize=11, fontweight='bold')
+    ax.grid(True, alpha=0.12, which='both')
+    for s in ['top','right']: ax.spines[s].set_visible(False)
+    hs,ls2 = ax.get_legend_handles_labels()
+    ch,cl,seen2 = [],[],set()
+    for h,l in zip(hs,ls2):
+        if l not in seen2 and not l.startswith('_'):
+            seen2.add(l); ch.append(h); cl.append(l)
+    ch.append(mlines.Line2D([],[],marker='D',color='w',markerfacecolor='#1B5E20',
+                              markeredgecolor='black',markersize=7,label='Fp centroïde'))
+    cl.append('Fp centroïde')
+    ax.legend(ch, cl, loc='lower right', fontsize=8.5, framealpha=0.95,
+              title='Familles', title_fontsize=9, borderpad=0.8)
+    ax.set_title("Figure 2 — Espace vocalique F1/F2 des 27 instruments de l'orchestre\n"
+                 "Convention phonétique : F1 (horizontal) × F2 (vertical) · "
+                 "zones Meyer (2009) · données CSV v22",
+                 fontsize=10, fontweight='bold', pad=12)
+    fig.subplots_adjust(left=0.09, right=0.97, top=0.93, bottom=0.08)
+    out = os.path.join(OUT_IMG, 'synthese_fig2_espace_vocalique.png')
+    fig.savefig(out, dpi=150, facecolor='white'); plt.close(fig)
+    print(f"  ✓ Figure 2 : {out}"); return out
+
+
+def make_fig3():
+    cluster = [
+        ('Contrebasse',172,'#546E7A','dotted', 1.6),('Tuba CB',226,'#37474F','dashdot',1.8),
+        ('Trombone',  237,'#7B1FA2','dashed', 2.0),('Tuba basse',226,'#616161','dotted',1.6),
+        ('Cor',       388,'#1565C0','solid',  2.5),('Alto',377,'#1976D2','dashed',1.8),
+        ('Sax alto',  398,'#AD1457','dashdot',2.0),('Cor anglais',452,'#2E7D32','solid',2.5),
+        ('Cl. Sib',   463,'#558B2F','dashed', 2.0),('Basson',495,'#4E342E','solid',2.5),
+        ('Violon',    506,'#0D47A1','solid',  2.5),
+    ]
+    fig, ax = plt.subplots(figsize=(14, 6.5), dpi=150)
+    for lo,hi,col,label in VOWEL_ZONES_FIG:
+        if lo < 3000:
+            ax.axvspan(lo,min(hi,3000),alpha=0.20,color=col,zorder=0)
+            ax.text(np.sqrt(lo*min(hi,3000)), 1.01, label, ha='center', va='bottom',
+                    fontsize=8, color='#777', fontweight='bold',
+                    transform=ax.get_xaxis_transform())
+    ax.axvspan(377,510,alpha=0.14,color='#e53935',zorder=1)
+    ax.axvline(377,color='#e53935',lw=1.2,ls=':',alpha=0.8,zorder=2)
+    ax.axvline(510,color='#e53935',lw=1.2,ls=':',alpha=0.8,zorder=2)
+    ax.text(443, 0.97, "Zone convergence\n377–510 Hz", ha='center', va='top',
+            fontsize=7.5, color='#C62828', fontweight='bold',
+            transform=ax.get_xaxis_transform(),
+            bbox=dict(boxstyle='round,pad=0.3',fc='white',ec='#e53935',alpha=0.92))
+    x = np.linspace(100, 3000, 3000)
+    for name,f1,color,ls,lw in cluster:
+        sigma = max(55, f1*0.18)
+        y = np.exp(-0.5*((x-f1)/sigma)**2)
+        ax.plot(x, y, color=color, lw=lw, ls=ls, alpha=0.9,
+                label=f"{name}  F1={f1} Hz", zorder=4)
+        ax.plot(f1, 1.0, marker='|', ms=14, color=color, mew=2.5, zorder=5)
+    ax.set_xlim(100,3000); ax.set_ylim(0,1.22); ax.set_xscale('log')
+    ticks=[100,150,200,300,400,500,700,1000,1500,2000,3000]
+    ax.set_xticks(ticks); ax.set_xticklabels([str(t) for t in ticks], fontsize=8)
+    ax.get_xaxis().set_major_formatter(matplotlib.ticker.ScalarFormatter())
+    ax.set_yticks([])
+    ax.set_xlabel("Fréquence (Hz) — axe logarithmique", fontsize=10, fontweight='bold')
+    for s in ['top','right','left']: ax.spines[s].set_visible(False)
+    ax.legend(loc='upper right', fontsize=7.5, framealpha=0.95, ncol=2,
+              title='Instruments (F1 strict CSV v22)', title_fontsize=8)
+    ax.set_title("Figure 3 — Enveloppes spectrales schématiques : "
+                 "11 instruments en zone /o/–/å/ · CSV v22",
+                 fontsize=9, fontweight='bold', pad=10)
+    fig.subplots_adjust(left=0.04, right=0.97, top=0.88, bottom=0.10)
+    out = os.path.join(OUT_IMG, 'synthese_fig3_cluster.png')
+    fig.savefig(out, dpi=150, facecolor='white'); plt.close(fig)
+    print(f"  ✓ Figure 3 : {out}"); return out
+
+
+# ─── Données communes pour Fig 1/2/3 ─────────────────────────
+_FP_FIG = {
+    'Piccolo':None,'Flute':1535,'Bass_Flute':1338,'Contrabass_Flute':1092,
+    'Oboe':1485,'English_Horn':1135,'Clarinet_Eb':1266,'Clarinet_Bb':1412,
+    'Bass_Clarinet_Bb':1204,'Contrabass_Clarinet_Bb':1090,'Bassoon':1079,
+    'Contrabassoon':1279,'Sax_Alto':1440,'Horn':738,'Trumpet_C':1046,
+    'Trombone':1218,'Bass_Trombone':1335,'Bass_Tuba':1239,'Contrabass_Tuba':1182,
+    'Violin':893,'Viola':None,'Violoncello':None,'Contrabass':None,
+    'Violin_Ensemble':None,'Viola_Ensemble':None,
+    'Violoncello_Ensemble':None,'Contrabass_Ensemble':None,
+}
+_DISPLAY_FIG = {
+    'Piccolo':'Petite flûte','Flute':'Flûte','Bass_Flute':'Flûte basse',
+    'Contrabass_Flute':'Fl. CB','Oboe':'Hautbois','English_Horn':'Cor anglais',
+    'Clarinet_Eb':'Cl. Mib','Clarinet_Bb':'Cl. Sib',
+    'Bass_Clarinet_Bb':'Cl. basse','Contrabass_Clarinet_Bb':'Cl. CB',
+    'Bassoon':'Basson','Contrabassoon':'Contrebasson','Sax_Alto':'Sax alto',
+    'Horn':'Cor','Trumpet_C':'Trompette','Trombone':'Trombone',
+    'Bass_Trombone':'Trb. basse','Bass_Tuba':'Tuba basse','Contrabass_Tuba':'Tuba CB',
+    'Violin':'Violon','Viola':'Alto','Violoncello':'Violoncelle',
+    'Contrabass':'Contrebasse','Violin_Ensemble':'Ens. Violons',
+    'Viola_Ensemble':'Ens. Altos','Violoncello_Ensemble':'Ens. Vcl.',
+    'Contrabass_Ensemble':'Ens. CB',
+}
+_FAMILLE_FIG = {
+    'Piccolo':'Bois','Flute':'Bois','Bass_Flute':'Bois','Contrabass_Flute':'Bois',
+    'Oboe':'Bois','English_Horn':'Bois','Clarinet_Eb':'Bois','Clarinet_Bb':'Bois',
+    'Bass_Clarinet_Bb':'Bois','Contrabass_Clarinet_Bb':'Bois',
+    'Bassoon':'Bois','Contrabassoon':'Bois','Sax_Alto':'Saxophones',
+    'Horn':'Cuivres','Trumpet_C':'Cuivres','Trombone':'Cuivres',
+    'Bass_Trombone':'Cuivres','Bass_Tuba':'Cuivres','Contrabass_Tuba':'Cuivres',
+    'Violin':'Cordes sol.','Viola':'Cordes sol.','Violoncello':'Cordes sol.',
+    'Contrabass':'Cordes sol.','Violin_Ensemble':'Cordes ens.',
+    'Viola_Ensemble':'Cordes ens.','Violoncello_Ensemble':'Cordes ens.',
+    'Contrabass_Ensemble':'Cordes ens.',
+}
+FAM_COLORS_FIG = {
+    'Bois':'#2E7D32','Saxophones':'#AD1457','Cuivres':'#B71C1C',
+    'Cordes sol.':'#1565C0','Cordes ens.':'#0D47A1',
+}
+VOWEL_ZONES_FIG = [
+    (100,400,'#DCEEFB','/u/'),(400,600,'#D5ECD5','/o/'),
+    (600,800,'#FDE8CE','/å/'),(800,1250,'#F8D5D5','/a/'),
+    (1250,2600,'#E8D5F0','/e/'),(2600,5000,'#FFF8D0','/i/'),
+]
+_ORDER_FIG = [
+    'Contrabass_Ensemble','Contrabass','Violoncello_Ensemble','Violoncello',
+    'Viola_Ensemble','Viola','Violin_Ensemble','Violin',
+    'Contrabass_Tuba','Bass_Tuba','Bass_Trombone','Trombone','Horn','Trumpet_C',
+    'Sax_Alto','Contrabassoon','Contrabass_Clarinet_Bb','Bass_Clarinet_Bb',
+    'Bassoon','Clarinet_Bb','English_Horn','Clarinet_Eb',
+    'Oboe','Contrabass_Flute','Bass_Flute','Flute','Piccolo',
+]
+instruments_fig = []
+for _inst in _ORDER_FIG:
+    _r = DATA.get((_inst,'ordinario')) or DATA.get((_inst,'non-vibrato'))
+    if not _r: continue
+    _fs = [round(float(_r[f'F{i}_hz'])) if float(_r.get(f'F{i}_hz',0) or 0)>0 else None
+           for i in range(1,5)]
+    instruments_fig.append({'csv':_inst,'display':_DISPLAY_FIG.get(_inst,_inst),
+                             'famille':_FAMILLE_FIG.get(_inst,'Autre'),
+                             'F':_fs,'fp':_FP_FIG.get(_inst)})
+
+# ─── Générer les 3 figures ───────────────────────────────────
+img_fig1 = make_fig1()
+img_fig2 = make_fig2()
+img_fig3 = make_fig3()
 
 def rel(img):
     return os.path.relpath(img, OUT_DIR).replace(os.sep, '/') if img else None
