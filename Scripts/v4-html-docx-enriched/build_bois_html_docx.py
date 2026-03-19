@@ -97,12 +97,13 @@ REF_TABLES = {
 ANALYSIS = {
     'Petite flûte': """Instrument le plus aigu spectralement de l'orchestre. Comme la grande flûte,
         il ne possède pas de formant fixe au sens strict — son énergie spectrale est concentrée dans les
-        hautes fréquences (F1=2 336 Hz, zone frontière /e/–/i/). Backus cite ~3 400 Hz, confirmant
-        la tendance spectrale aiguë. Variation dynamique : pp=1 963 Hz, mf=2 469 Hz, ff=2 417 Hz.""",
+        hautes fréquences (F1=1 109 Hz, zone /e/). Backus cite ~3 400 Hz correspondant au Fp ou au sommet
+        de la courbe de rayonnement. Fp non calculé dans le corpus actuel.
+        La variation dynamique est marquée : la piccolo projette dans les aigu extrêmes en forte.""",
 
     'Flûte': """La flûte <strong>ne possède pas de formant fixe</strong> (Meyer, Giesler) : son spectre
-        varie fortement avec le registre et le souffle. Les valeurs représentent des zones spectrales moyennes.
-        Écart entre sources : Backus (~1 700 Hz) vs SOL2020 (1 354 Hz), Δ=346 Hz.
+        varie fortement avec le registre et le souffle. F1 spectral strict = 743 Hz (zone /å/).
+        Écart entre sources : Backus (~1 700 Hz) vs SOL2020 (743 Hz strict, Fp=1 535 Hz).
         Le Fp centroïde à 1 535 Hz est plus stable que F1 (σ F1=480 Hz vs σ Fp≈150 Hz).
         La flûte est l'instrument harmoniquement le plus plastique de l'orchestre.""",
 
@@ -120,10 +121,10 @@ ANALYSIS = {
         zone de nasalité et d'intensité caractéristique du hautbois).
         L'anche double produit un spectre riche avec une coloration vocale /a/ médium.""",
 
-    'Cor anglais': """Son plus sombre et mélancolique que le hautbois. <strong>F1=452 Hz tombe dans le
-        cluster de convergence 450–502 Hz (zone /o/)</strong> — ce qui explique sa fusion naturelle avec
-        le cor (457 Hz), le basson (502 Hz) et le violoncelle (499 Hz). Backus cite ~930 Hz mais correspond
-        vraisemblablement au Fp ou F2. Fp=1 135 Hz.""",
+    'Cor anglais': """Son plus sombre et mélancolique que le hautbois. <strong>F1=452 Hz tombe dans la
+        zone /o/</strong> — ce qui explique sa convergence naturelle avec le cor (F1=388 Hz, Δ=64 Hz),
+        le basson (F1=495 Hz, Δ=43 Hz) et la clarinette Sib (F1=463 Hz, Δ=11 Hz).
+        Backus cite ~930 Hz correspondant vraisemblablement au Fp ou F2. Fp=1 135 Hz.""",
 
     'Clarinette en Mib': """Son brillant et incisif, plus perçant que la clarinette Sib.
         F1=678 Hz (zone /å/). La clarinette Mib est l'instrument le plus aigu de la famille.
@@ -142,79 +143,78 @@ ANALYSIS = {
         Comportement analogue à la clarinette Sib mais transposé d'une octave vers le grave.""",
 
     'Clarinette contrebasse en Sib': """Son extrêmement grave, puissant et bourdonnant.
-        F1=323 Hz identique à la clarinette basse, mais F2=937 Hz montre une résonance plus
+        F1=323 Hz identique à la clarinette basse, mais F2=947 Hz montre une résonance plus
         développée dans le medium. Timbre massif et enveloppant. Instrument rare.""",
 
-    'Basson': """<strong>Découverte clé : correction majeure</strong> — ancien F1=317 Hz (erreur de pipeline)
-        corrigé en 502 Hz. Accord unanime des 4 sources : Giesler (500) = Backus (440–500) = Meyer (~500) =
-        SOL2020 (502 Hz). Le basson est le <em>pivot timbral de l'orchestre</em> (Meyer) avec
-        Δ=3 Hz avec le violoncelle — la doublure la plus parfaite du corpus. F1=502 Hz au cœur du
-        cluster de convergence /o/ (450–502 Hz).""",
+    'Basson': """<strong>Pivot timbral de l'orchestre</strong> (Meyer). F1=495 Hz au cœur de la zone /o/.
+        Accord unanime des 4 sources : Giesler (500) = Backus (440–500) = Meyer (~500) = SOL2020 (495 Hz).
+        Convergences clés : Δ=11 Hz avec le violon (F1=506 Hz), Δ=43 Hz avec le cor anglais (F1=452 Hz),
+        Δ=107 Hz avec le cor (F1=388 Hz). Fp=1 079 Hz.""",
 
     'Contrebasson': """Son très grave et bourdonnant, fondation des bois graves.
-        F1=226 Hz (zone /u/), identique au tuba basse. Fp=1 279 Hz.
-        Technique analysée : non-vibrato uniquement (pas d'ordinario dans la base SOL2020/Yan_Adds).
-        Son rôle harmonique est identique au tuba contrebasse.""",
+        F1=226 Hz (zone /u/), identique au tuba basse et tuba contrebasse — unisson formantique
+        parfait entre ces trois instruments de différentes familles. Fp=1 279 Hz.
+        Technique analysée : non-vibrato uniquement (pas d'ordinario dans la base SOL2020/Yan_Adds).""",
 }
 
 # ─── Sections doublures par instrument ───────────────────────
 DOUBLURES = {
     'Petite flûte': [
-        {'instr':'Flûte',       'f1_a':'2 336','f1_b':'1 354','delta':'982','quality':'Complémentaire','rapport':'Octave','note':'Piccolo sonne une octave au-dessus de la grande flûte'},
-        {'instr':'Violon',      'f1_a':'2 336','f1_b':'1 034','delta':'1 302','quality':'Complémentaire','rapport':'Complémentaire','note':'Renforcement zone aiguë 2 000–3 000 Hz'},
+        {'instr':'Flûte',       'f1_a':'1 109','f1_b':'743','delta':366,'quality':'Complémentaire','rapport':'Octave','note':'Piccolo F1=1109, flûte F1=743 — piccolo sonne une octave au-dessus'},
+        {'instr':'Violon',      'f1_a':'1 109','f1_b':'506','delta':603,'quality':'Complémentaire','rapport':'Complémentaire','note':'Renforcement zone aiguë — complémentarité large bande'},
     ],
     'Flûte': [
-        {'instr':'Violon',       'f1_a':'1 354','f1_b':'1 034','delta':320,'quality':'Bonne','rapport':'Unisson','note':'Convergence zone 1 000–1 500 Hz, brillance partagée'},
-        {'instr':'Hautbois',     'f1_a':'1 354','f1_b':'1 460','delta':106,'quality':'Bonne','rapport':'Unisson','note':'Zone /e/ commune, légère différenciation de timbre'},
-        {'instr':'Clarinette Sib','f1_a':'1 354','f1_b':'1 016','delta':338,'quality':'Complémentaire','rapport':'Unisson','note':'Flûte + clarté de la clarinette dans le medium'},
+        {'instr':'Hautbois',     'f1_a':'743','f1_b':'743','delta':0,  'quality':'Quasi-parfaite ★','rapport':'Unisson','note':'Δ=0 Hz — unisson formantique parfait, 2 familles'},
+        {'instr':'Violon',       'f1_a':'743','f1_b':'506','delta':237,'quality':'Complémentaire','rapport':'Unisson','note':'Flûte /å/, violon /o/ — complémentarité medium'},
+        {'instr':'Clarinette Sib','f1_a':'743','f1_b':'463','delta':280,'quality':'Complémentaire','rapport':'Unisson','note':'Flûte /å/ + clarinette /o/ — couverture large bande'},
     ],
     'Flûte basse': [
-        {'instr':'Cor anglais',  'f1_a':'301','f1_b':'452','delta':151,'quality':'Bonne','rapport':'Unisson','note':'Complémentarité grave-medium, couleur sombre'},
-        {'instr':'Clarinette basse','f1_a':'301','f1_b':'323','delta':22,'quality':'Excellente','rapport':'Unisson','note':'Convergence zone /u/, fusion timbrale profonde'},
+        {'instr':'Cor anglais',  'f1_a':'301','f1_b':'452','delta':151,'quality':'Bonne','rapport':'Unisson','note':'Complémentarité /u/–/o/, couleur sombre grave'},
+        {'instr':'Clarinette basse','f1_a':'301','f1_b':'323','delta':22,'quality':'Excellente','rapport':'Unisson','note':'Δ=22 Hz — convergence /u/, fusion timbrale profonde'},
     ],
     'Flûte contrebasse': [
-        {'instr':'Contrebasse', 'f1_a':'334','f1_b':'200','delta':134,'quality':'Bonne','rapport':'Unisson','note':'Zone graves partagée /u/'},
-        {'instr':'Tuba basse',  'f1_a':'334','f1_b':'249','delta':85,'quality':'Bonne','rapport':'Unisson','note':'Renforcement des graves extrêmes'},
+        {'instr':'Contrebasse', 'f1_a':'334','f1_b':'172','delta':162,'quality':'Bonne','rapport':'Unisson','note':'Zone graves /u/ partagée'},
+        {'instr':'Tuba basse',  'f1_a':'334','f1_b':'226','delta':108,'quality':'Bonne','rapport':'Unisson','note':'Renforcement des graves extrêmes'},
     ],
     'Hautbois': [
-        {'instr':'Cor anglais',  'f1_a':'743','f1_b':'452','delta':291,'quality':'Complémentaire','rapport':'Unisson','note':'Hautbois + chaleur du cor anglais au grave'},
-        {'instr':'Violon',       'f1_a':'743','f1_b':'1 034','delta':291,'quality':'Complémentaire','rapport':'Unisson','note':'Enrichissement spectral bidirectionnel'},
+        {'instr':'Flûte',        'f1_a':'743','f1_b':'743','delta':0,  'quality':'Quasi-parfaite ★','rapport':'Unisson','note':'Δ=0 Hz — unisson formantique parfait'},
+        {'instr':'Cor anglais',  'f1_a':'743','f1_b':'452','delta':291,'quality':'Complémentaire','rapport':'Unisson','note':'Hautbois /å/ + cor anglais /o/ — complémentarité bois'},
+        {'instr':'Violon',       'f1_a':'743','f1_b':'506','delta':237,'quality':'Complémentaire','rapport':'Unisson','note':'Enrichissement spectral /å/–/o/'},
     ],
     'Cor anglais': [
-        {'instr':'Clarinette Sib','f1_a':'452','f1_b':'1 016','delta':564,'quality':'Complémentaire','rapport':'Unisson','note':'Complémentarité parfaite grave-aigu'},
-        {'instr':'Cor',          'f1_a':'452','f1_b':'457','delta':5,'quality':'Quasi-parfaite','rapport':'Unisson','note':'Cluster /o/ — convergence formantique maximale'},
-        {'instr':'Basson',       'f1_a':'452','f1_b':'502','delta':50,'quality':'Excellente','rapport':'Unisson','note':'Famille /o/ — bois graves homogènes'},
-        {'instr':'Violoncelle',  'f1_a':'452','f1_b':'499','delta':47,'quality':'Excellente','rapport':'Unisson','note':'Couleur /o/ commune — doublure bois-cordes classique'},
+        {'instr':'Cor',          'f1_a':'452','f1_b':'388','delta':64, 'quality':'Excellente','rapport':'Unisson','note':'Cor anglais + Cor — zone /o/ commune'},
+        {'instr':'Basson',       'f1_a':'452','f1_b':'495','delta':43, 'quality':'Excellente','rapport':'Unisson','note':'Famille /o/ — bois graves homogènes'},
+        {'instr':'Violoncelle',  'f1_a':'452','f1_b':'205','delta':247,'quality':'Complémentaire','rapport':'Octave','note':'Cor anglais /o/, violoncelle /u/ — complémentarité'},
+        {'instr':'Clarinette Sib','f1_a':'452','f1_b':'463','delta':11, 'quality':'Quasi-parfaite','rapport':'Unisson','note':'Δ=11 Hz — convergence /o/ quasi-parfaite'},
     ],
     'Clarinette en Mib': [
-        {'instr':'Petite flûte', 'f1_a':'678','f1_b':'2 336','delta':'1 658','quality':'Complémentaire','rapport':'Complémentaire','note':'Cl. Mib dans medium, Piccolo dans aigu extrême'},
-        {'instr':'Violon',       'f1_a':'678','f1_b':'1 034','delta':356,'quality':'Bonne','rapport':'Unisson','note':'Enrichissement du medium aigu'},
+        {'instr':'Petite flûte', 'f1_a':'678','f1_b':'1 109','delta':431,'quality':'Complémentaire','rapport':'Complémentaire','note':'Cl. Mib /å/, Piccolo en /e/ — complémentarité aiguë'},
+        {'instr':'Violon',       'f1_a':'678','f1_b':'506','delta':172,'quality':'Bonne','rapport':'Unisson','note':'Zone /å/–/o/ partagée'},
     ],
     'Clarinette en Sib': [
-        {'instr':'Cor anglais',  'f1_a':'1 016','f1_b':'1 045','delta':29,'quality':'Excellente','rapport':'Unisson','note':'Convergence Fp quasi-parfaite'},
-        {'instr':'Hautbois',     'f1_a':'1 016','f1_b':'1 460','delta':444,'quality':'Complémentaire','rapport':'Unisson','note':'Complémentarité chalumeau-registre moyen'},
-        {'instr':'Alto',         'f1_a':'1 016','f1_b':'369','delta':647,'quality':'Complémentaire','rapport':'Unisson','note':'Enrichissement spectral large bande'},
+        {'instr':'Cor anglais',  'f1_a':'463','f1_b':'452','delta':11, 'quality':'Quasi-parfaite','rapport':'Unisson','note':'Δ=11 Hz — convergence /o/ quasi-parfaite'},
+        {'instr':'Alto',         'f1_a':'463','f1_b':'377','delta':86, 'quality':'Bonne','rapport':'Unisson','note':'Zone /o/ commune — risque de masquage à surveiller'},
+        {'instr':'Hautbois',     'f1_a':'463','f1_b':'743','delta':280,'quality':'Complémentaire','rapport':'Unisson','note':'Cl. Sib /o/ + hautbois /å/ — complémentarité bois'},
     ],
     'Clarinette basse en Sib': [
-        {'instr':'Trombone basse', 'f1_a':'909','f1_b':'894','delta':15,'quality':'Quasi-parfaite','rapport':'Unisson','note':'Convergence dans la zone /a/'},
-        {'instr':'Clarinette Sib', 'f1_a':'909','f1_b':'1 016','delta':107,'quality':'Bonne','rapport':'Octave','note':'Clarinette Sib sonne une octave au-dessus'},
-        {'instr':'Basson',         'f1_a':'909','f1_b':'502','delta':407,'quality':'Complémentaire','rapport':'Unisson','note':'Enrichissement spectral grave-medium'},
+        {'instr':'Trombone basse','f1_a':'323','f1_b':'258','delta':65, 'quality':'Excellente','rapport':'Unisson','note':'Convergence /u/ — zone grave commune'},
+        {'instr':'Clarinette Sib','f1_a':'323','f1_b':'463','delta':140,'quality':'Bonne','rapport':'Octave','note':'Cl. Sib sonne une octave au-dessus'},
+        {'instr':'Contrebasson', 'f1_a':'323','f1_b':'226','delta':97, 'quality':'Bonne','rapport':'Unisson','note':'Zone /u/ grave partagée'},
     ],
     'Clarinette contrebasse en Sib': [
-        {'instr':'Contrebasson',  'f1_a':'323','f1_b':'226','delta':97,'quality':'Bonne','rapport':'Unisson','note':'Doublure contrebasse des bois'},
-        {'instr':'Tuba basse',    'f1_a':'323','f1_b':'249','delta':74,'quality':'Bonne','rapport':'Unisson','note':'Fondation grave commune'},
+        {'instr':'Contrebasson',  'f1_a':'323','f1_b':'226','delta':97, 'quality':'Bonne','rapport':'Unisson','note':'Doublure contrebasse des bois'},
+        {'instr':'Tuba basse',    'f1_a':'323','f1_b':'226','delta':97, 'quality':'Bonne','rapport':'Unisson','note':'Fondation grave commune /u/'},
     ],
     'Basson': [
-        {'instr':'Violoncelle',  'f1_a':'502','f1_b':'499','delta':3,'quality':'Quasi-parfaite ★','rapport':'Unisson','note':'Doublure la plus parfaite du corpus — Δ=3 Hz'},
-        {'instr':'Cor',          'f1_a':'502','f1_b':'457','delta':45,'quality':'Excellente','rapport':'Unisson','note':'Cluster /o/ — timbres frères (Meyer)'},
-        {'instr':'Trombone',     'f1_a':'502','f1_b':'491','delta':11,'quality':'Quasi-parfaite','rapport':'Unisson','note':'Cluster /o/ — doublure classique'},
-        {'instr':'Cor anglais',  'f1_a':'502','f1_b':'452','delta':50,'quality':'Excellente','rapport':'Unisson','note':'Famille /o/ des bois graves'},
-        {'instr':'Trompette',    'f1_a':'502','f1_b':'457','delta':45,'quality':'Complémentaire','rapport':'Octave','note':'Trompette sonne généralement une octave au-dessus'},
+        {'instr':'Violon',       'f1_a':'495','f1_b':'506','delta':11, 'quality':'Quasi-parfaite','rapport':'Unisson','note':'Δ=11 Hz — basson F1=495, violon F1=506, convergence /o/'},
+        {'instr':'Cor anglais',  'f1_a':'495','f1_b':'452','delta':43, 'quality':'Excellente','rapport':'Unisson','note':'Famille /o/ — bois graves'},
+        {'instr':'Cor',          'f1_a':'495','f1_b':'388','delta':107,'quality':'Bonne','rapport':'Unisson','note':'Zone /o/ — Δ=107 Hz, surveiller le masquage'},
+        {'instr':'Trombone',     'f1_a':'495','f1_b':'237','delta':258,'quality':'Complémentaire','rapport':'Unisson','note':'Basson /o/, trombone /u/ — complémentarité classique'},
     ],
     'Contrebasson': [
-        {'instr':'Tuba basse',        'f1_a':'226','f1_b':'249','delta':23,'quality':'Excellente','rapport':'Unisson','note':'Unisson des graves extrêmes'},
-        {'instr':'Contrebasse',       'f1_a':'226','f1_b':'200','delta':26,'quality':'Excellente','rapport':'Unisson','note':'Fondation grave bois-cordes'},
-        {'instr':'Tuba contrebasse',  'f1_a':'226','f1_b':'471','delta':245,'quality':'Complémentaire','rapport':'Complémentaire','note':'Extension harmonique vers le medium'},
+        {'instr':'Tuba basse',        'f1_a':'226','f1_b':'226','delta':0,  'quality':'Quasi-parfaite ★','rapport':'Unisson','note':'Δ=0 Hz — unisson formantique /u/'},
+        {'instr':'Tuba contrebasse',  'f1_a':'226','f1_b':'226','delta':0,  'quality':'Quasi-parfaite ★','rapport':'Octave','note':'Δ=0 Hz — unisson /u/ cuivres graves'},
+        {'instr':'Contrebasse',       'f1_a':'226','f1_b':'172','delta':54, 'quality':'Excellente','rapport':'Unisson','note':'Fondation grave bois-cordes'},
     ],
 }
 
@@ -308,9 +308,9 @@ sens strict — le spectre dépend fortement du registre.</li>
 linéairement au-dessus du fondamental.</li>
 </ul>
 <p><strong>Découverte clé :</strong> le <strong>cor anglais (F1=452 Hz)</strong> et le
-<strong>basson (F1=502 Hz)</strong> tombent dans le <em>cluster de convergence 450–502 Hz</em>,
-aux côtés du cor, du trombone et du violoncelle. Le basson présente une convergence Δ=3 Hz avec le
-violoncelle — la doublure formantiquement la plus parfaite du corpus.</p>
+<strong>basson (F1=495 Hz)</strong> sont dans la zone /o/ (400–600 Hz), aux côtés du cor (388 Hz)
+et du violon (506 Hz). Le cor anglais et la clarinette Sib convergent à Δ=11 Hz (452 vs 463 Hz).
+Le basson et le violon convergent également à Δ=11 Hz (495 vs 506 Hz).</p>
 </div>
 """
 
@@ -421,10 +421,9 @@ def build_docx(output_path):
     r = p.add_run("Découverte clé : ")
     r.bold = True
     r.font.color.rgb = RGBColor(198, 40, 40)
-    p.add_run("le cor anglais (F1=452 Hz) et le basson (F1=502 Hz) tombent dans le cluster de "
-              "convergence 450–502 Hz, aux côtés du cor, du trombone et du violoncelle. "
-              "Le basson présente une convergence Δ=3 Hz avec le violoncelle — "
-              "la doublure formantiquement la plus parfaite du corpus.")
+    p.add_run("le cor anglais (F1=452 Hz) et le basson (F1=495 Hz) sont dans la zone /o/. "
+              "Convergences clés : cor anglais + clarinette Sib Δ=11 Hz (452 vs 463 Hz), "
+              "basson + violon Δ=11 Hz (495 vs 506 Hz), cor anglais + cor Δ=64 Hz (452 vs 388 Hz).")
 
     # Famille Flûtes
     add_heading(doc, "Flûtes", level=2, color=(46, 125, 50))

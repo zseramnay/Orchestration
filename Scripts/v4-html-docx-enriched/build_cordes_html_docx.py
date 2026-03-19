@@ -61,16 +61,16 @@ REF_TABLES = {
         {'source':'SOL2020',        'f1':'200 ±169','f2':'593 ±312','f3':'1 200','f4':'—','voyelle':'u (oo)','n':'41','accord':'approx'},
     ],
     'Ensemble de violons': [
-        {'source':'SOL2020',  'f1':'1 556 ±289','f2':'2 895 ±451','f3':'4 321','f4':'—','voyelle':'e (eh)','n':'22','accord':'—'},
+        {'source':'SOL2020 (N=166)',  'f1':'495 ±89','f2':'1 163 ±312','f3':'1 970 ±389','f4':'—','voyelle':'o (oh)','n':'166','accord':'—'},
     ],
     "Ensemble d'altos": [
-        {'source':'SOL2020',  'f1':'1 190 ±201','f2':'2 401 ±378','f3':'3 614','f4':'—','voyelle':'a/e','n':'22','accord':'—'},
+        {'source':'SOL2020 (N=148)',  'f1':'366 ±62','f2':'764 ±198','f3':'1 389 ±287','f4':'—','voyelle':'å/o','n':'148','accord':'—'},
     ],
     'Ensemble de violoncelles': [
-        {'source':'Yan_Adds', 'f1':'587 ±87','f2':'1 193 ±211','f3':'2 087','f4':'—','voyelle':'å/o','n':'48','accord':'—'},
+        {'source':'SOL2020 (N=147)', 'f1':'205 ±48','f2':'474 ±156','f3':'775 ±201','f4':'—','voyelle':'u (oo)','n':'147','accord':'—'},
     ],
     'Ensemble de contrebasses': [
-        {'source':'Yan_Adds (non-vibrato)', 'f1':'350 ±112','f2':'891 ±201','f3':'1 823','f4':'—','voyelle':'u/o','n':'32','accord':'—'},
+        {'source':'SOL2020 (non-vibrato, N=76)', 'f1':'172 ±44','f2':'441 ±112','f3':'754 ±189','f4':'—','voyelle':'u (oo)','n':'76','accord':'—'},
     ],
 }
 
@@ -116,23 +116,27 @@ ANALYSIS = {
     'Contrebasse+sourdine': "Son très étouffé. La sourdine affecte principalement les harmoniques médiums.",
 
     # Ensembles
-    'Ensemble de violons': """En ensemble, le violon développe une <strong>zone /e/ caractéristique
-        à F1=1 556 Hz</strong> — bien plus haute qu'en solo (506 Hz / 893 Hz Fp).
-        Cet effet d'ensemble (fusion des partiels individuels) explique la brillance caractéristique
-        des sections de violons dans l'orchestre. La compression formantique de section est ici
-        clairement démontrée par les données.""",
+    'Ensemble de violons': """F1 ensemble = 495 Hz — <strong>quasi-identique au solo (506 Hz, Δ=−2 %)</strong>.
+        L'effet de section ne déplace pas F1 mais <em>lisse les harmoniques supérieurs</em> :
+        F2 passe de 1 518 Hz (solo) à 1 163 Hz (ensemble, −23 %) ; F3 de 2 347 à 1 970 Hz (−16 %).
+        Le résultat perceptif est un timbre plus <em>fondu</em> et homogène — moins de relief spectral
+        individuel, plus de continuité collective. C'est cet aplatissement de F2–F3 qui donne
+        aux sections de violons leur texture caractéristique, distincte du soliste.""",
 
-    "Ensemble d'altos": """F1 ensemble = 1 190 Hz, soit une élévation spectrale marquée par rapport
-        au solo (369 Hz). L'ensemble d'altos développe une couleur plus lumineuse que le soliste,
-        dans la zone /a/–/e/, expliquant son rôle de chant intermédiaire dans la texture orchestrale.""",
+    "Ensemble d'altos": """F1 ensemble = 366 Hz (zone /å/–/o/) — proche du solo (377 Hz, Δ=−3 %).
+        F2 passe de 829 Hz (solo) à 764 Hz (ensemble, −8 %). L'effet de section est plus modeste
+        pour l'alto que pour le violon, mais suit le même schéma d'homogénéisation des harmoniques
+        supérieurs. La couleur sombre et mélancolique de l'instrument est préservée en section.""",
 
-    'Ensemble de violoncelles': """F1 ensemble = 587 Hz (zone /å/–/o/), légèrement plus haut que le
-        solo (499 Hz). La section violoncelle conserve la couleur pleine /o/ tout en gagnant en
-        clarté collective. Elle reste dans la zone de convergence du cluster /o/.""",
+    'Ensemble de violoncelles': """F1 ensemble = 205 Hz — identique au solo.
+        F2 passe de 506 Hz (solo) à 474 Hz (ensemble, −6 %). La section violoncelle maintient
+        intégralement la couleur /o/ du soliste, avec un léger lissage des harmoniques supérieurs.
+        Elle reste dans la zone de convergence du cluster /o/ (450–502 Hz).""",
 
     'Ensemble de contrebasses': """Technique non-vibrato (seule disponible dans la base).
-        F1=350 Hz (zone /u/–/o/), plus haut que le solo (200 Hz). La section de contrebasses
-        développe une présence harmonique plus articulée que le soliste.""",
+        F1=172 Hz — identique au solo. F2 passe de 474 Hz (solo) à 441 Hz (ensemble, −7 %).
+        La fondation grave de l'orchestre reste strictement dans la zone /u/, avec
+        une homogénéisation légère des harmoniques médiums en section.""",
 
     'Ensemble de violons+sourdine': "Section avec sourdines. Atténuation collective, timbre soyeux et unifié.",
     "Ensemble d'altos+sourdine": "Section avec sourdines. Son plus intimiste et homogène.",
@@ -148,32 +152,32 @@ DOUBLURES = {
         {'instr':'Trompette',       'f1_a':'893 (Fp)','f1_b':'1 046 (Fp)','delta':153,'quality':'Bonne','rapport':'Octave','note':'Trompette sonne généralement une octave au-dessus'},
     ],
     'Ensemble de violons': [
-        {'instr':'Hautbois',        'f1_a':'1 556','f1_b':'1 460','delta':96,'quality':'Excellente','rapport':'Unisson','note':'Zone /e/ — convergence brillance'},
-        {'instr':'Flûte',           'f1_a':'1 556','f1_b':'1 354','delta':202,'quality':'Bonne','rapport':'Unisson','note':'Zone /e/ partagée'},
-        {'instr':'Petite flûte',    'f1_a':'1 556','f1_b':'2 336','delta':780,'quality':'Complémentaire','rapport':'Octave','note':'Piccolo sonne une octave au-dessus'},
-        {'instr':'Clarinette Mib',  'f1_a':'1 556','f1_b':'1 747','delta':191,'quality':'Bonne','rapport':'Unisson','note':'Zone /e/ — intensité'},
+        {'instr':'Hautbois',        'f1_a':'495','f1_b':'743 (F1)','delta':248,'quality':'Complémentaire','rapport':'Unisson','note':'F1 ens. violons proche de /o/, hautbois en /å/ — complémentarité'},
+        {'instr':'Flûte',           'f1_a':'495','f1_b':'743','delta':248,'quality':'Complémentaire','rapport':'Unisson','note':'Zone /o/–/å/ partagée'},
+        {'instr':'Violoncelle',     'f1_a':'495','f1_b':'205','delta':290,'quality':'Complémentaire','rapport':'Octave','note':'Complémentarité /o/–/u/ violons+violoncelles'},
+        {'instr':'Clarinette Sib',  'f1_a':'495','f1_b':'463','delta':32, 'quality':'Excellente','rapport':'Unisson','note':'Convergence /o/ — fusion cordes-bois'},
     ],
     'Alto': [
-        {'instr':'Cor anglais',     'f1_a':'369','f1_b':'452','delta':83,'quality':'Bonne','rapport':'Unisson','note':'Zone /o/–/å/ — couleur mélancolique'},
-        {'instr':'Clarinette basse','f1_a':'369','f1_b':'323','delta':46,'quality':'Excellente','rapport':'Octave','note':'Clarinette basse sonne environ une octave en dessous'},
-        {'instr':'Cor',             'f1_a':'369','f1_b':'457','delta':88,'quality':'Bonne','rapport':'Unisson','note':'Couleur sombre commune'},
+        {'instr':'Cor anglais',     'f1_a':'377','f1_b':'452','delta':75,'quality':'Bonne','rapport':'Unisson','note':'Zone /o/–/å/ — couleur mélancolique'},
+        {'instr':'Clarinette basse','f1_a':'377','f1_b':'323','delta':54,'quality':'Excellente','rapport':'Octave','note':'Clarinette basse sonne environ une octave en dessous'},
+        {'instr':'Cor',             'f1_a':'377','f1_b':'388','delta':11,'quality':'Quasi-parfaite','rapport':'Unisson','note':'Convergence /o/–/å/ — couleur sombre commune'},
     ],
     "Ensemble d'altos": [
-        {'instr':'Cor anglais',     'f1_a':'1 190','f1_b':'1 045','delta':145,'quality':'Bonne','rapport':'Unisson','note':'Zone /a/ — chaleur partagée'},
-        {'instr':'Clarinette Sib',  'f1_a':'1 190','f1_b':'1 016','delta':174,'quality':'Bonne','rapport':'Unisson','note':'Zone /a/ — fondu section médium'},
-        {'instr':'Cor',             'f1_a':'1 190','f1_b':'738 (Fp)','delta':452,'quality':'Complémentaire','rapport':'Unisson','note':'Enrichissement harmonique'},
+        {'instr':'Cor anglais',     'f1_a':'366','f1_b':'452','delta':86,'quality':'Bonne','rapport':'Unisson','note':'Zone /o/–/å/ — couleur mélancolique partagée'},
+        {'instr':'Clarinette Sib',  'f1_a':'366','f1_b':'463','delta':97,'quality':'Bonne','rapport':'Unisson','note':'Zone /o/–/å/ — fondu section médium'},
+        {'instr':'Cor',             'f1_a':'366','f1_b':'388','delta':22,'quality':'Excellente','rapport':'Unisson','note':'Convergence /o/–/å/ — couleur sombre commune'},
     ],
     'Violoncelle': [
-        {'instr':'Basson',          'f1_a':'499','f1_b':'502','delta':3,'quality':'Quasi-parfaite ★','rapport':'Unisson','note':'Δ=3 Hz — doublure formantiquement la plus parfaite du corpus'},
-        {'instr':'Cor',             'f1_a':'499','f1_b':'457','delta':42,'quality':'Excellente','rapport':'Unisson','note':'Cluster /o/ — fusion bois-cordes classique'},
-        {'instr':'Trombone',        'f1_a':'499','f1_b':'491','delta':8,'quality':'Quasi-parfaite','rapport':'Unisson','note':'Cluster /o/ — fondu cuivres-cordes'},
-        {'instr':'Cor anglais',     'f1_a':'499','f1_b':'452','delta':47,'quality':'Excellente','rapport':'Unisson','note':'Cluster /o/ — couleur sombre commune'},
-        {'instr':'Tuba contrebasse','f1_a':'499','f1_b':'471','delta':28,'quality':'Excellente','rapport':'Octave','note':'Tuba contrebasse sonne une octave en dessous'},
+        {'instr':'Basson',          'f1_a':'205','f1_b':'495','delta':290,'quality':'Complémentaire','rapport':'Unisson','note':'Basson en /o/, violoncelle en /u/ — complémentarité classique'},
+        {'instr':'Cor',             'f1_a':'205','f1_b':'388','delta':183,'quality':'Bonne','rapport':'Octave','note':'Cor une octave au-dessus — complémentarité /u/–/o/'},
+        {'instr':'Trombone',        'f1_a':'205','f1_b':'491','delta':286,'quality':'Complémentaire','rapport':'Octave','note':'Trombone Fp dans /o/, violoncelle en /u/'},
+        {'instr':'Cor anglais',     'f1_a':'205','f1_b':'452','delta':247,'quality':'Complémentaire','rapport':'Octave','note':'Complémentarité /u/–/o/'},
+        {'instr':'Tuba contrebasse','f1_a':'205','f1_b':'471','delta':266,'quality':'Complémentaire','rapport':'Octave','note':'Tuba CB en /o/, violoncelle en /u/'},
     ],
     'Ensemble de violoncelles': [
-        {'instr':'Cor anglais',     'f1_a':'587','f1_b':'452','delta':135,'quality':'Bonne','rapport':'Unisson','note':'Zone /o/–/å/ — plénitude commune'},
-        {'instr':'Basson',          'f1_a':'587','f1_b':'502','delta':85,'quality':'Bonne','rapport':'Unisson','note':'Zone /o/–/å/ — bois-cordes'},
-        {'instr':'Cor',             'f1_a':'587','f1_b':'457','delta':130,'quality':'Bonne','rapport':'Unisson','note':'Zone /o/ partagée'},
+        {'instr':'Cor anglais',     'f1_a':'205','f1_b':'452','delta':247,'quality':'Complémentaire','rapport':'Unisson','note':'Complémentarité /u/–/o/ — couleur grave + chaud'},
+        {'instr':'Basson',          'f1_a':'205','f1_b':'495','delta':290,'quality':'Complémentaire','rapport':'Octave','note':'Fondation grave + zone /o/ basson'},
+        {'instr':'Cor',             'f1_a':'205','f1_b':'388','delta':183,'quality':'Bonne','rapport':'Octave','note':'Zone /u/–/o/ complémentaire'},
     ],
     'Contrebasse': [
         {'instr':'Tuba basse',      'f1_a':'200','f1_b':'249','delta':49,'quality':'Bonne','rapport':'Unisson','note':'Fondation grave cordes-cuivres'},

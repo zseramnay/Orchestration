@@ -57,11 +57,12 @@ ANALYSIS = {
 
 DOUBLURES = {
     'Saxophone alto': [
-        {'instr':'Basson',       'f1_a':'398','f1_b':'502','delta':104,'quality':'Bonne','rapport':'Unisson','note':'Zone /o/ partagée, couleur boisée chaude'},
-        {'instr':'Cor anglais',  'f1_a':'398','f1_b':'452','delta':54, 'quality':'Excellente','rapport':'Unisson','note':'Proche du cluster /o/, bois graves expressifs'},
-        {'instr':'Cor',          'f1_a':'398','f1_b':'457','delta':59, 'quality':'Excellente','rapport':'Unisson','note':'Zone /o/ — bois-cuivres classique'},
-        {'instr':'Violoncelle',  'f1_a':'398','f1_b':'499','delta':101,'quality':'Bonne','rapport':'Unisson','note':'Zone /o/–/å/ — chant lyrique'},
-        {'instr':'Clarinette Sib','f1_a':'398','f1_b':'1 016','delta':618,'quality':'Complémentaire','rapport':'Octave','note':'Clarinette Sib sonne une octave au-dessus'},
+        {'instr':'Cor anglais',  'f1_a':'398','f1_b':'452','delta':54,  'quality':'Excellente','rapport':'Unisson','note':'Δ=54 Hz — zone /o/ proche, bois graves expressifs'},
+        {'instr':'Cor',          'f1_a':'398','f1_b':'388','delta':10,  'quality':'Quasi-parfaite','rapport':'Unisson','note':'Δ=10 Hz — convergence sax-cor, zone /o/–/å/'},
+        {'instr':'Basson',       'f1_a':'398','f1_b':'495','delta':97,  'quality':'Bonne','rapport':'Unisson','note':'Zone /o/ partagée — couleur boisée chaude'},
+        {'instr':'Alto',         'f1_a':'398','f1_b':'377','delta':21,  'quality':'Quasi-parfaite','rapport':'Unisson','note':'Δ=21 Hz — sax alto + alto, convergence /o/–/å/'},
+        {'instr':'Violoncelle',  'f1_a':'398','f1_b':'205','delta':193, 'quality':'Bonne','rapport':'Octave','note':'Sax /o/, violoncelle /u/ — complémentarité'},
+        {'instr':'Clarinette Sib','f1_a':'398','f1_b':'463','delta':65, 'quality':'Excellente','rapport':'Unisson','note':'Zone /o/ commune — Δ=65 Hz'},
     ],
 }
 

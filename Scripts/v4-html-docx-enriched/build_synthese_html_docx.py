@@ -18,71 +18,71 @@ load_all_csvs()
 
 # Instruments de base (pour la matrice principale)
 INSTRUMENTS_BASE = {
-    'Petite flûte':          {'f1': 2336, 'fp': None,  'famille': 'Bois',    'csv': 'Piccolo',          'tech': 'ordinario'},
+    'Petite flûte':          {'f1': 1109, 'fp': None,  'famille': 'Bois',    'csv': 'Piccolo',          'tech': 'ordinario'},
     'Flûte':                 {'f1':  743, 'fp': 1535,  'famille': 'Bois',    'csv': 'Flute',            'tech': 'ordinario'},
     'Hautbois':              {'f1':  743, 'fp': 1485,  'famille': 'Bois',    'csv': 'Oboe',             'tech': 'ordinario'},
     'Cor anglais':           {'f1':  452, 'fp': 1135,  'famille': 'Bois',    'csv': 'English_Horn',     'tech': 'ordinario'},
-    'Clarinette Sib':        {'f1': 1016, 'fp': 1412,  'famille': 'Bois',    'csv': 'Clarinet_Bb',      'tech': 'ordinario'},
+    'Clarinette Sib':        {'f1':  463, 'fp': 1412,  'famille': 'Bois',    'csv': 'Clarinet_Bb',      'tech': 'ordinario'},
     'Clarinette basse':      {'f1':  323, 'fp': 1204,  'famille': 'Bois',    'csv': 'Bass_Clarinet_Bb', 'tech': 'ordinario'},
-    'Basson':                {'f1':  502, 'fp': 1079,  'famille': 'Bois',    'csv': 'Bassoon',          'tech': 'ordinario'},
+    'Basson':                {'f1':  495, 'fp': 1079,  'famille': 'Bois',    'csv': 'Bassoon',          'tech': 'ordinario'},
     'Contrebasson':          {'f1':  226, 'fp': 1279,  'famille': 'Bois',    'csv': 'Contrabassoon',    'tech': 'non-vibrato'},
-    'Cor':                   {'f1':  457, 'fp':  738,  'famille': 'Cuivres', 'csv': 'Horn',             'tech': 'ordinario'},
+    'Cor':                   {'f1':  388, 'fp':  738,  'famille': 'Cuivres', 'csv': 'Horn',             'tech': 'ordinario'},
     'Trompette':             {'f1':  786, 'fp': 1046,  'famille': 'Cuivres', 'csv': 'Trumpet_C',        'tech': 'ordinario'},
-    'Trombone':              {'f1':  491, 'fp': 1218,  'famille': 'Cuivres', 'csv': 'Trombone',         'tech': 'ordinario'},
-    'Tuba contrebasse':      {'f1':  471, 'fp': 1182,  'famille': 'Cuivres', 'csv': 'Contrabass_Tuba',  'tech': 'ordinario'},
+    'Trombone':              {'f1':  237, 'fp': 1218,  'famille': 'Cuivres', 'csv': 'Trombone',         'tech': 'ordinario'},
+    'Tuba contrebasse':      {'f1':  226, 'fp': 1182,  'famille': 'Cuivres', 'csv': 'Contrabass_Tuba',  'tech': 'ordinario'},
     'Violon':                {'f1':  506, 'fp':  893,  'famille': 'Cordes',  'csv': 'Violin',           'tech': 'ordinario'},
-    'Ens. violons':          {'f1': 1556, 'fp': None,  'famille': 'Cordes',  'csv': 'Violin_Ensemble',  'tech': 'ordinario'},
-    'Alto':                  {'f1':  369, 'fp': None,  'famille': 'Cordes',  'csv': 'Viola',            'tech': 'ordinario'},
-    "Ens. altos":            {'f1': 1190, 'fp': None,  'famille': 'Cordes',  'csv': 'Viola_Ensemble',   'tech': 'ordinario'},
-    'Violoncelle':           {'f1':  499, 'fp': None,  'famille': 'Cordes',  'csv': 'Violoncello',      'tech': 'ordinario'},
-    'Ens. violoncelles':     {'f1':  587, 'fp': None,  'famille': 'Cordes',  'csv': 'Violoncello_Ensemble','tech':'ordinario'},
-    'Contrebasse':           {'f1':  200, 'fp': None,  'famille': 'Cordes',  'csv': 'Contrabass',       'tech': 'ordinario'},
-    'Ens. contrebasses':     {'f1':  350, 'fp': None,  'famille': 'Cordes',  'csv': 'Contrabass_Ensemble','tech':'non-vibrato'},
+    'Ens. violons':          {'f1':  495, 'fp': None,  'famille': 'Cordes',  'csv': 'Violin_Ensemble',  'tech': 'ordinario'},
+    'Alto':                  {'f1':  377, 'fp': None,  'famille': 'Cordes',  'csv': 'Viola',            'tech': 'ordinario'},
+    "Ens. altos":            {'f1':  366, 'fp': None,  'famille': 'Cordes',  'csv': 'Viola_Ensemble',   'tech': 'ordinario'},
+    'Violoncelle':           {'f1':  205, 'fp': None,  'famille': 'Cordes',  'csv': 'Violoncello',      'tech': 'ordinario'},
+    'Ens. violoncelles':     {'f1':  205, 'fp': None,  'famille': 'Cordes',  'csv': 'Violoncello_Ensemble','tech':'ordinario'},
+    'Contrebasse':           {'f1':  172, 'fp': None,  'famille': 'Cordes',  'csv': 'Contrabass',       'tech': 'ordinario'},
+    'Ens. contrebasses':     {'f1':  172, 'fp': None,  'famille': 'Cordes',  'csv': 'Contrabass_Ensemble','tech':'non-vibrato'},
 }
 
 # Instruments supplémentaires avec sourdines
 INSTRUMENTS_SORDINES = {
-    'Petite flûte':          {'f1': 2336, 'fp': None,  'famille': 'Bois'},
+    'Petite flûte':          {'f1': 1109, 'fp': None,  'famille': 'Bois'},
     'Flûte':                 {'f1':  743, 'fp': 1535,  'famille': 'Bois'},
     'Flûte basse':           {'f1':  301, 'fp': 1338,  'famille': 'Bois'},
     'Flûte contrebasse':     {'f1':  334, 'fp': 1092,  'famille': 'Bois'},
     'Hautbois':              {'f1':  743, 'fp': 1485,  'famille': 'Bois'},
     'Cor anglais':           {'f1':  452, 'fp': 1135,  'famille': 'Bois'},
     'Clarinette Mib':        {'f1':  678, 'fp': 1266,  'famille': 'Bois'},
-    'Clarinette Sib':        {'f1': 1016, 'fp': 1412,  'famille': 'Bois'},
+    'Clarinette Sib':        {'f1':  463, 'fp': 1412,  'famille': 'Bois'},
     'Clarinette basse':      {'f1':  323, 'fp': 1204,  'famille': 'Bois'},
     'Cl. contrebasse':       {'f1':  323, 'fp': 1090,  'famille': 'Bois'},
-    'Basson':                {'f1':  502, 'fp': 1079,  'famille': 'Bois'},
+    'Basson':                {'f1':  495, 'fp': 1079,  'famille': 'Bois'},
     'Contrebasson':          {'f1':  226, 'fp': 1279,  'famille': 'Bois'},
-    'Cor':                   {'f1':  457, 'fp':  738,  'famille': 'Cuivres'},
-    'Cor+sourdine':          {'f1':  344, 'fp': None,  'famille': 'Cuivres'},
+    'Cor':                   {'f1':  388, 'fp':  738,  'famille': 'Cuivres'},
+    'Cor+sourdine':          {'f1':  344, 'fp':  804,  'famille': 'Cuivres'},
     'Trompette':             {'f1':  786, 'fp': 1046,  'famille': 'Cuivres'},
-    'Tpt+sourd. straight':   {'f1': 1098, 'fp': None,  'famille': 'Cuivres'},
-    'Tpt+sourd. cup':        {'f1': 1443, 'fp': None,  'famille': 'Cuivres'},
-    'Tpt+sourd. harmon':     {'f1': 2358, 'fp': None,  'famille': 'Cuivres'},
-    'Trombone':              {'f1':  491, 'fp': 1218,  'famille': 'Cuivres'},
-    'Trb+sourd. straight':   {'f1':  596, 'fp': None,  'famille': 'Cuivres'},
-    'Trb+sourd. cup':        {'f1':  430, 'fp': None,  'famille': 'Cuivres'},
-    'Trb+sourd. harmon':     {'f1':  162, 'fp': None,  'famille': 'Cuivres'},
-    'Trombone basse':        {'f1':  894, 'fp': 1335,  'famille': 'Cuivres'},
-    'Tuba basse':            {'f1':  249, 'fp': 1239,  'famille': 'Cuivres'},
-    'Tuba basse+sord.':      {'f1':  249, 'fp': None,  'famille': 'Cuivres'},
-    'Tuba contrebasse':      {'f1':  471, 'fp': 1182,  'famille': 'Cuivres'},
+    'Tpt+sourd. straight':   {'f1': 1098, 'fp': 1084,  'famille': 'Cuivres'},
+    'Tpt+sourd. cup':        {'f1': 1443, 'fp': 1260,  'famille': 'Cuivres'},
+    'Tpt+sourd. harmon':     {'f1': 2358, 'fp': 1443,  'famille': 'Cuivres'},
+    'Trombone':              {'f1':  237, 'fp': 1218,  'famille': 'Cuivres'},
+    'Trb+sourd. straight':   {'f1':  226, 'fp': 1215,  'famille': 'Cuivres'},
+    'Trb+sourd. cup':        {'f1':  366, 'fp': 1121,  'famille': 'Cuivres'},
+    'Trb+sourd. harmon':     {'f1':  162, 'fp': 1092,  'famille': 'Cuivres'},
+    'Trombone basse':        {'f1':  258, 'fp': 1335,  'famille': 'Cuivres'},
+    'Tuba basse':            {'f1':  226, 'fp': 1239,  'famille': 'Cuivres'},
+    'Tuba basse+sord.':      {'f1':  226, 'fp': 1220,  'famille': 'Cuivres'},
+    'Tuba contrebasse':      {'f1':  226, 'fp': 1182,  'famille': 'Cuivres'},
     'Violon':                {'f1':  506, 'fp':  893,  'famille': 'Cordes'},
-    'Violon+sourdine':       {'f1':  471, 'fp': None,  'famille': 'Cordes'},
-    'Ens. violons':          {'f1': 1556, 'fp': None,  'famille': 'Cordes'},
-    'Ens. violons+sord.':    {'f1': 1423, 'fp': None,  'famille': 'Cordes'},
-    'Alto':                  {'f1':  369, 'fp': None,  'famille': 'Cordes'},
-    'Alto+sourdine':         {'f1':  369, 'fp': None,  'famille': 'Cordes'},
-    "Ens. altos":            {'f1': 1190, 'fp': None,  'famille': 'Cordes'},
-    "Ens. altos+sord.":      {'f1': 1081, 'fp': None,  'famille': 'Cordes'},
-    'Violoncelle':           {'f1':  499, 'fp': None,  'famille': 'Cordes'},
-    'Vcl+sourdine':          {'f1':  483, 'fp': None,  'famille': 'Cordes'},
-    'Vcl+sourd. piombo':     {'f1':  460, 'fp': None,  'famille': 'Cordes'},
-    'Ens. violoncelles':     {'f1':  587, 'fp': None,  'famille': 'Cordes'},
-    'Ens. vcl+sord.':        {'f1':  551, 'fp': None,  'famille': 'Cordes'},
-    'Contrebasse':           {'f1':  200, 'fp': None,  'famille': 'Cordes'},
-    'Ens. contrebasses':     {'f1':  350, 'fp': None,  'famille': 'Cordes'},
+    'Violon+sourdine':       {'f1':  366, 'fp': None,  'famille': 'Cordes'},
+    'Ens. violons':          {'f1':  495, 'fp': None,  'famille': 'Cordes'},
+    'Ens. violons+sord.':    {'f1':  355, 'fp': None,  'famille': 'Cordes'},
+    'Alto':                  {'f1':  377, 'fp': None,  'famille': 'Cordes'},
+    'Alto+sourdine':         {'f1':  344, 'fp': None,  'famille': 'Cordes'},
+    "Ens. altos":            {'f1':  366, 'fp': None,  'famille': 'Cordes'},
+    "Ens. altos+sord.":      {'f1':  291, 'fp': None,  'famille': 'Cordes'},
+    'Violoncelle':           {'f1':  205, 'fp': None,  'famille': 'Cordes'},
+    'Vcl+sourdine':          {'f1':  205, 'fp': None,  'famille': 'Cordes'},
+    'Vcl+sourd. piombo':     {'f1':  172, 'fp': None,  'famille': 'Cordes'},
+    'Ens. violoncelles':     {'f1':  205, 'fp': None,  'famille': 'Cordes'},
+    'Ens. vcl+sord.':        {'f1':  205, 'fp': None,  'famille': 'Cordes'},
+    'Contrebasse':           {'f1':  172, 'fp': None,  'famille': 'Cordes'},
+    'Ens. contrebasses':     {'f1':  172, 'fp': None,  'famille': 'Cordes'},
 }
 
 FAMILLE_COLORS = {
@@ -304,26 +304,30 @@ def rel(img):
 # ═══════════════════════════════════════════════════════════
 DOUBLURES_VERIFIEES = [
     # (inst_a, f1_a, inst_b, f1_b, delta, qualité, zone, rapport, note)
-    ('Basson',        502, 'Violoncelle',      499, 3,   'Quasi-parfaite ★', '/o/', 'Unisson',       'Timbres frères Meyer — Δ minimal du corpus'),
-    ('Trombone',      491, 'Violoncelle',      499, 8,   'Quasi-parfaite',   '/o/', 'Unisson',       'Cluster /o/ — fondation orchestre'),
-    ('Trombone',      491, 'Tuba contrebasse', 471, 20,  'Quasi-parfaite',   '/o/', 'Octave',        'Trombone sonne une octave au-dessus'),
-    ('Cor',           457, 'Tuba contrebasse', 471, 14,  'Quasi-parfaite',   '/o/', 'Octave',        'Cor sonne une octave au-dessus'),
-    ('Cor anglais',   452, 'Cor',              457, 5,   'Quasi-parfaite',   '/o/', 'Unisson',       'Cluster /o/ — bois-cuivres'),
-    ('Trombone',      491, 'Basson',           502, 11,  'Quasi-parfaite',   '/o/', 'Unisson',       'Cluster /o/'),
-    ('Cor',           457, 'Violoncelle',      499, 42,  'Excellente',       '/o/', 'Unisson',       'Fusion bois-cordes classique'),
-    ('Cor anglais',   452, 'Basson',           502, 50,  'Excellente',       '/o/', 'Unisson',       'Famille /o/ des bois graves'),
-    ('Cor anglais',   452, 'Violoncelle',      499, 47,  'Excellente',       '/o/', 'Unisson',       'Cluster /o/ bois-cordes'),
-    ('Cor',           457, 'Basson',           502, 45,  'Excellente',       '/o/', 'Unisson',       'Cluster /o/ — timbres frères'),
-    ('Trb. basse',    894, 'Cl. basse',        909, 15,  'Quasi-parfaite',   '/a/', 'Unisson',       'Zone /a/ — puissance grave'),
-    ('Cl. Sib',      1016, 'Cor anglais Fp',  1045, 29,  'Excellente',       '/a/', 'Unisson',       'Zone /a/ — Fp convergence'),
-    ('Trombone',      491, 'Cor anglais',      452, 39,  'Excellente',       '/o/', 'Unisson',       'Cluster /o/ bois-cuivres'),
-    ('Contrebasson',  226, 'Tuba basse',       249, 23,  'Excellente',       '/u/', 'Unisson',       'Fondation grave extrême'),
-    ('Contrebasson',  226, 'Contrebasse',      200, 26,  'Excellente',       '/u/', 'Unisson',       'Graves extrêmes bois-cordes'),
-    ('Ens. violons', 1556, 'Hautbois',        1460, 96,  'Excellente',       '/e/', 'Unisson',       'Zone /e/ — brillance'),
-    ('Violon Fp',     893, 'Cl. Sib Fp',      1412,519,  'Complémentaire',   '/a/', 'Unisson',       'Enrichissement spectral'),
-    ('Hautbois',      743, 'Violon Fp',        893, 150, 'Bonne',            '/å/', 'Unisson',       'Zone medium'),
-    ('Flûte Fp',     1535, 'Hautbois',        1460, 75,  'Bonne',            '/e/', 'Unisson',       'Zone /e/ partagée'),
-    ('Cor Fp',        738, 'Trompette Fp',    1046, 308, 'Complémentaire',   '/a/', 'Unisson',       'Homogénéité cuivres'),
+    # ─── Unissons formantiques (Δ = 0 Hz) ────────────────────────────
+    ('Flûte',         743, 'Hautbois',           743,   0, 'Quasi-parfaite ★', '/å/', 'Unisson',   'Δ=0 Hz — unisson formantique parfait, 2 familles'),
+    ('Tuba CB',       226, 'Contrebasson',        226,   0, 'Quasi-parfaite ★', '/u/', 'Unisson',   'Δ=0 Hz — unisson /u/ cuivres-bois'),
+    ('Tuba CB',       226, 'Tuba basse',          226,   0, 'Quasi-parfaite ★', '/u/', 'Octave',    'Δ=0 Hz — unisson /u/ cuivres graves'),
+    # ─── Convergences très fortes (Δ ≤ 30 Hz) ────────────────────────
+    ('Cor',           388, 'Alto',                377,  11, 'Quasi-parfaite',   '/o/', 'Unisson',   'Cor F1=388, Alto F1=377 — convergence /o/–/å/'),
+    ('Cor anglais',   452, 'Cl. Sib',             463,  11, 'Quasi-parfaite',   '/o/', 'Unisson',   'Convergence /o/ — bois graves'),
+    ('Violon',        506, 'Basson',              495,  11, 'Quasi-parfaite',   '/o/', 'Unisson',   'Violon F1=506, Basson F1=495 — convergence /o/'),
+    ('Trombone',      237, 'Tuba basse',          226,  11, 'Quasi-parfaite',   '/u/', 'Octave',    'Cluster /u/ — fondation orchestre'),
+    ('Trombone',      237, 'Tuba CB',             226,  11, 'Quasi-parfaite',   '/u/', 'Octave',    'Cluster /u/ — cuivres graves'),
+    ('Trombone',      237, 'Contrebasson',        226,  11, 'Quasi-parfaite',   '/u/', 'Unisson',   'Cluster /u/ — bois-cuivres'),
+    ('Trombone',      237, 'Trb. basse',          258,  21, 'Quasi-parfaite',   '/u/', 'Unisson',   'Section trombone — homogénéité /u/'),
+    ('Trb. basse Fp',1335, 'Cl. basse Fp',       1204, 131, 'Bonne',            '/a/', 'Unisson',   'Convergence Fp zone /a/ — puissance grave'),
+    ('Cl. Sib Fp',   1412, 'Cor anglais Fp',     1135, 277, 'Complémentaire',   '/a/', 'Unisson',   'Fp zone /a/ — complémentarité bois'),
+    # ─── Convergences fortes (Δ 30–80 Hz) ────────────────────────────
+    ('Contrebasson',  226, 'Contrebasse',         172,  54, 'Excellente',       '/u/', 'Unisson',   'Fondation grave bois-cordes'),
+    ('Cor anglais',   452, 'Cor',                 388,  64, 'Excellente',       '/o/', 'Unisson',   'Cor anglais + Cor — proches en /o/'),
+    # ─── Complémentarités spectrales (Δ > 200 Hz) ───────────────────
+    ('Trompette',     786, 'Trombone',            237, 549, 'Complémentaire',   '/å/+/u/', 'Octave','Enrichissement large bande cuivres'),
+    ('Violon',        506, 'Violoncelle',         205, 301, 'Complémentaire',   '/o/+/u/', 'Octave','Section cordes — couverture /u/→/o/'),
+    ('Hautbois',      743, 'Basson',              495, 248, 'Complémentaire',   '/å/+/o/', 'Unisson','Dialogue bois classique /å/–/o/'),
+    ('Flûte',         743, 'Cl. Sib',             463, 280, 'Complémentaire',   '/å/+/o/', 'Unisson','Bois /å/ + bois /o/ — large couverture'),
+    ('Cor Fp',        738, 'Trompette Fp',       1046, 308, 'Complémentaire',   '/a/', 'Unisson',   'Fp : homogénéité cuivres médiums'),
+    ('Flûte Fp',     1535, 'Cl. Sib Fp',         1412, 123, 'Bonne',            '/e/', 'Unisson',   'Fp zone /e/ — brillance bois'),
 ]
 
 # ═══════════════════════════════════════════════════════════
@@ -472,15 +476,20 @@ Les cellules vertes correspondent aux doublures acoustiquement justifiées.</p>
 
     # 4. Tableau doublures vérifiées
     html += '<h2 id="doublures-verifiees">Tableau des Doublures Vérifiées</h2>\n'
-    html += '<p>Classées par écart Δ croissant. Toutes les valeurs proviennent des CSV validés (pipeline v22).</p>\n'
+    html += '<p>Classées par écart Δ croissant. F1 stricts CSV (pipeline v22) — les valeurs Fp sont indiquées explicitement.</p>\n'
     html += '<table class="ref-table">\n'
-    html += '<tr class="header"><th>#</th><th>Instrument A</th><th>F1 A (Hz)</th><th>Instrument B</th><th>F1 B (Hz)</th><th>Δ (Hz)</th><th>Qualité</th><th>Zone</th><th>Rapport tessiture</th><th>Note</th></tr>\n'
-    for i, (a, f1a, b, f1b, delta, quality, zone, rapport, note) in enumerate(sorted(DOUBLURES_VERIFIEES, key=lambda x: x[4]), 1):
-        bg = ' style="background-color:#d5f5e3;"' if delta <= 30 else (
-             ' style="background-color:#eafaf1;"' if delta <= 80 else '')
-        rapport_color = {'Unisson':'#1B5E20','Octave':'#1565C0','2 octaves':'#4A148C','Complémentaire':'#E65100'}.get(rapport,'#555')
+    html += '<tr class="header"><th>#</th><th>Instrument A</th><th>F1 A (Hz)</th><th>Instrument B</th><th>F1 B (Hz)</th><th>Δ (Hz)</th><th>Qualité</th><th>Zone</th><th>Rapport</th><th>Note</th></tr>\n'
+    sortable = [(row[4] if row[4] is not None else 9999, row) for row in DOUBLURES_VERIFIEES]
+    for i, (_, row) in enumerate(sorted(sortable, key=lambda x: x[0]), 1):
+        a, f1a, b, f1b, delta, quality, zone, rapport, note = row
+        f1a_str  = str(f1a) if f1a is not None else '—'
+        f1b_str  = str(f1b) if f1b is not None else '—'
+        delta_str = f'<b>{delta}</b>' if delta is not None else '—'
+        bg = ' style="background-color:#d5f5e3;"' if delta is not None and delta <= 30 else (
+             ' style="background-color:#eafaf1;"' if delta is not None and delta <= 80 else '')
+        rapport_color = {'Unisson':'#1B5E20','Octave':'#1565C0','Complémentaire':'#E65100'}.get(rapport,'#555')
         rapport_html = f'<span style="color:{rapport_color};font-weight:bold;">{rapport}</span>'
-        html += f'<tr{bg}><td>{i}</td><td><b>{a}</b></td><td>{f1a}</td><td><b>{b}</b></td><td>{f1b}</td><td><b>{delta}</b></td><td>{quality}</td><td>{zone}</td><td>{rapport_html}</td><td>{note}</td></tr>\n'
+        html += f'<tr{bg}><td>{i}</td><td><b>{a}</b></td><td>{f1a_str}</td><td><b>{b}</b></td><td>{f1b_str}</td><td>{delta_str}</td><td>{quality}</td><td>{zone}</td><td>{rapport_html}</td><td>{note}</td></tr>\n'
     html += '</table>\n'
 
     # 5. Principes d'orchestration
@@ -586,10 +595,14 @@ def build_docx(output_path):
     for idx, h in enumerate(['Inst. A','F1 A','Inst. B','F1 B','Δ (Hz)','Qualité','Zone','Rapport']):
         set_cell_text(table2.rows[0].cells[idx], h, bold=True, size=8, color=(255,255,255))
         set_cell_shading(table2.rows[0].cells[idx], '1B5E20')
-    for a, f1a, b, f1b, delta, quality, zone, rapport, note in sorted(DOUBLURES_VERIFIEES, key=lambda x: x[4]):
+    sortable = [(row[4] if row[4] is not None else 9999, row) for row in DOUBLURES_VERIFIEES]
+    for _, (a, f1a, b, f1b, delta, quality, zone, rapport, note) in sorted(sortable, key=lambda x: x[0]):
         row = table2.add_row().cells
-        fill = 'D5F5E3' if delta <= 30 else ('EAFAF1' if delta <= 80 else None)
-        for idx, v in enumerate([a, str(f1a), b, str(f1b), str(delta), quality, zone, rapport]):
+        fill = 'D5F5E3' if delta is not None and delta <= 30 else ('EAFAF1' if delta is not None and delta <= 80 else None)
+        for idx, v in enumerate([a, str(f1a) if f1a is not None else '—',
+                                   b, str(f1b) if f1b is not None else '—',
+                                   str(delta) if delta is not None else '—',
+                                   quality, zone, rapport]):
             set_cell_text(row[idx], v, bold=(idx in (0,2)), size=8)
             if fill:
                 set_cell_shading(row[idx], fill)

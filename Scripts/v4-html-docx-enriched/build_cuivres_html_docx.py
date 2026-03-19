@@ -80,95 +80,96 @@ REF_TABLES = {
 # ─── Analyses par instrument ──────────────────────────────────
 ANALYSIS = {
     'Cor en Fa': """Son rond et chaleureux, emblématique de la noblesse orchestrale.
-        <strong>F1=457 Hz se situe dans le cluster de convergence 450–502 Hz (zone /o/)</strong>.
-        Accord unanime des 4 sources (Backus 400–500, Giesler 250–500, Meyer ~450, SOL 457 Hz).
+        <strong>F1=388 Hz (zone /o/–/å/)</strong>. Accord unanime des 4 sources
+        (Backus 400–500, Giesler 250–500, Meyer ~450, SOL 388 Hz).
         Le Fp centroïde à 738 Hz est 6.5× plus stable que F2 (σ=734 Hz). Grande homogénéité
-        spectrale inter-dynamiques. Le cor est l'instrument cuivre le plus versatile en termes de
-        doublures orchestrales.""",
+        spectrale inter-dynamiques. Convergences clés : cor + alto Δ=11 Hz (388 vs 377 Hz),
+        cor + cor anglais Δ=64 Hz (388 vs 452 Hz). Le cor est l'instrument cuivre le plus
+        versatile en termes de doublures orchestrales.""",
 
     'Trompette en Ut': """Son brillant et incisif, grande projection.
         <strong>F1 extrêmement variable</strong> (σ=642 Hz) selon le registre et la dynamique :
         pp=523 Hz, mf=786 Hz, ff=1 134 Hz. Le Fp centroïde à 1 046 Hz est remarquablement stable
-        (σ=98 Hz), 10.4× plus stable que F2 (σ=1 018 Hz). Les sources divergent fortement
-        (Backus 1 000–1 500, SOL 786–1 324) car chaque source capture un registre différent.
-        Fp=1 046 Hz est la mesure la plus représentative du timbre global.""",
+        (σ=98 Hz), 10.4× plus stable que F2 (σ=1 018 Hz). F1 strict = 786 Hz (zone /å/).
+        Les sources divergent fortement (Backus 1 000–1 500, SOL 786–1 324) car chaque source
+        capture un registre différent. Fp=1 046 Hz est la mesure la plus représentative.""",
 
     'Trombone ténor': """Son plein et puissant, grande projection, très grande homogénéité spectrale.
-        <strong>F1=491 Hz dans le cluster de convergence</strong> (zone /o/).
-        Accord excellent entre toutes les sources (Backus 500, Giesler 520–600, Meyer 480–600,
-        SOL 491 Hz — variation max 109 Hz). Fp centroïde à 1 218 Hz. Instrument qui maintient
-        remarquablement sa couleur vocalique /o/ à travers toute la dynamique.""",
+        <strong>F1=237 Hz (zone /u/)</strong>. Accord excellent entre toutes les sources pour le
+        Fp (Backus 500, Giesler 520–600, Meyer 480–600 correspondent au Fp=1 218 Hz, pas au F1 strict).
+        Le F1 spectral strict à 237 Hz place le trombone en /u/ — sa fusion avec les instruments
+        de la zone /o/ opère via le Fp centroïde à 1 218 Hz.""",
 
     'Trombone basse': """Son profond et puissant, plus sombre que le ténor.
-        <strong>F1=894 Hz (zone /a/)</strong> — contrairement au trombone ténor (491 Hz, zone /o/),
-        le trombone basse est acoustiquement hors du cluster /o/. Sa tessiture grave déplace le
-        formant principal vers la zone de puissance /a/. Fp=1 335 Hz. Pas de données dans les
-        sources académiques classiques (instrument moins étudié).""",
+        <strong>F1=258 Hz (zone /u/)</strong> — proche du trombone ténor (237 Hz, Δ=21 Hz).
+        La section trombone est acoustiquement homogène en F1. Fp=1 335 Hz (zone /a/).
+        Pas de données dans les sources académiques classiques (instrument moins étudié).""",
 
     'Tuba basse': """Son profond et rond, fondation harmonique de l'orchestre.
-        <strong>F1=249 Hz (zone /u/)</strong> — profondeur extrême. Accord entre sources approximatif
-        car chaque source mesure un registre différent (Backus 200–400, Meyer 210–250). Fp=1 239 Hz
-        capture la zone d'énergie principale du pavillon. Le tuba est le seul cuivre dont F1 ne
-        rejoint jamais le cluster /o/.""",
+        <strong>F1=226 Hz (zone /u/)</strong> — unisson formantique parfait avec le tuba contrebasse
+        et le contrebasson (tous à 226 Hz). Accord entre sources approximatif car chaque source
+        mesure un registre différent (Backus 200–400, Meyer 210–250). Fp=1 239 Hz capture la zone
+        d'énergie principale du pavillon.""",
 
-    'Tuba contrebasse': """Son extrêmement grave et massif. <strong>F1=471 Hz dans le cluster
-        de convergence</strong> — contrairement au tuba basse (249 Hz), le tuba contrebasse
-        rejoint le cluster /o/ aux côtés du cor et du trombone. Cette découverte explique son
-        rôle de fondation harmonique des cuivres graves dans un registre différent du tuba standard.
-        Fp=1 182 Hz.""",
+    'Tuba contrebasse': """Son extrêmement grave et massif.
+        <strong>F1=226 Hz (zone /u/)</strong> — identique au tuba basse et au contrebasson.
+        Cet unisson formantique parfait entre trois familles différentes (cuivres × 2 + bois)
+        constitue la fondation /u/ de l'orchestre. Fp=1 182 Hz.""",
 }
 
 ANALYSIS_SORDINES = {
-    'Cor + sourdine': "F1 descend de 457 à 344 Hz, la sourdine déplace les formants vers le grave avec une légère nasalité. Son voilé et lointain.",
-    'Trombone + sourd. cup': "Son voilé et sombre, projection réduite. La sourdine cup absorbe les harmoniques aigus, produisant un timbre mat.",
-    'Trombone + sourd. sèche': "Son nasal et métallique. La sourdine straight comprime le spectre et renforce la zone 800–1 500 Hz.",
-    'Trombone + sourd. harmon': "Son très concentré, quasi sinusoïdal. F1=162 Hz, timbre jazz intime.",
-    'Trombone + sourd. wah (ouvert)': "Position ouverte : son brillant et nasal. F1=226 Hz, spectre riche.",
-    'Trombone + sourd. wah (fermé)': "Position fermée : son très étouffé et nasal. F1 remonte à 398 Hz.",
-    'Trompette + sourd. cup': "Son doux et arrondi, perd la brillance caractéristique. Timbre proche du bugle.",
-    'Trompette + sourd. sèche': "Son piquant et nasal, le plus utilisé en orchestre. Caractère pointu et projeté.",
-    'Trompette + sourd. harmon': "Son miles-davisien. F1=2 358 Hz — tout le spectre propulsé dans la zone /i/, brillance extrême.",
-    'Trompette + sourd. wah (ouvert)': "Tige insérée, position ouverte : son nasal et brillant.",
-    'Trompette + sourd. wah (fermé)': "Tige insérée, position fermée : son très étouffé. Spectre fortement filtré.",
-    'Tuba basse + sourdine': "Son assourdi et compact. F1 reste à 249 Hz, projection réduite.",
+    'Cor + sourdine': "F1 descend de 388 à 344 Hz (−11 %), la sourdine déplace légèrement le spectre vers le grave. Son voilé et lointain.",
+    'Trombone + sourd. cup': "F1 monte de 237 à 366 Hz (+54 %). La sourdine cup filtre les graves et propulse l'énergie vers le medium. Son voilé et sombre.",
+    'Trombone + sourd. sèche': "F1 reste proche à 226 Hz (−5 %). Son nasal et métallique. La sourdine straight comprime le spectre.",
+    'Trombone + sourd. harmon': "F1 descend à 162 Hz (−32 %). Son très concentré, quasi sinusoïdal. Timbre jazz intime.",
+    'Trombone + sourd. wah (ouvert)': "F1=226 Hz — proche de l'ordinario. Son brillant et nasal.",
+    'Trombone + sourd. wah (fermé)': "F1 remonte à 398 Hz (+68 %). Son étouffé et nasal.",
+    'Trompette + sourd. cup': "F1 monte à 1 443 Hz (+84 %). Son doux et arrondi, perd la brillance caractéristique.",
+    'Trompette + sourd. sèche': "F1=1 098 Hz (+40 %). Son piquant et nasal, le plus utilisé en orchestre.",
+    'Trompette + sourd. harmon': "F1=2 358 Hz (+200 %) — tout le spectre propulsé dans la zone /i/. Son miles-davisien.",
+    'Trompette + sourd. wah (ouvert)': "F1 descend à 560 Hz (−29 %). Son nasal et brillant.",
+    'Trompette + sourd. wah (fermé)': "F1=581 Hz (−26 %). Son étouffé, spectre fortement filtré.",
+    'Tuba basse + sourdine': "F1 reste à 226 Hz (Δ=0 Hz). Projection réduite, son assourdi.",
 }
 
 DOUBLURES = {
     'Cor en Fa': [
-        {'instr':'Basson',           'f1_a':'457','f1_b':'502','delta':45,'quality':'Excellente','rapport':'Unisson','note':'Cluster /o/ — doublure cor-basson classique'},
-        {'instr':'Violoncelle',      'f1_a':'457','f1_b':'499','delta':42,'quality':'Excellente','rapport':'Unisson','note':'Cluster /o/ — chant lyrique bois-cordes'},
-        {'instr':'Trombone',         'f1_a':'457','f1_b':'491','delta':34,'quality':'Excellente','rapport':'Unisson','note':'Homogénéité cuivres, cluster /o/'},
-        {'instr':'Cor anglais',      'f1_a':'457','f1_b':'452','delta':5, 'quality':'Quasi-parfaite','rapport':'Unisson','note':'Cluster /o/ — convergence maximale bois-cuivres'},
-        {'instr':'Tuba contrebasse', 'f1_a':'457','f1_b':'471','delta':14,'quality':'Quasi-parfaite','rapport':'Unisson','note':'Cluster /o/ — cuivres graves'},
+        {'instr':'Cor anglais',      'f1_a':'388','f1_b':'452','delta':64, 'quality':'Excellente','rapport':'Unisson','note':'Cor + cor anglais — zone /o/ commune Δ=64 Hz'},
+        {'instr':'Alto',             'f1_a':'388','f1_b':'377','delta':11, 'quality':'Quasi-parfaite','rapport':'Unisson','note':'Δ=11 Hz — convergence /o/–/å/ cuivres-cordes'},
+        {'instr':'Basson',           'f1_a':'388','f1_b':'495','delta':107,'quality':'Bonne','rapport':'Unisson','note':'Δ=107 Hz — zone /o/, surveiller le masquage'},
+        {'instr':'Violoncelle',      'f1_a':'388','f1_b':'205','delta':183,'quality':'Bonne','rapport':'Octave','note':'Cor /o/, violoncelle /u/ — complémentarité bois-cordes'},
+        {'instr':'Trombone',         'f1_a':'388','f1_b':'237','delta':151,'quality':'Bonne','rapport':'Unisson','note':'Cor /o/, trombone /u/ — complémentarité cuivres'},
     ],
     'Trompette en Ut': [
-        {'instr':'Basson',       'f1_a':'457 (Fp)','f1_b':'502','delta':45,'quality':'Excellente','rapport':'Octave','note':'Trompette sonne généralement une octave au-dessus du basson'},
-        {'instr':'Trombone',     'f1_a':'457 (Fp)','f1_b':'491','delta':34,'quality':'Excellente','rapport':'Unisson','note':'Homogénéité section cuivres'},
-        {'instr':'Violoncelle',  'f1_a':'457 (Fp)','f1_b':'499','delta':42,'quality':'Excellente','rapport':'Octave','note':'Trompette sonne une octave au-dessus du violoncelle'},
-        {'instr':'Violon',       'f1_a':'1 046 (Fp)','f1_b':'893 (Fp)','delta':153,'quality':'Bonne','rapport':'Unisson','note':'Zone /a/–/e/ — brillance partagée'},
+        {'instr':'Cor',          'f1_a':'786','f1_b':'388','delta':398,'quality':'Complémentaire','rapport':'Octave','note':'Trompette /å/ + cor /o/ — complémentarité cuivres'},
+        {'instr':'Trombone',     'f1_a':'786','f1_b':'237','delta':549,'quality':'Complémentaire','rapport':'Octave','note':'Enrichissement large bande /å/–/u/'},
+        {'instr':'Hautbois',     'f1_a':'786','f1_b':'743','delta':43, 'quality':'Excellente','rapport':'Unisson','note':'Δ=43 Hz — convergence /å/ trompette-hautbois'},
+        {'instr':'Violon',       'f1_a':'786','f1_b':'506','delta':280,'quality':'Complémentaire','rapport':'Unisson','note':'Complémentarité /å/–/o/'},
     ],
     'Trombone ténor': [
-        {'instr':'Cor',         'f1_a':'491','f1_b':'457','delta':34,'quality':'Excellente','rapport':'Unisson','note':'Cluster /o/ — homogénéité cuivres'},
-        {'instr':'Basson',      'f1_a':'491','f1_b':'502','delta':11,'quality':'Quasi-parfaite','rapport':'Unisson','note':'Cluster /o/ — cuivres graves + bois'},
-        {'instr':'Violoncelle', 'f1_a':'491','f1_b':'499','delta':8, 'quality':'Quasi-parfaite','rapport':'Unisson','note':'Cluster /o/ — doublure trombone-violoncelle'},
-        {'instr':'Cor anglais', 'f1_a':'491','f1_b':'452','delta':39,'quality':'Excellente','rapport':'Unisson','note':'Cluster /o/ — bois-cuivres'},
-        {'instr':'Tuba contrebasse','f1_a':'491','f1_b':'471','delta':20,'quality':'Quasi-parfaite','rapport':'Unisson','note':'Cluster /o/ — fondation grave'},
+        {'instr':'Tuba basse',       'f1_a':'237','f1_b':'226','delta':11, 'quality':'Quasi-parfaite','rapport':'Octave','note':'Δ=11 Hz — cluster /u/ cuivres graves'},
+        {'instr':'Tuba contrebasse', 'f1_a':'237','f1_b':'226','delta':11, 'quality':'Quasi-parfaite','rapport':'Octave','note':'Δ=11 Hz — cluster /u/ cuivres graves'},
+        {'instr':'Contrebasson',     'f1_a':'237','f1_b':'226','delta':11, 'quality':'Quasi-parfaite','rapport':'Unisson','note':'Δ=11 Hz — cluster /u/ bois-cuivres'},
+        {'instr':'Trombone basse',   'f1_a':'237','f1_b':'258','delta':21, 'quality':'Quasi-parfaite','rapport':'Unisson','note':'Section trombone — homogénéité /u/'},
+        {'instr':'Cor anglais',      'f1_a':'237','f1_b':'452','delta':215,'quality':'Complémentaire','rapport':'Octave','note':'Trombone /u/, cor anglais /o/ — complémentarité'},
     ],
     'Trombone basse': [
-        {'instr':'Clarinette basse', 'f1_a':'894','f1_b':'909','delta':15,'quality':'Quasi-parfaite','rapport':'Unisson','note':'Zone /a/ — convergence excellente'},
-        {'instr':'Clarinette Sib',   'f1_a':'894','f1_b':'1 016','delta':122,'quality':'Bonne','rapport':'Octave','note':'Cl. Sib sonne environ une octave au-dessus'},
-        {'instr':'Alto',             'f1_a':'894','f1_b':'369','delta':525,'quality':'Complémentaire','rapport':'Unisson','note':'Complémentarité grave-medium'},
+        {'instr':'Trombone',         'f1_a':'258','f1_b':'237','delta':21, 'quality':'Quasi-parfaite','rapport':'Unisson','note':'Section trombone — homogénéité /u/'},
+        {'instr':'Contrebasson',     'f1_a':'258','f1_b':'226','delta':32, 'quality':'Excellente','rapport':'Unisson','note':'Zone /u/ grave — cuivres-bois'},
+        {'instr':'Clarinette basse', 'f1_a':'258','f1_b':'323','delta':65, 'quality':'Excellente','rapport':'Unisson','note':'Zone /u/ grave commune'},
+        {'instr':'Contrebasse',      'f1_a':'258','f1_b':'172','delta':86, 'quality':'Bonne','rapport':'Octave','note':'Zone /u/ — fondation grave cuivres-cordes'},
     ],
     'Tuba basse': [
-        {'instr':'Contrebasse',    'f1_a':'249','f1_b':'200','delta':49,'quality':'Bonne','rapport':'Unisson','note':'Fondation grave cuivres-cordes'},
-        {'instr':'Contrebasson',   'f1_a':'249','f1_b':'226','delta':23,'quality':'Excellente','rapport':'Unisson','note':'Fondation grave cuivres-bois'},
-        {'instr':'Cor anglais',    'f1_a':'249','f1_b':'452','delta':203,'quality':'Complémentaire','rapport':'2 octaves','note':'Cor anglais sonne environ deux octaves au-dessus'},
+        {'instr':'Contrebasson',   'f1_a':'226','f1_b':'226','delta':0,  'quality':'Quasi-parfaite ★','rapport':'Unisson','note':'Δ=0 Hz — unisson formantique /u/ cuivres-bois'},
+        {'instr':'Tuba contrebasse','f1_a':'226','f1_b':'226','delta':0, 'quality':'Quasi-parfaite ★','rapport':'Octave','note':'Δ=0 Hz — unisson formantique /u/ cuivres'},
+        {'instr':'Trombone',       'f1_a':'226','f1_b':'237','delta':11, 'quality':'Quasi-parfaite','rapport':'Octave','note':'Δ=11 Hz — cluster /u/'},
+        {'instr':'Contrebasse',    'f1_a':'226','f1_b':'172','delta':54, 'quality':'Excellente','rapport':'Unisson','note':'Fondation grave cuivres-cordes'},
     ],
     'Tuba contrebasse': [
-        {'instr':'Cor',          'f1_a':'471','f1_b':'457','delta':14,'quality':'Quasi-parfaite','rapport':'Octave','note':'Cor sonne une octave au-dessus du tuba CB'},
-        {'instr':'Trombone',     'f1_a':'471','f1_b':'491','delta':20,'quality':'Quasi-parfaite','rapport':'Octave','note':'Trombone sonne une octave au-dessus'},
-        {'instr':'Basson',       'f1_a':'471','f1_b':'502','delta':31,'quality':'Excellente','rapport':'Octave','note':'Basson sonne une octave au-dessus'},
-        {'instr':'Violoncelle',  'f1_a':'471','f1_b':'499','delta':28,'quality':'Excellente','rapport':'Octave','note':'Violoncelle sonne une octave au-dessus'},
+        {'instr':'Contrebasson',  'f1_a':'226','f1_b':'226','delta':0,  'quality':'Quasi-parfaite ★','rapport':'Unisson','note':'Δ=0 Hz — unisson /u/ cuivres-bois'},
+        {'instr':'Tuba basse',    'f1_a':'226','f1_b':'226','delta':0,  'quality':'Quasi-parfaite ★','rapport':'Octave','note':'Δ=0 Hz — unisson /u/ cuivres graves'},
+        {'instr':'Trombone',      'f1_a':'226','f1_b':'237','delta':11, 'quality':'Quasi-parfaite','rapport':'Octave','note':'Δ=11 Hz — cluster /u/ trombone sonne au-dessus'},
+        {'instr':'Contrebasse',   'f1_a':'226','f1_b':'172','delta':54, 'quality':'Excellente','rapport':'Octave','note':'Fondation grave extrême /u/'},
     ],
 }
 
