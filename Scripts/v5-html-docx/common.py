@@ -233,8 +233,8 @@ def make_graph(display, filename, n, formants, fp=None, family_color='#2E7D32', 
     f1 = formants[0]
     if fp and abs(fp - f1) > 30:
         fp_h = heights.get(0, 0.5) * 0.55 if use_real_amp else 0.5
-        ax.plot(fp, fp_h, marker='D', markersize=14, color='#1B5E20',
-                markeredgecolor='black', markeredgewidth=1.5, zorder=7)
+        ax.plot(fp, fp_h, marker='D', markersize=7, color='#1B5E20',
+                markeredgecolor='black', markeredgewidth=1.0, zorder=7)
         labels.append({'x': fp, 'y': fp_h, 'text': f"Fp = {fp} Hz\n(centroïde)",
                        'color': '#1B5E20', 'fs': 8, 'priority': 7, 'type': 'fp', 'nlines': 2})
 
@@ -318,7 +318,7 @@ def make_graph(display, filename, n, formants, fp=None, family_color='#2E7D32', 
               label=f'F{i+1} = {formants[i]} Hz') for i, _ in valid]
     if fp and abs(fp - f1) > 30:
         le.append(Line2D([0],[0],marker='D',color='w',markerfacecolor='#1B5E20',
-                         markeredgecolor='black',markersize=10,label=f'Fp centroïde = {fp} Hz'))
+                         markeredgecolor='black',markersize=5,label=f'Fp centroïde = {fp} Hz'))
     ax.legend(handles=le, loc='lower left', fontsize=6.5, framealpha=0.92, edgecolor='#CCC')
     ax.text(0.99, -0.08,
             f"Famille : {family_label or 'Orchestre'} · Source : CSV v3 + specenv (SOL2020 + Yan_Adds)",

@@ -225,6 +225,9 @@ for csv_name, display, gfx, tech, fp, color in BOIS:
     if not d:
         print(f"  ⚠ MANQUANT: {csv_name}/{tech}")
         continue
+    # Calculer Fp depuis specenv brut si pas défini
+    if fp is None:
+        fp = compute_fp_from_specenv(csv_name, techs=(tech,))
     img = make_graph(display, gfx, d['n'], d['F'], fp, amplitudes=d['dB'], bandwidths=d['bw'],
                      family_color=color, family_label='Bois')
     img_rel = os.path.relpath(img, OUT_DIR).replace(os.sep, '/') if img else None
