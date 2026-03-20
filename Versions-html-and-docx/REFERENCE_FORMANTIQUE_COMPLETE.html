@@ -78,7 +78,7 @@ p  { margin: 6px 0; }
   padding: 20px; margin: 20px 0; box-shadow: 0 2px 6px rgba(0,0,0,0.07);
   scroll-margin-top: 20px;
 }
-.formant-graph { max-width: 75%; border: 1px solid #eee; border-radius: 4px; display: block; }
+.formant-graph { max-width: 65%; border: 1px solid #eee; border-radius: 4px; display: block; }
 .description {
   font-style: italic; color: #555; background: #e8f5e9;
   padding: 10px 14px; border-left: 4px solid #4caf50;
@@ -295,6 +295,14 @@ Le taux de concordance global est de 93 % (27/29 instruments comparables).</p></
 </table>
 <h3 id="methodo">Méthodologie d'extraction formantique</h3>
 
+<div style="background:#fff8e1;border:2px solid #f9a825;border-radius:8px;padding:14px 18px;margin:16px 0;">
+<strong style="color:#e65100;">🎵 Périmètre de mesure — Tenues soutenues uniquement</strong><br>
+Toutes les valeurs formantiques de ce document sont mesurées sur des <strong>tenues soutenues
+(sustained)</strong> en jeu <strong>ordinario</strong>. Cela exclut les transitoires d'attaque
+(où les formants ne sont pas encore stabilisés), les modes de jeu étendus, et les
+dynamiques extrêmes. Les sourdines sont traitées séparément dans les sections correspondantes.
+</div>
+
 <div class="section-intro general">
 <p><strong>Techniques INCLUSES :</strong> normal, arco, sustain, ordinario, vibrato,
 non-vibrato, flautando — dynamiques pp à ff. Ces techniques produisent les formants
@@ -315,6 +323,19 @@ et ne représentent pas le timbre fondamental.</p>
 <tr><td><b>Proéminence minimale</b></td><td>5 % de l'amplitude maximale</td></tr>
 </table>
 <p><em>Choix méthodologique critique : la détection du pic le plus proéminent (et non du premier pic) capture le formant perceptuel principal, évite les résonances basses secondaires, et est cohérente avec la perception auditive.</em></p>
+
+<div style="background:#e3f2fd;border:2px solid #1565c0;border-radius:8px;padding:16px 20px;margin:24px 0;">
+<h4 style="color:#0d47a1;margin:0 0 10px 0;">⚠ Note terminologique : F1–F6 dans ce document</h4>
+<p style="margin:0;">Dans cette étude, <strong>F1, F2, … F6</strong> désignent les <strong>pics spectraux
+principaux</strong> extraits par analyse d'enveloppe spectrale (<code>scipy.signal.find_peaks</code>).
+Ces pics correspondent aux résonances principales du système acoustique de l'instrument
+(corps, colonne d'air, cavités) et sont mis en regard des <strong>voyelles cardinales par analogie
+perceptive</strong> — sans prétendre à une équivalence stricte avec les formants du tractus
+vocal humain (résonances du conduit vocal au sens de Fant, 1960).</p>
+<p style="margin:8px 0 0 0;">Pour les instruments à vent cylindriques (clarinette, flûte), où aucun formant fixe
+n'existe au sens strict, la notation F1 désigne la <strong>zone d'énergie spectrale
+dominante</strong> — terminologie plus exacte que « formant » pour ces familles.</p>
+</div>
 
 <h3 id="fp-centroide">Le Formant Principal (Fp) par centroïde spectral — pourquoi et comment</h3>
 
@@ -355,6 +376,17 @@ l'oreille la perçoit, indépendamment de la note jouée.</p>
 <p><strong>22 instruments sur 30 bénéficient d'une mesure Fp</strong> validée dans
 cette étude. Pour les 8 instruments restants (dont la flûte et le hautbois qui ont
 un spectre très variable), F1 ou F2 reste utilisé.</p>
+
+<div style="background:#f3e5f5;border:2px solid #7b1fa2;border-radius:8px;padding:14px 18px;margin:20px 0;">
+<h4 style="color:#4a148c;margin:0 0 10px 0;">σ(Fp) comme indicateur de sélectivité spectrale</h4>
+<p style="margin:0;">L'écart-type σ du Fp reflète indirectement la <strong>largeur de bande</strong>
+(bandwidth) de la résonance principale de l'instrument. Un σ(Fp) faible indique un
+formant étroit et bien défini (forte sélectivité, Q élevé) ; un σ(Fp) élevé indique un
+formant large et diffus. Ainsi, le violon (σ=92 Hz) possède un timbre spectralement
+plus focalisé que la clarinette Sib (σ=169 Hz), ce qui se confirme perceptivement :
+le violon a une « couleur vocalique » plus identifiable que la clarinette dont le
+spectre évolue fortement selon le registre.</p>
+</div>
 <h3 id="voyelles">Correspondance voyelles–fréquences (Meyer 2009)</h3>
 
 <p>Le système vocalique fournit un cadre intuitif pour décrire le timbre instrumental.
@@ -368,7 +400,7 @@ corpus SOL2020 + Yan_Adds.</p>
 <tr style="background-color:#FDE8CE40;"><td><strong>å (aw)</strong></td><td>~600–800</td><td style="font-style:italic;color:#444;">p<u>â</u>te, âm<u>e</u>, (entre o et a)</td><td>Transition, chaleur</td><td style="text-align:left;">Cl. Mib (678), Flûte (743), Hautbois (743), Trompette (786)</td></tr>
 <tr style="background-color:#F8D5D540;"><td><strong>a (ah)</strong></td><td>800–1 250</td><td style="font-style:italic;color:#444;">p<u>a</u>s, cl<u>a</u>sse</td><td>Puissance, présence</td><td style="text-align:left;">Cor Fp (738), Violon Fp (893), Basson Fp (1 079), Trompette Fp (1 046), Cor anglais Fp (1 135)</td></tr>
 <tr style="background-color:#E8D5F040;"><td><strong>e (eh)</strong></td><td>1 250–2 600</td><td style="font-style:italic;color:#444;">f<u>é</u>e, <u>é</u>toile</td><td>Clarté, brillance</td><td style="text-align:left;">Cl. Sib Fp (1 412), Flûte Fp (1 535), Hautbois Fp (1 485), Cl. Mib Fp (1 266), Petite flûte (1 109)</td></tr>
-<tr style="background-color:#FFF8D040;"><td><strong>i (ee)</strong></td><td>> 2 600</td><td style="font-style:italic;color:#444;">v<u>i</u>e, s<u>i</u>ffl<u>e</u>r</td><td>Brillance extrême, stridence</td><td style="text-align:left;">Petite flûte (1 992 F2), Trompette+sourdine harmon (2 358)</td></tr>
+<tr style="background-color:#FFF8D040;"><td><strong>i (ee)</strong></td><td>> 2 600</td><td style="font-style:italic;color:#444;">v<u>i</u>e, s<u>i</u>ffler</td><td>Brillance extrême, stridence</td><td style="text-align:left;">Petite flûte (1 992 F2), Trompette+sourdine harmon (2 358)</td></tr>
 </table>
 
 <div style="margin:24px 0;">
@@ -410,6 +442,7 @@ linéairement au-dessus du fondamental.</li>
 et du violon (506 Hz). Le cor anglais et la clarinette Sib convergent à Δ=11 Hz (452 vs 463 Hz).
 Le basson et le violon convergent également à Δ=11 Hz (495 vs 506 Hz).</p>
 </div>
+<p style="background:#fff8e1;border-left:4px solid #f9a825;padding:8px 14px;margin:12px 0;font-size:0.88em;color:#795548;border-radius:0 4px 4px 0;"><strong>Rappel :</strong> Toutes les valeurs ci-dessous sont mesurées sur des <strong>tenues soutenues (sustained ordinario)</strong>. Les transitoires d'attaque et modes de jeu étendus ne sont pas inclus. Voir <a href="#methodo">méthodologie</a>.</p>
 <h2>Flûtes</h2>
 <p>La famille des flûtes se distingue par l'absence de formant fixe strict. Le spectre est dominé par la fondamentale, avec une décroissance des harmoniques suivant un profil quasi-linéaire en dB. Le Fp (centroïde spectral) permet néanmoins de caractériser la zone d'énergie principale.</p>
 
@@ -586,6 +619,7 @@ classiques de la section cuivres avec le basson et le violoncelle.</p>
 <p><strong>Ordre des instruments :</strong> Cor · Trompette · Trombone ténor ·
 <strong>Trombone basse</strong> · Tuba basse · Tuba contrebasse (puis sourdines).</p>
 </div>
+<p style="background:#fff8e1;border-left:4px solid #f9a825;padding:8px 14px;margin:12px 0;font-size:0.88em;color:#795548;border-radius:0 4px 4px 0;"><strong>Rappel :</strong> Toutes les valeurs ci-dessous sont mesurées sur des <strong>tenues soutenues (sustained ordinario)</strong>. Les transitoires d'attaque et modes de jeu étendus ne sont pas inclus. Voir <a href="#methodo">méthodologie</a>.</p>
 <h2>Cuivres principaux</h2>
 
 <div class="instrument-card" id="cuivres_cor">
@@ -795,6 +829,7 @@ aux côtés du cor (388 Hz, Δ=10 Hz) et de l'alto (377 Hz, Δ=21 Hz). Giesler (
 le saxophone <em>ténor</em> dans le groupe /o/ avec basson, cor et trombone.
 Le saxophone alto s'inscrit pleinement dans cette zone de convergence.</p>
 </div>
+<p style="background:#fff8e1;border-left:4px solid #f9a825;padding:8px 14px;margin:12px 0;font-size:0.88em;color:#795548;border-radius:0 4px 4px 0;"><strong>Rappel :</strong> Toutes les valeurs ci-dessous sont mesurées sur des <strong>tenues soutenues (sustained ordinario)</strong>. Les transitoires d'attaque et modes de jeu étendus ne sont pas inclus. Voir <a href="#methodo">méthodologie</a>.</p>
 
 <div class="instrument-card" id="sax_alto">
   <h3>Saxophone alto</h3>
@@ -851,6 +886,7 @@ convergent à Δ=11 Hz dans la zone /o/. Le violoncelle (F1=205 Hz, zone /u/) re
 cette zone via son Fp (~600 Hz). L'effet de section : F1 quasi-stable (violon solo=506,
 ensemble=495, Δ=−2 %), mais F2 s'aplatit de −23 % — <em>effet de section spectral clairement quantifié.</em></p>
 </div>
+<p style="background:#fff8e1;border-left:4px solid #f9a825;padding:8px 14px;margin:12px 0;font-size:0.88em;color:#795548;border-radius:0 4px 4px 0;"><strong>Rappel :</strong> Toutes les valeurs ci-dessous sont mesurées sur des <strong>tenues soutenues (sustained ordinario)</strong>. Les transitoires d'attaque et modes de jeu étendus ne sont pas inclus. Voir <a href="#methodo">méthodologie</a>.</p>
 <h2>Cordes solistes</h2>
 <h3 class="sub-family">Violon</h3>
 
