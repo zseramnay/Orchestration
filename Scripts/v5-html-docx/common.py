@@ -121,6 +121,7 @@ def get_f(inst, tech):
     return {
         'n': int(r['n_samples']),
         'F': [round(sf(r[f'F{i}_hz'])) for i in range(1, 7)],
+        'dB': [sf(r.get(f'F{i}_db', '')) for i in range(1, 7)],
     }
 
 def fmt_hz(v):
@@ -139,7 +140,12 @@ FC = ['#D32F2F', '#E64A19', '#F57C00', '#FFA000', '#FBC02D', '#CDDC39']
 FA = [1.0, 0.85, 0.7, 0.55, 0.4, 0.3]
 
 # ─── Génération graphiques ───────────────────────────────────
-def make_graph(display, filename, n, formants, fp=None, family_color='#2E7D32', family_label=''):
+def make_graph(display, filename, n, formants, fp=None, family_color='#2E7D32', family_label='',
+               amplitudes=None):
+    """
+    amplitudes: list of 6 dB values (median amplitude per formant), or None for legacy.
+    If provided, bar heights reflect real spectral amplitude (normalized to F1=0dB).
+    """
     valid = [(i, f) for i, f in enumerate(formants) if f > 0]
     if not valid:
         return None
@@ -158,13 +164,32 @@ def make_graph(display, filename, n, formants, fp=None, family_color='#2E7D32', 
                         color='#666', fontweight='bold',
                         transform=ax.get_xaxis_transform())
 
+    # Compute bar heights from real amplitudes or fallback
+    use_real_amp = (amplitudes is not None and
+                    any(amplitudes[i] != 0 for i, _ in valid))
+    if use_real_amp:
+        # Normalize: F1 (max) → 1.0, others relative in linear scale
+        valid_amps = [amplitudes[i] for i, _ in valid]
+        max_db = max(valid_amps)
+        heights = {}
+        for i, f in valid:
+            rel_db = amplitudes[i] - max_db  # ≤ 0
+            heights[i] = max(0.05, 10 ** (rel_db / 20.0))  # amplitude ratio, floor at 0.05
+    else:
+        heights = {i: 1.0 * (1.0 - i * 0.12) for i, _ in valid}
+
     bw = mf * 0.012
     for i, freq in valid:
-        bh = 1.0 * (1.0 - i * 0.12)
+        bh = heights[i]
         ax.bar(freq, bh, width=bw * (1.2 - i * 0.05),
                color=FC[i], alpha=FA[i], edgecolor='#333', linewidth=0.8, zorder=3)
-        ax.text(freq, bh + 0.03, f"F{i+1}\n{freq} Hz",
-                ha='center', va='bottom', fontsize=8,
+        # Label: show amplitude in dB if available
+        if use_real_amp:
+            amp_str = f"F{i+1}\n{freq} Hz\n({amplitudes[i]:.0f} dB)"
+        else:
+            amp_str = f"F{i+1}\n{freq} Hz"
+        ax.text(freq, bh + 0.03, amp_str,
+                ha='center', va='bottom', fontsize=7.5,
                 fontweight='bold', color='#333', zorder=5)
 
     f1 = formants[0]
@@ -184,7 +209,8 @@ def make_graph(display, filename, n, formants, fp=None, family_color='#2E7D32', 
     ax.set_xlim(100, mf)
     ax.set_ylim(0, 1.25)
     ax.set_xlabel("Fréquence (Hz)", fontsize=10, fontweight='bold')
-    ax.set_ylabel("Importance relative du formant", fontsize=10, fontweight='bold')
+    ax.set_ylabel("Amplitude relative (normalisée)" if use_real_amp else "Importance relative du formant",
+                  fontsize=10, fontweight='bold')
     ax.set_title(f"{display} — Formants spectraux F1–F6 (ordinario, N={n})",
                  fontsize=12, fontweight='bold', color=family_color, pad=12)
     ax.set_xscale('log')
@@ -197,8 +223,12 @@ def make_graph(display, filename, n, formants, fp=None, family_color='#2E7D32', 
     for s in ['top', 'right', 'left']:
         ax.spines[s].set_visible(False)
 
-    le = [mpatches.Patch(facecolor=FC[i], alpha=FA[i], edgecolor='#333',
-                         label=f'F{i+1} = {formants[i]} Hz') for i, _ in valid]
+    if use_real_amp:
+        le = [mpatches.Patch(facecolor=FC[i], alpha=FA[i], edgecolor='#333',
+                             label=f'F{i+1} = {formants[i]} Hz ({amplitudes[i]:.0f} dB)') for i, _ in valid]
+    else:
+        le = [mpatches.Patch(facecolor=FC[i], alpha=FA[i], edgecolor='#333',
+                             label=f'F{i+1} = {formants[i]} Hz') for i, _ in valid]
     if fp and abs(fp - f1) > 30:
         le.append(Line2D([0], [0], marker='D', color='w',
                          markerfacecolor='#1B5E20', markeredgecolor='black',

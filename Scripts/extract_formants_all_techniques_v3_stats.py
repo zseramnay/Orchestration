@@ -409,6 +409,7 @@ def aggregate_profiles(samples):
         # Statistiques complètes de chaque formant Fi
         formant_medians = []
         formant_stats = []  # list of dicts: mean, std, q25, q75 per formant
+        formant_amp_medians = []  # median amplitude (dB) per formant
         for fi in range(MAX_FORMANTS):
             fi_freqs = [fl[fi][0] for fl in formant_lists if fi < len(fl)]
             fi_amps  = [fl[fi][1] for fl in formant_lists if fi < len(fl)]
@@ -416,8 +417,10 @@ def aggregate_profiles(samples):
                 sf = sorted(fi_freqs)
                 nn = len(sf)
                 median_freq = sf[nn // 2]
-                median_amp  = sorted(fi_amps)[len(fi_amps) // 2]
+                sa = sorted(fi_amps)
+                median_amp  = sa[len(sa) // 2]
                 formant_medians.append((round(median_freq, 1), round(median_amp, 2)))
+                formant_amp_medians.append(round(median_amp, 2))
                 # Mean
                 mean_f = sum(fi_freqs) / nn
                 # Std
@@ -436,6 +439,7 @@ def aggregate_profiles(samples):
                 })
             else:
                 formant_stats.append(None)
+                formant_amp_medians.append(None)
 
         mean_irr  = sum(irregularities) / len(irregularities) if irregularities else 0.0
         mean_kurt = sum(kurtosis_vals)  / len(kurtosis_vals)  if kurtosis_vals  else None
@@ -445,6 +449,7 @@ def aggregate_profiles(samples):
         tech_family  = get_technique_family(tech)
 
         def fhz(i): return formant_medians[i][0] if i < len(formant_medians) else None
+        def fdb(i): return formant_amp_medians[i] if i < len(formant_amp_medians) else None
         def fstat(i, key): return formant_stats[i][key] if i < len(formant_stats) and formant_stats[i] else None
 
         profiles[(inst, tech)] = {
@@ -454,6 +459,9 @@ def aggregate_profiles(samples):
             'n_samples':         n,
             'F1_hz':  fhz(0), 'F2_hz': fhz(1), 'F3_hz': fhz(2),
             'F4_hz':  fhz(3), 'F5_hz': fhz(4), 'F6_hz': fhz(5),
+            # ── amplitudes médianes (dB) ──
+            'F1_db':  fdb(0), 'F2_db': fdb(1), 'F3_db': fdb(2),
+            'F4_db':  fdb(3), 'F5_db': fdb(4), 'F6_db': fdb(5),
             # ── v3: statistiques descriptives par formant ──
             'F1_mean': fstat(0,'mean'), 'F1_std': fstat(0,'std'), 'F1_q25': fstat(0,'q25'), 'F1_q75': fstat(0,'q75'),
             'F2_mean': fstat(1,'mean'), 'F2_std': fstat(1,'std'), 'F2_q25': fstat(1,'q25'), 'F2_q75': fstat(1,'q75'),
@@ -477,6 +485,7 @@ def aggregate_profiles(samples):
 PROFILE_COLS = [
     'instrument', 'technique', 'technique_family', 'n_samples',
     'F1_hz', 'F2_hz', 'F3_hz', 'F4_hz', 'F5_hz', 'F6_hz',
+    'F1_db', 'F2_db', 'F3_db', 'F4_db', 'F5_db', 'F6_db',
     # ── v3: statistiques descriptives ──
     'F1_mean', 'F1_std', 'F1_q25', 'F1_q75',
     'F2_mean', 'F2_std', 'F2_q25', 'F2_q75',

@@ -225,7 +225,7 @@ for csv_name, display, gfx, tech, fp, color in BOIS:
     if not d:
         print(f"  ⚠ MANQUANT: {csv_name}/{tech}")
         continue
-    img = make_graph(display, gfx, d['n'], d['F'], fp,
+    img = make_graph(display, gfx, d['n'], d['F'], fp, amplitudes=d['dB'],
                      family_color=color, family_label='Bois')
     img_rel = os.path.relpath(img, OUT_DIR).replace(os.sep, '/') if img else None
     all_info[gfx] = {

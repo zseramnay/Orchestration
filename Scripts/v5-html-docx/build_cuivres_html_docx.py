@@ -201,7 +201,7 @@ for csv_name, display, gfx, tech, fp, color in CUIVRES_PRINCIPAUX + CUIVRES_SOUR
         if fp:
             print(f"  ◆ Fp calculé depuis specenv : {display} → {fp} Hz")
 
-    img = make_graph(display, gfx, d['n'], d['F'], fp,
+    img = make_graph(display, gfx, d['n'], d['F'], fp, amplitudes=d['dB'],
                      family_color=color, family_label='Cuivres')
     img_rel = os.path.relpath(img, OUT_DIR).replace(os.sep, '/') if img else None
     all_info[gfx] = {

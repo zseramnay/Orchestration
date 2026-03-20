@@ -201,7 +201,7 @@ for lst in [CORDES_SOLISTES, CORDES_ENSEMBLES]:
         if not d:
             print(f"  ⚠ MANQUANT: {csv_name}/{tech}")
             continue
-        img = make_graph(display, gfx, d['n'], d['F'], fp,
+        img = make_graph(display, gfx, d['n'], d['F'], fp, amplitudes=d['dB'],
                          family_color=color, family_label='Cordes')
         img_rel = os.path.relpath(img, OUT_DIR).replace(os.sep, '/') if img else None
         all_info[gfx] = {
