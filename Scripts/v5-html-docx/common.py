@@ -166,9 +166,7 @@ FA = [1.0, 0.85, 0.7, 0.55, 0.4, 0.3]
 def make_graph(display, filename, n, formants, fp=None, family_color='#2E7D32', family_label='',
                amplitudes=None, bandwidths=None, **_ignored):
     """
-    amplitudes: list of 6 dB values (median amplitude per formant).
-    bandwidths: list of 6 BW values in Hz (measured at -3dB from specenv).
-    Draws gaussian bell curves: height=amplitude, width=BW_3dB.
+    Gaussian bell curves with real -3dB bandwidths and automatic anti-collision labels.
     """
     valid = [(i, f) for i, f in enumerate(formants) if f > 0]
     if not valid:
@@ -188,75 +186,126 @@ def make_graph(display, filename, n, formants, fp=None, family_color='#2E7D32', 
                         color='#666', fontweight='bold',
                         transform=ax.get_xaxis_transform())
 
-    # Compute peak heights from real amplitudes
-    use_real_amp = (amplitudes is not None and
-                    any(amplitudes[i] != 0 for i, _ in valid))
+    # Heights from dB
+    use_real_amp = amplitudes is not None and any(amplitudes[i] != 0 for i, _ in valid)
     if use_real_amp:
-        valid_amps = [amplitudes[i] for i, _ in valid]
-        max_db = max(valid_amps)
-        heights = {}
-        for i, f in valid:
-            rel_db = amplitudes[i] - max_db
-            heights[i] = max(0.05, 10 ** (rel_db / 20.0))
+        max_db = max(amplitudes[i] for i, _ in valid)
+        heights = {i: max(0.05, 10**((amplitudes[i]-max_db)/20.0)) for i, _ in valid}
     else:
-        heights = {i: 1.0 * (1.0 - i * 0.12) for i, _ in valid}
+        heights = {i: 1.0*(1.0-i*0.12) for i, _ in valid}
 
-    # Gaussian bell curves
+    # Bell curves
     x = np.linspace(80, mf, 2000)
     has_bw = bandwidths is not None and any(bandwidths[i] > 0 for i, _ in valid)
-
     for i, freq in valid:
         h = heights[i]
-        if has_bw and bandwidths[i] > 0:
-            sigma = bandwidths[i] / 2.355  # BW_3dB → gaussian σ
-        else:
-            sigma = max(40, freq * 0.08)  # fallback: ~8% of center freq
-        y = h * np.exp(-0.5 * ((x - freq) / sigma) ** 2)
+        sigma = bandwidths[i]/2.355 if has_bw and bandwidths[i] > 0 else max(40, freq*0.08)
+        y = h * np.exp(-0.5*((x-freq)/sigma)**2)
         ax.fill_between(x, y, alpha=0.25, color=FC[i], zorder=2)
         ax.plot(x, y, color=FC[i], lw=1.8, alpha=0.85, zorder=3)
         ax.plot(freq, h, 'o', color=FC[i], markersize=6,
                 markeredgecolor='#333', markeredgewidth=0.8, zorder=5)
+
+    # Cluster
+    ax.axvspan(420, 550, alpha=0.12, color='red', zorder=1)
+    ax.text(485, 0.02, 'cluster /o/', ha='center', va='bottom', fontsize=7,
+            color='#C62828', fontstyle='italic',
+            transform=ax.get_xaxis_transform())
+
+    # ── Anti-collision label placement ──
+    log_range = np.log10(mf) - np.log10(100)
+    LABEL_W = 0.06 * log_range   # approx label width in log-x
+    LABEL_H = 0.07               # approx height per line in y-data
+    MAX_Y   = 0.88               # ceiling to avoid vowel zone labels
+
+    labels = []
+    for i, freq in valid:
+        h = heights[i]
         if use_real_amp:
-            amp_str = f"F{i+1}\n{freq} Hz\n({amplitudes[i]:.0f} dB)"
+            txt = f"F{i+1}\n{freq} Hz\n({amplitudes[i]:.0f} dB)"
+            nlines = 3
         else:
-            amp_str = f"F{i+1}\n{freq} Hz"
-        ax.text(freq, h + 0.04, amp_str,
-                ha='center', va='bottom', fontsize=7, fontweight='bold',
-                color='#333', zorder=6)
+            txt = f"F{i+1}\n{freq} Hz"
+            nlines = 2
+        labels.append({'x': freq, 'y': h, 'text': txt, 'color': '#333',
+                       'fs': 7, 'priority': 6-i, 'type': 'formant', 'nlines': nlines})
 
     f1 = formants[0]
     if fp and abs(fp - f1) > 30:
         fp_h = heights.get(0, 0.5) * 0.55 if use_real_amp else 0.5
         ax.plot(fp, fp_h, marker='D', markersize=14, color='#1B5E20',
                 markeredgecolor='black', markeredgewidth=1.5, zorder=7)
-        ax.annotate(f"Fp = {fp} Hz\n(centroïde)", xy=(fp, fp_h), xytext=(fp, fp_h + 0.15),
-                    ha='center', fontsize=8, fontweight='bold', color='#1B5E20',
-                    arrowprops=dict(arrowstyle='->', color='#1B5E20', lw=1.5), zorder=8)
+        labels.append({'x': fp, 'y': fp_h, 'text': f"Fp = {fp} Hz\n(centroïde)",
+                       'color': '#1B5E20', 'fs': 8, 'priority': 7, 'type': 'fp', 'nlines': 2})
 
-    # Cluster de convergence
-    ax.axvspan(420, 550, alpha=0.12, color='red', zorder=1)
-    ax.text(485, 0.02, 'cluster /o/', ha='center', va='bottom', fontsize=7,
-            color='#C62828', fontstyle='italic',
-            transform=ax.get_xaxis_transform())
+    labels.sort(key=lambda l: -l['priority'])
+    placed = []  # (log_x, y_bot, y_top, log_w)
 
-    ax.set_xlim(100, mf)
-    ax.set_ylim(0, 1.25)
+    for lab in labels:
+        lx = np.log10(lab['x'])
+        base_y = lab['y'] + 0.04
+        lh = lab['nlines'] * LABEL_H
+
+        # Cap at ceiling
+        if base_y + lh > MAX_Y:
+            base_y = MAX_Y - lh
+
+        target_y = base_y
+        for _ in range(10):
+            collision = False
+            for px, py_bot, py_top, pw in placed:
+                if abs(lx - px) < (LABEL_W + pw) * 0.5:
+                    if target_y < py_top + 0.01 and (target_y + lh) > py_bot - 0.01:
+                        collision = True
+                        target_y = py_top + 0.02
+                        break
+            if not collision:
+                break
+
+        # Re-cap after push
+        if target_y + lh > MAX_Y:
+            target_y = MAX_Y - lh
+        if target_y < 0.04:
+            target_y = 0.04
+
+        placed.append((lx, target_y, target_y + lh, LABEL_W))
+
+        displacement = abs(target_y - (lab['y'] + 0.04))
+        if lab['type'] == 'fp':
+            ax.annotate(lab['text'], xy=(lab['x'], lab['y']),
+                        xytext=(lab['x'], target_y),
+                        ha='center', fontsize=lab['fs'], fontweight='bold',
+                        color=lab['color'],
+                        arrowprops=dict(arrowstyle='->', color=lab['color'], lw=1.5),
+                        zorder=8)
+        elif displacement > 0.03:
+            ax.annotate(lab['text'], xy=(lab['x'], lab['y']),
+                        xytext=(lab['x'], target_y),
+                        ha='center', va='bottom', fontsize=lab['fs'],
+                        fontweight='bold', color=lab['color'],
+                        arrowprops=dict(arrowstyle='->', color='#999', lw=0.8, ls='--'),
+                        zorder=6)
+        else:
+            ax.text(lab['x'], target_y, lab['text'],
+                    ha='center', va='bottom', fontsize=lab['fs'],
+                    fontweight='bold', color=lab['color'], zorder=6)
+
+    # Axes
+    ax.set_xlim(100, mf); ax.set_ylim(0, 1.25)
     ax.set_xlabel("Fréquence (Hz)", fontsize=10, fontweight='bold')
-    ax.set_ylabel("Amplitude relative (normalisée)" if use_real_amp else "Importance relative du formant",
+    ax.set_ylabel("Amplitude relative (normalisée)" if use_real_amp else "Importance relative",
                   fontsize=10, fontweight='bold')
     ax.set_title(f"{display} — Profil formantique (ordinario, N={n})",
                  fontsize=12, fontweight='bold', color=family_color, pad=12)
     ax.set_xscale('log')
-    ticks = [t for t in [100, 150, 200, 300, 400, 500, 600, 800,
-                          1000, 1500, 2000, 3000, 4000, 5000, 6000] if t <= mf]
+    ticks = [t for t in [100,150,200,300,400,500,600,800,1000,1500,2000,3000,4000,5000,6000] if t<=mf]
     ax.set_xticks(ticks)
     ax.set_xticklabels([str(t) for t in ticks], fontsize=8)
     ax.get_xaxis().set_major_formatter(matplotlib.ticker.ScalarFormatter())
     ax.set_yticks([])
-    for s in ['top', 'right', 'left']:
-        ax.spines[s].set_visible(False)
+    for s in ['top','right','left']: ax.spines[s].set_visible(False)
 
-    # Legend — lower left (zone /u/)
+    # Legend — lower left
     if use_real_amp and has_bw:
         le = [mpatches.Patch(facecolor=FC[i], alpha=0.4, edgecolor=FC[i],
               label=f'F{i+1} = {formants[i]} Hz ({amplitudes[i]:.0f} dB) BW={bandwidths[i]:.0f}')
@@ -268,9 +317,8 @@ def make_graph(display, filename, n, formants, fp=None, family_color='#2E7D32', 
         le = [mpatches.Patch(facecolor=FC[i], alpha=0.4, edgecolor=FC[i],
               label=f'F{i+1} = {formants[i]} Hz') for i, _ in valid]
     if fp and abs(fp - f1) > 30:
-        le.append(Line2D([0], [0], marker='D', color='w',
-                         markerfacecolor='#1B5E20', markeredgecolor='black',
-                         markersize=10, label=f'Fp centroïde = {fp} Hz'))
+        le.append(Line2D([0],[0],marker='D',color='w',markerfacecolor='#1B5E20',
+                         markeredgecolor='black',markersize=10,label=f'Fp centroïde = {fp} Hz'))
     ax.legend(handles=le, loc='lower left', fontsize=6.5, framealpha=0.92, edgecolor='#CCC')
     ax.text(0.99, -0.08,
             f"Famille : {family_label or 'Orchestre'} · Source : CSV v3 + specenv (SOL2020 + Yan_Adds)",
