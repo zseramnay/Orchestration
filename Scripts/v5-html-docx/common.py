@@ -83,6 +83,7 @@ NAME_MAPPING = {
 V2_TO_LEGACY = {v: k for k, v in NAME_MAPPING.items()}
 
 DATA = {}
+BW_DATA = {}  # (inst, tech) -> [F1_bw, ..., F6_bw]
 
 def sf(v):
     try:
@@ -104,6 +105,22 @@ def load_data(path):
             if inst in V2_TO_LEGACY:
                 DATA[(V2_TO_LEGACY[inst], tech)] = row
 
+def load_bandwidths():
+    bw_path = os.path.join(BASE, 'Resultats/bandwidths_3db.csv')
+    if not os.path.exists(bw_path):
+        print(f"  ⚠ Bandwidths CSV introuvable : {bw_path}")
+        return
+    with open(bw_path, 'r', encoding='utf-8') as f:
+        for row in csv.DictReader(f):
+            inst = row['instrument']
+            tech = row['technique']
+            bws = [sf(row.get(f'F{i}_bw', '')) for i in range(1, 7)]
+            BW_DATA[(inst, tech)] = bws
+            if inst in NAME_MAPPING:
+                BW_DATA[(NAME_MAPPING[inst], tech)] = bws
+            if inst in V2_TO_LEGACY:
+                BW_DATA[(V2_TO_LEGACY[inst], tech)] = bws
+
 def load_all_csvs():
     csv_all = os.path.join(BASE, 'Resultats/formants_all_techniques_v3.csv')
     csv_yan = os.path.join(BASE, 'Resultats/formants_yan_adds_v3.csv')
@@ -113,11 +130,13 @@ def load_all_csvs():
         csv_yan = os.path.join(BASE, 'Resultats/formants_yan_adds_v2.csv')
     load_data(csv_all)
     load_data(csv_yan)
+    load_bandwidths()
 
 def get_f(inst, tech):
     r = DATA.get((inst, tech))
     if not r:
         return None
+    bw = BW_DATA.get((inst, tech), [0]*6)
     return {
         'n': int(r['n_samples']),
         'F': [round(sf(r[f'F{i}_hz'])) for i in range(1, 7)],
@@ -125,6 +144,7 @@ def get_f(inst, tech):
         'q25': [sf(r.get(f'F{i}_q25', '')) for i in range(1, 4)] + [0, 0, 0],
         'q75': [sf(r.get(f'F{i}_q75', '')) for i in range(1, 4)] + [0, 0, 0],
         'std': [sf(r.get(f'F{i}_std', '')) for i in range(1, 7)],
+        'bw': bw,
     }
 
 def fmt_hz(v):
@@ -144,10 +164,11 @@ FA = [1.0, 0.85, 0.7, 0.55, 0.4, 0.3]
 
 # ─── Génération graphiques ───────────────────────────────────
 def make_graph(display, filename, n, formants, fp=None, family_color='#2E7D32', family_label='',
-               amplitudes=None, iqr_ranges=None):
+               amplitudes=None, bandwidths=None, **_ignored):
     """
-    amplitudes: list of 6 dB values (median amplitude per formant), or None for legacy.
-    iqr_ranges: list of 6 tuples (q25, q75) in Hz — bandwidth bands for F1–F3.
+    amplitudes: list of 6 dB values (median amplitude per formant).
+    bandwidths: list of 6 BW values in Hz (measured at -3dB from specenv).
+    Draws gaussian bell curves: height=amplitude, width=BW_3dB.
     """
     valid = [(i, f) for i, f in enumerate(formants) if f > 0]
     if not valid:
@@ -160,14 +181,14 @@ def make_graph(display, filename, n, formants, fp=None, family_color='#2E7D32', 
 
     for lo, hi, c, l in VOWEL_ZONES:
         if lo < mf:
-            ax.axvspan(lo, min(hi, mf), alpha=0.35, color=c, zorder=0)
+            ax.axvspan(lo, min(hi, mf), alpha=0.30, color=c, zorder=0)
             mid = (lo + min(hi, mf)) / 2
             if mid < mf * 0.95:
                 ax.text(mid, 0.97, l, ha='center', va='top', fontsize=7,
                         color='#666', fontweight='bold',
                         transform=ax.get_xaxis_transform())
 
-    # Compute bar heights from real amplitudes or fallback
+    # Compute peak heights from real amplitudes
     use_real_amp = (amplitudes is not None and
                     any(amplitudes[i] != 0 for i, _ in valid))
     if use_real_amp:
@@ -180,40 +201,37 @@ def make_graph(display, filename, n, formants, fp=None, family_color='#2E7D32', 
     else:
         heights = {i: 1.0 * (1.0 - i * 0.12) for i, _ in valid}
 
-    # ── IQR bandwidth bands (F1–F3) — drawn behind bars ──
-    has_iqr = False
-    if iqr_ranges:
-        for i, freq in valid:
-            if i < 3:
-                q25, q75 = iqr_ranges[i]
-                if q25 > 0 and q75 > 0 and q75 > q25:
-                    has_iqr = True
-                    bh = heights[i]
-                    ax.barh(bh * 0.5, q75 - q25, left=q25, height=bh * 0.85,
-                            color=FC[i], alpha=0.12, edgecolor=FC[i],
-                            linewidth=0.8, linestyle='--', zorder=2)
+    # Gaussian bell curves
+    x = np.linspace(80, mf, 2000)
+    has_bw = bandwidths is not None and any(bandwidths[i] > 0 for i, _ in valid)
 
-    bw = mf * 0.012
     for i, freq in valid:
-        bh = heights[i]
-        ax.bar(freq, bh, width=bw * (1.2 - i * 0.05),
-               color=FC[i], alpha=FA[i], edgecolor='#333', linewidth=0.8, zorder=3)
+        h = heights[i]
+        if has_bw and bandwidths[i] > 0:
+            sigma = bandwidths[i] / 2.355  # BW_3dB → gaussian σ
+        else:
+            sigma = max(40, freq * 0.08)  # fallback: ~8% of center freq
+        y = h * np.exp(-0.5 * ((x - freq) / sigma) ** 2)
+        ax.fill_between(x, y, alpha=0.25, color=FC[i], zorder=2)
+        ax.plot(x, y, color=FC[i], lw=1.8, alpha=0.85, zorder=3)
+        ax.plot(freq, h, 'o', color=FC[i], markersize=6,
+                markeredgecolor='#333', markeredgewidth=0.8, zorder=5)
         if use_real_amp:
             amp_str = f"F{i+1}\n{freq} Hz\n({amplitudes[i]:.0f} dB)"
         else:
             amp_str = f"F{i+1}\n{freq} Hz"
-        ax.text(freq, bh + 0.03, amp_str,
-                ha='center', va='bottom', fontsize=7.5,
-                fontweight='bold', color='#333', zorder=5)
+        ax.text(freq, h + 0.04, amp_str,
+                ha='center', va='bottom', fontsize=7, fontweight='bold',
+                color='#333', zorder=6)
 
     f1 = formants[0]
     if fp and abs(fp - f1) > 30:
         fp_h = heights.get(0, 0.5) * 0.55 if use_real_amp else 0.5
         ax.plot(fp, fp_h, marker='D', markersize=14, color='#1B5E20',
-                markeredgecolor='black', markeredgewidth=1.5, zorder=6)
+                markeredgecolor='black', markeredgewidth=1.5, zorder=7)
         ax.annotate(f"Fp = {fp} Hz\n(centroïde)", xy=(fp, fp_h), xytext=(fp, fp_h + 0.15),
                     ha='center', fontsize=8, fontweight='bold', color='#1B5E20',
-                    arrowprops=dict(arrowstyle='->', color='#1B5E20', lw=1.5), zorder=7)
+                    arrowprops=dict(arrowstyle='->', color='#1B5E20', lw=1.5), zorder=8)
 
     # Cluster de convergence
     ax.axvspan(420, 550, alpha=0.12, color='red', zorder=1)
@@ -226,7 +244,7 @@ def make_graph(display, filename, n, formants, fp=None, family_color='#2E7D32', 
     ax.set_xlabel("Fréquence (Hz)", fontsize=10, fontweight='bold')
     ax.set_ylabel("Amplitude relative (normalisée)" if use_real_amp else "Importance relative du formant",
                   fontsize=10, fontweight='bold')
-    ax.set_title(f"{display} — Formants spectraux F1–F6 (ordinario, N={n})",
+    ax.set_title(f"{display} — Profil formantique (ordinario, N={n})",
                  fontsize=12, fontweight='bold', color=family_color, pad=12)
     ax.set_xscale('log')
     ticks = [t for t in [100, 150, 200, 300, 400, 500, 600, 800,
@@ -238,23 +256,24 @@ def make_graph(display, filename, n, formants, fp=None, family_color='#2E7D32', 
     for s in ['top', 'right', 'left']:
         ax.spines[s].set_visible(False)
 
-    # Legend — lower left (zone /u/, always empty)
-    if use_real_amp:
-        le = [mpatches.Patch(facecolor=FC[i], alpha=FA[i], edgecolor='#333',
-                             label=f'F{i+1} = {formants[i]} Hz ({amplitudes[i]:.0f} dB)') for i, _ in valid]
+    # Legend — lower left (zone /u/)
+    if use_real_amp and has_bw:
+        le = [mpatches.Patch(facecolor=FC[i], alpha=0.4, edgecolor=FC[i],
+              label=f'F{i+1} = {formants[i]} Hz ({amplitudes[i]:.0f} dB) BW={bandwidths[i]:.0f}')
+              for i, _ in valid]
+    elif use_real_amp:
+        le = [mpatches.Patch(facecolor=FC[i], alpha=0.4, edgecolor=FC[i],
+              label=f'F{i+1} = {formants[i]} Hz ({amplitudes[i]:.0f} dB)') for i, _ in valid]
     else:
-        le = [mpatches.Patch(facecolor=FC[i], alpha=FA[i], edgecolor='#333',
-                             label=f'F{i+1} = {formants[i]} Hz') for i, _ in valid]
+        le = [mpatches.Patch(facecolor=FC[i], alpha=0.4, edgecolor=FC[i],
+              label=f'F{i+1} = {formants[i]} Hz') for i, _ in valid]
     if fp and abs(fp - f1) > 30:
         le.append(Line2D([0], [0], marker='D', color='w',
                          markerfacecolor='#1B5E20', markeredgecolor='black',
                          markersize=10, label=f'Fp centroïde = {fp} Hz'))
-    if has_iqr:
-        le.append(mpatches.Patch(facecolor='#999', alpha=0.15, edgecolor='#999',
-                                 linestyle='--', label='IQR [Q25–Q75]'))
-    ax.legend(handles=le, loc='lower left', fontsize=7, framealpha=0.92, edgecolor='#CCC')
+    ax.legend(handles=le, loc='lower left', fontsize=6.5, framealpha=0.92, edgecolor='#CCC')
     ax.text(0.99, -0.08,
-            f"Famille : {family_label or 'Orchestre'} · Source : CSV v3 (SOL2020 + Yan_Adds)",
+            f"Famille : {family_label or 'Orchestre'} · Source : CSV v3 + specenv (SOL2020 + Yan_Adds)",
             transform=ax.transAxes, fontsize=7, color='#888', ha='right')
     plt.tight_layout()
 

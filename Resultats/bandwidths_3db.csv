@@ -1,0 +1,534 @@
+instrument,technique,F1_bw,F2_bw,F3_bw,F4_bw,F5_bw,F6_bw
+Accordéon,backwards,140.0,161.5,140.0,118.4,107.7,107.7
+Accordéon,bellowshake,172.3,172.3,150.7,193.8,226.1,592.2
+Accordéon,breath,1615.0,1550.4,1087.4,290.7,2121.0,2508.6
+Accordéon,combination_of_registers,129.2,150.7,129.2,118.4,118.4,118.4
+Accordéon,crescendo,140.0,150.7,150.7,140.0,129.2,129.2
+Accordéon,crescendo_to_decrescendo,118.4,140.0,118.4,129.2,118.4,107.7
+Accordéon,decrescendo,172.3,172.3,193.8,204.6,215.3,193.8
+Accordéon,difference_tones,96.9,150.7,107.7,107.7,161.5,
+Accordéon,key_click,150.7,732.1,204.6,1593.5,2390.2,936.7
+Accordéon,ordinario,107.7,129.2,129.2,118.4,107.7,107.7
+Accordéon,sforzato,140.0,150.7,161.5,129.2,107.7,107.7
+Accordéon,staccato,150.7,140.0,129.2,129.2,107.7,107.7
+Accordéon,tap_on_body,215.3,96.9,129.2,,,
+Alto,artificial_harmonic,140.0,129.2,118.4,140.0,129.2,118.4
+Alto,artificial_harmonic_tremolo,161.5,118.4,107.7,140.0,140.0,118.4
+Alto,behind_the_bridge,140.0,107.7,118.4,118.4,140.0,96.9
+Alto,behind_the_fingerboard,172.3,204.6,129.2,172.3,140.0,140.0
+Alto,chromatic_scale,183.0,161.5,193.8,236.9,463.0,236.9
+Alto,col_legno_battuto,140.0,118.4,129.2,129.2,118.4,107.7
+Alto,col_legno_tratto,150.7,129.2,107.7,118.4,107.7,118.4
+Alto,crescendo,140.0,118.4,118.4,96.9,107.7,107.7
+Alto,crescendo_to_decrescendo,140.0,118.4,107.7,118.4,107.7,107.7
+Alto,crushed_to_ordinario,150.7,183.0,150.7,150.7,183.0,150.7
+Alto,decrescendo,140.0,107.7,107.7,118.4,107.7,107.7
+Alto,hit_on_body,150.7,387.6,247.6,129.2,193.8,204.6
+Alto,natural_harmonics_glissandi,150.7,140.0,150.7,150.7,161.5,204.6
+Alto,non_vibrato,129.2,118.4,107.7,107.7,107.7,118.4
+Alto,note_lasting,118.4,107.7,96.9,107.7,107.7,118.4
+Alto,on_the_bridge,150.7,129.2,172.3,215.3,150.7,236.9
+Alto,on_the_frog,107.7,107.7,107.7,129.2,107.7,215.3
+Alto,on_the_tuning_pegs,204.6,269.2,204.6,140.0,107.7,107.7
+Alto,ordinario,118.4,107.7,107.7,107.7,96.9,107.7
+Alto,ordinario_to_crushed,161.5,161.5,183.0,172.3,204.6,150.7
+Alto,ordinario_to_sul_ponticello,150.7,129.2,107.7,118.4,107.7,118.4
+Alto,ordinario_to_sul_tasto,140.0,107.7,118.4,118.4,129.2,129.2
+Alto,ordinario_to_tremolo,140.0,107.7,107.7,107.7,107.7,118.4
+Alto,pizzicato_bartok,118.4,118.4,129.2,129.2,118.4,118.4
+Alto,pizzicato_l_vib,118.4,118.4,118.4,118.4,118.4,107.7
+Alto,pizzicato_secco,107.7,107.7,118.4,118.4,107.7,107.7
+Alto,sforzato,118.4,118.4,96.9,118.4,107.7,118.4
+Alto,staccato,129.2,118.4,96.9,107.7,107.7,118.4
+Alto,sul_ponticello,140.0,118.4,107.7,107.7,107.7,107.7
+Alto,sul_ponticello_to_ordinario,140.0,129.2,118.4,107.7,107.7,118.4
+Alto,sul_ponticello_to_sul_tasto,129.2,129.2,107.7,96.9,107.7,107.7
+Alto,sul_ponticello_tremolo,140.0,118.4,96.9,107.7,107.7,107.7
+Alto,sul_tasto,129.2,107.7,118.4,118.4,129.2,129.2
+Alto,sul_tasto_to_ordinario,150.7,129.2,107.7,118.4,118.4,107.7
+Alto,sul_tasto_to_sul_ponticello,150.7,129.2,107.7,129.2,118.4,107.7
+Alto,sul_tasto_tremolo,129.2,118.4,107.7,118.4,118.4,129.2
+Alto,tremolo,129.2,107.7,107.7,107.7,107.7,118.4
+Alto,tremolo_to_ordinario,129.2,107.7,107.7,118.4,118.4,118.4
+Alto,trill_major_second_up,107.7,129.2,129.2,129.2,129.2,129.2
+Alto,trill_minor_second_up,107.7,96.9,96.9,107.7,129.2,150.7
+Alto+sourdine,non_vibrato,129.2,129.2,118.4,118.4,118.4,118.4
+Alto+sourdine,ordinario,118.4,118.4,107.7,107.7,107.7,107.7
+Alto+sourdine,tremolo,118.4,107.7,118.4,118.4,118.4,118.4
+Alto+sourdine piombo,non_vibrato,140.0,107.7,107.7,107.7,107.7,107.7
+Alto+sourdine piombo,ordinario,129.2,96.9,96.9,96.9,96.9,96.9
+Alto+sourdine piombo,tremolo,107.7,96.9,107.7,118.4,107.7,118.4
+Basson,blow_without_reed,226.1,226.1,215.3,193.8,258.4,215.3
+Basson,chromatic_scale,150.7,398.4,441.4,150.7,,
+Basson,crescendo,129.2,161.5,193.8,183.0,226.1,193.8
+Basson,crescendo_to_decrescendo,150.7,129.2,172.3,226.1,247.6,183.0
+Basson,decrescendo,150.7,193.8,172.3,172.3,193.8,204.6
+Basson,flatterzunge,140.0,118.4,140.0,129.2,161.5,129.2
+Basson,glissando_with_throat,129.2,150.7,269.2,150.7,161.5,118.4
+Basson,harmonic_fingering,96.9,107.7,118.4,140.0,118.4,129.2
+Basson,key_click,140.0,140.0,161.5,140.0,204.6,226.1
+Basson,multiphonics,161.5,172.3,204.6,441.4,463.0,269.2
+Basson,note_lasting,150.7,172.3,161.5,193.8,193.8,140.0
+Basson,ordinario,140.0,150.7,161.5,226.1,172.3,161.5
+Basson,ordinario_quartertones,140.0,150.7,193.8,193.8,193.8,183.0
+Basson,sforzato,161.5,172.3,161.5,183.0,183.0,193.8
+Basson,staccato,150.7,172.3,215.3,247.6,215.3,549.1
+Basson,trill_major_second_up,129.2,150.7,172.3,193.8,226.1,161.5
+Basson,trill_minor_second_up,129.2,161.5,161.5,150.7,161.5,150.7
+Basson,vibrato,140.0,129.2,161.5,161.5,215.3,172.3
+Basson+sourdine,ordinario,129.2,129.2,161.5,107.7,118.4,150.7
+Clarinette basse en Sib,aeolian,150.7,258.4,226.1,409.1,646.0,172.3
+Clarinette basse en Sib,flatterzunge,96.9,129.2,161.5,161.5,204.6,463.0
+Clarinette basse en Sib,ordinario,75.4,129.2,140.0,140.0,161.5,150.7
+Clarinette contrebasse en Sib,aeolian,150.7,204.6,269.2,463.0,829.0,882.9
+Clarinette contrebasse en Sib,ordinario,129.2,183.0,172.3,193.8,398.4,463.0
+Clarinette en Mib,aeolian,118.4,204.6,376.8,247.6,183.0,172.3
+Clarinette en Mib,aeolian-flatterzunge,118.4,258.4,204.6,193.8,204.6,193.8
+Clarinette en Mib,ordinario,75.4,86.1,96.9,107.7,118.4,107.7
+Clarinette en Sib,aeolian_and_ordinario,86.1,118.4,150.7,226.1,376.8,312.2
+Clarinette en Sib,crescendo,75.4,96.9,107.7,107.7,107.7,118.4
+Clarinette en Sib,crescendo_to_decrescendo,75.4,96.9,96.9,107.7,118.4,140.0
+Clarinette en Sib,decrescendo,75.4,107.7,96.9,107.7,107.7,118.4
+Clarinette en Sib,flatterzunge,75.4,96.9,96.9,96.9,107.7,129.2
+Clarinette en Sib,flatterzunge_high_register,75.4,86.1,86.1,86.1,,
+Clarinette en Sib,glissando,75.4,96.9,107.7,118.4,129.2,150.7
+Clarinette en Sib,key_click,107.7,161.5,150.7,247.6,183.0,183.0
+Clarinette en Sib,multiphonics,96.9,96.9,96.9,107.7,118.4,140.0
+Clarinette en Sib,note_lasting,75.4,96.9,86.1,107.7,118.4,107.7
+Clarinette en Sib,ordinario,75.4,96.9,107.7,118.4,129.2,140.0
+Clarinette en Sib,ordinario_high_register,75.4,75.4,86.1,430.7,129.2,107.7
+Clarinette en Sib,ordinario_quartertones,75.4,96.9,107.7,118.4,129.2,150.7
+Clarinette en Sib,sforzato,75.4,96.9,96.9,107.7,107.7,118.4
+Clarinette en Sib,staccato,75.4,96.9,86.1,96.9,96.9,107.7
+Clarinette en Sib,trill_major_second_up,86.1,107.7,118.4,129.2,140.0,193.8
+Clarinette en Sib,trill_minor_second_up,75.4,96.9,107.7,118.4,150.7,161.5
+Cloche de vache,ordinario-soft-mallet,86.1,96.9,107.7,86.1,107.7,107.7
+Cloche de vache,tremolo-soft-mallet,86.1,150.7,118.4,,,
+Cloches tubulaires,ordinario-soft-mallet,107.7,96.9,96.9,96.9,96.9,96.9
+Contrebasse,artificial_harmonic,129.2,118.4,140.0,129.2,140.0,140.0
+Contrebasse,artificial_harmonic_tremolo,75.4,118.4,140.0,150.7,150.7,140.0
+Contrebasse,behind_the_bridge,161.5,96.9,96.9,107.7,129.2,118.4
+Contrebasse,chromatic_scale,107.7,86.1,473.7,236.9,150.7,
+Contrebasse,col_legno_battuto,75.4,140.0,172.3,183.0,193.8,183.0
+Contrebasse,col_legno_tratto,96.9,118.4,204.6,193.8,150.7,161.5
+Contrebasse,crescendo,107.7,129.2,592.2,226.1,204.6,183.0
+Contrebasse,crescendo_to_decrescendo,96.9,129.2,301.5,204.6,161.5,215.3
+Contrebasse,crushed_to_ordinario,107.7,129.2,376.8,366.1,172.3,183.0
+Contrebasse,decrescendo,107.7,150.7,269.2,172.3,140.0,183.0
+Contrebasse,hit_on_body,215.3,215.3,107.7,161.5,,
+Contrebasse,natural_harmonics_glissandi,107.7,129.2,366.1,183.0,150.7,161.5
+Contrebasse,non_vibrato,96.9,118.4,204.6,226.1,193.8,161.5
+Contrebasse,note_lasting,107.7,107.7,215.3,193.8,172.3,183.0
+Contrebasse,on_the_bridge,107.7,96.9,570.6,236.9,86.1,
+Contrebasse,on_the_tailpiece,64.6,150.7,172.3,129.2,150.7,
+Contrebasse,on_the_tuning_pegs,86.1,96.9,150.7,129.2,172.3,387.6
+Contrebasse,ordinario,96.9,118.4,204.6,226.1,183.0,172.3
+Contrebasse,ordinario_to_crushed,107.7,150.7,430.7,193.8,150.7,172.3
+Contrebasse,ordinario_to_sul_ponticello,107.7,140.0,527.6,193.8,193.8,193.8
+Contrebasse,ordinario_to_sul_tasto,107.7,129.2,516.8,193.8,172.3,172.3
+Contrebasse,ordinario_to_tremolo,107.7,96.9,258.4,172.3,172.3,172.3
+Contrebasse,pizzicato_bartok,140.0,161.5,161.5,183.0,226.1,183.0
+Contrebasse,pizzicato_l_vib,75.4,96.9,140.0,129.2,129.2,129.2
+Contrebasse,pizzicato_secco,64.6,96.9,129.2,118.4,140.0,161.5
+Contrebasse,sforzato,107.7,107.7,215.3,193.8,172.3,161.5
+Contrebasse,staccato,96.9,96.9,226.1,193.8,161.5,107.7
+Contrebasse,sul_ponticello,118.4,118.4,193.8,215.3,193.8,183.0
+Contrebasse,sul_ponticello_to_ordinario,107.7,150.7,323.0,183.0,172.3,215.3
+Contrebasse,sul_ponticello_to_sul_tasto,107.7,129.2,678.3,172.3,161.5,172.3
+Contrebasse,sul_ponticello_tremolo,118.4,150.7,366.1,247.6,183.0,172.3
+Contrebasse,sul_tasto,107.7,118.4,183.0,183.0,172.3,172.3
+Contrebasse,sul_tasto_to_ordinario,107.7,150.7,527.6,183.0,183.0,172.3
+Contrebasse,sul_tasto_to_sul_ponticello,118.4,118.4,473.7,204.6,204.6,204.6
+Contrebasse,sul_tasto_tremolo,107.7,129.2,204.6,215.3,172.3,150.7
+Contrebasse,tremolo,96.9,129.2,226.1,247.6,172.3,150.7
+Contrebasse,tremolo_to_ordinario,96.9,129.2,193.8,215.3,150.7,140.0
+Contrebasse,trill_major_second_up,107.7,96.9,247.6,247.6,452.2,172.3
+Contrebasse,trill_minor_second_up,107.7,107.7,570.6,269.2,258.4,172.3
+Contrebasse+sourdine,non_vibrato,96.9,118.4,172.3,183.0,183.0,172.3
+Contrebasse+sourdine,ordinario,96.9,118.4,193.8,193.8,204.6,172.3
+Contrebasse+sourdine,tremolo,96.9,107.7,183.0,193.8,161.5,161.5
+Contrebasson,non-vibrato,129.2,150.7,161.5,193.8,312.2,323.0
+Cor anglais,flatterzunge,86.1,96.9,96.9,96.9,107.7,96.9
+Cor anglais,ordinario,86.1,107.7,107.7,118.4,140.0,140.0
+Cor anglais,vibrato,86.1,96.9,96.9,107.7,118.4,118.4
+Cor en Fa,brassy,215.3,473.7,269.2,624.5,656.8,689.1
+Cor en Fa,brassy_to_ordinario,452.2,506.0,1055.1,1098.2,2099.5,236.9
+Cor en Fa,chromatic_scale,193.8,882.9,,,,
+Cor en Fa,crescendo,215.3,484.5,925.9,732.1,764.4,247.6
+Cor en Fa,crescendo_to_decrescendo,204.6,258.4,107.7,118.4,118.4,118.4
+Cor en Fa,decrescendo,215.3,441.4,915.2,764.4,775.2,409.1
+Cor en Fa,flatterzunge,183.0,129.2,107.7,118.4,323.0,226.1
+Cor en Fa,flatterzunge_stopped,107.7,129.2,118.4,183.0,161.5,161.5
+Cor en Fa,flatterzunge_to_ordinario,183.0,226.1,118.4,150.7,646.0,172.3
+Cor en Fa,note_lasting,204.6,333.8,118.4,129.2,204.6,118.4
+Cor en Fa,open_to_stopped,269.2,258.4,96.9,107.7,118.4,
+Cor en Fa,ordinario,204.6,161.5,118.4,118.4,204.6,355.3
+Cor en Fa,ordinario_to_brassy,204.6,495.3,646.0,764.4,732.1,398.4
+Cor en Fa,ordinario_to_flatterzunge,193.8,150.7,118.4,538.3,538.3,
+Cor en Fa,sforzato,204.6,495.3,915.2,484.5,602.9,915.2
+Cor en Fa,slap_pitched,193.8,215.3,150.7,204.6,226.1,161.5
+Cor en Fa,staccato,193.8,506.0,904.4,247.6,226.1,699.8
+Cor en Fa,stopped,107.7,107.7,150.7,215.3,161.5,172.3
+Cor en Fa,stopped_to_open,279.9,193.8,140.0,107.7,183.0,
+Cor en Fa,trill_major_second_up,75.4,96.9,140.0,140.0,,
+Cor en Fa,trill_minor_second_up,236.9,129.2,107.7,107.7,86.1,
+Cor en Fa+sourdine,flatterzunge,193.8,129.2,107.7,118.4,193.8,129.2
+Cor en Fa+sourdine,ordinario,226.1,150.7,118.4,172.3,172.3,172.3
+Ensemble d'altos,flautando,140.0,129.2,118.4,118.4,129.2,129.2
+Ensemble d'altos,ordinario,118.4,107.7,107.7,107.7,107.7,118.4
+Ensemble d'altos,pizzicato-l-vib,140.0,150.7,140.0,140.0,140.0,150.7
+Ensemble d'altos+sourdine,ordinario,96.9,118.4,107.7,118.4,118.4,107.7
+Ensemble de contrebasses,flautando,75.4,96.9,226.1,366.1,699.8,129.2
+Ensemble de contrebasses,non-vibrato,96.9,86.1,506.0,226.1,323.0,140.0
+Ensemble de contrebasses,pizzicato-l-vib,86.1,75.4,150.7,172.3,,
+Ensemble de violoncelles,flautando,96.9,172.3,140.0,107.7,452.2,204.6
+Ensemble de violoncelles,ordinario,96.9,107.7,172.3,140.0,215.3,204.6
+Ensemble de violoncelles,pizzicato-l-vib,86.1,107.7,129.2,129.2,118.4,129.2
+Ensemble de violoncelles+sourdine,ordinario,86.1,96.9,107.7,118.4,161.5,129.2
+Ensemble de violons,flautando,150.7,140.0,118.4,118.4,118.4,118.4
+Ensemble de violons,ordinario,118.4,96.9,96.9,96.9,96.9,96.9
+Ensemble de violons,pizzicato-l-vib,140.0,150.7,140.0,140.0,140.0,140.0
+Ensemble de violons+sourdine,ordinario,96.9,118.4,96.9,96.9,96.9,96.9
+Flûte,aeolian,107.7,150.7,140.0,129.2,183.0,193.8
+Flûte,aeolian_and_ordinario,86.1,96.9,107.7,118.4,129.2,140.0
+Flûte,aeolian_to_ordinario,86.1,129.2,96.9,118.4,140.0,140.0
+Flûte,chromatic_scale,150.7,829.0,387.6,355.3,,
+Flûte,crescendo,86.1,96.9,96.9,107.7,107.7,118.4
+Flûte,crescendo_to_decrescendo,86.1,140.0,96.9,129.2,118.4,129.2
+Flûte,decrescendo,86.1,96.9,107.7,118.4,107.7,107.7
+Flûte,discolored_fingering,96.9,118.4,107.7,118.4,129.2,140.0
+Flûte,flatterzunge,86.1,96.9,107.7,118.4,129.2,140.0
+Flûte,flatterzunge_to_ordinario,86.1,107.7,107.7,118.4,107.7,161.5
+Flûte,harmonic_fingering,107.7,86.1,107.7,150.7,118.4,118.4
+Flûte,jet_whistle,247.6,355.3,872.1,2271.8,355.3,2917.7
+Flûte,key_click,86.1,96.9,107.7,183.0,161.5,172.3
+Flûte,multiphonics,96.9,96.9,107.7,118.4,140.0,150.7
+Flûte,note_lasting,86.1,96.9,96.9,107.7,107.7,107.7
+Flûte,ordinario,86.1,107.7,107.7,118.4,107.7,118.4
+Flûte,ordinario_quartertones,86.1,96.9,107.7,118.4,107.7,118.4
+Flûte,ordinario_to_aeolian,86.1,96.9,96.9,118.4,129.2,118.4
+Flûte,ordinario_to_flatterzunge,86.1,96.9,118.4,107.7,118.4,118.4
+Flûte,pizzicato,107.7,107.7,96.9,118.4,183.0,150.7
+Flûte,play_and_sing,107.7,107.7,140.0,140.0,129.2,140.0
+Flûte,play_and_sing_unison,86.1,86.1,107.7,96.9,107.7,129.2
+Flûte,sforzato,86.1,96.9,107.7,107.7,96.9,107.7
+Flûte,staccato,86.1,86.1,96.9,96.9,96.9,118.4
+Flûte,tongue_ram,86.1,129.2,118.4,172.3,150.7,150.7
+Flûte,trill_major_second_up,75.4,118.4,118.4,118.4,118.4,118.4
+Flûte,trill_minor_second_up,75.4,96.9,96.9,129.2,107.7,107.7
+Flûte,whistle_tones,86.1,118.4,118.4,96.9,118.4,107.7
+Flûte,whistle_tones_sweeping,96.9,107.7,107.7,118.4,140.0,172.3
+Flûte basse,aeolian,150.7,172.3,172.3,258.4,344.5,333.8
+Flûte basse,flatterzunge,118.4,140.0,150.7,140.0,161.5,172.3
+Flûte basse,ordinario,118.4,129.2,161.5,161.5,172.3,172.3
+Flûte contrebasse,aeolian,140.0,140.0,172.3,323.0,904.4,646.0
+Flûte contrebasse,flatterzunge,118.4,140.0,150.7,172.3,183.0,236.9
+Flûte contrebasse,ordinario,118.4,129.2,150.7,193.8,183.0,172.3
+Gongs thai,ordinario-soft-mallet,86.1,118.4,96.9,96.9,96.9,96.9
+Guitare,behind_the_frog,150.7,150.7,301.5,118.4,161.5,129.2
+Guitare,bell_effect,107.7,226.1,86.1,75.4,,
+Guitare,bottleneck,107.7,172.3,86.1,150.7,118.4,
+Guitare,chromatic_scale,96.9,193.8,215.3,,,
+Guitare,dedillo,96.9,118.4,118.4,107.7,118.4,118.4
+Guitare,drum_effect,86.1,269.2,409.1,204.6,,
+Guitare,glissando,96.9,118.4,107.7,118.4,118.4,118.4
+Guitare,harmonic_fingering,107.7,107.7,129.2,118.4,118.4,129.2
+Guitare,ordinario,96.9,107.7,107.7,107.7,96.9,96.9
+Guitare,ordinario_high_register,118.4,279.9,118.4,129.2,129.2,118.4
+Guitare,pizzicato,107.7,96.9,118.4,118.4,118.4,107.7
+Guitare,pizzicato_bartok,96.9,183.0,129.2,140.0,129.2,129.2
+Guitare,rasguado,96.9,129.2,129.2,118.4,150.7,118.4
+Guitare,scratch_with_nail,129.2,969.0,140.0,140.0,129.2,129.2
+Guitare,slide,96.9,129.2,129.2,107.7,129.2,118.4
+Guitare,sul_ponticello,96.9,140.0,129.2,107.7,118.4,107.7
+Guitare,sul_tasto,96.9,118.4,107.7,96.9,96.9,96.9
+Guitare,tap_on_body,118.4,140.0,140.0,1561.2,172.3,129.2
+Guitare,tap_with_stick,75.4,,,,,
+Harpe,bisbigliando,140.0,129.2,150.7,150.7,129.2,129.2
+Harpe,bisbigliando_with_stick,140.0,161.5,161.5,172.3,172.3,172.3
+Harpe,buzzing_pedal,118.4,172.3,150.7,193.8,215.3,129.2
+Harpe,cluster,129.2,107.7,129.2,161.5,204.6,129.2
+Harpe,cluster_with_nail,118.4,204.6,150.7,150.7,150.7,129.2
+Harpe,damped,118.4,118.4,129.2,129.2,107.7,96.9
+Harpe,double_glissando,129.2,140.0,118.4,140.0,129.2,140.0
+Harpe,glissando,107.7,193.8,193.8,140.0,140.0,129.2
+Harpe,glissando_fluido_with_stick,96.9,107.7,161.5,215.3,118.4,699.8
+Harpe,glissando_near_the_board,183.0,279.9,129.2,129.2,140.0,140.0
+Harpe,glissando_with_nail,150.7,247.6,193.8,463.0,129.2,172.3
+Harpe,glissando_with_pedal,129.2,172.3,118.4,129.2,129.2,129.2
+Harpe,glissando_with_stick,161.5,140.0,107.7,107.7,96.9,107.7
+Harpe,harmonic_fingering,129.2,129.2,140.0,129.2,129.2,140.0
+Harpe,harmonic_in_wood,140.0,118.4,140.0,161.5,129.2,107.7
+Harpe,near_the_board,140.0,140.0,129.2,118.4,96.9,96.9
+Harpe,near_the_board_with_nail,129.2,140.0,140.0,118.4,118.4,96.9
+Harpe,near_the_pegs,150.7,140.0,118.4,107.7,107.7,96.9
+Harpe,ordinario,118.4,118.4,129.2,118.4,107.7,107.7
+Harpe,pizzicato_bartok,140.0,172.3,215.3,215.3,161.5,129.2
+Harpe,scratch_with_nail,172.3,140.0,183.0,183.0,236.9,204.6
+Harpe,tap_on_body,140.0,183.0,204.6,355.3,236.9,204.6
+Harpe,tap_with_stick,150.7,140.0,129.2,150.7,172.3,161.5
+Harpe,tremolo_with_fingertips,172.3,172.3,86.1,247.6,656.8,258.4
+Harpe,xylophonic,118.4,129.2,140.0,150.7,129.2,118.4
+Hautbois,blow_without_reed,140.0,118.4,140.0,140.0,161.5,161.5
+Hautbois,chromatic_scale,1292.0,1302.8,775.2,161.5,689.1,1582.7
+Hautbois,crescendo,86.1,86.1,86.1,96.9,96.9,96.9
+Hautbois,crescendo_to_decrescendo,75.4,86.1,86.1,96.9,96.9,96.9
+Hautbois,decrescendo,75.4,96.9,86.1,86.1,96.9,107.7
+Hautbois,discolored_fingering,86.1,96.9,86.1,107.7,129.2,129.2
+Hautbois,double_trill_major_second_up,96.9,107.7,344.5,172.3,96.9,118.4
+Hautbois,double_trill_minor_second_up,86.1,86.1,107.7,96.9,107.7,107.7
+Hautbois,flatterzunge,75.4,86.1,86.1,96.9,96.9,96.9
+Hautbois,harmonic_fingering,86.1,150.7,96.9,118.4,118.4,140.0
+Hautbois,key_click,118.4,161.5,172.3,161.5,323.0,204.6
+Hautbois,kiss,86.1,96.9,118.4,118.4,129.2,118.4
+Hautbois,lip_glissando,86.1,96.9,107.7,107.7,118.4,96.9
+Hautbois,multiphonics,107.7,107.7,118.4,118.4,118.4,118.4
+Hautbois,note_lasting,75.4,75.4,86.1,96.9,96.9,96.9
+Hautbois,ordinario,86.1,86.1,96.9,96.9,96.9,107.7
+Hautbois,ordinario_quartertones,86.1,86.1,96.9,96.9,107.7,107.7
+Hautbois,sforzato,75.4,96.9,86.1,86.1,96.9,96.9
+Hautbois,staccato,75.4,75.4,86.1,86.1,86.1,96.9
+Hautbois,trill_major_second_up,75.4,96.9,107.7,118.4,118.4,107.7
+Hautbois,trill_minor_second_up,75.4,86.1,96.9,107.7,96.9,107.7
+Hautbois,vibrato,86.1,86.1,86.1,96.9,96.9,96.9
+Hautbois+sourdine,ordinario,75.4,86.1,86.1,96.9,107.7,107.7
+Marimba,ordinario-soft-mallet,86.1,107.7,118.4,107.7,893.6,96.9
+Marimba,tremolo-soft-mallet,96.9,118.4,161.5,,,
+Petite flûte,flatterzunge,86.1,96.9,96.9,129.2,118.4,161.5
+Petite flûte,ordinario,86.1,107.7,107.7,107.7,107.7,118.4
+Saxophone alto,aeolian,129.2,269.2,430.7,635.2,1033.6,1324.3
+Saxophone alto,backwards,86.1,96.9,86.1,86.1,96.9,107.7
+Saxophone alto,bisbigliando,96.9,107.7,96.9,107.7,107.7,107.7
+Saxophone alto,blow_without_reed,2153.3,839.8,829.0,1647.3,2810.1,269.2
+Saxophone alto,chromatic_scale,699.8,656.8,656.8,689.1,678.3,2648.6
+Saxophone alto,crescendo,86.1,107.7,118.4,107.7,107.7,118.4
+Saxophone alto,crescendo_to_decrescendo,86.1,118.4,96.9,118.4,107.7,118.4
+Saxophone alto,decrescendo,86.1,118.4,96.9,107.7,107.7,118.4
+Saxophone alto,discolored_fingering,107.7,129.2,140.0,312.2,667.5,236.9
+Saxophone alto,double_tonguing,86.1,107.7,96.9,96.9,107.7,107.7
+Saxophone alto,exploding_slap_pitched,118.4,172.3,140.0,527.6,1141.3,193.8
+Saxophone alto,flatterzunge,96.9,129.2,107.7,107.7,129.2,129.2
+Saxophone alto,flatterzunge_to_ordinario,96.9,129.2,150.7,140.0,140.0,129.2
+Saxophone alto,glissando,64.6,75.4,96.9,107.7,118.4,118.4
+Saxophone alto,harmonic_fingering,118.4,118.4,430.7,979.8,936.7,516.8
+Saxophone alto,harmonics_glissando,150.7,215.3,1281.2,882.9,2336.4,452.2
+Saxophone alto,key_click,183.0,215.3,183.0,172.3,215.3,150.7
+Saxophone alto,kiss,107.7,236.9,969.0,215.3,215.3,2002.6
+Saxophone alto,move_bell_from_down_to_up,140.0,355.3,398.4,301.5,463.0,430.7
+Saxophone alto,move_bell_from_left_to_right,150.7,204.6,387.6,172.3,592.2,581.4
+Saxophone alto,multiphonics,75.4,75.4,86.1,96.9,107.7,118.4
+Saxophone alto,ordinario,86.1,107.7,107.7,118.4,118.4,118.4
+Saxophone alto,ordinario_high_register,75.4,86.1,86.1,86.1,96.9,96.9
+Saxophone alto,ordinario_quartertones,75.4,107.7,107.7,140.0,129.2,129.2
+Saxophone alto,ordinario_to_flatterzunge,96.9,129.2,129.2,118.4,129.2,118.4
+Saxophone alto,play_and_sing_glissando,430.7,495.3,269.2,,,
+Saxophone alto,play_and_sing_min_second_up,150.7,247.6,226.1,215.3,204.6,204.6
+Saxophone alto,play_and_sing_unison,129.2,150.7,226.1,215.3,279.9,570.6
+Saxophone alto,sforzato,86.1,107.7,96.9,118.4,118.4,107.7
+Saxophone alto,slap_pitched,183.0,172.3,172.3,215.3,355.3,258.4
+Saxophone alto,slap_unpitched,430.7,193.8,150.7,161.5,183.0,204.6
+Saxophone alto,staccato,96.9,107.7,107.7,129.2,129.2,140.0
+Saxophone alto,trill_major_second_up,96.9,118.4,129.2,161.5,150.7,129.2
+Saxophone alto,trill_minor_second_up,96.9,107.7,107.7,118.4,118.4,150.7
+Trombone basse,ordinario,161.5,161.5,376.8,656.8,1055.1,1625.8
+Trombone ténor,brassy,193.8,236.9,1055.1,1561.2,1808.8,2034.9
+Trombone ténor,brassy_to_ordinario,947.5,226.1,1012.1,1615.0,1658.1,2960.8
+Trombone ténor,chromatic_scale,1055.1,129.2,549.1,818.3,1561.2,
+Trombone ténor,crescendo,1184.3,183.0,236.9,1001.3,1109.0,1905.7
+Trombone ténor,crescendo_to_decrescendo,667.5,172.3,452.2,129.2,107.7,107.7
+Trombone ténor,decrescendo,656.8,355.3,269.2,1087.4,1711.9,2250.2
+Trombone ténor,flatterzunge,678.3,183.0,452.2,699.8,290.7,204.6
+Trombone ténor,flatterzunge_no_mouthpiece,107.7,118.4,140.0,140.0,193.8,118.4
+Trombone ténor,flatterzunge_to_ordinario,172.3,183.0,484.5,118.4,118.4,129.2
+Trombone ténor,glissando,150.7,172.3,441.4,172.3,1259.7,
+Trombone ténor,note_lasting,710.6,172.3,258.4,150.7,1012.1,1604.2
+Trombone ténor,ordinario,150.7,183.0,226.1,193.8,204.6,193.8
+Trombone ténor,ordinario_no_mouthpiece,96.9,161.5,107.7,140.0,129.2,140.0
+Trombone ténor,ordinario_to_brassy,172.3,204.6,463.0,1561.2,1873.4,2239.5
+Trombone ténor,ordinario_to_flatterzunge,129.2,172.3,506.0,107.7,96.9,107.7
+Trombone ténor,pedal_tone,818.3,463.0,463.0,1216.6,1701.1,1851.9
+Trombone ténor,sforzato,958.2,236.9,441.4,1313.5,1808.8,2357.9
+Trombone ténor,slap_pitched,118.4,204.6,452.2,161.5,150.7,172.3
+Trombone ténor,staccato,979.8,172.3,215.3,936.7,140.0,150.7
+Trombone+sourdine cup,flatterzunge,161.5,183.0,140.0,161.5,247.6,150.7
+Trombone+sourdine cup,ordinario,96.9,215.3,172.3,172.3,172.3,193.8
+Trombone+sourdine harmon,flatterzunge,86.1,86.1,96.9,129.2,226.1,204.6
+Trombone+sourdine harmon,ordinario,86.1,86.1,107.7,150.7,215.3,204.6
+Trombone+sourdine sèche,flatterzunge,861.3,172.3,559.9,129.2,129.2,129.2
+Trombone+sourdine sèche,ordinario,161.5,183.0,140.0,247.6,183.0,129.2
+Trombone+sourdine wah,closed_to_open,86.1,172.3,172.3,129.2,118.4,140.0
+Trombone+sourdine wah,flatterzunge_closed,96.9,118.4,129.2,150.7,129.2,118.4
+Trombone+sourdine wah,flatterzunge_open,1367.4,183.0,226.1,269.2,150.7,107.7
+Trombone+sourdine wah,open_to_closed,86.1,193.8,183.0,215.3,204.6,183.0
+Trombone+sourdine wah,ordinario_closed,96.9,118.4,107.7,183.0,172.3,183.0
+Trombone+sourdine wah,ordinario_open,118.4,172.3,279.9,258.4,107.7,150.7
+Trompette en Ut,brassy,96.9,107.7,107.7,118.4,118.4,118.4
+Trompette en Ut,brassy_to_ordinario,96.9,107.7,107.7,107.7,107.7,107.7
+Trompette en Ut,crescendo,118.4,118.4,118.4,118.4,118.4,118.4
+Trompette en Ut,crescendo_to_decrescendo,86.1,107.7,107.7,118.4,118.4,118.4
+Trompette en Ut,decrescendo,107.7,107.7,107.7,107.7,107.7,107.7
+Trompette en Ut,flatterzunge,107.7,118.4,118.4,129.2,140.0,140.0
+Trompette en Ut,flatterzunge_to_ordinario,96.9,107.7,107.7,118.4,118.4,118.4
+Trompette en Ut,glissando_embouchure,107.7,86.1,581.4,118.4,979.8,258.4
+Trompette en Ut,half_valve_glissando,96.9,107.7,107.7,140.0,140.0,193.8
+Trompette en Ut,harmonics_glissando,129.2,161.5,129.2,118.4,129.2,129.2
+Trompette en Ut,increasing_intervals_legato,140.0,463.0,215.3,226.1,1938.0,1905.7
+Trompette en Ut,note_lasting,86.1,107.7,107.7,107.7,107.7,118.4
+Trompette en Ut,ordinario,96.9,107.7,107.7,118.4,118.4,118.4
+Trompette en Ut,ordinario_to_brassy,96.9,107.7,107.7,107.7,107.7,107.7
+Trompette en Ut,ordinario_to_flatterzunge,107.7,118.4,118.4,129.2,140.0,129.2
+Trompette en Ut,pedal_tone,1938.0,1152.0,516.8,463.0,1324.3,2142.6
+Trompette en Ut,sforzato,96.9,96.9,107.7,107.7,107.7,118.4
+Trompette en Ut,slap_pitched,140.0,247.6,236.9,516.8,323.0,247.6
+Trompette en Ut,staccato,96.9,96.9,107.7,107.7,107.7,107.7
+Trompette en Ut,trill_major_second_up,96.9,107.7,140.0,193.8,344.5,193.8
+Trompette en Ut,trill_minor_second_up,96.9,96.9,107.7,129.2,150.7,183.0
+Trompette en Ut,vocalize_on_harmonics,129.2,140.0,710.6,344.5,710.6,140.0
+Trompette+sourdine cup,flatterzunge,107.7,107.7,107.7,140.0,140.0,150.7
+Trompette+sourdine cup,ordinario,107.7,118.4,107.7,118.4,129.2,118.4
+Trompette+sourdine harmon,flatterzunge,107.7,118.4,118.4,129.2,140.0,150.7
+Trompette+sourdine harmon,ordinario,107.7,118.4,118.4,129.2,118.4,107.7
+Trompette+sourdine sèche,flatterzunge,118.4,118.4,129.2,118.4,129.2,129.2
+Trompette+sourdine sèche,ordinario,96.9,107.7,107.7,107.7,118.4,118.4
+Trompette+sourdine wah,closed_to_open,96.9,140.0,107.7,107.7,118.4,118.4
+Trompette+sourdine wah,flatterzunge_open,107.7,107.7,118.4,118.4,129.2,118.4
+Trompette+sourdine wah,open_to_closed,96.9,140.0,118.4,107.7,118.4,118.4
+Trompette+sourdine wah,ordinario_closed,96.9,107.7,118.4,107.7,107.7,107.7
+Trompette+sourdine wah,ordinario_open,96.9,118.4,107.7,107.7,129.2,118.4
+Tuba basse,bisbigliando,129.2,376.8,86.1,,,
+Tuba basse,blow,118.4,172.3,193.8,118.4,,
+Tuba basse,brassy,75.4,75.4,75.4,75.4,75.4,75.4
+Tuba basse,breath,140.0,312.2,172.3,161.5,129.2,129.2
+Tuba basse,buzz,183.0,118.4,129.2,107.7,96.9,107.7
+Tuba basse,chromatic_scale,118.4,452.2,,,,
+Tuba basse,crescendo,140.0,172.3,398.4,161.5,193.8,129.2
+Tuba basse,crescendo_to_decrescendo,140.0,204.6,107.7,96.9,96.9,86.1
+Tuba basse,decrescendo,344.5,344.5,118.4,161.5,150.7,150.7
+Tuba basse,discolored_fingering,107.7,150.7,150.7,161.5,96.9,118.4
+Tuba basse,discolored_fingering_quartertones,96.9,107.7,215.3,107.7,129.2,172.3
+Tuba basse,exploding_slap_pitched,355.3,86.1,118.4,107.7,107.7,
+Tuba basse,exploding_slap_unpitched,140.0,140.0,96.9,,,
+Tuba basse,filtered_by_voice,290.7,172.3,,,,
+Tuba basse,flatterzunge,140.0,376.8,96.9,107.7,,
+Tuba basse,flatterzunge_and_voice_unison,193.8,366.1,96.9,86.1,,
+Tuba basse,flatterzunge_to_ordinario,140.0,183.0,118.4,96.9,,
+Tuba basse,glissando,129.2,344.5,96.9,129.2,,
+Tuba basse,growl,236.9,161.5,161.5,,,
+Tuba basse,inhaled,990.5,990.5,279.9,75.4,107.7,193.8
+Tuba basse,kiss,570.6,172.3,882.9,,,
+Tuba basse,multiphonics,118.4,387.6,,,,
+Tuba basse,ordinario,161.5,323.0,118.4,355.3,193.8,215.3
+Tuba basse,ordinario_high_register,86.1,129.2,129.2,129.2,107.7,107.7
+Tuba basse,ordinario_quartertones,140.0,366.1,96.9,,,
+Tuba basse,ordinario_to_flatterzunge,129.2,355.3,118.4,129.2,,
+Tuba basse,pedal_tone,140.0,355.3,118.4,140.0,86.1,
+Tuba basse,percussion_embouchure,140.0,,,,,
+Tuba basse,play_and_sing_aug_forth_up,344.5,387.6,1033.6,161.5,,
+Tuba basse,play_and_sing_fifth_up,129.2,409.1,829.0,96.9,,
+Tuba basse,play_and_sing_glissando,150.7,,,,,
+Tuba basse,play_and_sing_maj_seventh_up,376.8,387.6,118.4,,,
+Tuba basse,play_and_sing_min_second_up,312.2,344.5,75.4,,,
+Tuba basse,play_and_sing_unison,183.0,183.0,118.4,96.9,96.9,
+Tuba basse,sforzato,366.1,366.1,129.2,193.8,107.7,96.9
+Tuba basse,single_tonguing,129.2,387.6,96.9,,,
+Tuba basse,slap_pitched,129.2,118.4,96.9,86.1,96.9,
+Tuba basse,slap_unpitched,140.0,107.7,96.9,96.9,107.7,
+Tuba basse,speak_into_instrument,183.0,204.6,150.7,129.2,183.0,247.6
+Tuba basse,staccato,161.5,344.5,107.7,129.2,118.4,118.4
+Tuba basse,trill_major_second_up,129.2,376.8,86.1,,,
+Tuba basse,trill_minor_second_up,129.2,376.8,150.7,,,
+Tuba basse+sourdine,flatterzunge,140.0,150.7,172.3,150.7,172.3,172.3
+Tuba basse+sourdine,ordinario,333.8,193.8,161.5,226.1,441.4,312.2
+Tuba contrebasse,flatterzunge,118.4,183.0,678.3,150.7,129.2,140.0
+Tuba contrebasse,ordinario,118.4,247.6,193.8,118.4,140.0,150.7
+Vibraphone,vibrato-soft-mallet,75.4,140.0,140.0,150.7,,
+Violon,artificial_harmonic,301.5,129.2,118.4,140.0,150.7,140.0
+Violon,artificial_harmonic_tremolo,183.0,129.2,118.4,140.0,129.2,140.0
+Violon,behind_the_bridge,236.9,118.4,96.9,129.2,118.4,96.9
+Violon,behind_the_fingerboard,301.5,107.7,430.7,86.1,140.0,140.0
+Violon,chromatic_scale,279.9,118.4,172.3,161.5,193.8,215.3
+Violon,col_legno_battuto,129.2,118.4,118.4,118.4,118.4,118.4
+Violon,col_legno_tratto,150.7,118.4,107.7,118.4,118.4,129.2
+Violon,crescendo,96.9,96.9,96.9,96.9,86.1,96.9
+Violon,crescendo_to_decrescendo,118.4,96.9,107.7,107.7,107.7,107.7
+Violon,crushed_to_ordinario,129.2,118.4,140.0,161.5,150.7,161.5
+Violon,decrescendo,107.7,86.1,86.1,96.9,107.7,96.9
+Violon,hit_on_body,150.7,204.6,215.3,140.0,118.4,150.7
+Violon,natural_harmonics_glissandi,129.2,118.4,129.2,140.0,140.0,150.7
+Violon,non_vibrato,129.2,107.7,107.7,107.7,107.7,107.7
+Violon,note_lasting,96.9,96.9,96.9,96.9,107.7,118.4
+Violon,on_the_tailpiece,140.0,129.2,484.5,269.2,247.6,258.4
+Violon,on_the_tuning_pegs,140.0,452.2,172.3,172.3,1313.5,247.6
+Violon,ordinario,118.4,96.9,96.9,107.7,107.7,107.7
+Violon,ordinario_to_crushed,129.2,129.2,140.0,161.5,150.7,193.8
+Violon,ordinario_to_sul_ponticello,150.7,107.7,118.4,107.7,107.7,107.7
+Violon,ordinario_to_sul_tasto,107.7,96.9,107.7,118.4,118.4,118.4
+Violon,ordinario_to_tremolo,107.7,96.9,107.7,107.7,107.7,118.4
+Violon,pizzicato_bartok,129.2,118.4,129.2,118.4,118.4,118.4
+Violon,pizzicato_l_vib,140.0,118.4,118.4,118.4,118.4,118.4
+Violon,pizzicato_secco,129.2,118.4,118.4,118.4,118.4,118.4
+Violon,sforzato,107.7,96.9,96.9,107.7,107.7,107.7
+Violon,staccato,96.9,96.9,96.9,107.7,107.7,107.7
+Violon,sul_ponticello,140.0,107.7,107.7,107.7,107.7,107.7
+Violon,sul_ponticello_to_ordinario,118.4,96.9,107.7,107.7,118.4,118.4
+Violon,sul_ponticello_to_sul_tasto,129.2,96.9,107.7,107.7,107.7,107.7
+Violon,sul_ponticello_tremolo,107.7,96.9,96.9,107.7,96.9,118.4
+Violon,sul_tasto,118.4,107.7,107.7,118.4,118.4,129.2
+Violon,sul_tasto_to_ordinario,107.7,96.9,107.7,107.7,118.4,118.4
+Violon,sul_tasto_to_sul_ponticello,129.2,107.7,107.7,107.7,118.4,118.4
+Violon,tremolo,118.4,107.7,107.7,118.4,118.4,118.4
+Violon,tremolo_to_ordinario,96.9,96.9,107.7,107.7,118.4,118.4
+Violon,trill_major_second_up,96.9,118.4,118.4,118.4,118.4,129.2
+Violon,trill_minor_second_up,107.7,86.1,96.9,107.7,118.4,140.0
+Violon+sourdine,non_vibrato,129.2,118.4,107.7,107.7,118.4,118.4
+Violon+sourdine,ordinario,129.2,107.7,96.9,107.7,107.7,107.7
+Violon+sourdine,tremolo,118.4,107.7,107.7,118.4,118.4,129.2
+Violon+sourdine piombo,non_vibrato,118.4,107.7,107.7,118.4,107.7,107.7
+Violon+sourdine piombo,ordinario,118.4,96.9,107.7,107.7,107.7,107.7
+Violon+sourdine piombo,tremolo,118.4,107.7,107.7,118.4,118.4,118.4
+Violoncelle,artificial_harmonic,204.6,140.0,129.2,150.7,129.2,118.4
+Violoncelle,artificial_harmonic_tremolo,118.4,107.7,118.4,129.2,129.2,118.4
+Violoncelle,behind_the_bridge,129.2,96.9,118.4,96.9,107.7,107.7
+Violoncelle,chromatic_scale,118.4,86.1,161.5,204.6,419.9,355.3
+Violoncelle,col_legno_battuto,107.7,129.2,150.7,140.0,140.0,140.0
+Violoncelle,col_legno_tratto,150.7,140.0,161.5,140.0,183.0,150.7
+Violoncelle,crescendo,107.7,107.7,204.6,150.7,150.7,183.0
+Violoncelle,crescendo_to_decrescendo,118.4,107.7,150.7,161.5,226.1,193.8
+Violoncelle,crushed_to_ordinario,107.7,150.7,183.0,183.0,247.6,247.6
+Violoncelle,decrescendo,107.7,107.7,129.2,107.7,118.4,107.7
+Violoncelle,hit_on_body,172.3,226.1,86.1,,,
+Violoncelle,natural_harmonics_glissandi,129.2,161.5,247.6,355.3,290.7,161.5
+Violoncelle,non_vibrato,118.4,107.7,161.5,150.7,150.7,150.7
+Violoncelle,note_lasting,107.7,96.9,183.0,140.0,150.7,150.7
+Violoncelle,on_the_bridge,129.2,118.4,236.9,829.0,409.1,430.7
+Violoncelle,on_the_frog,118.4,118.4,107.7,96.9,107.7,96.9
+Violoncelle,on_the_tailpiece,129.2,161.5,161.5,247.6,118.4,333.8
+Violoncelle,on_the_tuning_pegs,193.8,204.6,430.7,150.7,140.0,150.7
+Violoncelle,ordinario,107.7,96.9,161.5,150.7,150.7,150.7
+Violoncelle,ordinario_to_crushed,118.4,366.1,398.4,204.6,484.5,312.2
+Violoncelle,ordinario_to_sul_ponticello,118.4,107.7,183.0,193.8,172.3,172.3
+Violoncelle,ordinario_to_sul_tasto,107.7,107.7,140.0,150.7,183.0,193.8
+Violoncelle,ordinario_to_tremolo,107.7,96.9,193.8,150.7,150.7,193.8
+Violoncelle,pizzicato_bartok,172.3,193.8,129.2,161.5,161.5,150.7
+Violoncelle,pizzicato_l_vib,107.7,96.9,118.4,107.7,118.4,118.4
+Violoncelle,pizzicato_secco,107.7,96.9,118.4,118.4,118.4,118.4
+Violoncelle,sforzato,107.7,96.9,140.0,129.2,140.0,129.2
+Violoncelle,staccato,118.4,140.0,129.2,150.7,172.3,161.5
+Violoncelle,sul_ponticello,140.0,129.2,150.7,161.5,150.7,161.5
+Violoncelle,sul_ponticello_to_ordinario,129.2,118.4,193.8,172.3,193.8,150.7
+Violoncelle,sul_ponticello_to_sul_tasto,118.4,118.4,172.3,161.5,204.6,290.7
+Violoncelle,sul_ponticello_tremolo,129.2,129.2,172.3,161.5,161.5,161.5
+Violoncelle,sul_tasto,118.4,129.2,172.3,172.3,183.0,161.5
+Violoncelle,sul_tasto_to_ordinario,118.4,118.4,150.7,161.5,183.0,172.3
+Violoncelle,sul_tasto_to_sul_ponticello,129.2,140.0,161.5,150.7,204.6,183.0
+Violoncelle,sul_tasto_tremolo,107.7,107.7,161.5,140.0,161.5,150.7
+Violoncelle,tremolo,118.4,118.4,193.8,172.3,183.0,183.0
+Violoncelle,tremolo_to_ordinario,107.7,107.7,150.7,107.7,150.7,140.0
+Violoncelle,trill_major_second_up,118.4,96.9,226.1,161.5,204.6,204.6
+Violoncelle,trill_minor_second_up,129.2,96.9,215.3,172.3,215.3,161.5
+Violoncelle+sourdine,non_vibrato,118.4,107.7,129.2,161.5,172.3,150.7
+Violoncelle+sourdine,ordinario,118.4,96.9,140.0,150.7,161.5,161.5
+Violoncelle+sourdine,tremolo,107.7,107.7,140.0,140.0,172.3,140.0
+Violoncelle+sourdine piombo,non_vibrato,96.9,129.2,118.4,118.4,129.2,118.4
+Violoncelle+sourdine piombo,ordinario,107.7,107.7,150.7,129.2,129.2,118.4
+Violoncelle+sourdine piombo,tremolo,118.4,107.7,140.0,140.0,150.7,140.0
