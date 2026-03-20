@@ -68,6 +68,23 @@ Toutes les références « CSV v22 » remplacées par « CSV v3 » dans les 11 s
 
 Toutes les sections régénérées + document complet (HTML + DOCX).
 
+### Étape 7 — Amplitudes réelles (dB) dans CSV et graphiques
+
+**Problème identifié** : les graphiques affichaient une « importance relative » artificielle (F1=1.0, F2=0.88, F3=0.76…) au lieu des amplitudes spectrales réellement mesurées. Critiquable scientifiquement : sans amplitude, impossible de distinguer un formant dominant d'un formant secondaire, ni de valider la pertinence des doublures.
+
+**Script d'extraction** (`extract_formants_all_techniques_v3_stats.py`) : ajout de `formant_amp_medians` — médiane des amplitudes (dB) pour chaque formant, calculée sur tous les échantillons du groupe instrument×technique.
+
+**CSV v3 mis à jour** : 39 colonnes (+6 : `F1_db` à `F6_db`). Exemple Cor en Fa ordinario : F1=−6 dB, F2=−12 dB, F3=−20 dB.
+
+**`make_graph` dans common.py** :
+- Nouveau paramètre `amplitudes=` (liste de 6 dB)
+- Hauteurs de barres : conversion dB→amplitude linéaire, normalisée au formant le plus fort (=1.0)
+- Chaque barre affiche sa valeur en dB
+- Axe Y renommé « Amplitude relative (normalisée) »
+- Légende : `F1 = 388 Hz (−6 dB)` au lieu de `F1 = 388 Hz`
+
+**40 images régénérées** : 12 bois + 9 cuivres + 1 sax + 18 cordes — toutes avec amplitudes réelles.
+
 ## Ce qui reste à faire
 
 Tous les points A–F du plan v5 sont complétés. Reste éventuellement :
@@ -90,10 +107,10 @@ Scripts/
 Resultats/
   formants_all_techniques.csv                    ← v1 (noms EN)
   formants_all_techniques_v2.csv                 ← v2 (noms FR, 15 colonnes)
-  formants_all_techniques_v3.csv                 ← v3 (noms FR, 33 colonnes) ★
+  formants_all_techniques_v3.csv                 ← v3 (noms FR, 39 colonnes, +dB) ★
   formants_yan_adds.csv                          ← v1 YA
   formants_yan_adds_v2.csv                       ← v2 YA
-  formants_yan_adds_v3.csv                       ← v3 YA (33 colonnes) ★
+  formants_yan_adds_v3.csv                       ← v3 YA (39 colonnes, +dB) ★
 ```
 
 ## Ce qu'on ne change PAS (décisions audits)
