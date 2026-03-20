@@ -391,7 +391,23 @@ def compute_fp_from_specenv(instrument_key, techs=('ordinario',),
 
     filepath = os.path.join(specenv_dir, specenv_filename)
     if not os.path.exists(filepath):
-        return None
+        # Fallback: try Yan_Adds directory with its naming pattern
+        # Map SOL names to Yan_Adds names (underscore → hyphen, + → hyphen)
+        ya_key = instrument_key.replace('_', '-')
+        candidates = [
+            f"Yan_Adds-Divers_specenv.db_{ya_key}.txt",
+            f"Yan_Adds-Divers_specenv.db_{ya_key.replace('+', '-')}.txt",
+            f"Yan_Adds-Divers_specenv.db_{instrument_key}.txt",
+        ]
+        found = False
+        for cand in candidates:
+            ya_filepath = os.path.join(YAN_DIR, cand)
+            if os.path.exists(ya_filepath):
+                filepath = ya_filepath
+                found = True
+                break
+        if not found:
+            return None
 
     # Bande Fp pour cet instrument
     band = FP_BANDS_SPECENV.get(instrument_key, (800, 1800))
