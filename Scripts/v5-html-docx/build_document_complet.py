@@ -10,7 +10,7 @@ DOCX : table des matières Word automatique (champs TC + styles Heading),
        chaque section commence sur une nouvelle page.
 
 Usage : lancer depuis la racine du repo Formants/
-    python3 Scripts/v4-html-docx-enriched/build_document_complet.py
+    python3 Scripts/v5-html-docx/build_document_complet.py
 """
 import os
 import sys
@@ -225,7 +225,7 @@ def get_section_body(script_name, tmp_dir):
     Lance un script, lit son HTML de sortie, extrait le contenu <body>.
     Réécrit les chemins d'images relatifs pour pointer vers media/.
     """
-    script_path = os.path.join(BASE, 'Scripts', 'v4-html-docx-enriched', script_name)
+    script_path = os.path.join(BASE, 'Scripts', 'v5-html-docx', script_name)
     out_file_map = {
         'build_intro_html_docx.py':    'section_intro_v5.html',
         'build_bois_html_docx.py':     'section_bois_v5.html',
@@ -778,7 +778,7 @@ def build_docx_complet():
     # Régénérer toutes les sections (toujours, pour garantir la cohérence)
     section_docx_paths = []
     for script_name, out_filename in section_scripts:
-        script_path = os.path.join(BASE, 'Scripts', 'v4-html-docx-enriched', script_name)
+        script_path = os.path.join(BASE, 'Scripts', 'v5-html-docx', script_name)
         out_path    = os.path.join(OUT_DIR, out_filename)
         print(f"  → Génération {script_name} ...", flush=True)
         result = subprocess.run(['python3', script_path], cwd=BASE,
