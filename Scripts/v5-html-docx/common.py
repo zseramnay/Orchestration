@@ -212,46 +212,56 @@ def make_graph(display, filename, n, formants, fp=None, family_color='#2E7D32', 
             color='#C62828', fontstyle='italic',
             transform=ax.get_xaxis_transform())
 
-    # ── Anti-collision label placement ──
+    # Fp diamond — ALWAYS shown when available, no arrow
+    f1 = formants[0]
+    fp_h = None
+    if fp:
+        fp_h = heights.get(0, 0.5) * 0.55 if use_real_amp else 0.5
+        ax.plot(fp, fp_h, marker='D', markersize=7, color='#1B5E20',
+                markeredgecolor='black', markeredgewidth=1.0, zorder=7)
+
+    # ── Anti-collision v6: vertical-first, small horizontal fallback ──
     log_range = np.log10(mf) - np.log10(100)
-    LABEL_W = 0.065 * log_range  # approx label width in log-x
-    LABEL_H = 0.065              # approx height per line in y-data
-    MAX_Y   = 0.88               # ceiling to avoid vowel zone labels
+    LABEL_W = 0.065 * log_range
+    LABEL_H = 0.075
+    ylim_top = 1.55
+    MAX_LABEL_Y = ylim_top - 0.10
+
+    # Detect dense spectra: if all 6 formants span less than 1 octave in log space
+    freqs_valid = [f for _, f in valid]
+    log_span = np.log10(max(freqs_valid)) - np.log10(min(freqs_valid)) if len(freqs_valid) > 1 else 1.0
+    dense = log_span < 0.5  # less than ~1.5 octaves for all formants
+    if dense:
+        LABEL_W *= 0.75
+        LABEL_H *= 0.75
 
     labels = []
     for i, freq in valid:
         h = heights[i]
         if use_real_amp:
-            if i >= 3:  # F4-F6: compact 2-line format
+            if i >= 3 or dense:
                 txt = f"F{i+1} {freq} Hz\n({amplitudes[i]:.0f} dB)"
-                nlines = 2
-                fs = 6.5
+                nlines = 2; fs = 5.5 if dense else 6.5
             else:
                 txt = f"F{i+1}\n{freq} Hz\n({amplitudes[i]:.0f} dB)"
-                nlines = 3
-                fs = 7
+                nlines = 3; fs = 6 if dense else 7
         else:
             txt = f"F{i+1}\n{freq} Hz"
-            nlines = 2
-            fs = 7
+            nlines = 2; fs = 6 if dense else 7
         labels.append({'x': freq, 'y': h, 'text': txt, 'color': '#333',
                        'fs': fs, 'priority': 6-i, 'type': 'formant', 'nlines': nlines})
 
-    f1 = formants[0]
-    if fp and abs(fp - f1) > 30:
-        fp_h = heights.get(0, 0.5) * 0.55 if use_real_amp else 0.5
-        ax.plot(fp, fp_h, marker='D', markersize=7, color='#1B5E20',
-                markeredgecolor='black', markeredgewidth=1.0, zorder=7)
+    if fp and fp_h is not None:
         labels.append({'x': fp, 'y': fp_h, 'text': f"Fp = {fp} Hz\n(centroïde)",
-                       'color': '#1B5E20', 'fs': 8, 'priority': 7, 'type': 'fp', 'nlines': 2})
+                       'color': '#1B5E20', 'fs': 7.5, 'priority': 7, 'type': 'fp', 'nlines': 2})
 
     labels.sort(key=lambda l: -l['priority'])
-    placed = []  # (log_x, y_bot, y_top, log_w)
+    placed = []
 
-    def _collides(lx, ty, lh, lw):
+    def _collides(lx, ty, lh):
         for px, py_bot, py_top, pw in placed:
-            if abs(lx - px) < (lw + pw) * 0.55:
-                if ty < py_top + 0.005 and (ty + lh) > py_bot - 0.005:
+            if abs(lx - px) < (LABEL_W + pw) * 0.5:
+                if ty < py_top + 0.008 and (ty + lh) > py_bot - 0.008:
                     return True
         return False
 
@@ -259,66 +269,57 @@ def make_graph(display, filename, n, formants, fp=None, family_color='#2E7D32', 
         lx = np.log10(lab['x'])
         lh = lab['nlines'] * LABEL_H
         base_y = lab['y'] + 0.04
+        best = None
 
-        # Generate candidate positions: (text_x_log, text_y, cost)
-        candidates = []
-        x_offsets = [0, -LABEL_W*0.8, LABEL_W*0.8,
-                     -LABEL_W*1.5, LABEL_W*1.5,
-                     -LABEL_W*2.2, LABEL_W*2.2]
-        y_pushes = [0, 0.07, 0.14, 0.21, 0.28, 0.35]
-
-        for ox in x_offsets:
-            tx = lx + ox
-            # Skip if out of plot range
-            if tx < np.log10(100) or tx > np.log10(mf):
+        # PASS 1: vertical only (center x) — strongly preferred
+        for yp in [0, 0.06, 0.12, 0.18, 0.24, 0.30, 0.36, 0.42, 0.48, 0.54]:
+            ty = base_y + yp
+            if ty + lh > MAX_LABEL_Y or ty < 0.04:
                 continue
-            for yp in y_pushes:
-                ty = base_y + yp
-                if ty + lh > MAX_Y:
-                    ty = MAX_Y - lh
-                if ty < 0.04:
+            if not _collides(lx, ty, lh):
+                best = (lx, ty)
+                break
+
+        # PASS 2: small horizontal shifts only if vertical-center failed
+        if best is None:
+            for ox in [-LABEL_W*0.6, LABEL_W*0.6]:
+                tx = lx + ox
+                if tx < np.log10(100) or tx > np.log10(mf):
                     continue
-                if not _collides(tx, ty, lh, LABEL_W):
-                    cost = abs(ox) * 4 + yp * 2
-                    candidates.append((tx, ty, cost))
-                    break  # Found a slot for this x offset, no need to push higher
+                for yp in [0, 0.06, 0.12, 0.18, 0.24, 0.30, 0.36, 0.42]:
+                    ty = base_y + yp
+                    if ty + lh > MAX_LABEL_Y or ty < 0.04:
+                        continue
+                    if not _collides(tx, ty, lh):
+                        best = (tx, ty)
+                        break
+                if best:
+                    break
 
-        if not candidates:
-            # Fallback: place at base position even with overlap
-            ty = min(base_y, MAX_Y - lh)
-            candidates.append((lx, max(ty, 0.04), 99))
+        if best is None:
+            best = (lx, min(base_y, MAX_LABEL_Y - lh))
 
-        candidates.sort(key=lambda c: c[2])
-        best_lx, best_y, _ = candidates[0]
+        best_lx, best_y = best
         best_x = 10 ** best_lx
-
         placed.append((best_lx, best_y, best_y + lh, LABEL_W))
 
-        # Draw label with arrow if displaced
         dx = abs(best_lx - lx)
         dy = abs(best_y - base_y)
-        if lab['type'] == 'fp':
-            ax.annotate(lab['text'], xy=(lab['x'], lab['y']),
-                        xytext=(best_x, best_y),
-                        ha='center', fontsize=lab['fs'], fontweight='bold',
-                        color=lab['color'],
-                        arrowprops=dict(arrowstyle='->', color=lab['color'], lw=1.2),
-                        zorder=8)
-        elif dx > 0.01 or dy > 0.03:
+        clr = lab['color']
+        if dx > 0.01 or dy > 0.03:
             ax.annotate(lab['text'], xy=(lab['x'], lab['y']),
                         xytext=(best_x, best_y),
                         ha='center', va='bottom', fontsize=lab['fs'],
-                        fontweight='bold', color=lab['color'],
-                        arrowprops=dict(arrowstyle='->', color='#999',
-                                      lw=0.8, ls='--'),
+                        fontweight='bold', color=clr,
+                        arrowprops=dict(arrowstyle='->', color='#999', lw=0.8, ls='--'),
                         zorder=6)
         else:
             ax.text(best_x, best_y, lab['text'],
                     ha='center', va='bottom', fontsize=lab['fs'],
-                    fontweight='bold', color=lab['color'], zorder=6)
+                    fontweight='bold', color=clr, zorder=6)
 
     # Axes
-    ax.set_xlim(100, mf); ax.set_ylim(0, 1.25)
+    ax.set_xlim(100, mf); ax.set_ylim(0, ylim_top)
     ax.set_xlabel("Fréquence (Hz)", fontsize=10, fontweight='bold')
     ax.set_ylabel("Amplitude relative (normalisée)" if use_real_amp else "Importance relative",
                   fontsize=10, fontweight='bold')
@@ -343,11 +344,11 @@ def make_graph(display, filename, n, formants, fp=None, family_color='#2E7D32', 
     else:
         le = [mpatches.Patch(facecolor=FC[i], alpha=0.4, edgecolor=FC[i],
               label=f'F{i+1} = {formants[i]} Hz') for i, _ in valid]
-    if fp and abs(fp - f1) > 30:
+    if fp:
         le.append(Line2D([0],[0],marker='D',color='w',markerfacecolor='#1B5E20',
                          markeredgecolor='black',markersize=5,label=f'Fp centroïde = {fp} Hz'))
     ax.legend(handles=le, loc='lower left', fontsize=6.5, framealpha=0.92, edgecolor='#CCC')
-    ax.text(0.99, -0.08,
+    ax.text(0.99, -0.06,
             f"Famille : {family_label or 'Orchestre'} · Source : CSV v3 + specenv (SOL2020 + Yan_Adds)",
             transform=ax.transAxes, fontsize=7, color='#888', ha='right')
     plt.tight_layout()
