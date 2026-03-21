@@ -396,6 +396,9 @@ th, td { border: 1px solid #ccc; padding: 5px 8px; text-align: center; }
 .vowel-table .header th { background: #4a148c; color: white; }
 tr:nth-child(even) { background: #fafafa; }
 
+/* ─── Images ─── */
+img { max-width: 100%; height: auto; }
+
 /* ─── Doublures ─── */
 .doublures-box {
   background: #fffde7; border: 1px solid #f9a825; border-radius: 6px;

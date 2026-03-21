@@ -220,11 +220,14 @@ def build_html(output_path):
         'Cuivres': "Les cuivres présentent des enveloppes plus concentrées, avec des zones d'énergie très lisibles dans le medium.",
         'Cordes': "Les cordes se distinguent par des plateaux spectraux et des résonances larges ; le repère Fp y est particulièrement utile.",
     }
+    slug_map = {'Bois': 'env-bois', 'Cuivres': 'env-cuivres', 'Cordes': 'env-cordes'}
     for s in summaries:
-        parts.append(f'''<h2>{s['family']}</h2>
-<p>{intros.get(s['family'], '')}</p>
+        fam = s['family']
+        sid = slug_map.get(fam, fam.lower())
+        parts.append(f'''<h2 id="{sid}">{fam}</h2>
+<p>{intros.get(fam, '')}</p>
 <p><strong>Instruments chargés :</strong> {s['loaded_count']} / {s['instrument_count']} — <strong>Échantillons :</strong> {s['sample_total']}</p>
-<img src="{s['rel']}" alt="Enveloppes {s['family']}"/>''')
+<img src="{s['rel']}" alt="Enveloppes {fam}" style="max-width:100%;height:auto;"/>''')
     html = f'''<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -235,12 +238,12 @@ body {{ font-family: 'Segoe UI', Helvetica, Arial, sans-serif; max-width: 1100px
 h1 {{ color: #1a237e; border-bottom: 3px solid #1a237e; padding-bottom: 10px; }}
 h2 {{ color: #283593; margin-top: 40px; border-left: 4px solid #283593; padding-left: 12px; }}
 .section-intro {{ background: #e8eaf6; padding: 15px; border-radius: 6px; margin: 15px 0; }}
-img {{ max-width: 100%; border: 1px solid #ddd; border-radius: 4px; margin: 15px 0; }}
+img {{ max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; margin: 15px 0; }}
 .source-note {{ font-size: 0.85em; color: #888; margin-top: 30px; border-top: 1px solid #ddd; padding-top: 10px; }}
 </style>
 </head>
 <body>
-<h1>VII. Enveloppes spectrales par famille</h1>
+<h1 id="vii-enveloppes">VII. Enveloppes spectrales par famille</h1>
 <div class="section-intro">
 <p>Ces planches regroupent les enveloppes spectrales moyennes calculées directement à partir des données specenv brutes. Les marqueurs rouges indiquent F1–F4, la ligne verte indique Fp et la bande colorée représente ±1σ.</p>
 </div>
