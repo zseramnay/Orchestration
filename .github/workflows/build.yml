@@ -20,7 +20,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install numpy matplotlib python-docx docxcompose
+          pip install numpy matplotlib python-docx docxcompose adjustText
 
       - name: Install fonts (for matplotlib)
         run: |
@@ -31,7 +31,7 @@ jobs:
       - name: Build complete document
         run: |
           cd $GITHUB_WORKSPACE
-          python Scripts/v5-html-docx/build_document_complet.py
+          python Scripts/v6-html-docx/build_document_complet.py
         env:
           MPLBACKEND: Agg
 
