@@ -4,91 +4,82 @@
 
 Repo: `https://github.com/zseramnay/Formants` (user: zseramnay)
 Document en ligne: `https://zseramnay.github.io/Formants/Versions-html-and-docx/REFERENCE_FORMANTIQUE_COMPLETE.html`
-PAT: nécessite scope `workflow` pour modifier `.github/workflows/`
 
 ## Historique rapide (v5–v7)
 
-- **v5** : Points A–F (terminologie, clause sustained, CSV v3 39 col., fenêtrage Hann, axes Bark, σ(Fp))
-- **v6** : Bandwidths -3dB, graphiques gaussiens, Fp dynamique tous instruments, anti-collision labels, note sourdines
-- **v7** : dB recalculés depuis enveloppe moyenne, 47 enveloppes individuelles (toutes sourdines), bridge hill/table d'harmonie cordes, GitHub Action
+- **v5** : Points A–F (terminologie, clause sustained, CSV v3, fenêtrage Hann, axes Bark, σ(Fp))
+- **v6** : Bandwidths -3dB, graphiques gaussiens, Fp dynamique, anti-collision labels, note sourdines
+- **v7** : dB depuis enveloppe moyenne, 47 enveloppes individuelles, bridge hill/table d'harmonie cordes, GitHub Action
 
 ## Nouveautés v8
 
 ### 1. Amplitudes dB recalculées depuis enveloppe spectrale moyenne
 
-**Problème résolu** : les anciennes amplitudes (médiane par échantillon) donnaient F5 > F1 au violon à cause du biais tessiture (261 notes aiguës vs 9 graves). Corrigé : dB lus sur l'enveloppe **moyenne** à la fréquence de chaque formant. 468/533 profils mis à jour.
+Les colonnes F1_db–F6_db des CSV v3 sont lues sur l'enveloppe spectrale **moyenne** (au lieu de médiane par échantillon). Résout le problème F5 > F1 au violon. 468/533 profils mis à jour.
 
-**Limitation identifiée** : sur l'enveloppe moyenne globale, F1 < F2 en dB pour certains instruments à grande tessiture (trombone, flûte, clarinette) — physiquement correct mais ne représente pas une note spécifique.
+**Limitation** : F1 < F2 en dB pour instruments à grande tessiture → résolu par l'analyse par registre (ci-dessous).
 
-### 2. Étude pilote clarinette — analyse par registre
+### 2. Nouvelle représentation : « Carte spectrale vocalique »
 
-Étude sur Clarinette Sib (126 éch., D3–G6, ~3.5 octaves) montrant que F1 passe de 183 Hz (oct.3) à 1174 Hz (oct.6), tandis que Fp reste stable (1357–1596 Hz).
+Enveloppe specenv + zones vocaliques, échelle log, marqueurs F1–F6 + Fp, anti-collision v7 (above+below), cepstrale normalisée en violet fin. Images individuelles par registre à 51% largeur.
 
-**Conclusions** :
-- L'analyse par octave résout le problème F1 < F2
-- L'enveloppe cepstrale (troncature ord.20 depuis spectre FFT) converge bien avec specenv Orchidea
-- Le LPC classique ne fonctionne pas sur des spectres moyennés (il faudrait les .wav originaux)
-- Le Fp est la mesure la plus robuste tous registres confondus
+### 3. Analyse par registre (remplace octaves)
 
-### 3. Nouvelle représentation : « Carte spectrale vocalique »
+**Problème résolu** : l'ancienne analyse groupait par numéro d'octave MIDI (C à B), ce qui mélangeait les registres instrumentaux réels. Exemple : la flûte affichait "Oct.3 A#3–B3" au lieu de "Grave B3–A4".
 
-Enveloppe specenv + zones vocaliques superposées, échelle logarithmique, marqueurs F1–F6 + Fp, anti-collision v7 (au-dessus ET en dessous de la courbe), cepstrale normalisée en violet fin. Images individuelles par octave à 51% largeur.
+**Solution** : registres définis dans `registres.md` (Yan) et encodés dans `REGISTERS` dict (common.py). Chaque instrument a ses propres registres nommés :
 
-CSS : `img[src*="carte_"] { max-width: 51%; }`
+- **Flûte** : Grave (B3–A4), Médium (A#4–A5), Aigu (A#5–A6), Suraigu
+- **Hautbois** : Grave (A#3–G4), Médium (G#4–G5), Aigu (G#5–D6), Suraigu
+- **Clarinette** : Chalumeau (D3–D4), Gorge (D#4–G#4), Clairon (A4–A#5), Suraigu (B5+)
+- **Basson** : Grave (A#1–A2), Bas médium (A#2–A3), Haut médium (A#3–A4), Aigu (A#4+)
+- **Cor** : Pédale (F1–A1), Grave (A#1–B2), Médium (C3–E4), Aigu (F4–F5), Suraigu
+- **Trompette** : Grave (F#3–B3), Médium (C4–G4), Aigu (G#4–C6), Suraigu
+- **Trombone** : Pédale (E1–A1), Grave (A#1–E3), Médium (F3–E4), Aigu (F4+)
+- **Tuba basse** : Grave (≤E2), Médium (F2–E3), Aigu (F3–D4), Suraigu
+- **Violon** : Grave (G3–B3), Médium (C4–B4), Aigu (C5–B5), Suraigu (C6+)
+- **Alto** : Grave (C3–F#3), Médium (G3–F#4), Aigu (G4–F#5), Suraigu (G5+)
+- **Violoncelle** : Grave (C2–F#2), Médium (G2–F#3), Aigu (G3–F#4), Suraigu (G4+)
+- **Contrebasse** : Grave (C1–B1), Médium (C2–B2), Aigu (C3–B3), Suraigu (C4+)
 
-### 4. Scripts v6-html-docx — analyse par octave pour 16 instruments
+Ensembles partagent les registres des solistes correspondants.
 
-Nouveau répertoire `Scripts/v6-html-docx/` (copie de v5 + extensions). Pour 16 instruments clés :
+Pour chaque instrument clé (16 total) :
+1. **Profil formantique moyen** (courbes de cloche gaussiennes)
+2. **Tableau par registre** : F1–F7 Hz/dB côte à côte + Fp
+3. **Cartes spectrales vocaliques** individuelles par registre (97 images total)
 
-**Bois** : Flûte, Hautbois, Clarinette Sib, Basson
-**Cuivres** : Cor, Trompette, Trombone, Tuba basse
-**Cordes solo** : Violon, Alto, Violoncelle, Contrebasse
-**Cordes ensemble** : Ens. violons, Ens. altos, Ens. violoncelles, Ens. contrebasses
+### 4. Figure Bark F1×F2
 
-Pour chaque instrument :
-1. **Profil formantique moyen** (courbes de cloche) — titre mis à jour
-2. **Tableau par octave** F1–F7 Hz/dB côte à côte + Fp
-3. **Cartes spectrales vocaliques** individuelles par octave
+`make_fig2_bark()` — échelle Bark (Traunmüller), petits marqueurs, adjustText anti-collision avec flèches. "Figure 2b" dans HTML et DOCX.
 
-Fonctions ajoutées dans `common.py` (+430 lignes) :
-- `load_specenv_by_octave()`, `load_spectrum_by_octave()` (avec fallback Yan_Adds)
+### 5. Commentaires cordes solo — bridge hill et table d'harmonie
+
+Violon (caisse 506 Hz, bridge hill F3–F5), Alto (caisse 377 Hz, bridge hill ~F3), Violoncelle (table d'harmonie 205 Hz, fusion basson Δ=11 Hz), Contrebasse (caisse 172 Hz, σ=36 le plus stable). Doublures violon Fp corrigé (1253 Hz).
+
+### 6. 47 enveloppes spectrales individuelles
+
+13 Bois + 16 Cuivres (toutes sourdines) + 18 Cordes (solo+sourdine+piombo+ensembles).
+
+### 7. Corrections
+
+- **IRCAM → Orchidea** (specenv vient d'Orchidea, https://github.com/CarmineCella/orchidea)
+- **KeyError 'color'** dans cuivres/cordes build scripts (all_info manquait la clé)
+- **f-string nested quotes** (Python 3.11 : guillemets dans .replace() incompatibles)
+- **GitHub Action** : pointe v6, installe adjustText
+
+### 8. Étude pilote clarinette
+
+Validation de l'approche par registre. LPC classique ne fonctionne pas sur spectres moyennés. Enveloppe cepstrale (ord.20) converge bien avec specenv. Fp mesure la plus robuste.
+
+## Fonctions ajoutées dans common.py v6 (+524 lignes vs v5)
+
+- `REGISTERS` — dict des registres pour 16 instruments (source : registres.md)
+- `load_specenv_by_register()`, `load_spectrum_by_register()` (avec fallback Yan_Adds)
 - `cepstral_envelope()` (troncature cepstrale ord.20)
-- `make_carte_spectrale()` (v7 anti-collision above+below)
-- `compute_octave_profiles()`, `make_octave_table_html()`, `generate_per_octave_html()`
-
-### 5. Figure Bark F1×F2 (espace vocalique perceptif)
-
-`make_fig2_bark()` ajouté dans `build_synthese_html_docx.py` et `make_synthese_figures.py` :
-- Échelle Bark (Traunmüller) sur les deux axes
-- Petits marqueurs (s=40) + adjustText pour anti-collision labels avec flèches
-- Ticks Hz + Bark en double
-- Référencée comme "Figure 2b" dans HTML et DOCX
-
-### 6. Corrections IRCAM → Orchidea
-
-specenv vient d'**Orchidea** (https://github.com/CarmineCella/orchidea), pas d'IRCAM.
-Toutes les références corrigées dans les scripts v6 (SuperVP/AudioSculpt supprimés).
-
-### 7. Commentaires cordes solo — bridge hill et table d'harmonie
-
-Valeurs CSV v3 vérifiées pour les 4 instruments solistes :
-- **Violon** : F1=506 Hz (/o/, caisse, σ=376), bridge hill F3–F5 (2347–3908), Fp=1253, convergence basson Δ=11
-- **Alto** : F1=377 Hz (/å/, caisse, σ=202), bridge hill ~F3=1540, Fp=1300 (≈violon Δ=47)
-- **Violoncelle** : F1=205 Hz (/u/, table d'harmonie, σ=287), fusion F2 vcl(506)≈F1 basson(495) Δ=11, Fp=1242
-- **Contrebasse** : F1=172 Hz (/u/, caisse, σ=36 le plus stable), Fp=1235≈vcl Δ=7
-
-Tableau doublures violon corrigé (Fp=1253, Hautbois Fp=1393, Flûte Fp=1352, Cl.Sib Fp=1296).
-
-### 8. Section VII — 47 enveloppes spectrales individuelles
-
-Images individuelles (au lieu de planches groupées) : 13 Bois + 16 Cuivres (toutes sourdines) + 18 Cordes (solo+sourdine+piombo+ensembles). CSS : `img[src*="specenv_"] { max-width: 60%; }`
-
-### 9. GitHub Action
-
-`.github/workflows/build.yml` : `workflow_dispatch` (manuel).
-Installe : numpy, matplotlib, python-docx, docxcompose, adjustText.
-Lance : `Scripts/v6-html-docx/build_document_complet.py`
-Prérequis : Settings → Actions → General → Workflow permissions = Read and write.
+- `make_carte_spectrale()` (v7 anti-collision above+below, échelle log, zones vocaliques)
+- `compute_register_profiles()`, `make_register_table_html()`, `generate_per_register_html()`
+- Alias `generate_per_octave_html = generate_per_register_html` (rétrocompatibilité)
 
 ## État du repo
 
@@ -96,54 +87,42 @@ Prérequis : Settings → Actions → General → Workflow permissions = Read an
 Scripts/
   v5-html-docx/                                 ← version stable précédente
   v6-html-docx/                                 ← version active ★
-    common.py                                   ← 1438 lignes, per-octave + carte spectrale vocalique
-    build_bois_html_docx.py                     ← per-octave : Flûte, Hautbois, Cl.Sib, Basson
-    build_cuivres_html_docx.py                  ← per-octave : Cor, Trompette, Trombone, Tuba
-    build_cordes_html_docx.py                   ← per-octave : 4 solo + 4 ensembles, bridge hill
-    build_sax_html_docx.py
+    common.py                                   ← 1538 lignes
+    build_bois_html_docx.py                     ← per-register : Flûte, Hautbois, Cl.Sib, Basson
+    build_cuivres_html_docx.py                  ← per-register : Cor, Trompette, Trombone, Tuba
+    build_cordes_html_docx.py                   ← per-register : 4 solo + 4 ensembles
     build_synthese_html_docx.py                 ← Figure 2b Bark
-    build_intro_html_docx.py                    ← Orchidea (non IRCAM)
-    build_envelopes_by_family_html_docx.py      ← 47 images individuelles
     build_document_complet.py                   ← CSS carte_ 51%, pointe v6
-    make_synthese_figures.py                    ← fig2_bark standalone
+    [+ 5 autres scripts inchangés]
 
 Resultats/
-  formants_all_techniques_v3.csv                ← 487 lignes, dB depuis enveloppe moyenne ★
-  formants_yan_adds_v3.csv                      ← 46 lignes, idem ★
+  formants_all_techniques_v3.csv                ← 487 lignes, dB enveloppe moyenne ★
+  formants_yan_adds_v3.csv                      ← 46 lignes ★
   bandwidths_3db.csv                            ← 533 profils BW -3dB
 
 .github/workflows/build.yml                    ← manual trigger, v6, adjustText
+registres.md                                   ← source des registres instrumentaux
 ```
 
 ## Consignes pour la suite
 
-- **Toujours montrer une image prototype avant de régénérer les images**
+- **Toujours montrer un prototype avant de régénérer les images**
 - **Toujours demander l'aval avant push**
 - **Ne pas lancer build_document_complet localement** — fait via GitHub Action
 - **Ne rien faire sans demander avant**
 - specenv vient d'**Orchidea** (pas IRCAM)
-- Fichiers specenv : `Data/FullSOL2020_specenv par instrument/` et `Data/Yan_Adds-Divers_specenv par instrument/`
-- Fichiers spectrum (FFT) : `Data/FullSOL2020.spectrum_par_instrument/` et `Data/Yan_Adds-Divers.spectrum_par_instrument/`
 
 ## Workflow git
 
 ```bash
 git clone https://github.com/zseramnay/Formants.git
-cd Formants
-git config user.name "Claude" && git config user.email "claude@anthropic.com"
+cd Formants && git config user.name "Claude" && git config user.email "claude@anthropic.com"
 git remote set-url origin https://[PAT]@github.com/zseramnay/Formants.git
 git push origin main
 git remote set-url origin https://github.com/zseramnay/Formants.git
 ```
 
-## Ce qu'on ne change PAS
-
-- Pas de renommage F1→P1/P2 (note terminologique suffit)
-- Pas de transitions formantiques/diphthongaison (hors scope, sustained only)
-- Pas de normalisation morphologique (non pertinent pour instruments)
-
 ## Sur l'horizon
 
-- **Analyse LPC** nécessiterait accès aux .wav originaux SOL2020
+- LPC nécessiterait accès aux .wav originaux SOL2020
 - Extension répertoire spectral contemporain (Grisey, Murail, Saariaho, Haas, Radulescu)
-- Méthodologie d'extraction de doublures depuis partitions + analyse spectrale d'enregistrements

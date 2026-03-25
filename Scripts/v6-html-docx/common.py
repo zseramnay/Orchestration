@@ -1012,7 +1012,8 @@ def html_foot():
 """
 
 
-# ─── Carte spectrale vocalique (v7) ─────────────────────────
+
+# ─── Carte spectrale vocalique + Analyse par registre ────────
 import re as _re
 
 def _note_to_midi(s):
@@ -1032,25 +1033,137 @@ def cepstral_envelope(spectrum_linear, order=20):
     liftered[-(order):] = cepstrum[-(order):]
     return np.real(np.fft.fft(liftered))[:n]
 
-def load_specenv_by_octave(instrument_key, techs=('ordinario',)):
-    """Load specenv data grouped by octave. Returns dict {octave: [env_arrays]}."""
-    import os
-    # Find specenv file (same logic as compute_fp_from_specenv)
-    filepath = os.path.join(SOL_DIR, f"FullSOL2020_specenv.db_{instrument_key}.txt")
-    if not os.path.exists(filepath):
-        ya_key = instrument_key.replace('_', '-')
-        for cand in [
-            f"Yan_Adds-Divers_specenv.db_{ya_key}.txt",
-            f"Yan_Adds-Divers_specenv.db_{ya_key.replace('+', '-')}.txt",
-            f"Yan_Adds-Divers_specenv.db_{instrument_key}.txt",
-        ]:
-            p = os.path.join(YAN_DIR, cand)
-            if os.path.exists(p):
-                filepath = p; break
-        else:
-            return {}
 
-    octaves = {}
+# ─── Registres par instrument (source : registres.md) ────────
+# Chaque registre = (nom, midi_low, midi_high) inclusive.
+# Quand un note frontière apparaît dans deux registres, elle est assignée au registre inférieur.
+REGISTERS = {
+    'Flute': [
+        ('Grave', 59, 69),       # B3-A4
+        ('Médium', 70, 81),      # A#4-A5
+        ('Aigu', 82, 93),        # A#5-A6
+        ('Suraigu', 94, 999),    # au-dessus
+    ],
+    'Oboe': [
+        ('Grave', 58, 67),       # A#3-G4
+        ('Médium', 68, 79),      # G#4-G5
+        ('Aigu', 80, 86),        # G#5-D6
+        ('Suraigu', 87, 999),
+    ],
+    'Clarinet_Bb': [
+        ('Chalumeau', 50, 62),   # D3-D4
+        ('Gorge', 63, 68),       # D#4-G#4
+        ('Clairon', 69, 82),     # A4-A#5
+        ('Suraigu', 83, 999),    # B5+
+    ],
+    'Bassoon': [
+        ('Grave', 34, 45),       # A#1-A2
+        ('Bas médium', 46, 57),  # A#2-A3
+        ('Haut médium', 58, 69), # A#3-A4
+        ('Aigu', 70, 999),       # A#4+
+    ],
+    'Horn': [
+        ('Pédale', 29, 33),      # F1-A1
+        ('Grave', 34, 47),       # A#1-B2
+        ('Médium', 48, 64),      # C3-E4
+        ('Aigu', 65, 77),        # F4-F5
+        ('Suraigu', 78, 999),    # F#5+
+    ],
+    'Trumpet_C': [
+        ('Grave', 54, 59),       # F#3-B3
+        ('Médium', 60, 67),      # C4-G4
+        ('Aigu', 68, 84),        # G#4-C6
+        ('Suraigu', 85, 999),    # C#6+
+    ],
+    'Trombone': [
+        ('Pédale', 28, 33),      # E1-A1
+        ('Grave', 34, 52),       # A#1-E3
+        ('Médium', 53, 64),      # F3-E4
+        ('Aigu', 65, 999),       # F4+
+    ],
+    'Bass_Tuba': [
+        ('Grave', 0, 40),        # extrême grave + grave (jusqu'à E2)
+        ('Médium', 41, 52),      # F2-E3
+        ('Aigu', 53, 62),        # F3-D4
+        ('Suraigu', 63, 999),    # D#4+
+    ],
+    'Violin': [
+        ('Grave', 55, 59),       # G3-B3
+        ('Médium', 60, 71),      # C4-B4
+        ('Aigu', 72, 83),        # C5-B5
+        ('Suraigu', 84, 999),    # C6+
+    ],
+    'Viola': [
+        ('Grave', 48, 54),       # C3-F#3
+        ('Médium', 55, 66),      # G3-F#4
+        ('Aigu', 67, 78),        # G4-F#5
+        ('Suraigu', 79, 999),    # G5+
+    ],
+    'Violoncello': [
+        ('Grave', 36, 42),       # C2-F#2
+        ('Médium', 43, 54),      # G2-F#3
+        ('Aigu', 55, 66),        # G3-F#4
+        ('Suraigu', 67, 999),    # G4+
+    ],
+    'Contrabass': [
+        ('Grave', 24, 35),       # C1-B1
+        ('Médium', 36, 47),      # C2-B2
+        ('Aigu', 48, 59),        # C3-B3
+        ('Suraigu', 60, 999),    # C4+
+    ],
+}
+# Ensembles partagent les mêmes registres que les solistes
+REGISTERS['Violin_Ensemble'] = REGISTERS['Violin']
+REGISTERS['Viola_Ensemble'] = REGISTERS['Viola']
+REGISTERS['Violoncello_Ensemble'] = REGISTERS['Violoncello']
+REGISTERS['Contrabass_Ensemble'] = REGISTERS['Contrabass']
+
+
+def _get_register(instrument_key, midi):
+    """Return register name for a given MIDI note, or None."""
+    regs = REGISTERS.get(instrument_key)
+    if not regs:
+        return None
+    for name, lo, hi in regs:
+        if lo <= midi <= hi:
+            return name
+    return None
+
+
+def _find_specenv_file(instrument_key):
+    """Find the specenv file path for an instrument key."""
+    filepath = os.path.join(SOL_DIR, f"FullSOL2020_specenv.db_{instrument_key}.txt")
+    if os.path.exists(filepath):
+        return filepath
+    ya_key = instrument_key.replace('_', '-')
+    for cand in [
+        f"Yan_Adds-Divers_specenv.db_{ya_key}.txt",
+        f"Yan_Adds-Divers_specenv.db_{ya_key.replace('+', '-')}.txt",
+        f"Yan_Adds-Divers_specenv.db_{instrument_key}.txt",
+    ]:
+        p = os.path.join(YAN_DIR, cand)
+        if os.path.exists(p):
+            return p
+    return None
+
+
+def _find_spectrum_file(instrument_key):
+    """Find the spectrum (FFT linear amplitude) file path."""
+    filepath = os.path.join(BASE, 'Data', 'FullSOL2020.spectrum_par_instrument',
+                            f'{instrument_key}_spectrum.txt')
+    if os.path.exists(filepath):
+        return filepath
+    ya_key = instrument_key.replace('_', '-')
+    for cand in [f'{ya_key}_spectrum.txt', f'{instrument_key}_spectrum.txt']:
+        p = os.path.join(BASE, 'Data', 'Yan_Adds-Divers.spectrum_par_instrument', cand)
+        if os.path.exists(p):
+            return p
+    return None
+
+
+def _load_grouped(filepath, techs, instrument_key):
+    """Load specenv or spectrum data grouped by register. Returns dict {register_name: {data:[], notes:set}}."""
+    groups = {}
     with open(filepath, encoding='utf-8') as f:
         f.readline()
         for line in f:
@@ -1064,55 +1177,34 @@ def load_specenv_by_octave(instrument_key, techs=('ordinario',)):
             except: continue
             if len(vals) < 100: continue
             fname = path.split('/')[-1]
-            # Extract note: e.g. ClBb-ord-D#3-mf-N-N.wav → D#3
             note_parts = fname.replace('.wav','').split('-')
             note = note_parts[2] if len(note_parts) >= 3 else None
             if not note: continue
             midi = _note_to_midi(note)
             if midi is None: continue
-            octave = (midi // 12) - 1
-            octaves.setdefault(octave, {'envs': [], 'notes': set()})
-            octaves[octave]['envs'].append(np.array(vals))
-            octaves[octave]['notes'].add(note)
-    return octaves
+            reg = _get_register(instrument_key, midi)
+            if reg is None: continue
+            groups.setdefault(reg, {'data': [], 'notes': set()})
+            groups[reg]['data'].append(np.array(vals))
+            groups[reg]['notes'].add(note)
+    return groups
 
-def load_spectrum_by_octave(instrument_key, techs=('ordinario',)):
-    """Load spectrum (linear amplitude) data grouped by octave."""
-    import os
-    filepath = os.path.join(BASE, 'Data', 'FullSOL2020.spectrum_par_instrument',
-                            f'{instrument_key}_spectrum.txt')
-    if not os.path.exists(filepath):
-        # Fallback: Yan_Adds spectrum
-        ya_key = instrument_key.replace('_', '-')
-        for cand in [f'{ya_key}_spectrum.txt', f'{instrument_key}_spectrum.txt']:
-            p = os.path.join(BASE, 'Data', 'Yan_Adds-Divers.spectrum_par_instrument', cand)
-            if os.path.exists(p):
-                filepath = p; break
-        else:
-            return {}
-    octaves = {}
-    with open(filepath, encoding='utf-8') as f:
-        f.readline()
-        for line in f:
-            parts = line.strip().split(';')
-            path = parts[0]
-            if not path.startswith('/'): continue
-            pp = path.split('/')
-            if len(pp) < 5 or pp[3] not in techs: continue
-            try: vals = [float(v) for v in parts[1:]]
-            except: continue
-            if len(vals) < 100: continue
-            fname = path.split('/')[-1]
-            note_parts = fname.replace('.wav','').split('-')
-            note = note_parts[2] if len(note_parts) >= 3 else None
-            if not note: continue
-            midi = _note_to_midi(note)
-            if midi is None: continue
-            octave = (midi // 12) - 1
-            octaves.setdefault(octave, {'spectra': [], 'notes': set()})
-            octaves[octave]['spectra'].append(np.array(vals))
-            octaves[octave]['notes'].add(note)
-    return octaves
+
+def load_specenv_by_register(instrument_key, techs=('ordinario',)):
+    """Load specenv data grouped by instrument register."""
+    filepath = _find_specenv_file(instrument_key)
+    if not filepath:
+        return {}
+    return _load_grouped(filepath, techs, instrument_key)
+
+
+def load_spectrum_by_register(instrument_key, techs=('ordinario',)):
+    """Load spectrum (linear amplitude) data grouped by register."""
+    filepath = _find_spectrum_file(instrument_key)
+    if not filepath:
+        return {}
+    return _load_grouped(filepath, techs, instrument_key)
+
 
 def make_carte_spectrale(display, filename, mean_env, n_samples, fp_band=(800,1800),
                          family_color='#333', cep_env_db=None, note_range=''):
@@ -1158,7 +1250,7 @@ def make_carte_spectrale(display, filename, mean_env, n_samples, fp_band=(800,18
     MAX_LY = VOWEL_Y - 5
     MIN_LY = y_min + 2
 
-    # Labels
+    # Labels — all compact 1-line
     labels = []
     for i, (f, a) in enumerate(sel):
         bin_idx = min(int(f/FREQ_RES), len(mean_env)-1)
@@ -1167,7 +1259,7 @@ def make_carte_spectrale(display, filename, mean_env, n_samples, fp_band=(800,18
                        'priority':6-i, 'type':'formant'})
     if fp:
         labels.append({'x':fp, 'y':mean_env[fp_bin],
-                       'text':f"Fp {fp:.0f} Hz (centroïde)",
+                       'text':f"Fp {fp:.0f} Hz (centroide)",
                        'priority':7, 'type':'fp'})
 
     labels.sort(key=lambda l: -l['priority'])
@@ -1207,6 +1299,7 @@ def make_carte_spectrale(display, filename, mean_env, n_samples, fp_band=(800,18
         ax.plot(fp, mean_env[fp_bin], 'D', color='#1B5E20', markersize=6,
                 markeredgecolor='black', markeredgewidth=0.8, zorder=6)
 
+    # Anti-collision: above AND below
     for lab in labels:
         lx = np.log10(lab['x'])
         base_y = lab['y']
@@ -1252,10 +1345,10 @@ def make_carte_spectrale(display, filename, mean_env, n_samples, fp_band=(800,18
     ax.set_xticklabels([str(t) for t in ticks], fontsize=7)
     ax.get_xaxis().set_major_formatter(matplotlib.ticker.ScalarFormatter())
     ax.set_xlim(80, mf); ax.set_ylim(y_min, y_max)
-    ax.set_xlabel('Fréquence (Hz) — échelle logarithmique', fontsize=9, fontweight='bold')
+    ax.set_xlabel('Frequence (Hz) — echelle logarithmique', fontsize=9, fontweight='bold')
     ax.set_ylabel('Amplitude (dB)', fontsize=9, fontweight='bold')
-    subtitle = f' ({note_range})' if note_range else ''
-    ax.set_title(f'{display} — Carte spectrale vocalique{subtitle}\n(ordinario, N={n_samples})',
+    subtitle = f' — {note_range}' if note_range else ''
+    ax.set_title(f'{display}{subtitle}\nCarte spectrale vocalique (ordinario, N={n_samples})',
                  fontsize=10, fontweight='bold', color=family_color)
     ax.grid(True, alpha=0.15, zorder=0)
     ax.legend(fontsize=7, loc='lower left')
@@ -1267,23 +1360,22 @@ def make_carte_spectrale(display, filename, mean_env, n_samples, fp_band=(800,18
     plt.close(fig)
     return out
 
-def compute_octave_profiles(instrument_key, techs=('ordinario',), fp_band=(800,1800)):
+
+def compute_register_profiles(instrument_key, techs=('ordinario',), fp_band=(800,1800)):
     """
-    Compute per-octave formant profiles + carte spectrale data.
-    Returns dict {octave_label: {n, notes, peaks[(freq,db)], fp, mean_env, cep_db}}
-    and 'GLOBAL' key for all octaves combined.
+    Compute per-register formant profiles + carte spectrale data.
+    Returns ordered list of (register_name, {n, notes, note_range, peaks, fp, mean_env, cep_db})
+    plus a 'GLOBAL' entry at the end.
     """
-    specenv_data = load_specenv_by_octave(instrument_key, techs)
-    spectrum_data = load_spectrum_by_octave(instrument_key, techs)
-    if not specenv_data:
-        return {}
+    specenv_groups = load_specenv_by_register(instrument_key, techs)
+    spectrum_groups = load_spectrum_by_register(instrument_key, techs)
+    if not specenv_groups:
+        return []
 
     _freqs = np.arange(1024) * FREQ_RES
-    results = {}
 
     def _analyze(envs, spectra_lin=None):
         mean_env = np.mean(envs, axis=0)
-        # Peaks
         lo = max(int(80/FREQ_RES),1); hi = min(int(6000/FREQ_RES), len(mean_env)-1)
         reg = list(mean_env[lo:hi]); mx = max(reg); th = mx - 25
         peaks = []
@@ -1309,89 +1401,95 @@ def compute_octave_profiles(instrument_key, techs=('ordinario',), fp_band=(800,1
             mean_spec = np.mean(spectra_lin, axis=0)
             cep_log = cepstral_envelope(mean_spec, order=20)
             cep_db_raw = (20/np.log(10)) * cep_log
-            # Normalize to match specenv level
             mask = (_freqs >= 200) & (_freqs <= 4000)
             if mask.any() and len(cep_db_raw) == len(mean_env):
                 offset = np.median(mean_env[mask]) - np.median(cep_db_raw[mask])
                 cep_db = cep_db_raw + offset
         return mean_env, sel, fp, cep_db
 
-    # Per octave
-    for octave in sorted(specenv_data.keys()):
-        envs = specenv_data[octave]['envs']
-        notes = sorted(specenv_data[octave]['notes'])
-        spectra = spectrum_data.get(octave, {}).get('spectra', [])
+    # Use register order from REGISTERS dict
+    reg_order = REGISTERS.get(instrument_key, [])
+    results = []
+
+    for reg_name, _, _ in reg_order:
+        if reg_name not in specenv_groups:
+            continue
+        envs = specenv_groups[reg_name]['data']
+        notes = sorted(specenv_groups[reg_name]['notes'],
+                       key=lambda n: _note_to_midi(n) or 0)
+        spectra = spectrum_groups.get(reg_name, {}).get('data', [])
         mean_env, sel, fp, cep_db = _analyze(envs, spectra)
-        label = f'Oct.{octave}'
-        results[label] = {
+        results.append((reg_name, {
             'n': len(envs), 'notes': notes,
-            'note_range': f'{notes[0]}–{notes[-1]}' if notes else '',
+            'note_range': f'{notes[0]}-{notes[-1]}' if notes else '',
             'peaks': [(f, a) for f, a in sel],
             'fp': fp, 'mean_env': mean_env, 'cep_db': cep_db,
-        }
+        }))
 
     # Global
-    all_envs = [e for od in specenv_data.values() for e in od['envs']]
-    all_spectra = [s for od in spectrum_data.values() for s in od.get('spectra', [])]
-    all_notes = sorted(set(n for od in specenv_data.values() for n in od['notes']))
+    all_envs = [e for g in specenv_groups.values() for e in g['data']]
+    all_spectra = [s for g in spectrum_groups.values() for s in g.get('data', [])]
+    all_notes = sorted(set(n for g in specenv_groups.values() for n in g['notes']),
+                       key=lambda n: _note_to_midi(n) or 0)
     mean_env, sel, fp, cep_db = _analyze(all_envs, all_spectra if all_spectra else None)
-    results['GLOBAL'] = {
+    results.append(('GLOBAL', {
         'n': len(all_envs), 'notes': all_notes,
-        'note_range': f'{all_notes[0]}–{all_notes[-1]}' if all_notes else '',
+        'note_range': f'{all_notes[0]}-{all_notes[-1]}' if all_notes else '',
         'peaks': [(f, a) for f, a in sel],
         'fp': fp, 'mean_env': mean_env, 'cep_db': cep_db,
-    }
+    }))
 
     return results
 
-def make_octave_table_html(octave_profiles):
-    """Generate HTML table with per-octave F1–F7 (freq+dB interleaved) + Fp."""
+
+def make_register_table_html(register_profiles):
+    """Generate HTML table with per-register F1-F7 (freq+dB interleaved) + Fp."""
     html = '<table class="tech-table" style="font-size:0.8em;">\n'
     html += '<tr class="header"><th>Registre</th><th>N</th><th>Notes</th>'
     for i in range(1, 8):
         html += f'<th>F{i} Hz</th><th>dB</th>'
     html += '<th>Fp Hz</th></tr>\n'
 
-    for label in sorted(octave_profiles.keys()):
-        if label == 'GLOBAL': continue
-        od = octave_profiles[label]
-        bold = ''
-        html += f'<tr><td>{label}</td><td>{od["n"]}</td><td>{od["note_range"]}</td>'
+    for label, od in register_profiles:
+        if label == 'GLOBAL':
+            continue
+        html += f'<tr><td><strong>{label}</strong></td><td>{od["n"]}</td><td>{od["note_range"]}</td>'
         for i in range(7):
             if i < len(od['peaks']):
                 f, a = od['peaks'][i]
                 html += f'<td>{f:.0f}</td><td>{a:.1f}</td>'
             else:
-                html += '<td>—</td><td>—</td>'
-        html += f'<td>{od["fp"]:.0f}</td>' if od['fp'] else '<td>—</td>'
-        html += '</tr>\n'
+                html += '<td>&mdash;</td><td>&mdash;</td>'
+        fp_str = f'{od["fp"]:.0f}' if od['fp'] else '&mdash;'
+        html += f'<td>{fp_str}</td></tr>\n'
 
     # Global row
-    od = octave_profiles.get('GLOBAL')
-    if od:
+    for label, od in register_profiles:
+        if label != 'GLOBAL':
+            continue
         html += f'<tr style="font-weight:bold;background:#e8eaf6;"><td>GLOBAL</td><td>{od["n"]}</td><td>{od["note_range"]}</td>'
         for i in range(7):
             if i < len(od['peaks']):
                 f, a = od['peaks'][i]
                 html += f'<td>{f:.0f}</td><td>{a:.1f}</td>'
             else:
-                html += '<td>—</td><td>—</td>'
-        html += f'<td>{od["fp"]:.0f}</td>' if od['fp'] else '<td>—</td>'
-        html += '</tr>\n'
+                html += '<td>&mdash;</td><td>&mdash;</td>'
+        fp_str = f'{od["fp"]:.0f}' if od['fp'] else '&mdash;'
+        html += f'<td>{fp_str}</td></tr>\n'
 
     html += '</table>\n'
     return html
 
 
-def generate_per_octave_html(instrument_key, display, techs=("ordinario",),
-                              fp_band=(800,1800), family_color="#333"):
+def generate_per_register_html(instrument_key, display, techs=("ordinario",),
+                                fp_band=(800,1800), family_color="#333"):
     """
-    Generate complete per-octave HTML block:
-    1. Table with F1-F7 + dB interleaved + Fp per octave
-    2. Carte spectrale vocalique image for each octave
+    Generate complete per-register HTML block:
+    1. Table with F1-F7 + dB interleaved + Fp per register
+    2. Carte spectrale vocalique image for each register
     Returns HTML string and list of generated image paths.
     """
-    profiles = compute_octave_profiles(instrument_key, techs=techs, fp_band=fp_band)
+    profiles = compute_register_profiles(instrument_key, techs=techs, fp_band=fp_band)
     if not profiles or len(profiles) <= 1:
         return "", []
 
@@ -1400,8 +1498,7 @@ def generate_per_octave_html(instrument_key, display, techs=("ordinario",),
         s = _ud.normalize("NFD", s)
         s = "".join(c for c in s if _ud.category(c) != "Mn")
         s = s.lower()
-        import re
-        s = re.sub(r"[^a-z0-9]+", "_", s)
+        s = _re.sub(r"[^a-z0-9]+", "_", s)
         return s.strip("_")
 
     slug = _slug(display)
@@ -1410,23 +1507,22 @@ def generate_per_octave_html(instrument_key, display, techs=("ordinario",),
 
     # Table
     html += "<h4>Analyse par registre</h4>\n"
-    html += make_octave_table_html(profiles)
+    html += make_register_table_html(profiles)
 
-    # Carte spectrale per octave
+    # Carte spectrale per register
     html += "<h4>Cartes spectrales vocaliques par registre</h4>\n"
-    for label in sorted(profiles.keys()):
-        od = profiles[label]
+    for label, od in profiles:
         if label == "GLOBAL":
             fname = f"carte_{slug}_global"
         else:
-            oct_slug = label.lower().replace(".", "")
-            fname = f"carte_{slug}_{oct_slug}"
+            reg_slug = _slug(label)
+            fname = f"carte_{slug}_{reg_slug}"
 
         img_path = make_carte_spectrale(
             display, fname, od["mean_env"], od["n"],
             fp_band=fp_band, family_color=family_color,
             cep_env_db=od.get("cep_db"),
-            note_range=od["note_range"]
+            note_range=f'{label} ({od["note_range"]})'
         )
         if img_path:
             rel = os.path.relpath(img_path, OUT_DIR).replace(os.sep, "/")
@@ -1436,3 +1532,7 @@ def generate_per_octave_html(instrument_key, display, techs=("ordinario",),
             images.append(img_path)
 
     return html, images
+
+
+# Backward-compatible alias
+generate_per_octave_html = generate_per_register_html

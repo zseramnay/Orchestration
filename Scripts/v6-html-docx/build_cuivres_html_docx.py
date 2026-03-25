@@ -210,7 +210,7 @@ for csv_name, display, gfx, tech, fp, color in CUIVRES_PRINCIPAUX + CUIVRES_SOUR
     img_rel = os.path.relpath(img, OUT_DIR).replace(os.sep, '/') if img else None
     all_info[gfx] = {
         'csv': csv_name, 'display': display, 'tech': tech,
-        'data': d, 'fp': fp, 'img': img, 'img_rel': img_rel,
+        'data': d, 'fp': fp, 'img': img, 'img_rel': img_rel, 'color': color,
     }
     print(f"  ✓ {display:<40s} N={d['n']:>4d} F1={d['F'][0]:>5d}" +
           (f"  Fp={fp}" if fp else ""))
