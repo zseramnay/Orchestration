@@ -155,7 +155,11 @@ ANALYSIS = {
 
     'Clarinette basse en Sib': """Son profond et velouté, riche dans le grave.
         F1=323 Hz (zone /u/). Le registre chalumeau possède une couleur très distinctive.
-        Comportement analogue à la clarinette Sib mais transposé d'une octave vers le grave.""",
+        Comportement analogue à la clarinette Sib mais transposé d'une octave vers le grave.
+        <br/><br/><strong>Analyse par registre :</strong> F1 passe de 172 Hz (grave A#1–D3, zone /u/)
+        à 334 Hz (aigu A3–A#4, zone /o/). Le registre grave converge avec la contrebasse
+        (F1=172 Hz, Δ=0 Hz). Le registre aigu (F1=334 Hz) converge avec la flûte grave (F1=334 Hz, Δ=0 Hz)
+        et avec le cor médium (F1=323 Hz, Δ=11 Hz). Fp=1 204 Hz.""",
 
     'Clarinette contrebasse en Sib': """Son extrêmement grave, puissant et bourdonnant.
         F1=323 Hz identique à la clarinette basse, mais F2=947 Hz montre une résonance plus
@@ -267,6 +271,7 @@ for csv_name, display, gfx, tech, fp, color in BOIS:
 KEY_BOIS = {'Flute': ('ordinario', (1000,2000)),
             'Oboe': ('ordinario', (1000,2000)),
             'Clarinet_Bb': ('ordinario', (1000,2000)),
+            'Bass_Clarinet_Bb': ('ordinario', (800,1600)),
             'Bassoon': ('ordinario', (800,1600))}
 
 

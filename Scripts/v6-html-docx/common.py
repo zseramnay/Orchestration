@@ -1022,7 +1022,7 @@ def _note_to_midi(s):
     base = {'C':0,'D':2,'E':4,'F':5,'G':7,'A':9,'B':11}[m.group(1)]
     return (int(m.group(3))+1)*12 + base + (1 if m.group(2)=='#' else 0)
 
-def cepstral_envelope(spectrum_linear, order=20):
+def cepstral_envelope(spectrum_linear, order=30):
     """Smoothed spectral envelope via cepstral truncation. Returns log-scale array."""
     n = len(spectrum_linear)
     log_spec = np.log(np.maximum(spectrum_linear, 1e-10))
@@ -1035,19 +1035,18 @@ def cepstral_envelope(spectrum_linear, order=20):
 
 
 # ─── Registres par instrument (source : registres.md) ────────
-# Chaque registre = (nom, midi_low, midi_high) inclusive.
-# Quand un note frontière apparaît dans deux registres, elle est assignée au registre inférieur.
+# Notes frontières incluses dans les DEUX registres adjacents.
 REGISTERS = {
     'Flute': [
         ('Grave', 59, 69),       # B3-A4
-        ('Médium', 70, 81),      # A#4-A5
-        ('Aigu', 82, 93),        # A#5-A6
-        ('Suraigu', 94, 999),    # au-dessus
+        ('Médium', 69, 81),      # A4-A5 (A4 shared with Grave)
+        ('Aigu', 81, 93),        # A5-A6 (A5 shared with Médium)
+        ('Suraigu', 94, 999),
     ],
     'Oboe': [
         ('Grave', 58, 67),       # A#3-G4
-        ('Médium', 68, 79),      # G#4-G5
-        ('Aigu', 80, 86),        # G#5-D6
+        ('Médium', 67, 79),      # G4-G5 (G4 shared)
+        ('Aigu', 79, 86),        # G5-D6 (G5 shared)
         ('Suraigu', 87, 999),
     ],
     'Clarinet_Bb': [
@@ -1055,6 +1054,12 @@ REGISTERS = {
         ('Gorge', 63, 68),       # D#4-G#4
         ('Clairon', 69, 82),     # A4-A#5
         ('Suraigu', 83, 999),    # B5+
+    ],
+    'Bass_Clarinet_Bb': [
+        ('Grave', 34, 50),       # A#1-D3
+        ('Médium', 51, 56),      # D#3-G#3
+        ('Aigu', 57, 70),        # A3-A#4
+        ('Suraigu', 71, 999),    # B4+
     ],
     'Bassoon': [
         ('Grave', 34, 45),       # A#1-A2
@@ -1073,65 +1078,60 @@ REGISTERS = {
         ('Grave', 54, 59),       # F#3-B3
         ('Médium', 60, 67),      # C4-G4
         ('Aigu', 68, 84),        # G#4-C6
-        ('Suraigu', 85, 999),    # C#6+
+        ('Suraigu', 85, 999),
     ],
     'Trombone': [
-        ('Pédale', 28, 33),      # E1-A1
-        ('Grave', 34, 52),       # A#1-E3
-        ('Médium', 53, 64),      # F3-E4
+        ('Pédale', 28, 34),      # E1-A#1 (A#1 shared with Grave)
+        ('Grave', 34, 52),       # A#1-E3 (E3 shared with Médium)
+        ('Médium', 52, 64),      # E3-E4
         ('Aigu', 65, 999),       # F4+
     ],
     'Bass_Tuba': [
-        ('Grave', 0, 40),        # extrême grave + grave (jusqu'à E2)
-        ('Médium', 41, 52),      # F2-E3
+        ('Grave', 0, 41),        # up to F2 (F2 shared with Médium)
+        ('Médium', 41, 53),      # F2-F3 (F3 shared with Aigu)
         ('Aigu', 53, 62),        # F3-D4
         ('Suraigu', 63, 999),    # D#4+
     ],
     'Violin': [
-        ('Grave', 55, 59),       # G3-B3
-        ('Médium', 60, 71),      # C4-B4
-        ('Aigu', 72, 83),        # C5-B5
+        ('Grave', 55, 60),       # G3-C4 (C4 shared with Médium)
+        ('Médium', 60, 72),      # C4-C5 (C5 shared with Aigu)
+        ('Aigu', 72, 84),        # C5-C6 (C6 shared with Suraigu)
         ('Suraigu', 84, 999),    # C6+
     ],
     'Viola': [
-        ('Grave', 48, 54),       # C3-F#3
-        ('Médium', 55, 66),      # G3-F#4
-        ('Aigu', 67, 78),        # G4-F#5
+        ('Grave', 48, 55),       # C3-G3 (G3 shared with Médium)
+        ('Médium', 55, 67),      # G3-G4 (G4 shared with Aigu)
+        ('Aigu', 67, 79),        # G4-G5 (G5 shared with Suraigu)
         ('Suraigu', 79, 999),    # G5+
     ],
     'Violoncello': [
-        ('Grave', 36, 42),       # C2-F#2
-        ('Médium', 43, 54),      # G2-F#3
-        ('Aigu', 55, 66),        # G3-F#4
+        ('Grave', 36, 43),       # C2-G2 (G2 shared with Médium)
+        ('Médium', 43, 55),      # G2-G3 (G3 shared with Aigu)
+        ('Aigu', 55, 67),        # G3-G4 (G4 shared with Suraigu)
         ('Suraigu', 67, 999),    # G4+
     ],
     'Contrabass': [
-        ('Grave', 24, 35),       # C1-B1
-        ('Médium', 36, 47),      # C2-B2
-        ('Aigu', 48, 59),        # C3-B3
+        ('Grave', 24, 36),       # C1-C2 (C2 shared with Médium)
+        ('Médium', 36, 48),      # C2-C3 (C3 shared with Aigu)
+        ('Aigu', 48, 60),        # C3-C4 (C4 shared with Suraigu)
         ('Suraigu', 60, 999),    # C4+
     ],
 }
-# Ensembles partagent les mêmes registres que les solistes
 REGISTERS['Violin_Ensemble'] = REGISTERS['Violin']
 REGISTERS['Viola_Ensemble'] = REGISTERS['Viola']
 REGISTERS['Violoncello_Ensemble'] = REGISTERS['Violoncello']
 REGISTERS['Contrabass_Ensemble'] = REGISTERS['Contrabass']
 
 
-def _get_register(instrument_key, midi):
-    """Return register name for a given MIDI note, or None."""
+def _get_registers(instrument_key, midi):
+    """Return list of register names for a given MIDI note (frontier notes appear in multiple)."""
     regs = REGISTERS.get(instrument_key)
     if not regs:
-        return None
-    for name, lo, hi in regs:
-        if lo <= midi <= hi:
-            return name
-    return None
+        return []
+    return [name for name, lo, hi in regs if lo <= midi <= hi]
 
 
 def _find_specenv_file(instrument_key):
-    """Find the specenv file path for an instrument key."""
     filepath = os.path.join(SOL_DIR, f"FullSOL2020_specenv.db_{instrument_key}.txt")
     if os.path.exists(filepath):
         return filepath
@@ -1148,7 +1148,6 @@ def _find_specenv_file(instrument_key):
 
 
 def _find_spectrum_file(instrument_key):
-    """Find the spectrum (FFT linear amplitude) file path."""
     filepath = os.path.join(BASE, 'Data', 'FullSOL2020.spectrum_par_instrument',
                             f'{instrument_key}_spectrum.txt')
     if os.path.exists(filepath):
@@ -1162,7 +1161,7 @@ def _find_spectrum_file(instrument_key):
 
 
 def _load_grouped(filepath, techs, instrument_key):
-    """Load specenv or spectrum data grouped by register. Returns dict {register_name: {data:[], notes:set}}."""
+    """Load data grouped by register. Frontier notes go into ALL matching registers."""
     groups = {}
     with open(filepath, encoding='utf-8') as f:
         f.readline()
@@ -1182,16 +1181,15 @@ def _load_grouped(filepath, techs, instrument_key):
             if not note: continue
             midi = _note_to_midi(note)
             if midi is None: continue
-            reg = _get_register(instrument_key, midi)
-            if reg is None: continue
-            groups.setdefault(reg, {'data': [], 'notes': set()})
-            groups[reg]['data'].append(np.array(vals))
-            groups[reg]['notes'].add(note)
+            regs = _get_registers(instrument_key, midi)
+            for reg in regs:
+                groups.setdefault(reg, {'data': [], 'notes': set()})
+                groups[reg]['data'].append(np.array(vals))
+                groups[reg]['notes'].add(note)
     return groups
 
 
 def load_specenv_by_register(instrument_key, techs=('ordinario',)):
-    """Load specenv data grouped by instrument register."""
     filepath = _find_specenv_file(instrument_key)
     if not filepath:
         return {}
@@ -1199,7 +1197,6 @@ def load_specenv_by_register(instrument_key, techs=('ordinario',)):
 
 
 def load_spectrum_by_register(instrument_key, techs=('ordinario',)):
-    """Load spectrum (linear amplitude) data grouped by register."""
     filepath = _find_spectrum_file(instrument_key)
     if not filepath:
         return {}
@@ -1209,17 +1206,12 @@ def load_spectrum_by_register(instrument_key, techs=('ordinario',)):
 def make_carte_spectrale(display, filename, mean_env, n_samples, fp_band=(800,1800),
                          family_color='#333', cep_env_db=None, note_range=''):
     """
-    Generate a 'Carte spectrale vocalique' image (v8 anti-collision).
-    mean_env: mean specenv array (dB values).
-    cep_env_db: optional cepstral envelope in dB (normalized to match specenv level).
-    Returns output path.
+    Generate a 'Carte spectrale vocalique' image with pixel-based anti-collision
+    that checks both label-label AND label-curve overlaps.
     """
     _freqs = np.arange(len(mean_env)) * FREQ_RES
     mf = 5500
     mask = (_freqs >= 80) & (_freqs <= mf)
-    log_range = np.log10(mf) - np.log10(80)
-    LW = 0.09 * log_range
-    LH = 3.0
 
     # Find peaks
     lo = max(int(80/FREQ_RES),1); hi = min(int(6000/FREQ_RES), len(mean_env)-1)
@@ -1244,12 +1236,11 @@ def make_carte_spectrale(display, filename, mean_env, n_samples, fp_band=(800,18
     fp = sum(linear[i]*(lo_b+i)*FREQ_RES for i in range(len(linear)))/total if total > 0 else None
     fp_bin = min(int(fp/FREQ_RES), len(mean_env)-1) if fp else None
 
-    y_min = mean_env[mask].min() - 12
-    y_max = mean_env[mask].max() + 25
+    y_min = mean_env[mask].min() - 6
+    y_max = mean_env[mask].max() + 18
     VOWEL_Y = y_max - 2
-    MAX_LY = VOWEL_Y - 5
-    MIN_LY = y_min + 2
 
+    # Build labels
     labels = []
     for i, (f, a) in enumerate(sel):
         bin_idx = min(int(f/FREQ_RES), len(mean_env)-1)
@@ -1260,17 +1251,10 @@ def make_carte_spectrale(display, filename, mean_env, n_samples, fp_band=(800,18
         labels.append({'x':fp, 'y':mean_env[fp_bin],
                        'text':f"Fp {fp:.0f} Hz (centroide)",
                        'priority':7, 'type':'fp'})
-
     labels.sort(key=lambda l: -l['priority'])
-    placed = []
 
-    def _col(lx, ty):
-        for px, pb, pt, pw in placed:
-            if abs(lx-px) < (LW+pw)*0.55:
-                if ty < pt+0.5 and (ty+LH) > pb-0.5: return True
-        return False
-
-    fig, ax = plt.subplots(figsize=(10, 5.5), dpi=150)
+    # ── Draw figure ──
+    fig, ax = plt.subplots(figsize=(9, 5), dpi=150)
 
     for lo_hz, hi_hz, color, label in VOWEL_ZONES:
         if lo_hz < mf:
@@ -1284,11 +1268,11 @@ def make_carte_spectrale(display, filename, mean_env, n_samples, fp_band=(800,18
     ax.text(485, y_min+1, 'cluster /o/', ha='center', fontsize=6,
             color='#C62828', fontstyle='italic')
 
-    ax.plot(_freqs[mask], mean_env[mask], color=family_color, lw=1.5, zorder=3,
+    ax.plot(_freqs[mask], mean_env[mask], color=family_color, lw=2, zorder=3,
             label=f'Enveloppe specenv (n={n_samples})')
 
     if cep_env_db is not None:
-        ax.plot(_freqs[mask], cep_env_db[mask], '--', color='#9C27B0', lw=0.8, alpha=0.5,
+        ax.plot(_freqs[mask], cep_env_db[mask], '--', color='#9C27B0', lw=0.9, alpha=0.5,
                 zorder=2, label='Cepstrale (ord.30)')
 
     for i, (f, a) in enumerate(sel):
@@ -1298,8 +1282,7 @@ def make_carte_spectrale(display, filename, mean_env, n_samples, fp_band=(800,18
         ax.plot(fp, mean_env[fp_bin], 'D', color='#1B5E20', markersize=5,
                 markeredgecolor='black', markeredgewidth=0.8, zorder=6)
 
-    # v8: pixel-based anti-collision placement
-    # Render figure first to get transforms, then place labels
+    # Set up axes BEFORE label placement (needed for transforms)
     ax.set_xscale('log')
     ticks = [t for t in [100,150,200,300,400,500,600,800,1000,1500,2000,3000,4000,5000] if t<=mf]
     ax.set_xticks(ticks)
@@ -1311,60 +1294,64 @@ def make_carte_spectrale(display, filename, mean_env, n_samples, fp_band=(800,18
     trans = ax.transData
     inv_trans = ax.transData.inverted()
 
-    # Sort labels by priority (highest first: Fp=7, F1=5, F2=4...)
-    labels.sort(key=lambda l: -l['priority'])
+    # Pre-compute curve in pixel space for collision checking
+    curve_freqs = _freqs[mask]
+    curve_vals = mean_env[mask]
+    curve_px = np.array([trans.transform((f, v)) for f, v in zip(curve_freqs, curve_vals)])
 
-    placed_px = []  # list of (px_left, px_right, py_bottom, py_top)
-    PX_PAD = 12  # pixels padding between labels
+    placed_px = []  # (px_left, px_right, py_bottom, py_top)
+    PX_PAD = 8
 
-    def _px_collides(px_l, px_r, py_b, py_t):
+    def _collides(px_l, px_r, py_b, py_t):
+        # Check label-label collision
         for ol, orr, ob, ot in placed_px:
             if px_l < orr + PX_PAD and px_r > ol - PX_PAD:
                 if py_b < ot + PX_PAD and py_t > ob - PX_PAD:
                     return True
+        # Check label-curve collision (does the curve cross through the label box?)
+        curve_in_x = curve_px[(curve_px[:,0] >= px_l - 4) & (curve_px[:,0] <= px_r + 4)]
+        if len(curve_in_x) > 0:
+            # curve_px y is in display coords (y=0 at top)
+            curve_y_min = curve_in_x[:,1].min()
+            curve_y_max = curve_in_x[:,1].max()
+            if py_b < curve_y_max + 6 and py_t > curve_y_min - 6:
+                return True
         return False
 
-    for i, lab in enumerate(labels):
+    # Place labels
+    for lab in labels:
         is_fp = lab['type'] == 'fp'
         clr = '#1B5E20' if is_fp else '#333'
-        # Estimate label width in pixels (fontsize 5.5, ~5.5px per char)
-        txt_w = len(lab['text']) * 5.8
-        txt_h = 10  # approx height at fontsize 5.5
+        txt_w = len(lab['text']) * 5.5
+        txt_h = 10
 
-        # Anchor point in pixels
         anchor_px = trans.transform((lab['x'], lab['y']))
         ax_x, ax_y = anchor_px
 
-        # Try positions: above then below, with alternating x-offsets
         best = None
         best_cost = 999
-        offsets_y_above = [20, 36, 52, 68, 84, 100, 116, 132]
-        offsets_y_below = [22, 38, 54, 70, 86, 102]
-        offsets_x = [0, -60, 60, -120, 120, -180, 180]
+        # In display coords, y DECREASES going up
+        offsets_y_above = [18, 32, 46, 60, 76, 92, 110, 130]
+        offsets_y_below = [20, 34, 48, 62, 78, 94]
+        offsets_x = [0, -55, 55, -110, 110, -165, 165]
 
         for ox in offsets_x:
             tx = ax_x + ox
-            # Above — try ALL positions, don't break
             for oy in offsets_y_above:
-                ty = ax_y - oy
-                px_l = tx - txt_w/2
-                px_r = tx + txt_w/2
-                py_b = ty - txt_h/2
-                py_t = ty + txt_h/2
-                if not _px_collides(px_l, px_r, py_b, py_t):
+                ty = ax_y - oy  # up in display = lower y
+                px_l, px_r = tx - txt_w/2, tx + txt_w/2
+                py_b, py_t = ty - txt_h/2, ty + txt_h/2
+                if not _collides(px_l, px_r, py_b, py_t):
                     cost = oy + abs(ox) * 0.3
                     if cost < best_cost:
                         best = (tx, ty, px_l, px_r, py_b, py_t)
                         best_cost = cost
-                    break  # found best at this x-offset above, no need to go further up
-            # Below
+                    break
             for oy in offsets_y_below:
-                ty = ax_y + oy
-                px_l = tx - txt_w/2
-                px_r = tx + txt_w/2
-                py_b = ty - txt_h/2
-                py_t = ty + txt_h/2
-                if not _px_collides(px_l, px_r, py_b, py_t):
+                ty = ax_y + oy  # down in display = higher y
+                px_l, px_r = tx - txt_w/2, tx + txt_w/2
+                py_b, py_t = ty - txt_h/2, ty + txt_h/2
+                if not _collides(px_l, px_r, py_b, py_t):
                     cost = oy + 3 + abs(ox) * 0.3
                     if cost < best_cost:
                         best = (tx, ty, px_l, px_r, py_b, py_t)
@@ -1372,13 +1359,11 @@ def make_carte_spectrale(display, filename, mean_env, n_samples, fp_band=(800,18
                     break
 
         if best is None:
-            tx, ty = ax_x, ax_y - 14
+            tx, ty = ax_x, ax_y - 18
             best = (tx, ty, tx-txt_w/2, tx+txt_w/2, ty-txt_h/2, ty+txt_h/2)
 
         tx, ty, px_l, px_r, py_b, py_t = best
         placed_px.append((px_l, px_r, py_b, py_t))
-
-        # Convert pixel position back to data coordinates
         data_pos = inv_trans.transform((tx, ty))
 
         ax.annotate(lab['text'], xy=(lab['x'], lab['y']),
@@ -1407,8 +1392,7 @@ def make_carte_spectrale(display, filename, mean_env, n_samples, fp_band=(800,18
 def compute_register_profiles(instrument_key, techs=('ordinario',), fp_band=(800,1800)):
     """
     Compute per-register formant profiles + carte spectrale data.
-    Returns ordered list of (register_name, {n, notes, note_range, peaks, fp, mean_env, cep_db})
-    plus a 'GLOBAL' entry at the end.
+    Returns ordered list of (register_name, profile_dict) plus 'GLOBAL'.
     """
     specenv_groups = load_specenv_by_register(instrument_key, techs)
     spectrum_groups = load_spectrum_by_register(instrument_key, techs)
@@ -1432,25 +1416,22 @@ def compute_register_profiles(instrument_key, techs=('ordinario',), fp_band=(800
             if not any(abs(f-sf)<70 for sf,_ in sel): sel.append((f,a))
             if len(sel) >= 7: break
         sel.sort(key=lambda x: x[0])
-        # Fp
         lo_b = int(fp_band[0]/FREQ_RES); hi_b = int(fp_band[1]/FREQ_RES)
         region = mean_env[lo_b:hi_b+1]
         linear = np.array([10**(v/10) for v in region])
         total = linear.sum()
         fp = sum(linear[i]*(lo_b+i)*FREQ_RES for i in range(len(linear)))/total if total > 0 else None
-        # Cepstral
         cep_db = None
         if spectra_lin is not None and len(spectra_lin) > 0:
             mean_spec = np.mean(spectra_lin, axis=0)
             cep_log = cepstral_envelope(mean_spec, order=30)
             cep_db_raw = (20/np.log(10)) * cep_log
-            mask = (_freqs >= 200) & (_freqs <= 4000)
-            if mask.any() and len(cep_db_raw) == len(mean_env):
-                offset = np.median(mean_env[mask]) - np.median(cep_db_raw[mask])
+            cmask = (_freqs >= 200) & (_freqs <= 4000)
+            if cmask.any() and len(cep_db_raw) == len(mean_env):
+                offset = np.median(mean_env[cmask]) - np.median(cep_db_raw[cmask])
                 cep_db = cep_db_raw + offset
         return mean_env, sel, fp, cep_db
 
-    # Use register order from REGISTERS dict
     reg_order = REGISTERS.get(instrument_key, [])
     results = []
 
@@ -1506,7 +1487,6 @@ def make_register_table_html(register_profiles):
         fp_str = f'{od["fp"]:.0f}' if od['fp'] else '&mdash;'
         html += f'<td>{fp_str}</td></tr>\n'
 
-    # Global row
     for label, od in register_profiles:
         if label != 'GLOBAL':
             continue
@@ -1526,12 +1506,7 @@ def make_register_table_html(register_profiles):
 
 def generate_per_register_html(instrument_key, display, techs=("ordinario",),
                                 fp_band=(800,1800), family_color="#333"):
-    """
-    Generate complete per-register HTML block:
-    1. Table with F1-F7 + dB interleaved + Fp per register
-    2. Carte spectrale vocalique image for each register
-    Returns HTML string and list of generated image paths.
-    """
+    """Generate complete per-register HTML block: table + carte spectrale per register."""
     profiles = compute_register_profiles(instrument_key, techs=techs, fp_band=fp_band)
     if not profiles or len(profiles) <= 1:
         return "", []
@@ -1548,11 +1523,9 @@ def generate_per_register_html(instrument_key, display, techs=("ordinario",),
     html = ""
     images = []
 
-    # Table
     html += "<h4>Analyse par registre</h4>\n"
     html += make_register_table_html(profiles)
 
-    # Carte spectrale per register
     html += "<h4>Cartes spectrales vocaliques par registre</h4>\n"
     for label, od in profiles:
         if label == "GLOBAL":
