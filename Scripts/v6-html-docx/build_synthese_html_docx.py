@@ -545,10 +545,10 @@ def make_fig3():
     cluster = [
         ('Contrebasse',172,'#546E7A','dotted', 1.6),('Tuba CB',226,'#37474F','dashdot',1.8),
         ('Trombone',  237,'#7B1FA2','dashed', 2.0),('Tuba basse',226,'#616161','dotted',1.6),
-        ('Cor',       388,'#1565C0','solid',  2.5),('Alto',377,'#1976D2','dashed',1.8),
-        ('Sax alto',  398,'#AD1457','dashdot',2.0),('Cor anglais',452,'#2E7D32','solid',2.5),
-        ('Cl. Sib',   463,'#558B2F','dashed', 2.0),('Basson',495,'#4E342E','solid',2.5),
-        ('Violon',    506,'#0D47A1','solid',  2.5),
+        ('Cor',       388,'#1565C0','solid',  2.2),('Alto',377,'#1976D2','dashed',1.8),
+        ('Sax alto',  398,'#AD1457','dashdot',2.0),('Cor anglais',452,'#2E7D32','solid',2.2),
+        ('Cl. Sib',   463,'#558B2F','dashed', 2.0),('Basson',495,'#4E342E','solid',2.2),
+        ('Violon',    506,'#0D47A1','solid',  2.2),
     ]
     # Couleurs des voyelles : distinctes et lisibles (pas de gris)
     VOWEL_COLORS = {
