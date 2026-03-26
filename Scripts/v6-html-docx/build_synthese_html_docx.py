@@ -182,12 +182,12 @@ def make_convergence_matrix(instruments_dict, filename, title, threshold=80):
         for j in range(n):
             delta_matrix[i, j] = abs(f1s[i] - f1s[j])
 
-    # Taille adaptée: matrice 1 (n~20) plus petite, matrice 2 (n~40) plus large
-    cell_size = 0.50 if n <= 22 else 0.55
+    # Taille adaptée: matrice 1 (n~20) plus compacte, matrice 2 (n~40) inchangée
+    cell_size = 0.42 if n <= 22 else 0.55
     fig_w = max(10, n * cell_size + 3)
     fig_h = max(8, n * cell_size + 2)
     dpi = 200
-
+    
     fig, ax = plt.subplots(figsize=(fig_w, fig_h), dpi=dpi)
 
     from matplotlib.colors import LinearSegmentedColormap
@@ -197,9 +197,9 @@ def make_convergence_matrix(instruments_dict, filename, title, threshold=80):
     vmax = 500
     im = ax.imshow(np.clip(delta_matrix, 0, vmax), cmap=cmap, aspect='auto', vmin=0, vmax=vmax)
 
-    # Taille de police: plus grosse pour matrice 2
-    tick_fs = 8 if n <= 22 else 7.5
-    cell_fs = 6.5 if n <= 22 else 5
+    # Taille de police: valeurs et légendes renforcées pour la matrice complète
+    tick_fs = 8 if n <= 22 else 9
+    cell_fs = 5.5 if n <= 22 else 7
 
     ax.set_xticks(range(n))
     ax.set_yticks(range(n))
@@ -235,6 +235,7 @@ def make_convergence_matrix(instruments_dict, filename, title, threshold=80):
     fig.savefig(out, dpi=dpi, bbox_inches='tight', facecolor='white')
     plt.close(fig)
     return out
+
 
 
 def make_cluster_chart(filename):
