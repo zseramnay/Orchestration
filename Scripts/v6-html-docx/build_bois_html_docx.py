@@ -416,6 +416,12 @@ def add_instrument_docx(doc, gfx):
         add_paragraph(doc, "⚠ Technique analysée : non-vibrato (pas d'ordinario dans la base).",
                       italic=True, size=9)
 
+    # Per-register analysis for key instruments
+    if csv_name in KEY_BOIS:
+        tech_oct, fp_band_oct = KEY_BOIS[csv_name]
+        generate_per_register_docx(doc, csv_name, display, techs=(tech_oct,),
+                                    fp_band=fp_band_oct, family_color=info['color'])
+
     # Tableau références
     ref_rows = REF_TABLES.get(display, [])
     if ref_rows:

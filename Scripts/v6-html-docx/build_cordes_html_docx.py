@@ -417,6 +417,12 @@ def add_instrument_docx(doc, gfx, show_ref=True, show_all_tech=True):
     if csv_name == 'Contrabass_Ensemble':
         add_paragraph(doc, "⚠ Technique : non-vibrato uniquement dans la base.", italic=True, size=9)
 
+    # Per-register analysis for key instruments
+    if csv_name in KEY_CORDES:
+        tech_oct, fp_band_oct = KEY_CORDES[csv_name]
+        generate_per_register_docx(doc, csv_name, display, techs=(tech_oct,),
+                                    fp_band=fp_band_oct, family_color=info['color'])
+
     if show_ref:
         ref_rows = REF_TABLES.get(display, [])
         if ref_rows:

@@ -370,6 +370,12 @@ def add_instrument_docx(doc, gfx, show_ref=True, show_all_tech=True):
     if fp:
         add_paragraph(doc, f"Fp (centroïde) = {fp} Hz", bold=True, size=10, color=(27,94,32))
 
+    # Per-register analysis for key instruments
+    if csv_name in KEY_CUIVRES:
+        tech_oct, fp_band_oct = KEY_CUIVRES[csv_name]
+        generate_per_register_docx(doc, csv_name, display, techs=(tech_oct,),
+                                    fp_band=fp_band_oct, family_color=info['color'])
+
     if show_ref:
         ref_rows = REF_TABLES.get(display, [])
         if ref_rows:

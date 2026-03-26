@@ -1321,8 +1321,8 @@ def make_carte_spectrale(display, filename, mean_env, n_samples, fp_band=(800,18
     for lab in labels:
         is_fp = lab['type'] == 'fp'
         clr = '#1B5E20' if is_fp else '#333'
-        txt_w = len(lab['text']) * 5.5
-        txt_h = 10
+        txt_w = len(lab['text']) * 6.8
+        txt_h = 12
 
         anchor_px = trans.transform((lab['x'], lab['y']))
         ax_x, ax_y = anchor_px
@@ -1369,7 +1369,7 @@ def make_carte_spectrale(display, filename, mean_env, n_samples, fp_band=(800,18
 
         ax.annotate(lab['text'], xy=(lab['x'], lab['y']),
                     xytext=data_pos, ha='center', va='center',
-                    fontsize=5.5, fontweight='bold', color=clr,
+                    fontsize=7, fontweight='bold', color=clr,
                     arrowprops=dict(arrowstyle='->', color='#1B5E20' if is_fp else '#999',
                                   lw=0.7, ls='--'),
                     zorder=8 if is_fp else 6)
@@ -1549,6 +1549,84 @@ def generate_per_register_html(instrument_key, display, techs=("ordinario",),
             images.append(img_path)
 
     return html, images
+
+
+def generate_per_register_docx(doc, instrument_key, display, techs=("ordinario",),
+                                fp_band=(800,1800), family_color="#333"):
+    """Generate per-register DOCX block: table + carte spectrale images."""
+    profiles = compute_register_profiles(instrument_key, techs=techs, fp_band=fp_band)
+    if not profiles or len(profiles) <= 1:
+        return []
+
+    import unicodedata as _ud
+    def _slug(s):
+        s = _ud.normalize("NFD", s)
+        s = "".join(c for c in s if _ud.category(c) != "Mn")
+        s = s.lower()
+        s = _re.sub(r"[^a-z0-9]+", "_", s)
+        return s.strip("_")
+
+    slug = _slug(display)
+    images = []
+
+    # Heading
+    add_heading(doc, "Analyse par registre", level=3)
+
+    # Table
+    headers = ['Registre', 'N', 'Notes'] + [h for i in range(1,8) for h in (f'F{i} Hz', 'dB')] + ['Fp Hz']
+    table = doc.add_table(rows=1, cols=len(headers))
+    table.style = 'Table Grid'
+    for idx, h in enumerate(headers):
+        set_cell_text(table.rows[0].cells[idx], h, bold=True, size=7, color=(255,255,255))
+        set_cell_shading(table.rows[0].cells[idx], '1565C0')
+
+    for label, od in profiles:
+        row = table.add_row().cells
+        is_global = label == 'GLOBAL'
+        set_cell_text(row[0], label, bold=True, size=7)
+        set_cell_text(row[1], str(od['n']), size=7)
+        set_cell_text(row[2], od['note_range'], size=7)
+        for i in range(7):
+            if i < len(od['peaks']):
+                f, a = od['peaks'][i]
+                set_cell_text(row[3 + i*2], f'{f:.0f}', size=7)
+                set_cell_text(row[4 + i*2], f'{a:.1f}', size=7)
+            else:
+                set_cell_text(row[3 + i*2], '—', size=7)
+                set_cell_text(row[4 + i*2], '—', size=7)
+        fp_str = f'{od["fp"]:.0f}' if od['fp'] else '—'
+        set_cell_text(row[17], fp_str, size=7)
+        if is_global:
+            for cell in row:
+                set_cell_shading(cell, 'E8EAF6')
+
+    doc.add_paragraph()
+
+    # Carte spectrale images
+    add_heading(doc, "Cartes spectrales vocaliques par registre", level=3)
+    for label, od in profiles:
+        if label == "GLOBAL":
+            fname = f"carte_{slug}_global"
+        else:
+            reg_slug = _slug(label)
+            fname = f"carte_{slug}_{reg_slug}"
+
+        img_path = make_carte_spectrale(
+            display, fname, od["mean_env"], od["n"],
+            fp_band=fp_band, family_color=family_color,
+            cep_env_db=od.get("cep_db"),
+            note_range=f'{label} ({od["note_range"]})'
+        )
+        if img_path and os.path.exists(img_path):
+            oct_label = label if label != "GLOBAL" else "Global (toute la tessiture)"
+            add_paragraph(doc, oct_label, bold=True, size=9)
+            p = doc.add_paragraph()
+            p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            p.add_run().add_picture(img_path, width=Inches(6.0))
+            images.append(img_path)
+
+    doc.add_paragraph()
+    return images
 
 
 # Backward-compatible alias
