@@ -182,16 +182,14 @@ def make_convergence_matrix(instruments_dict, filename, title, threshold=80):
         for j in range(n):
             delta_matrix[i, j] = abs(f1s[i] - f1s[j])
 
-    # Taille de cellule adaptée au nombre d'instruments
-    # Pour n~20 : 0.65 cm/cellule ; pour n~40 : 0.55 cm/cellule
-    cell_size = 0.65 if n <= 22 else 0.55
-    fig_w = max(12, n * cell_size + 3)   # +3 pour colorbar + labels Y
-    fig_h = max(10, n * cell_size + 2)   # +2 pour labels X rotatés + titre
-    dpi   = 200                           # haute résolution pour zoom sans pixelisation
+    # Taille adaptée: matrice 1 (n~20) plus petite, matrice 2 (n~40) plus large
+    cell_size = 0.50 if n <= 22 else 0.55
+    fig_w = max(10, n * cell_size + 3)
+    fig_h = max(8, n * cell_size + 2)
+    dpi = 200
 
     fig, ax = plt.subplots(figsize=(fig_w, fig_h), dpi=dpi)
 
-    # Colormap : vert = convergence forte, blanc = neutre, rouge = divergence
     from matplotlib.colors import LinearSegmentedColormap
     cmap = LinearSegmentedColormap.from_list('conv',
         [(0,'#1B5E20'), (0.15,'#81C784'), (0.3,'#FFFFFF'), (0.6,'#FFCDD2'), (1.0,'#B71C1C')])
@@ -199,24 +197,35 @@ def make_convergence_matrix(instruments_dict, filename, title, threshold=80):
     vmax = 500
     im = ax.imshow(np.clip(delta_matrix, 0, vmax), cmap=cmap, aspect='auto', vmin=0, vmax=vmax)
 
-    # Taille de police adaptée
-    tick_fs  = 8  if n <= 22 else 6.5
-    cell_fs  = 7  if n <= 22 else 5.5
+    # Taille de police: plus grosse pour matrice 2
+    tick_fs = 8 if n <= 22 else 7.5
+    cell_fs = 6.5 if n <= 22 else 5
 
     ax.set_xticks(range(n))
     ax.set_yticks(range(n))
     ax.set_xticklabels(names, rotation=55, ha='right', fontsize=tick_fs)
     ax.set_yticklabels(names, fontsize=tick_fs)
 
-    # Valeurs dans les cellules
+    # Valeurs dans les cellules — texte incliné sur la diagonale, contraste adapté
     for i in range(n):
         for j in range(n):
             if i != j:
                 delta = int(delta_matrix[i, j])
-                color = 'white' if delta < threshold else ('#333' if delta < 300 else '#aaa')
+                # Contraste: blanc sur foncé (vert/rouge vif), noir sur clair (blanc/rose)
+                if delta < 30:
+                    color = 'white'  # vert foncé → texte blanc
+                elif delta < 80:
+                    color = '#1B5E20'  # vert clair → texte vert foncé
+                elif delta < 200:
+                    color = '#333'  # blanc/rose clair → texte foncé
+                elif delta < 350:
+                    color = '#333'  # rose moyen → texte foncé
+                else:
+                    color = 'white'  # rouge vif → texte blanc
+                fw = 'bold' if delta < threshold else 'normal'
                 ax.text(j, i, str(delta), ha='center', va='center',
-                        fontsize=cell_fs, color=color,
-                        fontweight='bold' if delta < threshold else 'normal')
+                        fontsize=cell_fs, color=color, fontweight=fw,
+                        rotation=45)
 
     plt.colorbar(im, ax=ax, label='Δ F1 (Hz)', shrink=0.8)
     ax.set_title(title, fontsize=11, fontweight='bold', pad=14)
@@ -619,12 +628,7 @@ def make_fig3():
 
 
 def make_fig2_bark():
-    """Fig 2b — Espace vocalique F1/F2 en Bark (Traunmüller), style aligned with Fig 2."""
-    try:
-        from adjustText import adjust_text
-        _has_adjusttext = True
-    except ImportError:
-        _has_adjusttext = False
+    """Fig 2b — Espace vocalique F1/F2 en Bark (Traunmüller), style identical to Fig 2."""
 
     def hz_to_bark(f):
         return 26.81 / (1 + 1960 / f) - 0.53 if f > 0 else 0
@@ -651,8 +655,39 @@ def make_fig2_bark():
 
     FAM_MK = {'Bois': 'D', 'Saxophones': 'P', 'Cuivres': 's',
               'Cordes sol.': 'o', 'Cordes ens.': '^'}
+
+    # Same OFFSETS as fig2 (dx, dy in points, ha, va)
+    OFFSETS_BARK = {
+        'Ens. CB':       (-8, -7,  'right', 'top'),
+        'Contrebasse':   (-8,  6,  'right', 'bottom'),
+        'Ens. Vcl.':     ( 7, -7,  'left',  'top'),
+        'Violoncelle':   ( 7,  6,  'left',  'bottom'),
+        'Tuba CB':       (-8,  6,  'right', 'bottom'),
+        'Tuba basse':    (-8, -7,  'right', 'top'),
+        'Trombone':      ( 7, -7,  'left',  'top'),
+        'Trb. basse':    ( 7,  6,  'left',  'bottom'),
+        'Contrebasson':  (-8,  6,  'right', 'bottom'),
+        'Cl. CB':        (-8,  6,  'right', 'bottom'),
+        'Cl. basse':     (-8, -7,  'right', 'top'),
+        'Fl. CB':        ( 7, -7,  'left',  'top'),
+        'Flûte basse':   ( 7,  6,  'left',  'bottom'),
+        'Cor':           ( 7, -7,  'left',  'top'),
+        'Ens. Altos':    (-8, -7,  'right', 'top'),
+        'Alto':          (-8,  6,  'right', 'bottom'),
+        'Sax alto':      ( 7, -7,  'left',  'top'),
+        'Cor anglais':   (-8, -7,  'right', 'top'),
+        'Cl. Sib':       ( 7,  6,  'left',  'bottom'),
+        'Basson':        ( 7, -7,  'left',  'top'),
+        'Ens. Violons':  ( 7,  6,  'left',  'bottom'),
+        'Violon':        ( 7,  6,  'left',  'bottom'),
+        'Cl. Mib':       ( 7, -7,  'left',  'top'),
+        'Flûte':         (-8,  6,  'right', 'bottom'),
+        'Hautbois':      ( 7, -7,  'left',  'top'),
+        'Petite flûte':  ( 7, -7,  'left',  'top'),
+        'Trompette':     (-8,  6,  'right', 'bottom'),
+    }
+
     seen_fam = set()
-    texts = []
 
     for instr in instruments_fig:
         f1, f2 = instr['F'][0], instr['F'][1]
@@ -669,19 +704,17 @@ def make_fig2_bark():
                    edgecolors='white', linewidths=0.6,
                    zorder=5, label=lbl, alpha=0.90)
 
-        t = ax.text(b1, b2, instr['display'],
-                    fontsize=6.5, color=col, fontweight='normal', zorder=7)
-        texts.append(t)
+        name = instr['display']
+        dx, dy, ha, va = OFFSETS_BARK.get(name, (8, 6, 'left', 'bottom'))
 
-    if _has_adjusttext and texts:
-        adjust_text(
-            texts, ax=ax,
-            expand_points=(1.8, 2.0),
-            expand_text=(1.4, 1.6),
-            force_text=(0.5, 0.7),
-            force_points=(0.4, 0.5),
-            arrowprops=dict(arrowstyle='-', color='#ccc', lw=0.4),
-            lim=400,
+        ax.annotate(
+            name,
+            xy=(b1, b2), xytext=(dx, dy),
+            textcoords='offset points',
+            fontsize=6.5, color=col, fontweight='normal',
+            ha=ha, va=va, zorder=7,
+            arrowprops=dict(arrowstyle='-', color='#ccc', lw=0.4,
+                            shrinkA=4, shrinkB=1),
         )
 
     # Axis ticks with Hz reference
