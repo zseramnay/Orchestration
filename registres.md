@@ -3,6 +3,7 @@
 * flute : registre grave B3-A4, médium A4-A5, aigu A5-A6, suraigu au dessus
 * hautbois : registre grave A#3-G4, médium G4-G5, aigu G5-D6, suraigu au dessus
 * clarinette : chalumeau D3-D4, gorge D#4-G#4, clarine A4-A#5, suraigu à partir de B5
+* clarinette basse : grave A#1-D3, médium D#3-G#3, aigu A3-A#4, suraigu à partir de B4
 * basson : grave A#1-A2, bas médium A#2-A3, haut médium A#3-A4, aigu à partir de A#4
 * cor : sons pédale F1-A1, grave A#1-B2, médium C3-E4, aigu F4-F5, suraigu à partir de F#5
 * trompette : grave F#3-C3, médium C3-G4, aigu G4-C5, suraigu au dessus
