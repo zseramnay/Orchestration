@@ -122,7 +122,8 @@ TOC_STRUCTURE = [
     (1, "Positions F1/Fp — 20 instruments de base",            "positions-f1"),
     (1, "Matrices de convergence F1",                          "matrices"),
     (1, "Doublures vérifiées",                                 "doublures-verifiees"),
-    (1, "6 Principes d'orchestration acoustique",              "principes"),
+    (1, "9 Principes d'orchestration acoustique",              "principes"),
+    (1, "Tableau de référence Fp",                             "fp-ref-table"),
     (1, "Concordance multi-sources",                           "concordance"),
 
     (0, "VII. Enveloppes spectrales par famille",               "vii-enveloppes"),

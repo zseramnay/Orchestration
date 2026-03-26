@@ -619,7 +619,7 @@ def make_fig3():
 
 
 def make_fig2_bark():
-    """Fig 2b — Espace vocalique F1/F2 en Bark (Traunmüller), anti-collision with adjustText."""
+    """Fig 2b — Espace vocalique F1/F2 en Bark (Traunmüller), style aligned with Fig 2."""
     try:
         from adjustText import adjust_text
         _has_adjusttext = True
@@ -629,7 +629,7 @@ def make_fig2_bark():
     def hz_to_bark(f):
         return 26.81 / (1 + 1960 / f) - 0.53 if f > 0 else 0
 
-    fig, ax = plt.subplots(figsize=(14, 11), dpi=150)
+    fig, ax = plt.subplots(figsize=(16, 12), dpi=150)
 
     # Vowel zones in Bark
     vz = [(100, 350, '#DCEEFB', '/u/'), (350, 600, '#D5ECD5', '/o/'),
@@ -645,9 +645,9 @@ def make_fig2_bark():
     from matplotlib.patches import Ellipse
     ax.add_patch(Ellipse((hz_to_bark(443), hz_to_bark(800)), 1.2, 3.5,
                          fill=True, facecolor='#ffebee', edgecolor='#e53935',
-                         lw=2, ls='--', zorder=2, alpha=0.5))
+                         lw=1.5, ls='--', zorder=2, alpha=0.55))
     ax.text(hz_to_bark(443), hz_to_bark(1200), 'Zone /o/–/å/\n377–510 Hz',
-            ha='center', fontsize=8, color='#c62828', fontweight='bold', zorder=9)
+            ha='center', fontsize=8.5, color='#c62828', fontweight='bold', zorder=9)
 
     FAM_MK = {'Bois': 'D', 'Saxophones': 'P', 'Cuivres': 's',
               'Cordes sol.': 'o', 'Cordes ens.': '^'}
@@ -665,12 +665,12 @@ def make_fig2_bark():
         lbl = fam if fam not in seen_fam else '_'
         seen_fam.add(fam)
 
-        ax.scatter(b1, b2, s=40, color=col, marker=mk,
+        ax.scatter(b1, b2, s=50, color=col, marker=mk,
                    edgecolors='white', linewidths=0.6,
-                   zorder=5, label=lbl, alpha=0.92)
+                   zorder=5, label=lbl, alpha=0.90)
 
         t = ax.text(b1, b2, instr['display'],
-                    fontsize=6.5, color=col, fontweight='bold', zorder=7)
+                    fontsize=6.5, color=col, fontweight='normal', zorder=7)
         texts.append(t)
 
     if _has_adjusttext and texts:
@@ -680,21 +680,21 @@ def make_fig2_bark():
             expand_text=(1.4, 1.6),
             force_text=(0.5, 0.7),
             force_points=(0.4, 0.5),
-            arrowprops=dict(arrowstyle='->', color='#aaa', lw=0.6),
+            arrowprops=dict(arrowstyle='-', color='#ccc', lw=0.4),
             lim=400,
         )
 
     # Axis ticks with Hz reference
     bark_x = [100, 200, 300, 400, 500, 700, 1000, 1500]
     ax.set_xticks([hz_to_bark(h) for h in bark_x])
-    ax.set_xticklabels([f'{h}\n({hz_to_bark(h):.1f})' for h in bark_x], fontsize=7)
+    ax.set_xticklabels([f'{h}\n({hz_to_bark(h):.1f})' for h in bark_x], fontsize=8)
     bark_y = [200, 400, 600, 800, 1000, 1500, 2000, 3000]
     ax.set_yticks([hz_to_bark(h) for h in bark_y])
-    ax.set_yticklabels([f'{h} ({hz_to_bark(h):.1f})' for h in bark_y], fontsize=7)
+    ax.set_yticklabels([f'{h} ({hz_to_bark(h):.1f})' for h in bark_y], fontsize=8)
 
     ax.set_xlabel("F1 (Bark)", fontsize=11, fontweight='bold')
     ax.set_ylabel("F2 (Bark)", fontsize=11, fontweight='bold')
-    ax.grid(True, alpha=0.15)
+    ax.grid(True, alpha=0.08, color='#aaa')
     for s in ['top', 'right']:
         ax.spines[s].set_visible(False)
 
@@ -704,14 +704,14 @@ def make_fig2_bark():
         if l not in seen2 and not l.startswith('_'):
             seen2.add(l); ch.append(h); cl.append(l)
     ax.legend(ch, cl, loc='upper right', fontsize=8.5, framealpha=0.95,
-              title='Familles', title_fontsize=9)
+              title='Familles', title_fontsize=9, borderpad=0.8, markerscale=0.9)
 
-    ax.set_title(
+    fig.suptitle(
         "Figure 2b — Espace vocalique F1/F2 en Bark (Traunmüller)\n"
         "27 instruments de l'orchestre · données CSV v3",
-        fontsize=10, fontweight='bold', pad=12)
+        fontsize=10, fontweight='bold', y=0.98)
 
-    fig.subplots_adjust(left=0.09, right=0.97, top=0.93, bottom=0.08)
+    fig.subplots_adjust(left=0.07, right=0.97, top=0.93, bottom=0.08)
     out = os.path.join(OUT_IMG, 'synthese_fig2_bark.png')
     fig.savefig(out, dpi=150, facecolor='white')
     plt.close(fig)
@@ -834,9 +834,10 @@ PRINCIPES_ORCHESTRATION = [
 
 <strong>Seuils mesurés dans le corpus :</strong>
 <ul>
-<li><strong>Δ = 0 Hz — unisson formantique :</strong> Flûte (743) + Hautbois (743) ; Tuba contrebasse + Contrebasson + Tuba basse (tous à 226 Hz) — trois familles, une seule couleur.</li>
-<li><strong>Δ ≤ 30 Hz — fusion quasi-parfaite :</strong> Basson (495) + Violoncelle (205) Δ=11 Hz ; Cor (388) + Alto (377) Δ=11 Hz ; Trombone (237) + Tuba basse (226) Δ=11 Hz ; Trombone (237) + Trombone basse (258) Δ=21 Hz.</li>
-<li><strong>Δ 30–80 Hz — fusion efficace :</strong> Cor anglais (452) + Clarinette Sib (463) Δ=11 Hz.</li>
+<li><strong>Δ = 0 Hz (0 Bark) — unisson formantique :</strong> Flûte (743) + Hautbois (743) ; Tuba contrebasse + Contrebasson + Tuba basse (tous à 226 Hz) — trois familles, une seule couleur.</li>
+<li><strong>Δ ≤ 30 Hz (≤ 0,3 Bark) — fusion quasi-parfaite :</strong> Basson (495) + Violoncelle (205) Δ=11 Hz ; Cor (388) + Alto (377) Δ=11 Hz ; Trombone (237) + Tuba basse (226) Δ=11 Hz ; Trombone (237) + Trombone basse (258) Δ=21 Hz.</li>
+<li><strong>Δ 30–80 Hz (0,3–0,7 Bark) — fusion efficace :</strong> Cor anglais (452) + Clarinette Sib (463) Δ=11 Hz.</li>
+<li><strong>Δ ≥ 200 Hz (≥ 1,5 Bark) — complémentarité spectrale :</strong> les spectres coexistent sans masquage.</li>
 </ul>
 <strong>Conséquence pratique :</strong> la fusion ne dépend pas de l'unisson mélodique — Basson et Violoncelle fusionnent à n'importe quel intervalle harmonique. C'est pourquoi ces doublures fonctionnent sur plusieurs octaves. La convergence formantique est une propriété du <em>timbre</em>, pas de la hauteur."""),
 
@@ -1089,6 +1090,31 @@ car elles n'existent que lorsque les deux instruments jouent dans un registre sp
     for titre, texte in PRINCIPES_ORCHESTRATION:
         html += f'<div class="instrument-card"><h3>{titre}</h3><p>{texte}</p></div>\n'
 
+    # Fp reference table (audit point 4)
+    html += '<h2 id="fp-ref-table">Tableau de référence Fp — bandes de calcul et contexte</h2>\n'
+    html += """<p>Ce tableau centralise les valeurs Fp de référence, la bande de calcul utilisée, et le contexte
+(solo, ensemble, sourdine). Pour la reproductibilité, la bande Fp est optimisée par instrument pour capturer
+la zone de résonance structurelle (corps, pavillon, caisse).</p>
+<table class="ref-table">
+<tr class="header"><th>Instrument</th><th>Fp réf. (Hz)</th><th>Bande Fp (Hz)</th><th>σ(Fp)</th><th>Contexte</th><th>N</th><th>Notes</th></tr>
+<tr><td>Flûte</td><td><b>1 535</b></td><td>1 000–2 000</td><td>~150</td><td>Solo ordinario</td><td>118</td><td>—</td></tr>
+<tr><td>Hautbois</td><td><b>1 485</b></td><td>1 000–2 000</td><td>~90</td><td>Solo ordinario</td><td>107</td><td>Stable par registre (6 %)</td></tr>
+<tr><td>Clarinette Sib</td><td><b>1 412</b></td><td>1 000–2 000</td><td>169</td><td>Solo ordinario</td><td>126</td><td>Réf. principale ; variante 1 296 Hz (bande 800–1 600)</td></tr>
+<tr><td>Basson</td><td><b>1 079</b></td><td>800–1 600</td><td>~60</td><td>Solo ordinario</td><td>126</td><td>Très stable (4 %)</td></tr>
+<tr><td>Cor</td><td><b>738</b></td><td>600–1 400</td><td>112</td><td>Solo ordinario</td><td>134</td><td>Le plus stable (&lt; 4 %)</td></tr>
+<tr><td>Trompette</td><td><b>1 046</b></td><td>600–1 400</td><td>98</td><td>Solo ordinario</td><td>96</td><td>10,4× plus stable que F2</td></tr>
+<tr><td>Trombone</td><td><b>1 218</b></td><td>1 000–2 000</td><td>~100</td><td>Solo ordinario</td><td>117</td><td>Variation 6 % par registre</td></tr>
+<tr><td>Tuba basse</td><td><b>1 239</b></td><td>1 000–2 000</td><td>~110</td><td>Solo ordinario</td><td>108</td><td>—</td></tr>
+<tr><td>Violon solo</td><td><b>893</b></td><td>600–1 400</td><td>92</td><td>Solo ordinario</td><td>284</td><td>Ens. = 970 Hz, sourdine = variable</td></tr>
+<tr><td>Alto solo</td><td><b>1 300</b></td><td>800–1 600</td><td>~120</td><td>Solo ordinario</td><td>309</td><td>Ens. = 954 Hz</td></tr>
+<tr><td>Violoncelle solo</td><td><b>1 242</b></td><td>600–1 400</td><td>~80</td><td>Solo ordinario</td><td>291</td><td>Ens. = 1 471 Hz (↑ brillance)</td></tr>
+<tr><td>Contrebasse solo</td><td><b>1 235</b></td><td>1 000–2 000</td><td>~50</td><td>Solo ordinario</td><td>309</td><td>Ens. = 1 146 Hz</td></tr>
+</table>
+<p><em>Les Fp varient selon le contexte : le Fp d'un ensemble est généralement différent du Fp solo
+(effet de section spectral). Les valeurs ci-dessus sont celles du <strong>soliste en technique ordinario</strong>,
+qui constituent la référence de base. Les variantes (ensemble, sourdine) sont documentées dans les sections instrumentales.</em></p>
+"""
+
     # 6. Concordance multi-sources
     html += '<h2 id="concordance">Concordance Multi-Sources — Résultats Globaux</h2>\n'
     html += """
@@ -1266,6 +1292,35 @@ def build_docx(output_path):
     for titre, texte in PRINCIPES_ORCHESTRATION:
         add_heading(doc, titre, level=3, color=(74, 20, 140))
         add_paragraph(doc, clean_text(texte), size=10)
+
+    # Fp reference table
+    doc.add_paragraph()
+    add_heading(doc, "Tableau de référence Fp — bandes de calcul et contexte", level=2, color=(21, 101, 192))
+    add_paragraph(doc, "Valeurs Fp de référence (soliste, ordinario). Les variantes ensemble/sourdine "
+                  "sont documentées dans les sections instrumentales.", italic=True, size=9)
+    fp_table = doc.add_table(rows=1, cols=7)
+    fp_table.style = 'Table Grid'
+    for idx, h in enumerate(['Instrument','Fp réf.','Bande','σ(Fp)','Contexte','N','Notes']):
+        set_cell_text(fp_table.rows[0].cells[idx], h, bold=True, size=8, color=(255,255,255))
+        set_cell_shading(fp_table.rows[0].cells[idx], '1565C0')
+    fp_data = [
+        ('Flûte','1 535','1 000–2 000','~150','Solo ord.','118','—'),
+        ('Hautbois','1 485','1 000–2 000','~90','Solo ord.','107','Stable 6 %'),
+        ('Clarinette Sib','1 412','1 000–2 000','169','Solo ord.','126','Var. 1 296 (800–1 600)'),
+        ('Basson','1 079','800–1 600','~60','Solo ord.','126','Très stable 4 %'),
+        ('Cor','738','600–1 400','112','Solo ord.','134','Le plus stable < 4 %'),
+        ('Trompette','1 046','600–1 400','98','Solo ord.','96','10,4× > F2'),
+        ('Trombone','1 218','1 000–2 000','~100','Solo ord.','117','Var. 6 %/registre'),
+        ('Tuba basse','1 239','1 000–2 000','~110','Solo ord.','108','—'),
+        ('Violon solo','893','600–1 400','92','Solo ord.','284','Ens.=970, sourd.=var.'),
+        ('Alto solo','1 300','800–1 600','~120','Solo ord.','309','Ens.=954'),
+        ('Violoncelle','1 242','600–1 400','~80','Solo ord.','291','Ens.=1 471'),
+        ('Contrebasse','1 235','1 000–2 000','~50','Solo ord.','309','Ens.=1 146'),
+    ]
+    for row_data in fp_data:
+        row = fp_table.add_row().cells
+        for idx, v in enumerate(row_data):
+            set_cell_text(row[idx], v, bold=(idx==0), size=8)
 
     doc.save(output_path)
     print(f"  ✓ DOCX: {output_path}")
