@@ -170,7 +170,10 @@ def make_f1_position_chart(instruments_dict, filename, title, max_show=None):
     return out
 
 
-def make_convergence_matrix(instruments_dict, filename, title, threshold=80):
+def make_convergence_matrix(instruments_dict, filename, title, threshold=80, 
+                           tick_font_size=None, cell_font_size=None, 
+                           figsize=None, dpi=200, colorbar_font_size=None,
+                           title_font_size=11, cell_text_rotation=45, cell_size=None):
     """Matrice de convergence F1 entre tous les instruments."""
     names = list(instruments_dict.keys())
     f1s = [d['f1'] for d in instruments_dict.values()]
@@ -183,10 +186,18 @@ def make_convergence_matrix(instruments_dict, filename, title, threshold=80):
             delta_matrix[i, j] = abs(f1s[i] - f1s[j])
 
     # Taille adaptée: matrice 1 (n~20) plus compacte, matrice 2 (n~40) inchangée
-    cell_size = 0.42 if n <= 22 else 0.55
-    fig_w = max(10, n * cell_size + 3)
-    fig_h = max(8, n * cell_size + 2)
-    dpi = 200
+    if cell_size is not None:
+        # Use custom cell size
+        fig_w = max(10, n * cell_size + 3)
+        fig_h = max(8, n * cell_size + 2)
+    else:
+        cell_size = 0.42 if n <= 22 else 0.55
+        fig_w = max(10, n * cell_size + 3)
+        fig_h = max(8, n * cell_size + 2)
+    
+    # Allow custom figure size
+    if figsize is not None:
+        fig_w, fig_h = figsize
     
     fig, ax = plt.subplots(figsize=(fig_w, fig_h), dpi=dpi)
 
@@ -197,9 +208,16 @@ def make_convergence_matrix(instruments_dict, filename, title, threshold=80):
     vmax = 500
     im = ax.imshow(np.clip(delta_matrix, 0, vmax), cmap=cmap, aspect='auto', vmin=0, vmax=vmax)
 
-    # Taille de police: valeurs et légendes renforcées pour la matrice complète
-    tick_fs = 9 if n <= 22 else 9
-    cell_fs = 8 if n <= 22 else 7
+    # Font size control - use custom values or default based on matrix size
+    if tick_font_size is not None:
+        tick_fs = tick_font_size
+    else:
+        tick_fs = 9 if n <= 22 else 8
+    
+    if cell_font_size is not None:
+        cell_fs = cell_font_size
+    else:
+        cell_fs = 8 if n <= 22 else 6
 
     ax.set_xticks(range(n))
     ax.set_yticks(range(n))
@@ -225,10 +243,15 @@ def make_convergence_matrix(instruments_dict, filename, title, threshold=80):
                 fw = 'bold' if delta < threshold else 'normal'
                 ax.text(j, i, str(delta), ha='center', va='center',
                         fontsize=cell_fs, color=color, fontweight=fw,
-                        rotation=45)
+                        rotation=cell_text_rotation)
 
-    plt.colorbar(im, ax=ax, label='Δ F1 (Hz)', shrink=0.8)
-    ax.set_title(title, fontsize=11, fontweight='bold', pad=14)
+    # Colorbar with customizable font size
+    cbar = plt.colorbar(im, ax=ax, label='Δ F1 (Hz)', shrink=0.8)
+    if colorbar_font_size is not None:
+        cbar.ax.tick_params(labelsize=colorbar_font_size)
+        cbar.set_label('Δ F1 (Hz)', fontsize=colorbar_font_size)
+    
+    ax.set_title(title, fontsize=title_font_size, fontweight='bold', pad=14)
     plt.tight_layout()
 
     out = os.path.join(OUT_IMG, f"{filename}.png")
@@ -310,14 +333,25 @@ print(f"  ✓ Graphique F1 base")
 img_matrix_base = make_convergence_matrix(
     INSTRUMENTS_BASE, 'synthese_matrix_base',
     "Matrice de convergence F1 — 20 instruments de base",
-    threshold=80
+    threshold=80,
+    tick_font_size=6, # Axis labels
+    cell_font_size=6, # Cell values
+    colorbar_font_size=8, # Color scale legend
+    title_font_size=12, # Title
+    cell_size= 0.3
 )
 print(f"  ✓ Matrice base")
 
 img_matrix_full = make_convergence_matrix(
     INSTRUMENTS_SORDINES, 'synthese_matrix_full',
     "Matrice de convergence F1 — Tous instruments disponibles (avec sourdines)",
-    threshold=80
+    threshold=80,
+    tick_font_size=8, # Axis labels
+    cell_font_size=7, # Cell values
+    figsize=(15, 15), # Custom figure size
+    colorbar_font_size=6, # Color scale legend
+    title_font_size=10 # Title
+    # cell_size= 0.5
 )
 print(f"  ✓ Matrice complète")
 
