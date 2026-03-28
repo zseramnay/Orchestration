@@ -275,7 +275,7 @@ def load_data(source, file_key, accepted_techs, dynamic_filter=None):
 # ═══════════════════════════════════════════
 def load_formants():
     formants = {}
-    for csv_f in ['Resultats/formants_all_techniques_v3.csv','Resultats/formants_yan_adds_v2.csv']:
+    for csv_f in ['Etude-Formants/Resultats/formants_all_techniques_v3.csv','Etude-Formants/Resultats/formants_yan_adds_v2.csv']:
         fp = os.path.join(BASE, csv_f)
         if not os.path.exists(fp): continue
         with open(fp, newline='', encoding='utf-8-sig') as f:

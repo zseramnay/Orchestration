@@ -16,8 +16,8 @@ from common import OUT_IMG, BASE
 os.makedirs(OUT_IMG, exist_ok=True)
 
 DATA = {}
-for path in [os.path.join(BASE,'Resultats','formants_all_techniques_v3.csv'),
-             os.path.join(BASE,'Resultats','formants_yan_adds_v3.csv')]:
+for path in [os.path.join(BASE,'Etude-Formants','Resultats','formants_all_techniques_v3.csv'),
+             os.path.join(BASE,'Etude-Formants','Resultats','formants_yan_adds_v3.csv')]:
     with open(path) as f:
         for r in csv.DictReader(f):
             if r['technique'] in ('ordinario','non-vibrato'):

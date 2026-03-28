@@ -24,7 +24,7 @@ from docx.oxml.ns import qn
 # Ce module est dans Formants/Scripts/v4-html-docx-enriched/
 # BASE = Formants/
 BASE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-OUT_DIR = os.path.join(BASE, "Versions-html-and-docx")
+OUT_DIR = os.path.join(BASE, "Etude-Formants", "Versions-html-and-docx")
 OUT_IMG = os.path.join(OUT_DIR, "media")
 os.makedirs(OUT_IMG, exist_ok=True)
 
@@ -106,7 +106,7 @@ def load_data(path):
                 DATA[(V2_TO_LEGACY[inst], tech)] = row
 
 def load_bandwidths():
-    bw_path = os.path.join(BASE, 'Resultats/bandwidths_3db.csv')
+    bw_path = os.path.join(BASE, 'Etude-Formants', 'Resultats', 'bandwidths_3db.csv')
     if not os.path.exists(bw_path):
         print(f"  ⚠ Bandwidths CSV introuvable : {bw_path}")
         return
@@ -122,12 +122,12 @@ def load_bandwidths():
                 BW_DATA[(V2_TO_LEGACY[inst], tech)] = bws
 
 def load_all_csvs():
-    csv_all = os.path.join(BASE, 'Resultats/formants_all_techniques_v3.csv')
-    csv_yan = os.path.join(BASE, 'Resultats/formants_yan_adds_v3.csv')
+    csv_all = os.path.join(BASE, 'Etude-Formants', 'Resultats', 'formants_all_techniques_v3.csv')
+    csv_yan = os.path.join(BASE, 'Etude-Formants', 'Resultats', 'formants_yan_adds_v3.csv')
     if not os.path.exists(csv_all):
-        csv_all = os.path.join(BASE, 'Resultats/formants_all_techniques_v2.csv')
+        csv_all = os.path.join(BASE, 'Etude-Formants', 'Resultats', 'formants_all_techniques_v2.csv')
     if not os.path.exists(csv_yan):
-        csv_yan = os.path.join(BASE, 'Resultats/formants_yan_adds_v2.csv')
+        csv_yan = os.path.join(BASE, 'Etude-Formants', 'Resultats', 'formants_yan_adds_v2.csv')
     load_data(csv_all)
     load_data(csv_yan)
     load_bandwidths()

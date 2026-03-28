@@ -16,7 +16,7 @@ import os
 # ─── Chemin de sortie ───────────────────────────────────────────
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 # Remonter à la racine du repo si le script est dans Scripts/
-OUT_PATH = os.path.join(SCRIPT_DIR, '..', 'Versions-html-and-docx', 'media', 'voyelles_IPA.svg')
+OUT_PATH = os.path.join(SCRIPT_DIR, '..', 'Etude-Formants', 'Versions-html-and-docx', 'media', 'voyelles_IPA.svg')
 # Si le script est lancé depuis la racine du repo :
 # OUT_PATH = 'Versions-html-and-docx/media/voyelles_IPA.svg'
 
