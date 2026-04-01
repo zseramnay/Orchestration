@@ -1,0 +1,398 @@
+\documentclass[journal]{IEEEtran}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{url}
+\usepackage{cite}
+\usepackage{siunitx}
+\usepackage{xcolor}
+\usepackage{balance}
+\usepackage{enumitem}
+\usepackage{tabularx}
+
+\sisetup{
+  group-separator = {\,},
+  detect-all
+}
+
+\newcommand{\Fp}{F_\mathrm{p}}
+\newcommand{\Hz}{\,\text{Hz}}
+\newcommand{\dB}{\,\text{dB}}
+
+\begin{document}
+
+\title{Mesurer les attributs du timbre selon Koechlin~:\\Volume, densité et homogénéité\\dans le spectre orchestral}
+
+\author{%
+  Yan Maresz\\
+  \textit{Conservatoire National Supérieur de Musique et de Danse de Paris}\\
+  Professeur de nouvelles technologies appliquées à la composition\\
+  \texttt{y.maresz@cnsmdp.fr}\\
+  Data and code: \texttt{github.com/zseramnay/Orchestration}%
+  }
+
+\markboth{Référence Formantique Orchestrale --- Article compagnon~II}%
+{Maresz~: Mesurer les attributs du timbre selon Koechlin}
+
+\maketitle
+
+% ============================================================
+\begin{abstract}
+Le \textit{Traité de l'orchestration} de Charles Koechlin (1954) a introduit une théorie systématique du timbre orchestral fondée sur des attributs empiriques --- volume, intensité, transparence, densité --- permettant de prédire comment les instruments se fondent en plans orchestraux unifiés ou hétérogènes. Malgré l'originalité reconnue de ce cadre théorique, aucune tentative de mesurer ces attributs à l'aide d'outils d'analyse spectrale modernes n'avait été entreprise.
+
+Nous proposons un \textbf{Indice de Volume} composite combinant quatre descripteurs spectraux --- étalement spectral normalisé, ratio d'énergie sous 1\,kHz, dispersion formantique inverse et pente spectrale MFCC --- calculés sur 5\,835 échantillons soutenus provenant de 53~instruments orchestraux, sourdines comprises. L'indice atteint une corrélation de Spearman de $\rho = -0{,}76$ ($p < 0{,}002$) avec l'échelle empirique de volume de Koechlin. Le croisement de la matrice d'homogénéité résultante ($53 \times 53$) avec les données de convergence formantique ($\Delta F_1$, $\Delta\Fp$) par registre produit une classification de 1\,378 paires d'instruments en plans \textit{fondus}, \textit{semi-fondus} et \textit{hétérogènes}, avec 891~fusions prédites. L'analyse inter-registres révèle 1\,220 convergences formantiques réparties sur cinq zones vocaliques de /u/ à /i/, confirmant et prolongeant le cluster de convergence central précédemment identifié dans la bande 377--506\Hz.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Orchestration, timbre, analyse spectrale, Koechlin, formants, fusion timbrale, plans orchestraux, MFCC
+\end{IEEEkeywords}
+
+% ============================================================
+\section{Introduction}
+\label{sec:intro}
+
+La question de savoir pourquoi certaines doublures orchestrales produisent un son fondu et homogène tandis que d'autres restent perceptivement distincts occupe les orchestrateurs depuis plus d'un siècle. Les \textit{Principes d'orchestration} de Rimsky-Korsakov (1914) proposaient des descriptions spécifiques à chaque instrument et des règles d'équivalence d'intensité, mais aucun cadre généralisable pour prédire la fusion timbrale. Comme l'ont montré Chiasson et Duchesneau~\cite{Chiasson2008, DuchesneauChiasson}, le \textit{Traité de l'orchestration} de Charles Koechlin~\cite{Koechlin1954} représente une avancée décisive~: Koechlin a proposé un système cohérent d'\emph{attributs généraux} --- volume, intensité, transparence, densité --- applicables à tous les instruments, permettant une comparaison systématique des timbres et une prédiction du fondu orchestral.
+
+Le \textit{volume} selon Koechlin n'est pas l'intensité sonore, mais l'\emph{espace apparent occupé par un son}~: une note grave de flûte est volumineuse mais faible, tandis qu'une note médium de hautbois est mince mais intense. Cette distinction, que Koechlin illustrait par une métaphore astronomique --- la flûte comme une étoile géante de densité minimale, le hautbois comme une étoile naine dense --- anticipe les travaux psychoacoustiques de S.~S.~Stevens sur le volume tonal~\cite{Stevens1965} et les recherches plus récentes sur la perception de taille auditive~\cite{VanDinther2006}. Pourtant, comme le note Chiasson~\cite{ChiassonHumaniste}, aucune vérification expérimentale de l'échelle de volume de Koechlin à travers les familles orchestrales n'a été tentée, et \og l'universalité du volume comme attribut du timbre instrumental reste à confirmer \fg.
+
+Le présent article propose une telle mesure. En s'appuyant sur la \textit{Référence Formantique Orchestrale} --- un corpus de plus de 5\,914 analyses spectrales issues de la base Orchidea/SOL2020 --- nous construisons un indice spectral composite qui opérationnalise le concept de volume de Koechlin, puis l'utilisons pour bâtir une matrice d'homogénéité prédisant quelles combinaisons d'instruments formeront des plans orchestraux fondus.
+
+% ============================================================
+\section{Le cadre théorique de Koechlin}
+\label{sec:koechlin}
+
+En suivant l'analyse de Chiasson~\cite{Chiasson2008, ChiassonHumaniste} et de Duchesneau \& Chiasson~\cite{DuchesneauChiasson}, le système de Koechlin peut se résumer comme une hiérarchie d'attributs opérant à trois niveaux~:
+
+\textbf{Niveau de l'instrument.} Chaque instrument possède, à chaque registre, un \textit{volume} (taille apparente) et une \textit{intensité} (force perçue) caractéristiques. Ces deux attributs varient indépendamment~: le volume de la flûte est grand dans le grave mais son intensité est faible~; le hautbois augmente à la fois en intensité et en volume vers le grave. De ces deux attributs émerge un troisième~: la \textit{transparence} (grand volume, faible intensité = transparent~; petit volume, forte intensité = dense).
+
+\textbf{Niveau du plan orchestral.} Lorsque des instruments partagent un volume \emph{et} une intensité équivalents, ils fusionnent en un seul plan orchestral. Ce plan peut présenter du \textit{fondu} si les timbres sont suffisamment similaires, et de l'\textit{homogénéité} si le fondu est particulièrement fort (comme dans un pupitre de cordes). Des volumes ou intensités inégaux produisent de l'\textit{hétérogénéité}~: plusieurs plans distincts entendus simultanément.
+
+\textbf{Niveau de l'orchestration.} L'orchestration complète atteint la \textit{plénitude} --- soit \textit{matérielle} (à partir de timbres volumineux, fondus et doublés) soit \textit{d'écriture} (à partir d'un contrepoint dense). L'\textit{éclat} résulte de timbres purs, non doublés.
+
+Koechlin fournit une échelle empirique des volumes moyens des instruments (vol.~I, p.~288), allant de \og gros \fg{} (tubas, cors, trombones) à \og mince \fg{} (hautbois, clarinette dans le suraigu). Notre objectif est de mesurer cette échelle spectralement et de l'étendre à l'orchestre moderne complet, instruments avec sourdines compris.
+
+% ============================================================
+\section{Corpus et descripteurs}
+\label{sec:corpus}
+
+\subsection{Corpus instrumental}
+
+L'analyse couvre \textbf{53~instruments} (ou combinaisons instrument--sourdine) totalisant \textbf{5\,835 échantillons soutenus} répartis en \textbf{193~segments de registre}. Les sources sont la base Orchidea/SOL2020 (35~entrées) et la base complémentaire Yan\_Adds (18~entrées). Le corpus comprend~:
+
+\begin{itemize}[nosep]
+\item \textbf{Flûtes~:} concert, basse, contrebasse, piccolo
+\item \textbf{Anches doubles~:} hautbois (ouvert, sourdine), cor anglais
+\item \textbf{Anches simples~:} clarinette si$\flat$, mi$\flat$, basse, contrebasse~; saxophone alto
+\item \textbf{Bassons~:} basson (ouvert, sourdine), contrebasson
+\item \textbf{Cuivres~:} cor (ouvert, sourdine), trompette~ut (ouverte, cup, harmon, straight, wah ouverte, wah fermée), trombone (mêmes 5~variantes), trombone basse, tuba basse (ouvert, sourdine), tuba contrebasse
+\item \textbf{Cordes solistes~:} violon, alto, violoncelle, contrebasse --- chacun ouvert, avec sourdine standard et avec sourdine de plomb (\textit{sordina piombo})
+\item \textbf{Ensembles de cordes~:} violons, altos, violoncelles, contrebasses, avec variantes sourdines
+\item \textbf{Cordes pincées~:} guitare, harpe
+\item \textbf{Percussion à hauteur déterminée~:} marimba, vibraphone
+\end{itemize}
+
+La segmentation en registres suit les définitions de \texttt{registres.md}, les variantes avec sourdine héritant des registres de l'instrument de base. Pour les sourdines de cuivres, seuls les échantillons \textit{ordinario} sont retenus (pour les sourdines wah~: \textit{ordinario\_open} et \textit{ordinario\_closed}).
+
+\subsection{Descripteurs spectraux}
+
+Quatre descripteurs sont combinés dans l'Indice de Volume, chacun capturant une facette différente de la \og taille \fg{} perçue d'un son~:
+
+\textbf{$V_1$~: Étalement spectral normalisé} $= \sigma_\text{spectral} / \mu_\text{centroïde}$. L'étalement spectral (second moment, écart-type de la distribution spectrale) divisé par le centroïde spectral (premier moment). Ce ratio capture la \emph{largeur spectrale relative}, normalisée par la hauteur. Les instruments dont l'énergie harmonique est large par rapport à leur centroïde --- tubas, cordes graves --- ont un $V_1$ élevé.
+
+\textbf{$V_2$~: Ratio d'énergie sous 1\,kHz} $= E_{<1\text{kHz}} / E_\text{total}$. Calculé à partir du spectre d'amplitude linéaire de 1024~bins (FFT = 4096, $f_s = 44\,100$\Hz). La proportion d'énergie spectrale au carré sous 1\,kHz capture l'intuition de Koechlin selon laquelle les instruments volumineux concentrent leur énergie dans les basses fréquences. Le seuil de 1\,kHz a été choisi comme frontière approximative entre la région fondamentale/harmoniques basses et la région des formants/brillance.
+
+\textbf{$V_3$~: Dispersion formantique inverse} $= 1 / \overline{\Delta F}$, où $\overline{\Delta F}$ est l'espacement moyen entre formants consécutifs $F_1$ à $F_6$ (issus du pipeline d'extraction décrit dans l'article compagnon~\cite{Maresz2025}). Ce descripteur s'appuie sur la recherche en perception de taille auditive~\cite{Fitch1997, VanDinther2006}~: des formants rapprochés signalent un corps résonant de grande taille, des formants espacés un corps petit. $V_3$ est constant par instrument (les formants sont extraits globalement, non par registre).
+
+\textbf{$V_4$~: MFCC$_1$ (Pente spectrale).} Le premier coefficient cepstral sur l'échelle mel (après $C_0$), calculé à partir d'une banque de filtres mel de 26~bandes appliquée au spectre d'amplitude. MFCC$_1$ capture l'\emph{inclinaison} globale de l'enveloppe spectrale~: des valeurs positives indiquent une énergie concentrée dans les bandes mel basses (timbres \og chauds \fg), des valeurs négatives une énergie décalée vers les hautes fréquences (timbres \og brillants \fg). Ce descripteur complète $V_2$ en opérant sur un axe fréquentiel perceptivement pondéré.
+
+\subsection{Indice de Volume composite}
+
+Chaque descripteur $V_k$ est normalisé en $z$-score sur l'ensemble des 193~entrées registre~:
+\begin{equation}
+\hat{V}_k = \frac{V_k - \mu_k}{\sigma_k}
+\end{equation}
+
+L'Indice de Volume composite est la moyenne arithmétique des composantes normalisées disponibles~:
+\begin{equation}
+\mathcal{V} = \frac{1}{|\mathcal{K}|} \sum_{k \in \mathcal{K}} \hat{V}_k
+\end{equation}
+où $\mathcal{K} \subseteq \{1,2,3,4\}$ est l'ensemble des descripteurs disponibles pour la combinaison instrument--registre considérée.
+
+\textbf{Indice de Densité.} Suivant la formulation de Stevens selon laquelle l'intensité perçue est le produit du volume par la densité~\cite{Stevens1965}, à intensité constante~: $\mathcal{D} = -\mathcal{V}$.
+
+% ============================================================
+\section{Résultats~: Indice de Volume}
+\label{sec:volume}
+
+\subsection{Classement et comparaison avec Koechlin}
+
+Le tableau~\ref{tab:volume_top} présente l'Indice de Volume pour le registre de référence de chaque famille instrumentale.
+
+\begin{table}[!t]
+\centering
+\caption{Indice de Volume $\mathcal{V}$ au registre de référence (médium ou équivalent). Rang Koechlin~: 1=gros, 6=mince.}
+\label{tab:volume_top}
+\small
+\begin{tabular}{@{}lccrc@{}}
+\toprule
+\textbf{Instrument} & \textbf{Reg.} & $\mathcal{V}$ & \textbf{K} \\
+\midrule
+Ens. contrebasses       & grave   & $+1{,}49$ & 1 \\
+Contrebasse (sourd.)    & grave   & $+1{,}36$ & 2 \\
+Contrebasse             & grave   & $+1{,}32$ & 2 \\
+Tuba contrebasse        & médium  & $+1{,}22$ & 1 \\
+Tuba basse              & médium  & $+1{,}19$ & 1 \\
+Flûte basse             & grave   & $+1{,}22$ & -- \\
+Trombone (harmon)       & grave   & $+1{,}19$ & -- \\
+Flûte contrebasse       & grave   & $+1{,}18$ & -- \\
+Cor                     & médium  & $+0{,}55$ & 2 \\
+Trombone                & médium  & $+0{,}56$ & 3 \\
+Basson                  & grave   & $+0{,}60$ & 4 \\
+Violoncelle             & médium  & $+0{,}48$ & 4 \\
+Flûte                   & médium  & $-0{,}06$ & 4 \\
+Clarinette si$\flat$    & chalu.  & $+0{,}23$ & 5 \\
+Alto                    & médium  & $-0{,}21$ & 6 \\
+Violon                  & médium  & $-0{,}73$ & 6 \\
+Hautbois                & médium  & $-0{,}92$ & 5 \\
+Trompette ut            & médium  & $-0{,}64$ & 4 \\
+Piccolo                 & grave   & $-1{,}10$ & -- \\
+Trompette (cup)         & grave   & $-1{,}36$ & -- \\
+Trompette (harmon)      & grave   & $-1{,}33$ & -- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+La corrélation de rang de Spearman entre $\mathcal{V}$ et l'échelle empirique de Koechlin est $\rho = -0{,}76$ ($p < 0{,}002$, $n = 17$ instruments de base). Le signe négatif est attendu~: un $\mathcal{V}$ élevé correspond au rang~1 (\og gros \fg) de Koechlin. Le classement reproduit l'échelle de Koechlin presque exactement, avec deux exceptions notables.
+
+\subsection{L'anomalie de la trompette}
+
+La trompette~ut, que Koechlin classe aux côtés des bassons et des flûtes (rang~4, \og moyen \fg), chute à $\mathcal{V} = -0{,}64$ dans notre analyse. Les quatre composantes contribuent à ce score bas~: son énergie spectrale est concentrée au-dessus de 1\,kHz ($V_2 = 0{,}47$), son ratio étalement/centroïde est faible ($V_1 = 1{,}05$) et son MFCC$_1$ est modeste ($V_4 = 32{,}0$). Cela suggère que la perception du \og volume \fg{} de la trompette par Koechlin intégrait peut-être une qualité de projection spatiale --- une capacité à remplir une salle de concert --- que nos descripteurs spectraux, calculés à partir d'enregistrements en champ proche, ne captent pas. L'acoustique de salle et la directivité constituent probablement le facteur manquant.
+
+\subsection{Effets des sourdines}
+
+Les sourdines produisent des déplacements considérables de l'Indice de Volume. Le tableau~\ref{tab:mutes} résume ces effets.
+
+\begin{table}[!t]
+\centering
+\caption{Effet des sourdines sur l'Indice de Volume.}
+\label{tab:mutes}
+\small
+\begin{tabular}{@{}lcc@{}}
+\toprule
+\textbf{Combinaison} & $\Delta\mathcal{V}$ & \textbf{Effet} \\
+\midrule
+Trompette + cup        & $-0{,}72$ & amincit fortement \\
+Trompette + harmon     & $-0{,}69$ & amincit fortement \\
+Trompette + straight   & $-0{,}35$ & amincissement modéré \\
+Trombone + harmon      & $+0{,}63$ & \textit{augmente} le volume \\
+Cor + sourdine         & $-0{,}08$ & négligeable \\
+Cordes + sourdine      & $\approx 0$ & léger assombrissement \\
+Cordes + piombo        & $-0{,}3$ à $-0{,}8$ & amincissement prononcé \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Le résultat le plus frappant concerne la sourdine harmon du trombone, qui \emph{augmente} l'Indice de Volume de $+0{,}63$. La sourdine harmon supprime les harmoniques supérieurs tout en renforçant l'énergie basse fréquence, produisant un son spectralement plus \og épais \fg. Cela contraste fortement avec la harmon de trompette, qui produit l'effet inverse --- une découverte cohérente avec les effets asymétriques des sourdines documentés dans l'article compagnon.
+
+% ============================================================
+\section{Matrice d'homogénéité}
+\label{sec:homogeneity}
+
+\subsection{Construction}
+
+L'homogénéité entre deux instruments $A$ et $B$ est calculée à partir de leurs données au registre de référence~:
+\begin{equation}
+H(A, B) = 1 - \alpha \cdot \frac{|\mathcal{V}_A - \mathcal{V}_B|}{\mathcal{V}_\text{étendue}} - \beta \cdot d_\text{cos}(\mathbf{m}_A, \mathbf{m}_B)
+\end{equation}
+où $\mathcal{V}_\text{étendue}$ est l'étendue totale de l'Indice de Volume sur tous les instruments, $d_\text{cos}$ est la distance cosinus entre les profils MFCC (coefficients 1 à 12, $C_0$ exclu), et $\alpha = \beta = 0{,}5$.
+
+La distance cosinus MFCC capture la similarité de \emph{forme} spectrale indépendamment du niveau d'énergie global, complétant l'Indice de Volume qui capture la \emph{taille} spectrale. La matrice résultante de $53 \times 53$ encode le concept d'homogénéité de Koechlin~: $H \geq 0{,}85$ indique des instruments susceptibles de former un plan fondu~; $H < 0{,}70$ des timbres hétérogènes.
+
+\subsection{Résultats principaux}
+
+Les homogénéités inter-familles les plus élevées de la matrice confirment la pratique orchestrale établie tout en révélant des appariements inattendus~:
+
+\textbf{Cor + Trombone} ($H = 0{,}99$)~: la paire inter-familles la plus homogène, confirmant le mélange archétypal des cuivres chez Brahms et Wagner. Leurs profils MFCC sont quasi superposés et leurs Indices de Volume ne diffèrent que de 0,01.
+
+\textbf{Clarinette basse + Cor} ($H = 0{,}99$), \textbf{Clarinette basse + Trombone} ($H = 0{,}99$)~: la clarinette basse apparaît comme un \og pont \fg{} spectral entre bois et cuivres, un résultat qui explique son usage extensif dans la tradition orchestrale française (Debussy, Ravel).
+
+\textbf{Cor + Marimba} ($H = 0{,}96$)~: un résultat inattendu --- ces instruments partagent des valeurs de $F_1$ quasi identiques au registre médium et des profils spectraux similaires. Cet appariement, rarement exploité dans l'orchestration classique, est largement utilisé en musique contemporaine.
+
+\textbf{Trompette + Violon} ($H = 0{,}98$)~: au registre médium, ces instruments partagent des profils de densité et des formes MFCC similaires, confirmant la doublure classique de la ligne mélodique.
+
+\textbf{Hautbois~: le marginal.} Le hautbois présente une homogénéité systématiquement basse avec les cuivres et les cordes graves ($H < 0{,}70$), confirmant la description de Koechlin d'un timbre \og mince et solide \fg{} --- une \og étoile naine de densité considérable \fg. Son profil spectral est distinct de tous les autres instruments, ce qui explique précisément son efficacité comme voix soliste.
+
+% ============================================================
+\section{Plans orchestraux~: croisement du volume et de la convergence formantique}
+\label{sec:planes}
+
+\subsection{Méthodologie}
+
+La matrice d'homogénéité capture la similarité de \emph{profil} spectral, mais la théorie de Koechlin exige une condition supplémentaire pour le fondu~: les instruments doivent également se trouver dans le même \og espace \fg{} acoustique. Nous opérationnalisons cela par la convergence formantique~: deux instruments forment un plan fondu lorsque leurs formants principaux ($F_1$ et $\Fp$) sont proches \emph{et} que leurs profils spectraux sont similaires.
+
+Pour chacune des $\binom{53}{2} = 1\,378$ paires d'instruments, nous calculons~:
+\begin{itemize}[nosep]
+\item $\Delta F_1$~: différence absolue du pic spectral dominant (80--1500\Hz) au registre de référence, extrait de l'enveloppe spectrale moyenne
+\item $\Delta \Fp$~: différence absolue du centroïde spectral pondéré en énergie dans la bande 800--1800\Hz
+\item Un \textit{score de fusion}~: $0{,}4 \cdot H + 0{,}3 \cdot (1 - \Delta F_1/500) + 0{,}3 \cdot (1 - \Delta\Fp/500)$
+\end{itemize}
+
+Les paires sont classées ainsi~:
+\begin{itemize}[nosep]
+\item \textbf{FONDU} ($\star$)~: $H \geq 0{,}80$ et ($\Delta F_1 \leq 30$ ou $\Delta\Fp \leq 50$\Hz)
+\item \textbf{SEMI-FONDU} ($\bullet$)~: $H \geq 0{,}70$ et $\Delta F_1 \leq 80$, ou $H \geq 0{,}80$ seul
+\item \textbf{H\'ET\'EROG\`ENE} ($\circ$)~: paires restantes
+\end{itemize}
+
+\subsection{Distribution des plans prédits}
+
+\begin{table}[!t]
+\centering
+\caption{Classification des 1\,378 paires d'instruments.}
+\label{tab:planes}
+\begin{tabular}{@{}lrc@{}}
+\toprule
+\textbf{Catégorie} & \textbf{N paires} & \textbf{\%} \\
+\midrule
+FONDU (convergence F1)      & 148 & 10{,}7\,\% \\
+FONDU (convergence Fp)      & 160 & 11{,}6\,\% \\
+SEMI-FONDU (F1)             &  95 &  6{,}9\,\% \\
+SEMI-FONDU (H seul)         & 488 & 35{,}4\,\% \\
+CONVERGENT (F1 seul)        &  11 &  0{,}8\,\% \\
+HÉTÉROGÈNE                  & 476 & 34{,}5\,\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+La catégorie \og CONVERGENT \fg{} est particulièrement intéressante~: elle capture 11~paires où $\Delta F_1 \leq 30$\Hz{} mais $H < 0{,}70$ --- des instruments dans la même \og zone vocalique \fg{} mais de volumes spectraux très différents. Dans les termes de Koechlin, ceux-ci formeraient des \textit{plans hétérogènes superposés dans la même couleur acoustique}~: audibles séparément mais partageant le même caractère harmonique.
+
+\subsection{Fusions inter-familles remarquables}
+
+Parmi les paires fondues inter-familles au score le plus élevé (tableau~\ref{tab:fusions}), plusieurs dépassent largement la pratique orchestrale classique~:
+
+\begin{table}[!t]
+\centering
+\caption{Principales fusions inter-familles prédites (familles instrumentales différentes).}
+\label{tab:fusions}
+\small
+\begin{tabular}{@{}llccc@{}}
+\toprule
+\textbf{Instrument A} & \textbf{Instrument B} & $H$ & $\Delta F_1$ & $\Delta\Fp$ \\
+\midrule
+Cl.~mi$\flat$   & Flûte            & 0{,}95 &  0  &  5 \\
+Tuba (sourd.)   & Basson (sourd.)  & 1{,}00 & 11  & 30 \\
+Cor             & Marimba          & 0{,}96 &  0  & 19 \\
+Fl.~cb          & Alto (sourd.)    & 0{,}98 & 11  & 23 \\
+Fl.~basse       & Alto (sourd.)    & 0{,}97 & 10  & 19 \\
+Tuba            & Guitare          & 0{,}94 & 11  &  1 \\
+Fl.~basse       & Vibraphone       & 0{,}92 &  0  &  -- \\
+Cor (sourd.)    & Vibraphone       & 0{,}95 &  0  &  -- \\
+Tbn (harmon)    & Vc (piombo)      & 0{,}97 & 22  & 12 \\
+Alto (sourd.)   & Ens.~vn (sourd.) & 0{,}95 & 22  &  -- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+L'appariement trombone harmon + violoncelle piombo ($\Delta\Fp = 12$\Hz) est une découverte~: la sourdine harmon déplace le spectre du trombone dans une zone qui converge précisément avec le violoncelle équipé d'une sourdine de plomb. De même, l'appariement tuba basse + guitare ($\Delta\Fp = 1$\Hz) suggère que la guitare fonctionne comme une sorte de \og tuba pincé \fg{} en termes spectraux --- une parenté suggérée dans le répertoire classique guitare-violoncelle mais jamais quantifiée.
+
+% ============================================================
+\section{Analyse des convergences par zone vocalique}
+\label{sec:vowels}
+
+En étendant l'analyse à toutes les combinaisons de registres, nous identifions 1\,220 paires d'instruments avec $\Delta F_1 \leq 30$\Hz. Ces convergences se regroupent en cinq zones vocaliques~:
+
+\begin{table}[!t]
+\centering
+\caption{Distribution des convergences formantiques par zone vocalique.}
+\label{tab:zones}
+\begin{tabular}{@{}lcrl@{}}
+\toprule
+\textbf{Zone} & \textbf{Bande F1} & \textbf{N} & \textbf{Caractère orchestral} \\
+\midrule
+/u/       & $\leq 250$\Hz    & 544 & Fondation~; \textit{plénitude matérielle} \\
+/o/       & 251--400\Hz      & 423 & Cluster de convergence central \\
+/\aa/     & 401--520\Hz      & 125 & Chaleur de transition \\
+/a/       & 521--800\Hz      & 54  & Présence, projection \\
+/e/--/i/  & $> 800$\Hz       & 74  & Brillance~; cuivres avec sourdine \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{79\,\% de toutes les convergences} se situent dans les zones /u/ et /o/ (F1 $\leq 400$\Hz), confirmant que le fondement du fondu orchestral réside dans la région formantique basse fréquence. Ceci est cohérent avec l'emphase de Koechlin sur le registre du \textit{sous-médium} (l'octave sous le do central) comme lieu de la \textit{plénitude matérielle}.
+
+La zone /o/ (251--400\Hz, 423~convergences) correspond exactement au cluster de convergence identifié dans l'article compagnon à 377--506\Hz. C'est ici que convergent les appariements inter-familles centraux de la tradition orchestrale~: cor + alto ($\Delta F_1 = 11$\Hz), violon + basson ($\Delta F_1 = 11$\Hz), cor anglais + clarinette ($\Delta F_1 = 11$\Hz).
+
+La zone /e/--/i/ ($> 800$\Hz, 74~convergences) est presque entièrement peuplée d'\emph{instruments avec sourdine}~: trompette cup, trompette harmon et piccolo. Ces instruments, dont les sourdines déplacent le $F_1$ considérablement vers l'aigu, créent un \og cluster de convergence supérieur \fg{} sans équivalent dans la théorie classique de l'orchestration.
+
+% ============================================================
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Valider Koechlin empiriquement}
+
+La forte corrélation entre notre Indice de Volume spectral et l'échelle empirique de Koechlin ($\rho = -0{,}76$) suggère que la perception auditive du \og volume \fg{} instrumental par Koechlin --- développée au fil de décennies de pratique orchestrale sans accès aux outils d'analyse spectrale --- captait des propriétés réelles et mesurables du signal acoustique. Les quatre descripteurs que nous combinons --- largeur spectrale normalisée, proportion d'énergie basse fréquence, espacement formantique et pente spectrale --- approximent conjointement un percept que Koechlin ne pouvait décrire que métaphoriquement.
+
+\subsection{Au-delà de Koechlin~: la révolution des sourdines}
+
+Le cadre théorique de Koechlin, développé pour les instruments orchestraux ouverts de son époque, acquiert une puissance inattendue lorsqu'on l'étend aux instruments avec sourdine. Les sourdines ne font pas qu'atténuer --- elles \emph{restructurent} le profil spectral, créant de nouvelles convergences qui traversent les frontières familiales traditionnelles. La sourdine harmon du trombone, qui \textit{augmente} le volume spectral (contrairement à toutes les autres sourdines de cuivres), et la sourdine cup de trompette, qui déplace le $F_1$ dans la zone /e/--/i/, représentent des transformations timbrales qu'aucun traité classique n'a systématisées.
+
+\subsection{Limites}
+
+L'Indice de Volume utilise une pondération égale ($\frac{1}{4}$ par descripteur), qui ne reflète pas nécessairement la saillance perceptive de chaque composante. Des tests d'écoute perceptifs seraient nécessaires pour calibrer les poids. De plus, l'indice est calculé à partir d'enregistrements anéchoïques en champ proche, qui ne captent pas les patterns de radiation spatiale qui influencent indéniablement le volume perçu en salle de concert --- ce qui explique vraisemblablement l'anomalie de la trompette.
+
+% ============================================================
+\section{Conclusion}
+\label{sec:conclusion}
+
+Nous avons démontré que les attributs timbraux empiriques de Koechlin --- volume, densité, transparence et homogénéité --- peuvent être opérationnalisés par l'analyse spectrale et étendus à l'orchestre moderne complet, instruments avec sourdine inclus. L'Indice de Volume composite, la matrice d'homogénéité $53 \times 53$ et la cartographie des convergences inter-registres constituent un cadre quantitatif de prédiction du fondu orchestral qui valide et prolonge la théorie de l'orchestration la plus complète de la littérature.
+
+Les données (7~fichiers CSV et scripts d'analyse) sont disponibles à l'adresse \texttt{github.com/zseramnay/Orchestration}.
+
+% ============================================================
+\section*{Remerciements}
+Ce travail s'inscrit dans le projet \textit{Référence Formantique Orchestrale} au CNSMDP, Paris. Données spectrales issues de la base Orchidea/SOL2020 (IRCAM) et du corpus complémentaire Yan\_Adds.
+
+\begin{thebibliography}{99}
+
+\bibitem{Koechlin1954}
+C.~Koechlin, \textit{Traité de l'orchestration}, 4~vol., Paris~: Max Eschig, 1954--1959.
+
+\bibitem{Chiasson2008}
+F.~Chiasson, \og L'originalité du Traité de Koechlin~: étude comparative avec d'autres traités d'orchestration \fg, Conférence OICCM, Université de Montréal, 2008.
+
+\bibitem{DuchesneauChiasson}
+M.~Duchesneau et F.~Chiasson, \og Le Traité de l'orchestration de Charles Koechlin \fg, dans N.~Donin et L.~Feneyrou (dir.), \textit{Théorie et composition musicales au XX\textsuperscript{e} siècle}, Lyon~: Symétrie, 2013.
+
+\bibitem{ChiassonHumaniste}
+F.~Chiasson, \og L'universalité de la méthode de Koechlin \fg, dans \textit{Koechlin, compositeur et humaniste}, Paris~: Vrin, 2010.
+
+\bibitem{Stevens1965}
+S.~S.~Stevens, M.~Guirao et A.~W.~Slawson, \og Loudness, a product of volume times density \fg, \textit{J.~Experimental Psychology}, vol.~69, p.~503--510, 1965.
+
+\bibitem{VanDinther2006}
+R.~van Dinther et R.~D.~Patterson, \og Perception of acoustic scale and size in musical instrument sounds \fg, \textit{J.~Acoust.~Soc.~Am.}, vol.~120, n\textsuperscript{o}~4, p.~2158--2176, 2006.
+
+\bibitem{Fitch1997}
+W.~T.~Fitch, \og Vocal tract length and formant frequency dispersion correlate with body size in rhesus macaques \fg, \textit{J.~Acoust.~Soc.~Am.}, vol.~102, n\textsuperscript{o}~2, p.~1213--1222, 1997.
+
+\bibitem{Maresz2025}
+Y.~Maresz, \og Formant analysis of orchestral instruments: a spectral reference for timbral convergence and classical doubling practices \fg, \textit{Référence Formantique Orchestrale}, CNSMDP, 2025. Disponible~: \texttt{github.com/zseramnay/Orchestration}.
+
+\bibitem{Sandell1991}
+G.~J.~Sandell, \og Concurrent timbres in orchestration: a perceptual study of factors determining blend \fg, thèse de doctorat, Northwestern University, 1991.
+
+\bibitem{RimskyKorsakov1914}
+N.~Rimsky-Korsakov et M.~Steinberg, \textit{Principes d'orchestration}, Berlin~: Édition russe de musique, 1914.
+
+\bibitem{Meyer2009}
+J.~Meyer, \textit{Acoustics and the Performance of Music}, 5\textsuperscript{e}~éd., New York~: Springer, 2009.
+
+\end{thebibliography}
+
+\end{document}
