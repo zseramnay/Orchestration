@@ -61,7 +61,7 @@ La question de savoir pourquoi certaines doublures orchestrales produisent un so
 
 Le \textit{volume} selon Koechlin n'est pas l'intensité sonore, mais l'\emph{espace apparent occupé par un son}~: une note grave de flûte est volumineuse mais faible, tandis qu'une note médium de hautbois est mince mais intense. Cette distinction, que Koechlin illustrait par une métaphore astronomique --- la flûte comme une étoile géante de densité minimale, le hautbois comme une étoile naine dense --- anticipe les travaux psychoacoustiques de S.~S.~Stevens sur le volume tonal~\cite{Stevens1965} et les recherches plus récentes sur la perception de taille auditive~\cite{VanDinther2006}. Pourtant, comme le note Chiasson~\cite{ChiassonHumaniste}, aucune vérification expérimentale de l'échelle de volume de Koechlin à travers les familles orchestrales n'a été tentée, et \og l'universalité du volume comme attribut du timbre instrumental reste à confirmer \fg.
 
-Le présent article propose une telle mesure. En s'appuyant sur la \textit{Référence Formantique Orchestrale} --- un corpus de plus de 5\,914 analyses spectrales issues de la base Orchidea/SOL2020 --- nous construisons un indice spectral composite qui opérationnalise le concept de volume de Koechlin, puis l'utilisons pour bâtir une matrice d'homogénéité prédisant quelles combinaisons d'instruments formeront des plans orchestraux fondus.
+Le présent article propose une telle mesure. En s'appuyant sur la \textit{Référence Formantique Orchestrale} --- un corpus de plus de 5\,914 analyses spectrales issues de la base SOL2020 --- nous construisons un indice spectral composite qui opérationnalise le concept de volume de Koechlin, puis l'utilisons pour bâtir une matrice d'homogénéité prédisant quelles combinaisons d'instruments formeront des plans orchestraux fondus.
 
 % ============================================================
 \section{Le cadre théorique de Koechlin}
@@ -83,7 +83,7 @@ Koechlin fournit une échelle empirique des volumes moyens des instruments (vol.
 
 \subsection{Corpus instrumental}
 
-L'analyse couvre \textbf{53~instruments} (ou combinaisons instrument--sourdine) totalisant \textbf{5\,835 échantillons soutenus} répartis en \textbf{193~segments de registre}. Les sources sont la base Orchidea/SOL2020 (35~entrées) et la base complémentaire Yan\_Adds (18~entrées). Le corpus comprend~:
+L'analyse couvre \textbf{53~instruments} (ou combinaisons instrument--sourdine) totalisant \textbf{5\,835 échantillons soutenus} répartis en \textbf{193~segments de registre}. Les sources sont la base SOL2020 (35~entrées) et la base complémentaire Yan\_Adds (18~entrées). Le corpus comprend~:
 
 \begin{itemize}[nosep]
 \item \textbf{Flûtes~:} concert, basse, contrebasse, piccolo
@@ -222,7 +222,7 @@ Les homogénéités inter-familles les plus élevées de la matrice confirment l
 
 \textbf{Clarinette basse + Cor} ($H = 0{,}99$), \textbf{Clarinette basse + Trombone} ($H = 0{,}99$)~: la clarinette basse apparaît comme un \og pont \fg{} spectral entre bois et cuivres, un résultat qui explique son usage extensif dans la tradition orchestrale française (Debussy, Ravel).
 
-\textbf{Cor + Marimba} ($H = 0{,}96$)~: un résultat inattendu --- ces instruments partagent des valeurs de $F_1$ quasi identiques au registre médium et des profils spectraux similaires. Cet appariement, rarement exploité dans l'orchestration classique, est largement utilisé en musique contemporaine.
+\textbf{Cor + Marimba} ($H = 0{,}96$)~: un résultat inattendu --- ces instruments partagent des valeurs de $F_1$ quasi identiques au registre médium et des profils spectraux similaires.
 
 \textbf{Trompette + Violon} ($H = 0{,}98$)~: au registre médium, ces instruments partagent des profils de densité et des formes MFCC similaires, confirmant la doublure classique de la ligne mélodique.
 
@@ -355,8 +355,8 @@ Nous avons démontré que les attributs timbraux empiriques de Koechlin --- volu
 Les données (7~fichiers CSV et scripts d'analyse) sont disponibles à l'adresse \texttt{github.com/zseramnay/Orchestration}.
 
 % ============================================================
-\section*{Remerciements}
-Ce travail s'inscrit dans le projet \textit{Référence Formantique Orchestrale} au CNSMDP, Paris. Données spectrales issues de la base Orchidea/SOL2020 (IRCAM) et du corpus complémentaire Yan\_Adds.
+\section*{Notes}
+Ce travail s'inscrit en complément du projet de recherche \textit{Référence Formantique de l'orchestre} mené par l'auteur. Données spectrales issues de la base SOL2020 (IRCAM) et du corpus complémentaire Yan\_Adds constitué d'échantillons provenant des bases VSL, Con Timbre et d'enregistrements personnels.
 
 \begin{thebibliography}{99}
 
