@@ -6,3 +6,10 @@ uv.lock
 .python-version
 Discard/
 .~lock.*
+publications/*.gz
+publications/*.log
+publications/*.fls
+publications/*.fdb_latexmk
+publications/*.aux
+publications/*.out
+publications/*.pdf

@@ -18,7 +18,7 @@
 \usepackage{float}
 \usepackage{amsmath,amssymb}
 \usepackage{siunitx}
-\sisetup{group-separator={\,}, group-minimum-digits=4}
+\sisetup{group-separator={\,}, group-minimum-digits=4, detect-weight=true, detect-family=true}
 
 % --- Couleurs et hyperliens ---
 \usepackage[dvipsnames]{xcolor}
@@ -41,6 +41,7 @@
 }
 \date{Mars 2026}
 
+\sisetup{detect-weight=true, detect-family=true}
 \begin{document}
 
 \maketitle
@@ -50,7 +51,7 @@
 Cette étude présente la première analyse quantitative systématique des
 formants spectraux de 30~instruments de l'orchestre symphonique, à partir
 de \num{5914}~échantillons de tenues soutenues issus des bases SOL2020
-(Orchidea) et d'échantillons d'origines diverses (Yan\_Adds). En introduisant la mesure du \emph{Formant
+(IRCAM) et d'échantillons d'origines diverses (Yan\_Adds). En introduisant la mesure du \emph{Formant
 Principal}~(Fp) --- centroïde spectral pondéré en énergie ---, nous
 démontrons que les doublures orchestrales classiques s'expliquent par des
 convergences formantiques mesurables. Le résultat central est
@@ -103,7 +104,7 @@ avec un taux de concordance global de 93\,\%.
 Le corpus comprend deux sources complémentaires :
 
 \begin{itemize}
-  \item \textbf{SOL2020 (Orchidea/EIC)} --- 12~instruments solistes,
+  \item \textbf{SOL2020 (IRCAM)} --- 12~instruments solistes,
     \num{2391}~échantillons de tenues soutenues (\emph{sustained}),
     enveloppes spectrales pré-calculées (specenv, 1024~bins).
   \item \textbf{Yan\_Adds} --- 18~instruments supplémentaires (ensembles
