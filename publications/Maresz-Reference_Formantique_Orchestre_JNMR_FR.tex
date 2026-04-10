@@ -3,7 +3,7 @@
 % --- Packages ---
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{mathptmx}           % Police Times
+\usepackage{mathptmx}           % Police Times (proche du style journal)
 \usepackage[french]{babel}
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx}
@@ -20,28 +20,28 @@
 \usepackage{xcolor}
 
 % --- Titre ---
-\title{Référence Formantique de l'Orchestre :\\
-Étude quantitative des convergences spectrales instrumentales\\
-et fondements acoustiques des doublures orchestrales}
-
-\author{Yan Maresz\\[6pt]
-\small Compositeur, Professeur de nouvelles technologies appliquées à la composition\\
-\small Conservatoire National Supérieur de Musique et de Danse de Paris\\
-\small \texttt{y.maresz@cnsmdp.fr}
+\title{%
+  \textbf{Référence Formantique de l'Orchestre}\\[6pt]
+  \large Étude quantitative des convergences spectrales instrumentales\\
+  et fondements acoustiques des doublures orchestrales%
 }
-
-\date{}
+\author{%
+  Yan Maresz\\
+  Compositeur, Professeur de nouvelles technologies appliquées à la composition\\
+  \textit{Conservatoire National Supérieur de Musique et de Danse de Paris}\\
+  \texttt{y.maresz@cnsmdp.fr}%
+}
+\date{Mars 2026}
 
 \begin{document}
 
 \maketitle
 
-
 \begin{center}
 \small
 \textit{La page web
-\href{https://zseramnay.github.io/Orchestration/Etude-Formants/Versions-html-and-docx/REFERENCE_FORMANTIQUE_COMPLETE.html}{"REFERENCE\_FORMANTIQUE\_COMPLETE"} \\
-est un complément indispensable à cet article !}
+\href{https://zseramnay.github.io/Orchestration/Etude-Formants/Versions-html-and-docx/REFERENCE_FORMANTIQUE_COMPLETE.html}{«~REFERENCE\_FORMANTIQUE\_COMPLETE~»} \\
+est un complément indispensable à cet article}
 \end{center}
 \vspace{1cm}
 
@@ -51,25 +51,22 @@ est un complément indispensable à cet article !}
 % ============================================================
 \begin{abstract}
 Cette étude présente la première analyse quantitative systématique des formants
-spectraux de 30 instruments de l'orchestre symphonique, à partir de
-5\,914 échantillons de tenues soutenues issus de la base SOL2020
-(IRCAM/Orchidea) et d'une collection complémentaire (Yan\_Adds). Nous
-introduisons la mesure du Formant Principal (\textit{Fp}), un centroïde
-spectral pondéré en énergie dans une bande fréquentielle limitée, qui capture
-l'identité timbrale d'un instrument avec des gains de stabilité allant jusqu'à
-10,4$\times$ par rapport aux mesures brutes de pics. En utilisant le
-\textit{Fp} et l'analyse des pics formantiques, nous démontrons que les
-doublures orchestrales classiques s'expliquent par des convergences
-formantiques mesurables. Le résultat central est l'identification d'un cluster
-de convergence dans la zone vocalique /o/--/\aa/ (377--506~Hz), regroupant
-11~instruments de 4~familles différentes avec des écarts aussi faibles que
-$\Delta = 0$~Hz (flûte--hautbois) et $\Delta = 11$~Hz (basson--violon,
-cor--alto). Neuf principes d'orchestration acoustique sont formulés et validés
-par un taux de concordance multi-sources de 93\,\% (27/29 instruments
-comparables). En établissant un pont entre la littérature sur le centroïde
-spectral et la fusion timbrale \citep{Sandell1995,Tardieu2012,Goodchild2018}
-et la tradition des traités d'orchestration, cette étude fournit un cadre
-quantitatif pour l'analyse et la pratique de l'orchestration.
+spectraux de 30~instruments d'orchestre, fondée sur 5~914~échantillons de sons tenus
+issus de la base de données SOL2020 (IRCAM/Orchidea) et d'une collection complémentaire
+(Yan\_Adds). Nous introduisons le Formant Principal (\textit{Fp}), un centroïde spectral
+pondéré par l'énergie à bande limitée qui capture l'identité timbrale d'un instrument
+avec des gains de stabilité allant jusqu'à 10,4$\times$ par rapport aux mesures
+brutes de pic. En utilisant \textit{Fp} et l'analyse des pics formantiques, nous
+démontrons que les doublures orchestrales classiques peuvent s'expliquer par des
+convergences formantiques mesurables. Le résultat central est un cluster de convergence
+dans la zone vocalique /o/--/\aa/ (377--506~Hz), regroupant 11~instruments de
+4~familles différentes avec des distances inter-instrumentales aussi faibles que
+$\Delta = 0$~Hz (flûte--hautbois) et $\Delta = 11$~Hz (basson--violon, cor--alto).
+Neuf principes d'orchestration acoustique sont formulés et validés contre un taux de
+concordance multi-sources de 93~\% (27/29 instruments comparables). En connectant la
+littérature sur le centroïde spectral et la fusion timbrale \citep{Sandell1995,Tardieu2012,Goodchild2018}
+avec la tradition des traités d'orchestration, cette étude fournit un cadre quantitatif
+pour l'analyse et la pratique de l'orchestration.
 
 \medskip
 \noindent\textbf{Mots-clés :} formants instrumentaux, orchestration, analyse spectrale,
@@ -81,143 +78,141 @@ doublures, centroïde spectral, convergence formantique, fusion timbrale, SOL202
 % ============================================================
 \section{Introduction}
 
-Les doublures orchestrales --- l'association de deux instruments ou plus jouant
-la même ligne mélodique ou des lignes complémentaires --- constituent l'un des
-outils fondamentaux de l'écriture orchestrale depuis le
-\textsc{xviii}\textsuperscript{e}~siècle. La littérature des traités
-d'orchestration, de Berlioz \citep{Berlioz1844} à Rimsky-Korsakov
+Les doublures orchestrales --- l'association de deux instruments ou plus jouant la
+même ligne mélodique ou des lignes complémentaires --- constituent l'un des outils
+fondamentaux de l'écriture orchestrale depuis le \textsc{xviii}\ieme~siècle. La
+littérature des traités, de Berlioz \citep{Berlioz1844} à Rimsky-Korsakov
 \citep{RimskyKorsakov1908}, Koechlin \citep{Koechlin1943}, Piston
-\citep{Piston1955} et Adler \citep{Adler1982}, prescrit ces associations sur
-la base de l'expérience auditive accumulée, sans quantification acoustique
-systématique.
+\citep{Piston1955} et Adler \citep{Adler1982}, prescrit ces associations sur la
+base de l'expérience auditive accumulée, sans quantification acoustique systématique.
 
-Parallèlement, l'étude psychoacoustique de la fusion timbrale a établi que le
-centroïde spectral joue un rôle central dans la détermination de la qualité de
-fusion perceptive entre paires d'instruments. Dans son travail fondateur,
-Sandell a démontré que la fusion se détériore en fonction de la hauteur du
-centroïde composite et de la différence de centroïde entre instruments,
-expliquant jusqu'à 63\,\% de la variance des jugements de fusion pour des
-dyades séparées par une tierce mineure
-\citep{Sandell1991,Sandell1995}. Des recherches ultérieures ont confirmé et
-étendu ces résultats : Kendall et Carterette ont montré que la fusion peut être
-prédite à partir de la proximité dans l'espace perceptif du timbre
-\citep{Kendall1993} ; Tardieu et McAdams ont étudié la perception de la fusion
-pour des dyades de sons impulsifs et soutenus \citep{Tardieu2012} ; et Lembke
-et McAdams ont démontré que les caractéristiques locales de l'enveloppe
-spectrale, incluant les pics formantiques et leurs relations fréquentielles,
-prédisent environ 85\,\% de la variance de la fusion timbrale
-\citep{Lembke2017}. Plus récemment, Goodchild et McAdams ont proposé une
-taxonomie complète des effets de groupement orchestral fondée sur les principes
-de l'analyse de scènes auditives \citep{Goodchild2018,McAdams2022}.
+En parallèle, l'étude psychoacoustique de la fusion timbrale a établi que le
+centroïde spectral joue un rôle central dans la manière dont les paires d'instruments
+fusionnent perceptivement. Dans ses travaux fondateurs, Sandell a démontré que la
+fusion se dégrade en fonction de la hauteur du centroïde composite et de la différence
+de centroïde entre instruments, rendant compte de jusqu'à 63~\% de la variance dans
+les évaluations de fusion pour des dyades séparées d'une tierce mineure
+\citep{Sandell1991,Sandell1995}. Des recherches ultérieures ont confirmé et étendu
+ces résultats : Kendall et Carterette ont montré que la fusion peut être prédite à
+partir de la proximité dans l'espace timbral perceptif \citep{Kendall1993} ; Tardieu
+et McAdams ont étudié la perception de la fusion pour des dyades de sons impulsifs et
+tenus \citep{Tardieu2012} ; et Lembke et McAdams ont démontré que les caractéristiques
+locales de l'enveloppe spectrale, notamment les pics formantiques et leurs relations
+fréquentielles, prédisent jusqu'à 85~\% de la variance dans la fusion timbrale
+\citep{Lembke2017}. Plus récemment, Goodchild et McAdams ont proposé une taxonomie
+complète des effets de groupement orchestral fondée sur les principes de la scène
+auditive \citep{Goodchild2018,McAdams2022}.
 
-Malgré l'ensemble de ces travaux, un fossé subsiste entre la littérature
-psychoacoustique sur la fusion timbrale --- qui étudie typiquement un petit
-nombre de paires d'instruments en conditions contrôlées --- et la tradition des
-traités d'orchestration, qui couvre l'orchestre complet mais manque de
-fondements quantitatifs. La présente étude vise à combler ce fossé en
-fournissant une analyse systématique des formants spectraux de 30~instruments
-d'orchestre, identifiant les convergences acoustiques qui sous-tendent les
-doublures prescrites par la littérature des traités.
+Malgré cet ensemble de travaux, il subsiste un fossé entre la littérature
+psychoacoustique sur la fusion timbrale --- qui étudie typiquement un petit nombre de
+paires d'instruments dans des conditions contrôlées --- et la tradition des traités
+d'orchestration, qui couvre l'orchestre entier mais manque de fondements quantitatifs.
+La présente étude vise à combler ce fossé en fournissant une analyse systématique des
+formants spectraux de 30~instruments d'orchestre, identifiant les convergences
+acoustiques qui sous-tendent les doublures prescrites par la littérature des traités.
 
-Les contributions de cet article sont triples : (1)~une base de données
-formantiques complète couvrant 30~instruments sur 5\,914~échantillons, validée
+Les contributions de cet article sont de trois ordres : (1)~une base de données
+formantique complète couvrant 30~instruments à partir de 5~914~échantillons, validée
 contre quatre sources académiques indépendantes ; (2)~l'introduction du Formant
-Principal (\textit{Fp}), un centroïde spectral à bande limitée offrant une
-caractérisation timbrale considérablement plus stable que l'extraction brute de
-pics pour les instruments à large tessiture ; et (3)~l'identification d'un
-cluster de convergence inter-familles dans la zone vocalique /o/--/\aa/ qui
-explique quantitativement les doublures les plus valorisées de la littérature
-orchestrale.
+Principal (\textit{Fp}), un centroïde spectral à bande limitée qui offre une
+caractérisation timbrale dramatiquement plus stable que l'extraction brute de pics
+pour les instruments à large tessiture ; et (3)~l'identification d'un cluster de
+convergence inter-familles dans la zone vocalique /o/--/\aa/ qui explique
+quantitativement les doublures les plus prisées de la littérature orchestrale.
 
 % ============================================================
-% 2. ÉTAT DE L'ART
+% 2. TRAVAUX CONNEXES
 % ============================================================
-\section{État de l'art}
+\section{Travaux connexes}
 
 \subsection{Descripteurs du timbre et centroïde spectral}
 
-Le centroïde spectral --- le centre de gravité du spectre de puissance --- a
-été identifié comme l'un des descripteurs du timbre les plus pertinents
-perceptivement depuis les études pionnières d'analyse multidimensionnelle de
-Grey \citep{Grey1977}. McAdams et al.\ ont confirmé sa corrélation avec la
-dimension de « brillance » des espaces de timbre \citep{McAdams1995}. La
-\emph{Timbre Toolbox} \citep{Peeters2011}, développée à l'IRCAM, fournit un
-cadre standardisé pour le calcul du centroïde spectral et des descripteurs
-associés à partir de signaux musicaux. Dans la norme MPEG-7, le centroïde
-spectral est inclus comme descripteur audio de base \citep{MPEG7}.
+Le centroïde spectral --- le centre de gravité du spectre de puissance --- a été
+identifié comme l'un des descripteurs de timbre les plus pertinents du point de vue
+perceptif depuis les études pionnières par mise à l'échelle multidimensionnelle de
+Grey \citep{Grey1977}. McAdams et al.\ ont confirmé sa corrélation avec la dimension
+«~brillance~» des espaces timbres \citep{McAdams1995}. La Timbre Toolbox
+\citep{Peeters2011}, développée à l'IRCAM, fournit un cadre standardisé pour calculer
+le centroïde spectral et les descripteurs associés à partir de signaux musicaux. Dans
+la norme MPEG-7, le centroïde spectral est inclus comme descripteur audio de base
+\citep{MPEG7}.
 
-Une distinction essentielle doit être établie entre le centroïde spectral
-\emph{global} (calculé sur l'ensemble du spectre) et les mesures de centroïde
-\emph{à bande limitée}. Le centroïde spectral global capture la brillance
-d'ensemble mais n'isole pas la structure formantique du corps résonant de
-l'instrument. Pour les instruments à large tessiture, où la fréquence
-fondamentale balaie une grande plage, le centroïde global suit la hauteur
-plutôt que le timbre. La mesure \textit{Fp} introduite dans cette étude
-répond à cette limitation en calculant le centroïde dans une bande
-fréquentielle spécifique à l'instrument, optimisée pour capturer la résonance
-principale (voir section~\ref{sec:fp}).
+Il convient de distinguer le centroïde spectral \emph{global} (calculé sur l'ensemble
+du spectre) des mesures de centroïde \emph{à bande limitée}. Le centroïde spectral
+global capture la brillance générale mais n'isole pas la structure formantique du corps
+résonant d'un instrument. Pour les instruments à large tessiture, où la fréquence
+fondamentale balaye une large plage, le centroïde global suit la hauteur plutôt que le
+timbre. La mesure \textit{Fp} introduite dans cette étude remédie à cette limitation en
+calculant le centroïde dans une bande de fréquences spécifique à l'instrument, optimisée
+pour capturer la résonance principale (voir Section~\ref{sec:fp}).
 
-\subsection{Les formants en acoustique musicale}
+\subsection{Formants en acoustique musicale}
 
-Le concept de formants --- des régions de résonance fixes du corps de
-l'instrument qui façonnent l'enveloppe spectrale indépendamment de la hauteur
-jouée --- trouve son origine dans l'acoustique de la parole \citep{Fant1960} et
-a été étendu aux instruments de musique par Backus \citep{Backus1969}, Meyer
-\citep{Meyer2009} et Gieseler et al.\ \citep{Gieseler1985}. Les mesures
-étendues de Meyer ont établi des correspondances vocaliques pour les timbres
-instrumentaux, décrivant le timbre du cor comme « semblable au /o/ » et celui
-du hautbois comme « semblable au /a/ ». Cependant, ces caractérisations sont
-restées qualitatives, fondées sur des impressions auditives plutôt que sur une
-analyse spectrale systématique sur de grands corpus.
+Le concept de formants --- régions de résonance fixe du corps de l'instrument qui
+façonnent l'enveloppe spectrale indépendamment de la hauteur jouée --- trouve son
+origine en acoustique de la parole \citep{Fant1960} et a été étendu aux instruments
+de musique par Backus \citep{Backus1969}, Meyer \citep{Meyer2009} et Gieseler et al.\
+\citep{Gieseler1985}. Les mesures extensives de Meyer ont établi des correspondances
+vocaliques pour les timbres instrumentaux, décrivant le timbre du cor comme «~/o/-ique~»
+et celui du hautbois comme «~/a/-ique~». Ces caractérisations restaient toutefois
+qualitatives, fondées sur des impressions d'écoute plutôt que sur une analyse spectrale
+systématique de grands corpus.
 
-Fletcher et Rossing fournissent le fondement en acoustique physique, montrant
-comment les propriétés résonantes des corps d'instruments (colonnes d'air,
-couplage corde-caisse, pavillon) créent des caractéristiques fixes de
-l'enveloppe spectrale \citep{Fletcher1998}. Pour les cordes frottées, le
-\emph{Hauptformant} (formant principal) décrit par Meyer correspond à la
-résonance principale du corps et est relativement stable sur toute la tessiture
-de l'instrument --- une propriété que nous quantifions systématiquement dans
+Fletcher et Rossing fournissent le fondement en acoustique physique, montrant comment
+les propriétés résonantes des corps d'instruments (colonnes d'air, couplage corps-corde,
+pavillon) créent des caractéristiques fixes de l'enveloppe spectrale \citep{Fletcher1998}.
+Pour les cordes frottées, le \emph{Hauptformant} (formant principal) décrit par Meyer
+correspond à la résonance principale du corps et est relativement stable sur toute la
+tessiture de l'instrument --- propriété que nous quantifions systématiquement dans
 cette étude.
 
-\subsection{La fusion timbrale en orchestration}
+\subsection{Fusion timbrale en orchestration}
 
-La thèse de doctorat de Sandell et sa publication subséquente ont établi le
-fondement empirique de la compréhension de la fusion timbrale
-\citep{Sandell1991,Sandell1995}. Ses trois expériences avec des dyades
-d'instruments aux sonorités naturelles ont montré que : (a)~les instruments à
-centroïdes spectraux plus bas fusionnent mieux ; (b)~des différences de
-centroïde plus faibles entre instruments améliorent la fusion ; et (c)~la
-similarité des caractéristiques d'attaque et la corrélation des enveloppes
-d'amplitude contribuent à la fusion. Ces facteurs expliquaient de 51\,\%
-(unissons) à 63\,\% (tierces mineures) de la variance des jugements de fusion.
+La thèse de doctorat de Sandell et sa publication ultérieure ont établi les bases
+empiriques pour comprendre la fusion timbrale \citep{Sandell1991,Sandell1995}. Ses
+trois expériences avec des dyades d'instruments sonnant naturellement ont montré que :
+(a) les instruments à centroïdes spectraux plus bas fusionnent mieux ; (b) des
+différences de centroïde plus petites entre instruments améliorent la fusion ; et
+(c) la similarité dans les caractéristiques d'attaque et la corrélation des enveloppes
+d'amplitude contribuent à la fusion. Ces facteurs rendaient compte de 51~\% (unissons)
+à 63~\% (tierces mineures) de la variance dans les évaluations de fusion.
 
 Des travaux plus récents de Lembke et McAdams ont étendu cette approche aux
-descriptions d'enveloppe spectrale, démontrant que les caractéristiques au
-niveau des formants --- incluant les relations fréquentielles entre maxima
-spectraux, leur proéminence et les contraintes du système auditif --- prédisent
-environ 85\,\% de la variance de la fusion \citep{Lembke2015,Lembke2017}. Ce
-résultat motive l'attention portée dans la présente étude à la convergence
-formantique comme prédicteur de la fusion orchestrale.
+descriptions d'enveloppes spectrales, démontrant que les caractéristiques au niveau
+des formants --- notamment les relations fréquentielles entre maxima spectraux, leur
+proéminence et les contraintes du système auditif --- prédisent environ 85~\% de la
+variance de fusion \citep{Lembke2015,Lembke2017}. Ce résultat motive le centrage de
+la présente étude sur la convergence formantique comme prédicteur de la fusion orchestrale.
 
-Le projet ACTOR (\emph{Analysis, Creation, and Teaching of ORchestration}) de
-l'Université McGill a produit une taxonomie des effets de groupement orchestral
-fondée sur l'analyse de scènes auditives
-\citep{Goodchild2018,McAdams2022}, distinguant entre l'augmentation timbrale
-(un timbre dominant enrichi par d'autres) et l'émergence timbrale (un nouveau
-timbre non identifiable comme l'un de ses constituants). Notre cadre de
-convergence formantique fournit des corrélats acoustiques pour ces catégories
-perceptives : des formants convergents ($\Delta \leq 80$~Hz) prédisent
-l'augmentation/fusion, tandis que des formants divergents ($\Delta > 200$~Hz)
-prédisent la complémentarité ou l'émergence.
+Le projet ACTOR (\textit{Analysis, Creation, and Teaching of ORchestration}) de
+l'Université McGill a produit une taxonomie des effets de groupement orchestral fondée
+sur la scène auditive \citep{Goodchild2018,McAdams2022}, distinguant l'augmentation
+timbrale (un timbre dominant rehaussé par d'autres) de l'émergence timbrale (un nouveau
+timbre non identifiable comme l'un de ses constituants). Notre cadre de convergence
+formantique fournit des corrélats acoustiques pour ces catégories perceptives : les
+formants convergents ($\Delta \leq 80$~Hz) prédisent l'augmentation/fusion, tandis que
+les formants divergents ($\Delta > 200$~Hz) prédisent la complémentarité ou l'émergence.
 
 \subsection{Orchestration computationnelle}
 
-Le système Orchidea \citep{Cella2020}, développé à partir de la base SOL à
-l'IRCAM, utilise l'appariement spectral pour trouver des combinaisons
-d'instruments approximant un son cible. Notre travail complète cette approche
-en fournissant une analyse au niveau des formants qui explique \emph{pourquoi}
-certaines combinaisons fonctionnent perceptivement, plutôt que de trouver des
-combinaisons par appariement spectral exhaustif.
+Le système Orchidea \citep{Cella2020,Cella2021}, projet prolongeant la lignée des outils
+d'orchestration assistée par ordinateur Orchid*, aborde l'orchestration par cible via
+une optimisation évolutionnaire mono-objectif avec une fonction de coût spécifiquement
+conçue. Les sons cibles et de base sont plongés dans un espace de caractéristiques à
+haute dimension ; des contraintes symboliques (instruments, nuances, techniques de
+jeu) peuvent être intégrées dans la fonction de coût ; et les sons évoluant temporellement
+sont traités par segmentation en cibles statiques optimisées conjointement puis
+connectées \citep{Cella2021}. Orchidea opère ainsi au niveau de la similarité
+spectro-temporelle globale dans un espace multi-caractéristiques, cherchant la
+combinaison instrumentale perceptivement la plus proche d'une cible donnée.
+
+Notre travail complète cette approche en opérant à un niveau de description différent :
+plutôt que de trouver des combinaisons optimales pour un son cible spécifique, nous
+fournissons une analyse formantique systématique qui explique \emph{pourquoi} certaines
+associations d'instruments produisent une fusion ou une complémentarité perceptive.
+Les convergences formantiques identifiées ici pourraient potentiellement informer la
+fonction de coût d'Orchidea en fournissant des a priori acoustiquement fondés pour
+la prédiction de la fusion.
 
 % ============================================================
 % 3. CORPUS ET SOURCES
@@ -230,54 +225,52 @@ combinaisons par appariement spectral exhaustif.
 Le corpus comprend deux sources complémentaires :
 
 \begin{itemize}
-\item \textbf{SOL2020 (IRCAM/Orchidea)} --- 12 instruments solistes,
-2\,391 échantillons de tenues soutenues. La base SOL2020 fournit des
-enveloppes spectrales pré-calculées (\texttt{specenv}, 1\,024 bins) issues
-d'enregistrements réalisés dans la chambre anéchoïque de l'IRCAM à
-44\,100~Hz / 24 bits. Instruments couverts : piccolo, flûte, hautbois,
-clarinette en si$\flat$, basson, cor en fa, trompette en ut, trombone, tuba,
+\item \textbf{SOL2020 (IRCAM/Orchidea)} --- 12~instruments solos, 2~391~échantillons
+de sons tenus. La base de données SOL2020 fournit des enveloppes spectrales précalculées
+(\texttt{specenv}, 1~024~bins) dérivées d'enregistrements réalisés dans la chambre
+anéchoïque de l'IRCAM à 44~100~Hz / 24~bits. Instruments couverts : piccolo, flûte,
+hautbois, clarinette en si$\flat$, basson, cor en fa, trompette en do, trombone, tuba,
 saxophone alto, violon, alto, violoncelle et contrebasse.
 
-\item \textbf{Yan\_Adds} --- 18 instruments supplémentaires (ensembles de
-cordes, bois auxiliaires, cuivres graves, variantes avec sourdine),
-1\,646 échantillons provenant de la Vienna Symphonic Library (VSL), de Con
-Timbre et d'enregistrements personnels. Tous les échantillons ont été
-enregistrés en conditions de studio contrôlées à 44\,100~Hz ou 48\,000~Hz
-(rééchantillonnés à 44\,100~Hz) et normalisés à $-1$~dBFS crête. Cette
-collection étend le corpus aux instruments et configurations non couverts par
-SOL2020, incluant la flûte basse, la flûte contrebasse, le cor anglais, la
-clarinette en mi$\flat$, la clarinette basse, la clarinette contrebasse, le
-trombone basse, le tuba basse, le tuba contrebasse, le contrebasson, et les
-sections de cordes (ensemble de violons, ensemble d'altos, ensemble de
-violoncelles, ensemble de contrebasses), ainsi que les variantes avec sourdine
-pour les cordes, le cor, la trompette, le trombone et le tuba.
+\item \textbf{Yan\_Adds} --- 18~instruments supplémentaires (ensembles de cordes,
+bois auxiliaires, cuivres graves, variantes avec sourdine), 1~646~échantillons issus
+de la Vienna Symphonic Library (VSL), Con Timbre et des enregistrements personnels.
+Tous les échantillons ont été enregistrés dans des conditions de studio contrôlées à
+44~100~Hz ou 48~000~Hz (rééchantillonnés à 44~100~Hz) et normalisés à $-1$~dBFS
+crête. Cette collection étend le corpus aux instruments et configurations non couverts
+par SOL2020, notamment la flûte basse, la flûte contrebasse, le cor anglais, la
+clarinette en mi$\flat$, la clarinette basse, la clarinette contrebasse, le trombone
+basse, le tuba basse, le tuba contrebasse, le contrebasson, et les pupitres de cordes
+(ensemble de violons, ensemble d'altos, ensemble de violoncelles, ensemble de
+contrebasses), ainsi que les variantes avec sourdine pour cordes, cor, trompette,
+trombone et tuba.
 \end{itemize}
 
-Au total, 487 lignes de données SOL2020 et 46 lignes Yan\_Adds (fichiers CSV
-v3) couvrent les 30 instruments analysés. Toutes les données et scripts
-d'analyse sont disponibles dans le dépôt
-associé\footnote{\url{https://github.com/zseramnay/Orchestration}}.
+Au total, 487~lignes de données provenant de SOL2020 et 46 de Yan\_Adds (format CSV
+v3) couvrent les 30~instruments analysés. L'ensemble des données et des scripts
+d'analyse est disponible dans le dépôt accompagnant cet
+article.\footnote{\url{https://github.com/zseramnay/Orchestration}}
 
 \subsection{Sources de validation}
 
 Quatre références académiques indépendantes servent de validation croisée :
 
 \begin{enumerate}
-\item \textbf{Backus} \citep{Backus1969} --- mesures ciblées des formants des
-cuivres et des bois.
+\item \textbf{Backus} \citep{Backus1969} --- mesures ciblées des formants de cuivres
+et de bois.
 \item \textbf{Gieseler et al.} \citep{Gieseler1985} --- mesures détaillées avec
-associations vocaliques explicites pour 13 instruments.
-\item \textbf{Meyer} \citep{Meyer2009} --- analyse acoustique avec descriptions
-de couleurs vocales et zones vocaliques définies.
-\item \textbf{McCarty/CCRMA} \citep{McCarty2003} --- référence directionnelle
-avec limitations d'exactitude reconnues par l'auteur.
+associations vocaliques explicites pour 13~instruments.
+\item \textbf{Meyer} \citep{Meyer2009} --- analyse acoustique avec descriptions de
+couleur vocalique et zones vocaliques définies.
+\item \textbf{McCarty/CCRMA} \citep{McCarty2003} --- référence directionnelle avec
+limitations de précision reconnues.
 \end{enumerate}
 
-Le taux de concordance global est de 93\,\% (27 instruments sur 29
-comparables). Les deux discordances concernent le piccolo (Backus cite
-$\sim$3\,400~Hz, correspondant vraisemblablement au pic de rayonnement plutôt
-qu'à F1) et la trompette (forte variabilité de F1 selon les sources due au
-comportement spectral dépendant de la dynamique).
+Le taux de concordance global est de 93~\% (27 instruments sur 29 comparables). Les
+deux discordances concernent le piccolo (Backus cite $\sim$3~400~Hz, correspondant
+vraisemblablement au pic de rayonnement plutôt qu'à F1) et la trompette (forte
+variabilité de F1 entre sources en raison du comportement spectral dépendant de la
+nuance).
 
 % ============================================================
 % 4. MÉTHODOLOGIE
@@ -285,67 +278,65 @@ comportement spectral dépendant de la dynamique).
 \section{Méthodologie}
 \label{sec:methodology}
 
-\subsection{Périmètre de mesure}
+\subsection{Périmètre des mesures}
 
-Toutes les valeurs formantiques sont mesurées sur des tenues soutenues
-(\emph{sustained}) en jeu \emph{ordinario}, excluant les transitoires
-d'attaque, les modes de jeu étendus et les dynamiques extrêmes. Techniques
-incluses : normal, arco, sustain, ordinario, vibrato, non-vibrato, flautando,
-de \emph{pp} à \emph{ff}. Techniques exclues : pizzicato, col legno, tremolo,
-trilles, harmoniques artificiels, multiphoniques, flatterzunge, sourdines
-(analysées séparément), glissandi, portamento. Ces exclusions garantissent que
-les formants extraits reflètent les résonances structurelles de l'instrument
-plutôt que des artefacts spectraux transitoires.
+Toutes les valeurs formantiques sont mesurées sur des sons tenus (\emph{sustained})
+en jeu \emph{ordinario}, à l'exclusion des transitoires d'attaque, des techniques
+étendues et des nuances extrêmes. Techniques incluses : normal, arco, sustain,
+ordinario, vibrato, non-vibrato, flautando, de \emph{pp} à \emph{ff}. Techniques
+exclues : pizzicato, col legno, trémolo, trilles, harmoniques artificiels, multiphoniques,
+flutter tongue, sourdines (analysées séparément), glissandi, portamento. Ces exclusions
+garantissent que les formants extraits reflètent les résonances structurelles de
+l'instrument plutôt que des artefacts spectraux transitoires.
 
 \subsection{Pipeline d'extraction formantique}
 
 Le pipeline d'extraction utilise les paramètres suivants :
 
 \begin{itemize}
-\item \textbf{Taille FFT :} 4\,096 échantillons à 44\,100~Hz, soit une
-résolution fréquentielle de $\sim$10,8~Hz/bin.
-\item \textbf{Plage analysée :} 100--3\,000~Hz.
-\item \textbf{Données d'entrée :} enveloppes spectrales pré-calculées
-(\texttt{specenv}, 1\,024 bins) issues du pipeline Orchidea, qui applique un
-fenêtrage de Hann et un lissage en amont.
+\item \textbf{Taille FFT :} 4~096~échantillons à 44~100~Hz, donnant une résolution
+fréquentielle de $\sim$10,8~Hz/bin.
+\item \textbf{Plage d'analyse :} 100--3~000~Hz.
+\item \textbf{Données d'entrée :} enveloppes spectrales précalculées (\texttt{specenv},
+1~024~bins) issues du pipeline Orchidea, qui applique en amont un fenêtrage de Hann
+et un lissage.
 \item \textbf{Détection de pics :} \texttt{scipy.signal.find\_peaks} avec les
-paramètres suivants : \texttt{height}~$= -30$~dB par rapport au maximum
-régional, \texttt{distance}~$= 7$ bins ($\approx$70~Hz de distance minimale
-inter-pics), \texttt{prominence}~$= 3$~dB.
+paramètres suivants : \texttt{height}~$= -30$~dB relatif au maximum régional,
+\texttt{distance}~$= 7$~bins ($\approx$70~Hz de distance inter-pics minimale),
+\texttt{prominence}~$= 3$~dB.
 \end{itemize}
 
-Un choix méthodologique critique est la détection du pic \emph{le plus
-proéminent} (amplitude la plus élevée) plutôt que du \emph{premier} pic
-(fréquence la plus basse). Cela capture le formant perceptuellement dominant et
-évite les résonances basses secondaires qui peuvent être acoustiquement
-présentes mais perceptivement subordonnées.
+Un choix méthodologique crucial est la détection du pic le \emph{plus proéminent}
+(amplitude maximale) plutôt que du \emph{premier} pic (fréquence la plus basse).
+Cela capture le formant perceptivement dominant et évite les résonances secondaires
+basse-fréquence qui peuvent être acoustiquement présentes mais perceptivement
+subordonnées.
 
-Le pipeline (version v22) a été validé par test aller-retour : les 16 fichiers
-CSV instrumentaux ont été régénérés et comparés aux valeurs de référence,
-atteignant $\Delta = 0$~Hz sur toutes les entrées.
+La version du pipeline (v22) a été validée par des tests aller-retour : les
+16~fichiers CSV d'instruments ont tous été régénérés et comparés aux valeurs de
+référence, avec $\Delta = 0$~Hz sur toutes les entrées.
 
 \subsection{Note terminologique}
 
-Dans cette étude, $F_1, F_2, \ldots F_6$ désignent les pics spectraux
-principaux extraits par analyse d'enveloppe spectrale. Ces pics correspondent
-aux résonances acoustiques principales du système de l'instrument et sont mis
-en regard des voyelles cardinales par analogie perceptive, sans prétendre à une
-équivalence stricte avec les formants du tractus vocal humain au sens de Fant
-\citep{Fant1960}. Pour les instruments à tuyau cylindrique (clarinette, flûte)
-où aucun formant fixe n'existe au sens strict, $F_1$ désigne la zone d'énergie
-spectrale dominante.
+Dans cette étude, $F_1, F_2, \ldots F_6$ désignent les principaux pics spectraux
+extraits par l'analyse d'enveloppe spectrale. Ces pics correspondent aux principales
+résonances acoustiques du système instrumental et sont comparés aux voyelles
+cardinales par analogie perceptive, sans revendiquer une stricte équivalence avec
+les formants du conduit vocal au sens de Fant \citep{Fant1960}. Pour les instruments
+à perce cylindrique (clarinette, flûte) chez qui il n'existe pas de formant fixe au
+sens strict, $F_1$ désigne la zone d'énergie spectrale dominante.
 
 \subsection{Le Formant Principal (\textit{Fp})}
 \label{sec:fp}
 
-Pour les instruments à large tessiture, le pic $F_1$ est très instable d'un
-registre à l'autre. Le violon, par exemple, présente un $F_1$ avec
-$\sigma = 651$~Hz --- soit une variation dépassant une octave. Cette
-instabilité rend $F_1$ inexploitable comme signature timbrale.
+Pour les instruments à large tessiture, le pic $F_1$ est très instable selon les
+registres. Le violon, par exemple, présente un $F_1$ avec $\sigma = 651$~Hz --- une
+variation supérieure à une octave. Cette instabilité rend $F_1$ inadapté comme
+signature timbrale.
 
-La mesure \textit{Fp} (Formant Principal) résout ce problème. Elle est définie
-comme le centroïde spectral pondéré en énergie dans une bande fréquentielle
-spécifique à l'instrument :
+La mesure \textit{Fp} (Formant Principal) résout ce problème. Il est défini comme
+le centroïde spectral pondéré par l'énergie dans une bande de fréquences spécifique
+à l'instrument :
 
 \begin{equation}
 F_p = \frac{\sum_{i} f_i \cdot A_i}{\sum_{i} A_i}
@@ -353,35 +344,32 @@ F_p = \frac{\sum_{i} f_i \cdot A_i}{\sum_{i} A_i}
 \end{equation}
 
 \noindent où $f_i$ est la fréquence du bin $i$, $A_i$ son amplitude (échelle
-linéaire), et la somme porte sur une bande choisie par instrument.
+linéaire), et la sommation s'étend sur une bande choisie par instrument.
 
 \paragraph{Relation avec le centroïde spectral global.}
-Le \textit{Fp} diffère du centroïde spectral standard \citep{Peeters2011} sur
-deux points : (1)~il est calculé dans une bande fréquentielle restreinte plutôt
-que sur l'ensemble du spectre, et (2)~les limites de la bande sont optimisées
-par instrument pour capturer la résonance principale du corps
-(\emph{Hauptformant} dans la terminologie de Meyer \citep{Meyer2009}). Le
-centroïde spectral global, appliqué à l'ensemble du spectre, suit la brillance
-d'ensemble et est fortement influencé par la fréquence fondamentale et par la
-distribution d'énergie dans les hautes fréquences. À l'inverse, le \textit{Fp}
-isole la signature résonante du corps de l'instrument, qui est la
-caractéristique acoustiquement pertinente pour prédire la fusion timbrale dans
-les doublures.
+Le \textit{Fp} diffère du centroïde spectral standard \citep{Peeters2011} sur deux
+points : (1)~il est calculé dans une bande de fréquences restreinte plutôt que sur
+le spectre entier, et (2)~les limites de la bande sont optimisées par instrument pour
+capturer la résonance principale du corps (\emph{Hauptformant} dans la terminologie
+de Meyer \citep{Meyer2009}). Le centroïde spectral global, appliqué au spectre entier,
+suit la brillance d'ensemble et est fortement influencé par la fréquence fondamentale
+et par la distribution d'énergie haute fréquence. Par contraste, \textit{Fp} isole
+la signature résonante du corps de l'instrument, qui est la caractéristique
+acoustiquement pertinente pour prédire la fusion timbrale dans les doublures.
 
 \paragraph{Sélection de la bande.}
-Les bandes fréquentielles ont été déterminées par instrument en identifiant la
-région d'énergie maximale de l'enveloppe spectrale sur l'ensemble des registres
-en jeu \emph{ordinario}. Les bandes typiques sont 600--1\,400~Hz pour les
-cordes et le cor, et 1\,000--2\,000~Hz pour la flûte, le hautbois et la
-clarinette. Les limites de bande ont été fixées de manière à englober les
-points à $-6$~dB du pic principal de l'enveloppe spectrale moyennée sur tous
-les échantillons d'un instrument donné.
+Les bandes de fréquences ont été déterminées par instrument en identifiant la région
+d'énergie maximale de l'enveloppe spectrale sur l'ensemble des registres en jeu
+\emph{ordinario}. Les bandes typiques sont 600--1~400~Hz pour les cordes et le cor,
+et 1~000--2~000~Hz pour la flûte, le hautbois et la clarinette. Les limites de bande
+ont été fixées pour englober les points à $-6$~dB du principal pic d'enveloppe
+spectrale moyenné sur tous les échantillons d'un instrument donné.
 
 \paragraph{Gain de stabilité.}
-Le tableau~\ref{tab:fp_stability} montre l'amélioration de stabilité du
-\textit{Fp} par rapport à $F_2$ pour quatre instruments représentatifs. Le gain
-va de 4,7$\times$ (clarinette) à 10,4$\times$ (trompette). Vingt-deux des
-30 instruments du corpus bénéficient d'une mesure \textit{Fp} validée.
+Le Tableau~\ref{tab:fp_stability} montre l'amélioration de stabilité de \textit{Fp}
+par rapport à $F_2$ pour quatre instruments représentatifs. Le gain varie de
+4,7$\times$ (clarinette) à 10,4$\times$ (trompette). Vingt-deux des 30~instruments
+du corpus bénéficient d'une mesure \textit{Fp} validée.
 
 \begin{table}[htbp]
 \centering
@@ -391,61 +379,59 @@ va de 4,7$\times$ (clarinette) à 10,4$\times$ (trompette). Vingt-deux des
 \toprule
 Instrument & $F_p$ (Hz) & $\sigma_{F_p}$ & $F_2$ (Hz) & $\sigma_{F_2}$ & Gain \\
 \midrule
-Violon     & 893  & 92  & 1\,518 & 651   & 7,1$\times$ \\
-Trompette  & 1\,046 & 98  & 1\,324 & 1\,018 & 10,4$\times$ \\
-Clarinette si$\flat$ & 1\,412 & 169 & 1\,130 & 795 & 4,7$\times$ \\
-Cor        & 738  & 112 & 1\,106 & 734   & 6,5$\times$ \\
+Violon          & 893   & 92  & 1~518 & 651   & 7,1$\times$ \\
+Trompette       & 1~046 & 98  & 1~324 & 1~018 & 10,4$\times$ \\
+Clarinette si$\flat$ & 1~412 & 169 & 1~130 & 795 & 4,7$\times$ \\
+Cor             & 738   & 112 & 1~106 & 734   & 6,5$\times$ \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \paragraph{$\sigma(F_p)$ comme indicateur de sélectivité spectrale.}
-L'écart-type $\sigma(F_p)$ reflète indirectement la largeur de bande de la
-résonance principale : un $\sigma$ faible indique un formant étroit et bien
-défini (facteur $Q$ élevé), tandis qu'un $\sigma$ élevé indique un formant
-large et diffus. Le violon ($\sigma = 92$~Hz) possède ainsi un timbre
-spectralement plus focalisé que la clarinette si$\flat$ ($\sigma = 169$~Hz),
-ce qui est cohérent avec l'expérience perceptive.
+L'écart-type $\sigma(F_p)$ reflète indirectement la largeur de la résonance principale :
+un $\sigma$ faible indique un formant étroit et bien défini (facteur $Q$ élevé), tandis
+qu'un $\sigma$ élevé indique un formant large et diffus. Le violon ($\sigma = 92$~Hz)
+possède ainsi un timbre spectralement plus focalisé que la clarinette en si$\flat$
+($\sigma = 169$~Hz), ce qui est cohérent avec l'expérience perceptive.
 
 \subsection{Deux représentations complémentaires par registre}
 
-Pour chaque instrument principal, le document de référence fournit deux
-représentations complémentaires calculées registre par registre (les registres
-étant définis selon les nomenclatures instrumentales traditionnelles) :
+Pour chaque instrument principal, le document de référence fournit deux représentations
+complémentaires calculées registre par registre (registres définis selon les
+nomenclatures instrumentales traditionnelles) :
 
 \begin{enumerate}
-\item \textbf{Profil formantique moyen :} extraction des formants $F_1$--$F_6$
-sur chaque échantillon individuel, puis calcul de la médiane par registre. Ce
-profil donne les positions de référence de chaque pic spectral.
+\item \textbf{Profil formantique moyen :} extraction de $F_1$--$F_6$ sur chaque
+échantillon individuel, puis calcul de la médiane par registre. Ce profil donne les
+positions de référence de chaque pic spectral.
 
-\item \textbf{Carte spectrale vocalique :} moyenne de toutes les enveloppes
-spectrales du registre, affichée sur un axe fréquentiel logarithmique avec
-superposition des zones vocaliques (/u/, /o/, /a/, /e/) et enveloppe cepstrale
-normalisée. Cette carte montre la forme réelle du spectre moyen avec ses zones
-de résonance, ses vallées et le contexte vocalique complet.
+\item \textbf{Carte spectrale vocalique :} moyenne de toutes les enveloppes spectrales
+du registre, affichée sur un axe fréquentiel logarithmique avec zones vocaliques
+superposées (/u/, /o/, /a/, /e/) et enveloppe cepstrale normalisée. Cette carte montre
+la forme spectrale moyenne réelle avec ses zones de résonance, ses vallées et le
+contexte vocalique complet.
 \end{enumerate}
 
-Les deux approches convergent pour les formants bien définis (instruments à
-anche, cuivres) mais peuvent diverger pour les instruments à grande tessiture
-(cordes, flûtes, clarinettes) où la moyenne de l'enveloppe lisse les pics
-individuels. Le profil formantique donne les positions de référence ; la carte
-spectrale donne le contexte acoustique complet.
+Les deux approches convergent pour les formants bien définis (instruments à anche,
+cuivres) mais peuvent diverger pour les instruments à large tessiture (cordes, flûtes,
+clarinettes) où la moyenne de l'enveloppe lisse les pics individuels. Le profil
+formantique donne les positions de référence ; la carte spectrale donne le contexte
+acoustique complet.
 
-Cette double analyse par registre résout le problème de la variabilité
-spectrale des instruments à large tessiture : plutôt que de se limiter à une
-valeur $F_1$ globale peu informative, l'examen registre par registre révèle des
-convergences formantiques qui n'apparaissent que lorsque les instruments jouent
-dans un registre spécifique (voir section~\ref{sec:principles}, principe~8).
+Cette double analyse registre par registre résout le problème de la variabilité
+spectrale des instruments à large tessiture : plutôt que de s'appuyer sur une valeur
+globale unique et peu informative de $F_1$, l'examen registre par registre révèle des
+convergences formantiques qui n'apparaissent que lorsque les instruments jouent dans
+un registre spécifique (voir Section~\ref{sec:principles}, Principe~8).
 
 % ============================================================
-% 5. CORRESPONDANCE VOYELLES–FRÉQUENCES
+% 5. CORRESPONDANCE VOYELLE–FRÉQUENCE
 % ============================================================
-\section{Correspondance voyelles--fréquences}
+\section{Correspondance voyelle--fréquence}
 
-Le système vocalique fournit un cadre intuitif pour décrire le timbre
-instrumental. D'après Meyer \citep{Meyer2009} et Gieseler et al.\
-\citep{Gieseler1985}, les correspondances sont présentées dans le
-tableau~\ref{tab:vowels}.
+Le système vocalique fournit un cadre intuitif pour décrire le timbre instrumental.
+Suivant Meyer \citep{Meyer2009} et Gieseler et al.\ \citep{Gieseler1985}, les
+correspondances sont présentées dans le Tableau~\ref{tab:vowels}.
 
 \begin{table}[htbp]
 \centering
@@ -455,114 +441,106 @@ tableau~\ref{tab:vowels}.
 \toprule
 Voyelle & Fréquence (Hz) & Perception & Instruments représentatifs \\
 \midrule
-/u/ & 200--400 & Profondeur  & Cb (172), Tuba (226), Cbn (226), Trb (237) \\
-/o/ & 400--600 & Plénitude   & Alto (377), Cor (388), Sax a. (398), C.a. (452), \\
-    &          &             & Cl (463), Bn (495), Vln (506) \\
-/\aa/ & 600--800 & Chaleur   & Cl$^{Mib}$ (678), Fl (743), Htb (743), Tpt (786) \\
-/a/ & 800--1\,250 & Puissance & Cor$_{Fp}$ (738), Vln$_{Fp}$ (893), Tpt$_{Fp}$ (1\,046) \\
-/e/ & 1\,250--2\,600 & Clarté & Cl$_{Fp}$ (1\,412), Fl$_{Fp}$ (1\,535), Htb$_{Fp}$ (1\,485) \\
-/i/ & $>$2\,600 & Brillance & Picc (1\,992 $F_2$), Tpt+harmon (2\,358) \\
+/u/ & 200--400 & Profondeur & Cb (172), Tuba (226), Cbn (226), Tbn (237) \\
+/o/ & 400--600 & Plénitude  & Alto (377), Cor (388), SaxA (398), CA (452), \\
+    &          &            & Cl (463), Bn (495), Vn (506) \\
+/\aa/ & 600--800 & Chaleur  & Cl$^{mi\flat}$ (678), Fl (743), Hb (743), Tpt (786) \\
+/a/ & 800--1~250 & Puissance & Cor$_{Fp}$ (738), Vn$_{Fp}$ (893), Tpt$_{Fp}$ (1~046) \\
+/e/ & 1~250--2~600 & Clarté & Cl$_{Fp}$ (1~412), Fl$_{Fp}$ (1~535), Hb$_{Fp}$ (1~485) \\
+/i/ & $>$2~600 & Brillance & Picc (1~992 $F_2$), Tpt+harmon (2~358) \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 % ============================================================
-% 6. RÉSULTATS PAR FAMILLE INSTRUMENTALE
+% 6. RÉSULTATS PAR FAMILLE D'INSTRUMENTS
 % ============================================================
-\section{Résultats par famille instrumentale}
+\section{Résultats par famille d'instruments}
 
-\subsection{Les bois (plage : 226--2\,638~Hz)}
+\subsection{Bois (plage : 226--2~638~Hz)}
 
-La famille des bois présente la plus grande diversité timbrale de l'orchestre.
-Les anches doubles (hautbois, cor anglais, basson, contrebasson) partagent une
-zone formantique commune autour de 900--1\,200~Hz avec une coloration /a/
-caractéristique. Les clarinettes (tuyau cylindrique, harmoniques impairs) n'ont
-pas de formant fixe au sens strict : le pic spectral suit la fondamentale ou le
-3\textsuperscript{e} harmonique. Les flûtes (tuyau ouvert) présentent un
-spectre décroissant de façon approximativement linéaire au-dessus de la
-fondamentale.
+La famille des bois présente la plus grande diversité timbrale de l'orchestre. Les
+anches doubles (hautbois, cor anglais, basson, contrebasson) partagent une zone
+formantique commune autour de 900--1~200~Hz avec une coloration /a/ caractéristique.
+Les clarinettes (perce cylindrique, harmoniques impairs) n'ont pas de formant fixe au
+sens strict : le pic spectral suit le fondamental ou le 3\ieme~harmonique. Les flûtes
+(tuyau ouvert) présentent un spectre décroissant approximativement de façon linéaire
+au-dessus du fondamental.
 
-Découvertes clés : le cor anglais ($F_1 = 452$~Hz) et le basson
-($F_1 = 495$~Hz) se situent dans la zone /o/, aux côtés du cor (388~Hz) et
-du violon (506~Hz). Le cor anglais et la clarinette si$\flat$ convergent à
-$\Delta = 11$~Hz (452 vs.\ 463~Hz). Le basson et le violon convergent à
-$\Delta = 11$~Hz (495 vs.\ 506~Hz).
+Résultats clés : le cor anglais ($F_1 = 452$~Hz) et le basson ($F_1 = 495$~Hz)
+s'inscrivent dans la zone /o/, aux côtés du cor (388~Hz) et du violon (506~Hz). Le
+cor anglais et la clarinette en si$\flat$ convergent à $\Delta = 11$~Hz (452 vs.\
+463~Hz). Le basson et le violon convergent à $\Delta = 11$~Hz (495 vs.\ 506~Hz).
 
-\subsection{Les cuivres (plage : 162--2\,358~Hz)}
+\subsection{Cuivres (plage : 162--2~358~Hz)}
 
-Les cuivres présentent des formants bien définis et une grande stabilité
-spectrale inter-dynamiques (sauf la trompette). Le cor en fa
-($F_1 = 388$~Hz, zone /o/) est l'instrument cuivre le plus polyvalent pour
-les doublures, avec un accord unanime des quatre sources académiques. La
-trompette en ut présente un $F_1$ extrêmement variable ($\sigma = 642$~Hz),
-mais son \textit{Fp} à 1\,046~Hz est 10,4$\times$ plus stable que $F_2$.
-Dans le grave, le trombone (237~Hz), le tuba basse (226~Hz) et le tuba
-contrebasse (226~Hz) forment un cluster /u/ très serré
-($\Delta \leq 11$~Hz), rejoints par le contrebasson (226~Hz également).
+Les cuivres présentent des formants bien définis et une forte stabilité spectrale selon
+les nuances (sauf la trompette). Le cor en fa ($F_1 = 388$~Hz, zone /o/) est le cuivre
+le plus polyvalent pour les doublures, avec un accord unanime entre les quatre sources
+académiques. La trompette en do présente un $F_1$ extrêmement variable ($\sigma = 642$~Hz),
+mais son \textit{Fp} à 1~046~Hz est 10,4$\times$ plus stable que $F_2$. Dans le registre
+grave, le trombone (237~Hz), le tuba basse (226~Hz) et le tuba contrebasse (226~Hz)
+forment un cluster /u/ serré ($\Delta \leq 11$~Hz), rejoint par le contrebasson (226~Hz également).
 
-\subsection{Les saxophones}
+\subsection{Saxophones}
 
-Le saxophone alto ($F_1 = 398$~Hz) s'inscrit pleinement dans la zone de
-convergence /o/--/\aa/, aux côtés du cor ($\Delta = 10$~Hz) et de l'alto
-($\Delta = 21$~Hz). C'est le seul saxophone présent dans le corpus SOL2020 ;
-les saxophones soprano, ténor et baryton constituent une extension future
-prioritaire.
+Le saxophone alto ($F_1 = 398$~Hz) se situe exactement dans la zone de convergence
+/o/--/\aa/, aux côtés du cor ($\Delta = 10$~Hz) et de l'alto ($\Delta = 21$~Hz). C'est
+le seul saxophone présent dans le corpus SOL2020 ; les saxophones soprano, ténor et
+baryton constituent une extension prioritaire.
 
-\subsection{Les cordes (plage : 172--1\,518~Hz)}
+\subsection{Cordes (plage : 172--1~518~Hz)}
 
-La famille des cordes présente la plus grande variabilité spectrale de
-l'orchestre, compensée par la mesure \textit{Fp}. Le violon
-($F_1 = 506$~Hz, /o/) et le basson ($F_1 = 495$~Hz) convergent à
-$\Delta = 11$~Hz. Le violoncelle rejoint cette convergence via son
-$F_2 = 506$~Hz ($\approx F_1$ du basson).
+La famille des cordes présente la plus grande variabilité spectrale de l'orchestre,
+compensée par la mesure \textit{Fp}. Le violon ($F_1 = 506$~Hz, /o/) et le basson
+($F_1 = 495$~Hz) convergent à $\Delta = 11$~Hz. Le violoncelle rejoint cette convergence
+via son $F_2 = 506$~Hz ($\approx F_1$ du basson).
 
-L'effet de section est clairement quantifié : l'ensemble ne déplace pas $F_1$
-mais lisse les harmoniques supérieurs ($F_2$ du violon solo : 1\,518~Hz
-$\rightarrow$ ensemble : 1\,163~Hz, soit $-23$\,\%). Le résultat perceptif est
-un timbre plus fondu --- c'est la différence de texture entre un quatuor et une
-section orchestrale. Cet effet de lissage est cohérent avec la constatation de
-Sandell selon laquelle des centroïdes composites plus bas améliorent la fusion
-\citep{Sandell1995}.
+L'effet de pupitre est clairement quantifié : l'ensemble ne déplace pas $F_1$ mais lisse
+les harmoniques supérieurs ($F_2$ du violon solo : 1~518~Hz $\rightarrow$ ensemble :
+1~163~Hz, soit une réduction de $-23$~\%). Le résultat perceptif est un timbre plus
+fondu --- c'est la différence texturale entre un quatuor et un pupitre orchestral. Cet
+effet de lissage est cohérent avec le constat de Sandell selon lequel des centroïdes
+composites plus bas améliorent la fusion \citep{Sandell1995}.
 
 % ============================================================
 % 7. CLUSTER DE CONVERGENCE
 % ============================================================
 \section{Le cluster de convergence /o/--/\aa/}
 
-Le résultat central de cette étude est l'identification d'un cluster de
-convergence dans la zone vocalique /o/--/\aa/ (377--506~Hz), regroupant
-11 instruments de 4 familles différentes dans un espace de seulement 129~Hz
-(tableau~\ref{tab:cluster}).
+Le résultat central de cette étude est l'identification d'un cluster de convergence
+dans la zone vocalique /o/--/\aa/ (377--506~Hz), regroupant 11~instruments de
+4~familles différentes dans un intervalle de seulement 129~Hz
+(Tableau~\ref{tab:cluster}).
 
 \begin{table}[htbp]
 \centering
-\caption{Les 6 instruments les plus proches du centre du cluster.}
+\caption{Les 6~instruments les plus proches du centre du cluster de convergence.}
 \label{tab:cluster}
 \begin{tabular}{llrr}
 \toprule
 Instrument & Famille & $F_1$ (Hz) & $\Delta$ / Violon \\
 \midrule
-Alto         & Cordes      & 377 & 129~Hz \\
-Cor          & Cuivres     & 388 & 118~Hz \\
-Sax alto     & Saxophones  & 398 & 108~Hz \\
-Cor anglais  & Bois        & 452 & 54~Hz \\
+Alto         & Cordes    & 377 & 129~Hz \\
+Cor          & Cuivres   & 388 & 118~Hz \\
+Saxophone alto & Saxophones & 398 & 108~Hz \\
+Cor anglais  & Bois      & 452 & 54~Hz \\
 Clarinette si$\flat$ & Bois & 463 & 43~Hz \\
-Basson       & Bois        & 495 & 11~Hz \\
-Violon       & Cordes      & 506 & --- \\
+Basson       & Bois      & 495 & 11~Hz \\
+Violon       & Cordes    & 506 & --- \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 Les doublures les plus serrées --- basson\,+\,violon ($\Delta = 11$~Hz),
-cor\,+\,alto ($\Delta = 11$~Hz) --- correspondent précisément aux associations
-les plus valorisées de la littérature orchestrale. En termes de distance sur
-l'échelle de Bark \citep{Zwicker1961}, $\Delta = 11$~Hz à 500~Hz correspond à
-environ 0,1~Bark, bien en deçà de la bande critique pour l'intégration
-spectrale.
+cor\,+\,alto ($\Delta = 11$~Hz) --- correspondent précisément aux associations les
+plus prisées dans la littérature orchestrale. En termes de distance sur l'échelle
+Bark \citep{Zwicker1961}, $\Delta = 11$~Hz à 500~Hz correspond à environ 0,1~Bark,
+bien en deçà de la largeur de bande critique pour l'intégration spectrale.
 
 \subsection{Doublures vérifiées}
 
-Le tableau~\ref{tab:doublings} présente les doublures principales classées par
+Le Tableau~\ref{tab:doublings} présente les principales doublures classées par
 $\Delta$ croissant.
 
 \begin{table}[htbp]
@@ -576,10 +554,10 @@ Instr.~A & Instr.~B & $F_1$ A & $F_1$ B & $\Delta$ & Qualité \\
 Flûte & Hautbois & 743 & 743 & 0 & Quasi-parfaite $\star$ \\
 Tuba CB & Contrebasson & 226 & 226 & 0 & Quasi-parfaite $\star$ \\
 Cor & Alto & 388 & 377 & 11 & Quasi-parfaite \\
-Cor angl. & Cl si$\flat$ & 452 & 463 & 11 & Quasi-parfaite \\
+Cor anglais & Cl si$\flat$ & 452 & 463 & 11 & Quasi-parfaite \\
 Violon & Basson & 506 & 495 & 11 & Quasi-parfaite \\
 Trombone & Tuba & 237 & 226 & 11 & Quasi-parfaite \\
-Cor angl. & Cor & 452 & 388 & 64 & Excellente \\
+Cor anglais & Cor & 452 & 388 & 64 & Excellente \\
 Trompette & Hautbois & 786 & 743 & 43 & Excellente \\
 Hautbois & Basson & 743 & 495 & 248 & Complémentaire \\
 Trompette & Trombone & 786 & 237 & 549 & Complémentaire \\
@@ -587,18 +565,18 @@ Trompette & Trombone & 786 & 237 & 549 & Complémentaire \\
 \end{tabular}
 \end{table}
 
-L'analyse par registre révèle en outre des convergences invisibles dans les
-données globales. Par exemple, la clarinette si$\flat$ au chalumeau (ré3--ré4,
-$F_1 = 215$~Hz) converge exactement ($\Delta = 0$~Hz) avec le trombone au
-registre grave ; le cor au médium ($F_1 = 323$~Hz) converge avec l'alto au
-médium --- confirmant acoustiquement la doublure emblématique de Brahms.
+L'analyse registre par registre révèle en outre des convergences invisibles dans les
+données globales. Par exemple, la clarinette en si$\flat$ au registre chalumeau
+(ré3--ré4, $F_1 = 215$~Hz) converge exactement ($\Delta = 0$~Hz) avec le trombone
+dans son registre grave ; le cor au registre médium ($F_1 = 323$~Hz) converge avec
+l'alto au registre médium --- confirmant acoustiquement la doublure brahmsienne emblématique.
 
-Il est essentiel de souligner que ces convergences sont valables aussi bien à
-l'unisson qu'à l'octave ou à tout autre intervalle. La convergence formantique
-est une propriété du timbre et non de la hauteur : deux instruments dont les
-formants coïncident fusionnent quelle que soit la distance en hauteur entre les
-notes jouées. C'est pourquoi les doublures violon--basson et cor--alto
-fonctionnent à travers les registres sans perdre leur efficacité acoustique.
+Il est essentiel de souligner que ces convergences sont valables à l'unisson, à
+l'octave ou à tout autre intervalle. La convergence formantique est une propriété du
+timbre, non de la hauteur : deux instruments dont les formants coïncident fusionneront
+quelle que soit la distance de hauteur entre les notes jouées. C'est pourquoi les
+doublures violon--basson et cor--alto fonctionnent sur tous les registres sans perdre
+leur efficacité acoustique.
 
 % ============================================================
 % 8. NEUF PRINCIPES
@@ -606,115 +584,105 @@ fonctionnent à travers les registres sans perdre leur efficacité acoustique.
 \section{Neuf principes d'orchestration acoustique}
 \label{sec:principles}
 
-L'analyse des données conduit à formuler neuf principes fondamentaux.
+L'analyse des données conduit à la formulation de neuf principes fondamentaux.
 
 \paragraph{1.\ Convergence formantique (fusion).}
-Quand deux instruments partagent un $F_1$ similaire ($\Delta \leq 80$~Hz),
-leurs timbres fusionnent : l'oreille perçoit une couleur homogène plutôt que
-deux voix distinctes. Seuils mesurés : $\Delta = 0$ (unisson formantique),
-$\Delta \leq 30$~Hz (fusion quasi-parfaite, $\leq 0{,}3$~Bark),
-$\Delta$ 30--80~Hz (fusion efficace, 0,3--0,7~Bark). Ce résultat est cohérent
-avec l'observation de Sandell selon laquelle des différences de centroïde plus
-faibles améliorent la fusion \citep{Sandell1995} et avec la théorie des bandes
-critiques \citep{Zwicker1961}.
+Lorsque deux instruments partagent un $F_1$ similaire ($\Delta \leq 80$~Hz), leurs
+timbres fusionnent : l'oreille perçoit une couleur homogène plutôt que deux voix
+distinctes. Seuils mesurés : $\Delta = 0$ (unisson formantique), $\Delta \leq 30$~Hz
+(fusion quasi-parfaite, $\leq 0,3$~Bark), $\Delta$ 30--80~Hz (fusion efficace,
+0,3--0,7~Bark). Ce résultat est cohérent avec l'observation de Sandell selon laquelle
+des différences de centroïde plus petites améliorent la fusion \citep{Sandell1995} et
+avec la théorie des bandes critiques \citep{Zwicker1961}.
 
 \paragraph{2.\ Complémentarité spectrale (enrichissement).}
-Quand $\Delta > 200$~Hz ($> 1{,}5$~Bark), les spectres se complètent sans se
-masquer mutuellement, produisant un enrichissement large bande inaccessible à
-chaque instrument seul. Exemple : trompette (786~Hz) + trombone (237~Hz),
-$\Delta = 549$~Hz.
+Lorsque $\Delta > 200$~Hz ($> 1,5$~Bark), les spectres se complètent sans masquage
+mutuel, produisant un enrichissement à large bande inaccessible à l'un ou l'autre
+instrument seul. Exemples : trompette (786~Hz) + trombone (237~Hz), $\Delta = 549$~Hz.
 
-\paragraph{3.\ Effet de section (homogénéisation).}
-Le passage du soliste à l'ensemble ne déplace pas $F_1$ mais lisse les
-harmoniques supérieurs : $F_2$ du violon baisse de 23\,\% en section, $F_3$ de
-16\,\%. Le résultat perceptif est un timbre plus fondu. Ce résultat est
-cohérent avec la prédiction que des centroïdes composites plus bas améliorent
-la fusion \citep{Sandell1995}.
+\paragraph{3.\ Effet de pupitre (homogénéisation).}
+Le passage du soliste à l'ensemble ne déplace pas $F_1$ mais lisse les harmoniques
+supérieurs : $F_2$ du violon baisse de 23~\% en pupitre, $F_3$ de 16~\%. Le résultat
+perceptif est un timbre plus fondu. Ceci est cohérent avec la prédiction selon laquelle
+des centroïdes composites plus bas améliorent la fusion \citep{Sandell1995}.
 
-\paragraph{4.\ La sourdine comme transposition timbrale.}
-Pour les cordes et le cor, la sourdine abaisse systématiquement $F_1$ de 6 à
-40\,\%. Pour les cuivres, l'effet dépend du type de sourdine : les sourdines
-cup et harmon produisent l'effet opposé --- la sourdine harmon de la trompette
-déplace $F_1$ de la zone /a/ à la zone /i/ (+200\,\%), le cas le plus
-spectaculaire du corpus.
+\paragraph{4.\ Sourdine comme transposition timbrale.}
+Pour les cordes et le cor, la sourdine abaisse systématiquement $F_1$ de 6 à 40~\%.
+Pour les cuivres, l'effet dépend du type de sourdine : les sourdines coupe et harmon
+produisent l'effet inverse --- la sourdine harmon sur trompette déplace $F_1$ de la
+zone /a/ vers la zone /i/ (+200~\%), le cas le plus spectaculaire du corpus.
 
-\paragraph{5.\ Familles formantiques transversales.}
-Les regroupements formantiques traversent les frontières organologiques : la
-famille /u/ (contrebasse, tuba, contrebasson, trombone), la famille /o/--/\aa/
-(alto, cor, saxophone alto, cor anglais, clarinette, basson, violon) et la
-famille /a/ (via les valeurs \textit{Fp}) sont plus pertinentes que les
-familles instrumentales traditionnelles pour prédire les fusions timbrales.
+\paragraph{5.\ Groupements formantiques inter-familles.}
+Les groupements formantiques franchissent les frontières organologiques : la famille
+/u/ (contrebasse, tuba, contrebasson, trombone), la famille /o/--/\aa/ (alto, cor,
+sax alto, cor anglais, clarinette, basson, violon) et la famille /a/ (via les valeurs
+de \textit{Fp}) sont plus pertinentes que les familles instrumentales traditionnelles
+pour prédire les fusions timbrales.
 
 \paragraph{6.\ La zone /o/--/\aa/ comme attracteur de convergence.}
-La concentration de 11 instruments dans 129~Hz autour de 377--506~Hz correspond
-au centre géométrique du spectre perceptif humain (voix parlée, bande de
-présence). Cette convergence est cohérente avec l'hypothèse que la palette
-orchestrale s'est historiquement construite autour de la région spectrale de
-sensibilité perceptive maximale, bien que l'établissement d'une relation
-causale nécessiterait des investigations historiques et perceptives
-complémentaires.
+La concentration de 11~instruments dans un intervalle de 129~Hz autour de 377--506~Hz
+correspond au centre géométrique du spectre perceptif humain (voix parlée, bande de
+présence). Cette convergence est cohérente avec l'hypothèse que la palette orchestrale
+a été historiquement façonnée autour de la région spectrale de sensibilité perceptive
+maximale, bien qu'établir une relation causale nécessiterait des investigations
+historiques et perceptives supplémentaires.
 
-\paragraph{7.\ Rôle du \textit{Fp} dans les doublures à large tessiture.}
-Pour les instruments à grande tessiture (violon, trompette, clarinette), le
-\textit{Fp} remplace avantageusement $F_1$ ou $F_2$ dans l'analyse des
-doublures. Le gain de stabilité atteint 10,4$\times$ pour la trompette.
+\paragraph{7.\ Rôle de \textit{Fp} dans les doublures à large tessiture.}
+Pour les instruments à large tessiture (violon, trompette, clarinette), \textit{Fp}
+remplace avantageusement $F_1$ ou $F_2$ dans l'analyse des doublures. Le gain de
+stabilité atteint 10,4$\times$ pour la trompette.
 
-\paragraph{8.\ Convergences par registre.}
-L'analyse par registre met en lumière des convergences invisibles dans les
-données globales : $\Delta = 0$~Hz entre clarinette si$\flat$ (chalumeau) et
-trombone (grave) ; entre cor (médium) et alto (médium) ; entre cor (médium) et
-trompette (médium).
+\paragraph{8.\ Convergences spécifiques au registre.}
+L'analyse registre par registre révèle des convergences invisibles dans les données
+globales : $\Delta = 0$~Hz entre la clarinette en si$\flat$ (chalumeau) et le
+trombone (grave) ; entre le cor (médium) et l'alto (médium) ; entre le cor (médium)
+et la trompette (médium).
 
 \paragraph{9.\ Hiérarchie de la fusion.}
-Les données établissent une hiérarchie quantitative :
-$\Delta \leq 30$~Hz (fusion quasi-parfaite, $\leq 0{,}3$~Bark),
-$\Delta$ 30--80~Hz (fusion efficace, 0,3--0,7~Bark),
-$\Delta$ 80--200~Hz (proximité, 0,7--1,5~Bark),
-$\Delta \geq 200$~Hz (complémentarité spectrale, $\geq 1{,}5$~Bark).
+Les données établissent une hiérarchie quantitative : $\Delta \leq 30$~Hz (fusion
+quasi-parfaite, $\leq 0,3$~Bark), $\Delta$ 30--80~Hz (fusion efficace, 0,3--0,7~Bark),
+$\Delta$ 80--200~Hz (proximité, 0,7--1,5~Bark), $\Delta \geq 200$~Hz (complémentarité
+spectrale, $\geq 1,5$~Bark).
 
 % ============================================================
 % 9. DISCUSSION
 % ============================================================
 \section{Discussion}
 
-\subsection{Validité du \textit{Fp}}
+\subsection{Validité de \textit{Fp}}
 
-Le \textit{Fp}, centroïde spectral à bande limitée, s'avère être la mesure la
-plus pertinente pour caractériser le timbre global d'un instrument à large
-tessiture. Il surpasse considérablement $F_1$ et $F_2$ en stabilité tout en
-correspondant au \emph{Hauptformant} décrit par Meyer pour les cordes
-\citep{Meyer2009}.
+Le centroïde spectral à bande limitée \textit{Fp} s'avère la mesure la plus pertinente
+pour caractériser le timbre global d'un instrument à large tessiture. Il surpasse
+nettement $F_1$ et $F_2$ en stabilité tout en correspondant au \emph{Hauptformant}
+décrit par Meyer pour les cordes \citep{Meyer2009}.
 
-Alors que le centroïde spectral global \citep{Peeters2011} capture la
-brillance, le \textit{Fp} isole l'identité résonante de l'instrument --- la
-région fréquentielle où le corps (ou la colonne d'air) impose sa signature
-timbrale indépendamment de la hauteur. Cette distinction est analogue à la
-différence entre la « fréquence fondamentale de la voix parlée » et les
-« fréquences formantiques » en phonétique : toutes deux sont des centroïdes
-spectraux, mais mesurés sur des plages fréquentielles différentes et capturant
-des attributs perceptifs distincts.
+Alors que le centroïde spectral global \citep{Peeters2011} capture la brillance,
+\textit{Fp} isole l'identité résonante de l'instrument --- la région fréquentielle
+où le corps (ou la colonne d'air) impose sa signature timbrale indépendamment de la
+hauteur. Cette distinction est parallèle à la différence entre la «~fréquence
+fondamentale de la voix parlée~» et les «~fréquences de formants~» en parole : ce
+sont tous deux des centroïdes spectraux, mais mesurés sur des plages de fréquences
+différentes et capturant des attributs perceptifs distincts.
 
-\subsection{Liens avec la recherche sur la fusion timbrale}
+\subsection{Connexion avec la recherche sur la fusion timbrale}
 
-Les convergences formantiques identifiées dans cette étude fournissent des
-corrélats acoustiques directs pour les phénomènes de fusion étudiés par Sandell
-\citep{Sandell1995}, Kendall et Carterette \citep{Kendall1993}, et Lembke et
-McAdams \citep{Lembke2017}. En particulier :
+Les convergences formantiques identifiées dans cette étude fournissent des corrélats
+acoustiques directs pour les phénomènes de fusion étudiés par Sandell \citep{Sandell1995},
+Kendall et Carterette \citep{Kendall1993}, et Lembke et McAdams \citep{Lembke2017}.
+Plus précisément :
 
 \begin{itemize}
-\item Le seuil de $\Delta \leq 80$~Hz pour la fusion correspond à une distance
-sur l'échelle de Bark de $\leq 0{,}7$~Bark à 500~Hz, cohérent avec les
-contraintes de bande critique sur l'intégration spectrale \citep{Zwicker1961}.
+\item Le seuil $\Delta \leq 80$~Hz pour la fusion correspond à une distance sur
+l'échelle Bark de $\leq 0,7$~Bark à 500~Hz, cohérent avec les contraintes de bande
+critique sur l'intégration spectrale \citep{Zwicker1961}.
 
-\item Le constat que les instruments à formants bas (cor, alto, basson dans la
-zone /o/) participent aux doublures les plus efficaces est cohérent avec la
-découverte de Sandell selon laquelle la fusion s'améliore avec des centroïdes
-composites plus bas.
+\item Le constat selon lequel les instruments à formants graves (cor, alto, basson dans
+la zone /o/) participent aux doublures les plus efficaces est cohérent avec
+l'observation de Sandell que la fusion s'améliore avec des centroïdes composites plus bas.
 
-\item L'effet de section (lissage des harmoniques supérieurs sans déplacement
-de $F_1$) fournit un mécanisme pour l'observation perceptive bien connue selon
-laquelle les sections orchestrales fusionnent mieux que les instruments
-solistes.
+\item L'effet de pupitre (lissage des harmoniques supérieurs sans déplacement de $F_1$)
+fournit un mécanisme à l'observation perceptive bien connue selon laquelle les pupitres
+orchestraux fusionnent mieux que les instruments solos.
 \end{itemize}
 
 \subsection{Limites}
@@ -722,54 +690,52 @@ solistes.
 Plusieurs limites doivent être reconnues :
 
 \begin{enumerate}
-\item \textbf{Couverture du corpus :} seul un saxophone (alto) est inclus. Les
+\item \textbf{Couverture du corpus :} un seul saxophone (alto) est inclus. Les
 saxophones soprano, ténor et baryton constituent une extension prioritaire.
 
 \item \textbf{Sources hétérogènes :} les échantillons Yan\_Adds proviennent de
-conditions d'enregistrement diverses. Bien que tous aient été enregistrés en
-conditions de studio ou anéchoïques, des variations de placement de microphone
-et de caractéristiques de salle pourraient introduire des biais systématiques.
-Le taux de concordance de 93\,\% avec des sources académiques indépendantes
-fournit une validation indirecte.
+conditions d'enregistrement diverses. Bien qu'ils aient tous été enregistrés en studio
+ou en chambre anéchoïque, des variations de placement de microphone et de
+caractéristiques de salle peuvent introduire des biais systématiques. Le taux de
+concordance de 93~\% avec des sources académiques indépendantes constitue une
+validation indirecte.
 
-\item \textbf{Absence de validation perceptive :} le lien entre convergence
-formantique et fusion perçue est soutenu par la littérature psychoacoustique
-existante \citep{Sandell1995,Lembke2017} mais n'a pas été testé
-expérimentalement avec les paires d'instruments et les valeurs de $\Delta$
-spécifiques rapportées ici. Une expérience d'écoute mesurant les jugements de
-fusion en fonction de la distance $F_1$ pour les doublures du
-tableau~\ref{tab:doublings} serait une prochaine étape précieuse.
+\item \textbf{Absence de validation perceptive :} le lien entre convergence formantique
+et fusion perçue est soutenu par la littérature psychoacoustique existante
+\citep{Sandell1995,Lembke2017} mais n'a pas été testé expérimentalement avec les
+paires d'instruments spécifiques et les valeurs de $\Delta$ reportées ici. Une
+expérience d'écoute mesurant les évaluations de fusion en fonction de la distance de
+$F_1$ pour les doublures du Tableau~\ref{tab:doublings} constituerait une étape
+suivante précieuse.
 
-\item \textbf{Tenues soutenues uniquement :} les transitoires d'attaque, les
-modes de jeu étendus et les dynamiques extrêmes, qui modifient radicalement le
-spectre, ne sont pas couverts. Des recherches antérieures ont montré que la
-similarité d'attaque est un prédicteur significatif de la fusion
-\citep{Sandell1995}, suggérant qu'un modèle complet de la fusion orchestrale
-devrait incorporer des caractéristiques temporelles aussi bien que spectrales.
+\item \textbf{Sons tenus uniquement :} les transitoires d'attaque, les techniques
+étendues et les nuances extrêmes, qui modifient radicalement le spectre, ne sont pas
+couverts. Des recherches antérieures ont montré que la similarité d'attaque est un
+prédicteur significatif de la fusion \citep{Sandell1995}, ce qui suggère qu'un modèle
+complet de la fusion orchestrale devrait incorporer des caractéristiques temporelles
+en plus des caractéristiques spectrales.
 
-\item \textbf{Sélection de bande pour le \textit{Fp} :} les bandes
-fréquentielles spécifiques par instrument ont été déterminées par analyse
-d'enveloppe spectrale et inspection visuelle, introduisant un degré de
-subjectivité. Une procédure d'optimisation automatisée (par exemple,
-minimisation de la variance inter-registres du centroïde) pourrait améliorer la
-reproductibilité.
+\item \textbf{Sélection de la bande pour \textit{Fp} :} les bandes de fréquences
+spécifiques aux instruments ont été déterminées par analyse d'enveloppe spectrale et
+inspection visuelle, introduisant un degré de subjectivité. Une procédure d'optimisation
+automatisée (par exemple, minimisant la variance inter-registre du centroïde) pourrait
+améliorer la reproductibilité.
 
-\item \textbf{Tests statistiques :} le taux de concordance (93\,\%) est un
-ratio simple. Les travaux futurs devraient inclure des intervalles de confiance
-par bootstrap pour les estimations de $F_1$ et \textit{Fp} et des tests de
-permutation pour la significativité du cluster /o/--/\aa/ par rapport à un
-modèle nul de formants distribués aléatoirement.
+\item \textbf{Tests statistiques :} le taux de concordance (93~\%) est un ratio simple.
+Des travaux futurs devraient inclure des intervalles de confiance bootstrappés pour
+les estimations de $F_1$ et \textit{Fp}, ainsi que des tests de permutation pour la
+significativité du cluster /o/--/\aa/ par rapport à un modèle nul de formants
+distribués aléatoirement.
 \end{enumerate}
 
 \subsection{Implications pour la composition}
 
-L'identification quantitative des familles formantiques transversales offre aux
-compositeurs un outil nouveau : la possibilité de prédire les fusions et
-complémentarités timbrales avant même d'écrire, en choisissant les instruments
-selon leur zone vocalique plutôt que selon leur famille organologique. Le seuil
-de $\Delta \leq 80$~Hz pour la fusion et de $\Delta \geq 200$~Hz pour
-l'enrichissement spectral fournit des critères opérationnels qui complètent,
-plutôt qu'ils ne remplacent, l'oreille du compositeur.
+L'identification quantitative des groupements formantiques inter-familles offre aux
+compositeurs un nouvel outil : la capacité à prédire les fusions et complémentarités
+timbrales avant l'écriture, en choisissant les instruments selon leur zone vocalique
+plutôt que selon leur famille organologique. Le seuil de $\Delta \leq 80$~Hz pour la
+fusion et de $\Delta \geq 200$~Hz pour l'enrichissement spectral fournit des critères
+opérationnels qui complètent, sans les remplacer, l'oreille du compositeur.
 
 % ============================================================
 % 10. CONCLUSION
@@ -778,29 +744,29 @@ plutôt qu'ils ne remplacent, l'oreille du compositeur.
 
 Cette étude établit que les doublures orchestrales classiques reposent sur des
 convergences formantiques mesurables. Le cluster de convergence /o/--/\aa/
-(377--506~Hz), regroupant 11 instruments de 4 familles, constitue le noyau
-acoustique de l'orchestre symphonique. L'introduction du \textit{Fp} (centroïde
-spectral à bande limitée) comme métrique timbrale, combinée à l'analyse par
-registre et à la validation multi-sources (93\,\% de concordance), fournit un
-cadre quantitatif reliant la tradition des traités d'orchestration à la
-littérature psychoacoustique sur la fusion timbrale.
+(377--506~Hz), regroupant 11~instruments de 4~familles, constitue le noyau acoustique
+de l'orchestre symphonique. L'introduction de \textit{Fp} (centroïde spectral à bande
+limitée) comme métrique timbrale, combinée à l'analyse registre par registre et à la
+validation multi-sources (concordance à 93~\%), fournit un cadre quantitatif reliant
+la tradition des traités d'orchestration avec la littérature psychoacoustique sur la
+fusion timbrale.
 
-Le document complet de référence, incluant les profils formantiques détaillés,
-les cartes spectrales vocaliques par registre et les matrices de convergence
-pour les 30 instruments, est disponible en ligne à l'adresse
+Le document de référence complet, incluant les profils formantiques détaillés, les
+cartes spectrales vocaliques registre par registre et les matrices de convergence pour
+les 30~instruments, est disponible en ligne à l'adresse
 \url{https://zseramnay.github.io/Orchestration/}.
 
 \subsection*{Déclaration de disponibilité des données}
-Toutes les données (fichiers CSV), scripts d'analyse (Python) et le document de
-référence complet sont publiquement accessibles à l'adresse
+L'ensemble des données (fichiers CSV), les scripts d'analyse (Python) et le document
+de référence complet sont librement accessibles à l'adresse
 \url{https://github.com/zseramnay/Orchestration}.
 
-\subsection*{Conflit d'intérêts}
-L'auteur déclare n'avoir aucun conflit d'intérêts.
+% \subsection*{Déclaration de conflits d'intérêts}
+% L'auteur déclare n'avoir aucun conflit d'intérêts.
 
-\subsection*{Remerciements}
-L'auteur remercie l'équipe Orchidea de l'IRCAM pour la mise à disposition de la
-base de données SOL2020.
+% \subsection*{Remerciements}
+% L'auteur remercie l'équipe IRCAM Orchidea d'avoir rendu la base de données SOL2020
+% disponible.
 
 % ============================================================
 % RÉFÉRENCES
@@ -821,14 +787,20 @@ Backus, J. (1969).
 
 \bibitem[Berlioz, 1844]{Berlioz1844}
 Berlioz, H. (1844/1855).
-\newblock \emph{Grand traité d'instrumentation et d'orchestration modernes}.
+\newblock \emph{Grand trait\'e d'instrumentation et d'orchestration modernes}.
 \newblock Schonenberger, Paris.
 
 \bibitem[Cella et~al., 2020]{Cella2020}
-Cella, C.-E., Musicé, E. et Musicé, C. (2020).
+Cella, C.-E., Ghisi, D., Music{\'e}, E., and Music{\'e}, C. (2020).
 \newblock OrchideaSOL: a dataset of extended instrumental techniques for
   computer-aided orchestration.
 \newblock In \emph{Proceedings of the International Computer Music Conference}.
+
+\bibitem[Cella et~al., 2021]{Cella2021}
+Cella, C.-E., Ghisi, D., Maresz, Y., Petrolati, A., Teiller, A., and
+  Esling, P. (2021).
+\newblock Dynamic computer-aided orchestration in practice with {O}rchidea.
+\newblock \emph{Computer Music Journal}, 45(4):40--56.
 
 \bibitem[Fant, 1960]{Fant1960}
 Fant, G. (1960).
@@ -838,17 +810,17 @@ Fant, G. (1960).
 \bibitem[Fletcher et Rossing, 1998]{Fletcher1998}
 Fletcher, N.~H. et Rossing, T.~D. (1998).
 \newblock \emph{The Physics of Musical Instruments}.
-\newblock Springer-Verlag, 2\textsuperscript{e} édition.
+\newblock Springer-Verlag, 2\ieme~édition.
 
 \bibitem[Gieseler et~al., 1985]{Gieseler1985}
-Gieseler, W., Lombardi, L. et Weyer, R.-D. (1985).
+Gieseler, W., Lombardi, L., et Weyer, R.-D. (1985).
 \newblock \emph{Instrumentation in der Musik des 20.\ Jahrhunderts}.
 \newblock Breitkopf \& H{\"a}rtel, Wiesbaden.
 
 \bibitem[Goodchild et McAdams, 2018]{Goodchild2018}
 Goodchild, M. et McAdams, S. (2018).
 \newblock Perceptual processes in orchestration.
-\newblock In Siedenburg, K., Saitis, C., McAdams, S., Popper, A.~N. et
+\newblock In Siedenburg, K., Saitis, C., McAdams, S., Popper, A.~N., et
   Fay, R.~R., éditeurs, \emph{Timbre: Acoustics, Perception, and Cognition},
   pages 247--271. Springer.
 
@@ -859,8 +831,8 @@ Grey, J.~M. (1977).
 
 \bibitem[{ISO/IEC}, 2002]{MPEG7}
 {ISO/IEC} (2002).
-\newblock {ISO/IEC 15938-4 : Information technology --- Multimedia content
-  description interface --- Part 4: Audio}.
+\newblock {ISO/IEC 15938-4: Technologies de l'information---Interface de
+  description de contenu multimédia---Partie 4 : Audio}.
 
 \bibitem[Kendall et Carterette, 1993]{Kendall1993}
 Kendall, R.~A. et Carterette, E.~C. (1993).
@@ -869,7 +841,7 @@ Kendall, R.~A. et Carterette, E.~C. (1993).
 
 \bibitem[Koechlin, 1943]{Koechlin1943}
 Koechlin, C. (1943).
-\newblock \emph{Traité de l'orchestration} (4 volumes).
+\newblock \emph{Trait\'e de l'orchestration} (4~volumes).
 \newblock Max Eschig, Paris.
 
 \bibitem[Lembke et McAdams, 2015]{Lembke2015}
@@ -880,13 +852,13 @@ Lembke, S.-A. et McAdams, S. (2015).
   Acoustics (ISMA)}.
 
 \bibitem[Lembke et~al., 2017]{Lembke2017}
-Lembke, S.-A., Parker, K., Narmour, E. et McAdams, S. (2017).
+Lembke, S.-A., Parker, K., Narmour, E., et McAdams, S. (2017).
 \newblock Predicting blend between orchestral timbres using generalized
   spectral-envelope descriptions.
 \newblock \emph{Journal of New Music Research}, 46(4):1--18.
 
 \bibitem[McAdams et~al., 1995]{McAdams1995}
-McAdams, S., Winsberg, S., Donnadieu, S., De~Soete, G. et Krimphoff, J.
+McAdams, S., Winsberg, S., Donnadieu, S., De~Soete, G., et Krimphoff, J.
   (1995).
 \newblock Perceptual scaling of synthesized musical timbres: Common dimensions,
   specificities, and latent subject classes.
@@ -901,15 +873,15 @@ McAdams, S. (2022).
 \bibitem[McCarty, 2003]{McCarty2003}
 McCarty, M. (2003).
 \newblock Vowel space chart for orchestral instruments.
-\newblock CCRMA, Stanford University.
+\newblock CCRMA, Université de Stanford.
 
 \bibitem[Meyer, 2009]{Meyer2009}
 Meyer, J. (2009).
 \newblock \emph{Acoustics and the Performance of Music}.
-\newblock Springer-Verlag, 5\textsuperscript{e} édition.
+\newblock Springer-Verlag, 5\ieme~édition.
 
 \bibitem[Peeters et~al., 2011]{Peeters2011}
-Peeters, G., Giordano, B.~L., Susini, P., Misdariis, N. et McAdams, S.
+Peeters, G., Giordano, B.~L., Susini, P., Misdariis, N., et McAdams, S.
   (2011).
 \newblock The {T}imbre {T}oolbox: Extracting audio descriptors from musical
   signals.
@@ -946,7 +918,7 @@ Tardieu, D. et McAdams, S. (2012).
 \bibitem[Zwicker et Fastl, 1999]{Zwicker1961}
 Zwicker, E. et Fastl, H. (1999).
 \newblock \emph{Psychoacoustics: Facts and Models}.
-\newblock Springer-Verlag, 3\textsuperscript{e} édition.
+\newblock Springer-Verlag, 3\ieme~édition.
 
 \end{thebibliography}
 
