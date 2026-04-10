@@ -130,6 +130,17 @@ TOC_STRUCTURE = [
     (1, "Bois",                                                 "env-bois"),
     (1, "Cuivres",                                              "env-cuivres"),
     (1, "Cordes",                                               "env-cordes"),
+
+    (0, "VIII. Étude du Volume — Koechlin",                     "viii-volume"),
+    (1, "Cadre théorique",                                      "vol-intro"),
+    (1, "Méthodologie : Indice de Volume",                      "vol-methodo"),
+    (1, "Indice de Volume par instrument",                      "vol-table"),
+    (1, "Effet des sourdines",                                  "vol-mutes"),
+    (1, "Matrice d'homogénéité (53×53)",                        "vol-homo"),
+    (1, "Plans orchestraux",                                    "vol-plans"),
+    (1, "Convergences par zone vocalique",                      "vol-zones"),
+    (2, "Tableau complet des convergences",                     "vol-conv-table"),
+    (1, "Découvertes au-delà du classicisme",                   "vol-discoveries"),
 ]
 
 # ═══════════════════════════════════════════════════════════
@@ -240,6 +251,7 @@ def get_section_body(script_name, tmp_dir):
         'build_cordes_html_docx.py':   'section_cordes_v6.html',
         'build_synthese_html_docx.py': 'section_synthese_v6.html',
         'build_envelopes_by_family_html_docx.py': 'section_enveloppes_v6.html',
+        'build_volume_html_docx.py':              'section_volume_v6.html',
     }
     out_filename = out_file_map[script_name]
     out_path = os.path.join(OUT_DIR, out_filename)
@@ -490,6 +502,7 @@ def build_html_complet():
         'build_cordes_html_docx.py',
         'build_synthese_html_docx.py',
         'build_envelopes_by_family_html_docx.py',
+        'build_volume_html_docx.py',
     ]
 
     # Générer chaque section
@@ -595,6 +608,15 @@ TOC_ENTRIES = [
     (2, "Tableau des doublures vérifiées",           "Tableau_des_doublures"),
     (2, "6 Principes d'orchestration acoustique",    "Principes_dorchestration"),
     (2, "Concordance multi-sources",                 "Concordance_multi_sources"),
+    (1, "VIII. Étude du Volume — Koechlin",          "VIII__Etude_du_Volume"),
+    (2, "Cadre théorique",                           "Cadre_theorique"),
+    (2, "Méthodologie : Indice de Volume",           "Methodologie_Volume"),
+    (2, "Indice de Volume par instrument",           "Indice_Volume_instruments"),
+    (2, "Effet des sourdines",                       "Effet_sourdines"),
+    (2, "Matrice d'homogénéité",                     "Matrice_homogeneite"),
+    (2, "Plans orchestraux",                         "Plans_orchestraux"),
+    (2, "Convergences par zone vocalique",           "Convergences_zones"),
+    (2, "Découvertes au-delà du classicisme",        "Decouvertes_classicisme"),
 ]
 
 
@@ -787,6 +809,7 @@ def build_docx_complet():
         ('build_cordes_html_docx.py',   'section_cordes_v6.docx'),
         ('build_synthese_html_docx.py', 'section_synthese_v6.docx'),
         ('build_envelopes_by_family_html_docx.py', 'section_enveloppes_v6.docx'),
+        ('build_volume_html_docx.py',              'section_volume_v6.docx'),
     ]
 
     # Régénérer toutes les sections (toujours, pour garantir la cohérence)
