@@ -66,15 +66,22 @@ def load_csv(filename):
 SORTABLE_CSS = """
 .sortable-table { border-collapse: collapse; width: 100%; font-size: 0.82em; }
 .sortable-table th, .sortable-table td { border: 1px solid #ccc; padding: 4px 7px; text-align: center; }
-.sortable-table th { background: #37474f; color: white; cursor: pointer; user-select: none; position: sticky; top: 0; }
+.sortable-table th { background: #37474f; color: white; cursor: pointer; user-select: none; position: sticky; top: 0; z-index: 2; }
 .sortable-table th:hover { background: #546e7a; }
 .sortable-table tr:nth-child(even) { background: #fafafa; }
 .sortable-table tr:hover { background: #e8f5e9; }
 .sortable-table .sort-arrow { font-size: 0.7em; margin-left: 3px; }
 .filter-input { width: 100%; box-sizing: border-box; padding: 3px 6px; margin: 6px 0;
                 border: 1px solid #ccc; border-radius: 4px; font-size: 0.9em; }
-.table-container { max-height: 600px; overflow-y: auto; border: 1px solid #ddd;
-                   border-radius: 6px; margin: 12px 0; }
+.table-scroll {
+  overflow: auto; border: 1px solid #ddd; border-radius: 6px; margin: 12px 0 20px 0;
+  position: relative; display: block; clear: both;
+}
+.table-scroll + * { clear: both; }
+.note-v4, .description, .doublures-box, .section-intro, .fp-explanation {
+  position: relative; clear: both; display: block;
+}
+h2, h3 { clear: both; }
 .cat-fondu { background: #c8e6c9 !important; }
 .cat-semi  { background: #fff9c4 !important; }
 .cat-conv  { background: #e1f5fe !important; }
@@ -113,9 +120,12 @@ function makeFilterable(inputId, tableId, colIdx) {
   const input = document.getElementById(inputId);
   const table = document.getElementById(tableId);
   if (!input || !table) return;
+  const container = table.closest('.table-scroll');
+  const origMaxH = container ? container.style.maxHeight : '';
   input.addEventListener('input', () => {
     const val = input.value.toLowerCase();
     const rows = table.querySelectorAll('tbody tr');
+    let visCount = 0;
     rows.forEach(r => {
       let match = false;
       if (colIdx === -1) {
@@ -124,7 +134,19 @@ function makeFilterable(inputId, tableId, colIdx) {
         match = r.cells[colIdx].textContent.toLowerCase().includes(val);
       }
       r.style.display = match ? '' : 'none';
+      if (match) visCount++;
     });
+    // Shrink container to fit filtered content, restore on clear
+    if (container) {
+      if (val === '') {
+        container.style.maxHeight = origMaxH;
+      } else {
+        // Let it auto-size: small result = small box, big result = capped
+        const rowH = 28; // approximate row height
+        const needed = Math.min(visCount * rowH + 50, window.innerHeight * 0.7);
+        container.style.maxHeight = needed + 'px';
+      }
+    }
   });
 }
 </script>
@@ -187,7 +209,7 @@ de la « taille » perçue d'un son :</p>
     html += '<h2 id="vol-table">Indice de Volume par instrument et registre</h2>\n'
     html += '<p>53 instruments × 193 registres. Cliquez sur un en-tête pour trier. Utilisez le filtre pour chercher.</p>\n'
     html += '<input type="text" class="filter-input" id="vol-filter" placeholder="Filtrer par instrument...">\n'
-    html += '<div class="table-container">\n'
+    html += '<div class="table-scroll" style="max-height:70vh;">\n'
     html += '<table class="sortable-table" id="vol-table-data">\n'
     html += '<thead><tr><th>Instrument</th><th>Registre</th><th>N</th><th>Centroïde (Hz)</th>'
     html += '<th>V₁</th><th>V₂</th><th>V₃</th><th>V₄</th>'
@@ -240,8 +262,8 @@ du profil MFCC (coefficients 1–12, distance cosinus) :</p>
     instrs = [r[''] for r in homo_data]
     html += '<p>Chercher une paire :</p>\n'
     html += '<input type="text" class="filter-input" id="homo-filter" placeholder="Filtrer (ex: Cor, Trombone)...">\n'
-    html += '<div class="table-container" style="max-height:700px;">\n'
-    html += '<table class="sortable-table" id="homo-table" style="font-size:0.7em;">\n'
+    html += '<div class="table-scroll" style="max-height:80vh; overflow-x:auto; overflow-y:auto;">\n'
+    html += '<table class="sortable-table" id="homo-table" style="font-size:0.7em; width:auto; min-width:900px;">\n'
     html += '<thead><tr><th></th>'
     for i in instrs:
         html += f'<th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">{fr(i)}</th>'
@@ -298,7 +320,7 @@ classe chaque paire en :</p>
     html += '</p>\n'
 
     html += '<input type="text" class="filter-input" id="plans-filter" placeholder="Filtrer (instrument, catégorie...)">\n'
-    html += '<div class="table-container" style="max-height:600px;">\n'
+    html += '<div class="table-scroll" style="max-height:70vh;">\n'
     html += '<table class="sortable-table" id="plans-table">\n'
     html += '<thead><tr><th>Instrument A</th><th>Instrument B</th>'
     html += '<th>F1 A</th><th>F1 B</th><th>ΔF1</th><th>Fp A</th><th>Fp B</th><th>ΔFp</th>'
@@ -368,7 +390,7 @@ le <em>sous-médium</em> de Koechlin, lieu de la <em>plénitude matérielle</em>
     # Convergences table (filterable)
     html += '<h3 id="vol-conv-table">Tableau complet des convergences</h3>\n'
     html += '<input type="text" class="filter-input" id="conv-filter" placeholder="Filtrer (instrument, zone...)">\n'
-    html += '<div class="table-container" style="max-height:500px;">\n'
+    html += '<div class="table-scroll" style="max-height:70vh;">\n'
     html += '<table class="sortable-table" id="conv-table">\n'
     html += '<thead><tr><th>Instrument A</th><th>Registre A</th><th>Instrument B</th><th>Registre B</th>'
     html += '<th>F1 A</th><th>F1 B</th><th>ΔF1</th><th>ΔFp</th><th>H</th><th>Zone</th></tr></thead>\n<tbody>\n'

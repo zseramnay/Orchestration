@@ -446,6 +446,26 @@ img[src*="carte_"] { max-width: 51%; }
 .doc-header h1 { color: white; border: none; margin: 0 0 10px 0; font-size: 1.9em; }
 .doc-header .subtitle { color: #b3c5ff; font-size: 1.02em; margin: 3px 0; }
 .doc-header .meta { color: #90a4c8; font-size: 0.86em; margin-top: 14px; }
+
+/* ─── Section VIII : Volume / Homogénéité ─── */
+.sortable-table { border-collapse: collapse; width: 100%; font-size: 0.82em; }
+.sortable-table th, .sortable-table td { border: 1px solid #ccc; padding: 4px 7px; text-align: center; }
+.sortable-table th { background: #37474f; color: white; cursor: pointer; user-select: none; position: sticky; top: 0; z-index: 2; }
+.sortable-table th:hover { background: #546e7a; }
+.sortable-table tr:nth-child(even) { background: #fafafa; }
+.sortable-table tr:hover { background: #e8f5e9; }
+.sortable-table .sort-arrow { font-size: 0.7em; margin-left: 3px; }
+.filter-input { width: 100%; box-sizing: border-box; padding: 3px 6px; margin: 6px 0;
+                border: 1px solid #ccc; border-radius: 4px; font-size: 0.9em; }
+.table-scroll {
+  overflow: auto; border: 1px solid #ddd; border-radius: 6px; margin: 12px 0 20px 0;
+  position: relative; display: block; clear: both;
+}
+.table-scroll + * { clear: both; }
+.cat-fondu { background: #c8e6c9 !important; }
+.cat-semi  { background: #fff9c4 !important; }
+.cat-conv  { background: #e1f5fe !important; }
+.cat-het   { background: #fff !important; }
 """
 
 # ─── JavaScript sidebar ──────────────────────────────────────

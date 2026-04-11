@@ -162,6 +162,26 @@ img[src*="carte_"] { max-width: 51%; }
 .doc-header .subtitle { color: #b3c5ff; font-size: 1.02em; margin: 3px 0; }
 .doc-header .meta { color: #90a4c8; font-size: 0.86em; margin-top: 14px; }
 
+/* ─── Section VIII : Volume / Homogénéité ─── */
+.sortable-table { border-collapse: collapse; width: 100%; font-size: 0.82em; }
+.sortable-table th, .sortable-table td { border: 1px solid #ccc; padding: 4px 7px; text-align: center; }
+.sortable-table th { background: #37474f; color: white; cursor: pointer; user-select: none; position: sticky; top: 0; z-index: 2; }
+.sortable-table th:hover { background: #546e7a; }
+.sortable-table tr:nth-child(even) { background: #fafafa; }
+.sortable-table tr:hover { background: #e8f5e9; }
+.sortable-table .sort-arrow { font-size: 0.7em; margin-left: 3px; }
+.filter-input { width: 100%; box-sizing: border-box; padding: 3px 6px; margin: 6px 0;
+                border: 1px solid #ccc; border-radius: 4px; font-size: 0.9em; }
+.table-scroll {
+  overflow: auto; border: 1px solid #ddd; border-radius: 6px; margin: 12px 0 20px 0;
+  position: relative; display: block; clear: both;
+}
+.table-scroll + * { clear: both; }
+.cat-fondu { background: #c8e6c9 !important; }
+.cat-semi  { background: #fff9c4 !important; }
+.cat-conv  { background: #e1f5fe !important; }
+.cat-het   { background: #fff !important; }
+
 </style>
 </head>
 <body>
@@ -1947,7 +1967,7 @@ de la « taille » perçue d'un son :</p>
 <h2 id="vol-table">Indice de Volume par instrument et registre</h2>
 <p>53 instruments × 193 registres. Cliquez sur un en-tête pour trier. Utilisez le filtre pour chercher.</p>
 <input type="text" class="filter-input" id="vol-filter" placeholder="Filtrer par instrument...">
-<div class="table-container">
+<div class="table-scroll" style="max-height:70vh;">
 <table class="sortable-table" id="vol-table-data">
 <thead><tr><th>Instrument</th><th>Registre</th><th>N</th><th>Centroïde (Hz)</th><th>V₁</th><th>V₂</th><th>V₃</th><th>V₄</th><th>Volume 𝒱</th><th>Densité 𝒟</th></tr></thead>
 <tbody>
@@ -2174,8 +2194,8 @@ du profil MFCC (coefficients 1–12, distance cosinus) :</p>
 </div>
 <p>Chercher une paire :</p>
 <input type="text" class="filter-input" id="homo-filter" placeholder="Filtrer (ex: Cor, Trombone)...">
-<div class="table-container" style="max-height:700px;">
-<table class="sortable-table" id="homo-table" style="font-size:0.7em;">
+<div class="table-scroll" style="max-height:80vh; overflow-x:auto; overflow-y:auto;">
+<table class="sortable-table" id="homo-table" style="font-size:0.7em; width:auto; min-width:900px;">
 <thead><tr><th></th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Clarinette basse</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Flûte basse</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Trombone basse</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Tuba basse</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Tuba basse sourd.</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Basson</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Basson sourd.</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Clarinette Sib</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Clarinette Mib</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Contrebasse</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Cb sourd.</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Clarinette cb</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Ens. contrebasses</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Flûte contrebasse</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Tuba contrebasse</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Contrebasson</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Cor anglais</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Flûte</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Guitare</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Harpe</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Cor</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Cor sourd.</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Marimba</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Hautbois</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Hautbois sourd.</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Piccolo</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Saxophone alto</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Trombone</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Tbn cup</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Tbn harmon</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Tbn straight</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Tbn wah</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Trompette</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Trp cup</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Trp harmon</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Trp straight</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Trp wah</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Vibraphone</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Alto</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Alto sourd.</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Alto piombo</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Ens. altos</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Ens. alt. sourd.</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Violon</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Violon sourd.</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Violon piombo</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Ens. violons</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Ens. vn sourd.</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Violoncelle</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Vc sourd.</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Vc piombo</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Ens. violoncelles</th><th style="writing-mode:vertical-rl;transform:rotate(180deg);padding:2px;max-width:18px;">Ens. vc sourd.</th></tr></thead>
 <tbody>
 <tr><td style="text-align:left;white-space:nowrap;font-weight:bold;">Clarinette basse</td><td style="background:#ddd;">—</td><td data-val="0.986" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Flûte basse = 0.986">0.99</td><td data-val="0.929" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Trombone basse = 0.929">0.93</td><td data-val="0.846" style="background:rgb(255,246,243);font-size:0.85em;" title="Clarinette basse × Tuba basse = 0.846">0.85</td><td data-val="0.927" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Tuba basse sourd. = 0.927">0.93</td><td data-val="0.938" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Basson = 0.938">0.94</td><td data-val="0.918" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Basson sourd. = 0.918">0.92</td><td data-val="0.995" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Clarinette Sib = 0.995">0.99</td><td data-val="0.824" style="background:rgb(255,245,241);font-size:0.85em;" title="Clarinette basse × Clarinette Mib = 0.824">0.82</td><td data-val="0.871" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Contrebasse = 0.871">0.87</td><td data-val="0.884" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Cb sourd. = 0.884">0.88</td><td data-val="0.977" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Clarinette cb = 0.977">0.98</td><td data-val="0.877" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Ens. contrebasses = 0.877">0.88</td><td data-val="0.973" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Flûte contrebasse = 0.973">0.97</td><td data-val="0.854" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Tuba contrebasse = 0.854">0.85</td><td data-val="0.901" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Contrebasson = 0.901">0.90</td><td data-val="0.799" style="background:rgb(255,243,239);font-size:0.85em;" title="Clarinette basse × Cor anglais = 0.799">0.80</td><td data-val="0.860" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Flûte = 0.860">0.86</td><td data-val="0.922" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Guitare = 0.922">0.92</td><td data-val="0.873" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Harpe = 0.873">0.87</td><td data-val="0.961" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Cor = 0.961">0.96</td><td data-val="0.880" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Cor sourd. = 0.880">0.88</td><td data-val="0.966" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Marimba = 0.966">0.97</td><td data-val="0.710" style="background:rgb(255,239,233);font-size:0.85em;" title="Clarinette basse × Hautbois = 0.710">0.71</td><td data-val="0.739" style="background:rgb(255,240,235);font-size:0.85em;" title="Clarinette basse × Hautbois sourd. = 0.739">0.74</td><td data-val="0.521" style="background:#fff;font-size:0.85em;" title="Clarinette basse × Piccolo = 0.521">0.52</td><td data-val="0.765" style="background:rgb(255,242,237);font-size:0.85em;" title="Clarinette basse × Saxophone alto = 0.765">0.77</td><td data-val="0.964" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Trombone = 0.964">0.96</td><td data-val="0.918" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Tbn cup = 0.918">0.92</td><td data-val="0.980" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Tbn harmon = 0.980">0.98</td><td data-val="0.970" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Tbn straight = 0.970">0.97</td><td data-val="0.958" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Tbn wah = 0.958">0.96</td><td data-val="0.781" style="background:rgb(255,242,238);font-size:0.85em;" title="Clarinette basse × Trompette = 0.781">0.78</td><td data-val="0.578" style="background:#fff;font-size:0.85em;" title="Clarinette basse × Trp cup = 0.578">0.58</td><td data-val="0.581" style="background:#fff;font-size:0.85em;" title="Clarinette basse × Trp harmon = 0.581">0.58</td><td data-val="0.669" style="background:#fff;font-size:0.85em;" title="Clarinette basse × Trp straight = 0.669">0.67</td><td data-val="0.843" style="background:rgb(255,246,243);font-size:0.85em;" title="Clarinette basse × Trp wah = 0.843">0.84</td><td data-val="0.922" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Vibraphone = 0.922">0.92</td><td data-val="0.903" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Alto = 0.903">0.90</td><td data-val="0.961" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Alto sourd. = 0.961">0.96</td><td data-val="0.805" style="background:rgb(255,244,240);font-size:0.85em;" title="Clarinette basse × Alto piombo = 0.805">0.81</td><td data-val="0.940" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Ens. altos = 0.940">0.94</td><td data-val="0.979" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Ens. alt. sourd. = 0.979">0.98</td><td data-val="0.832" style="background:rgb(255,245,242);font-size:0.85em;" title="Clarinette basse × Violon = 0.832">0.83</td><td data-val="0.850" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Violon sourd. = 0.850">0.85</td><td data-val="0.690" style="background:#fff;font-size:0.85em;" title="Clarinette basse × Violon piombo = 0.690">0.69</td><td data-val="0.859" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Ens. violons = 0.859">0.86</td><td data-val="0.894" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Ens. vn sourd. = 0.894">0.89</td><td data-val="0.980" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Violoncelle = 0.980">0.98</td><td data-val="0.927" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Vc sourd. = 0.927">0.93</td><td data-val="0.978" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Vc piombo = 0.978">0.98</td><td data-val="0.960" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Ens. violoncelles = 0.960">0.96</td><td data-val="0.948" style="background:rgb(128,251,128);font-size:0.85em;" title="Clarinette basse × Ens. vc sourd. = 0.948">0.95</td></tr>
@@ -2255,7 +2275,7 @@ classe chaque paire en :</p>
 </div>
 <p><b>1 378 paires analysées :</b> 11 CONVERGENT · 148 FONDU · 160 FONDU_Fp · 476 HÉTÉROGÈNE · 95 SEMI-FONDU · 488 SEMI-FONDU_H · </p>
 <input type="text" class="filter-input" id="plans-filter" placeholder="Filtrer (instrument, catégorie...)">
-<div class="table-container" style="max-height:600px;">
+<div class="table-scroll" style="max-height:70vh;">
 <table class="sortable-table" id="plans-table">
 <thead><tr><th>Instrument A</th><th>Instrument B</th><th>F1 A</th><th>F1 B</th><th>ΔF1</th><th>Fp A</th><th>Fp B</th><th>ΔFp</th><th>H</th><th>Fusion</th><th>Catégorie</th></tr></thead>
 <tbody>
@@ -3676,7 +3696,7 @@ le <em>sous-médium</em> de Koechlin, lieu de la <em>plénitude matérielle</em>
 </div>
 <h3 id="vol-conv-table">Tableau complet des convergences</h3>
 <input type="text" class="filter-input" id="conv-filter" placeholder="Filtrer (instrument, zone...)">
-<div class="table-container" style="max-height:500px;">
+<div class="table-scroll" style="max-height:70vh;">
 <table class="sortable-table" id="conv-table">
 <thead><tr><th>Instrument A</th><th>Registre A</th><th>Instrument B</th><th>Registre B</th><th>F1 A</th><th>F1 B</th><th>ΔF1</th><th>ΔFp</th><th>H</th><th>Zone</th></tr></thead>
 <tbody>
@@ -4948,9 +4968,12 @@ function makeFilterable(inputId, tableId, colIdx) {
   const input = document.getElementById(inputId);
   const table = document.getElementById(tableId);
   if (!input || !table) return;
+  const container = table.closest('.table-scroll');
+  const origMaxH = container ? container.style.maxHeight : '';
   input.addEventListener('input', () => {
     const val = input.value.toLowerCase();
     const rows = table.querySelectorAll('tbody tr');
+    let visCount = 0;
     rows.forEach(r => {
       let match = false;
       if (colIdx === -1) {
@@ -4959,7 +4982,19 @@ function makeFilterable(inputId, tableId, colIdx) {
         match = r.cells[colIdx].textContent.toLowerCase().includes(val);
       }
       r.style.display = match ? '' : 'none';
+      if (match) visCount++;
     });
+    // Shrink container to fit filtered content, restore on clear
+    if (container) {
+      if (val === '') {
+        container.style.maxHeight = origMaxH;
+      } else {
+        // Let it auto-size: small result = small box, big result = capped
+        const rowH = 28; // approximate row height
+        const needed = Math.min(visCount * rowH + 50, window.innerHeight * 0.7);
+        container.style.maxHeight = needed + 'px';
+      }
+    }
   });
 }
 </script>
