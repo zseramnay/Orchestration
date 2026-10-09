@@ -1,9 +1,119 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-  <meta http-equiv="refresh" content="0; url='Etude-Formants/Versions-html-and-docx/REFERENCE_FORMANTIQUE_COMPLETE.html'">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orchestration — Études du timbre</title>
+<style>
+:root {
+  --bg: #f5f5f5; --card: #ffffff; --text: #333; --muted: #666; --border: #ddd;
+  --formant: #1a237e; --formant-soft: #e8eaf6;
+  --volume: #6a1b9a; --volume-soft: #f3e5f5;
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 15px; line-height: 1.55;
+}
+.wrap { max-width: 1040px; margin: 0 auto; padding: 32px 16px 48px; }
+header.hero {
+  background: linear-gradient(135deg, #1a1a2e 0%, #283593 55%, #6a1b9a 100%);
+  color: #fff; border-radius: 10px; padding: 32px 36px; margin-bottom: 28px;
+}
+header.hero h1 { margin: 0 0 8px; font-size: 1.9em; }
+header.hero p { margin: 4px 0; color: #d0d6ff; }
+.studies { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.study {
+  background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+  padding: 22px 24px; display: flex; flex-direction: column;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+.study.formant { border-top: 6px solid var(--formant); }
+.study.volume  { border-top: 6px solid var(--volume); }
+.study h2 { margin: 0 0 4px; font-size: 1.4em; }
+.study.formant h2 { color: var(--formant); }
+.study.volume h2  { color: var(--volume); }
+.study .tag { color: var(--muted); font-size: 0.9em; margin: 0 0 12px; }
+.study ol { margin: 8px 0 16px; padding-left: 26px; font-size: 0.93em; }
+.study ol li { margin: 2px 0; }
+.study ol a { color: inherit; text-decoration: none; border-bottom: 1px dotted #aaa; }
+.study ol a:hover { border-bottom-style: solid; }
+.study .open {
+  margin-top: auto; align-self: flex-start; padding: 8px 16px; border-radius: 6px;
+  color: #fff; text-decoration: none; font-weight: 600;
+}
+.study.formant .open { background: var(--formant); }
+.study.volume .open  { background: var(--volume); }
+.study .formats { font-size: 0.82em; color: var(--muted); margin-top: 10px; }
+.bridge {
+  margin: 24px 0 0; padding: 14px 18px; border-radius: 8px;
+  background: var(--card); border: 1px solid var(--border); font-size: 0.93em;
+}
+footer { margin-top: 28px; font-size: 0.82em; color: var(--muted); }
+footer a { color: var(--muted); }
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #12121c; --card: #1c1c2a; --text: #e0e0e0; --muted: #9a9ab0; --border: #33334a;
+    --formant: #7986cb; --volume: #ba68c8;
+  }
+  .study.formant .open { background: #3949ab; }
+  .study.volume .open  { background: #8e24aa; }
+}
+</style>
 </head>
 <body>
-  <p>Redirection en cours...</p>
+<div class="wrap">
+
+<header class="hero">
+  <h1>Orchestration — Études du timbre instrumental</h1>
+  <p>Analyse spectrale des sons de l'orchestre (SOL2020 / Orchidea, VSL, Con Timbre, échantillons personnels)
+     et mise en perspective avec les traités d'orchestration.</p>
+</header>
+
+<section class="studies">
+
+  <article class="study formant">
+    <h2>Étude formantique</h2>
+    <p class="tag">Référence formantique de l'orchestre — formants F1–F4, formant principal Fp, convergences et doublures.</p>
+    <ol type="I">
+      <li><a href="travail%20fall%202026/Etude-formantique/ETUDE_FORMANTIQUE.html#i-introduction">Introduction et méthodologie</a></li>
+      <li><a href="travail%20fall%202026/Etude-formantique/ETUDE_FORMANTIQUE.html#ii-bois">Les Bois</a></li>
+      <li><a href="travail%20fall%202026/Etude-formantique/ETUDE_FORMANTIQUE.html#iii-cuivres">Les Cuivres</a></li>
+      <li><a href="travail%20fall%202026/Etude-formantique/ETUDE_FORMANTIQUE.html#iv-saxophones">Les Saxophones</a></li>
+      <li><a href="travail%20fall%202026/Etude-formantique/ETUDE_FORMANTIQUE.html#v-cordes">Les Cordes</a></li>
+      <li><a href="travail%20fall%202026/Etude-formantique/ETUDE_FORMANTIQUE.html#vi-synthese">Synthèse — convergences formantiques</a></li>
+      <li><a href="travail%20fall%202026/Etude-formantique/ETUDE_FORMANTIQUE.html#vii-enveloppes">Enveloppes spectrales par instrument</a></li>
+    </ol>
+    <a class="open" href="travail%20fall%202026/Etude-formantique/ETUDE_FORMANTIQUE.html">Ouvrir l'étude formantique →</a>
+    <p class="formats">HTML · DOCX à venir</p>
+  </article>
+
+  <article class="study volume">
+    <h2>Étude volumique</h2>
+    <p class="tag">Attributs du timbre selon Koechlin — volume, densité, homogénéité, plans orchestraux.</p>
+    <ol type="I">
+      <li><a href="travail%20fall%202026/Etude-volumique/ETUDE_VOLUMIQUE.html#vol-intro">Cadre théorique</a></li>
+      <li><a href="travail%20fall%202026/Etude-volumique/ETUDE_VOLUMIQUE.html#vol-methodo">Méthodologie : indice de volume</a></li>
+      <li><a href="travail%20fall%202026/Etude-volumique/ETUDE_VOLUMIQUE.html#vol-table">Indice de volume par instrument</a></li>
+      <li><a href="travail%20fall%202026/Etude-volumique/ETUDE_VOLUMIQUE.html#vol-mutes">Effet des sourdines</a></li>
+      <li><a href="travail%20fall%202026/Etude-volumique/ETUDE_VOLUMIQUE.html#vol-homo">Matrice d'homogénéité (51 × 51)</a></li>
+      <li><a href="travail%20fall%202026/Etude-volumique/ETUDE_VOLUMIQUE.html#vol-plans">Plans orchestraux</a></li>
+      <li><a href="travail%20fall%202026/Etude-volumique/ETUDE_VOLUMIQUE.html#vol-zones">Convergences par zone vocalique</a></li>
+      <li><a href="travail%20fall%202026/Etude-volumique/ETUDE_VOLUMIQUE.html#vol-discoveries">Découvertes au-delà du classicisme</a></li>
+    </ol>
+    <a class="open" href="travail%20fall%202026/Etude-volumique/ETUDE_VOLUMIQUE.html">Ouvrir l'étude volumique →</a>
+    <p class="formats">HTML · DOCX à venir</p>
+  </article>
+
+</section>
+
+<p class="bridge">Les deux études se croisent : la matrice d'homogénéité de l'étude volumique est confrontée
+au cluster de convergence formantique (450–502 Hz) mis en évidence dans l'étude formantique.</p>
+
+<footer>
+  <p>Archive : <a href="Etude-Formants/Versions-html-and-docx/REFERENCE_FORMANTIQUE_COMPLETE.html">document complet v6 (avril 2026, formants + volume réunis)</a></p>
+</footer>
+
+</div>
 </body>
 </html>
