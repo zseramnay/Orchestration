@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>F1 voyelles françaises</title>
+<style>
+:root{--surface-0:#f6f5f1;--surface-1:#fcfcfb;--surface-2:#ffffff;--text-primary:#0b0b0b;--text-secondary:#52514e;--text-muted:#898781;--border:rgba(11,11,11,.10);--border-strong:rgba(11,11,11,.18);--font-sans:system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;--font-voice:"Charis SIL","Doulos SIL","Times New Roman",Georgia,serif}
+@media (prefers-color-scheme:dark){:root{--surface-0:#141413;--surface-1:#1a1a19;--surface-2:#232321;--text-primary:#f0efec;--text-secondary:#c3c2b7;--text-muted:#898781;--border:rgba(255,255,255,.10);--border-strong:rgba(255,255,255,.18)}}
+body{margin:0;background:var(--surface-0);color:var(--text-primary);font-family:var(--font-sans);font-size:15px;line-height:1.6}
+main{max-width:760px;margin:0 auto;padding:24px 16px 40px}
+h1{font-size:20px;font-weight:500;margin:0 0 4px}
+.sub{color:var(--text-secondary);font-size:13px;margin:0 0 16px}
+select{font:inherit;font-size:13px;color:var(--text-primary);background:var(--surface-2);border:.5px solid var(--border-strong);border-radius:8px;padding:4px 10px}
+input[type=checkbox]{accent-color:#2a78d6}
+.card{background:var(--surface-2);border:.5px solid var(--border);border-radius:12px;padding:14px 16px}
+</style>
+</head>
+<body>
+<main>
+<h1>Voyelles orales du français — F1 seul</h1>
+<p class="sub">Classement par aperture. Une ligne par voyelle, un couloir par voix : aucun point ne masque un autre.</p>
+<div class="card">
+<div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;font-size:13px;color:var(--text-secondary);margin:0 0 8px;">
+  <label style="display:flex;align-items:center;gap:6px"><input type="checkbox" class="sp" value="H" checked> Homme</label>
+  <label style="display:flex;align-items:center;gap:6px"><input type="checkbox" class="sp" value="F" checked> Femme</label>
+  <label style="display:flex;align-items:center;gap:6px"><input type="checkbox" class="sp" value="E" checked> Enfant (est.)</label>
+  <label style="display:flex;align-items:center;gap:6px"><input type="checkbox" id="bk"> Échelle Bark</label>
+  <label style="display:flex;align-items:center;gap:6px">Étiquettes
+    <select id="lb"><option value="hz">Hz</option><option value="bk">Bark</option><option value="nt">Note</option><option value="no">Aucune</option></select></label>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:16px;font-size:12px;color:var(--text-secondary);margin-bottom:6px;" id="leg"></div>
+<svg id="pl" viewBox="0 0 680 560" width="100%" style="display:block;" role="img" aria-label="F1 des dix voyelles orales du français par aperture"></svg>
+<p id="info" style="font-size:13px;color:var(--text-secondary);margin:6px 0 0;min-height:20px;">Survolez un point pour le détail.</p>
+<p style="font-size:12px;color:var(--text-muted);margin:4px 0 0;line-height:1.5;">Homme et femme : Calliope (Tubach, 1989). Enfant : extrapolation (femme × 1,15), non mesurée. Note : convention française (La3 = 440 Hz), écart en cents.</p>
+</div>
+</main>
+<script>
+const D={
+H:{i:308,e:365,ɛ:530,a:684,y:300,ø:381,œ:517,u:315,o:383,ɔ:531},
+F:{i:306,e:417,ɛ:660,a:788,y:305,ø:469,œ:647,u:311,o:461,ɔ:634}};
+D.E={};for(const v in D.F)D.E[v]=Math.round(D.F[v]*1.15/5)*5;
+const G=[{n:'Fermées',v:['i','y','u']},{n:'Mi-fermées',v:['e','ø','o']},{n:'Mi-ouvertes',v:['ɛ','œ','ɔ']},{n:'Ouverte',v:['a']}];
+const C={i:'#2a78d6',e:'#2a78d6',ɛ:'#2a78d6',a:'#2a78d6',y:'#1baf7a',ø:'#1baf7a',œ:'#1baf7a',u:'#eb6834',o:'#eb6834',ɔ:'#eb6834'};
+const ex={i:'vie',e:'été',ɛ:'fête',a:'patte',y:'lune',ø:'feu',œ:'peur',u:'tout',o:'eau',ɔ:'or'};
+const SPN={H:'Homme',F:'Femme',E:'Enfant (est.)'};
+const bark=f=>26.81*f/(1960+f)-0.53, hz=z=>1960*(z+0.53)/(26.28-z), fr=n=>n.toFixed(1).replace('.',',');
+const NN=['Do','Do♯','Ré','Ré♯','Mi','Fa','Fa♯','Sol','Sol♯','La','La♯','Si'];
+function note(f){const m=69+12*Math.log2(f/440),r=Math.round(m),c=Math.round((m-r)*100);return NN[((r%12)+12)%12]+(Math.floor(r/12)-2)+(c===0?'':(c>0?' +':' −')+Math.abs(c)+'c');}
+const W=680,L=128,R=24,T=14,RH=60,GG=14,AX=50;
+const svg=document.getElementById('pl');
+function mk(sp,x,y,c){
+ if(sp==='H')return `<circle cx="${x}" cy="${y}" r="5.5" fill="${c}" stroke="var(--surface-2)" stroke-width="1.5"/>`;
+ if(sp==='F')return `<circle cx="${x}" cy="${y}" r="5" fill="var(--surface-2)" stroke="${c}" stroke-width="2"/>`;
+ return `<rect x="${x-4.5}" y="${y-4.5}" width="9" height="9" transform="rotate(45 ${x} ${y})" fill="var(--surface-2)" stroke="${c}" stroke-width="1.8"/>`;}
+function draw(){
+ const isB=document.getElementById('bk').checked, lm=document.getElementById('lb').value;
+ const sps=[...document.querySelectorAll('.sp')].filter(c=>c.checked).map(c=>c.value);
+ const tr=isB?bark:(f=>f), x0=tr(200),x1=tr(1000);
+ const XB=z=>L+(z-x0)/(x1-x0)*(W-L-R), X=f=>XB(tr(f));
+ const Hh=T+10*RH+3*GG+AX; svg.setAttribute('viewBox',`0 0 ${W} ${Hh}`);
+ let g='',m='',lab='',y=T;
+ const bot=Hh-AX+6;
+ if(isB){for(let z=2;z<=8;z++){const x=XB(z);g+=`<line x1="${x}" y1="${T}" x2="${x}" y2="${bot}" stroke="var(--border)"/><text x="${x}" y="${bot+15}" text-anchor="middle" style="font-size:11px;fill:var(--text-muted)">${z}</text><text x="${x}" y="${bot+28}" text-anchor="middle" style="font-size:11px;fill:var(--text-muted)">${Math.round(hz(z)/10)*10}</text>`;}}
+ else{for(let f=200;f<=1000;f+=100){const x=X(f);g+=`<line x1="${x}" y1="${T}" x2="${x}" y2="${bot}" stroke="var(--border)"/><text x="${x}" y="${bot+15}" text-anchor="middle" style="font-size:11px;fill:var(--text-muted)">${f}</text>`;}}
+ g+=`<text x="${(L+W-R)/2}" y="${Hh-4}" text-anchor="middle" style="font-size:12px;fill:var(--text-secondary)">F1 ${isB?'(Bark, Hz en dessous)':'(Hz)'} — fermée ← → ouverte</text>`;
+ for(const gr of G){
+  const gy0=y;
+  for(const v of gr.v){
+   const lanes=sps.length||1, lh=RH/(lanes+1);
+   g+=`<text x="${L-44}" y="${y+RH/2+6}" text-anchor="middle" style="font-size:17px;font-family:var(--font-voice);fill:${C[v]}">${v}</text><text x="${L-10}" y="${y+RH/2+4}" text-anchor="end" style="font-size:11px;fill:var(--text-muted)">${ex[v]}</text>`;
+   const pts=sps.map((s,i)=>({s,f:D[s][v],x:X(D[s][v]),y:y+lh*(i+1)}));
+   if(pts.length>1)m+=`<polyline points="${pts.map(p=>p.x+','+p.y).join(' ')}" fill="none" stroke="${C[v]}" stroke-width="1" opacity="0.45"/>`;
+   for(const p of pts){
+    const tip=`/${v}/ « ${ex[v]} » — ${SPN[p.s]} : F1 ${p.f} Hz · ${fr(bark(p.f))} Bark · ${note(p.f)}`;
+    m+=`<g data-t="${tip}"><title>${tip}</title>${mk(p.s,p.x,p.y,C[v])}<circle cx="${p.x}" cy="${p.y}" r="9" fill="transparent"/></g>`;
+    if(lm!=='no'){const t=lm==='hz'?p.f+' Hz':lm==='bk'?fr(bark(p.f)):note(p.f),w=t.length*6.1+8,right=p.x+10+w<=W-R;
+     const lx=right?p.x+10:p.x-10-w;
+     lab+=`<rect x="${lx}" y="${p.y-6.5}" width="${w}" height="13" rx="3" fill="var(--surface-1)" stroke="var(--border)" stroke-width="0.5"/><text x="${lx+w/2}" y="${p.y+4}" text-anchor="middle" style="font-size:11px;fill:var(--text-secondary);font-variant-numeric:tabular-nums;pointer-events:none">${t}</text>`;}}
+   y+=RH;}
+  g+=`<rect x="${L}" y="${gy0}" width="${W-L-R}" height="${y-gy0}" fill="var(--surface-1)" opacity="0.5"/><line x1="${L}" y1="${gy0}" x2="${W-R}" y2="${gy0}" stroke="var(--border-strong)" stroke-width="0.5"/>`;
+  g+=`<text transform="translate(14 ${(gy0+y)/2}) rotate(-90)" text-anchor="middle" style="font-size:11px;fill:var(--text-secondary)">${gr.n}</text>`;
+  y+=GG;}
+ svg.innerHTML=`<g>${g}</g><g>${m}</g><g>${lab}</g>`;
+ svg.querySelectorAll('g[data-t]').forEach(e=>{e.onmouseenter=()=>document.getElementById('info').textContent=e.dataset.t;});
+ const sw=s=>`<svg width="14" height="14" viewBox="0 0 14 14" style="vertical-align:-2px">${mk(s,7,7,'#888780')}</svg>`;
+ let lg=sps.map(s=>`<span style="display:flex;align-items:center;gap:5px">${sw(s)}${SPN[s]}</span>`).join('');
+ lg+=`<span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:2px;background:#2a78d6"></span>Antérieures étirées</span><span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:2px;background:#1baf7a"></span>Antérieures arrondies</span><span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:2px;background:#eb6834"></span>Postérieures</span>`;
+ document.getElementById('leg').innerHTML=lg;
+}
+document.querySelectorAll('.sp,#bk,#lb').forEach(e=>e.onchange=draw);
+draw();
+</script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plan F1–F2 voyelles françaises</title>
+<style>
+:root{--surface-0:#f6f5f1;--surface-1:#fcfcfb;--surface-2:#ffffff;--text-primary:#0b0b0b;--text-secondary:#52514e;--text-muted:#898781;--border:rgba(11,11,11,.10);--border-strong:rgba(11,11,11,.18);--border-stronger:rgba(11,11,11,.45);--font-sans:system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;--font-voice:"Charis SIL","Doulos SIL","Times New Roman",Georgia,serif}
+@media (prefers-color-scheme:dark){:root{--surface-0:#141413;--surface-1:#1a1a19;--surface-2:#232321;--text-primary:#f0efec;--text-secondary:#c3c2b7;--text-muted:#898781;--border:rgba(255,255,255,.10);--border-strong:rgba(255,255,255,.18);--border-stronger:rgba(255,255,255,.45)}}
+body{margin:0;background:var(--surface-0);color:var(--text-primary);font-family:var(--font-sans);font-size:15px;line-height:1.6}
+main{max-width:760px;margin:0 auto;padding:24px 16px 40px}
+h1{font-size:20px;font-weight:500;margin:0 0 4px}
+.sub{color:var(--text-secondary);font-size:13px;margin:0 0 16px}
+button,select{font:inherit;font-size:13px;color:var(--text-primary);background:var(--surface-2);border:.5px solid var(--border-strong);border-radius:8px;padding:5px 12px;cursor:pointer}
+button:hover{background:var(--surface-1)}
+input[type=checkbox]{accent-color:#2a78d6}
+.card{background:var(--surface-2);border:.5px solid var(--border);border-radius:12px;padding:14px 16px}
+</style>
+</head>
+<body>
+<main>
+<h1>Voyelles orales du français — plan F1–F2</h1>
+<p class="sub">Homme et femme : Calliope (Tubach, 1989). Enfant : estimation. Bascule Hz / Bark, seuil d’intégration 3,5 Bark.</p>
+<div class="card">
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px;" id="btns">
+  <button data-k="H">Homme</button><button data-k="F">Femme</button><button data-k="E">Enfant (estimation)</button><button data-k="ALL">Superposer</button>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;font-size:13px;color:var(--text-secondary);margin:0 0 8px;">
+  <label style="display:flex;align-items:center;gap:6px"><input type="checkbox" id="bk" checked> Échelle Bark</label>
+  <label style="display:flex;align-items:center;gap:6px"><input type="checkbox" id="th" checked> Seuil 3,5 Bark</label>
+  <label style="display:flex;align-items:center;gap:6px">Étiquettes
+    <select id="lb"><option value="hz">F1 · F2 (Hz)</option><option value="bk">F1 · F2 (Bark)</option><option value="dz">Δ F2 − F1 (Bark)</option><option value="no">Aucune</option></select></label>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:16px;font-size:12px;color:var(--text-secondary);margin-bottom:6px;" id="leg"></div>
+<svg id="pl" viewBox="0 0 680 500" width="100%" style="display:block;" role="img" aria-label="Plan F1-F2 des dix voyelles orales du français"></svg>
+<p id="info" style="font-size:13px;color:var(--text-secondary);margin:6px 0 0;min-height:20px;">Survolez une voyelle pour le détail complet.</p>
+<p id="note" style="font-size:12px;color:var(--text-muted);margin:4px 0 0;line-height:1.5;"></p>
+</div>
+</main>
+<script>
+const D={
+H:{i:[308,2064],e:[365,1961],ɛ:[530,1718],a:[684,1256],y:[300,1750],ø:[381,1417],œ:[517,1391],u:[315,764],o:[383,793],ɔ:[531,998]},
+F:{i:[306,2456],e:[417,2351],ɛ:[660,2080],a:[788,1503],y:[305,2046],ø:[469,1605],œ:[647,1690],u:[311,804],o:[461,855],ɔ:[634,1180]}};
+D.E={};for(const v in D.F)D.E[v]=[Math.round(D.F[v][0]*1.15/5)*5,Math.round(D.F[v][1]*1.15/5)*5];
+const S={front:{v:['i','e','ɛ','a'],c:'#2a78d6',n:'Antérieures étirées'},round:{v:['y','ø','œ'],c:'#1baf7a',n:'Antérieures arrondies'},back:{v:['u','o','ɔ'],c:'#eb6834',n:'Postérieures'}};
+const SP={H:{n:'Homme',dash:'',fill:true},F:{n:'Femme',dash:'',fill:false},E:{n:'Enfant (est.)',dash:'4,3',fill:false}};
+const ex={i:'vie',e:'été',ɛ:'fête',a:'patte',y:'lune',ø:'feu',œ:'peur',u:'tout',o:'eau',ɔ:'or'};
+const bark=f=>26.81*f/(1960+f)-0.53, hz=z=>1960*(z+0.53)/(26.28-z), fr=n=>n.toFixed(1).replace('.',',');
+const W=680,Hh=500,L=58,R=20,T=16,B=56;
+const col=v=>{for(const k in S)if(S[k].v.includes(v))return S[k].c;};
+const svg=document.getElementById('pl');let cur='H';
+function rc(r,c){const px=Math.max(r.x,Math.min(c.x,r.x+r.w)),py=Math.max(r.y,Math.min(c.y,r.y+r.h));return Math.hypot(px-c.x,py-c.y)<c.r+2;}
+function rr(a,b){return !(a.x+a.w+2<b.x||b.x+b.w+2<a.x||a.y+a.h+2<b.y||b.y+b.h+2<a.y);}
+function draw(){
+ const isB=document.getElementById('bk').checked, showT=document.getElementById('th').checked, lm=document.getElementById('lb').value;
+ const tr=isB?bark:(f=>f), x0=tr(3000),x1=tr(600),y0=tr(200),y1=tr(1000);
+ const XB=z=>L+(x0-z)/(x0-x1)*(W-L-R), YB=z=>T+(z-y0)/(y1-y0)*(Hh-T-B), X=f=>XB(tr(f)), Y=f=>YB(tr(f));
+ let g1='',g2='',g3='',g4='';
+ if(isB){
+  for(let z=6;z<=15;z++){const x=XB(z);g1+=`<line x1="${x}" y1="${T}" x2="${x}" y2="${Hh-B}" stroke="var(--border)"/><text x="${x}" y="${Hh-B+15}" text-anchor="middle" style="font-size:11px;fill:var(--text-muted)">${z}</text><text x="${x}" y="${Hh-B+28}" text-anchor="middle" style="font-size:11px;fill:var(--text-muted)">${Math.round(hz(z)/10)*10}</text>`;}
+  for(let z=2;z<=8;z++){const y=YB(z);g1+=`<line x1="${L}" y1="${y}" x2="${W-R}" y2="${y}" stroke="var(--border)"/><text x="${L-8}" y="${y-1}" text-anchor="end" style="font-size:11px;fill:var(--text-muted)">${z}</text><text x="${L-8}" y="${y+11}" text-anchor="end" style="font-size:11px;fill:var(--text-muted)">${Math.round(hz(z)/10)*10}</text>`;}
+  if(showT){let p=[];for(let z1=y0;z1<=y1+0.01;z1+=0.1){const z2=z1+3.5;if(z2>=x1&&z2<=x0)p.push(`${XB(z2)},${YB(z1)}`);}
+   g1+=`<polyline points="${p.join(' ')}" fill="none" stroke="#e34948" stroke-width="1.5" stroke-dasharray="6,4"/>`;}
+ }else{
+  for(let f=600;f<=3000;f+=200){const x=X(f);g1+=`<line x1="${x}" y1="${T}" x2="${x}" y2="${Hh-B}" stroke="var(--border)"/>`;if(f%400===200||f===3000)g1+=`<text x="${x}" y="${Hh-B+15}" text-anchor="middle" style="font-size:11px;fill:var(--text-muted)">${f}</text>`;}
+  for(let f=200;f<=1000;f+=100){const y=Y(f);g1+=`<line x1="${L}" y1="${y}" x2="${W-R}" y2="${y}" stroke="var(--border)"/><text x="${L-8}" y="${y+4}" text-anchor="end" style="font-size:11px;fill:var(--text-muted)">${f}</text>`;}
+ }
+ g1+=`<text x="${(L+W-R)/2}" y="${Hh-6}" text-anchor="middle" style="font-size:12px;fill:var(--text-secondary)">F2 ${isB?'(Bark, Hz en dessous)':'(Hz)'} — antérieure ← → postérieure</text><text transform="translate(12 ${(T+Hh-B)/2}) rotate(-90)" text-anchor="middle" style="font-size:12px;fill:var(--text-secondary)">F1 ${isB?'(Bark / Hz)':'(Hz)'} — fermée ↑ ↓ ouverte</text>`;
+ const ks=cur==='ALL'?['H','F','E']:[cur], one=ks.length===1, circ=[], pts=[];
+ for(const s of ks){const d=D[s],sp=SP[s];
+  for(const g in S)g1+=`<polyline points="${S[g].v.map(v=>`${X(d[v][1])},${Y(d[v][0])}`).join(' ')}" fill="none" stroke="${S[g].c}" stroke-width="1.5" stroke-dasharray="${sp.dash}" opacity="0.5"/>`;
+  for(const v in d){const [f1,f2]=d[v],c=col(v),r=one?13:10,cx=X(f2),cy=Y(f1);
+   const tip=`/${v}/ « ${ex[v]} » — ${sp.n} : F1 ${f1} Hz (${fr(bark(f1))} Bark), F2 ${f2} Hz (${fr(bark(f2))} Bark), F2 − F1 = ${fr(bark(f2)-bark(f1))} Bark`;
+   g2+=`<g data-t="${tip}"><title>${tip}</title><circle cx="${cx}" cy="${cy}" r="${r}" fill="${sp.fill?c:'var(--surface-2)'}" stroke="${c}" stroke-width="1.8" stroke-dasharray="${sp.dash}"/><text x="${cx}" y="${cy+(one?5:4)}" text-anchor="middle" style="font-size:${one?15:12}px;font-family:var(--font-voice);fill:${sp.fill?'#fff':c};pointer-events:none">${v}</text></g>`;
+   circ.push({x:cx,y:cy,r});
+   const t=lm==='hz'?`${f1} · ${f2}`:lm==='bk'?`${fr(bark(f1))} · ${fr(bark(f2))}`:`Δ ${fr(bark(f2)-bark(f1))}`;
+   pts.push({cx,cy,r,t,c});}}
+ if(lm!=='no'){
+  const placed=[],ang=[90,270,0,180,45,135,315,225].map(a=>a*Math.PI/180);
+  for(const p of pts){const w=p.t.length*6.2+8,h=15;let best=null;
+   for(let s=0;s<6&&!best;s++)for(const a of ang){const ca=Math.cos(a),sa=Math.sin(a);
+    const lx=p.cx+ca*(p.r+5+w/2+s*12),ly=p.cy+sa*(p.r+5+h/2+s*11),rect={x:lx-w/2,y:ly-h/2,w,h};
+    if(rect.x<L||rect.x+w>W-R||rect.y<T||rect.y+h>Hh-B)continue;
+    if(circ.some(c=>rc(rect,c))||placed.some(q=>rr(rect,q)))continue;best={rect,lx,ly,s,a};break;}
+   if(!best){const rect={x:p.cx-w/2,y:p.cy+p.r+3,w,h};best={rect,lx:p.cx,ly:p.cy+p.r+3+h/2,s:0,a:Math.PI/2};}
+   placed.push(best.rect);
+   if(best.s>0||Math.abs(Math.cos(best.a))>0.1&&Math.abs(Math.sin(best.a))>0.1){
+    const dx=best.lx-p.cx,dy=best.ly-p.cy,dd=Math.hypot(dx,dy);
+    g3+=`<line x1="${p.cx+dx/dd*p.r}" y1="${p.cy+dy/dd*p.r}" x2="${best.lx-dx/dd*Math.min(w/2,8)}" y2="${best.ly-dy/dd*6}" stroke="${p.c}" stroke-width="0.8" opacity="0.7"/>`;}
+   g4+=`<rect x="${best.rect.x}" y="${best.rect.y}" width="${w}" height="${h}" rx="3" fill="var(--surface-1)" stroke="var(--border)" stroke-width="0.5"/><text x="${best.lx}" y="${best.ly+4}" text-anchor="middle" style="font-size:11px;fill:var(--text-secondary);font-variant-numeric:tabular-nums;pointer-events:none">${p.t}</text>`;}}
+ svg.innerHTML=`<g>${g1}</g><g>${g2}</g><g>${g3}</g><g>${g4}</g>`;
+ svg.querySelectorAll('g[data-t]').forEach(g=>{g.onmouseenter=()=>document.getElementById('info').textContent=g.dataset.t;});
+ let lg='';for(const g in S)lg+=`<span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:2px;background:${S[g].c}"></span>${S[g].n}</span>`;
+ if(cur==='ALL')lg+=`<span>● plein : homme · ○ trait plein : femme · ○ pointillé : enfant</span>`;
+ if(isB&&showT)lg+=`<span style="display:flex;align-items:center;gap:5px"><span style="width:16px;border-top:1.5px dashed #e34948"></span>F2 − F1 = 3,5 Bark</span>`;
+ document.getElementById('leg').innerHTML=lg;
+ document.getElementById('note').textContent='Bark : Traunmüller (1990), z = 26,81·f/(1960+f) − 0,53. Homme et femme : Calliope (Tubach, 1989). Enfant : extrapolation (femme × 1,15), non mesurée.';
+ document.querySelectorAll('#btns button').forEach(b=>b.style.borderColor=b.dataset.k===cur?'var(--border-stronger)':'');
+}
+document.querySelectorAll('#btns button').forEach(b=>b.onclick=()=>{cur=b.dataset.k;draw();});
+['bk','th','lb'].forEach(id=>document.getElementById(id).onchange=draw);
+draw();
+</script>
+</body>
+</html>
