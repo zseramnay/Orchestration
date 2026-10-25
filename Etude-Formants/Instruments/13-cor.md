@@ -39,6 +39,15 @@ version_mesure: 2026-10-23-wav-v1
 
 # Cor en Fa
 
+> ## ⚠ NON RÉPLIQUÉ — révision du 24/10/2026
+>
+> Les trois formants de cette fiche — 739, 2 216 et 4 183 Hz — sont à 4 et 7 demi-tons des
+> valeurs de ZSamples (1 759, 1 108, 3 320 Hz). Distance moyenne 5,0 demi-tons. Statut :
+> **1 corpus**, aucun établi.
+>
+> Le constat de la fiche sur la coïncidence avec l'ancien pipeline (F1 = 388, Fp = 738) reste
+> exact mais ne vaut que pour ce corpus. Voir `_REPLICATION.md`.
+
 ## Méthode retenue, et pourquoi
 
 > **Méthode 8 — trois formants retenus.** Voir `00-METHODE.md`.
@@ -153,7 +162,7 @@ Aucun à ce stade. Figures prévues dans `../Versions-html-and-docx/media/` :
 | `cor_composite.png` | enveloppe composite avec les trois formants |
 | `cor_dynamiques.png` | **prioritaire** : enveloppes composites par dynamique (p / mf / ff) |
 | `cuivres_rho.png` | figure de famille : ρ des six cuivres, montrant l'effet dynamique |
-| `convergence_4183.png` | figure inter-familles : cor, hautbois, cor anglais à 4 183 Hz |
+| `convergence_4183.png` (ÉCARTÉE 24/10) | figure inter-familles : cor, hautbois, cor anglais à 4 183 Hz |
 
 ## Révision du 23/10/2026 — critère assoupli
 
@@ -181,3 +190,4 @@ réelle mais sa position dépend de la force de jeu, la bande globale est néces
 - **2026-10-23** — Seul instrument du corpus dont les deux valeurs antérieures (F1 = 388 et
   Fp = 738) sont confirmées. Configuration favorable, non validité de la méthode ancienne.
 - **2026-10-23 (soir)** — Critère assoupli appliqué (voir `00-METHODE.md`).
+- **2026-10-24** — Confrontation au corpus ZSamples : voir la bannière en tête et `_REPLICATION.md`.

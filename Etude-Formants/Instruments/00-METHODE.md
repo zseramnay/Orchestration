@@ -6,6 +6,9 @@ version_mesure: 2026-10-23-wav-v1
 
 # Méthode de mesure — reprise d'octobre 2026
 
+> **À lire d'abord : `_REPLICATION.md`.** Il distingue les formants établis — répliqués
+> dans deux corpus indépendants — de ceux qui ne reposent que sur une source.
+
 Ce fichier définit une fois pour toutes les méthodes et les critères utilisés dans les
 fichiers d'instruments. Chaque fichier d'instrument y renvoie et n'en reprend que les
 résultats.
@@ -124,6 +127,37 @@ grandeurs fabriquées par leur propre fenêtre d'analyse, défaut du Fp.
 | **retenu** | les deux tests passés |
 | **fragile** | un seul des deux tests passé — à confirmer, non publiable seul |
 | **rejeté** | aucun des deux tests passé |
+
+## Test 3 — réplication sur un corpus indépendant (24/10/2026)
+
+**Ajouté après coup, et c'est le critère le plus important.** Les deux tests ci-dessus sont
+*internes à un corpus* : ils vérifient la cohérence d'une mesure, pas sa généralité. C'est la
+faiblesse même qui avait produit l'étude antérieure — des chiffres cohérents entre eux,
+jamais confrontés à autre chose qu'eux-mêmes.
+
+Un formant n'est **établi** que s'il est retrouvé, à un demi-ton près, dans un second corpus
+enregistré indépendamment. La grille d'analyse étant au douzième d'octave, un écart d'un
+demi-ton est la quantification de la grille et non un désaccord.
+
+| Statut | Signification |
+|---|---|
+| **établi** | répliqué à ≤ 1 demi-ton dans deux corpus indépendants |
+| **1 corpus** | passe les tests 1 et 2, mais sur une seule source — **non publiable comme acquis** |
+| **non répliqué** | mesuré dans deux corpus, écart ≥ 2 demi-tons |
+
+Au 24/10/2026, la confrontation SOL2020/Yan_Adds contre ZSamples donne **17 formants établis
+sur 9 instruments**, tous dans le registre grave ou médium. Le détail, instrument par
+instrument, et la liste de ce qui n'est PAS établi, sont dans `_REPLICATION.md`, à lire avant
+toute fiche.
+
+Deux conséquences immédiates :
+
+- la **pente spectrale** n'est pas un descripteur d'instrument : elle varie fortement d'un
+  corpus à l'autre (clarinette basse −9,4 contre −16,5 dB/octave) car elle dépend de la
+  distance de micro et du local. Elle ne vaut qu'à l'intérieur d'un corpus ;
+- les **sourdines ne répliquent pas** (écart médian 4,0 demi-tons sur 18 paires). Ce n'est
+  probablement pas un échec de mesure mais un fait : une sourdine est un objet physique dont
+  le matériau et l'ajustement varient. Il faut parler de « la sourdine de cet instrument-là ».
 
 ## Critère assoupli pour corpus réduits (23/10/2026)
 

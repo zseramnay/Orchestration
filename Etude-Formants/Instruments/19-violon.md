@@ -34,6 +34,18 @@ version_mesure: 2026-10-23-wav-v1
 
 # Violon
 
+> ## RÉPLICATION PARTIELLE — révision du 24/10/2026
+>
+> **2 348 Hz est établi** — à 1 demi-ton dans ZSamples. Le rapprochement avec le *bridge
+> hill* de la littérature acoustique tient donc.
+>
+> 4 432 Hz est à 2 demi-tons, proche sans être établi.
+>
+> **La convergence inter-familles à 4 200 Hz, annoncée plus bas comme « figure majeure », est
+> ÉCARTÉE** : trois de ses cinq membres — cor, hautbois, cor anglais — ne se répliquent pas.
+> La question posée dans cette fiche, « effet réel ou artefact de la chaîne de mesure ? »,
+> reçoit sa réponse : artefact probable. Voir `_REPLICATION.md`.
+
 ## Classe C — résonances multiples, aucune dominante
 
 > **Méthode 8 — deux formants retenus, un fragile.** Voir `00-METHODE.md`, section
@@ -65,6 +77,33 @@ avait tiré la nécessité du Fp ; la bonne conclusion était qu'il faut agrége
 | **2 348 Hz** | +3,2 dB | 1 660–2 958 Hz | 11 | **retenu** |
 | **4 432 Hz** | +7,3 dB | 3 948–4 974 Hz | 21 | **retenu** |
 | 5 583 Hz | +3,8 dB | 3 320–5 915 Hz | 25 | fragile |
+
+## Corroboration par la méthode 12 — le *bridge hill* retrouvé par une seconde voie
+
+> Ajouté le 24/10/2026. Voir `_CARTE-VOCALIQUE.md`.
+
+La carte vocalique mesure le **F2 du motif d'excitation auditive** à **2 136 Hz** dans la
+cellule aigu/fort — à un demi-ton du formant établi à 2 348 Hz. Les deux méthodes, qui ne
+partagent aucune étape de traitement, pointent la même région.
+
+Cette corroboration vaut pour toute la famille :
+
+| Instrument | Formant établi (méthode 8) | F2 de la carte vocalique (méthode 12) |
+|---|---|---|
+| **Violon** | **2 348 Hz** — *bridge hill* | 2 136 Hz à l'aigu fort |
+| Alto | 1 318 · 2 091 Hz | 1 314 Hz à l'aigu · 2 161 Hz au médium fort |
+| Violoncelle | 1 108 · 2 216 Hz | 1 079 Hz au médium doux · 2 061 Hz au grave fort |
+| Contrebasse | 1 396 Hz | 1 445–1 519 Hz au suraigu |
+
+Et cela éclaire enfin la **dispersion de F2** dans la carte vocalique (IQR de 3 à 5,4 Bark
+sur les cordes, alors que F1 est stable à moins d'un Bark) : ce n'est pas du bruit, c'est la
+**signature de la classe C**. Le détecteur de la méthode 12 verrouille tantôt sur une
+résonance de caisse, tantôt sur une autre, selon la note — et les formants établis par la
+méthode 8 disent précisément quels candidats existent.
+
+La méthode 12 ne remplace donc pas la méthode 8 sur les cordes : **la méthode 8 fournit la
+liste des résonances, la méthode 12 dit laquelle domine dans tel registre à telle dynamique.**
+C'est la seule famille où les deux méthodes se complètent de cette manière.
 
 ## Tests de rejet
 
@@ -150,7 +189,7 @@ Aucun à ce stade. Figures prévues dans `../Versions-html-and-docx/media/` :
 | `violon_composite.png` | enveloppe composite — formant à 4 432 Hz bien circonscrit |
 | `violon_te_dispersion.png` | pic d'enveloppe vraie contre f0 : σ = 1 474 Hz, illustration de la classe C |
 | `violon_bridge_hill.png` | zone 2 348 Hz rapprochée du « bridge hill » de la littérature |
-| `convergence_4200.png` | **figure majeure** : les cinq instruments de la région 4 183–4 695 Hz |
+| `convergence_4200.png` | ~~figure majeure~~ **ÉCARTÉE le 24/10** : les cinq instruments de la région 4 183–4 695 Hz |
 
 ## Journal
 
@@ -162,3 +201,11 @@ Aucun à ce stade. Figures prévues dans `../Versions-html-and-docx/media/` :
   acoustique, validation externe jamais rapprochée de cette étude.
 - **2026-10-23** — Le LPC de mai 2026 (2 179 Hz) visait juste et avait été écarté à tort au
   profit du Fp. Leçon : une mesure stable n'est pas nécessairement juste.
+- **2026-10-24** — Confrontation au corpus ZSamples : voir la bannière en tête et `_REPLICATION.md`.
+- **2026-10-24** — Le *bridge hill* est retrouvé par la méthode 12 (F2 = 2 136 Hz à l'aigu
+  fort, soit un demi-ton de 2 348 Hz). Corroboration par deux méthodes indépendantes, étendue
+  à toute la famille des cordes. La forte dispersion de F2 dans la carte vocalique s'explique
+  comme signature de la classe C, non comme un défaut de mesure.
+- **2026-10-24** — Défaut de méthode identifié au **suraigu** : F1 instable dans les deux
+  corpus (IQR 8,6 Bark chez ZSamples), probable basculement du détecteur entre fondamentale et
+  résonance de caisse. À corriger avant publication de la ligne du violon.

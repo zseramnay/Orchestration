@@ -1,0 +1,161 @@
+config,groupe,n,rho,pente,odd,hz,residu,verdict,critere
+Petite flute,bois,111,0.96,-21.2,-7.0,4431.5,6.61,REJETE,strict
+Flute,bois,118,0.91,-18.3,-4.2,2215.8,7.35,fragile,strict
+Flute,bois,118,0.91,-18.3,-4.2,3319.9,5.04,RETENU,strict
+Flute basse,bois,39,0.84,-12.5,-4.0,2635.0,1.04,REJETE,strict
+Flute contrebasse,bois,38,0.76,-11.5,-0.9,1758.7,2.3,fragile,strict
+Flute contrebasse,bois,38,0.76,-11.5,-0.9,2791.7,1.26,REJETE,strict
+Hautbois,bois,107,0.26,-18.9,-4.9,5583.4,6.71,fragile,strict
+Hautbois,bois,107,0.26,-18.9,-4.9,4182.8,6.21,RETENU,strict
+Hautbois,bois,107,0.26,-18.9,-4.9,2791.7,1.4,REJETE,strict
+Cor anglais,bois,128,0.22,-16.5,-4.3,2215.8,4.36,RETENU,strict
+Cor anglais,bois,128,0.22,-16.5,-4.3,4182.8,3.54,RETENU,strict
+Basson,bois,126,0.4,-14.7,-3.3,1974.0,7.6,RETENU,strict
+Basson,bois,126,0.4,-14.7,-3.3,553.9,7.49,RETENU,strict
+Basson,bois,126,0.4,-14.7,-3.3,1107.9,4.65,RETENU,strict
+Basson,bois,126,0.4,-14.7,-3.3,3319.9,2.48,fragile,strict
+Contrebasson,bois,110,0.42,-14.0,-1.8,697.9,5.87,RETENU,strict
+Contrebasson,bois,110,0.42,-14.0,-1.8,329.4,4.59,RETENU,strict
+Contrebasson,bois,110,0.42,-14.0,-1.8,1173.8,4.16,RETENU,strict
+Contrebasson,bois,110,0.42,-14.0,-1.8,4431.5,2.52,REJETE,strict
+Clarinette en Mib,bois,45,0.68,-19.6,4.2,3319.9,4.05,REJETE,strict
+Clarinette en Sib,bois,126,0.77,-18.5,0.7,1566.8,6.67,RETENU,strict
+Clarinette en Sib,bois,126,0.77,-18.5,0.7,3517.3,4.92,RETENU,strict
+Clarinette en Sib,bois,126,0.77,-18.5,0.7,4974.2,4.03,fragile,strict
+Clarinette en Sib,bois,126,0.77,-18.5,0.7,1107.9,3.84,REJETE,strict
+Clarinette basse,bois,173,0.88,-16.5,4.5,465.8,5.82,REJETE,strict
+Clarinette basse,bois,173,0.88,-16.5,4.5,2487.1,5.49,RETENU,strict
+Clarinette basse,bois,173,0.88,-16.5,4.5,1243.6,3.15,RETENU,strict
+Clarinette basse,bois,173,0.88,-16.5,4.5,5270.0,2.13,RETENU,strict
+Clarinette contrebasse,bois,45,0.51,-11.4,5.1,1107.9,2.95,fragile,strict
+Clarinette contrebasse,bois,45,0.51,-11.4,5.1,1758.7,2.71,RETENU,strict
+Clarinette contrebasse,bois,45,0.51,-11.4,5.1,4431.5,2.28,fragile,strict
+Clarinette contrebasse,bois,45,0.51,-11.4,5.1,2635.0,1.49,REJETE,strict
+Cor,cuivres,134,0.71,-16.8,-3.8,739.4,5.36,RETENU,strict
+Cor,cuivres,134,0.71,-16.8,-3.8,2215.8,3.71,RETENU,strict
+Cor,cuivres,134,0.71,-16.8,-3.8,4182.8,3.61,RETENU,strict
+Cor,cuivres,134,0.71,-16.8,-3.8,465.8,2.93,REJETE,strict
+Trompette,cuivres,96,0.62,-16.8,-3.1,4695.1,4.17,RETENU,strict
+Trompette,cuivres,96,0.62,-16.8,-3.1,2791.7,2.96,RETENU,strict
+Trompette,cuivres,96,0.62,-16.8,-3.1,2091.4,2.77,fragile,strict
+Trompette,cuivres,96,0.62,-16.8,-3.1,1478.9,2.51,REJETE,strict
+Trombone tenor,cuivres,117,0.27,-15.6,-2.8,3133.6,3.91,RETENU,strict
+Trombone tenor,cuivres,117,0.27,-15.6,-2.8,1566.8,3.86,RETENU,strict
+Trombone tenor,cuivres,117,0.27,-15.6,-2.8,830.0,3.27,RETENU,strict
+Trombone tenor,cuivres,117,0.27,-15.6,-2.8,2091.4,3.21,RETENU,strict
+Trombone basse,cuivres,144,0.15,-13.8,-0.1,1758.7,3.89,RETENU,strict
+Trombone basse,cuivres,144,0.15,-13.8,-0.1,3319.9,3.29,RETENU,strict
+Trombone basse,cuivres,144,0.15,-13.8,-0.1,879.3,2.65,RETENU,strict
+Tuba basse,cuivres,108,0.44,-17.1,-4.7,658.8,5.79,RETENU,strict
+Tuba basse,cuivres,108,0.44,-17.1,-4.7,1478.9,4.3,RETENU,strict
+Tuba basse,cuivres,108,0.44,-17.1,-4.7,465.8,4.03,RETENU,strict
+Tuba basse,cuivres,108,0.44,-17.1,-4.7,987.0,3.69,RETENU,strict
+Tuba contrebasse,cuivres,158,0.5,-17.7,-2.9,369.7,4.95,RETENU,strict
+Tuba contrebasse,cuivres,158,0.5,-17.7,-2.9,1395.8,4.67,RETENU,strict
+Tuba contrebasse,cuivres,158,0.5,-17.7,-2.9,879.3,4.13,RETENU,strict
+Violon,cordes,284,0.78,-13.5,-2.8,4431.5,7.3,RETENU,strict
+Violon,cordes,284,0.78,-13.5,-2.8,5583.4,3.84,fragile,strict
+Violon,cordes,284,0.78,-13.5,-2.8,2347.5,3.23,RETENU,strict
+Alto,cordes,309,0.87,-15.6,-3.6,3517.3,5.81,RETENU,strict
+Alto,cordes,309,0.87,-15.6,-3.6,4974.2,4.14,RETENU,strict
+Alto,cordes,309,0.87,-15.6,-3.6,2091.4,3.62,RETENU,strict
+Alto,cordes,309,0.87,-15.6,-3.6,1317.5,1.8,RETENU,strict
+Violoncelle,cordes,291,0.82,-13.3,-2.6,2215.8,6.55,RETENU,strict
+Violoncelle,cordes,291,0.82,-13.3,-2.6,1107.9,4.26,RETENU,strict
+Violoncelle,cordes,291,0.82,-13.3,-2.6,3948.1,4.14,RETENU,strict
+Violoncelle,cordes,291,0.82,-13.3,-2.6,553.9,3.38,fragile,strict
+Contrebasse,cordes,309,0.9,-12.8,-2.8,1395.8,6.16,RETENU,strict
+Contrebasse,cordes,309,0.9,-12.8,-2.8,465.8,3.49,RETENU,strict
+Contrebasse,cordes,309,0.9,-12.8,-2.8,2635.0,3.44,RETENU,strict
+Contrebasse,cordes,309,0.9,-12.8,-2.8,3948.1,2.51,RETENU,strict
+Violon nv,controle non-vibrato,249,0.77,-12.7,-2.4,4182.8,7.51,retenu-cr,assoupli
+Violon nv,controle non-vibrato,249,0.77,-12.7,-2.4,2347.5,3.04,retenu-cr,assoupli
+Alto nv,controle non-vibrato,297,0.88,-15.2,-3.0,3517.3,6.08,retenu-cr,assoupli
+Alto nv,controle non-vibrato,297,0.88,-15.2,-3.0,4974.2,3.9,retenu-cr,assoupli
+Alto nv,controle non-vibrato,297,0.88,-15.2,-3.0,2215.8,3.82,retenu-cr,assoupli
+Alto nv,controle non-vibrato,297,0.88,-15.2,-3.0,1317.5,1.5,fragile-cr,assoupli
+Violoncelle nv,controle non-vibrato,279,0.82,-12.6,-2.5,2215.8,6.34,retenu-cr,assoupli
+Violoncelle nv,controle non-vibrato,279,0.82,-12.6,-2.5,3948.1,4.13,retenu-cr,assoupli
+Violoncelle nv,controle non-vibrato,279,0.82,-12.6,-2.5,1107.9,3.96,retenu-cr,assoupli
+Violoncelle nv,controle non-vibrato,279,0.82,-12.6,-2.5,553.9,2.92,fragile-cr,assoupli
+Contrebasse nv,controle non-vibrato,297,0.92,-12.7,-2.1,1395.8,5.91,retenu-cr,assoupli
+Contrebasse nv,controle non-vibrato,297,0.92,-12.7,-2.1,439.7,3.77,retenu-cr,assoupli
+Contrebasse nv,controle non-vibrato,297,0.92,-12.7,-2.1,2635.0,3.48,retenu-cr,assoupli
+Contrebasse nv,controle non-vibrato,297,0.92,-12.7,-2.1,3948.1,2.35,retenu-cr,assoupli
+Violon+sourdine,sourdines cordes,215,0.87,-11.9,-2.2,4431.5,7.92,retenu-cr,assoupli
+Violon+sourdine,sourdines cordes,215,0.87,-11.9,-2.2,1660.0,2.53,retenu-cr,assoupli
+Violon+piombo,sourdines cordes,40,0.7,-5.8,-2.5,3948.1,3.43,retenu-cr,assoupli
+Violon+piombo,sourdines cordes,40,0.7,-5.8,-2.5,2635.0,1.3,rejete,assoupli
+Alto+sourdine,sourdines cordes,168,0.81,-13.4,-3.7,1173.8,5.02,retenu-cr,assoupli
+Alto+sourdine,sourdines cordes,168,0.81,-13.4,-3.7,4182.8,4.21,retenu-cr,assoupli
+Alto+sourdine,sourdines cordes,168,0.81,-13.4,-3.7,2957.7,3.41,retenu-cr,assoupli
+Alto+sourdine,sourdines cordes,168,0.81,-13.4,-3.7,2215.8,2.76,retenu-cr,assoupli
+Alto+piombo,sourdines cordes,38,0.66,-8.1,-1.1,4431.5,1.07,rejete,assoupli
+Violoncelle+sourdine,sourdines cordes,156,0.89,-11.4,-3.3,2091.4,6.61,retenu-cr,assoupli
+Violoncelle+sourdine,sourdines cordes,156,0.89,-11.4,-3.3,586.9,5.38,retenu-cr,assoupli
+Violoncelle+sourdine,sourdines cordes,156,0.89,-11.4,-3.3,3948.1,2.74,retenu-cr,assoupli
+Violoncelle+sourdine,sourdines cordes,156,0.89,-11.4,-3.3,1107.9,1.82,fragile-cr,assoupli
+Violoncelle+piombo,sourdines cordes,52,0.95,-9.3,-3.7,1173.8,4.78,retenu-cr,assoupli
+Violoncelle+piombo,sourdines cordes,52,0.95,-9.3,-3.7,3948.1,3.29,retenu-cr,assoupli
+Violoncelle+piombo,sourdines cordes,52,0.95,-9.3,-3.7,5583.4,1.94,retenu-cr,assoupli
+Violoncelle+piombo,sourdines cordes,52,0.95,-9.3,-3.7,2347.5,1.66,retenu-cr,assoupli
+Contrebasse+sourdine,sourdines cordes,156,0.82,-11.3,-2.3,465.8,3.51,retenu-cr,assoupli
+Contrebasse+sourdine,sourdines cordes,156,0.82,-11.3,-2.3,2791.7,3.25,retenu-cr,assoupli
+Contrebasse+sourdine,sourdines cordes,156,0.82,-11.3,-2.3,1660.0,3.0,retenu-cr,assoupli
+Contrebasse+sourdine,sourdines cordes,156,0.82,-11.3,-2.3,1107.9,1.7,fragile-cr,assoupli
+Ens violons,ensembles cordes,166,0.88,-14.3,-3.5,4695.1,5.73,retenu-cr,assoupli
+Ens violons,ensembles cordes,166,0.88,-14.3,-3.5,2215.8,2.8,retenu-cr,assoupli
+Ens altos,ensembles cordes,148,0.84,-15.0,-3.5,4182.8,5.12,retenu-cr,assoupli
+Ens altos,ensembles cordes,148,0.84,-15.0,-3.5,2347.5,2.75,retenu-cr,assoupli
+Ens altos,ensembles cordes,148,0.84,-15.0,-3.5,1173.8,1.48,rejete,assoupli
+Ens violoncelles,ensembles cordes,147,0.8,-13.4,-2.9,2957.7,3.86,retenu-cr,assoupli
+Ens violoncelles,ensembles cordes,147,0.8,-13.4,-2.9,1045.7,2.13,retenu-cr,assoupli
+Ens violoncelles,ensembles cordes,147,0.8,-13.4,-2.9,4974.2,2.02,rejete,assoupli
+Ens violoncelles,ensembles cordes,147,0.8,-13.4,-2.9,739.4,1.32,fragile-cr,assoupli
+Ens contrebasses,ensembles cordes,76,0.8,-13.2,-3.0,1660.0,4.47,retenu-cr,assoupli
+Ens contrebasses,ensembles cordes,76,0.8,-13.2,-3.0,415.0,3.3,fragile-cr,assoupli
+Ens contrebasses,ensembles cordes,76,0.8,-13.2,-3.0,1107.9,2.9,fragile-cr,assoupli
+Ens contrebasses,ensembles cordes,76,0.8,-13.2,-3.0,4182.8,2.58,retenu-cr,assoupli
+Ens violons+sourd,ensembles cordes,42,0.96,-9.8,-3.0,3948.1,3.25,fragile-cr,assoupli
+Ens altos+sourd,ensembles cordes,38,0.95,-11.9,-3.8,4182.8,3.76,retenu-cr,assoupli
+Ens violoncelles+sourd,ensembles cordes,38,0.8,-11.6,-3.2,1478.9,3.2,retenu-cr,assoupli
+Ens violoncelles+sourd,ensembles cordes,38,0.8,-11.6,-3.2,5270.0,2.87,fragile-cr,assoupli
+Ens violoncelles+sourd,ensembles cordes,38,0.8,-11.6,-3.2,1173.8,2.55,fragile-cr,assoupli
+Ens violoncelles+sourd,ensembles cordes,38,0.8,-11.6,-3.2,3133.6,2.16,retenu-cr,assoupli
+Cor+sourdine,sourdines cuivres/bois,46,0.89,-16.1,-4.4,1863.2,7.02,retenu-cr,assoupli
+Cor+sourdine,sourdines cuivres/bois,46,0.89,-16.1,-4.4,1317.5,3.44,retenu-cr,assoupli
+Cor+sourdine,sourdines cuivres/bois,46,0.89,-16.1,-4.4,987.0,3.42,retenu-cr,assoupli
+Cor+sourdine,sourdines cuivres/bois,46,0.89,-16.1,-4.4,4431.5,2.44,rejete,assoupli
+Tuba basse+sourdine,sourdines cuivres/bois,102,0.46,-15.4,-1.5,1395.8,6.32,retenu-cr,assoupli
+Tuba basse+sourdine,sourdines cuivres/bois,102,0.46,-15.4,-1.5,2215.8,2.64,fragile-cr,assoupli
+Tuba basse+sourdine,sourdines cuivres/bois,102,0.46,-15.4,-1.5,553.9,2.61,retenu-cr,assoupli
+Tuba basse+sourdine,sourdines cuivres/bois,102,0.46,-15.4,-1.5,310.9,1.8,retenu-cr,assoupli
+Trompette+cup,sourdines cuivres/bois,34,0.68,-7.1,0.7,3517.3,6.0,retenu-cr,assoupli
+Trompette+cup,sourdines cuivres/bois,34,0.68,-7.1,0.7,4974.2,4.48,retenu-cr,assoupli
+Trompette+harmon,sourdines cuivres/bois,34,0.65,-3.5,0.6,4695.1,5.3,retenu-cr,assoupli
+Trompette+harmon,sourdines cuivres/bois,34,0.65,-3.5,0.6,3133.6,4.05,retenu-cr,assoupli
+Trompette+seche,sourdines cuivres/bois,34,0.87,-12.2,-1.0,5583.4,4.73,retenu-cr,assoupli
+Trompette+seche,sourdines cuivres/bois,34,0.87,-12.2,-1.0,3517.3,2.41,fragile-cr,assoupli
+Trompette+seche,sourdines cuivres/bois,34,0.87,-12.2,-1.0,2487.1,1.59,rejete,assoupli
+Trompette+wah ouvert,sourdines cuivres/bois,34,0.51,-18.8,-6.0,2487.1,3.45,retenu-cr,assoupli
+Trompette+wah ferme,sourdines cuivres/bois,33,0.8,-13.2,-3.3,5583.4,6.66,retenu-cr,assoupli
+Trompette+wah ferme,sourdines cuivres/bois,33,0.8,-13.2,-3.3,3517.3,3.21,retenu-cr,assoupli
+Trombone+cup,sourdines cuivres/bois,31,0.14,-14.9,-1.1,1243.6,7.76,retenu-cr,assoupli
+Trombone+cup,sourdines cuivres/bois,31,0.14,-14.9,-1.1,2091.4,7.63,retenu-cr,assoupli
+Trombone+cup,sourdines cuivres/bois,31,0.14,-14.9,-1.1,4431.5,3.03,retenu-cr,assoupli
+Trombone+harmon,sourdines cuivres/bois,35,0.96,-11.4,-4.0,1107.9,13.31,retenu-cr,assoupli
+Trombone+harmon,sourdines cuivres/bois,35,0.96,-11.4,-4.0,3319.9,7.38,retenu-cr,assoupli
+Trombone+seche,sourdines cuivres/bois,31,0.37,-16.4,-4.0,2347.5,6.18,retenu-cr,assoupli
+Trombone+seche,sourdines cuivres/bois,31,0.37,-16.4,-4.0,1243.6,5.72,retenu-cr,assoupli
+Trombone+seche,sourdines cuivres/bois,31,0.37,-16.4,-4.0,3517.3,3.72,retenu-cr,assoupli
+Trombone+wah ouvert,sourdines cuivres/bois,31,0.95,-17.1,-3.4,1478.9,7.41,retenu-cr,assoupli
+Trombone+wah ouvert,sourdines cuivres/bois,31,0.95,-17.1,-3.4,2091.4,4.89,retenu-cr,assoupli
+Trombone+wah ouvert,sourdines cuivres/bois,31,0.95,-17.1,-3.4,3948.1,3.92,retenu-cr,assoupli
+Trombone+wah ouvert,sourdines cuivres/bois,31,0.95,-17.1,-3.4,3133.6,2.23,rejete,assoupli
+Trombone+wah ferme,sourdines cuivres/bois,31,-0.09,-13.9,-3.2,1660.0,7.71,retenu-cr,assoupli
+Trombone+wah ferme,sourdines cuivres/bois,31,-0.09,-13.9,-3.2,3726.5,2.29,fragile-cr,assoupli
+Trombone+wah ferme,sourdines cuivres/bois,31,-0.09,-13.9,-3.2,2635.0,1.27,fragile-cr,assoupli
+Hautbois+sourdine,sourdines cuivres/bois,36,0.7,-19.5,-6.1,3948.1,5.24,retenu-cr,assoupli
+Basson+sourdine,sourdines cuivres/bois,41,0.4,-15.0,-4.8,1974.0,6.81,retenu-cr,assoupli
+Basson+sourdine,sourdines cuivres/bois,41,0.4,-15.0,-4.8,1478.9,5.05,fragile-cr,assoupli
+Basson+sourdine,sourdines cuivres/bois,41,0.4,-15.0,-4.8,4431.5,1.61,fragile-cr,assoupli

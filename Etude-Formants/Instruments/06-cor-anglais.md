@@ -35,6 +35,18 @@ version_mesure: 2026-10-23-wav-v1
 
 # Cor anglais
 
+> ## ⚠ NON RÉPLIQUÉ — révision du 24/10/2026
+>
+> **Les deux formants de cette fiche ne sont pas établis.** Le corpus ZSamples
+> (48 échantillons, ρ = 0,45) ne détecte **aucun** formant pour le cor anglais. Les valeurs
+> de 2 216 et 4 183 Hz reposent donc sur une source unique, et l'affirmation ci-dessous
+> selon laquelle ce serait « le résultat le plus solide des anches doubles aiguës » est
+> retirée.
+>
+> La zone de 1 174 Hz, signalée plus bas comme question ouverte, n'est pas confirmée non
+> plus. Voir `_REPLICATION.md`. Statut des trois zones : **1 corpus**, non publiable comme
+> acquis.
+
 ## Méthode retenue, et pourquoi
 
 > **Méthode 8 — deux formants retenus. Le résultat le plus solide des anches doubles
@@ -146,7 +158,7 @@ Aucun à ce stade. Figures prévues dans `../Versions-html-and-docx/media/` :
 |---|---|
 | `cor_anglais_composite.png` | enveloppe composite globale |
 | `cor_anglais_registres.png` | enveloppes par registre — pour la zone 1 100–1 200 Hz |
-| `anches_doubles_communes.png` | figure de famille : superposition des quatre anches doubles, mettant en évidence 4 183 Hz |
+| `anches_doubles_communes.png` (à revoir, non répliqué) | figure de famille : superposition des quatre anches doubles, mettant en évidence 4 183 Hz |
 
 ## Journal
 
@@ -155,3 +167,4 @@ Aucun à ce stade. Figures prévues dans `../Versions-html-and-docx/media/` :
   indépendants mais absente du global. Jugée probable, à confirmer par registre.
 - **2026-10-23** — Formant à 4 183 Hz identique à celui du hautbois : première parenté de
   famille mesurée dans cette reprise.
+- **2026-10-24** — Confrontation au corpus ZSamples : voir la bannière en tête et `_REPLICATION.md`.

@@ -38,6 +38,15 @@ version_mesure: 2026-10-23-wav-v1
 
 # Hautbois
 
+> ## ⚠ NON RÉPLIQUÉ — révision du 24/10/2026
+>
+> Le formant de 4 183 Hz n'est pas établi : ZSamples place son unique candidat à 5 583 Hz,
+> soit 5 demi-tons plus haut, et en statut fragile. Statut : **1 corpus**.
+>
+> En revanche la **zone médiane de Meyer et Giesler reste introuvable dans les deux corpus**,
+> ce qui renforce ce point de la fiche : le désaccord avec la littérature n'est pas un
+> artefact d'un seul jeu d'échantillons. Voir `_REPLICATION.md`.
+
 ## Méthode retenue, et pourquoi
 
 > **Méthode 8 — un formant retenu, un fragile. Résultat partiellement contre-intuitif.**
@@ -171,3 +180,4 @@ normalisation peut fabriquer un accord avec la littérature.
 - **2026-10-23** — Question ouverte consignée : la zone 1 100–1 700 Hz de Meyer et Giesler
   n'apparaît qu'en sous-ensembles (moitié grave, dynamiques douces). Mesure par registre
   requise avant toute publication sur ce point.
+- **2026-10-24** — Confrontation au corpus ZSamples : voir la bannière en tête et `_REPLICATION.md`.

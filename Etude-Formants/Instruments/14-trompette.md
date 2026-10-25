@@ -39,6 +39,16 @@ version_mesure: 2026-10-23-wav-v1
 
 # Trompette en Ut
 
+> ## RÉPLICATION PARTIELLE — révision du 24/10/2026
+>
+> **2 792 Hz est établi** : valeur identique dans ZSamples. C'est le seul formant de cuivre
+> aigu à passer le test de réplication.
+>
+> 4 695 Hz est à 2 demi-tons de ZSamples, donc proche sans être établi. Et la zone de
+> **1 479 Hz, rejetée ici puis reclassée fragile, est RETENUE dans ZSamples** — ce qui
+> renforce nettement l'hypothèse de la fiche : c'est la zone de Giesler, et sa position
+> dépend probablement de la dynamique. Voir `_REPLICATION.md`.
+
 ## Méthode retenue, et pourquoi
 
 > **Méthode 8 — deux formants retenus, un fragile. Pertinence partielle.**
@@ -180,3 +190,4 @@ simple amélioration. La zone à 2 091 Hz (Backus ~2 000) reste fragile pour le 
   l'ordre fixe 80 : validation de la méthode 6.
 - **2026-10-23** — Convergence trompette–hautbois de l'ancienne étude écartée.
 - **2026-10-23 (soir)** — Critère assoupli appliqué (voir `00-METHODE.md`).
+- **2026-10-24** — Confrontation au corpus ZSamples : voir la bannière en tête et `_REPLICATION.md`.
