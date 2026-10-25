@@ -1,0 +1,211 @@
+{
+ "Hautbois": {
+  "grille": "rd",
+  "cellules": [
+   {
+    "registre": "grave",
+    "dynamique": "doux",
+    "n": 10,
+    "statut": "—",
+    "F1_bark": 7.07,
+    "F2_bark": null,
+    "F1_hz": 790,
+    "F2_hz": null,
+    "IQR1": 1.55,
+    "IQR2": null,
+    "voyelle": null,
+    "distance_bark": null,
+    "marques": [
+     "1 max"
+    ]
+   },
+   {
+    "registre": "grave",
+    "dynamique": "moyen",
+    "n": 10,
+    "statut": "—",
+    "F1_bark": 8.1,
+    "F2_bark": null,
+    "F1_hz": 938,
+    "F2_hz": null,
+    "IQR1": 0.35,
+    "IQR2": null,
+    "voyelle": null,
+    "distance_bark": null,
+    "marques": [
+     "1 max"
+    ]
+   },
+   {
+    "registre": "grave",
+    "dynamique": "fort",
+    "n": 10,
+    "statut": "—",
+    "F1_bark": 8.38,
+    "F2_bark": null,
+    "F1_hz": 980,
+    "F2_hz": null,
+    "IQR1": 0.49,
+    "IQR2": null,
+    "voyelle": null,
+    "distance_bark": null,
+    "marques": [
+     "1 max"
+    ]
+   },
+   {
+    "registre": "médium",
+    "dynamique": "doux",
+    "n": 12,
+    "statut": "assignable",
+    "F1_bark": 5.62,
+    "F2_bark": 10.12,
+    "F1_hz": 605,
+    "F2_hz": 1277,
+    "IQR1": 1.5,
+    "IQR2": 1.59,
+    "voyelle": "a",
+    "distance_bark": 0.65,
+    "marques": [
+     "F1=f0"
+    ]
+   },
+   {
+    "registre": "médium",
+    "dynamique": "moyen",
+    "n": 12,
+    "statut": "assignable",
+    "F1_bark": 5.6,
+    "F2_bark": 10.01,
+    "F1_hz": 602,
+    "F2_hz": 1257,
+    "IQR1": 1.55,
+    "IQR2": 1.03,
+    "voyelle": "a",
+    "distance_bark": 0.66,
+    "marques": [
+     "F1=f0"
+    ]
+   },
+   {
+    "registre": "médium",
+    "dynamique": "fort",
+    "n": 12,
+    "statut": "assignable",
+    "F1_bark": 5.62,
+    "F2_bark": 10.22,
+    "F1_hz": 605,
+    "F2_hz": 1297,
+    "IQR1": 1.55,
+    "IQR2": 1.4,
+    "voyelle": "a",
+    "distance_bark": 0.67,
+    "marques": [
+     "F1=f0"
+    ]
+   },
+   {
+    "registre": "aigu",
+    "dynamique": "doux",
+    "n": 7,
+    "statut": "HORS ESPACE",
+    "F1_bark": 8.45,
+    "F2_bark": 13.39,
+    "F1_hz": 991,
+    "F2_hz": 2089,
+    "IQR1": 1.12,
+    "IQR2": 1.29,
+    "voyelle": "ɛ",
+    "distance_bark": 3.68,
+    "marques": [
+     "F1=f0"
+    ]
+   },
+   {
+    "registre": "aigu",
+    "dynamique": "moyen",
+    "n": 7,
+    "statut": "HORS ESPACE",
+    "F1_bark": 8.45,
+    "F2_bark": 13.32,
+    "F1_hz": 991,
+    "F2_hz": 2068,
+    "IQR1": 1.08,
+    "IQR2": 1.11,
+    "voyelle": "ɛ",
+    "distance_bark": 3.66,
+    "marques": [
+     "F1=f0"
+    ]
+   },
+   {
+    "registre": "aigu",
+    "dynamique": "fort",
+    "n": 7,
+    "statut": "HORS ESPACE",
+    "F1_bark": 8.45,
+    "F2_bark": 13.4,
+    "F1_hz": 991,
+    "F2_hz": 2094,
+    "IQR1": 1.08,
+    "IQR2": 1.01,
+    "voyelle": "ɛ",
+    "distance_bark": 3.69,
+    "marques": [
+     "F1=f0"
+    ]
+   },
+   {
+    "registre": "suraigu",
+    "dynamique": "doux",
+    "n": 6,
+    "statut": "HORS ESPACE",
+    "F1_bark": 10.93,
+    "F2_bark": 15.38,
+    "F1_hz": 1440,
+    "F2_hz": 2887,
+    "IQR1": 0.97,
+    "IQR2": 0.84,
+    "voyelle": "ɛ",
+    "distance_bark": 6.77,
+    "marques": [
+     "F1=f0"
+    ]
+   },
+   {
+    "registre": "suraigu",
+    "dynamique": "moyen",
+    "n": 6,
+    "statut": "HORS ESPACE",
+    "F1_bark": 10.95,
+    "F2_bark": 15.38,
+    "F1_hz": 1445,
+    "F2_hz": 2887,
+    "IQR1": 0.96,
+    "IQR2": 0.84,
+    "voyelle": "ɛ",
+    "distance_bark": 6.79,
+    "marques": [
+     "F1=f0"
+    ]
+   },
+   {
+    "registre": "suraigu",
+    "dynamique": "fort",
+    "n": 6,
+    "statut": "HORS ESPACE",
+    "F1_bark": 10.93,
+    "F2_bark": 15.38,
+    "F1_hz": 1440,
+    "F2_hz": 2887,
+    "IQR1": 0.97,
+    "IQR2": 0.84,
+    "voyelle": "ɛ",
+    "distance_bark": 6.77,
+    "marques": [
+     "F1=f0"
+    ]
+   }
+  ]
+ }
+}

@@ -249,6 +249,89 @@ voies.
 À faire : vérifier systématiquement, cellule par cellule, si F2 tombe sur un formant établi,
 et le signaler dans la sortie. Ce serait un critère de confiance supplémentaire pour les cordes.
 
+## Alto et hautbois — la méthode 12 réussit là où la méthode 8 échoue
+
+> Ajouté le 25/10/2026, sur quatre corpus. Voir `_CORPUS-CROISES.md` pour les corpus et la
+> règle de provenance.
+
+Ce sont les deux instruments que **quatre corpus indépendants** laissent sans aucun formant
+commun : le hautbois donne 4 183 Hz dans SOL, rien dans ZSamples, 2 635 et 4 974 dans Xsamples,
+3 320 dans VN ; l'alto n'a aucune paire stricte. La méthode 8 n'a rien à en dire.
+
+La carte vocalique, elle, **réplique sur les quatre**.
+
+### Hautbois — F1 par registre, quatre corpus
+
+| Registre | SOL | ZSamples | Xsamples | VN | Statut concordant |
+|---|---|---|---|---|---|
+| grave | assignable | 869 Hz · hors | 790–980 Hz · 1 max | 768–964 Hz · 1 max/hors | instable |
+| **médium** | assignable | **664 Hz · /a/ (0,62)** | **605 Hz · /a/ (0,65)** | **605 Hz · /œ/ (0,74)** | **assignable** |
+| **aigu** | **991 Hz** · hors (3,57) | 1 022 Hz · hors (3,83) | **991 Hz** · hors (3,66) | **991 Hz** · hors (3,69) | **hors espace** |
+| suraigu | 1 435–1 478 Hz · hors | 1 580 Hz · hors | 1 440 Hz · hors | 1 393–1 403 Hz · hors | **hors espace** |
+
+**991 Hz à l'aigu dans trois corpus, au Hz près**, et la même distance de 3,7 Bark. Le médium
+donne /a/ ou /œ/ — voisines immédiates — entre 605 et 664 Hz, soit 0,4 Bark d'écart maximum sur
+trois corpus. Et les quatre s'accordent sur le fait que l'instrument **sort de l'espace
+vocalique dès l'aigu**.
+
+C'est exactement le cas du cor anglais, en plus net : *la voyelle réplique quand les formants ne
+répliquent pas.*
+
+**Mais il faut lire la marque `F1=f0`.** Elle est présente sur **toutes** les cellules du
+médium, de l'aigu et du suraigu : le premier maximum du hautbois coïncide avec sa
+fondamentale. Ce que la carte décrit, pour cet instrument, est donc **où se trouve sa
+tessiture**, non une invariance de timbre. C'est cohérent avec son ρ de 0,72 à 0,80 : son
+spectre suit la hauteur.
+
+La formulation juste est donc : *le hautbois sonne /a/ au médium parce que sa fondamentale y
+occupe l'aperture de /a/*, et non *le hautbois a un formant dans la zone /a/*. La carte
+réplique parce que la tessiture réplique. C'est un résultat plus faible que celui du basson,
+dont le F1 reste à 554 Hz d'un bout à l'autre, mais c'est un résultat, et il est utile en
+orchestration : il dit dans quel registre l'instrument apporte quelle couleur.
+
+### Alto — F1 par registre, quatre corpus
+
+| Registre | SOL | ZSamples | VO | VN |
+|---|---|---|---|---|
+| grave | 371–381 Hz · /ø/ | 357–393 Hz · /y/–/e/ | n < 5 | 347–421 Hz · /ø/–/o/ |
+| médium | 399–474 Hz · /ø/–/ɛ/ | 429–498 Hz · /e/ | 440–490 Hz · /ɛ/–/ø/ | 333–429 Hz · /o/–/ɛ/ |
+| **aigu** | **554–584 Hz · /ɛ/** | **554–557 Hz · /œ/** | **590 Hz · /œ/–/ɛ/** | **539–605 Hz · /ɛ/** |
+| suraigu | 1 042–1 147 · hors | 860–1 026 · approx/hors | 829–878 · approx | 1 142 · hors |
+
+**L'aigu est le meilleur accord de toute la carte vocalique : quatre corpus entre 539 et
+605 Hz, voyelle /ɛ/ ou /œ/, distances de 0,22 à 0,90 Bark.** Et les quatre décrivent la même
+trajectoire — montée de /ø/–/o/ au grave vers /ɛ/ à l'aigu, puis sortie par le haut.
+
+### Et pour l'alto, une interprétation physique
+
+Au grave et au médium, l'alto n'est **pas** marqué `F1=f0` dans la plupart des cellules : son
+premier maximum n'est pas sa fondamentale. Et il se tient entre **347 et 498 Hz** sur trois
+corpus indépendants.
+
+C'est la région de la **résonance principale de caisse** de l'alto, que la littérature
+acoustique situe vers 350–400 Hz. Autrement dit, la méthode 12 retrouve une résonance réelle
+que la méthode 8 a entièrement manquée — celle-ci donnait 1 318 Hz comme formant le plus grave
+de l'alto, valeur qui s'est révélée fausse de dix demi-tons sur ZSamples.
+
+L'explication tient à une limite connue de la méthode 8, écrite dans `residu_local()` : le
+redressement local à ±3/4 d'octave est **aveugle aux résonances plus larges que ~1,5 octave**.
+La zone de caisse d'un alto est large et plate ; elle est donc redressée avec le reste et
+disparaît. La méthode 12, qui ne redresse rien et lit la saillance du motif auditif, la voit.
+
+**C'est le premier cas où les deux méthodes ne sont pas seulement complémentaires mais
+hiérarchisées** : sur l'alto, la méthode 12 est la bonne et la méthode 8 se trompe.
+
+### Ce qu'il faut en écrire
+
+| Instrument | Ce qu'on peut affirmer |
+|---|---|
+| **Hautbois** | Aucun formant fixe mesurable sur quatre corpus ; classe **B**. Sa couleur vocalique suit son registre : /a/–/œ/ au médium, **hors de l'espace vocalique du français dès l'aigu** (991 Hz dans trois corpus). Décrire par registre, jamais par un chiffre unique. |
+| **Alto** | Aucun formant établi par la méthode 8, mais **F1 entre 347 et 498 Hz au grave et au médium sur trois corpus**, compatible avec la résonance principale de caisse. Trajectoire /ø/–/o/ → **/ɛ/ à l'aigu (quatre corpus, 0,22–0,90 Bark)** → hors espace au suraigu. |
+
+Réserve commune : la dispersion de F2 reste forte sur l'alto (IQR de 2 à 5 Bark, marque
+`dispersé` sur neuf cellules sur douze dans VN), ce qui est la signature de la classe C déjà
+discutée. Son aperture est bien définie, son timbre antéro-postérieur flotte.
+
 ## Limites de la méthode
 
 **1. La présence d'un second maximum dépend du corpus, pas seulement de l'instrument.** Le
