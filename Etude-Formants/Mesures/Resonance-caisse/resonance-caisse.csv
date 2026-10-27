@@ -1,0 +1,31 @@
+instrument,corpus,registre,n,f0_min,f0_max,etendue_f0_dt,F1_median_hz,F1_q1_hz,F1_q3_hz,F1_iqr_bark,pente,r2,rang_median,pct_rang_entier,pct_F1_egal_f0,pct_1max,maxima_fusionnes_med,groupe_bark_med,centroide_hz,ecart_F1_centroide_dt,verdict
+Alto,SOL,grave,27,130.8,196.0,7.0,374,330,446,1.06,-0.58,0.21,2.49,37,0,4,2.0,1.8,411,-1.6,intermédiaire
+Alto,SOL,médium,90,207.7,392.0,11.0,423,320,515,1.76,1.11,0.32,1.38,22,14,40,3.5,5.2,388,1.5,harmonique (F1 suit la note)
+Alto,ZSamples,grave,20,130.8,196.0,7.0,387,334,434,0.92,0.67,0.42,2.4,45,0,20,2.0,2.0,431,-1.8,intermédiaire
+Alto,ZSamples,médium,44,207.7,392.0,11.0,450,350,554,1.81,0.85,0.27,1.53,18,11,23,3.0,4.9,420,1.2,harmonique (F1 suit la note)
+Alto,VO,grave,12,130.8,196.0,7.0,395,372,413,0.38,0.14,0.02,2.02,100,0,0,1.0,0.0,426,-1.3,RÉSONANCE
+Alto,VO,médium,30,220.0,392.0,10.0,470,391,659,2.3,0.79,0.14,1.79,43,17,33,3.0,5.0,459,0.4,harmonique (F1 suit la note)
+Alto,VN,grave,24,130.8,196.0,7.0,375,330,416,0.79,-0.13,0.01,2.21,54,0,21,2.0,1.1,403,-1.3,RÉSONANCE
+Alto,VN,médium,36,207.7,392.0,11.0,351,298,470,1.57,1.04,0.28,1.27,53,42,25,2.0,2.2,375,-1.1,harmonique (F1 suit la note)
+Violoncelle,SOL,grave,27,65.4,98.0,7.0,178,101,201,0.98,-1.33,0.24,1.82,30,11,7,1.0,0.0,203,-2.3,harmonique (F1 suit la note)
+Violoncelle,SOL,médium,90,103.8,196.0,11.0,223,189,270,0.78,0.5,0.13,1.52,39,23,1,1.0,0.0,258,-2.5,intermédiaire
+Violoncelle,ZSamples,grave,28,65.4,98.0,7.0,193,188,214,0.25,0.36,0.1,2.42,50,0,46,1.0,0.0,259,-5.0,intermédiaire
+Violoncelle,ZSamples,médium,72,103.8,196.0,11.0,209,194,289,0.92,0.0,0.0,1.54,44,21,21,2.0,1.0,254,-3.4,RÉSONANCE
+Violoncelle,VO,grave,12,65.4,98.0,7.0,238,200,321,1.15,-0.89,0.17,3.26,67,0,0,1.0,0.0,304,-4.3,harmonique (F1 suit la note)
+Violoncelle,VO,médium,30,110.0,196.0,10.0,223,183,261,0.75,-0.38,0.03,1.47,60,40,17,1.0,0.0,283,-4.1,intermédiaire
+Violoncelle,VN,grave,24,65.4,98.0,7.0,196,172,210,0.38,-1.03,0.49,2.63,67,0,0,1.0,0.0,241,-3.6,harmonique (F1 suit la note)
+Violoncelle,VN,médium,36,103.8,196.0,11.0,217,184,295,1.07,-0.08,0.0,1.95,72,33,3,1.0,0.0,273,-4.0,RÉSONANCE
+Contrebasse,SOL,grave,39,41.2,65.4,8.0,106,96,112,0.15,-0.41,0.1,2.03,62,13,62,1.0,0.0,147,-5.6,intermédiaire
+Contrebasse,SOL,médium,123,69.3,130.8,11.0,106,86,127,0.4,1.41,0.61,1.04,76,70,55,1.0,0.0,147,-5.5,harmonique (F1 suit la note)
+Contrebasse,ZSamples,grave,37,41.2,65.4,8.0,112,106,132,0.25,0.84,0.34,2.26,57,0,38,1.0,0.0,154,-5.6,harmonique (F1 suit la note)
+Contrebasse,ZSamples,médium,76,69.3,130.8,11.0,192,156,214,0.56,-0.25,0.03,2.03,54,17,33,1.0,0.0,231,-3.2,intermédiaire
+Contrebasse,VO,grave,15,41.2,65.4,8.0,122,86,129,0.43,-0.7,0.07,2.48,40,7,47,1.0,0.0,154,-4.0,intermédiaire
+Contrebasse,VO,médium,42,69.3,130.8,11.0,184,146,228,0.8,1.05,0.29,1.94,48,10,14,1.0,0.0,213,-2.5,harmonique (F1 suit la note)
+Violon,SOL,grave,27,196.0,293.7,7.0,461,441,499,0.51,0.38,0.09,1.97,41,0,7,3.0,4.5,477,-0.6,intermédiaire
+Violon,SOL,médium,90,311.1,587.3,11.0,525,467,588,1.04,-0.28,0.03,1.0,64,58,13,1.0,0.0,536,-0.4,intermédiaire
+Violon,ZSamples,grave,20,196.0,293.7,7.0,363,293,450,1.44,-1.22,0.54,1.47,55,40,20,1.0,0.0,412,-2.2,harmonique (F1 suit la note)
+Violon,ZSamples,médium,44,311.1,587.3,11.0,495,453,554,0.87,0.52,0.45,1.01,66,66,18,1.0,0.0,542,-1.6,intermédiaire
+Violon,VO,grave,12,196.0,293.7,7.0,467,395,490,0.85,0.54,0.21,2.0,58,0,8,1.5,1.2,451,0.6,intermédiaire
+Violon,VO,médium,30,329.6,587.3,10.0,496,439,554,1.0,0.35,0.06,1.0,73,70,13,1.0,0.0,495,0.0,intermédiaire
+Violon,VN,grave,24,196.0,293.7,7.0,532,489,585,0.82,-0.52,0.08,2.26,29,0,25,3.5,5.4,533,-0.0,intermédiaire
+Violon,VN,médium,36,311.1,587.3,11.0,554,496,648,1.28,-0.4,0.13,1.1,58,50,11,1.5,1.3,561,-0.2,intermédiaire

@@ -24,20 +24,20 @@ Les deux fichiers HTML s'ouvrent dans n'importe quel navigateur, hors ligne, et 
 
 Source principale : **Calliope** (Tubach, *La parole et son traitement automatique*, Masson, 1989), référence classique pour le français.
 
-| Voyelle | Ex. | Aperture | Homme F1 | Homme F2 | Femme F1 | Femme F2 |
-|---|---|---|---|---|---|---|
-| i | vie | fermée | 308 | 2064 | 306 | 2456 |
-| y | lune | fermée | 300 | 1750 | 305 | 2046 |
-| u | tout | fermée | 315 | 764 | 311 | 804 |
-| e | été | mi-fermée | 365 | 1961 | 417 | 2351 |
-| ø | feu | mi-fermée | 381 | 1417 | 469 | 1605 |
-| o | eau | mi-fermée | 383 | 793 | 461 | 855 |
-| ɛ | fête | mi-ouverte | 530 | 1718 | 660 | 2080 |
-| œ | peur | mi-ouverte | 517 | 1391 | 647 | 1690 |
-| ɔ | or | mi-ouverte | 531 | 998 | 634 | 1180 |
-| a | patte | ouverte | 684 | 1256 | 788 | 1503 |
+| Voyelle | Ex. | API | Aperture | Homme F1 | Homme F2 | Femme F1 | Femme F2 |
+|---|---|---|---|---|---|---|---|
+| i | vie | [vi] | fermée | 308 | 2064 | 306 | 2456 |
+| y | lune | [lyn] | fermée | 300 | 1750 | 305 | 2046 |
+| u | tout | [tu] | fermée | 315 | 764 | 311 | 804 |
+| e | été | [ete] | mi-fermée | 365 | 1961 | 417 | 2351 |
+| ø | feu | [fø] | mi-fermée | 381 | 1417 | 469 | 1605 |
+| o | eau | [o] | mi-fermée | 383 | 793 | 461 | 855 |
+| ɛ | fête | [fɛt] | mi-ouverte | 530 | 1718 | 660 | 2080 |
+| œ | peur | [pœʁ] | mi-ouverte | 517 | 1391 | 647 | 1690 |
+| ɔ | or | [ɔʁ] | mi-ouverte | 531 | 998 | 634 | 1180 |
+| a | patte | [pat] | ouverte | 684 | 1256 | 788 | 1503 |
 
-Valeurs en Hz. Le CSV contient en plus les valeurs en Bark, l'écart F2 − F1 et la note la plus proche de F1.
+Valeurs en Hz. Notation API : voyelles (phonèmes) entre barres obliques, mots-exemples en transcription phonétique entre crochets (R uvulaire noté [ʁ]). Le CSV contient en plus la transcription, les valeurs en Bark, l'écart F2 − F1 et la note la plus proche de F1.
 
 ### Limites à garder en tête
 

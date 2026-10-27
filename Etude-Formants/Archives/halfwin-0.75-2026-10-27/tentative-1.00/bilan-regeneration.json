@@ -1,0 +1,224 @@
+[
+ {
+  "corpus": "ZSamples",
+  "config": "Alto",
+  "avant": [
+   2348,
+   3726,
+   5583
+  ],
+  "apres": [
+   2348,
+   3726,
+   5270
+  ]
+ },
+ {
+  "corpus": "ZSamples",
+  "config": "Basson",
+  "avant": [
+   494,
+   1108,
+   1974
+  ],
+  "apres": [
+   494,
+   1108,
+   1974,
+   3948
+  ]
+ },
+ {
+  "corpus": "ZSamples",
+  "config": "Clarinette contrebasse",
+  "avant": [
+   1396
+  ],
+  "apres": [
+   932,
+   1396
+  ]
+ },
+ {
+  "corpus": "ZSamples",
+  "config": "Clarinette en Mib",
+  "avant": [
+   5270
+  ],
+  "apres": [
+   4432
+  ]
+ },
+ {
+  "corpus": "ZSamples",
+  "config": "Clarinette en Sib",
+  "avant": [
+   3517,
+   5583
+  ],
+  "apres": [
+   3517
+  ]
+ },
+ {
+  "corpus": "ZSamples",
+  "config": "Contrebasse",
+  "avant": [
+   440,
+   987,
+   2635
+  ],
+  "apres": [
+   440,
+   1108,
+   2635
+  ]
+ },
+ {
+  "corpus": "ZSamples",
+  "config": "Contrebasson",
+  "avant": [
+   783,
+   1863
+  ],
+  "apres": [
+   783,
+   1244,
+   1759
+  ]
+ },
+ {
+  "corpus": "ZSamples",
+  "config": "Cor anglais",
+  "avant": [],
+  "apres": []
+ },
+ {
+  "corpus": "ZSamples",
+  "config": "Cor",
+  "avant": [
+   1759
+  ],
+  "apres": [
+   1759
+  ]
+ },
+ {
+  "corpus": "ZSamples",
+  "config": "Flûte basse",
+  "avant": [
+   2792,
+   3726
+  ],
+  "apres": [
+   2487
+  ]
+ },
+ {
+  "corpus": "ZSamples",
+  "config": "Flûte contrebasse",
+  "avant": [
+   2487
+  ],
+  "apres": [
+   2091,
+   2958
+  ]
+ },
+ {
+  "corpus": "ZSamples",
+  "config": "Flûte",
+  "avant": [],
+  "apres": []
+ },
+ {
+  "corpus": "ZSamples",
+  "config": "Hautbois",
+  "avant": [],
+  "apres": [
+   5583
+  ]
+ },
+ {
+  "corpus": "ZSamples",
+  "config": "Petite flûte",
+  "avant": [],
+  "apres": []
+ },
+ {
+  "corpus": "ZSamples",
+  "config": "Trombone basse",
+  "avant": [
+   879,
+   1660
+  ],
+  "apres": [
+   879,
+   1660
+  ]
+ },
+ {
+  "corpus": "ZSamples",
+  "config": "Trombone ténor",
+  "avant": [
+   879,
+   1660
+  ],
+  "apres": [
+   879,
+   1660
+  ]
+ },
+ {
+  "corpus": "ZSamples",
+  "config": "Trompette",
+  "avant": [
+   1479
+  ],
+  "apres": [
+   1479
+  ]
+ },
+ {
+  "corpus": "ZSamples",
+  "config": "Tuba basse",
+  "avant": [
+   494,
+   698,
+   1244
+  ],
+  "apres": [
+   494,
+   1174
+  ]
+ },
+ {
+  "corpus": "ZSamples",
+  "config": "Violon",
+  "avant": [
+   2216,
+   2792,
+   3948,
+   5583
+  ],
+  "apres": [
+   1974,
+   2792,
+   3948
+  ]
+ },
+ {
+  "corpus": "ZSamples",
+  "config": "Violoncelle",
+  "avant": [
+   932,
+   2792,
+   3517
+  ],
+  "apres": [
+   622,
+   932,
+   3134
+  ]
+ }
+]

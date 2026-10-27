@@ -1,0 +1,2466 @@
+{
+ "detail": [
+  {
+   "instrument": "Alto",
+   "corpus": "SOL",
+   "fenetre": 0.75,
+   "retrouves": 4,
+   "total": 4,
+   "perdus": []
+  },
+  {
+   "instrument": "Alto",
+   "corpus": "SOL",
+   "fenetre": 1.0,
+   "retrouves": 4,
+   "total": 4,
+   "perdus": []
+  },
+  {
+   "instrument": "Alto",
+   "corpus": "SOL",
+   "fenetre": 1.25,
+   "retrouves": 3,
+   "total": 4,
+   "perdus": [
+    4974
+   ]
+  },
+  {
+   "instrument": "Alto",
+   "corpus": "SOL",
+   "fenetre": 1.5,
+   "retrouves": 3,
+   "total": 4,
+   "perdus": [
+    4974
+   ]
+  },
+  {
+   "instrument": "Alto",
+   "corpus": "SOL",
+   "fenetre": 2.0,
+   "retrouves": 0,
+   "total": 4,
+   "perdus": [
+    1318,
+    2091,
+    3748,
+    4974
+   ]
+  },
+  {
+   "instrument": "Alto",
+   "corpus": "ZSamples",
+   "fenetre": 0.75,
+   "retrouves": 3,
+   "total": 4,
+   "perdus": [
+    1318
+   ]
+  },
+  {
+   "instrument": "Alto",
+   "corpus": "ZSamples",
+   "fenetre": 1.0,
+   "retrouves": 3,
+   "total": 4,
+   "perdus": [
+    1318
+   ]
+  },
+  {
+   "instrument": "Alto",
+   "corpus": "ZSamples",
+   "fenetre": 1.25,
+   "retrouves": 4,
+   "total": 4,
+   "perdus": []
+  },
+  {
+   "instrument": "Alto",
+   "corpus": "ZSamples",
+   "fenetre": 1.5,
+   "retrouves": 3,
+   "total": 4,
+   "perdus": [
+    1318
+   ]
+  },
+  {
+   "instrument": "Alto",
+   "corpus": "ZSamples",
+   "fenetre": 2.0,
+   "retrouves": 1,
+   "total": 4,
+   "perdus": [
+    1318,
+    3748,
+    4974
+   ]
+  },
+  {
+   "instrument": "Alto",
+   "corpus": "VO",
+   "fenetre": 0.75,
+   "retrouves": 4,
+   "total": 4,
+   "perdus": []
+  },
+  {
+   "instrument": "Alto",
+   "corpus": "VO",
+   "fenetre": 1.0,
+   "retrouves": 3,
+   "total": 4,
+   "perdus": [
+    1318
+   ]
+  },
+  {
+   "instrument": "Alto",
+   "corpus": "VO",
+   "fenetre": 1.25,
+   "retrouves": 3,
+   "total": 4,
+   "perdus": [
+    4974
+   ]
+  },
+  {
+   "instrument": "Alto",
+   "corpus": "VO",
+   "fenetre": 1.5,
+   "retrouves": 2,
+   "total": 4,
+   "perdus": [
+    1318,
+    4974
+   ]
+  },
+  {
+   "instrument": "Alto",
+   "corpus": "VO",
+   "fenetre": 2.0,
+   "retrouves": 2,
+   "total": 4,
+   "perdus": [
+    3748,
+    4974
+   ]
+  },
+  {
+   "instrument": "Alto",
+   "corpus": "VN",
+   "fenetre": 0.75,
+   "retrouves": 3,
+   "total": 4,
+   "perdus": [
+    1318
+   ]
+  },
+  {
+   "instrument": "Alto",
+   "corpus": "VN",
+   "fenetre": 1.0,
+   "retrouves": 3,
+   "total": 4,
+   "perdus": [
+    1318
+   ]
+  },
+  {
+   "instrument": "Alto",
+   "corpus": "VN",
+   "fenetre": 1.25,
+   "retrouves": 3,
+   "total": 4,
+   "perdus": [
+    1318
+   ]
+  },
+  {
+   "instrument": "Alto",
+   "corpus": "VN",
+   "fenetre": 1.5,
+   "retrouves": 2,
+   "total": 4,
+   "perdus": [
+    1318,
+    4974
+   ]
+  },
+  {
+   "instrument": "Alto",
+   "corpus": "VN",
+   "fenetre": 2.0,
+   "retrouves": 0,
+   "total": 4,
+   "perdus": [
+    1318,
+    2091,
+    3748,
+    4974
+   ]
+  },
+  {
+   "instrument": "Basson",
+   "corpus": "SOL",
+   "fenetre": 0.75,
+   "retrouves": 4,
+   "total": 4,
+   "perdus": []
+  },
+  {
+   "instrument": "Basson",
+   "corpus": "SOL",
+   "fenetre": 1.0,
+   "retrouves": 4,
+   "total": 4,
+   "perdus": []
+  },
+  {
+   "instrument": "Basson",
+   "corpus": "SOL",
+   "fenetre": 1.25,
+   "retrouves": 4,
+   "total": 4,
+   "perdus": []
+  },
+  {
+   "instrument": "Basson",
+   "corpus": "SOL",
+   "fenetre": 1.5,
+   "retrouves": 4,
+   "total": 4,
+   "perdus": []
+  },
+  {
+   "instrument": "Basson",
+   "corpus": "SOL",
+   "fenetre": 2.0,
+   "retrouves": 4,
+   "total": 4,
+   "perdus": []
+  },
+  {
+   "instrument": "Basson",
+   "corpus": "ZSamples",
+   "fenetre": 0.75,
+   "retrouves": 4,
+   "total": 4,
+   "perdus": []
+  },
+  {
+   "instrument": "Basson",
+   "corpus": "ZSamples",
+   "fenetre": 1.0,
+   "retrouves": 4,
+   "total": 4,
+   "perdus": []
+  },
+  {
+   "instrument": "Basson",
+   "corpus": "ZSamples",
+   "fenetre": 1.25,
+   "retrouves": 4,
+   "total": 4,
+   "perdus": []
+  },
+  {
+   "instrument": "Basson",
+   "corpus": "ZSamples",
+   "fenetre": 1.5,
+   "retrouves": 4,
+   "total": 4,
+   "perdus": []
+  },
+  {
+   "instrument": "Basson",
+   "corpus": "ZSamples",
+   "fenetre": 2.0,
+   "retrouves": 4,
+   "total": 4,
+   "perdus": []
+  },
+  {
+   "instrument": "Basson",
+   "corpus": "Xsamples",
+   "fenetre": 0.75,
+   "retrouves": 4,
+   "total": 4,
+   "perdus": []
+  },
+  {
+   "instrument": "Basson",
+   "corpus": "Xsamples",
+   "fenetre": 1.0,
+   "retrouves": 4,
+   "total": 4,
+   "perdus": []
+  },
+  {
+   "instrument": "Basson",
+   "corpus": "Xsamples",
+   "fenetre": 1.25,
+   "retrouves": 4,
+   "total": 4,
+   "perdus": []
+  },
+  {
+   "instrument": "Basson",
+   "corpus": "Xsamples",
+   "fenetre": 1.5,
+   "retrouves": 4,
+   "total": 4,
+   "perdus": []
+  },
+  {
+   "instrument": "Basson",
+   "corpus": "Xsamples",
+   "fenetre": 2.0,
+   "retrouves": 3,
+   "total": 4,
+   "perdus": [
+    1974
+   ]
+  },
+  {
+   "instrument": "Clarinette basse en Sib",
+   "corpus": "SOL",
+   "fenetre": 0.75,
+   "retrouves": 3,
+   "total": 3,
+   "perdus": []
+  },
+  {
+   "instrument": "Clarinette basse en Sib",
+   "corpus": "SOL",
+   "fenetre": 1.0,
+   "retrouves": 3,
+   "total": 3,
+   "perdus": []
+  },
+  {
+   "instrument": "Clarinette basse en Sib",
+   "corpus": "SOL",
+   "fenetre": 1.25,
+   "retrouves": 3,
+   "total": 3,
+   "perdus": []
+  },
+  {
+   "instrument": "Clarinette basse en Sib",
+   "corpus": "SOL",
+   "fenetre": 1.5,
+   "retrouves": 2,
+   "total": 3,
+   "perdus": [
+    1244
+   ]
+  },
+  {
+   "instrument": "Clarinette basse en Sib",
+   "corpus": "SOL",
+   "fenetre": 2.0,
+   "retrouves": 2,
+   "total": 3,
+   "perdus": [
+    1244
+   ]
+  },
+  {
+   "instrument": "Clarinette basse en Sib",
+   "corpus": "Xsamples",
+   "fenetre": 0.75,
+   "retrouves": 3,
+   "total": 3,
+   "perdus": []
+  },
+  {
+   "instrument": "Clarinette basse en Sib",
+   "corpus": "Xsamples",
+   "fenetre": 1.0,
+   "retrouves": 3,
+   "total": 3,
+   "perdus": []
+  },
+  {
+   "instrument": "Clarinette basse en Sib",
+   "corpus": "Xsamples",
+   "fenetre": 1.25,
+   "retrouves": 3,
+   "total": 3,
+   "perdus": []
+  },
+  {
+   "instrument": "Clarinette basse en Sib",
+   "corpus": "Xsamples",
+   "fenetre": 1.5,
+   "retrouves": 3,
+   "total": 3,
+   "perdus": []
+  },
+  {
+   "instrument": "Clarinette basse en Sib",
+   "corpus": "Xsamples",
+   "fenetre": 2.0,
+   "retrouves": 3,
+   "total": 3,
+   "perdus": []
+  },
+  {
+   "instrument": "Clarinette basse en Sib",
+   "corpus": "VO",
+   "fenetre": 0.75,
+   "retrouves": 2,
+   "total": 3,
+   "perdus": [
+    1244
+   ]
+  },
+  {
+   "instrument": "Clarinette basse en Sib",
+   "corpus": "VO",
+   "fenetre": 1.0,
+   "retrouves": 2,
+   "total": 3,
+   "perdus": [
+    1244
+   ]
+  },
+  {
+   "instrument": "Clarinette basse en Sib",
+   "corpus": "VO",
+   "fenetre": 1.25,
+   "retrouves": 2,
+   "total": 3,
+   "perdus": [
+    1244
+   ]
+  },
+  {
+   "instrument": "Clarinette basse en Sib",
+   "corpus": "VO",
+   "fenetre": 1.5,
+   "retrouves": 2,
+   "total": 3,
+   "perdus": [
+    1244
+   ]
+  },
+  {
+   "instrument": "Clarinette basse en Sib",
+   "corpus": "VO",
+   "fenetre": 2.0,
+   "retrouves": 2,
+   "total": 3,
+   "perdus": [
+    1244
+   ]
+  },
+  {
+   "instrument": "Clarinette basse en Sib",
+   "corpus": "VN",
+   "fenetre": 0.75,
+   "retrouves": 3,
+   "total": 3,
+   "perdus": []
+  },
+  {
+   "instrument": "Clarinette basse en Sib",
+   "corpus": "VN",
+   "fenetre": 1.0,
+   "retrouves": 3,
+   "total": 3,
+   "perdus": []
+  },
+  {
+   "instrument": "Clarinette basse en Sib",
+   "corpus": "VN",
+   "fenetre": 1.25,
+   "retrouves": 3,
+   "total": 3,
+   "perdus": []
+  },
+  {
+   "instrument": "Clarinette basse en Sib",
+   "corpus": "VN",
+   "fenetre": 1.5,
+   "retrouves": 3,
+   "total": 3,
+   "perdus": []
+  },
+  {
+   "instrument": "Clarinette basse en Sib",
+   "corpus": "VN",
+   "fenetre": 2.0,
+   "retrouves": 3,
+   "total": 3,
+   "perdus": []
+  },
+  {
+   "instrument": "Clarinette contrebasse en Sib",
+   "corpus": "SOL",
+   "fenetre": 0.75,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Clarinette contrebasse en Sib",
+   "corpus": "SOL",
+   "fenetre": 1.0,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Clarinette contrebasse en Sib",
+   "corpus": "SOL",
+   "fenetre": 1.25,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Clarinette contrebasse en Sib",
+   "corpus": "SOL",
+   "fenetre": 1.5,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Clarinette contrebasse en Sib",
+   "corpus": "SOL",
+   "fenetre": 2.0,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Clarinette contrebasse en Sib",
+   "corpus": "VO",
+   "fenetre": 0.75,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Clarinette contrebasse en Sib",
+   "corpus": "VO",
+   "fenetre": 1.0,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Clarinette contrebasse en Sib",
+   "corpus": "VO",
+   "fenetre": 1.25,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Clarinette contrebasse en Sib",
+   "corpus": "VO",
+   "fenetre": 1.5,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Clarinette contrebasse en Sib",
+   "corpus": "VO",
+   "fenetre": 2.0,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Clarinette en Sib",
+   "corpus": "SOL",
+   "fenetre": 0.75,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Clarinette en Sib",
+   "corpus": "SOL",
+   "fenetre": 1.0,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Clarinette en Sib",
+   "corpus": "SOL",
+   "fenetre": 1.25,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Clarinette en Sib",
+   "corpus": "SOL",
+   "fenetre": 1.5,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Clarinette en Sib",
+   "corpus": "SOL",
+   "fenetre": 2.0,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Clarinette en Sib",
+   "corpus": "ZSamples",
+   "fenetre": 0.75,
+   "retrouves": 1,
+   "total": 2,
+   "perdus": [
+    1567
+   ]
+  },
+  {
+   "instrument": "Clarinette en Sib",
+   "corpus": "ZSamples",
+   "fenetre": 1.0,
+   "retrouves": 1,
+   "total": 2,
+   "perdus": [
+    1567
+   ]
+  },
+  {
+   "instrument": "Clarinette en Sib",
+   "corpus": "ZSamples",
+   "fenetre": 1.25,
+   "retrouves": 1,
+   "total": 2,
+   "perdus": [
+    1567
+   ]
+  },
+  {
+   "instrument": "Clarinette en Sib",
+   "corpus": "ZSamples",
+   "fenetre": 1.5,
+   "retrouves": 1,
+   "total": 2,
+   "perdus": [
+    1567
+   ]
+  },
+  {
+   "instrument": "Clarinette en Sib",
+   "corpus": "ZSamples",
+   "fenetre": 2.0,
+   "retrouves": 1,
+   "total": 2,
+   "perdus": [
+    1567
+   ]
+  },
+  {
+   "instrument": "Clarinette en Sib",
+   "corpus": "Xsamples",
+   "fenetre": 0.75,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Clarinette en Sib",
+   "corpus": "Xsamples",
+   "fenetre": 1.0,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Clarinette en Sib",
+   "corpus": "Xsamples",
+   "fenetre": 1.25,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Clarinette en Sib",
+   "corpus": "Xsamples",
+   "fenetre": 1.5,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Clarinette en Sib",
+   "corpus": "Xsamples",
+   "fenetre": 2.0,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Clarinette en Sib",
+   "corpus": "VO",
+   "fenetre": 0.75,
+   "retrouves": 1,
+   "total": 2,
+   "perdus": [
+    1567
+   ]
+  },
+  {
+   "instrument": "Clarinette en Sib",
+   "corpus": "VO",
+   "fenetre": 1.0,
+   "retrouves": 1,
+   "total": 2,
+   "perdus": [
+    1567
+   ]
+  },
+  {
+   "instrument": "Clarinette en Sib",
+   "corpus": "VO",
+   "fenetre": 1.25,
+   "retrouves": 1,
+   "total": 2,
+   "perdus": [
+    1567
+   ]
+  },
+  {
+   "instrument": "Clarinette en Sib",
+   "corpus": "VO",
+   "fenetre": 1.5,
+   "retrouves": 1,
+   "total": 2,
+   "perdus": [
+    1567
+   ]
+  },
+  {
+   "instrument": "Clarinette en Sib",
+   "corpus": "VO",
+   "fenetre": 2.0,
+   "retrouves": 1,
+   "total": 2,
+   "perdus": [
+    1567
+   ]
+  },
+  {
+   "instrument": "Contrebasse",
+   "corpus": "SOL",
+   "fenetre": 0.75,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Contrebasse",
+   "corpus": "SOL",
+   "fenetre": 1.0,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Contrebasse",
+   "corpus": "SOL",
+   "fenetre": 1.25,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Contrebasse",
+   "corpus": "SOL",
+   "fenetre": 1.5,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Contrebasse",
+   "corpus": "SOL",
+   "fenetre": 2.0,
+   "retrouves": 1,
+   "total": 2,
+   "perdus": [
+    3948
+   ]
+  },
+  {
+   "instrument": "Contrebasse",
+   "corpus": "ZSamples",
+   "fenetre": 0.75,
+   "retrouves": 1,
+   "total": 2,
+   "perdus": [
+    3948
+   ]
+  },
+  {
+   "instrument": "Contrebasse",
+   "corpus": "ZSamples",
+   "fenetre": 1.0,
+   "retrouves": 1,
+   "total": 2,
+   "perdus": [
+    3948
+   ]
+  },
+  {
+   "instrument": "Contrebasse",
+   "corpus": "ZSamples",
+   "fenetre": 1.25,
+   "retrouves": 1,
+   "total": 2,
+   "perdus": [
+    3948
+   ]
+  },
+  {
+   "instrument": "Contrebasse",
+   "corpus": "ZSamples",
+   "fenetre": 1.5,
+   "retrouves": 1,
+   "total": 2,
+   "perdus": [
+    3948
+   ]
+  },
+  {
+   "instrument": "Contrebasse",
+   "corpus": "ZSamples",
+   "fenetre": 2.0,
+   "retrouves": 1,
+   "total": 2,
+   "perdus": [
+    3948
+   ]
+  },
+  {
+   "instrument": "Contrebasse",
+   "corpus": "VO",
+   "fenetre": 0.75,
+   "retrouves": 1,
+   "total": 2,
+   "perdus": [
+    3948
+   ]
+  },
+  {
+   "instrument": "Contrebasse",
+   "corpus": "VO",
+   "fenetre": 1.0,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Contrebasse",
+   "corpus": "VO",
+   "fenetre": 1.25,
+   "retrouves": 1,
+   "total": 2,
+   "perdus": [
+    2635
+   ]
+  },
+  {
+   "instrument": "Contrebasse",
+   "corpus": "VO",
+   "fenetre": 1.5,
+   "retrouves": 0,
+   "total": 2,
+   "perdus": [
+    2635,
+    3948
+   ]
+  },
+  {
+   "instrument": "Contrebasse",
+   "corpus": "VO",
+   "fenetre": 2.0,
+   "retrouves": 0,
+   "total": 2,
+   "perdus": [
+    2635,
+    3948
+   ]
+  },
+  {
+   "instrument": "Cor anglais",
+   "corpus": "SOL",
+   "fenetre": 0.75,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Cor anglais",
+   "corpus": "SOL",
+   "fenetre": 1.0,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Cor anglais",
+   "corpus": "SOL",
+   "fenetre": 1.25,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Cor anglais",
+   "corpus": "SOL",
+   "fenetre": 1.5,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Cor anglais",
+   "corpus": "SOL",
+   "fenetre": 2.0,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Cor anglais",
+   "corpus": "ZSamples",
+   "fenetre": 0.75,
+   "retrouves": 0,
+   "total": 1,
+   "perdus": [
+    4183
+   ]
+  },
+  {
+   "instrument": "Cor anglais",
+   "corpus": "ZSamples",
+   "fenetre": 1.0,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Cor anglais",
+   "corpus": "ZSamples",
+   "fenetre": 1.25,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Cor anglais",
+   "corpus": "ZSamples",
+   "fenetre": 1.5,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Cor anglais",
+   "corpus": "ZSamples",
+   "fenetre": 2.0,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Cor anglais",
+   "corpus": "Xsamples",
+   "fenetre": 0.75,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Cor anglais",
+   "corpus": "Xsamples",
+   "fenetre": 1.0,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Cor anglais",
+   "corpus": "Xsamples",
+   "fenetre": 1.25,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Cor anglais",
+   "corpus": "Xsamples",
+   "fenetre": 1.5,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Cor anglais",
+   "corpus": "Xsamples",
+   "fenetre": 2.0,
+   "retrouves": 0,
+   "total": 1,
+   "perdus": [
+    4183
+   ]
+  },
+  {
+   "instrument": "Cor anglais",
+   "corpus": "VN",
+   "fenetre": 0.75,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Cor anglais",
+   "corpus": "VN",
+   "fenetre": 1.0,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Cor anglais",
+   "corpus": "VN",
+   "fenetre": 1.25,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Cor anglais",
+   "corpus": "VN",
+   "fenetre": 1.5,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Cor anglais",
+   "corpus": "VN",
+   "fenetre": 2.0,
+   "retrouves": 0,
+   "total": 1,
+   "perdus": [
+    4183
+   ]
+  },
+  {
+   "instrument": "Cor en Fa",
+   "corpus": "Xsamples",
+   "fenetre": 0.75,
+   "retrouves": 2,
+   "total": 3,
+   "perdus": [
+    739
+   ]
+  },
+  {
+   "instrument": "Cor en Fa",
+   "corpus": "Xsamples",
+   "fenetre": 1.0,
+   "retrouves": 1,
+   "total": 3,
+   "perdus": [
+    739,
+    4183
+   ]
+  },
+  {
+   "instrument": "Cor en Fa",
+   "corpus": "Xsamples",
+   "fenetre": 1.25,
+   "retrouves": 1,
+   "total": 3,
+   "perdus": [
+    739,
+    4183
+   ]
+  },
+  {
+   "instrument": "Cor en Fa",
+   "corpus": "Xsamples",
+   "fenetre": 1.5,
+   "retrouves": 2,
+   "total": 3,
+   "perdus": [
+    4183
+   ]
+  },
+  {
+   "instrument": "Cor en Fa",
+   "corpus": "Xsamples",
+   "fenetre": 2.0,
+   "retrouves": 2,
+   "total": 3,
+   "perdus": [
+    4183
+   ]
+  },
+  {
+   "instrument": "Cor en Fa",
+   "corpus": "VN",
+   "fenetre": 0.75,
+   "retrouves": 2,
+   "total": 3,
+   "perdus": [
+    739
+   ]
+  },
+  {
+   "instrument": "Cor en Fa",
+   "corpus": "VN",
+   "fenetre": 1.0,
+   "retrouves": 2,
+   "total": 3,
+   "perdus": [
+    739
+   ]
+  },
+  {
+   "instrument": "Cor en Fa",
+   "corpus": "VN",
+   "fenetre": 1.25,
+   "retrouves": 1,
+   "total": 3,
+   "perdus": [
+    739,
+    4183
+   ]
+  },
+  {
+   "instrument": "Cor en Fa",
+   "corpus": "VN",
+   "fenetre": 1.5,
+   "retrouves": 0,
+   "total": 3,
+   "perdus": [
+    739,
+    2216,
+    4183
+   ]
+  },
+  {
+   "instrument": "Cor en Fa",
+   "corpus": "VN",
+   "fenetre": 2.0,
+   "retrouves": 2,
+   "total": 3,
+   "perdus": [
+    4183
+   ]
+  },
+  {
+   "instrument": "Flûte",
+   "corpus": "SOL",
+   "fenetre": 0.75,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Flûte",
+   "corpus": "SOL",
+   "fenetre": 1.0,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Flûte",
+   "corpus": "SOL",
+   "fenetre": 1.25,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Flûte",
+   "corpus": "SOL",
+   "fenetre": 1.5,
+   "retrouves": 1,
+   "total": 2,
+   "perdus": [
+    3320
+   ]
+  },
+  {
+   "instrument": "Flûte",
+   "corpus": "SOL",
+   "fenetre": 2.0,
+   "retrouves": 1,
+   "total": 2,
+   "perdus": [
+    3320
+   ]
+  },
+  {
+   "instrument": "Flûte",
+   "corpus": "ZSamples",
+   "fenetre": 0.75,
+   "retrouves": 0,
+   "total": 2,
+   "perdus": [
+    2216,
+    3320
+   ]
+  },
+  {
+   "instrument": "Flûte",
+   "corpus": "ZSamples",
+   "fenetre": 1.0,
+   "retrouves": 0,
+   "total": 2,
+   "perdus": [
+    2216,
+    3320
+   ]
+  },
+  {
+   "instrument": "Flûte",
+   "corpus": "ZSamples",
+   "fenetre": 1.25,
+   "retrouves": 0,
+   "total": 2,
+   "perdus": [
+    2216,
+    3320
+   ]
+  },
+  {
+   "instrument": "Flûte",
+   "corpus": "ZSamples",
+   "fenetre": 1.5,
+   "retrouves": 0,
+   "total": 2,
+   "perdus": [
+    2216,
+    3320
+   ]
+  },
+  {
+   "instrument": "Flûte",
+   "corpus": "ZSamples",
+   "fenetre": 2.0,
+   "retrouves": 0,
+   "total": 2,
+   "perdus": [
+    2216,
+    3320
+   ]
+  },
+  {
+   "instrument": "Flûte contrebasse",
+   "corpus": "SOL",
+   "fenetre": 0.75,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Flûte contrebasse",
+   "corpus": "SOL",
+   "fenetre": 1.0,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Flûte contrebasse",
+   "corpus": "SOL",
+   "fenetre": 1.25,
+   "retrouves": 0,
+   "total": 1,
+   "perdus": [
+    1759
+   ]
+  },
+  {
+   "instrument": "Flûte contrebasse",
+   "corpus": "SOL",
+   "fenetre": 1.5,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Flûte contrebasse",
+   "corpus": "SOL",
+   "fenetre": 2.0,
+   "retrouves": 0,
+   "total": 1,
+   "perdus": [
+    1759
+   ]
+  },
+  {
+   "instrument": "Flûte contrebasse",
+   "corpus": "ZSamples",
+   "fenetre": 0.75,
+   "retrouves": 0,
+   "total": 1,
+   "perdus": [
+    1759
+   ]
+  },
+  {
+   "instrument": "Flûte contrebasse",
+   "corpus": "ZSamples",
+   "fenetre": 1.0,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Flûte contrebasse",
+   "corpus": "ZSamples",
+   "fenetre": 1.25,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Flûte contrebasse",
+   "corpus": "ZSamples",
+   "fenetre": 1.5,
+   "retrouves": 0,
+   "total": 1,
+   "perdus": [
+    1759
+   ]
+  },
+  {
+   "instrument": "Flûte contrebasse",
+   "corpus": "ZSamples",
+   "fenetre": 2.0,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Hautbois",
+   "corpus": "SOL",
+   "fenetre": 0.75,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Hautbois",
+   "corpus": "SOL",
+   "fenetre": 1.0,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Hautbois",
+   "corpus": "SOL",
+   "fenetre": 1.25,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Hautbois",
+   "corpus": "SOL",
+   "fenetre": 1.5,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Hautbois",
+   "corpus": "SOL",
+   "fenetre": 2.0,
+   "retrouves": 0,
+   "total": 1,
+   "perdus": [
+    4183
+   ]
+  },
+  {
+   "instrument": "Hautbois",
+   "corpus": "ZSamples",
+   "fenetre": 0.75,
+   "retrouves": 0,
+   "total": 1,
+   "perdus": [
+    4183
+   ]
+  },
+  {
+   "instrument": "Hautbois",
+   "corpus": "ZSamples",
+   "fenetre": 1.0,
+   "retrouves": 0,
+   "total": 1,
+   "perdus": [
+    4183
+   ]
+  },
+  {
+   "instrument": "Hautbois",
+   "corpus": "ZSamples",
+   "fenetre": 1.25,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Hautbois",
+   "corpus": "ZSamples",
+   "fenetre": 1.5,
+   "retrouves": 0,
+   "total": 1,
+   "perdus": [
+    4183
+   ]
+  },
+  {
+   "instrument": "Hautbois",
+   "corpus": "ZSamples",
+   "fenetre": 2.0,
+   "retrouves": 0,
+   "total": 1,
+   "perdus": [
+    4183
+   ]
+  },
+  {
+   "instrument": "Hautbois",
+   "corpus": "Xsamples",
+   "fenetre": 0.75,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Hautbois",
+   "corpus": "Xsamples",
+   "fenetre": 1.0,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Hautbois",
+   "corpus": "Xsamples",
+   "fenetre": 1.25,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Hautbois",
+   "corpus": "Xsamples",
+   "fenetre": 1.5,
+   "retrouves": 1,
+   "total": 1,
+   "perdus": []
+  },
+  {
+   "instrument": "Hautbois",
+   "corpus": "Xsamples",
+   "fenetre": 2.0,
+   "retrouves": 0,
+   "total": 1,
+   "perdus": [
+    4183
+   ]
+  },
+  {
+   "instrument": "Hautbois",
+   "corpus": "VN",
+   "fenetre": 0.75,
+   "retrouves": 0,
+   "total": 1,
+   "perdus": [
+    4183
+   ]
+  },
+  {
+   "instrument": "Hautbois",
+   "corpus": "VN",
+   "fenetre": 1.0,
+   "retrouves": 0,
+   "total": 1,
+   "perdus": [
+    4183
+   ]
+  },
+  {
+   "instrument": "Hautbois",
+   "corpus": "VN",
+   "fenetre": 1.25,
+   "retrouves": 0,
+   "total": 1,
+   "perdus": [
+    4183
+   ]
+  },
+  {
+   "instrument": "Hautbois",
+   "corpus": "VN",
+   "fenetre": 1.5,
+   "retrouves": 0,
+   "total": 1,
+   "perdus": [
+    4183
+   ]
+  },
+  {
+   "instrument": "Hautbois",
+   "corpus": "VN",
+   "fenetre": 2.0,
+   "retrouves": 0,
+   "total": 1,
+   "perdus": [
+    4183
+   ]
+  },
+  {
+   "instrument": "Trombone basse",
+   "corpus": "SOL",
+   "fenetre": 0.75,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Trombone basse",
+   "corpus": "SOL",
+   "fenetre": 1.0,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Trombone basse",
+   "corpus": "SOL",
+   "fenetre": 1.25,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Trombone basse",
+   "corpus": "SOL",
+   "fenetre": 1.5,
+   "retrouves": 0,
+   "total": 2,
+   "perdus": [
+    879,
+    1759
+   ]
+  },
+  {
+   "instrument": "Trombone basse",
+   "corpus": "SOL",
+   "fenetre": 2.0,
+   "retrouves": 0,
+   "total": 2,
+   "perdus": [
+    879,
+    1759
+   ]
+  },
+  {
+   "instrument": "Trombone basse",
+   "corpus": "ZSamples",
+   "fenetre": 0.75,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Trombone basse",
+   "corpus": "ZSamples",
+   "fenetre": 1.0,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Trombone basse",
+   "corpus": "ZSamples",
+   "fenetre": 1.25,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Trombone basse",
+   "corpus": "ZSamples",
+   "fenetre": 1.5,
+   "retrouves": 1,
+   "total": 2,
+   "perdus": [
+    1759
+   ]
+  },
+  {
+   "instrument": "Trombone basse",
+   "corpus": "ZSamples",
+   "fenetre": 2.0,
+   "retrouves": 1,
+   "total": 2,
+   "perdus": [
+    1759
+   ]
+  },
+  {
+   "instrument": "Trombone basse",
+   "corpus": "VO",
+   "fenetre": 0.75,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Trombone basse",
+   "corpus": "VO",
+   "fenetre": 1.0,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Trombone basse",
+   "corpus": "VO",
+   "fenetre": 1.25,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Trombone basse",
+   "corpus": "VO",
+   "fenetre": 1.5,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Trombone basse",
+   "corpus": "VO",
+   "fenetre": 2.0,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Trombone ténor",
+   "corpus": "SOL",
+   "fenetre": 0.75,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Trombone ténor",
+   "corpus": "SOL",
+   "fenetre": 1.0,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Trombone ténor",
+   "corpus": "SOL",
+   "fenetre": 1.25,
+   "retrouves": 0,
+   "total": 2,
+   "perdus": [
+    830,
+    3134
+   ]
+  },
+  {
+   "instrument": "Trombone ténor",
+   "corpus": "SOL",
+   "fenetre": 1.5,
+   "retrouves": 0,
+   "total": 2,
+   "perdus": [
+    830,
+    3134
+   ]
+  },
+  {
+   "instrument": "Trombone ténor",
+   "corpus": "SOL",
+   "fenetre": 2.0,
+   "retrouves": 1,
+   "total": 2,
+   "perdus": [
+    3134
+   ]
+  },
+  {
+   "instrument": "Trombone ténor",
+   "corpus": "ZSamples",
+   "fenetre": 0.75,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Trombone ténor",
+   "corpus": "ZSamples",
+   "fenetre": 1.0,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Trombone ténor",
+   "corpus": "ZSamples",
+   "fenetre": 1.25,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Trombone ténor",
+   "corpus": "ZSamples",
+   "fenetre": 1.5,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Trombone ténor",
+   "corpus": "ZSamples",
+   "fenetre": 2.0,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Trompette en Ut",
+   "corpus": "Xsamples",
+   "fenetre": 0.75,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Trompette en Ut",
+   "corpus": "Xsamples",
+   "fenetre": 1.0,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Trompette en Ut",
+   "corpus": "Xsamples",
+   "fenetre": 1.25,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Trompette en Ut",
+   "corpus": "Xsamples",
+   "fenetre": 1.5,
+   "retrouves": 1,
+   "total": 2,
+   "perdus": [
+    4695
+   ]
+  },
+  {
+   "instrument": "Trompette en Ut",
+   "corpus": "Xsamples",
+   "fenetre": 2.0,
+   "retrouves": 1,
+   "total": 2,
+   "perdus": [
+    4695
+   ]
+  },
+  {
+   "instrument": "Trompette en Ut",
+   "corpus": "VN",
+   "fenetre": 0.75,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Trompette en Ut",
+   "corpus": "VN",
+   "fenetre": 1.0,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Trompette en Ut",
+   "corpus": "VN",
+   "fenetre": 1.25,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Trompette en Ut",
+   "corpus": "VN",
+   "fenetre": 1.5,
+   "retrouves": 1,
+   "total": 2,
+   "perdus": [
+    4695
+   ]
+  },
+  {
+   "instrument": "Trompette en Ut",
+   "corpus": "VN",
+   "fenetre": 2.0,
+   "retrouves": 1,
+   "total": 2,
+   "perdus": [
+    4695
+   ]
+  },
+  {
+   "instrument": "Tuba basse",
+   "corpus": "SOL",
+   "fenetre": 0.75,
+   "retrouves": 5,
+   "total": 5,
+   "perdus": []
+  },
+  {
+   "instrument": "Tuba basse",
+   "corpus": "SOL",
+   "fenetre": 1.0,
+   "retrouves": 5,
+   "total": 5,
+   "perdus": []
+  },
+  {
+   "instrument": "Tuba basse",
+   "corpus": "SOL",
+   "fenetre": 1.25,
+   "retrouves": 4,
+   "total": 5,
+   "perdus": [
+    498
+   ]
+  },
+  {
+   "instrument": "Tuba basse",
+   "corpus": "SOL",
+   "fenetre": 1.5,
+   "retrouves": 5,
+   "total": 5,
+   "perdus": []
+  },
+  {
+   "instrument": "Tuba basse",
+   "corpus": "SOL",
+   "fenetre": 2.0,
+   "retrouves": 1,
+   "total": 5,
+   "perdus": [
+    659,
+    987,
+    1244,
+    1479
+   ]
+  },
+  {
+   "instrument": "Tuba basse",
+   "corpus": "ZSamples",
+   "fenetre": 0.75,
+   "retrouves": 4,
+   "total": 5,
+   "perdus": [
+    987
+   ]
+  },
+  {
+   "instrument": "Tuba basse",
+   "corpus": "ZSamples",
+   "fenetre": 1.0,
+   "retrouves": 4,
+   "total": 5,
+   "perdus": [
+    1479
+   ]
+  },
+  {
+   "instrument": "Tuba basse",
+   "corpus": "ZSamples",
+   "fenetre": 1.25,
+   "retrouves": 4,
+   "total": 5,
+   "perdus": [
+    1479
+   ]
+  },
+  {
+   "instrument": "Tuba basse",
+   "corpus": "ZSamples",
+   "fenetre": 1.5,
+   "retrouves": 2,
+   "total": 5,
+   "perdus": [
+    659,
+    1244,
+    1479
+   ]
+  },
+  {
+   "instrument": "Tuba basse",
+   "corpus": "ZSamples",
+   "fenetre": 2.0,
+   "retrouves": 2,
+   "total": 5,
+   "perdus": [
+    987,
+    1244,
+    1479
+   ]
+  },
+  {
+   "instrument": "Tuba basse",
+   "corpus": "VO",
+   "fenetre": 0.75,
+   "retrouves": 5,
+   "total": 5,
+   "perdus": []
+  },
+  {
+   "instrument": "Tuba basse",
+   "corpus": "VO",
+   "fenetre": 1.0,
+   "retrouves": 5,
+   "total": 5,
+   "perdus": []
+  },
+  {
+   "instrument": "Tuba basse",
+   "corpus": "VO",
+   "fenetre": 1.25,
+   "retrouves": 4,
+   "total": 5,
+   "perdus": [
+    1479
+   ]
+  },
+  {
+   "instrument": "Tuba basse",
+   "corpus": "VO",
+   "fenetre": 1.5,
+   "retrouves": 4,
+   "total": 5,
+   "perdus": [
+    1479
+   ]
+  },
+  {
+   "instrument": "Tuba basse",
+   "corpus": "VO",
+   "fenetre": 2.0,
+   "retrouves": 4,
+   "total": 5,
+   "perdus": [
+    1479
+   ]
+  },
+  {
+   "instrument": "Tuba basse",
+   "corpus": "VN",
+   "fenetre": 0.75,
+   "retrouves": 3,
+   "total": 5,
+   "perdus": [
+    498,
+    987
+   ]
+  },
+  {
+   "instrument": "Tuba basse",
+   "corpus": "VN",
+   "fenetre": 1.0,
+   "retrouves": 4,
+   "total": 5,
+   "perdus": [
+    498
+   ]
+  },
+  {
+   "instrument": "Tuba basse",
+   "corpus": "VN",
+   "fenetre": 1.25,
+   "retrouves": 4,
+   "total": 5,
+   "perdus": [
+    1479
+   ]
+  },
+  {
+   "instrument": "Tuba basse",
+   "corpus": "VN",
+   "fenetre": 1.5,
+   "retrouves": 3,
+   "total": 5,
+   "perdus": [
+    659,
+    1479
+   ]
+  },
+  {
+   "instrument": "Tuba basse",
+   "corpus": "VN",
+   "fenetre": 2.0,
+   "retrouves": 2,
+   "total": 5,
+   "perdus": [
+    987,
+    1244,
+    1479
+   ]
+  },
+  {
+   "instrument": "Violon",
+   "corpus": "SOL",
+   "fenetre": 0.75,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Violon",
+   "corpus": "SOL",
+   "fenetre": 1.0,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Violon",
+   "corpus": "SOL",
+   "fenetre": 1.25,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Violon",
+   "corpus": "SOL",
+   "fenetre": 1.5,
+   "retrouves": 1,
+   "total": 2,
+   "perdus": [
+    2348
+   ]
+  },
+  {
+   "instrument": "Violon",
+   "corpus": "SOL",
+   "fenetre": 2.0,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Violon",
+   "corpus": "ZSamples",
+   "fenetre": 0.75,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Violon",
+   "corpus": "ZSamples",
+   "fenetre": 1.0,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Violon",
+   "corpus": "ZSamples",
+   "fenetre": 1.25,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Violon",
+   "corpus": "ZSamples",
+   "fenetre": 1.5,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Violon",
+   "corpus": "ZSamples",
+   "fenetre": 2.0,
+   "retrouves": 1,
+   "total": 2,
+   "perdus": [
+    3959
+   ]
+  },
+  {
+   "instrument": "Violon",
+   "corpus": "VO",
+   "fenetre": 0.75,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Violon",
+   "corpus": "VO",
+   "fenetre": 1.0,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Violon",
+   "corpus": "VO",
+   "fenetre": 1.25,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Violon",
+   "corpus": "VO",
+   "fenetre": 1.5,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Violon",
+   "corpus": "VO",
+   "fenetre": 2.0,
+   "retrouves": 1,
+   "total": 2,
+   "perdus": [
+    2348
+   ]
+  },
+  {
+   "instrument": "Violon",
+   "corpus": "VN",
+   "fenetre": 0.75,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Violon",
+   "corpus": "VN",
+   "fenetre": 1.0,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Violon",
+   "corpus": "VN",
+   "fenetre": 1.25,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Violon",
+   "corpus": "VN",
+   "fenetre": 1.5,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Violon",
+   "corpus": "VN",
+   "fenetre": 2.0,
+   "retrouves": 2,
+   "total": 2,
+   "perdus": []
+  },
+  {
+   "instrument": "Violoncelle",
+   "corpus": "SOL",
+   "fenetre": 0.75,
+   "retrouves": 5,
+   "total": 5,
+   "perdus": []
+  },
+  {
+   "instrument": "Violoncelle",
+   "corpus": "SOL",
+   "fenetre": 1.0,
+   "retrouves": 5,
+   "total": 5,
+   "perdus": []
+  },
+  {
+   "instrument": "Violoncelle",
+   "corpus": "SOL",
+   "fenetre": 1.25,
+   "retrouves": 5,
+   "total": 5,
+   "perdus": []
+  },
+  {
+   "instrument": "Violoncelle",
+   "corpus": "SOL",
+   "fenetre": 1.5,
+   "retrouves": 5,
+   "total": 5,
+   "perdus": []
+  },
+  {
+   "instrument": "Violoncelle",
+   "corpus": "SOL",
+   "fenetre": 2.0,
+   "retrouves": 4,
+   "total": 5,
+   "perdus": [
+    3948
+   ]
+  },
+  {
+   "instrument": "Violoncelle",
+   "corpus": "ZSamples",
+   "fenetre": 0.75,
+   "retrouves": 5,
+   "total": 5,
+   "perdus": []
+  },
+  {
+   "instrument": "Violoncelle",
+   "corpus": "ZSamples",
+   "fenetre": 1.0,
+   "retrouves": 5,
+   "total": 5,
+   "perdus": []
+  },
+  {
+   "instrument": "Violoncelle",
+   "corpus": "ZSamples",
+   "fenetre": 1.25,
+   "retrouves": 3,
+   "total": 5,
+   "perdus": [
+    2216,
+    3948
+   ]
+  },
+  {
+   "instrument": "Violoncelle",
+   "corpus": "ZSamples",
+   "fenetre": 1.5,
+   "retrouves": 4,
+   "total": 5,
+   "perdus": [
+    3948
+   ]
+  },
+  {
+   "instrument": "Violoncelle",
+   "corpus": "ZSamples",
+   "fenetre": 2.0,
+   "retrouves": 4,
+   "total": 5,
+   "perdus": [
+    3948
+   ]
+  },
+  {
+   "instrument": "Violoncelle",
+   "corpus": "VO",
+   "fenetre": 0.75,
+   "retrouves": 2,
+   "total": 5,
+   "perdus": [
+    554,
+    1108,
+    3948
+   ]
+  },
+  {
+   "instrument": "Violoncelle",
+   "corpus": "VO",
+   "fenetre": 1.0,
+   "retrouves": 3,
+   "total": 5,
+   "perdus": [
+    554,
+    3948
+   ]
+  },
+  {
+   "instrument": "Violoncelle",
+   "corpus": "VO",
+   "fenetre": 1.25,
+   "retrouves": 2,
+   "total": 5,
+   "perdus": [
+    554,
+    1108,
+    3948
+   ]
+  },
+  {
+   "instrument": "Violoncelle",
+   "corpus": "VO",
+   "fenetre": 1.5,
+   "retrouves": 3,
+   "total": 5,
+   "perdus": [
+    1108,
+    3948
+   ]
+  },
+  {
+   "instrument": "Violoncelle",
+   "corpus": "VO",
+   "fenetre": 2.0,
+   "retrouves": 3,
+   "total": 5,
+   "perdus": [
+    1108,
+    3948
+   ]
+  },
+  {
+   "instrument": "Violoncelle",
+   "corpus": "VN",
+   "fenetre": 0.75,
+   "retrouves": 4,
+   "total": 5,
+   "perdus": [
+    554
+   ]
+  },
+  {
+   "instrument": "Violoncelle",
+   "corpus": "VN",
+   "fenetre": 1.0,
+   "retrouves": 4,
+   "total": 5,
+   "perdus": [
+    2216
+   ]
+  },
+  {
+   "instrument": "Violoncelle",
+   "corpus": "VN",
+   "fenetre": 1.25,
+   "retrouves": 4,
+   "total": 5,
+   "perdus": [
+    2216
+   ]
+  },
+  {
+   "instrument": "Violoncelle",
+   "corpus": "VN",
+   "fenetre": 1.5,
+   "retrouves": 4,
+   "total": 5,
+   "perdus": [
+    3948
+   ]
+  },
+  {
+   "instrument": "Violoncelle",
+   "corpus": "VN",
+   "fenetre": 2.0,
+   "retrouves": 4,
+   "total": 5,
+   "perdus": [
+    3948
+   ]
+  }
+ ],
+ "survie": {
+  "0.75": {
+   "route A": [
+    72,
+    76
+   ],
+   "1 corpus": [
+    44,
+    62
+   ]
+  },
+  "1.0": {
+   "route A": [
+    73,
+    76
+   ],
+   "1 corpus": [
+    46,
+    62
+   ]
+  },
+  "1.25": {
+   "route A": [
+    69,
+    76
+   ],
+   "1 corpus": [
+    41,
+    62
+   ]
+  },
+  "1.5": {
+   "route A": [
+    58,
+    76
+   ],
+   "1 corpus": [
+    39,
+    62
+   ]
+  },
+  "2.0": {
+   "route A": [
+    52,
+    76
+   ],
+   "1 corpus": [
+    28,
+    62
+   ]
+  }
+ }
+}

@@ -20,7 +20,7 @@ input[type=checkbox]{accent-color:#2a78d6}
 <body>
 <main>
 <h1>Voyelles orales du français — plan F1–F2</h1>
-<p class="sub">Homme et femme : Calliope (Tubach, 1989). Enfant : estimation. Bascule Hz / Bark, seuil d’intégration 3,5 Bark.</p>
+<p class="sub">Notation API : voyelles entre barres obliques, mots-exemples en transcription phonétique entre crochets. Homme et femme : Calliope (Tubach, 1989). Enfant : estimation. Bascule Hz / Bark, seuil d’intégration 3,5 Bark.</p>
 <div class="card">
 <div style="display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px;" id="btns">
   <button data-k="H">Homme</button><button data-k="F">Femme</button><button data-k="E">Enfant (estimation)</button><button data-k="ALL">Superposer</button>
@@ -33,6 +33,7 @@ input[type=checkbox]{accent-color:#2a78d6}
 </div>
 <div style="display:flex;flex-wrap:wrap;gap:16px;font-size:12px;color:var(--text-secondary);margin-bottom:6px;" id="leg"></div>
 <svg id="pl" viewBox="0 0 680 500" width="100%" style="display:block;" role="img" aria-label="Plan F1-F2 des dix voyelles orales du français"></svg>
+<div id="ex" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:2px 12px;font-size:12px;color:var(--text-muted);margin:8px 0 0;"></div>
 <p id="info" style="font-size:13px;color:var(--text-secondary);margin:6px 0 0;min-height:20px;">Survolez une voyelle pour le détail complet.</p>
 <p id="note" style="font-size:12px;color:var(--text-muted);margin:4px 0 0;line-height:1.5;"></p>
 </div>
@@ -45,6 +46,7 @@ D.E={};for(const v in D.F)D.E[v]=[Math.round(D.F[v][0]*1.15/5)*5,Math.round(D.F[
 const S={front:{v:['i','e','ɛ','a'],c:'#2a78d6',n:'Antérieures étirées'},round:{v:['y','ø','œ'],c:'#1baf7a',n:'Antérieures arrondies'},back:{v:['u','o','ɔ'],c:'#eb6834',n:'Postérieures'}};
 const SP={H:{n:'Homme',dash:'',fill:true},F:{n:'Femme',dash:'',fill:false},E:{n:'Enfant (est.)',dash:'4,3',fill:false}};
 const ex={i:'vie',e:'été',ɛ:'fête',a:'patte',y:'lune',ø:'feu',œ:'peur',u:'tout',o:'eau',ɔ:'or'};
+const api={i:'[vi]',e:'[ete]',ɛ:'[fɛt]',a:'[pat]',y:'[lyn]',ø:'[fø]',œ:'[pœʁ]',u:'[tu]',o:'[o]',ɔ:'[ɔʁ]'};
 const bark=f=>26.81*f/(1960+f)-0.53, hz=z=>1960*(z+0.53)/(26.28-z), fr=n=>n.toFixed(1).replace('.',',');
 const W=680,Hh=500,L=58,R=20,T=16,B=56;
 const col=v=>{for(const k in S)if(S[k].v.includes(v))return S[k].c;};
@@ -70,7 +72,7 @@ function draw(){
  for(const s of ks){const d=D[s],sp=SP[s];
   for(const g in S)g1+=`<polyline points="${S[g].v.map(v=>`${X(d[v][1])},${Y(d[v][0])}`).join(' ')}" fill="none" stroke="${S[g].c}" stroke-width="1.5" stroke-dasharray="${sp.dash}" opacity="0.5"/>`;
   for(const v in d){const [f1,f2]=d[v],c=col(v),r=one?13:10,cx=X(f2),cy=Y(f1);
-   const tip=`/${v}/ « ${ex[v]} » — ${sp.n} : F1 ${f1} Hz (${fr(bark(f1))} Bark), F2 ${f2} Hz (${fr(bark(f2))} Bark), F2 − F1 = ${fr(bark(f2)-bark(f1))} Bark`;
+   const tip=`/${v}/ ${api[v]} « ${ex[v]} » — ${sp.n} : F1 ${f1} Hz (${fr(bark(f1))} Bark), F2 ${f2} Hz (${fr(bark(f2))} Bark), F2 − F1 = ${fr(bark(f2)-bark(f1))} Bark`;
    g2+=`<g data-t="${tip}"><title>${tip}</title><circle cx="${cx}" cy="${cy}" r="${r}" fill="${sp.fill?c:'var(--surface-2)'}" stroke="${c}" stroke-width="1.8" stroke-dasharray="${sp.dash}"/><text x="${cx}" y="${cy+(one?5:4)}" text-anchor="middle" style="font-size:${one?15:12}px;font-family:var(--font-voice);fill:${sp.fill?'#fff':c};pointer-events:none">${v}</text></g>`;
    circ.push({x:cx,y:cy,r});
    const t=lm==='hz'?`${f1} · ${f2}`:lm==='bk'?`${fr(bark(f1))} · ${fr(bark(f2))}`:`Δ ${fr(bark(f2)-bark(f1))}`;
@@ -94,6 +96,7 @@ function draw(){
  if(cur==='ALL')lg+=`<span>● plein : homme · ○ trait plein : femme · ○ pointillé : enfant</span>`;
  if(isB&&showT)lg+=`<span style="display:flex;align-items:center;gap:5px"><span style="width:16px;border-top:1.5px dashed #e34948"></span>F2 − F1 = 3,5 Bark</span>`;
  document.getElementById('leg').innerHTML=lg;
+ document.getElementById('ex').innerHTML=['i','e','ɛ','a','y','ø','œ','u','o','ɔ'].map(v=>`<span><span style="font-family:var(--font-voice);font-size:14px;color:${col(v)}">/${v}/</span> <span style="font-family:var(--font-voice);font-size:13px;color:var(--text-secondary)">${api[v]}</span> ${ex[v]}</span>`).join('');
  document.getElementById('note').textContent='Bark : Traunmüller (1990), z = 26,81·f/(1960+f) − 0,53. Homme et femme : Calliope (Tubach, 1989). Enfant : extrapolation (femme × 1,15), non mesurée.';
  document.querySelectorAll('#btns button').forEach(b=>b.style.borderColor=b.dataset.k===cur?'var(--border-stronger)':'');
 }

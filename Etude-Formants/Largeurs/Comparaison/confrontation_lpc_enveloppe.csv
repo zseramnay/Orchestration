@@ -1,0 +1,20 @@
+instrument,formant_hz,lpc_mai26,lpc_v7,env_mai26,env_v7,env_v7_sur_resolution,Q_env_v7,verdict
+Basson,494,45,40,172,162,0.53,3.06,PLANCHER
+Basson,1108,66,88,269,280,1.88,3.96,divergence x3.2
+Basson,1974,153,146,291,253,1.59,7.8,divergence x1.7
+Violoncelle,1108,150,143,194,172,0.65,6.43,PLANCHER
+Violoncelle,2631,164,203,205,205,0.77,12.86,PLANCHER
+Violoncelle,3948,189,193,237,215,0.83,18.34,PLANCHER
+Violon,2216,165,104,452,484,0.62,4.57,PLANCHER
+Violon,3960,124,110,651,635,0.67,6.23,PLANCHER
+Trompette,2792,249,339,2762,2880,5.47,0.97,divergence x8.5
+Trompette,4974,328,325,4651,3386,2.36,1.47,divergence x10.4
+Tuba basse,698,188,238,646,603,1.42,1.16,PLANCHER
+Tuba basse,1244,332,331,135,135,0.85,9.24,PLANCHER
+Trombone tenor,879,191,204,624,646,2.63,1.36,divergence x3.2
+Trombone basse,879,191,194,312,328,2.56,2.68,divergence x1.7
+Trombone basse,1670,347,373,1529,1583,6.57,1.06,divergence x4.2
+Clarinette Sib,3517,206,209,592,571,1.32,6.16,PLANCHER
+Clarinette basse,1244,125,110,167,172,0.71,7.22,PLANCHER
+Clarinette contrebasse,1761,231,244,307,269,2.32,6.54,ACCORD
+Contrebasse,2635,246,268,140,172,1.05,15.29,PLANCHER

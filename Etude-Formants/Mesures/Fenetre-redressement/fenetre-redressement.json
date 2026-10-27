@@ -1,0 +1,490 @@
+[
+ {
+  "instrument": "Violoncelle",
+  "corpus": "SOL",
+  "fenetre": 0.75,
+  "n_ech": 291,
+  "f0_min": 65.4,
+  "plancher_hz": 261,
+  "plancher_sur_f0": 4.0,
+  "bandes_peuplees": 64,
+  "pente_residuelle": 0.05,
+  "formants": [
+   2216,
+   1108,
+   3948,
+   554
+  ],
+  "residus": [
+   6.55,
+   4.26,
+   4.14,
+   3.38
+  ],
+  "residu_219": null,
+  "pic_219": null
+ },
+ {
+  "instrument": "Violoncelle",
+  "corpus": "SOL",
+  "fenetre": 1.0,
+  "n_ech": 291,
+  "f0_min": 65.4,
+  "plancher_hz": 147,
+  "plancher_sur_f0": 2.24,
+  "bandes_peuplees": 70,
+  "pente_residuelle": -0.03,
+  "formants": [
+   2216,
+   3948,
+   1108,
+   494
+  ],
+  "residus": [
+   9.23,
+   6.2,
+   4.34,
+   4.17
+  ],
+  "residu_219": 0.0,
+  "pic_219": null
+ },
+ {
+  "instrument": "Violoncelle",
+  "corpus": "SOL",
+  "fenetre": 1.25,
+  "n_ech": 291,
+  "f0_min": 65.4,
+  "plancher_hz": 147,
+  "plancher_sur_f0": 2.24,
+  "bandes_peuplees": 70,
+  "pente_residuelle": -0.03,
+  "formants": [
+   2091,
+   3948,
+   1108,
+   554
+  ],
+  "residus": [
+   12.7,
+   8.5,
+   5.81,
+   4.68
+  ],
+  "residu_219": 2.89,
+  "pic_219": null
+ },
+ {
+  "instrument": "Violoncelle",
+  "corpus": "SOL",
+  "fenetre": 1.5,
+  "n_ech": 291,
+  "f0_min": 65.4,
+  "plancher_hz": 147,
+  "plancher_sur_f0": 2.24,
+  "bandes_peuplees": 70,
+  "pente_residuelle": -0.12,
+  "formants": [
+   2091,
+   3726,
+   1108,
+   554
+  ],
+  "residus": [
+   16.2,
+   10.59,
+   7.87,
+   5.88
+  ],
+  "residu_219": 4.39,
+  "pic_219": null
+ },
+ {
+  "instrument": "Violoncelle",
+  "corpus": "SOL",
+  "fenetre": 2.0,
+  "n_ech": 291,
+  "f0_min": 65.4,
+  "plancher_hz": 87,
+  "plancher_sur_f0": 1.33,
+  "bandes_peuplees": 79,
+  "pente_residuelle": -0.11,
+  "formants": [
+   2091,
+   1318,
+   349,
+   494
+  ],
+  "residus": [
+   23.14,
+   14.72,
+   11.83,
+   8.51
+  ],
+  "residu_219": 7.35,
+  "pic_219": null
+ },
+ {
+  "instrument": "Violoncelle",
+  "corpus": "ZSamples",
+  "fenetre": 0.75,
+  "n_ech": 256,
+  "f0_min": 65.4,
+  "plancher_hz": 277,
+  "plancher_sur_f0": 4.23,
+  "bandes_peuplees": 62,
+  "pente_residuelle": 0.02,
+  "formants": [
+   3517,
+   2792,
+   622,
+   932
+  ],
+  "residus": [
+   5.42,
+   4.92,
+   3.94,
+   2.5
+  ],
+  "residu_219": null,
+  "pic_219": null
+ },
+ {
+  "instrument": "Violoncelle",
+  "corpus": "ZSamples",
+  "fenetre": 1.0,
+  "n_ech": 256,
+  "f0_min": 65.4,
+  "plancher_hz": 147,
+  "plancher_sur_f0": 2.24,
+  "bandes_peuplees": 68,
+  "pente_residuelle": 0.02,
+  "formants": [
+   3134,
+   2348,
+   622,
+   932
+  ],
+  "residus": [
+   8.8,
+   7.26,
+   5.63,
+   3.33
+  ],
+  "residu_219": 0.0,
+  "pic_219": null
+ },
+ {
+  "instrument": "Violoncelle",
+  "corpus": "ZSamples",
+  "fenetre": 1.25,
+  "n_ech": 256,
+  "f0_min": 65.4,
+  "plancher_hz": 147,
+  "plancher_sur_f0": 2.24,
+  "bandes_peuplees": 68,
+  "pente_residuelle": -0.08,
+  "formants": [
+   2958,
+   622,
+   932,
+   1396
+  ],
+  "residus": [
+   12.86,
+   7.93,
+   4.43,
+   2.32
+  ],
+  "residu_219": 1.22,
+  "pic_219": null
+ },
+ {
+  "instrument": "Violoncelle",
+  "corpus": "ZSamples",
+  "fenetre": 1.5,
+  "n_ech": 256,
+  "f0_min": 65.4,
+  "plancher_hz": 147,
+  "plancher_sur_f0": 2.24,
+  "bandes_peuplees": 68,
+  "pente_residuelle": -0.17,
+  "formants": [
+   2792,
+   622,
+   783,
+   1174
+  ],
+  "residus": [
+   16.75,
+   10.57,
+   5.24,
+   4.07
+  ],
+  "residu_219": 1.92,
+  "pic_219": null
+ },
+ {
+  "instrument": "Violoncelle",
+  "corpus": "ZSamples",
+  "fenetre": 2.0,
+  "n_ech": 256,
+  "f0_min": 65.4,
+  "plancher_hz": 98,
+  "plancher_sur_f0": 1.5,
+  "bandes_peuplees": 75,
+  "pente_residuelle": -0.2,
+  "formants": [
+   2348,
+   622,
+   932
+  ],
+  "residus": [
+   23.57,
+   13.49,
+   8.72
+  ],
+  "residu_219": 11.01,
+  "pic_219": null
+ },
+ {
+  "instrument": "Violoncelle",
+  "corpus": "VO",
+  "fenetre": 0.75,
+  "n_ech": 207,
+  "f0_min": 65.4,
+  "plancher_hz": 329,
+  "plancher_sur_f0": 5.04,
+  "bandes_peuplees": 57,
+  "pente_residuelle": -0.05,
+  "formants": [
+   2635,
+   830
+  ],
+  "residus": [
+   5.62,
+   3.64
+  ],
+  "residu_219": null,
+  "pic_219": null
+ },
+ {
+  "instrument": "Violoncelle",
+  "corpus": "VO",
+  "fenetre": 1.0,
+  "n_ech": 207,
+  "f0_min": 65.4,
+  "plancher_hz": 196,
+  "plancher_sur_f0": 2.99,
+  "bandes_peuplees": 66,
+  "pente_residuelle": -0.07,
+  "formants": [
+   2635,
+   830,
+   1396,
+   5270
+  ],
+  "residus": [
+   8.68,
+   4.29,
+   2.14,
+   1.35
+  ],
+  "residu_219": null,
+  "pic_219": null
+ },
+ {
+  "instrument": "Violoncelle",
+  "corpus": "VO",
+  "fenetre": 1.25,
+  "n_ech": 207,
+  "f0_min": 65.4,
+  "plancher_hz": 196,
+  "plancher_sur_f0": 2.99,
+  "bandes_peuplees": 66,
+  "pente_residuelle": -0.1,
+  "formants": [
+   2487,
+   739,
+   1479
+  ],
+  "residus": [
+   12.02,
+   5.48,
+   4.02
+  ],
+  "residu_219": null,
+  "pic_219": null
+ },
+ {
+  "instrument": "Violoncelle",
+  "corpus": "VO",
+  "fenetre": 1.5,
+  "n_ech": 207,
+  "f0_min": 65.4,
+  "plancher_hz": 196,
+  "plancher_sur_f0": 2.99,
+  "bandes_peuplees": 66,
+  "pente_residuelle": -0.19,
+  "formants": [
+   2487,
+   1479,
+   830,
+   587
+  ],
+  "residus": [
+   15.94,
+   6.56,
+   6.04,
+   2.29
+  ],
+  "residu_219": null,
+  "pic_219": null
+ },
+ {
+  "instrument": "Violoncelle",
+  "corpus": "VO",
+  "fenetre": 2.0,
+  "n_ech": 207,
+  "f0_min": 65.4,
+  "plancher_hz": 98,
+  "plancher_sur_f0": 1.5,
+  "bandes_peuplees": 71,
+  "pente_residuelle": -0.2,
+  "formants": [
+   2091,
+   830,
+   587
+  ],
+  "residus": [
+   23.47,
+   10.43,
+   5.22
+  ],
+  "residu_219": 9.91,
+  "pic_219": null
+ },
+ {
+  "instrument": "Violoncelle",
+  "corpus": "VN",
+  "fenetre": 0.75,
+  "n_ech": 159,
+  "f0_min": 65.4,
+  "plancher_hz": 261,
+  "plancher_sur_f0": 4.0,
+  "bandes_peuplees": 64,
+  "pente_residuelle": 0.02,
+  "formants": [
+   1108,
+   3948,
+   2635,
+   5583
+  ],
+  "residus": [
+   5.95,
+   5.05,
+   4.34,
+   1.88
+  ],
+  "residu_219": null,
+  "pic_219": null
+ },
+ {
+  "instrument": "Violoncelle",
+  "corpus": "VN",
+  "fenetre": 1.0,
+  "n_ech": 159,
+  "f0_min": 65.4,
+  "plancher_hz": 147,
+  "plancher_sur_f0": 2.24,
+  "bandes_peuplees": 69,
+  "pente_residuelle": -0.14,
+  "formants": [
+   3134,
+   3948,
+   987,
+   466
+  ],
+  "residus": [
+   7.81,
+   7.77,
+   6.77,
+   4.05
+  ],
+  "residu_219": 9.2,
+  "pic_219": null
+ },
+ {
+  "instrument": "Violoncelle",
+  "corpus": "VN",
+  "fenetre": 1.25,
+  "n_ech": 159,
+  "f0_min": 65.4,
+  "plancher_hz": 147,
+  "plancher_sur_f0": 2.24,
+  "bandes_peuplees": 70,
+  "pente_residuelle": -0.15,
+  "formants": [
+   3134,
+   987,
+   466,
+   783
+  ],
+  "residus": [
+   11.07,
+   8.01,
+   4.18,
+   2.0
+  ],
+  "residu_219": 9.35,
+  "pic_219": null
+ },
+ {
+  "instrument": "Violoncelle",
+  "corpus": "VN",
+  "fenetre": 1.5,
+  "n_ech": 159,
+  "f0_min": 65.4,
+  "plancher_hz": 147,
+  "plancher_sur_f0": 2.24,
+  "bandes_peuplees": 70,
+  "pente_residuelle": -0.21,
+  "formants": [
+   2792,
+   987,
+   466
+  ],
+  "residus": [
+   14.6,
+   9.72,
+   5.52
+  ],
+  "residu_219": 11.1,
+  "pic_219": null
+ },
+ {
+  "instrument": "Violoncelle",
+  "corpus": "VN",
+  "fenetre": 2.0,
+  "n_ech": 159,
+  "f0_min": 65.4,
+  "plancher_hz": 87,
+  "plancher_sur_f0": 1.33,
+  "bandes_peuplees": 79,
+  "pente_residuelle": -0.17,
+  "formants": [
+   2635,
+   1108,
+   466,
+   739
+  ],
+  "residus": [
+   21.56,
+   13.97,
+   9.66,
+   7.26
+  ],
+  "residu_219": 11.88,
+  "pic_219": null
+ }
+]

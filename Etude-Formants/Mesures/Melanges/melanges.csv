@@ -1,0 +1,216 @@
+A,B,famille_A,famille_B,n_hauteurs,pct_fusion,pct_renforcement,pct_juxtaposition,pct_homogene,pct_chimere,pct_indistinct,ecart_parents_bark,dominant,dA_median,dB_median,classe_dominante,pct_fusion_1_2,pct_fusion_2_1
+Trompette en Ut,Tuba basse,cuivres,cuivres,35,89,0,9,0,3,0,4.31,,2.37,1.97,fusion,66,94
+Flûte contrebasse,Tuba basse,flûtes,cuivres,24,8,8,4,79,0,0,0.29,Tuba basse,0.09,0.21,homogène,0,0
+Contrebasse,Hautbois,cordes,anches doubles,45,56,11,2,29,0,2,4.21,Contrebasse,2.06,2.23,fusion,56,56
+Clarinette en Mib,Tuba basse,clarinettes,cuivres,12,17,17,0,67,0,0,0.27,Tuba basse,0.12,0.53,homogène,17,25
+Clarinette en Mib,Tuba contrebasse,clarinettes,cuivres,19,5,11,5,79,0,0,0.15,Tuba contrebasse,0.1,0.05,homogène,5,16
+Clarinette en Mib,Cor en Fa,clarinettes,cuivres,24,29,17,0,54,0,0,0.77,Clarinette en Mib,0.6,1.09,homogène,29,33
+Hautbois,Tuba contrebasse,anches doubles,cuivres,16,44,6,12,38,0,0,4.34,Tuba contrebasse,2.83,1.12,fusion,31,62
+Trompette en Ut,Tuba contrebasse,cuivres,cuivres,27,67,7,7,15,0,4,3.82,Tuba contrebasse,2.44,1.87,fusion,44,67
+Clarinette basse en Sib,Hautbois,clarinettes,anches doubles,84,31,12,5,50,0,2,0.95,Hautbois,0.73,0.27,homogène,32,31
+Clarinette en Sib,Cor en Fa,clarinettes,cuivres,84,20,14,1,61,0,4,0.71,Cor en Fa,0.38,0.47,homogène,15,18
+Cor en Fa,Trompette en Ut,cuivres,cuivres,71,54,14,3,27,0,3,3.23,Trompette en Ut,1.66,1.57,fusion,52,49
+Clarinette en Sib,Tuba basse,clarinettes,cuivres,48,15,12,8,65,0,0,0.45,Tuba basse,0.73,0.42,homogène,8,17
+Clarinette en Mib,Flûte,clarinettes,flûtes,38,13,13,8,66,0,0,0.36,Flûte,0.06,0.17,homogène,5,16
+Cor anglais,Tuba contrebasse,anches doubles,cuivres,34,47,6,15,32,0,0,2.68,Tuba contrebasse,1.91,1.27,fusion,29,41
+Hautbois,Tuba basse,anches doubles,cuivres,24,67,4,17,12,0,0,6.37,Tuba basse,3.45,2.71,fusion,46,79
+Clarinette contrebasse en Sib,Tuba contrebasse,clarinettes,cuivres,45,7,11,4,71,0,7,0.71,Clarinette contrebasse en Sib,0.41,0.35,homogène,2,4
+Clarinette basse en Sib,Clarinette en Sib,clarinettes,clarinettes,108,5,14,4,72,0,6,0.39,Clarinette basse en Sib,0.17,0.21,homogène,6,2
+Cor anglais,Cor en Fa,anches doubles,cuivres,78,37,12,8,40,0,4,1.72,Cor anglais,0.7,1.12,homogène,23,33
+Clarinette en Sib,Hautbois,clarinettes,anches doubles,102,22,15,6,54,0,4,0.78,Hautbois,0.48,0.12,homogène,18,21
+Hautbois,Trombone ténor,anches doubles,cuivres,45,60,18,7,16,0,0,3.09,Hautbois,1.88,1.75,fusion,53,58
+Flûte,Petite flûte,flûtes,flûtes,73,0,18,0,75,0,7,0.36,Petite flûte,0.14,0.08,homogène,0,0
+Clarinette en Sib,Tuba contrebasse,clarinettes,cuivres,40,12,10,12,62,0,2,0.51,Tuba contrebasse,0.32,0.34,homogène,2,12
+Cor anglais,Flûte basse,anches doubles,flûtes,30,27,10,7,47,0,10,1.03,Flûte basse,0.95,0.76,homogène,23,23
+Flûte contrebasse,Tuba contrebasse,flûtes,cuivres,31,6,10,3,68,0,13,0.79,Tuba contrebasse,0.25,0.49,homogène,3,0
+Clarinette en Mib,Flûte contrebasse,clarinettes,flûtes,26,23,19,4,50,0,4,1.07,Clarinette en Mib,0.42,0.55,homogène,12,12
+Cor en Fa,Hautbois,cuivres,anches doubles,60,40,22,5,33,0,0,2.38,Hautbois,1.8,2.04,fusion,47,32
+Hautbois,Trombone basse,anches doubles,cuivres,29,52,14,3,21,0,10,2.93,Hautbois,1.41,1.39,fusion,45,45
+Clarinette en Mib,Contrebasse,clarinettes,cordes,18,28,28,0,44,0,0,1.66,Contrebasse,0.65,0.67,homogène,22,17
+Clarinette en Sib,Flûte basse,clarinettes,flûtes,36,11,14,6,61,0,8,0.5,Clarinette en Sib,0.11,0.29,homogène,8,8
+Contrebasson,Cor en Fa,anches doubles,cuivres,76,1,18,1,71,0,8,0.66,Cor en Fa,0.28,0.46,homogène,3,1
+Tuba basse,Tuba contrebasse,cuivres,cuivres,93,0,18,0,72,0,10,0.64,Tuba contrebasse,0.25,0.24,homogène,0,0
+Clarinette basse en Sib,Trompette en Ut,clarinettes,cuivres,91,35,15,5,36,0,8,1.81,Trompette en Ut,0.95,0.92,homogène,33,27
+Clarinette en Mib,Petite flûte,clarinettes,flûtes,24,4,12,0,67,0,17,0.49,Petite flûte,0.06,0.48,homogène,4,4
+Contrebasson,Trompette en Ut,anches doubles,cuivres,14,64,7,21,7,0,0,3.54,Contrebasson,1.4,2.01,fusion,57,29
+Contrebasson,Tuba contrebasse,anches doubles,cuivres,110,0,14,4,70,0,13,0.6,Contrebasson,0.25,0.39,homogène,0,0
+Clarinette basse en Sib,Flûte basse,clarinettes,flûtes,36,8,19,3,61,0,8,0.56,Clarinette basse en Sib,0.18,0.3,homogène,3,11
+Clarinette en Mib,Violon,clarinettes,cordes,45,27,24,0,42,0,7,1.42,Violon,0.75,0.39,homogène,20,27
+Clarinette en Sib,Trompette en Ut,clarinettes,cuivres,96,28,24,3,40,0,5,1.9,Trompette en Ut,0.64,0.56,homogène,29,20
+Hautbois,Violoncelle,anches doubles,cordes,81,41,26,0,27,0,6,2.26,Hautbois,1.1,1.11,fusion,33,33
+Basson,Clarinette en Mib,anches doubles,clarinettes,21,57,29,0,10,0,5,2.77,Basson,1.38,2.32,fusion,48,24
+Clarinette contrebasse en Sib,Flûte contrebasse,clarinettes,flûtes,24,21,21,8,46,0,4,1.78,Flûte contrebasse,0.95,0.23,homogène,0,25
+Clarinette contrebasse en Sib,Trompette en Ut,clarinettes,cuivres,12,67,25,8,0,0,0,4.73,Trompette en Ut,2.02,2.46,fusion,67,58
+Cor en Fa,Tuba contrebasse,cuivres,cuivres,90,0,14,1,67,0,18,0.6,Tuba contrebasse,0.33,0.28,homogène,1,0
+Flûte basse,Hautbois,flûtes,anches doubles,27,30,19,7,37,0,7,1.17,Hautbois,0.81,0.25,homogène,30,22
+Clarinette basse en Sib,Tuba basse,clarinettes,cuivres,96,11,14,15,55,0,5,0.7,Clarinette basse en Sib,0.4,0.57,homogène,7,8
+Contrebasson,Violon,anches doubles,cordes,12,33,8,0,33,0,25,1.46,Violon,0.65,1.19,homogène,33,33
+Trombone basse,Violoncelle,cuivres,cordes,80,52,22,2,14,2,6,3.41,Trombone basse,1.79,1.56,fusion,41,46
+Tuba basse,Violoncelle,cuivres,cordes,90,14,16,7,52,0,11,0.91,Violoncelle,0.4,0.7,homogène,12,10
+Tuba contrebasse,Violoncelle,cuivres,cordes,82,15,15,11,51,0,9,0.92,Tuba contrebasse,0.54,0.84,homogène,15,2
+Alto,Trombone basse,cordes,cuivres,52,46,23,4,19,0,8,2.13,Alto,1.42,1.26,fusion,35,38
+Hautbois,Trompette en Ut,anches doubles,cuivres,85,20,25,0,45,0,11,1.24,Hautbois,0.58,0.55,homogène,12,9
+Alto,Clarinette en Mib,cordes,clarinettes,42,24,31,2,40,0,2,1.39,Alto,0.57,0.73,homogène,26,21
+Alto,Flûte,cordes,flûtes,114,10,26,2,54,0,8,0.83,Alto,0.15,0.61,homogène,6,8
+Clarinette basse en Sib,Clarinette en Mib,clarinettes,clarinettes,36,6,19,8,58,0,8,0.54,Clarinette basse en Sib,0.19,0.19,homogène,3,3
+Clarinette en Sib,Flûte,clarinettes,flûtes,99,9,28,3,55,0,5,0.76,Flûte,0.07,0.39,homogène,8,10
+Contrebasse,Trompette en Ut,cordes,cuivres,56,50,16,11,14,0,9,3.4,Contrebasse,1.65,1.85,fusion,54,43
+Flûte,Hautbois,flûtes,anches doubles,104,18,30,4,46,0,2,1.33,Hautbois,0.82,0.09,homogène,22,19
+Clarinette en Sib,Violoncelle,clarinettes,cordes,105,21,30,6,42,0,2,1.4,Violoncelle,0.62,0.55,homogène,12,17
+Contrebasse,Trombone basse,cordes,cuivres,93,53,16,19,10,1,1,4.19,Trombone basse,1.68,2.91,fusion,52,44
+Cor anglais,Trombone basse,anches doubles,cuivres,43,30,30,0,33,0,7,1.8,Trombone basse,1.08,0.73,homogène,16,21
+Cor en Fa,Flûte contrebasse,cuivres,flûtes,35,6,26,6,57,0,6,0.65,Flûte contrebasse,0.51,0.36,homogène,3,6
+Flûte basse,Trombone ténor,flûtes,cuivres,27,30,7,0,33,0,30,1.33,Flûte basse,0.72,0.77,homogène,19,15
+Contrebasson,Cor anglais,anches doubles,anches doubles,21,33,0,24,29,5,10,3.53,,1.56,2.0,fusion,24,24
+Cor anglais,Trombone ténor,anches doubles,cuivres,63,27,24,2,35,0,13,1.5,Trombone ténor,1.07,0.74,homogène,17,19
+Flûte,Trompette en Ut,flûtes,cuivres,82,27,34,1,35,0,2,1.52,Trompette en Ut,1.23,0.28,homogène,17,23
+Clarinette basse en Sib,Cor anglais,clarinettes,anches doubles,96,33,24,4,28,3,7,1.83,Cor anglais,1.08,0.79,fusion,28,27
+Clarinette en Sib,Cor anglais,clarinettes,anches doubles,96,23,26,8,38,1,4,1.85,Cor anglais,0.85,0.62,homogène,19,18
+Cor en Fa,Trombone basse,cuivres,cuivres,87,37,23,10,24,0,6,2.41,Cor en Fa,0.95,1.21,fusion,31,13
+Basson,Flûte basse,anches doubles,flûtes,30,27,33,0,33,0,7,1.48,Flûte basse,0.91,0.73,homogène,13,10
+Clarinette contrebasse en Sib,Cor anglais,clarinettes,anches doubles,15,53,33,7,7,0,0,4.09,Clarinette contrebasse en Sib,2.08,2.26,fusion,53,33
+Clarinette en Sib,Contrebasse,clarinettes,cordes,69,25,30,1,35,0,9,2.01,Clarinette en Sib,0.63,0.83,homogène,13,19
+Clarinette en Sib,Petite flûte,clarinettes,flûtes,54,4,26,0,56,0,15,0.77,Clarinette en Sib,0.27,0.34,homogène,0,6
+Cor anglais,Hautbois,anches doubles,anches doubles,78,22,19,3,38,0,18,1.44,Hautbois,0.83,0.57,homogène,13,15
+Cor en Fa,Flûte,cuivres,flûtes,57,9,26,2,51,0,12,0.81,Flûte,0.53,0.34,homogène,5,7
+Trombone ténor,Tuba contrebasse,cuivres,cuivres,87,40,15,7,20,0,18,2.18,Tuba contrebasse,1.22,0.83,fusion,8,32
+Tuba contrebasse,Violon,cuivres,cordes,25,28,16,4,32,0,20,1.36,Tuba contrebasse,0.56,0.85,homogène,16,16
+Alto,Cor anglais,cordes,anches doubles,96,40,28,6,19,0,7,2.48,Cor anglais,1.54,1.07,fusion,21,29
+Alto,Petite flûte,cordes,flûtes,69,4,32,3,55,0,6,0.71,Alto,0.1,0.46,homogène,4,6
+Clarinette en Mib,Clarinette en Sib,clarinettes,clarinettes,39,3,21,8,56,0,13,0.42,Clarinette en Mib,0.22,0.19,homogène,5,3
+Contrebasse,Flûte basse,cordes,flûtes,27,11,22,7,48,0,11,1.37,Flûte basse,0.81,0.51,homogène,7,19
+Cor en Fa,Violoncelle,cuivres,cordes,126,23,29,7,36,0,6,1.45,Violoncelle,0.75,0.78,homogène,15,16
+Flûte,Violoncelle,flûtes,cordes,78,15,38,3,44,0,0,1.63,Flûte,0.74,0.3,homogène,14,9
+Flûte basse,Trompette en Ut,flûtes,cuivres,32,28,19,12,31,0,9,2.06,Trompette en Ut,0.91,0.67,homogène,28,19
+Alto,Trompette en Ut,cordes,cuivres,96,35,31,2,23,0,8,2.28,Trompette en Ut,1.21,0.81,fusion,25,22
+Basson,Clarinette contrebasse en Sib,anches doubles,clarinettes,33,58,9,33,0,0,0,3.07,Basson,1.91,1.64,fusion,42,33
+Basson,Tuba basse,anches doubles,cuivres,96,48,26,7,10,0,8,2.23,Basson,1.1,1.21,fusion,17,11
+Clarinette basse en Sib,Violoncelle,clarinettes,cordes,144,22,32,4,36,1,4,1.55,Violoncelle,0.84,0.79,homogène,14,16
+Clarinette en Sib,Flûte contrebasse,clarinettes,flûtes,29,10,34,3,48,0,3,1.17,Flûte contrebasse,0.47,0.48,homogène,14,7
+Contrebasse,Violon,cordes,cordes,54,41,39,4,17,0,0,2.67,Violon,1.44,1.39,fusion,24,33
+Cor en Fa,Petite flûte,cuivres,flûtes,12,0,33,0,58,0,8,0.83,Petite flûte,0.79,0.06,homogène,0,0
+Petite flûte,Violon,flûtes,cordes,81,16,40,0,42,0,2,1.49,Violon,0.8,0.14,homogène,6,15
+Trombone ténor,Violon,cuivres,cordes,54,15,22,9,43,0,11,1.1,Trombone ténor,0.46,0.85,homogène,13,7
+Trombone ténor,Violoncelle,cuivres,cordes,111,41,32,1,17,1,9,2.28,Trombone ténor,1.02,2.01,fusion,41,27
+Basson,Clarinette en Sib,anches doubles,clarinettes,78,42,29,6,15,0,6,2.4,Basson,1.08,1.49,fusion,26,21
+Basson,Trombone ténor,anches doubles,cuivres,117,6,30,3,51,0,10,0.95,Basson,0.32,0.57,homogène,3,3
+Clarinette basse en Sib,Clarinette contrebasse en Sib,clarinettes,clarinettes,33,15,36,3,42,0,3,1.09,Clarinette basse en Sib,0.52,1.02,homogène,18,9
+Clarinette basse en Sib,Trombone basse,clarinettes,cuivres,85,44,29,9,13,0,5,3.76,Clarinette basse en Sib,1.57,1.96,fusion,44,27
+Clarinette contrebasse en Sib,Violoncelle,clarinettes,cordes,30,37,33,3,20,0,7,2.29,Clarinette contrebasse en Sib,0.96,1.75,fusion,23,23
+Contrebasse,Trombone ténor,cordes,cuivres,117,42,25,5,15,0,14,2.35,Contrebasse,1.09,1.25,fusion,31,33
+Cor en Fa,Tuba basse,cuivres,cuivres,98,1,20,1,56,1,20,0.88,Tuba basse,0.38,0.35,homogène,2,2
+Alto,Flûte contrebasse,cordes,flûtes,32,34,34,6,22,0,3,2.32,Alto,1.17,1.65,renforcement,28,25
+Basson,Tuba contrebasse,anches doubles,cuivres,88,41,19,6,15,0,19,2.05,Basson,1.09,1.02,fusion,12,16
+Clarinette en Mib,Trombone ténor,clarinettes,cuivres,18,39,39,0,17,0,6,2.54,Trombone ténor,3.64,0.86,renforcement,17,33
+Contrebasse,Tuba basse,cordes,cuivres,108,12,31,4,44,0,8,1.25,Contrebasse,0.58,0.68,homogène,20,5
+Cor anglais,Trompette en Ut,anches doubles,cuivres,89,9,29,2,47,0,12,1.18,Trompette en Ut,0.48,0.44,homogène,9,3
+Cor en Fa,Flûte basse,cuivres,flûtes,30,3,13,3,53,0,27,0.71,Flûte basse,0.42,0.28,homogène,7,3
+Trombone basse,Tuba basse,cuivres,cuivres,82,49,18,23,7,0,2,3.23,Tuba basse,1.87,1.13,fusion,28,43
+Trombone basse,Violon,cuivres,cordes,36,28,28,11,28,0,6,1.62,Trombone basse,0.72,1.25,homogène,19,8
+Clarinette basse en Sib,Petite flûte,clarinettes,flûtes,36,11,28,0,44,0,17,1.17,Clarinette basse en Sib,0.29,0.63,homogène,6,6
+Clarinette contrebasse en Sib,Hautbois,clarinettes,anches doubles,9,44,33,11,11,0,0,6.32,Hautbois,3.07,2.55,fusion,44,44
+Cor anglais,Tuba basse,anches doubles,cuivres,42,36,26,14,19,2,2,2.48,Tuba basse,1.73,1.11,fusion,24,38
+Trombone basse,Trombone ténor,cuivres,cuivres,79,4,32,3,51,0,11,0.95,Trombone ténor,0.58,0.55,homogène,1,6
+Alto,Contrebasson,cordes,anches doubles,33,6,18,18,48,0,9,1.25,Alto,0.84,0.43,homogène,3,6
+Alto,Hautbois,cordes,anches doubles,107,33,32,5,21,0,10,1.85,Hautbois,1.35,0.85,fusion,27,29
+Clarinette basse en Sib,Contrebasse,clarinettes,cordes,117,15,26,12,39,1,8,1.46,Clarinette basse en Sib,0.64,0.74,homogène,15,8
+Clarinette en Mib,Trombone basse,clarinettes,cuivres,24,25,38,4,29,0,4,2.38,Trombone basse,1.18,0.82,renforcement,12,21
+Trompette en Ut,Violon,cuivres,cordes,94,38,37,6,16,0,2,2.67,Trompette en Ut,1.08,1.65,fusion,35,32
+Trompette en Ut,Violoncelle,cuivres,cordes,92,29,34,4,25,0,8,2.21,Trompette en Ut,0.99,1.0,renforcement,29,22
+Clarinette contrebasse en Sib,Tuba basse,clarinettes,cuivres,36,3,31,6,50,0,11,0.95,Clarinette contrebasse en Sib,0.35,0.38,homogène,3,3
+Cor anglais,Violoncelle,anches doubles,cordes,96,26,31,4,27,0,11,2.1,Violoncelle,0.99,0.86,renforcement,28,17
+Flûte,Tuba contrebasse,flûtes,cuivres,13,15,8,23,38,0,15,0.2,Tuba contrebasse,0.98,0.1,homogène,8,8
+Alto,Contrebasse,cordes,cordes,75,33,32,4,19,0,12,2.47,Alto,1.0,1.31,fusion,33,17
+Alto,Trombone ténor,cordes,cuivres,75,20,25,9,32,0,13,1.51,Trombone ténor,1.0,0.65,homogène,16,20
+Alto,Violon,cordes,cordes,126,19,32,10,33,0,6,1.44,Violon,0.81,0.58,homogène,13,17
+Basson,Contrebasse,anches doubles,cordes,117,44,15,24,8,1,9,3.0,Contrebasse,1.41,1.39,fusion,32,26
+Basson,Violoncelle,anches doubles,cordes,120,42,32,9,10,0,8,2.73,Violoncelle,1.38,1.36,fusion,41,30
+Clarinette basse en Sib,Cor en Fa,clarinettes,cuivres,131,15,34,9,37,0,5,1.35,Clarinette basse en Sib,0.7,0.84,homogène,12,9
+Clarinette basse en Sib,Flûte,clarinettes,flûtes,81,6,37,2,46,0,9,1.18,Flûte,0.24,0.38,homogène,6,6
+Clarinette basse en Sib,Flûte contrebasse,clarinettes,flûtes,38,5,29,8,47,0,11,1.06,Flûte contrebasse,0.5,0.23,homogène,3,8
+Clarinette en Sib,Violon,clarinettes,cordes,111,32,42,3,20,0,3,2.89,Violon,1.85,0.85,renforcement,21,37
+Flûte,Flûte basse,flûtes,flûtes,27,11,33,7,41,0,7,1.26,Flûte,0.45,0.38,homogène,7,7
+Flûte basse,Violoncelle,flûtes,cordes,39,3,33,13,49,0,3,0.96,Flûte basse,0.3,0.47,homogène,5,5
+Hautbois,Violon,anches doubles,cordes,107,42,35,5,10,2,7,3.17,Hautbois,1.48,1.6,fusion,37,44
+Basson,Cor anglais,anches doubles,anches doubles,72,12,26,12,39,1,8,1.44,Basson,0.42,0.84,homogène,6,6
+Basson,Flûte contrebasse,anches doubles,flûtes,33,30,30,12,21,0,6,2.62,Basson,0.93,1.37,fusion,9,18
+Clarinette basse en Sib,Tuba contrebasse,clarinettes,cuivres,88,11,20,18,40,0,10,1.05,Clarinette basse en Sib,0.63,0.7,homogène,7,8
+Clarinette basse en Sib,Violon,clarinettes,cordes,93,40,44,4,11,0,1,3.38,Violon,2.37,1.09,renforcement,22,45
+Clarinette en Sib,Trombone basse,clarinettes,cuivres,47,28,38,2,23,0,9,2.9,Trombone basse,1.23,0.87,renforcement,15,21
+Contrebasson,Trombone ténor,anches doubles,cuivres,74,16,32,8,35,0,8,1.69,Contrebasson,0.48,1.14,homogène,20,7
+Trombone basse,Tuba contrebasse,cuivres,cuivres,94,34,18,23,17,0,7,2.75,Tuba contrebasse,1.83,0.72,fusion,15,27
+Tuba basse,Violon,cuivres,cordes,33,30,24,9,21,0,15,1.94,Violon,0.88,1.0,fusion,15,12
+Alto,Clarinette en Sib,cordes,clarinettes,126,19,36,6,31,0,9,1.69,Alto,0.61,0.89,renforcement,15,15
+Clarinette en Mib,Cor anglais,clarinettes,anches doubles,30,33,37,3,17,0,10,2.6,Cor anglais,1.41,1.0,renforcement,27,37
+Clarinette en Mib,Hautbois,clarinettes,anches doubles,36,22,39,0,28,0,11,2.19,Hautbois,1.64,0.38,renforcement,22,22
+Clarinette en Mib,Trompette en Ut,clarinettes,cuivres,32,22,50,0,28,0,0,2.33,Trompette en Ut,1.34,0.54,renforcement,25,22
+Contrebasson,Tuba basse,anches doubles,cuivres,86,2,26,2,48,0,22,1.02,Contrebasson,0.45,0.6,homogène,2,5
+Cor anglais,Violon,anches doubles,cordes,87,37,33,16,13,0,1,3.22,Violon,1.56,1.83,fusion,33,25
+Flûte,Flûte contrebasse,flûtes,flûtes,20,15,30,15,35,0,5,1.95,Flûte,0.34,0.55,homogène,15,10
+Flûte,Trombone basse,flûtes,cuivres,26,12,46,0,38,0,4,1.62,Trombone basse,1.11,0.51,renforcement,4,23
+Flûte basse,Trombone basse,flûtes,cuivres,12,42,25,17,8,0,8,2.94,Flûte basse,0.96,1.76,fusion,33,17
+Flûte basse,Tuba basse,flûtes,cuivres,18,11,28,17,39,0,6,0.87,Tuba basse,0.4,0.28,homogène,0,0
+Flûte contrebasse,Trompette en Ut,flûtes,cuivres,26,31,31,15,19,0,4,3.38,Trompette en Ut,1.67,1.03,fusion,23,27
+Flûte contrebasse,Violoncelle,flûtes,cordes,38,26,37,5,24,0,8,2.38,Violoncelle,0.88,1.19,renforcement,21,21
+Alto,Clarinette basse en Sib,cordes,clarinettes,114,25,39,4,24,0,8,1.9,Alto,0.81,1.12,renforcement,18,18
+Alto,Tuba contrebasse,cordes,cuivres,46,13,9,26,35,0,17,1.14,Tuba contrebasse,0.74,0.51,homogène,9,9
+Clarinette contrebasse en Sib,Cor en Fa,clarinettes,cuivres,33,15,36,6,33,0,9,1.35,Cor en Fa,0.72,0.74,renforcement,12,12
+Flûte contrebasse,Hautbois,flûtes,anches doubles,23,35,39,9,13,0,4,3.93,Hautbois,1.98,0.62,renforcement,26,30
+Hautbois,Petite flûte,anches doubles,flûtes,59,2,41,3,46,0,8,1.13,Hautbois,0.05,0.79,homogène,5,0
+Basson,Clarinette basse en Sib,anches doubles,clarinettes,126,37,26,21,10,0,6,2.65,Basson,1.33,1.4,fusion,28,20
+Cor en Fa,Violon,cuivres,cordes,69,14,33,6,33,0,13,1.75,Violon,0.72,0.38,renforcement,10,12
+Alto,Flûte basse,cordes,flûtes,39,13,33,18,33,0,3,1.73,Alto,0.77,0.82,homogène,5,18
+Clarinette contrebasse en Sib,Clarinette en Sib,clarinettes,clarinettes,15,13,53,0,33,0,0,1.39,Clarinette en Sib,1.81,0.05,renforcement,0,13
+Clarinette contrebasse en Sib,Contrebasse,clarinettes,cordes,39,15,28,8,31,0,18,1.35,Contrebasse,0.9,0.75,homogène,10,18
+Contrebasse,Flûte,cordes,flûtes,42,17,36,2,29,0,17,1.9,Contrebasse,0.72,0.86,renforcement,14,7
+Contrebasse,Tuba contrebasse,cordes,cuivres,105,12,37,5,34,0,11,1.4,Contrebasse,0.54,0.85,renforcement,18,3
+Flûte contrebasse,Violon,flûtes,cordes,26,31,50,4,15,0,0,2.57,Violon,2.0,1.16,renforcement,23,23
+Petite flûte,Trompette en Ut,flûtes,cuivres,37,3,41,0,43,0,14,1.18,Trompette en Ut,0.81,0.33,homogène,0,5
+Trombone ténor,Trompette en Ut,cuivres,cuivres,56,32,29,2,14,0,23,1.89,Trompette en Ut,1.0,0.96,fusion,12,9
+Alto,Clarinette contrebasse en Sib,cordes,clarinettes,18,28,33,11,17,0,11,1.77,Clarinette contrebasse en Sib,1.68,1.1,renforcement,28,33
+Alto,Cor en Fa,cordes,cuivres,90,8,28,13,37,0,14,1.15,Alto,0.39,0.66,homogène,8,6
+Alto,Tuba basse,cordes,cuivres,54,15,13,26,30,0,17,1.4,Alto,0.86,0.53,homogène,4,9
+Basson,Cor en Fa,anches doubles,cuivres,125,18,30,2,27,0,23,1.59,Basson,0.69,0.87,renforcement,10,4
+Basson,Trompette en Ut,anches doubles,cuivres,65,22,26,14,23,0,15,2.14,Basson,0.8,0.92,renforcement,22,12
+Cor anglais,Flûte,anches doubles,flûtes,75,16,49,0,29,1,4,1.65,Cor anglais,0.42,1.28,renforcement,11,11
+Cor anglais,Flûte contrebasse,anches doubles,flûtes,29,21,31,14,24,0,10,1.63,Cor anglais,0.74,0.78,renforcement,24,28
+Trombone ténor,Tuba basse,cuivres,cuivres,96,36,38,3,9,0,14,2.46,Tuba basse,1.41,0.9,renforcement,14,33
+Alto,Violoncelle,cordes,cordes,111,12,35,5,32,1,16,1.44,Violoncelle,0.81,0.63,renforcement,14,10
+Basson,Contrebasson,anches doubles,anches doubles,74,22,23,9,22,1,23,1.75,Basson,0.9,0.86,indistinct,14,14
+Clarinette basse en Sib,Trombone ténor,clarinettes,cuivres,117,33,37,7,11,0,12,2.49,Trombone ténor,1.23,1.18,renforcement,31,28
+Contrebasse,Cor en Fa,cordes,cuivres,119,22,36,6,22,0,14,1.95,Contrebasse,0.83,1.2,renforcement,30,10
+Basson,Violon,anches doubles,cordes,63,21,19,25,22,0,13,1.76,Violon,0.96,1.11,juxtaposition,13,24
+Clarinette en Mib,Violoncelle,clarinettes,cordes,30,10,43,10,33,0,3,2.23,Violoncelle,0.64,0.41,renforcement,7,13
+Flûte,Trombone ténor,flûtes,cuivres,42,10,36,2,33,0,19,1.5,Trombone ténor,0.83,0.53,renforcement,0,7
+Flûte,Tuba basse,flûtes,cuivres,21,19,10,10,24,0,38,1.48,Tuba basse,0.91,0.66,indistinct,10,5
+Flûte basse,Violon,flûtes,cordes,30,20,40,7,23,0,10,2.13,Violon,1.4,0.78,renforcement,13,33
+Clarinette contrebasse en Sib,Clarinette en Mib,clarinettes,clarinettes,12,0,42,0,42,0,17,1.66,Clarinette en Mib,0.89,0.22,homogène,0,0
+Clarinette contrebasse en Sib,Contrebasson,clarinettes,anches doubles,38,18,24,5,24,0,29,1.65,Contrebasson,0.88,0.65,indistinct,8,18
+Flûte basse,Petite flûte,flûtes,flûtes,12,0,42,8,42,0,8,1.29,Petite flûte,0.48,0.21,renforcement,0,8
+Basson,Hautbois,anches doubles,anches doubles,54,35,30,20,6,2,7,2.87,Hautbois,1.41,1.64,fusion,39,24
+Contrebasse,Cor anglais,cordes,anches doubles,63,30,37,8,11,0,14,1.9,Cor anglais,1.26,1.28,renforcement,33,21
+Contrebasson,Flûte contrebasse,anches doubles,flûtes,17,6,12,6,35,0,41,1.43,Flûte contrebasse,0.69,0.63,indistinct,6,6
+Cor en Fa,Trombone ténor,cuivres,cuivres,116,10,34,3,31,0,22,1.57,Cor en Fa,0.66,0.75,renforcement,11,5
+Trombone basse,Trompette en Ut,cuivres,cuivres,37,14,24,8,27,0,27,1.34,Trombone basse,0.68,0.83,homogène,11,5
+Contrebasse,Flûte contrebasse,cordes,flûtes,30,7,40,3,33,0,17,1.81,Contrebasse,0.7,0.53,renforcement,13,7
+Flûte contrebasse,Trombone ténor,flûtes,cuivres,30,20,40,3,20,0,17,2.31,Flûte contrebasse,0.75,0.97,renforcement,40,17
+Violon,Violoncelle,cordes,cordes,90,24,34,16,16,2,8,2.58,Violoncelle,1.47,0.86,renforcement,20,24
+Contrebasse,Violoncelle,cordes,cordes,111,7,44,7,32,1,8,1.41,Contrebasse,0.43,0.72,renforcement,6,6
+Flûte,Violon,flûtes,cordes,118,14,47,8,25,0,6,2.14,Violon,1.2,0.43,renforcement,7,14
+Petite flûte,Violoncelle,flûtes,cordes,33,3,48,0,36,0,12,1.28,Violoncelle,0.85,0.08,renforcement,3,3
+Clarinette contrebasse en Sib,Trombone basse,clarinettes,cuivres,45,36,42,16,2,0,4,3.38,Trombone basse,2.15,1.69,renforcement,40,49
+Contrebasson,Violoncelle,anches doubles,cordes,68,13,41,6,25,3,12,1.42,Contrebasson,0.67,1.29,renforcement,21,9
+Basson,Trombone basse,anches doubles,cuivres,82,12,46,0,24,0,17,1.62,Basson,0.56,1.11,renforcement,12,6
+Clarinette basse en Sib,Contrebasson,clarinettes,anches doubles,74,16,30,16,20,0,18,1.57,Contrebasson,0.9,0.88,renforcement,14,16
+Clarinette contrebasse en Sib,Trombone ténor,clarinettes,cuivres,33,33,39,9,3,0,15,2.59,Trombone ténor,1.49,1.35,renforcement,27,27
+Clarinette en Sib,Trombone ténor,clarinettes,cuivres,69,17,43,4,19,0,16,2.04,Trombone ténor,1.09,0.66,renforcement,4,14
+Contrebasse,Contrebasson,cordes,anches doubles,92,21,27,14,15,1,22,1.68,Contrebasse,0.86,0.96,renforcement,15,13
+Contrebasson,Trombone basse,anches doubles,cuivres,80,24,40,20,12,0,4,3.04,Contrebasson,0.55,2.15,renforcement,40,12
+Alto,Basson,cordes,anches doubles,84,20,32,23,15,0,10,2.06,Alto,1.11,0.9,renforcement,12,17
+Flûte contrebasse,Trombone basse,flûtes,cuivres,35,6,54,11,29,0,0,2.02,Flûte contrebasse,0.58,0.98,renforcement,14,11
+Clarinette contrebasse en Sib,Violon,clarinettes,cordes,12,33,50,17,0,0,0,2.92,Violon,2.87,1.31,renforcement,33,58
+Contrebasson,Flûte basse,anches doubles,flûtes,12,0,25,8,33,0,33,1.37,Contrebasson,0.72,0.78,indistinct,0,0
+Flûte basse,Tuba contrebasse,flûtes,cuivres,12,0,33,8,33,0,25,1.27,Tuba contrebasse,0.74,0.48,homogène,0,0
+Basson,Flûte,anches doubles,flûtes,51,18,35,12,14,0,22,1.78,Flûte,0.81,0.89,renforcement,12,2
+Clarinette en Sib,Contrebasson,clarinettes,anches doubles,27,11,37,22,11,0,19,1.67,Contrebasson,1.79,0.83,renforcement,11,11
+Cor anglais,Petite flûte,anches doubles,flûtes,30,3,43,10,17,0,27,1.52,Cor anglais,0.51,0.98,renforcement,3,3

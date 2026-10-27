@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trombone ténor</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="bandeau"><h1>Trombone ténor</h1><p>Tenor trombone</p></div>
+<p class="fil"><a href="../index.html">Sommaire</a> › Les cuivres</p>
+<table class="sommaire"><tr><th>Classe</th><th>Provenance</th><th>Échantillons</th><th>Tessiture</th><th>Formants établis</th></tr><tr><td>A</td><td>IRCAM</td><td>117</td><td>A</td><td>1</td></tr></table><table class="sommaire"><tr><th>Formant</th><th>Note</th><th>Corpus</th><th>Localisation</th></tr><tr><td><b>830 Hz</b></td><td>Sol♯5</td><td>SOL ZSamples Xsamples VO</td><td></td></tr></table><figure><img src="../figures/composite-trombone-tenor.png" alt="Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, ZSamples, Xsamples, VO). Un formant retenu est" loading="lazy"><figcaption>Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, ZSamples, Xsamples, VO). Un formant retenu est un maximum que deux corpus de provenances distinctes placent au même point de grille.</figcaption></figure>
+<figure><img src="../figures/vocalique-trombone-tenor.png" alt="Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyell" loading="lazy"><figcaption>Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyelles du français (Calliope, voix d&#x27;homme). Marqueur creux : cellule non assignable. Corpus : SOL.</figcaption></figure>
+<h1>Trombone ténor</h1>
+<blockquote>
+<h2>Statut des formants — révision du 26/10/2026</h2>
+<p>Confrontation des <strong>cinq corpus</strong>. Provenance de ce corpus : <strong>IRCAM (FullSOL2020)</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Formant</th>
+<th>Statut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>830 Hz</strong></td>
+<td><strong>route A</strong> — SOL + VO + Xsamples + ZSamples au même point de grille, 835 Hz · zone vue par SOL, VO, Xsamples, ZSamples</td>
+</tr>
+<tr>
+<td><strong>1567 Hz</strong></td>
+<td><strong>indéterminé</strong> — concordance à un demi-ton avec ZSamples mais aucun couple au même point de grille. Environ une concordance sur quatre à ce seuil est fortuite.</td>
+</tr>
+<tr>
+<td><strong>2091 Hz</strong></td>
+<td><strong>indéterminé</strong> — concordance à un demi-ton avec Xsamples mais aucun couple au même point de grille. Environ une concordance sur quatre à ce seuil est fortuite.</td>
+</tr>
+<tr>
+<td><strong>3134 Hz</strong></td>
+<td>présent dans le seul corpus SOL</td>
+</tr>
+</tbody>
+</table>
+<p><code>etendue_residu</code> dans l'en-tête <strong>n'est pas une largeur de bande</strong> : c'est l'étendue du résidu de la méthode 8, souvent une butée de plage. Les largeurs mesurées sont dans <code>_LARGEURS-DE-BANDE.md</code>.</p>
+</blockquote>
+<h2>Méthode retenue, et pourquoi</h2>
+<blockquote>
+<p><strong>Méthode 8 — quatre formants retenus, aucun rejeté. Classe A nettement établie.</strong>
+Voir <code>00-METHODE.md</code>.</p>
+</blockquote>
+<p>Le trombone ténor est, avec le trombone basse, le cuivre dont le caractère de classe A est
+le mieux établi : <strong>ρ = 0,27</strong>, du même ordre que le hautbois. Contrairement au cor et à la
+trompette, son spectre ne suit ni la hauteur ni fortement la dynamique — la dispersion de
+pente n'est que de 2,5 dB/octave, contre 5,0 pour la trompette.</p>
+<p>Avec 117 échantillons, une médiane de <strong>62 harmoniques par note</strong> et une enveloppe vraie
+très stable (538 Hz, σ = 174 Hz), toutes les conditions sont réunies. C'est le seul cuivre
+dont <strong>les quatre candidats détectés passent les deux tests de rejet</strong> : aucun rejet, aucun
+cas fragile.</p>
+<p>Comme pour tous les cuivres, l'analyse par dynamique reste souhaitable, mais elle est ici
+moins urgente.</p>
+<h2>Formants</h2>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>Résidu</th>
+<th>Largeur −3 dB</th>
+<th>Notes distinctes</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>830 Hz</strong></td>
+<td>+3,3 dB</td>
+<td>415–4 695 Hz</td>
+<td>14</td>
+<td><strong>retenu</strong></td>
+</tr>
+<tr>
+<td><strong>1 567 Hz</strong></td>
+<td>+3,9 dB</td>
+<td>622–4 183 Hz</td>
+<td>23</td>
+<td><strong>retenu</strong></td>
+</tr>
+<tr>
+<td><strong>2 091 Hz</strong></td>
+<td>+3,2 dB</td>
+<td>415–4 974 Hz</td>
+<td>27</td>
+<td><strong>retenu</strong></td>
+</tr>
+<tr>
+<td><strong>3 134 Hz</strong></td>
+<td>+3,9 dB</td>
+<td>622–4 183 Hz</td>
+<td>32</td>
+<td><strong>retenu</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>Tests de rejet</h2>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>k = 2–3</th>
+<th>k = 4–7</th>
+<th>k = 8–15</th>
+<th>k ≥ 16</th>
+<th>Robustesse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>830 Hz</td>
+<td>+3,7</td>
+<td>+3,8</td>
+<td>+3,5</td>
+<td>—</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>1 567 Hz</td>
+<td>—</td>
+<td>+4,3</td>
+<td>+4,1</td>
+<td>+3,3</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>2 091 Hz</td>
+<td>—</td>
+<td>+2,2</td>
+<td>+2,3</td>
+<td>+2,6</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>3 134 Hz</td>
+<td>—</td>
+<td>+4,6</td>
+<td>+4,4</td>
+<td>+3,4</td>
+<td>oui</td>
+</tr>
+</tbody>
+</table>
+<p>La régularité est remarquable : pour chaque formant, le résidu varie de moins de 1 dB entre
+les groupes de rang. C'est la signature d'une résonance véritablement indépendante de la
+hauteur — le critère est satisfait non pas de justesse mais largement.</p>
+<p>En revanche, les bandes à −3 dB sont larges et se recouvrent. Les quatre formants forment
+peut-être une série de modes plutôt que quatre résonances indépendantes : leurs positions
+(830, 1 567, 2 091, 3 134 Hz) sont approximativement dans les rapports 1 : 1,9 : 2,5 : 3,8.
+À examiner.</p>
+<h2>Descripteurs globaux</h2>
+<table>
+<thead>
+<tr>
+<th>Descripteur</th>
+<th>Valeur</th>
+<th>Lecture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pente spectrale médiane</td>
+<td>−15,6 dB/octave (σ 2,5)</td>
+<td>régulière, peu sensible à la dynamique</td>
+</tr>
+<tr>
+<td>Harmoniques par note</td>
+<td>62 [20–90]</td>
+<td>spectre très riche</td>
+</tr>
+<tr>
+<td>Balance impair − pair</td>
+<td>−2,8 dB</td>
+<td>tuyau cylindrique à pavillon</td>
+</tr>
+<tr>
+<td>Enveloppe vraie (méthode 6)</td>
+<td>538 Hz, <strong>σ 174</strong></td>
+<td>stable</td>
+</tr>
+<tr>
+<td>Fraction de pics sur un harmonique</td>
+<td><strong>0 %</strong></td>
+<td>ordre adaptatif valide</td>
+</tr>
+</tbody>
+</table>
+<h2>Comparaison avec la littérature</h2>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Valeur annoncée</th>
+<th>Notre mesure</th>
+<th>Accord</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Backus (1969)</td>
+<td>500 Hz</td>
+<td>env. vraie 538 Hz</td>
+<td><strong>bon</strong></td>
+</tr>
+<tr>
+<td>Giesler (1985)</td>
+<td>520–600 Hz, <em>o-ähnlich</em></td>
+<td>env. vraie 538 Hz</td>
+<td><strong>bon</strong></td>
+</tr>
+<tr>
+<td>Meyer (2009)</td>
+<td>480–600 Hz et ~1 200 Hz</td>
+<td>env. vraie 538 Hz ; formant 1 567 Hz</td>
+<td><strong>bon</strong></td>
+</tr>
+<tr>
+<td>Ancien pipeline <code>specenv</code></td>
+<td>F1 = 237 Hz, zone /u/</td>
+<td>—</td>
+<td>zone de la fondamentale</td>
+</tr>
+<tr>
+<td>Ancien Fp</td>
+<td>1 218 Hz</td>
+<td>formant retenu 1 567 Hz</td>
+<td>proche</td>
+</tr>
+</tbody>
+</table>
+<p>Le cas du trombone est instructif sur le plan du diagnostic. L'ancienne étude relevait que
+« Backus 500, Giesler 520–600 et Meyer 480–600 correspondent au Fp = 1 218 Hz, pas au F1
+strict » de 237 Hz, et en concluait que « sa fusion avec les instruments de la zone /o/ opère
+via le Fp ». Ce raisonnement était bancal : il rapprochait des valeurs de 500 Hz d'un Fp de
+1 218 Hz, soit plus d'une octave d'écart, en invoquant un mécanisme non mesuré.</p>
+<p>La mesure actuelle tranche : <strong>les trois sources classiques avaient raison</strong>, et c'est notre
+enveloppe vraie à 538 Hz qui le confirme. Le F1 de 237 Hz était la zone de la fondamentale,
+et le Fp de 1 218 Hz une mesure de pente bornée. Les sources n'avaient pas besoin d'être
+réconciliées par un mécanisme : elles étaient simplement justes.</p>
+<h2>Registres</h2>
+<p><code>Data/registres.md</code> : sons pédale E1–A#1 · grave A#1–E3 · médium E3–E4 · aigu au-dessus.</p>
+<p>Mesure par registre : non effectuée.</p>
+<p>Note sur l'ancienne analyse par registre : elle donnait F1 = 215 Hz au grave, 301 Hz au
+médium et 431 Hz à l'aigu — une progression qui suit les fondamentales des registres. La
+« convergence exacte Δ = 0 Hz » annoncée entre le trombone grave et le chalumeau de la
+clarinette était donc la rencontre de deux zones de fondamentale.</p>
+<!-- DEBUT-TRAVAUX-27-10 -->
+<h2>Ce que les travaux du 27/10/2026 disent de cet instrument</h2>
+<h3>Corroboration par le LPC, note par note</h3>
+<p>Rang du formant dans son propre spectre : 50 % signifie que les deux méthodes ne s'accordent pas mieux là qu'ailleurs. Voir <code>../_APPARIEMENT-LPC.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Formant</th>
+<th>Statut</th>
+<th>Rang</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3134 Hz</td>
+<td>1 corpus</td>
+<td>77,8 %</td>
+</tr>
+</tbody>
+</table>
+<h3>Effet de la nuance sur la localisation</h3>
+<p>Part de pics <strong>non localisables</strong> — l'enveloppe n'y redescend pas de 3 dB des deux côtés, donc le formant n'a pas de largeur mesurable. Voir <code>../_LARGEUR-PAR-REGISTRE.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>doux</th>
+<th>moyen</th>
+<th>fort</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>tous registres</strong></td>
+<td>59 %</td>
+<td>45 %</td>
+<td>11 %</td>
+</tr>
+<tr>
+<td>grave</td>
+<td>69 %</td>
+<td>50 %</td>
+<td>7 %</td>
+</tr>
+<tr>
+<td>médium</td>
+<td>36 %</td>
+<td>—</td>
+<td>8 %</td>
+</tr>
+<tr>
+<td>hors registre</td>
+<td>67 %</td>
+<td>43 %</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Effet doux → fort : +48 points.</strong> La localisation s'améliore en jeu fort.</p>
+<h3>Dans la table des mélanges</h3>
+<p>20 paires calculées. <strong>Fusion moyenne : 27 %.</strong> Voir <code>../_MELANGES.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Couleur nouvelle avec</th>
+<th></th>
+<th>Se fond avec</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hautbois</td>
+<td>60 %</td>
+<td>Basson</td>
+<td>51 %</td>
+</tr>
+<tr>
+<td>Contrebasse</td>
+<td>42 %</td>
+<td>Trombone basse</td>
+<td>51 %</td>
+</tr>
+<tr>
+<td>Violoncelle</td>
+<td>41 %</td>
+<td>Violon</td>
+<td>43 %</td>
+</tr>
+</tbody>
+</table>
+<!-- FIN-TRAVAUX-27-10 -->
+
+<h2>Observations pour l'orchestration</h2>
+<p>À compléter. Éléments acquis :</p>
+<ul>
+<li>Le formant à <strong>1 567 Hz est identique à celui de la clarinette en Sib</strong> (1 567 Hz), tous
+  deux validés indépendamment par les deux tests. C'est une convergence inter-familles
+  précise, qui mériterait d'être testée à l'écoute : la doublure trombone–clarinette n'est
+  pas un lieu commun du répertoire, et si cette convergence se confirme perceptivement, ce
+  serait un résultat neuf plutôt qu'une confirmation.</li>
+<li>Les doublures annoncées antérieurement avec les tubas et le contrebasson à Δ = 11 Hz
+  reposaient toutes sur des F1 dans des bins voisins, autour de 226–237 Hz, c'est-à-dire sur
+  des zones de fondamentale. À reprendre entièrement.</li>
+<li>La zone 2 091 Hz rapproche le trombone du cor (2 216 Hz) et du cor anglais (2 216 Hz).</li>
+<li>L'homogénéité du pupitre de trombones est confirmée autrement que par l'ancienne étude :
+  voir le fichier du trombone basse, dont deux formants sur trois sont très proches.</li>
+</ul>
+<h2>Graphiques</h2>
+<p>Aucun à ce stade. Figures prévues dans <code>../Versions-html-and-docx/media/</code> :</p>
+<table>
+<thead>
+<tr>
+<th>Fichier prévu</th>
+<th>Contenu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>trombone_composite.png</code></td>
+<td>enveloppe composite — quatre formants, tous retenus : bonne figure de référence</td>
+</tr>
+<tr>
+<td><code>trombone_rangs.png</code></td>
+<td>résidu par groupe de rang : illustration de la régularité</td>
+</tr>
+<tr>
+<td><code>trombones_pupitre.png</code></td>
+<td>superposition trombone ténor / trombone basse</td>
+</tr>
+<tr>
+<td><code>trombone_litterature.png</code></td>
+<td>positions de Backus, Giesler et Meyer reportées sur l'enveloppe vraie</td>
+</tr>
+</tbody>
+</table>
+<h2>Journal</h2>
+<ul>
+<li><strong>2026-10-23</strong> — Quatre formants retenus, aucun rejet : seul cas du corpus.</li>
+<li><strong>2026-10-23</strong> — Les trois sources classiques (Backus, Giesler, Meyer) sont confirmées par
+  l'enveloppe vraie à 538 Hz. Le raisonnement antérieur, qui les rattachait au Fp de
+  1 218 Hz, est écarté : elles n'avaient pas besoin d'être réconciliées.</li>
+<li><strong>2026-10-23</strong> — Formant à 1 567 Hz identique à celui de la clarinette en Sib ;
+  convergence inter-familles à vérifier à l'écoute.</li>
+</ul>
+<footer>Référence formantique de l'orchestre — Yan Maresz · page produite par <code>construire_site.py</code> depuis les fiches et <code>Resultats-v7/</code>.</footer>
+</body>
+</html>

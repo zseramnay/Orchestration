@@ -1,0 +1,378 @@
+{
+ "alto": {
+  "composite": {
+   "corpus": [
+    "SOL",
+    "ZSamples",
+    "VO",
+    "VN"
+   ],
+   "fichier": "composite-alto.png"
+  },
+  "vocalique": {
+   "corpus": [
+    "SOL",
+    "VO",
+    "VN"
+   ],
+   "fichier": "vocalique-alto.png"
+  }
+ },
+ "basson": {
+  "composite": {
+   "corpus": [
+    "SOL",
+    "ZSamples",
+    "Xsamples"
+   ],
+   "fichier": "composite-basson.png"
+  },
+  "vocalique": {
+   "corpus": [
+    "SOL",
+    "Xsamples"
+   ],
+   "fichier": "vocalique-basson.png"
+  }
+ },
+ "clarinette-basse": {
+  "composite": {
+   "corpus": [
+    "SOL",
+    "Xsamples",
+    "VO",
+    "VN"
+   ],
+   "fichier": "composite-clarinette-basse.png"
+  },
+  "vocalique": {
+   "corpus": [
+    "SOL"
+   ],
+   "fichier": "vocalique-clarinette-basse.png"
+  }
+ },
+ "clarinette-contrebasse": {
+  "composite": {
+   "corpus": [
+    "SOL",
+    "ZSamples",
+    "VO"
+   ],
+   "fichier": "composite-clarinette-contrebasse.png"
+  },
+  "vocalique": {
+   "corpus": [
+    "SOL"
+   ],
+   "fichier": "vocalique-clarinette-contrebasse.png"
+  }
+ },
+ "clarinette-mib": {
+  "composite": {
+   "corpus": [
+    "SOL",
+    "ZSamples",
+    "VO"
+   ],
+   "fichier": "composite-clarinette-mib.png"
+  },
+  "vocalique": {
+   "corpus": [
+    "SOL",
+    "VO"
+   ],
+   "fichier": "vocalique-clarinette-mib.png"
+  }
+ },
+ "clarinette-sib": {
+  "composite": {
+   "corpus": [
+    "SOL",
+    "ZSamples",
+    "Xsamples",
+    "VO"
+   ],
+   "fichier": "composite-clarinette-sib.png"
+  },
+  "vocalique": {
+   "corpus": [
+    "SOL",
+    "Xsamples",
+    "VO"
+   ],
+   "fichier": "vocalique-clarinette-sib.png"
+  }
+ },
+ "contrebasse": {
+  "composite": {
+   "corpus": [
+    "SOL",
+    "ZSamples",
+    "VO"
+   ],
+   "fichier": "composite-contrebasse.png"
+  },
+  "vocalique": {
+   "corpus": [
+    "SOL",
+    "VO"
+   ],
+   "fichier": "vocalique-contrebasse.png"
+  }
+ },
+ "contrebasson": {
+  "composite": {
+   "corpus": [
+    "SOL",
+    "ZSamples",
+    "Xsamples",
+    "VN"
+   ],
+   "fichier": "composite-contrebasson.png"
+  },
+  "vocalique": {
+   "corpus": [
+    "SOL",
+    "Xsamples",
+    "VN"
+   ],
+   "fichier": "vocalique-contrebasson.png"
+  }
+ },
+ "cor": {
+  "composite": {
+   "corpus": [
+    "SOL",
+    "ZSamples",
+    "Xsamples",
+    "VN"
+   ],
+   "fichier": "composite-cor.png"
+  },
+  "vocalique": {
+   "corpus": [
+    "SOL"
+   ],
+   "fichier": "vocalique-cor.png"
+  }
+ },
+ "cor-anglais": {
+  "composite": {
+   "corpus": [
+    "SOL",
+    "ZSamples",
+    "Xsamples",
+    "VN"
+   ],
+   "fichier": "composite-cor-anglais.png"
+  },
+  "vocalique": {
+   "corpus": [
+    "SOL",
+    "Xsamples",
+    "VN"
+   ],
+   "fichier": "vocalique-cor-anglais.png"
+  }
+ },
+ "flute": {
+  "composite": {
+   "corpus": [
+    "SOL",
+    "ZSamples",
+    "VO"
+   ],
+   "fichier": "composite-flute.png"
+  },
+  "vocalique": {
+   "corpus": [
+    "SOL"
+   ],
+   "fichier": "vocalique-flute.png"
+  }
+ },
+ "flute-basse": {
+  "composite": {
+   "corpus": [
+    "SOL",
+    "ZSamples",
+    "Xsamples",
+    "VO"
+   ],
+   "fichier": "composite-flute-basse.png"
+  },
+  "vocalique": {
+   "corpus": [
+    "SOL"
+   ],
+   "fichier": "vocalique-flute-basse.png"
+  }
+ },
+ "flute-contrebasse": {
+  "composite": {
+   "corpus": [
+    "SOL",
+    "ZSamples",
+    "VO"
+   ],
+   "fichier": "composite-flute-contrebasse.png"
+  },
+  "vocalique": {
+   "corpus": [
+    "SOL"
+   ],
+   "fichier": "vocalique-flute-contrebasse.png"
+  }
+ },
+ "hautbois": {
+  "composite": {
+   "corpus": [
+    "SOL",
+    "ZSamples",
+    "Xsamples",
+    "VN"
+   ],
+   "fichier": "composite-hautbois.png"
+  },
+  "vocalique": {
+   "corpus": [
+    "SOL",
+    "Xsamples",
+    "VN"
+   ],
+   "fichier": "vocalique-hautbois.png"
+  }
+ },
+ "petite-flute": {
+  "composite": {
+   "corpus": [
+    "SOL",
+    "ZSamples",
+    "VO"
+   ],
+   "fichier": "composite-petite-flute.png"
+  },
+  "vocalique": {
+   "corpus": [
+    "SOL"
+   ],
+   "fichier": "vocalique-petite-flute.png"
+  }
+ },
+ "trombone-basse": {
+  "composite": {
+   "corpus": [
+    "SOL",
+    "ZSamples",
+    "VO"
+   ],
+   "fichier": "composite-trombone-basse.png"
+  },
+  "vocalique": {
+   "corpus": [
+    "SOL",
+    "VO"
+   ],
+   "fichier": "vocalique-trombone-basse.png"
+  }
+ },
+ "trombone-tenor": {
+  "composite": {
+   "corpus": [
+    "SOL",
+    "ZSamples",
+    "Xsamples",
+    "VO"
+   ],
+   "fichier": "composite-trombone-tenor.png"
+  },
+  "vocalique": {
+   "corpus": [
+    "SOL"
+   ],
+   "fichier": "vocalique-trombone-tenor.png"
+  }
+ },
+ "trompette": {
+  "composite": {
+   "corpus": [
+    "SOL",
+    "ZSamples",
+    "Xsamples",
+    "VN"
+   ],
+   "fichier": "composite-trompette.png"
+  },
+  "vocalique": {
+   "corpus": [
+    "SOL"
+   ],
+   "fichier": "vocalique-trompette.png"
+  }
+ },
+ "tuba-basse": {
+  "composite": {
+   "corpus": [
+    "SOL",
+    "ZSamples",
+    "VO",
+    "VN"
+   ],
+   "fichier": "composite-tuba-basse.png"
+  },
+  "vocalique": {
+   "absent": "un seul maximum survit dans 24 cellules sur 32 : il n'y a pas de couple (F1, F2) à lire"
+  }
+ },
+ "tuba-contrebasse": {
+  "composite": {
+   "corpus": [
+    "SOL",
+    "VN"
+   ],
+   "fichier": "composite-tuba-contrebasse.png"
+  },
+  "vocalique": {
+   "absent": "un seul maximum survit dans 24 cellules sur 27 : il n'y a pas de couple (F1, F2) à lire"
+  }
+ },
+ "violon": {
+  "composite": {
+   "corpus": [
+    "SOL",
+    "ZSamples",
+    "VO",
+    "VN"
+   ],
+   "fichier": "composite-violon.png"
+  },
+  "vocalique": {
+   "corpus": [
+    "SOL",
+    "VO",
+    "VN"
+   ],
+   "fichier": "vocalique-violon.png"
+  }
+ },
+ "violoncelle": {
+  "composite": {
+   "corpus": [
+    "SOL",
+    "ZSamples",
+    "VO",
+    "VN"
+   ],
+   "fichier": "composite-violoncelle.png"
+  },
+  "vocalique": {
+   "corpus": [
+    "SOL",
+    "VO",
+    "VN"
+   ],
+   "fichier": "vocalique-violoncelle.png"
+  }
+ }
+}

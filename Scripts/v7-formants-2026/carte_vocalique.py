@@ -103,16 +103,41 @@ def maxima_fusionnes(exc, seuil_rel=25.0):
         out.append((z, float(max(exc[i] for i in g))))
     return out
 
+PLANCHER_F0 = 2 ** (-1.0 / 12)   # un demi-ton de tolérance sous la fondamentale
+
 def f1_f2(spectre, f0):
-    """Rend (z1, z2, hz1, hz2, marques)."""
+    """Rend (z1, z2, hz1, hz2, marques).
+
+    Les maxima situés SOUS la fondamentale sont écartés (ajouté le 27/10/2026,
+    tâche C3). Un spectre harmonique n'a aucun partiel en dessous de f0 : ce qui se
+    trouve là est du bruit d'archet, la réponse de la caisse à une excitation large
+    bande, ou la jupe de la fonction d'étalement — jamais un formant au sens
+    vocalique, la lecture (F1, F2) supposant une source harmonique filtrée.
+
+    Sans cette borne, le détecteur bascule entre fondamentale et résonance de caisse
+    dès que f0 dépasse la zone de résonance. C'était l'instabilité du violon au
+    suraigu : IQR de 9,0 Bark chez ZSamples, 7,4 chez SOL, avec un tiers des notes
+    dont le « F1 » tombait sous leur propre fondamentale. Avec la borne : 3,4 et 2,3.
+
+    Mesuré sur les cinq corpus avant adoption : 4 à 5 % des cellules voient F1 bouger
+    de plus d'un demi-ton, 0 à 2 % changent de voyelle, et **rien ne bouge au grave ni
+    au médium** — les résonances de caisse établies en C1 (alto 374–395 Hz,
+    violoncelle 209–223 Hz) sont inchangées, puisqu'elles sont au-dessus de f0.
+    Voir `_SURAIGU.md`."""
     exc = motif_excitation(spectre)
     m = maxima_fusionnes(exc)
     marques = []
     if not m:
         return (None,) * 4 + ([("aucun max")],)
+    garde = [x for x in m if bark_vers_hz(x[0]) >= f0 * PLANCHER_F0]
+    if len(garde) < len(m):
+        marques.append("sous f0 écarté")
+    m = garde
+    if not m:
+        return (None,) * 4 + (marques + ["aucun max au-dessus de f0"],)
     z1 = m[0][0]; h1 = bark_vers_hz(z1)
     if len(m) < 2:
-        return z1, None, h1, None, ["1 max"]
+        return z1, None, h1, None, marques + ["1 max"]
     z2 = m[1][0]; h2 = bark_vers_hz(z2)
     if abs(12 * math.log2(max(h1, 1e-6) / f0)) < 1.0:
         marques.append("F1=f0")
@@ -253,7 +278,11 @@ INSTRUMENTS = {                 # nom affiché : (fichier de spectres, clé dans
     "Flûte basse":            ("Bass-Flute",              "flûte basse"),
     "Flûte contrebasse":      ("Contrabass-Flute",        "flûte contrebasse"),
     "Hautbois":               ("Oboe",                    "hautbois"),
-    # Cor anglais : ABSENT de registres.md — registres à définir avant mesure
+    # Cor anglais : ses registres ont été ajoutés à registres.md depuis (grave E2–C4,
+    # médium C4–C5, aigu C5–C6, suraigu au-dessus). Réintégré le 27/10/2026 — le
+    # commentaire précédent, qui le disait absent, était périmé et le faisait tomber
+    # de la carte à chaque régénération.
+    "Cor anglais":            ("EnglishHorn",             "cor anglais"),
     "Basson":                 ("Bassoon",                 "basson"),
     "Contrebasson":           ("Contrebasson",            "contrebasson"),
     "Clarinette en Mib":      ("Clarinet-Eb",             "clarinette en mib"),

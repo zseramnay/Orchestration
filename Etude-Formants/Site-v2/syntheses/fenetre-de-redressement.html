@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La fenêtre de redressement</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="bandeau"><h1>La fenêtre de redressement</h1></div>
+<p class="fil"><a href="../index.html">Sommaire</a> › Synthèses</p>
+<h1>La fenêtre de redressement</h1>
+<h2>Le diagnostic publié était faux</h2>
+<p><code>residu_local()</code> porte dans sa docstring, et <code>_CARTE-VOCALIQUE.md</code> reprend, que le redressement
+local à ±3/4 d'octave est « aveugle aux résonances plus larges que ~1,5 octave ». Nous en avions
+déduit que la résonance de caisse de l'alto — 375–395 Hz, établie en C1 sur quatre corpus —
+échappait à la méthode 8 <strong>parce qu'elle est trop large</strong>, et que l'élargissement la ferait
+apparaître.</p>
+<p>Ce n'est pas la raison. La vraie raison est arithmétique, et elle est plus simple.</p>
+<p>Un harmonique n'entre dans l'enveloppe composite que si sa fenêtre de ±w octave contient <strong>au
+moins trois harmoniques de la même note</strong> — c'est la condition <code>q &gt;= 3</code> de <code>composite()</code>. Or le
+nombre d'harmoniques présents dans l'intervalle [k/2^w, k·2^w] croît avec le rang k : aux rangs
+les plus bas, la fenêtre est trop étroite pour en contenir trois.</p>
+<table>
+<thead>
+<tr>
+<th>Fenêtre</th>
+<th>Rang le plus bas admis</th>
+<th>Plancher théorique du composite</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>±0,50 octave</td>
+<td>4</td>
+<td>4 × f0_min</td>
+</tr>
+<tr>
+<td><strong>±0,75 octave — la fenêtre actuelle</strong></td>
+<td><strong>3</strong></td>
+<td><strong>3 × f0_min</strong></td>
+</tr>
+<tr>
+<td>±1,00 à ±1,50 octave</td>
+<td>2</td>
+<td>2 × f0_min</td>
+</tr>
+<tr>
+<td>±2,00 octave</td>
+<td>1</td>
+<td>1 × f0_min</td>
+</tr>
+</tbody>
+</table>
+<p>En pratique le plancher est encore plus haut, parce qu'une bande n'est publiée que si elle
+réunit au moins cinq points et cinq notes. <strong>Mesuré sur les 22 instruments et les cinq corpus,
+le plancher réel à ±3/4 d'octave se situe entre 3,2 et 5,7 fois f0_min.</strong></p>
+<p>Pour l'alto, f0_min = 131 Hz : le plancher vaut 523 à 659 Hz selon le corpus. Pour le
+violoncelle, f0_min = 65 Hz : 261 à 329 Hz. <strong>Les résonances établies en C1 — 384 Hz à l'alto,
+219 Hz au violoncelle — sont en dessous de ce plancher dans les quatre corpus.</strong> Elles ne sont
+pas redressées : elles sont hors du domaine calculé. L'enveloppe composite n'y porte aucune
+valeur, ce que l'on vérifie directement dans les JSON de mesure.</p>
+<p>Élargir la fenêtre répond donc bien au problème, mais par un mécanisme différent de celui
+annoncé : cela <strong>abaisse le plancher du domaine</strong>, au lieu de « voir plus large ».</p>
+<h2>Ce que l'élargissement fait gagner</h2>
+<p>Passer de ±0,75 à ±1,00 octave abaisse le plancher du composite de <strong>5 demi-tons en médiane</strong>,
+sur 66 mesures instrument × corpus couvrant les 22 instruments.</p>
+<table>
+<thead>
+<tr>
+<th>Instrument · corpus</th>
+<th>Plancher à ±0,75</th>
+<th>Plancher à ±1,00</th>
+<th>Gain</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trombone ténor · SOL</td>
+<td>233 Hz (×4,0)</td>
+<td>116 Hz (×2,0)</td>
+<td><strong>12 dt</strong></td>
+</tr>
+<tr>
+<td>Violoncelle · ZSamples</td>
+<td>277 Hz (×4,2)</td>
+<td>147 Hz (×2,2)</td>
+<td>11 dt</td>
+</tr>
+<tr>
+<td>Violoncelle · SOL et VN</td>
+<td>261 Hz (×4,0)</td>
+<td>147 Hz (×2,2)</td>
+<td>10 dt</td>
+</tr>
+<tr>
+<td>Violon · VO</td>
+<td>987 Hz (×5,0)</td>
+<td>587 Hz (×3,0)</td>
+<td>9 dt</td>
+</tr>
+<tr>
+<td>Hautbois · SOL, Xsamples, VN</td>
+<td>932 Hz (×4,0)</td>
+<td>698 Hz (×3,0)</td>
+<td>5 dt</td>
+</tr>
+<tr>
+<td>Tuba basse · ZSamples et VO</td>
+<td>87 Hz</td>
+<td>87 Hz</td>
+<td>0 dt</td>
+</tr>
+</tbody>
+</table>
+<p>Les cas à gain nul sont ceux dont le corpus descend déjà très bas : le plancher y est fixé par
+la règle des cinq notes, pas par le rang.</p>
+<p>Et dans la zone établie par la méthode 12, le résidu apparaît, important, et croît avec la
+fenêtre :</p>
+<table>
+<thead>
+<tr>
+<th>Alto, zone 384 Hz</th>
+<th>±0,75</th>
+<th>±1,00</th>
+<th>±1,25</th>
+<th>±1,50</th>
+<th>±2,00</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SOL</td>
+<td><strong>aucune valeur</strong></td>
+<td>1,5 dB</td>
+<td>4,7</td>
+<td>8,2</td>
+<td>10,8</td>
+</tr>
+<tr>
+<td>ZSamples</td>
+<td><strong>aucune valeur</strong></td>
+<td>8,3 dB</td>
+<td>10,5</td>
+<td>11,2</td>
+<td>13,1</td>
+</tr>
+<tr>
+<td>VO</td>
+<td><strong>aucune valeur</strong></td>
+<td>11,7 dB</td>
+<td>15,8</td>
+<td>12,9</td>
+<td>14,2</td>
+</tr>
+<tr>
+<td>VN</td>
+<td><strong>aucune valeur</strong></td>
+<td>0,7 dB</td>
+<td>4,3</td>
+<td>4,8</td>
+<td>8,4</td>
+</tr>
+</tbody>
+</table>
+<p>Pour mémoire, le seuil de rétention est de 1 dB. Le violoncelle montre la même chose à 219 Hz,
+mais plus tard — il faut ±1,25 à ±2,00 selon le corpus, son f0_min étant plus bas.</p>
+<h2>Ce que l'élargissement coûte</h2>
+<p>C'est le test décisif, et il tranche. Pour chacun des formants déjà établis, on demande s'il se
+retrouve encore à moins d'un tiers d'octave — la tolérance que <code>robustesse_fenetre()</code> emploie
+déjà.</p>
+<table>
+<thead>
+<tr>
+<th>Fenêtre</th>
+<th>Formants route A retrouvés</th>
+<th>Formants « 1 corpus » retrouvés</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>±0,75 — l'actuelle</td>
+<td>72/76 · 95 %</td>
+<td>44/62 · 71 %</td>
+</tr>
+<tr>
+<td><strong>±1,00</strong></td>
+<td><strong>73/76 · 96 %</strong></td>
+<td><strong>46/62 · 74 %</strong></td>
+</tr>
+<tr>
+<td>±1,25</td>
+<td>69/76 · 91 %</td>
+<td>41/62 · 66 %</td>
+</tr>
+<tr>
+<td>±1,50</td>
+<td>58/76 · 76 %</td>
+<td>39/62 · 63 %</td>
+</tr>
+<tr>
+<td>±2,00</td>
+<td>52/76 · 68 %</td>
+<td>28/62 · 45 %</td>
+</tr>
+</tbody>
+</table>
+<p><strong>±1,00 octave ne coûte rien : il rapporte.</strong> Au-delà, la dégradation est rapide et devient
+sévère — à ±2,00, un formant route A sur trois ne se retrouve plus, et les listes de formants
+changent entièrement : le violoncelle chez SOL passe de 2 216 · 1 108 · 3 948 · 554 à
+2 091 · 1 318 · 349 · 494. Ce n'est pas un affinement, c'est une autre réponse.</p>
+<p>Les ±1,5 et ±2,0 que le plan de reprise proposait sont donc <strong>écartés par la mesure</strong>.</p>
+<h3>Le détail du passage à ±1,00</h3>
+<p>Sept formants établis se retrouvent qui manquaient, quatre se perdent.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Instrument · corpus</th>
+<th>Formant</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>retrouvé</strong></td>
+<td>Violoncelle · VO</td>
+<td><strong>1 108 Hz</strong> — renforce une convergence publiée (basson · violoncelle) d'un corpus</td>
+</tr>
+<tr>
+<td>retrouvé</td>
+<td>Contrebasse · VO</td>
+<td>3 948 Hz</td>
+</tr>
+<tr>
+<td>retrouvé</td>
+<td>Cor anglais · ZSamples</td>
+<td>4 183 Hz</td>
+</tr>
+<tr>
+<td>retrouvé</td>
+<td>Flûte contrebasse · ZSamples</td>
+<td>1 759 Hz</td>
+</tr>
+<tr>
+<td>retrouvé</td>
+<td>Tuba basse · VN et ZSamples</td>
+<td>987 Hz</td>
+</tr>
+<tr>
+<td>retrouvé</td>
+<td>Violoncelle · VN</td>
+<td>554 Hz</td>
+</tr>
+<tr>
+<td>perdu</td>
+<td>Alto · VO</td>
+<td>1 318 Hz — c'est la valeur déjà signalée comme fausse de dix demi-tons sur ZSamples</td>
+</tr>
+<tr>
+<td>perdu</td>
+<td>Cor en Fa · Xsamples</td>
+<td>4 183 Hz</td>
+</tr>
+<tr>
+<td>perdu</td>
+<td>Tuba basse · ZSamples</td>
+<td>1 479 Hz</td>
+</tr>
+<tr>
+<td>perdu</td>
+<td>Violoncelle · VN</td>
+<td>2 216 Hz</td>
+</tr>
+</tbody>
+</table>
+<p>Le bilan qualitatif va dans le même sens que le bilan chiffré : ce qui est gagné consolide des
+résultats existants, et la perte la plus notable est une valeur dont nous savions déjà qu'elle
+était douteuse.</p>
+<h2>Ce qui reste bloqué, et pourquoi ce n'est pas la fenêtre</h2>
+<p>Même à ±1,00, <strong>aucun pic n'est rapporté</strong> à 384 Hz pour l'alto ni à 219 Hz pour le
+violoncelle, malgré des résidus de 8 à 16 dB. La cause n'est plus le redressement : c'est
+<code>trouver_formants()</code>.</p>
+<p>Un maximum n'y est retenu que si ses deux voisins sont eux aussi des bandes publiées
+(<code>ok[i-1] and ok[i+1]</code>). <strong>Une bande située au plancher du domaine n'a pas de voisin de gauche :
+elle ne peut donc jamais être rapportée comme formant.</strong> Or à ±1,00 le plancher de l'alto est
+précisément 392 Hz, c'est-à-dire la bande de la résonance.</p>
+<p>Cette règle est justifiée : au bord du domaine, rien ne distingue un maximum d'un flanc
+montant. La supprimer inviterait exactement le genre d'artefact que cette reprise a servi à
+éliminer. <strong>Il ne faut donc pas la supprimer, et il ne faut pas non plus abaisser les seuils de
+cinq notes et cinq points pour forcer le passage.</strong></p>
+<p>La conclusion juste est plus modeste et plus sûre : dans cette zone, la méthode 8 peut
+<strong>confirmer une énergie</strong> mais non <strong>localiser un maximum</strong>. C'est la méthode 12 qui localise, et
+c'est exactement la hiérarchie déjà établie en C1 — méthode 12 pour la caisse des cordes,
+méthode 8 pour les résonances internes au domaine.</p>
+<p>Ce qu'on peut faire sans rien affaiblir : marquer ces bandes d'un statut explicite,
+« limite basse du domaine — énergie confirmée, maximum non vérifiable », et le publier comme
+tel. Un tel statut dirait quelque chose de vrai, là où aujourd'hui la fiche ne dit rien.</p>
+<h2>La migration a été tentée — et annulée</h2>
+<p><strong>Le 27/10 à la mi-journée</strong>, la fenêtre a été portée à ±1,00, les quatre corpus régénérés
+depuis leurs fichiers de spectres, et SOL remesuré. Le résultat a fait annuler la migration
+dans l'heure.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>±0,75 — l'actuelle</th>
+<th>±1,00</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Formants route A</td>
+<td><strong>23</strong></td>
+<td>21</td>
+</tr>
+<tr>
+<td>Instruments porteurs</td>
+<td>13</td>
+<td>13</td>
+</tr>
+<tr>
+<td><strong>Unissons formantiques</strong></td>
+<td><strong>3</strong></td>
+<td><strong>0</strong></td>
+</tr>
+<tr>
+<td>Régions partagées</td>
+<td>6</td>
+<td>6, mais d'autre composition</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Les trois unissons disparaissent</strong> — 1 108 Hz (basson · violoncelle), 1 244 Hz (clarinette
+basse · tuba basse), 2 216 Hz (cor · violon). Ce sont les résultats les mieux établis de
+l'étude et la matière du chapitre de synthèse. Les régions changent aussi de composition : la
+région du basson passe de 1 108 à 1 874–1 974 Hz, appariée au trombone ténor et non plus au
+violoncelle.</p>
+<p>Tout a été restauré depuis <code>Archives/halfwin-0.75-2026-10-27/</code>, et le contrôle repasse : 23
+formants, 13 instruments, 3 unissons, 6 régions, à l'identique.</p>
+<h3>Pourquoi la recommandation était fausse</h3>
+<p><strong>Le test de dégâts mesurait la mauvaise chose.</strong> Il demandait si chaque formant établi se
+retrouve <strong>à moins d'un tiers d'octave</strong> — quatre demi-tons — parce que c'est la tolérance
+qu'emploie <code>robustesse_fenetre()</code>. À cette tolérance, 96 % des formants route A survivaient à
+±1,00, contre 95 % à ±0,75 : la migration paraissait gratuite.</p>
+<p>Mais <strong>la route A n'exige pas un tiers d'octave, elle exige un demi-ton</strong> entre deux corpus de
+provenances distinctes. Une dérive d'un demi-ton par corpus est invisible au premier critère et
+fatale au second. Et c'est exactement ce qui se produit : les listes par corpus bougent à 60–77 %
+d'une configuration à l'autre, le plus souvent d'un ou deux demi-tons — 494 → 466, 1 863 → 1 759,
+2 216 → 1 974. Chaque valeur reste « au même endroit » à quatre demi-tons près, et plus aucune
+paire ne tient à un demi-ton.</p>
+<p>La leçon est une leçon de méthode, et elle vaut au-delà de cette tâche : <strong>un test de
+non-régression doit employer la tolérance du résultat qu'il protège, pas celle d'un autre test
+du pipeline.</strong></p>
+<h2>Ce qui est retenu malgré tout</h2>
+<ol>
+<li><strong>Le diagnostic corrigé.</strong> Ce n'est pas la largeur mais le plancher du domaine qui fait
+   manquer la caisse de l'alto et du violoncelle. C'est écrit dans la docstring de
+   <code>residu_local()</code>, dans <code>00-METHODE.md</code>, <code>_CARTE-VOCALIQUE.md</code> et <code>_AMORCE-SESSION.md</code>.</li>
+<li><strong><code>HALFWIN</code> porte désormais un avertissement</strong> qui dit de ne pas le porter à 1,00, et
+   pourquoi, avec les chiffres.</li>
+<li><strong><code>robustesse_fenetre()</code> est corrigée.</strong> Ses fenêtres de comparaison suivent maintenant la
+   référence (<code>DELTA_ROB = 0,25</code>). À la référence de 0,75 cela redonne exactement 0,5 et 1,0,
+   donc le comportement publié est inchangé — mais le test est désormais juste si la référence
+   bouge un jour.</li>
+<li><strong>Les deux limites de la méthode 8 sont mesurées</strong> et non plus supposées : plancher à 3,2–5,7
+   fois f0_min, et aveuglement aux résonances plus larges que ~1,5 octave.</li>
+</ol>
+<h2>Ce qui reste ouvert</h2>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Ce qui la trancherait</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Peut-on descendre le plancher <strong>sans</strong> déplacer les pics déjà établis ?</td>
+<td>une fenêtre asymétrique, ou un redressement à fenêtre variable : large seulement sous le plancher actuel, inchangée au-dessus. C'est la piste à essayer, et elle n'a pas été testée</td>
+</tr>
+<tr>
+<td>Le statut « limite basse du domaine » vaut-il d'être publié ?</td>
+<td>il dirait quelque chose de vrai là où la fiche se tait aujourd'hui</td>
+</tr>
+<tr>
+<td>Les flûtes relèvent-elles bien de la limite de <strong>largeur</strong> et non du plancher ?</td>
+<td>leur f0_min est haut (587 Hz pour la petite flûte), donc le plancher ne les gêne pas dans l'aigu. La coupure de rayonnement reste l'explication, mais elle n'a pas été re-testée ici</td>
+</tr>
+</tbody>
+</table>
+<h2>Journal</h2>
+<ul>
+<li><strong>2026-10-27 (après-midi)</strong> — Migration en ±1,00 tentée puis <strong>annulée</strong>. Les trois unissons
+  formantiques disparaissaient et la route A tombait de 23 à 21. La recommandation du matin
+  était fausse : le test de dégâts employait la tolérance d'un tiers d'octave du test de
+  robustesse, là où la route A exige un demi-ton. Tout est restauré et le contrôle repasse à
+  l'identique. Conservés du passage : le diagnostic corrigé, l'avertissement sur <code>HALFWIN</code>, et
+  <code>robustesse_fenetre()</code> dont les fenêtres suivent désormais la référence.</li>
+<li><strong>2026-10-27</strong> — Tâche C2. Le diagnostic publié — « aveugle aux résonances larges » — est
+  remplacé par le vrai : le plancher du domaine, fixé par la règle des trois harmoniques dans la
+  fenêtre. ±1,5 et ±2,0, que le plan proposait, sont écartés par le test de dégâts. ±1,00 est
+  recommandé : il est meilleur que la fenêtre actuelle sur les deux critères. L'obstacle restant
+  n'est pas la fenêtre mais la règle de voisinage de <code>trouver_formants()</code>, qu'il ne faut pas
+  lever.</li>
+</ul>
+<footer>Référence formantique de l'orchestre — Yan Maresz · page produite par <code>construire_site.py</code> depuis les fiches et <code>Resultats-v7/</code>.</footer>
+</body>
+</html>

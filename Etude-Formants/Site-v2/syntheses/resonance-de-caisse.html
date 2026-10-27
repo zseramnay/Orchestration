@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Résonances de caisse des cordes</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="bandeau"><h1>Résonances de caisse des cordes</h1></div>
+<p class="fil"><a href="../index.html">Sommaire</a> › Synthèses</p>
+<figure><img src="../figures/synthese-resonance-caisse.png" alt="F1 contre la note jouée, registre par registre, quatre corpus superposés. Un nuage horizontal est une résonance ; un nua" loading="lazy"><figcaption>F1 contre la note jouée, registre par registre, quatre corpus superposés. Un nuage horizontal est une résonance ; un nuage le long d&#x27;une diagonale ×k est un harmonique qui suit la note. La droite porte la pente sur les corpus réunis et l&#x27;écart des pentes par corpus — c&#x27;est le tableau par corpus qui tranche, jamais cette droite.</figcaption></figure>
+<h1>Résonances de caisse des cordes</h1>
+<h2>La question</h2>
+<p>La carte vocalique avait livré, sur l'alto, un résultat inattendu : au grave, son premier
+maximum auditif n'est pas sa fondamentale, et il se tient entre 347 et 498 Hz sur trois corpus.
+Nous en avions conclu à la <strong>résonance principale de caisse</strong>, que la littérature situe vers
+350–450 Hz pour un alto, et noté que la méthode 8 l'avait entièrement manquée — son
+redressement local à ±3/4 d'octave étant aveugle aux résonances plus larges que ~1,5 octave.
+<strong>Cette explication s'est révélée fausse le lendemain</strong> : la tâche C2 a montré que la méthode 8
+ne mesure simplement rien en dessous de 3,2 à 5,7 fois la fondamentale la plus grave du corpus.
+La résonance n'est pas redressée, elle est hors du domaine. Voir <code>_FENETRE-DE-REDRESSEMENT.md</code>.</p>
+<p>D'où la tâche C1 : <em>les autres cordes cachent-elles la même chose ?</em></p>
+<h2>Pourquoi il fallait un test plus dur</h2>
+<p>L'argument de l'alto reposait sur <strong>un seul contrôle</strong>, la marque <code>F1=f0</code> : le premier maximum
+n'est pas la fondamentale. Ce contrôle ne suffit pas aux cordes graves.</p>
+<p>Au violoncelle, la zone de caisse attendue (A0 vers 100 Hz, B1 vers 180–250 Hz) tombe
+exactement sur les harmoniques 2 à 4 des notes du grave : 2 × 98 = 196, 3 × 65 = 195. Un
+« F1 stable vers 200 Hz » peut donc n'être que <strong>l'harmonique le plus fort</strong>, qui suit la note
+au lieu de rester en place. La marque <code>F1=f0</code> ne le verrait pas : elle ne teste que
+l'harmonique 1.</p>
+<h2>Le test qui tranche</h2>
+<p>Une résonance ne bouge pas quand la note bouge ; un harmonique, si. On mesure donc, <strong>note par
+note</strong>, la pente de log2(F1) contre log2(f0) à l'intérieur d'un registre :</p>
+<table>
+<thead>
+<tr>
+<th>pente</th>
+<th>lecture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>≈ 0</td>
+<td>F1 reste en place pendant que f0 se déplace → <strong>résonance</strong></td>
+</tr>
+<tr>
+<td>≈ +1</td>
+<td>F1 suit la note → <strong>harmonique</strong>, pas une propriété de l'instrument</td>
+</tr>
+</tbody>
+</table>
+<p>Le test n'a de force que si f0 se déplace assez : on exige une étendue d'au moins six demi-tons
+dans le registre. Ici elle vaut 7 à 11 demi-tons partout.</p>
+<h3>Deux garde-fous, posés avant de lire les résultats</h3>
+<p><strong>1. F1 est-il un vrai maximum, ou un centroïde déguisé ?</strong> L'échelle de Bark est très
+comprimée dans le grave : 3,5 Bark, le seuil de fusion de Chistovich, y vaut environ 0 à
+350 Hz. On pouvait craindre que les harmoniques d'une note de contrebasse à 41 Hz (41, 82,
+123, 164…) se fusionnent tous en chaîne, auquel cas « F1 » ne serait que le centre de gravité
+énergétique des premiers harmoniques, c'est-à-dire un descripteur de pente spectrale.</p>
+<p>Le soupçon est levé : le nombre médian de maxima fusionnés dans le groupe qui produit F1 vaut
+<strong>1</strong> presque partout, et F1 se tient <strong>2,3 à 5,6 demi-tons sous le centroïde</strong> du motif
+d'excitation en dessous de 900 Hz. Ce n'est donc pas le centroïde. Attention toutefois : ce
+contrôle ne vaut que dans un sens. Un F1 <em>éloigné</em> du centroïde est certainement un trait
+distinct ; un F1 <em>proche</em> du centroïde n'est pas disqualifié pour autant — il peut simplement
+s'agir d'une résonance qui domine toute la bande.</p>
+<p><strong>2. La pente sur les corpus réunis peut mentir.</strong> Trois corpus qui ne s'accordent pas sur le
+niveau peuvent produire, réunis, une pente plate qu'aucun ne donne séparément. <strong>C'est le
+tableau par corpus qui tranche, jamais la droite de la figure.</strong> La contrebasse en est le cas
+d'espèce : pente réunie −0,01, pentes par corpus de −0,70 à +0,84.</p>
+<h2>Résultats</h2>
+<p>Quatre corpus de provenances distinctes : SOL (IRCAM), ZSamples, VO, VN (VSL).</p>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Registre</th>
+<th>Corpus</th>
+<th>F1 médians (Hz)</th>
+<th>Étendue</th>
+<th>Pente médiane</th>
+<th>F1 − centroïde</th>
+<th>Conclusion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alto</td>
+<td>grave</td>
+<td>4</td>
+<td>374 · 375 · 387 · 395</td>
+<td><strong>0,9 dt</strong></td>
+<td>+0,01</td>
+<td>−1,5 dt</td>
+<td>résonance, accord le plus serré de l'étude</td>
+</tr>
+<tr>
+<td>Alto</td>
+<td>médium</td>
+<td>4</td>
+<td>351 · 423 · 450 · 470</td>
+<td>5,1 dt</td>
+<td><strong>+0,95</strong></td>
+<td>+0,8 dt</td>
+<td><strong>F1 suit la note</strong></td>
+</tr>
+<tr>
+<td><strong>Violoncelle</strong></td>
+<td><strong>médium</strong></td>
+<td><strong>4</strong></td>
+<td><strong>209 · 217 · 223 · 223</strong></td>
+<td><strong>1,1 dt</strong></td>
+<td><strong>−0,04</strong></td>
+<td>−3,7 dt</td>
+<td><strong>RÉSONANCE ÉTABLIE</strong></td>
+</tr>
+<tr>
+<td>Violoncelle</td>
+<td>grave</td>
+<td>4</td>
+<td>178 · 193 · 196 · 238</td>
+<td>5,0 dt</td>
+<td>−0,96</td>
+<td>−4,0 dt</td>
+<td>non établi</td>
+</tr>
+<tr>
+<td>Contrebasse</td>
+<td>grave</td>
+<td>3</td>
+<td>106 · 112 · 122</td>
+<td>2,4 dt</td>
+<td>−0,41</td>
+<td>−5,6 dt</td>
+<td>non établi</td>
+</tr>
+<tr>
+<td>Contrebasse</td>
+<td>médium</td>
+<td>3</td>
+<td>106 · 184 · 192</td>
+<td>10,3 dt</td>
+<td>+1,05</td>
+<td>−3,2 dt</td>
+<td>F1 suit la note</td>
+</tr>
+<tr>
+<td>Violon</td>
+<td>grave</td>
+<td>4</td>
+<td>363 · 461 · 467 · 532</td>
+<td>6,6 dt</td>
+<td>−0,07</td>
+<td>−0,3 dt</td>
+<td>non établi, dispersion inter-corpus</td>
+</tr>
+<tr>
+<td>Violon</td>
+<td>médium</td>
+<td>4</td>
+<td>495 · 496 · 525 · 554</td>
+<td>1,9 dt</td>
+<td>+0,03</td>
+<td>−0,3 dt</td>
+<td>compatible, mais F1 ≈ centroïde</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Ces valeurs ne sont <strong>pas</strong> sur la grille tempérée. Contrairement à la méthode 8, dont l'axe
+composite est tempéré par construction et dont la résolution est d'un demi-ton, la méthode 12
+lit un maximum sur une échelle continue. On écrit donc un intervalle, pas une note.</p>
+</blockquote>
+<h2>Ce qui est acquis</h2>
+<h3>Le violoncelle a une résonance de caisse vers 215–220 Hz</h3>
+<p><strong>Quatre corpus de provenances distinctes, F1 entre 209 et 223 Hz — 1,1 demi-ton d'écart —
+pente médiane −0,04 sur onze demi-tons de fondamentale.</strong> Dans le registre médium (Sol2–Sol3,
+f0 de 104 à 196 Hz), F1 ne bouge pas pendant que la note parcourt presque une octave. Le rang
+harmonique médian passe de 2,1 en bas du registre à 1,1 en haut : la même résonance est
+excitée par l'harmonique 2 puis par l'harmonique 1. C'est exactement la signature attendue.</p>
+<p>La valeur tombe dans la zone B1 que la littérature acoustique donne au violoncelle
+(180–250 Hz).</p>
+<p><strong>Réserve, à écrire avec le résultat.</strong> 220 Hz est aussi la corde de La à vide du violoncelle,
+et les luthiers accordent volontiers le mode B1+ au voisinage de cette corde. La mesure établit
+qu'il y a là une résonance qui ne suit pas la note ; elle <strong>ne sépare pas</strong> le mode de caisse
+de la résonance sympathique de la corde à vide. Pour l'orchestrateur la conséquence pratique
+est la même — une zone de renforcement fixe vers 215–220 Hz quelle que soit la note du médium —
+mais l'attribution physique reste ouverte.</p>
+<h3>Et la méthode 8 ne voyait rien là non plus</h3>
+<p>Le violoncelle a quatre formants retenus par la méthode 8, dont 1 108 Hz par route A. Aucun
+dans la zone de 215 Hz. Le second cas, après l'alto, où <strong>la méthode 12 voit une résonance que
+la méthode 8 manque par construction</strong> : la zone de caisse est large et plate, donc redressée
+avec le reste par <code>residu_local()</code>. Cela confirme la hiérarchie établie sur l'alto, et renforce
+l'intérêt de la tâche C2 — élargir la fenêtre de redressement.</p>
+<h2>Ce qui est corrigé</h2>
+<h3>L'alto : le grave tient, le médium tombe</h3>
+<p><code>_CARTE-VOCALIQUE.md</code> affirmait « F1 entre 347 et 498 Hz <strong>au grave et au médium</strong> sur trois
+corpus … compatible avec la résonance principale de caisse ». <strong>La moitié médium est fausse.</strong>
+Au médium, les quatre corpus donnent des pentes de +0,79, +0,85, +1,04 et +1,11 : F1 y est
+l'harmonique le plus fort, qui suit la note. La médiane de la cellule n'était qu'une moyenne de
+hauteurs jouées.</p>
+<p>Le grave, lui, sort <strong>renforcé</strong> du test :</p>
+<ul>
+<li>quatre corpus et non trois ;</li>
+<li>un intervalle de <strong>374 à 395 Hz</strong> et non de 347 à 498 — 0,9 demi-ton, l'accord inter-corpus
+  le plus serré de toute l'étude ;</li>
+<li>pente médiane +0,01, et les deux corpus qui s'écartent le font <strong>en sens opposés</strong> (−0,58 et
+  +0,67), ce qui est du bruit d'estimation et non une tendance ;</li>
+<li>0 % de cellules marquées <code>F1=f0</code> dans les quatre corpus.</li>
+</ul>
+<p>La formulation juste est donc : <em>l'alto présente, dans son registre grave seulement, une
+résonance fixe vers 375–395 Hz</em>, compatible avec son mode B1+.</p>
+<h2>Ce qui n'est pas établi, et pourquoi</h2>
+<h3>La contrebasse — trois raisons, toutes identifiables</h3>
+<ol>
+<li><strong>Les corpus ne s'accordent pas sur le niveau.</strong> Au grave : 106, 112, 122 Hz, soit
+   2,4 demi-tons. Au médium, SOL donne 106 Hz avec une pente de +1,41 et 70 % de cellules
+   <code>F1=f0</code> — chez SOL, F1 au médium <em>est</em> la fondamentale — pendant que ZSamples et VO donnent
+   184 et 192 Hz.</li>
+<li><strong>Un tiers du registre grave est sous le plancher du calcul.</strong> Le masque du motif
+   d'excitation commence à 50 Hz ; or <strong>31 des 91 notes du registre grave, soit 34 %, ont une
+   fondamentale en dessous de 50 Hz</strong> (Mi1 = 41 Hz). Pour ces notes la fondamentale est
+   partiellement exclue du motif, ce qui pousse F1 vers le haut. Le registre grave de la
+   contrebasse est donc hors du domaine de validité de la méthode 12 telle qu'elle est réglée.</li>
+<li><strong>Les modes attendus coïncident avec les fondamentales.</strong> La littérature place le corps de
+   la contrebasse vers 70–110 Hz, c'est-à-dire <em>à l'intérieur</em> de son propre registre médium.
+   Résonance et fondamentale ne sont alors pas séparables par un détecteur de maximum.</li>
+</ol>
+<h3>Le violon — compatible, mais non concluant</h3>
+<p>Au médium, quatre corpus entre 495 et 554 Hz (1,9 dt), pente médiane +0,03 : c'est compatible
+avec le mode B1+ que la littérature situe vers 530–550 Hz. Mais F1 n'y est qu'à 0,3 demi-ton du
+centroïde, et 62 % des cellules sont marquées <code>F1=f0</code>. On ne peut pas distinguer la résonance
+de la hauteur jouée. Au grave, les quatre corpus se dispersent sur 6,6 demi-tons (363 à
+532 Hz) — à rapprocher de l'instabilité du violon déjà signalée au suraigu (<strong>tâche C3</strong>).</p>
+<h2>La régularité qui se dégage</h2>
+<p>La méthode 12 détecte une résonance de caisse <strong>quand le registre grave de l'instrument se
+trouve en dessous de son mode principal</strong>, et seulement là.</p>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Registre grave (f0)</th>
+<th>Mode principal attendu</th>
+<th>Le grave est-il sous le mode ?</th>
+<th>Résultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alto</td>
+<td>131–196 Hz</td>
+<td>B1+ ~ 350–450</td>
+<td><strong>oui</strong>, d'une octave</td>
+<td>résonance vue au grave</td>
+</tr>
+<tr>
+<td>Violoncelle</td>
+<td>65–98 Hz · médium 104–196</td>
+<td>B1 ~ 180–250</td>
+<td><strong>oui</strong>, d'une octave</td>
+<td>résonance vue au médium</td>
+</tr>
+<tr>
+<td>Violon</td>
+<td>196–294 Hz</td>
+<td>B1+ ~ 530–550</td>
+<td>à peine</td>
+<td>compatible, non concluant</td>
+</tr>
+<tr>
+<td>Contrebasse</td>
+<td>41–65 Hz</td>
+<td>corps ~ 70–110</td>
+<td>le mode est <em>dans</em> le médium</td>
+<td>rien</td>
+</tr>
+</tbody>
+</table>
+<p>C'est une propriété du rapport entre tessiture et taille de la caisse, pas une propriété du
+corpus. Elle prédit où la méthode marchera, et c'est à ce titre qu'elle est utile : inutile de
+chercher une résonance de caisse par cette voie là où la tessiture la recouvre.</p>
+<h2>Conséquences pour les documents</h2>
+<ul>
+<li><code>_CARTE-VOCALIQUE.md</code> : retirer « et au médium » de l'affirmation sur l'alto, et resserrer
+  l'intervalle à 374–395 Hz sur quatre corpus.</li>
+<li>Fiche de l'alto : même correction.</li>
+<li>Fiche du violoncelle : ajouter la résonance vers 215–220 Hz, avec la réserve sur la corde de
+  La à vide.</li>
+<li><code>00-METHODE.md</code> : noter le plancher de 50 Hz du masque comme limite de validité, et la
+  régularité tessiture/caisse ci-dessus.</li>
+</ul>
+<h2>Ce qui reste ouvert</h2>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Ce qui la trancherait</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mode de caisse ou corde de La à vide, au violoncelle ?</td>
+<td>mesurer sur des notes de la corde de Do et de Sol uniquement, corde de La étouffée — ou comparer avec et sans sourdine, qui déplace les modes de caisse mais pas la corde</td>
+</tr>
+<tr>
+<td>La contrebasse a-t-elle une résonance mesurable ?</td>
+<td>abaisser le plancher du masque sous 50 Hz et refaire ; sans quoi la question restera sans réponse par cette voie</td>
+</tr>
+<tr>
+<td>Le violon ?</td>
+<td>la <strong>tâche C3</strong> d'abord : tant que le détecteur bascule entre fondamentale et caisse, la ligne du violon n'est pas publiable</td>
+</tr>
+<tr>
+<td>La méthode 8 verrait-elle ces zones avec un redressement plus large ?</td>
+<td><strong>tâche C2</strong> — c'est maintenant le test le plus intéressant du bloc C, puisque deux résonances réelles lui échappent</td>
+</tr>
+</tbody>
+</table>
+<h2>Journal</h2>
+<ul>
+<li><strong>2026-10-27</strong> — Première version. Tâche C1 exécutée sur quatre cordes et quatre corpus,
+  29 à 30 lignes de mesure selon le lot. Un résultat acquis (violoncelle), une affirmation
+  publiée corrigée de moitié (alto), deux non-résultats dont les causes sont identifiées.</li>
+</ul>
+<footer>Référence formantique de l'orchestre — Yan Maresz · page produite par <code>construire_site.py</code> depuis les fiches et <code>Resultats-v7/</code>.</footer>
+</body>
+</html>

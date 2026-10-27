@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Petite flûte</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="bandeau"><h1>Petite flûte</h1><p>Piccolo</p></div>
+<p class="fil"><a href="../index.html">Sommaire</a> › Les bois</p>
+<table class="sommaire"><tr><th>Classe</th><th>Provenance</th><th>Échantillons</th><th>Tessiture</th><th>Formants établis</th></tr><tr><td>B</td><td>VSL</td><td>111</td><td>D5–C8</td><td>0</td></tr></table><figure><img src="../figures/composite-petite-flute.png" alt="Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, ZSamples, VO). Un formant retenu est un maximu" loading="lazy"><figcaption>Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, ZSamples, VO). Un formant retenu est un maximum que deux corpus de provenances distinctes placent au même point de grille.</figcaption></figure>
+<figure><img src="../figures/vocalique-petite-flute.png" alt="Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyell" loading="lazy"><figcaption>Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyelles du français (Calliope, voix d&#x27;homme). Marqueur creux : cellule non assignable. Corpus : SOL.</figcaption></figure>
+<h1>Petite flûte</h1>
+<blockquote>
+<h2>Statut des formants — révision du 26/10/2026</h2>
+<p>Confrontation des <strong>cinq corpus</strong>. Provenance de ce corpus : <strong>VSL / ConTimbre / perso (Yan_Adds)</strong>.</p>
+<p>Aucun formant retenu. Si le résultat négatif est répliqué, c'est un acquis — voir <code>_CORPUS-CROISES.md</code>.</p>
+</blockquote>
+<h2>La notion de formant n'a pas de sens pour cet instrument</h2>
+<blockquote>
+<p><strong>Méthode 8 appliquée — aucun formant retenu. Seuls les descripteurs de classe B
+sont valides.</strong> Voir <code>00-METHODE.md</code>.</p>
+</blockquote>
+<p>Ce n'est pas un échec de mesure, c'est un résultat. Quatre raisons concordantes.</p>
+<p><strong>1. Toute la tessiture est hors du domaine de validité des méthodes à ordre fixe.</strong>
+Le f0 va de 587 à 4 186 Hz. Le lissage Orchidea à l'ordre 160 n'est valide qu'en dessous
+de 276 Hz. La petite flûte est donc le seul instrument de l'orchestre dont <strong>aucune</strong> note
+ne tombe dans le domaine de validité des <code>specenv</code>. C'est la cause directe de l'anomalie
+constatée dans l'ancienne étude, où le piccolo ne convergeait avec rien : son « F1 » de
+1 109 Hz était simplement la hauteur médiane de sa tessiture.</p>
+<p><strong>2. Le spectre suit intégralement la hauteur.</strong> ρ = <strong>0,96</strong>, la valeur la plus élevée de
+tout le corpus des bois. Le pic de l'enveloppe vraie est une fonction de la note jouée,
+pas une propriété de l'instrument. Son écart-type, σ = 1 157 Hz, le dit assez.</p>
+<p><strong>3. Une note isolée ne porte presque aucune information d'enveloppe.</strong> Médiane de
+<strong>7 harmoniques par note</strong>, et <strong>2 seulement</strong> dans l'extrême aigu. Au-dessus de 3 500 Hz,
+l'ordre cepstral adaptatif descend à 3 : l'enveloppe se réduit à une pente. Aucune méthode,
+LPC, cepstre ou centroïde, ne peut extraire un formant de deux points de mesure.</p>
+<p><strong>4. La zone d'énergie est une coupure, non une résonance.</strong> L'agrégation fait bien
+apparaître un maximum large entre 2 800 et 4 700 Hz, cohérent avec Backus (~3 400 Hz) et
+en franche contradiction avec l'ancien pipeline (1 109 Hz). Mais ce maximum est trop large
+pour survivre au redressement local, et le seul candidat détecté est rejeté. Il s'agit de
+la coupure de rayonnement du tuyau, pas d'un formant.</p>
+<h2>Candidat rejeté</h2>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>Résidu</th>
+<th>k = 2–3</th>
+<th>k = 4–7</th>
+<th>k = 8–15</th>
+<th>Robustesse</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4 432 Hz</td>
+<td>+6,6 dB</td>
+<td>+7,2</td>
+<td>+6,9</td>
+<td>—</td>
+<td><strong>non</strong></td>
+<td><strong>rejeté</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Le test d'indépendance au rang est pourtant passé sur deux groupes. C'est la robustesse de
+fenêtre qui échoue : à ±1/2 octave, plus aucun pic n'est détecté. Le signal est donc
+réellement présent mais large, confirmant une coupure plutôt qu'une résonance.</p>
+<h2>Descripteurs valides</h2>
+<table>
+<thead>
+<tr>
+<th>Descripteur</th>
+<th>Valeur</th>
+<th>Lecture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Pente spectrale médiane</strong></td>
+<td><strong>−21,2 dB/octave</strong> (σ 2,5)</td>
+<td>la plus raide de tous les bois</td>
+</tr>
+<tr>
+<td>Harmoniques par note</td>
+<td>7 [2–18]</td>
+<td>spectre très pauvre</td>
+</tr>
+<tr>
+<td>Balance impair − pair</td>
+<td>−7,0 dB</td>
+<td>tuyau ouvert, harmoniques pairs dominants</td>
+</tr>
+<tr>
+<td>Zone d'énergie dominante</td>
+<td>2 800–4 700 Hz</td>
+<td>indicative, non validée comme formant</td>
+</tr>
+</tbody>
+</table>
+<p>La pente de −21,2 dB/octave est le descripteur juste pour cet instrument : elle quantifie
+le fait que l'énergie est concentrée sur la fondamentale et les deux ou trois premiers
+harmoniques, ce qui explique à la fois la pureté du son et sa capacité à percer l'orchestre
+sans masquer les timbres voisins.</p>
+<h2>Comparaison avec la littérature</h2>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Valeur annoncée</th>
+<th>Notre mesure</th>
+<th>Lecture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Backus (1969)</td>
+<td>~3 400 Hz</td>
+<td>zone 2 800–4 700 Hz</td>
+<td><strong>cohérent</strong></td>
+</tr>
+<tr>
+<td>Ancien pipeline <code>specenv</code></td>
+<td>F1 = 1 109 Hz</td>
+<td>—</td>
+<td>artefact de tessiture</td>
+</tr>
+<tr>
+<td>Ancien Fp</td>
+<td>1 320 Hz</td>
+<td>—</td>
+<td>artefact de fenêtre</td>
+</tr>
+</tbody>
+</table>
+<p>À noter : le document antérieur annonçait une plage analysée de 100–3 000 Hz, incompatible
+avec un instrument dont les fondamentales montent à 4 186 Hz. Une partie du registre aigu
+était hors champ. La plage actuelle va à 11 015 Hz.</p>
+<p>Autre incohérence relevée dans l'ancien document : le texte affirmait « Fp non calculé dans
+le corpus actuel » tout en affichant « Fp = 1 320 Hz ».</p>
+<h2>Registres</h2>
+<p>Non défini dans <code>Data/registres.md</code>. À établir.</p>
+<!-- DEBUT-TRAVAUX-27-10 -->
+<h2>Ce que les travaux du 27/10/2026 disent de cet instrument</h2>
+<h3>Dans la table des mélanges</h3>
+<p>12 paires calculées. <strong>Fusion moyenne : 4 %.</strong> Voir <code>../_MELANGES.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Couleur nouvelle avec</th>
+<th></th>
+<th>Se fond avec</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Violon</td>
+<td>16 %</td>
+<td>Flûte</td>
+<td>75 %</td>
+</tr>
+<tr>
+<td>Clarinette basse en Sib</td>
+<td>11 %</td>
+<td>Clarinette en Mib</td>
+<td>67 %</td>
+</tr>
+<tr>
+<td>Clarinette en Mib</td>
+<td>4 %</td>
+<td>Cor en Fa</td>
+<td>58 %</td>
+</tr>
+</tbody>
+</table>
+<!-- FIN-TRAVAUX-27-10 -->
+
+<h2>Observations pour l'orchestration</h2>
+<p>Le répertoire regorge de doublures de piccolo à l'octave, qui ajoutent de la brillance.
+L'ancienne matrice F1 ne pouvait pas les voir, et il faut comprendre pourquoi : elle ne
+modélisait que la <strong>fusion par proximité de résonances</strong>, alors que le piccolo opère par un
+mécanisme différent.</p>
+<p>Hypothèse à valider par la méthode 12 : la fondamentale du piccolo coïncide avec
+l'harmonique 2 de l'instrument doublé. La fusion est assurée par la coïncidence harmonique,
+et l'effet est un <strong>déplacement du centroïde du mélange vers l'aigu</strong> — c'est exactement ce
+qu'on nomme brillance. C'est un mécanisme d'<strong>extension spectrale</strong>, non de convergence.
+La pente très raide mesurée ici le rend d'ailleurs plausible : le piccolo apporte peu
+d'énergie en dehors de ses premiers partiels, donc il colore sans encombrer.</p>
+<p>Cette distinction entre fusion et renforcement/brillance correspond à celle de Koechlin
+entre homogénéité et éclat.</p>
+<h2>Graphiques</h2>
+<p>Aucun à ce stade. Figures prévues dans <code>../Versions-html-and-docx/media/</code> :</p>
+<table>
+<thead>
+<tr>
+<th>Fichier prévu</th>
+<th>Contenu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>piccolo_composite.png</code></td>
+<td>enveloppe composite, montrant le maximum large 2,8–4,7 kHz</td>
+</tr>
+<tr>
+<td><code>piccolo_te_ordres.png</code></td>
+<td>ordre cepstral adaptatif en fonction de f0 — démonstration de la limite</td>
+</tr>
+<tr>
+<td><code>piccolo_nharm.png</code></td>
+<td>nombre d'harmoniques disponibles par note sur la tessiture</td>
+</tr>
+</tbody>
+</table>
+<p>La deuxième figure est pédagogiquement la plus utile : elle montre d'un coup d'œil pourquoi
+la question formantique est mal posée pour cet instrument.</p>
+<h2>Révision du 23/10/2026 — critère assoupli</h2>
+<p>Avec le critère assoupli (voir <code>00-METHODE.md</code>), la zone à <strong>4 432 Hz</strong> passe de <em>rejetée</em> à
+<strong>fragile-cr</strong>. Le test d'indépendance au rang est franchement positif des deux côtés du rang
+médian : +6,1 dB [IC +4,6] en dessous du rang 5, +7,1 dB [IC +6,4] au-dessus, sur 38 et
+21 points. C'est le test de robustesse de fenêtre qui échoue toujours.</p>
+<p>La lecture devient donc plus précise qu'un simple rejet : <strong>il existe bien, autour de
+4,4 kHz, une région de renforcement indépendante de la hauteur</strong>, mais elle est trop large
+pour être une résonance étroite. Cela confirme l'interprétation en coupure de rayonnement et
+rejoint Backus (~3 400 Hz). La pertinence formantique passe de « non pertinente » à
+« partielle » : l'instrument n'a pas de formant au sens strict, mais la région existe et est
+mesurable.</p>
+<h2>Journal</h2>
+<ul>
+<li><strong>2026-10-23</strong> — Point de départ de la reprise : c'est l'absence de convergence du piccolo
+  dans les matrices F1 de l'étude antérieure, acoustiquement absurde au vu du répertoire,
+  qui a déclenché la remise en cause de toute la chaîne de mesure.</li>
+<li><strong>2026-10-23</strong> — Conclusion assumée : pas de formant. Le descripteur à développer est la
+  fréquence de coupure de Benade.</li>
+<li><strong>2026-10-23 (soir)</strong> — Critère assoupli appliqué (voir <code>00-METHODE.md</code>).</li>
+</ul>
+<footer>Référence formantique de l'orchestre — Yan Maresz · page produite par <code>construire_site.py</code> depuis les fiches et <code>Resultats-v7/</code>.</footer>
+</body>
+</html>

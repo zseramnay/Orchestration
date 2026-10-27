@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L&#x27;ancienne étude, et pourquoi</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="bandeau"><h1>L&#x27;ancienne étude, et pourquoi</h1></div>
+<p class="fil"><a href="../index.html">Sommaire</a> › Synthèses</p>
+<h1>Vérification des instruments graves</h1>
+<h2>L'hypothèse testée</h2>
+<p>Le lissage cepstral d'Orchidea utilise <code>NUM_SMOOTH = 160</code>, qui ne retire le peigne
+harmonique que si f0 &lt; 44 100 / 160 = <strong>276 Hz</strong>. D'où l'hypothèse : l'ancien F1 serait une
+mesure d'enveloppe <strong>valide pour les instruments graves</strong> et un suiveur de fondamentale pour
+les aigus. Une dizaine d'instruments auraient alors été mesurés correctement.</p>
+<p><strong>Cette hypothèse est réfutée comme règle</strong>, et le test a livré autre chose de plus utile.</p>
+<h2>L'outil : mai26 contient un proxy exact de l'ancien pipeline</h2>
+<p>Les 45 CSV de <code>Analyses_formants-mai26</code> portent une colonne <strong><code>cep_F1_order160</code></strong> — le même
+ordre que le <code>NUM_SMOOTH</code> d'Orchidea, mais mesuré <strong>note par note</strong>, avec la note, la
+dynamique et le MIDI. L'ancien pipeline ne publiait qu'une médiane par instrument.</p>
+<p>Et le proxy est fidèle là où il peut l'être. Médianes :</p>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Ancien F1 (specenv)</th>
+<th><code>cep_F1_order160</code> (mai26)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Contrebasson</td>
+<td>226,1 Hz</td>
+<td><strong>226 Hz</strong></td>
+</tr>
+<tr>
+<td>Tuba contrebasse</td>
+<td>226,1 Hz</td>
+<td><strong>226 Hz</strong></td>
+</tr>
+<tr>
+<td>Contrebasse</td>
+<td>172,3 Hz</td>
+<td><strong>172 Hz</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Identiques au Hz. <strong>mai26 nous donne donc l'ancienne mesure note par note</strong>, ce que nous
+n'avions jamais eu. C'est le premier résultat : ce répertoire est l'archive la plus utile du
+projet, et non un essai abandonné.</p>
+<h2>Découverte 1 — les 2 099 anciennes valeurs sont des centres de bin FFT</h2>
+<p>Test sur toutes les valeurs F1 à F4 de <code>formants_all_techniques_v3.csv</code> et
+<code>formants_yan_adds_v3.csv</code> :</p>
+<blockquote>
+<p><strong>2 099 valeurs sur 2 099 tombent exactement sur un centre de bin FFT</strong>
+(largeur de bin = 44 100 / 4 096 = 10,7666 Hz ; écart médian 0,0025 bin).</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Valeur publiée</th>
+<th>Bin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>226,1 Hz</td>
+<td>21,00</td>
+</tr>
+<tr>
+<td>323,0 Hz</td>
+<td>30,00</td>
+</tr>
+<tr>
+<td>172,3 Hz</td>
+<td>16,00</td>
+</tr>
+<tr>
+<td>495,3 Hz</td>
+<td>46,00</td>
+</tr>
+<tr>
+<td>742,9 Hz</td>
+<td>69,00</td>
+</tr>
+<tr>
+<td>1 109,0 Hz</td>
+<td>103,00</td>
+</tr>
+</tbody>
+</table>
+<p>Conséquence immédiate et définitive : <strong>toutes les convergences annoncées à « Δ = 11 Hz »
+étaient des bins adjacents</strong>, c'est-à-dire un écart d'un pas de grille. Il n'y avait aucune
+mesure derrière cette précision. La « convergence quasi-parfaite violon–basson » (506 contre
+495 Hz) est bin 47 contre bin 46.</p>
+<p>Cela ne disqualifie pas les écarts plus grands. À 226 Hz un bin vaut 0,8 demi-ton, donc trois
+instruments dans le même bin s'accordent réellement à moins d'un demi-ton. La question reste
+de savoir si la valeur mesure quelque chose.</p>
+<h2>Découverte 2 — l'ordre 160 trouve l'harmonique le plus fort, pas l'enveloppe</h2>
+<p>J'ai corrélé <code>cep_F1_order160</code> à la fondamentale, note par note, sur les 45 configurations
+(Spearman). Si la mesure suivait la hauteur, ρ serait élevé.</p>
+<table>
+<thead>
+<tr>
+<th>ρ faible — la mesure ne suit <strong>pas</strong> la hauteur</th>
+<th>ρ élevé — la mesure <strong>suit</strong> la hauteur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cor anglais −0,01 · Trombone +0,04 · Tuba contrebasse +0,08</td>
+<td>Petite flûte <strong>+0,75</strong> · Alto-ens. +0,83</td>
+</tr>
+<tr>
+<td>Trombone basse +0,12 · Trompette +0,14 · Hautbois +0,15</td>
+<td>Violon-ens. +0,82 · Clarinette Sib <strong>+0,67</strong></td>
+</tr>
+<tr>
+<td>Clarinette basse +0,15 · Tuba basse +0,19</td>
+<td>Flûte +0,58 · Alto +0,60</td>
+</tr>
+<tr>
+<td>Contrebasson <strong>−0,23</strong></td>
+<td>Violoncelle-ens. +0,71</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Le classement ne suit pas du tout la proportion de notes sous 276 Hz.</strong> Le hautbois a 8 %
+de ses notes sous la limite et ρ = 0,15 ; la contrebasse en a 86 % et ρ = 0,44.</p>
+<p>Ce qu'il suit, c'est <strong>notre typologie</strong>. ρ est faible exactement pour les instruments de
+classe A — résonance fixe dominante — et élevé pour la classe B, à spectre suiveur.</p>
+<p>L'explication est mécanique. Quand le peigne harmonique fuit dans le lissage, le pic détecté
+tombe sur <strong>l'harmonique le plus fort</strong>. Si l'instrument possède une résonance dominante, cet
+harmonique est celui qui la traverse, et la mesure se trouve <em>accidentellement</em> dans la bonne
+région. Sinon, il tombe sur la fondamentale ou un harmonique bas.</p>
+<p>C'est pourquoi le cor était le seul instrument dont les anciens chiffres se confirmaient : non
+parce que sa tessiture est grave, mais parce qu'il a une résonance dominante. Et cela confirme
+rétrospectivement la « découverte majeure » de l'ancienne étude sur la clarinette en Sib —
+« le pic suit la fondamentale ou le 3ᵉ harmonique » : ρ = 0,67, elle avait raison.</p>
+<h2>Verdict instrument par instrument</h2>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Ancien F1</th>
+<th>cep-160</th>
+<th>Env. vraie (méth. 6)</th>
+<th>Formants établis (méth. 8)</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Basson</strong></td>
+<td>495 Hz</td>
+<td>538</td>
+<td>—</td>
+<td><strong>554 Hz</strong></td>
+<td><strong>CONFIRMÉ</strong> — 4 méthodes à ≤ 2 demi-tons</td>
+</tr>
+<tr>
+<td>Contrebasson</td>
+<td>226</td>
+<td>226</td>
+<td>301</td>
+<td>329 · 698 · 1 174</td>
+<td>non confirmé (6,5 dt sous méth. 8)</td>
+</tr>
+<tr>
+<td>Tuba contrebasse</td>
+<td>226</td>
+<td>226</td>
+<td>269</td>
+<td>370 · 879 · 1 396</td>
+<td>non confirmé (8,5 dt)</td>
+</tr>
+<tr>
+<td>Tuba basse</td>
+<td>226</td>
+<td>275</td>
+<td>280</td>
+<td>466 · 659 · 987 · 1 479</td>
+<td>non confirmé (12,5 dt)</td>
+</tr>
+<tr>
+<td>Trombone ténor</td>
+<td>237</td>
+<td>668</td>
+<td>538</td>
+<td>830 · 1 567 · 2 091 · 3 134</td>
+<td>non confirmé — le proxy lui-même divorce</td>
+</tr>
+<tr>
+<td>Trombone basse</td>
+<td>258</td>
+<td>775</td>
+<td>646</td>
+<td>879 · 1 759</td>
+<td>non confirmé</td>
+</tr>
+<tr>
+<td>Contrebasse</td>
+<td>172</td>
+<td>172</td>
+<td>151</td>
+<td>466 · 1 396 · 2 635 · 3 948</td>
+<td>non confirmé — zone de f0 (ρ 0,90)</td>
+</tr>
+<tr>
+<td>Violoncelle</td>
+<td>205</td>
+<td>1 109</td>
+<td>312</td>
+<td>554 · <strong>1 108</strong> · 2 216 · 3 948</td>
+<td>non confirmé, mais voir ci-dessous</td>
+</tr>
+<tr>
+<td>Clarinette basse</td>
+<td>323</td>
+<td>743</td>
+<td>323</td>
+<td>1 244 · 2 487</td>
+<td>non confirmé (classe B, ρ 0,88)</td>
+</tr>
+<tr>
+<td>Clarinette contrebasse</td>
+<td>323</td>
+<td>1 249</td>
+<td>172</td>
+<td>1 759</td>
+<td>non confirmé</td>
+</tr>
+<tr>
+<td>Flûte basse</td>
+<td>302</td>
+<td>603</td>
+<td>420</td>
+<td>—</td>
+<td>non confirmé (classe B)</td>
+</tr>
+<tr>
+<td>Flûte contrebasse</td>
+<td>334</td>
+<td>759</td>
+<td>382</td>
+<td>1 759</td>
+<td>non confirmé (classe B)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Un seul instrument sur douze voit son ancienne valeur confirmée : le basson.</strong> Et c'est
+cohérent — c'est le seul instrument sur lequel tout concorde, y compris la littérature
+(Backus 470, Giesler 500, Meyer 500) et la carte vocalique (F1 470–590 Hz).</p>
+<h3>L'« unisson formantique parfait » à 226 Hz est écarté</h3>
+<p>Contrebasson, tuba basse et tuba contrebasse donnaient tous trois 226,1 Hz, présenté comme un
+unisson entre trois familles. Les trois tombent dans le bin 21. Mais nos propres méthodes leur
+donnent <strong>329, 466 et 370 Hz</strong> — trois valeurs distinctes. L'unisson est une propriété de la
+mesure d'ordre 160 sur trois spectres à peigne très dense, non une propriété des instruments.</p>
+<p>Même conclusion pour les 323,0 Hz identiques de la clarinette basse et de la clarinette
+contrebasse (bin 30).</p>
+<h3>Un défaut distinct, sur le violoncelle</h3>
+<p>Pour le violoncelle, <code>cep_F1_order160</code> donne <strong>1 109 Hz</strong> et notre formant établi est
+<strong>1 108 Hz</strong> — accord à 0,0 demi-ton. Mais l'ancien pipeline publiait <strong>205 Hz</strong>.</p>
+<p>Le lissage avait donc trouvé la bonne résonance ; c'est la <strong>sélection du pic</strong> qui a pris le
+plus grave au lieu du plus saillant. C'est un défaut indépendant de celui du lissage, et il
+affecte potentiellement tous les instruments où l'ancien pipeline a publié une valeur basse.</p>
+<h2>Corroboration de nos formants par une famille de méthodes indépendante</h2>
+<p>mai26 contient du <strong>LPC</strong> (F1, F2, F3), qui ne partage aucune étape avec nos méthodes 6, 8
+et 12. Confrontation des 39 formants retenus des fiches aux médianes LPC et cepstre-80 :</p>
+<blockquote>
+<p><strong>12 sur 39 corroborés à ≤ 1 demi-ton ; 22 sur 39 à ≤ 2 demi-tons.</strong></p>
+</blockquote>
+<p>Les accords les plus nets :</p>
+<table>
+<thead>
+<tr>
+<th>Formant établi</th>
+<th>Méthode mai26</th>
+<th>Écart</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Violoncelle 1 108 Hz</td>
+<td>cep-160 : 1 109 Hz</td>
+<td><strong>0,0 dt</strong></td>
+</tr>
+<tr>
+<td>Alto 2 091 Hz</td>
+<td>cep-160 : 2 089 Hz</td>
+<td><strong>0,0 dt</strong></td>
+</tr>
+<tr>
+<td>Contrebasse 1 396 Hz</td>
+<td>cep-80 : 1 389 Hz</td>
+<td>0,1 dt</td>
+</tr>
+<tr>
+<td>Tuba contrebasse 370 Hz</td>
+<td>cep-80 : 366 Hz</td>
+<td>0,2 dt</td>
+</tr>
+<tr>
+<td>Trombone ténor 2 091 Hz</td>
+<td>LPC F2 : 2 120 Hz</td>
+<td>0,2 dt</td>
+</tr>
+<tr>
+<td>Clarinette en Sib 3 517 Hz</td>
+<td>LPC F3 : 3 625 Hz</td>
+<td>0,5 dt</td>
+</tr>
+<tr>
+<td>Violoncelle 3 948 Hz</td>
+<td>LPC F3 : 3 843 Hz</td>
+<td>0,5 dt</td>
+</tr>
+<tr>
+<td>Contrebasse 3 948 Hz</td>
+<td>LPC F3 : 3 823 Hz</td>
+<td>0,6 dt</td>
+</tr>
+<tr>
+<td>Cor anglais 2 216 Hz</td>
+<td>LPC F2 : 2 312 Hz</td>
+<td>0,7 dt</td>
+</tr>
+<tr>
+<td>Clarinette basse 1 244 Hz</td>
+<td>cep-80 : 1 195 Hz</td>
+<td>0,7 dt</td>
+</tr>
+<tr>
+<td><strong>Violon 2 348 Hz</strong> (<em>bridge hill</em>)</td>
+<td>cep-80 : 2 455 Hz</td>
+<td>0,8 dt</td>
+</tr>
+<tr>
+<td>Trombone basse 879 Hz</td>
+<td>cep-80 : 926 Hz</td>
+<td>0,9 dt</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Réserve à ne pas oublier</strong> : comparer une médiane sur toutes les notes à une position de
+formant est un indice, pas un test — et retenir la plus proche de cinq colonnes gonfle le
+taux. Un vrai test exigerait un appariement note par note. À faire ; les données le permettent.</p>
+<p>Noter aussi que le <strong>cor anglais</strong> est corroboré ici (2 216 Hz par LPC, à 0,7 dt) alors qu'il
+ne se réplique pas sur ZSamples. Corroboration par méthode et réplication par corpus sont deux
+exigences distinctes, et il ne passe que la première.</p>
+<h2>Découverte 3 — notre propre méthode est quantifiée au demi-ton</h2>
+<p>En vérifiant ces écarts, un fait saute aux yeux : <strong>tous nos formants établis sont des
+fréquences de notes tempérées.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Notre valeur</th>
+<th>Note</th>
+<th>Notre valeur</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>554 Hz</td>
+<td>Do♯5 = 554,4</td>
+<td>1 108 Hz</td>
+<td>Do♯6 = 1 108,7</td>
+</tr>
+<tr>
+<td>1 396 Hz</td>
+<td>Fa6 = 1 396,9</td>
+<td>466 Hz</td>
+<td>La♯4 = 466,2</td>
+</tr>
+<tr>
+<td>2 348 Hz</td>
+<td>Ré7 = 2 349,3</td>
+<td>4 183 Hz</td>
+<td>Do8 = 4 186,0</td>
+</tr>
+<tr>
+<td>879 Hz</td>
+<td>La5 = 880,0</td>
+<td>370 Hz</td>
+<td>Fa♯4 = 370,0</td>
+</tr>
+</tbody>
+</table>
+<p>C'est une conséquence directe de la méthode 8 : l'enveloppe composite est construite sur un axe
+fait des fréquences harmoniques des notes, donc d'une grille tempérée. <strong>La résolution de notre
+méthode est d'un demi-ton</strong>, pas mieux.</p>
+<p>Deux conséquences à acter :</p>
+<ol>
+<li>Nous ne pouvons annoncer aucune précision supérieure au demi-ton. Écrire « 2 348 Hz »
+   suggère une précision au Hz que nous n'avons pas ; il faut écrire <strong>Ré7 (≈ 2 350 Hz)</strong>.</li>
+<li>Notre critère de réplication « ≤ 1 demi-ton » est <strong>au grain de la grille</strong> : il accepte un
+   pas de grille adjacent. C'est le même type d'indulgence que le « Δ = 11 Hz » de l'ancienne
+   étude, un niveau plus haut. Un critère strict dirait : <strong>même point de grille</strong>.</li>
+</ol>
+<p>Il faut donc recompter les 17 formants établis avec le critère strict, et dire combien
+survivent. C'est la première correction à apporter à <code>_REPLICATION.md</code>.</p>
+<h2>Ce que cette vérification change</h2>
+<ol>
+<li><strong>L'hypothèse des 276 Hz est abandonnée.</strong> Le discriminant est la typologie, non la
+   tessiture. À corriger dans <code>00-METHODE.md</code>, qui présente la limite comme la cause unique.</li>
+<li><strong>Les instruments graves ne sont pas réhabilités</strong> — un seul l'est, le basson.</li>
+<li><strong>mai26 devient une source active</strong> et non une archive : proxy note par note de l'ancien
+   pipeline, et famille de méthodes indépendante pour corroborer.</li>
+<li><strong>Notre propre résolution est d'un demi-ton</strong>, et nos énoncés doivent le dire.</li>
+<li>Deux défauts de l'ancien pipeline sont désormais distingués : le lissage d'ordre fixe, et
+   la sélection du pic le plus grave (cas du violoncelle).</li>
+</ol>
+<h2>Reproduire</h2>
+<p>Les quatre tests sont des scripts courts sur données déjà présentes, sans retour aux
+échantillons :</p>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Entrée</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Quantification en bins</td>
+<td><code>Etude-Formants/Resultats/formants_*_v3.csv</code></td>
+</tr>
+<tr>
+<td>ρ(cep-160, f0) par instrument</td>
+<td><code>Etude-Formants/Analyses_formants-mai26/*_formant_results.csv</code></td>
+</tr>
+<tr>
+<td>Croisement des quatre sources</td>
+<td>les deux ci-dessus + front matter des fiches</td>
+</tr>
+<tr>
+<td>Corroboration LPC / cepstre-80</td>
+<td>idem</td>
+</tr>
+</tbody>
+</table>
+<p>À verser dans <code>Scripts/v7-formants-2026/</code> sous le nom <code>verifier_anciennes_mesures.py</code>.</p>
+<footer>Référence formantique de l'orchestre — Yan Maresz · page produite par <code>construire_site.py</code> depuis les fiches et <code>Resultats-v7/</code>.</footer>
+</body>
+</html>

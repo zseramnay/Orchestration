@@ -12,12 +12,12 @@ corpus: SOL2020+Yan_Adds · ZSamples · Xsamples · VO · VN
 
 Trois banques nouvelles ont été versées le 25/10 : **Xsamples** (1 404 `.aif`), **VO**
 (1 938 `.AIF`) et **VN** (1 034 `.wav`, dix instruments). Avec SOL2020+Yan_Adds et ZSamples,
-cela fait **cinq corpus indépendants**. Mesures dans `Instruments/Xsamples/`,
-`Instruments/VO/` et `Instruments/VN/`.
+cela fait **cinq corpus indépendants**. Mesures dans `Mesures/Xsamples/`,
+`Mesures/VO/` et `Mesures/VN/`.
 
 ## Le résultat en une ligne
 
-> **20 formants établis par la route A, sur 12 instruments** — contre 7 sur 5 instruments le
+> **23 formants établis par la route A, sur 13 instruments** — contre 7 sur 5 instruments le
 > 24 octobre. Et trois instruments restent sans aucun accord malgré quatre corpus, ce qui est
 > aussi un résultat.
 
@@ -121,35 +121,49 @@ Le seuil utile est 0,2 %, soit 3 cents.
 | ZSamples | 1,00 | — | 4 | bonne, échantillonnage espacé |
 | VO | 1,003 à 1,028 | 0,6–2,6 % | 3 (pp / mf / ff) | exploitable **après correction** |
 
-## Les 20 formants établis par la route A
+## Les 23 formants établis par la route A
 
-Route A = au moins une **paire** de corpus sur le **même point de grille** (< 0,5 demi-ton).
+Route A = au moins un **couple** de corpus sur le **même point de grille** (< 0,5 demi-ton),
+de provenances distinctes.
 
-La paire stricte est nommée : c'est elle qui porte la preuve, et sa provenance doit être
-indépendante (voir la règle ci-dessus).
+> **Correction du 26/10/2026.** Ce tableau en annonçait **20 sur 12 instruments**. Le comptage
+> regroupait les valeurs en zones *en chaînant depuis la première*, de sorte que deux valeurs
+> qui s'apparient pouvaient tomber dans des zones voisines sans jamais être confrontées.
+> L'appariement refait sans regroupement, donc indépendant de l'ordre, en donne **23 sur 13**.
+> Les trois retrouvés sont l'**alto à 3 748 Hz**, la **clarinette basse à 2 225 Hz** et le
+> **tuba basse à 498 Hz**. Le tableau ci-dessous est généré depuis
+> `Resultats-v7/formants-v7.csv`, lui-même produit par `exporter_csv.py` : il ne peut plus
+> diverger des données.
 
-| Instrument | Formant | Corpus de la zone | Paire stricte | Écart |
-|---|---|---|---|---|
-| **Basson** | **1 108 Hz** (Do♯6) | SOL · ZSamples · Xsamples | Xsamples + ZSamples | 0,00 dt |
-| Basson | 1 974 Hz | SOL · ZSamples · Xsamples | SOL + ZSamples | 0,00 dt |
-| Basson | 494 Hz (Si4) | ZSamples · Xsamples | Xsamples + ZSamples | 0,00 dt |
-| Clarinette en Sib | 3 517 Hz (La7) | SOL · ZSamples · Xsamples | SOL + ZSamples | 0,00 dt |
-| Clarinette basse | 1 244 Hz (Ré♯6) | SOL · Xsamples · VN | Xsamples + SOL | 0,01 dt |
-| Clarinette contrebasse | 1 761 Hz (La6) | SOL · VO | SOL + VO | 0,05 dt |
-| **Cor en Fa** | **2 216 Hz** (Do♯7) | SOL · VN · Xsamples | **VN + SOL** | 0,00 dt |
-| **Trombone ténor** | **879 Hz** (La5) | **les 4 corpus** | Xsamples + ZSamples | 0,00 dt |
-| Trombone basse | 879 Hz (La5) | SOL · ZSamples · VO | SOL + ZSamples | 0,01 dt |
-| Trombone basse | 1 670 Hz | SOL · ZSamples · VO | ZSamples + VO | 0,20 dt |
-| **Trompette** | **2 792 Hz** (Fa7) | SOL · VN | **VN + SOL** | 0,00 dt |
-| **Trompette** | **4 974 Hz** | SOL · Xsamples · VN | VN + Xsamples | 0,00 dt |
-| **Tuba basse** | **698 Hz** (Fa5) | SOL · ZSamples · VN | **VN + ZSamples** | 0,00 dt |
-| **Tuba basse** | **1 244 Hz** (Ré♯6) | ZSamples · VN | VN + ZSamples | 0,00 dt |
-| **Violon** | **2 216 Hz** — le *bridge hill* | SOL · ZSamples · VN | **VN + ZSamples** | 0,00 dt |
-| Violon | 3 960 Hz | ZSamples · VO · VN | ZSamples + VO | 0,10 dt |
-| **Violoncelle** | **1 108 Hz** (Do♯6) | SOL · VN | VN + SOL | 0,00 dt |
-| **Violoncelle** | **2 631 Hz** | VN · VO | VO + VN | 0,05 dt |
-| **Violoncelle** | **3 948 Hz** | SOL · VN | SOL + VN | 0,00 dt |
-| Contrebasse | 2 635 Hz (Mi7) | SOL · ZSamples | SOL + ZSamples | 0,00 dt |
+La colonne « portée par SOL » dit si une fiche d'instrument contient cette valeur. Sept zones
+sont établies par des couples qui n'incluent pas SOL : elles existent sans qu'aucune fiche ne
+les porte.
+
+| Instrument | Formant | Corpus de la zone | Portée par SOL |
+|---|---|---|---|
+| Alto | **3 748 Hz** (La♯7) | VO · ZSamples | — |
+| Basson | **494 Hz** (Si4) | Xsamples · ZSamples | — |
+| Basson | **1 108 Hz** (Do♯6) | SOL · ZSamples · Xsamples | oui |
+| Basson | **1 974 Hz** (Si6) | SOL · ZSamples · Xsamples | oui |
+| Clarinette basse en Sib | **1 244 Hz** (Ré♯6) | SOL · Xsamples · VN | oui |
+| Clarinette basse en Sib | **2 225 Hz** (Do♯7) | VN · VO | — |
+| Clarinette contrebasse en Sib | **1 759 Hz** (La6) | SOL · VO | oui |
+| Clarinette en Sib | **3 517 Hz** (La7) | SOL · ZSamples · Xsamples | oui |
+| Contrebasse | **2 635 Hz** (Mi7) | SOL · ZSamples | oui |
+| Cor en Fa | **2 216 Hz** (Do♯7) | SOL · Xsamples · VN | oui |
+| Trombone basse | **879 Hz** (La5) | SOL · ZSamples · VO | oui |
+| Trombone basse | **1 759 Hz** (La6) | SOL · ZSamples · VO | oui |
+| Trombone ténor | **830 Hz** (Sol♯5) | SOL · ZSamples · Xsamples · VO | oui |
+| Trompette en Ut | **2 792 Hz** (Fa7) · ⚠ non localisé | SOL · VN | oui |
+| Trompette en Ut | **4 695 Hz** (Ré8) | SOL · Xsamples · VN | oui |
+| Tuba basse | **498 Hz** (Si4) | VO · ZSamples | — |
+| Tuba basse | **659 Hz** (Mi5) | SOL · ZSamples · VN | oui |
+| Tuba basse | **1 244 Hz** (Ré♯6) | VN · ZSamples | — |
+| Violon | **2 348 Hz** (Ré7) | SOL · ZSamples · VN | oui |
+| Violon | **3 959 Hz** (Si7) | VO · ZSamples | — |
+| Violoncelle | **1 108 Hz** (Do♯6) | SOL · VN | oui |
+| Violoncelle | **2 631 Hz** (Mi7) | VN · VO | — |
+| Violoncelle | **3 948 Hz** (Si7) | SOL · VN | oui |
 
 ### Les trois dossiers VSL ajoutés le 25/10
 
@@ -251,7 +265,7 @@ assigne un formant avec le plus d'assurance — Backus 1 300 Hz, Meyer et Giesle
 quatre corpus ne le confirment pas. **Il faut le reclasser en B** et dire dans sa fiche que la
 notion de formant fixe ne s'y applique pas, comme pour les flûtes.
 
-### L'alto — quatre corpus, toujours rien
+### L'alto — un formant, mais pas celui de SOL
 
 | Corpus | Formants retenus |
 |---|---|
@@ -260,11 +274,21 @@ notion de formant fixe ne s'y applique pas, comme pour les flûtes.
 | VO | 3 770 · 5 331 Hz |
 | VN | 1 759 · 4 432 Hz |
 
-Deux zones seulement, à un demi-ton et sans paire stricte : 3 517/3 726 (SOL+ZSamples) et
-5 331/5 583 (VO+ZSamples). VN n'apporte aucun accord. ρ = 0,85 dans VN.
+> **Correction du 26/10/2026.** Cette section affirmait que l'alto était « le seul membre du
+> quatuor sans formant établi ». **C'est faux.**
 
-L'alto est le seul membre du quatuor sans formant établi, alors que le violon en a deux et le
-violoncelle trois. À signaler explicitement : ce n'est pas un oubli de mesure.
+**VO donne 3 770 Hz et ZSamples 3 726 Hz : 0,20 demi-ton d'écart, deux provenances distinctes.
+C'est un couple strict, donc une route A, à 3 748 Hz (La♯7).**
+
+Ce qui reste vrai, et qui est la nuance à retenir : **SOL ne le trouve pas.** Sa valeur la plus
+proche, 3 517 Hz, est à 1,1 demi-ton du couple — au-delà du seuil. Le formant existe, mais ce
+n'est pas celui que mesure le corpus de l'IRCAM. La fiche de l'alto garde donc « indéterminé »
+pour sa propre valeur, et la zone établie est portée à part dans `Resultats-v7/formants-v7.csv`.
+
+L'autre zone, 5 331 (VO) / 5 583 (ZSamples), reste à un demi-ton sans couple strict.
+
+Et l'alto demeure le membre du quatuor le moins bien établi : un formant, contre deux au violon
+et trois au violoncelle, et aucun que SOL confirme.
 
 ### La famille des flûtes — résultat négatif, désormais massif
 
@@ -299,24 +323,9 @@ de cuivre aigu à passer la réplication », ne tient pas sur une comparaison re
 retenu — ZSamples ne retient que 1 479 Hz à cet endroit. `_REPLICATION.md` doit être repris sur
 ce point.
 
-## Reste à faire
+## À faire
 
-1. **Propager ces résultats dans les 22 fiches** : chaque formant doit porter sa route, ses
-   corpus et son écart. C'est le gros du travail de rédaction.
-2. **Reclasser le hautbois en B** et réécrire sa fiche sur le modèle de la petite flûte.
-3. **Signaler l'alto** comme seul membre du quatuor sans formant établi.
-4. **Corriger `_REPLICATION.md`** : comparaison retenu contre retenu, et liste des 20.
-5. **Carte vocalique sur les trois nouvelles banques** — VN offre trois à quatre dynamiques
-   proprement accordées, ce qui en fait le meilleur corpus pour la grille registre × dynamique.
-6. **Tuba contrebasse et contrebasson** : une banque ni VSL ni ZSamples est la seule chose qui
-   permettrait d'en dire quelque chose. Pas de flûte basse disponible.
-7. **Noter la provenance dans chaque fiche** (`provenance: IRCAM | VSL | …`) et faire porter
-   l'exclusion par le script, pas par la mémoire : c'est l'erreur qui a produit quatre faux
-   résultats en une matinée.
-8. **Alto et hautbois : les placer dans l'espace vocalique.** Ils n'ont aucun formant
-   réplicable sur quatre corpus — la méthode 12 est donc la seule voie qui leur convienne,
-   puisqu'elle ne suppose aucune résonance fixe. À faire sur VN, qui offre trois à quatre
-   dynamiques proprement accordées.
+> Les travaux restants sont **tous** dans `_PLAN-DE-REPRISE.md`, qui est la seule liste à tenir. Ne pas en ouvrir une ici : c'est ainsi que huit listes se sont contredites entre le 23 et le 26 octobre.
 
 ## Le vibrato comme voie de mesure — testé, et écarté pour l'instant
 
@@ -388,4 +397,7 @@ VO exige `"corriger_accord": true`.
   Audit de doublons : SOL/FullSOL2020, ZSamples, Xsamples et VO sont mutuellement indépendants.
 - **2026-10-25** — Trois dossiers VSL ajoutés (tuba basse, trompette, clarinette basse).
   Trompette 2 792 Hz réhabilitée, trompette 4 974 Hz et tuba basse 698 et 1 244 Hz établis.
-  Bilan net : **20 formants par route A sur 12 instruments**, contre 7 sur 5 la veille.
+  Bilan net : **23 formants par route A sur 13 instruments**, contre 7 sur 5 la veille.
+- **2026-10-26** — Correction du comptage : le regroupement séquentiel en masquait trois, dont
+  celui de l'alto. Appariement refait sans regroupement. Le tableau est désormais généré depuis
+  `Resultats-v7/formants-v7.csv`.

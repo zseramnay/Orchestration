@@ -26,7 +26,17 @@ FMAX  = (NBINS - 1) * BW       # ~11 015 Hz
 QCOMB = 2 * (NBINS - 1)        # longueur effective du cepstre demi-spectre
 
 SKIP_MS, DUREE_MS, MIN_MS = 200, 1500, 250   # segment analysé après l'onset
-HALFWIN   = 0.75               # ±3/4 d'octave : fenêtre du redressement local
+HALFWIN   = 0.75               # ±3/4 d'octave : fenêtre du redressement local.
+                               # NE PAS PORTER À 1,00 — essayé et annulé le 27/10/2026.
+                               # À 1,00, 96 % des formants route A se retrouvent À UN TIERS
+                               # D'OCTAVE PRÈS, ce qui semblait sans coût. Mais la route A
+                               # exige un accord à un DEMI-TON entre corpus : une dérive
+                               # d'un demi-ton par corpus, invisible à la tolérance du test
+                               # de robustesse, lui est fatale. Résultat mesuré : 23 -> 19
+                               # formants route A, et les TROIS unissons formantiques
+                               # (1 108, 1 244, 2 216 Hz) disparaissent.
+                               # Voir `_FENETRE-DE-REDRESSEMENT.md`.
+DELTA_ROB = 0.25               # écart des fenêtres de comparaison du test de robustesse
 RESIDU_MIN = 1.0               # seuil de résidu, en dB — NE PAS ABAISSER
 NBOOT      = 2000              # tirages du bootstrap par note
 MIN_NOTES_GROUPE = 3           # plancher de testabilité d'un groupe de rang
@@ -223,9 +233,21 @@ def residu_local(fr, am, demi_fenetre=HALFWIN):
     faux formants à 1 318 et 1 863 Hz pour le hautbois, apparemment en accord
     avec la littérature. Ne pas y revenir.
 
-    Limite assumée : aveugle aux résonances plus larges que ~1,5 octave. C'est
-    pourquoi les flûtes ressortent sans formant — leur zone d'énergie est une
-    coupure de rayonnement, pas une résonance."""
+    DEUX limites, à ne pas confondre — l'une a longtemps servi à expliquer des cas
+    qui relevaient de l'autre (corrigé le 27/10/2026, tâche C2) :
+
+    1. Largeur. Aveugle aux résonances plus larges que ~1,5 octave : une telle
+       résonance est absorbée par la médiane locale. C'est bien le cas des flûtes,
+       dont la zone d'énergie est une coupure de rayonnement et non une résonance.
+
+    2. Plancher du domaine. Un harmonique n'entre dans le composite que si sa
+       fenêtre contient au moins TROIS harmoniques de la même note (`q >= 3` dans
+       `composite()`). Le nombre d'harmoniques dans [k/2^w, k·2^w] croît avec le
+       rang k, donc les rangs bas sont écartés : à ±3/4 d'octave le rang 3 est le
+       plus bas admis, et le plancher mesuré se situe entre 3,2 et 5,7 fois f0_min
+       selon le corpus. **Rien n'est mesuré en dessous.** C'est cela — et non la
+       largeur — qui fait manquer la caisse de l'alto (384 Hz, f0_min 131) et du
+       violoncelle (219 Hz, f0_min 65). Voir `_FENETRE-DE-REDRESSEMENT.md`."""
     lf = np.log2(fr)
     res = np.empty_like(am)
     npts = np.empty(am.size, dtype=int)
@@ -326,12 +348,21 @@ def _bootstrap_groupe(notes, fc, lo, hi, tol=1/6, rng=None):
                 mediane=round(obs, 2), ic_bas=round(ci, 2),
                 passe=bool(obs >= RESIDU_MIN and ci > 0))
 
-def robustesse_fenetre(echantillons, fc):
+def robustesse_fenetre(echantillons, fc, reference=None):
     """Test 2 : le pic se retrouve-t-il à moins de 1/3 d'octave quand la fenêtre
-    de redressement passe de ±3/4 à ±1/2 puis ±1 octave ?
+    de redressement s'écarte de ±DELTA_ROB octave de part et d'autre de la référence ?
     Ce test écarte les grandeurs fabriquées par leur propre fenêtre d'analyse,
-    défaut du Fp par centroïde."""
-    for hw in (0.5, 1.0):
+    défaut du Fp par centroïde.
+
+    Les deux fenêtres de comparaison SUIVENT la référence (27/10/2026, tâche C2).
+    Elles étaient fixées à 0,5 et 1,0 : avec une référence à 1,0 le test comparait la
+    référence à elle-même d'un côté, et de l'autre à une fenêtre dont le plancher de
+    domaine est plus haut — ce qui rejetait d'office tout pic grave nouvellement
+    visible."""
+    w = HALFWIN if reference is None else reference
+    for hw in (w - DELTA_ROB, w + DELTA_ROB):
+        if hw <= 0:
+            continue
         m, n, p = composite(echantillons, hw)
         pics = [a for a, b, c, d, e in trouver_formants(m, n, p)]
         if not any(abs(math.log2(x / fc)) <= 1 / 3 for x in pics):

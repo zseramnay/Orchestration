@@ -109,7 +109,38 @@ Un formant est **établi** s'il satisfait l'une des deux conditions suivantes :
   cepstre d'ordre fixe (`Analyses_formants-mai26`), méthode 12 (carte vocalique), littérature
   acoustique primaire.
 
+> **La route B a été chiffrée le 27/10 (tâche C4), et elle ne vaut pas partout.** Appariée note
+> par note plutôt que liste contre liste, la corroboration LPC tient pour les cordes (79ᵉ
+> centile), les clarinettes (78ᵉ), les flûtes (83ᵉ) et les cuivres (69ᵉ) — et **échoue
+> entièrement pour les anches doubles** (15ᵉ centile, aucune au-dessus de la médiane), ce que le
+> modèle tout-pôle du LPC prédit chez une anche couplée à la perce. Les formants du basson, du
+> hautbois, du cor anglais et du contrebasson ne peuvent donc pas invoquer cette route. Voir
+> `_APPARIEMENT-LPC.md`.
+
 ### Route A — réplication stricte : 7 formants, 5 instruments
+
+> **Recompté le 27/10/2026 — ce tableau en annonce deux de trop (tâche D1).**
+>
+> Il comparait les formants **retenus** de SOL aux **candidats** de ZSamples, c'est-à-dire un
+> critère exigeant d'un côté et permissif de l'autre. Retenu contre retenu, sur les
+> 14 instruments comparables et les 39 formants retenus de SOL :
+>
+> | Critère | Concordances |
+> |---|---|
+> | strict — même point de grille | **5 / 39** |
+> | ≤ 1 demi-ton | 13 / 39 |
+>
+> Les cinq : **basson 1 108 et 1 974 Hz · clarinette en Si♭ 3 517 Hz · contrebasse 2 635 Hz ·
+> trombone basse 879 Hz.**
+>
+> Deux tombent. La **trompette à 2 792 Hz** — le plan de reprise l'avait prévu — et la
+> **contrebasse à 1 396 Hz**, qui ne l'était pas. Leur sort dans l'étude actuelle, à cinq
+> corpus, diffère : la trompette **tient par ailleurs**, en route A via SOL + VN ; la
+> contrebasse à 1 396 Hz est **passée en « indéterminé »** (SOL + VO).
+>
+> **Ce tableau est donc à lire comme une archive**, celle d'un état à deux corpus. La liste qui
+> fait foi est celle des **23 formants route A sur 13 instruments**, dans `_CORPUS-CROISES.md`
+> et `Resultats-v7/formants-v7.csv`.
 
 | Instrument | Formants | Corroboration mai26 |
 |---|---|---|
@@ -248,5 +279,5 @@ de f0 par **somme harmonique** (`f0_par_somme_harmonique` dans `formants_lib.py`
 ## Fichiers de données
 
 - `synthese-formants-2026-10-23.csv` — les 54 configurations SOL/Yan_Adds.
-- `zsamples-2026-10-24/` et `../Instruments-ZSamples/` — les 42 configurations ZSamples,
+- `zsamples-2026-10-24/` et `../Mesures/ZSamples/` — les 42 configurations ZSamples,
   mesures JSON et fiches pré-remplies.

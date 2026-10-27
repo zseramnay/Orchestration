@@ -1,0 +1,103 @@
+corpus,instrument,n,rho_bw_f0,bw_sur_resolution,pct_au_plancher
+SOL,Bass-Clarinet-Bb,2258,0.42,0.81,68
+SOL,Bass-Flute,230,0.68,0.65,84
+SOL,Bass-Trombone,1314,0.33,3.77,24
+SOL,Bass_Tuba+sordina,2178,0.3,2.13,34
+SOL,Bass_Tuba,771,0.32,1.37,55
+SOL,Bassoon,1771,0.33,1.21,59
+SOL,Clarinet-Eb,225,0.61,0.5,85
+SOL,Clarinet_Bb,776,0.55,0.61,78
+SOL,Contrabass+sordina,3211,0.27,1.44,52
+SOL,Contrabass-Clarinet-Bb,1290,0.26,1.83,43
+SOL,Contrabass-Ensemble,1433,0.03,1.95,39
+SOL,Contrabass-Flute,256,0.65,0.64,82
+SOL,Contrabass-Tuba,2785,0.1,2.55,31
+SOL,Contrabass,5111,0.26,1.22,58
+SOL,Contrebasson,3544,0.28,1.71,43
+SOL,EnglishHorn,919,0.37,0.68,74
+SOL,Flute,475,0.53,0.51,81
+SOL,Horn+sordina,592,0.08,1.68,42
+SOL,Oboe,501,0.56,0.59,77
+SOL,Piccolo,244,0.5,0.39,84
+SOL,Sax_Alto,717,0.42,0.69,75
+SOL,Trombone+sordina_cup,425,0.12,1.32,55
+SOL,Trombone+sordina_harmon,460,-0.04,1.58,48
+SOL,Trombone+sordina_straight,332,0.29,1.35,57
+SOL,Trombone+sordina_wah,266,0.2,1.18,58
+SOL,Trombone,751,0.36,2.26,34
+SOL,Trumpet_C+sordina_cup,185,0.33,0.59,75
+SOL,Trumpet_C+sordina_harmon,219,0.24,0.63,73
+SOL,Trumpet_C+sordina_straight,259,0.29,1.46,51
+SOL,Trumpet_C+sordina_wah,195,0.43,0.6,77
+SOL,Trumpet_C,596,0.19,2.5,40
+SOL,Viola+sordina,1263,0.45,0.67,79
+SOL,Viola-Ensemble-sordina,224,0.41,0.79,67
+SOL,Viola-Ensemble,926,0.35,1.3,55
+SOL,Viola,1953,0.53,0.65,78
+SOL,Violin+sordina,1033,0.45,0.61,77
+SOL,Violin+sordina_piombo,176,0.49,0.66,79
+SOL,Violin-Ensemble-sordina,207,0.03,0.77,60
+SOL,Violin-Ensemble,868,0.07,1.13,57
+SOL,Violin,1276,0.56,0.59,78
+SOL,Violoncello+sordina,1869,0.41,1.15,59
+SOL,Violoncello+sordina_piombo,601,0.33,1.09,60
+SOL,Violoncello-Ensemble-sordina,483,0.32,1.35,54
+SOL,Violoncello-Ensemble,1572,0.49,0.97,62
+SOL,Violoncello,3235,0.47,0.77,73
+ZSamples,Alto,1639,0.44,0.62,78
+ZSamples,Basson,3568,0.35,1.16,60
+ZSamples,Clarinette contrebasse,1822,0.27,1.5,50
+ZSamples,Clarinette en Mib,318,0.46,0.56,78
+ZSamples,Clarinette en Sib,426,0.55,0.58,80
+ZSamples,Contrebasse,9427,0.23,1.54,49
+ZSamples,Contrebasson,1688,0.32,1.74,43
+ZSamples,Cor anglais,354,0.35,0.65,75
+ZSamples,Cor,9405,0.43,1.33,54
+ZSamples,Flute basse,252,0.59,0.6,84
+ZSamples,Flute contrebasse,309,0.58,0.63,78
+ZSamples,Flute,256,0.32,0.62,70
+ZSamples,Hautbois,3702,0.34,0.51,79
+ZSamples,Petite flute,127,0.43,0.38,91
+ZSamples,Trombone basse,524,0.48,3.01,28
+ZSamples,Trombone tenor,9936,0.13,2.84,31
+ZSamples,Trompette,11257,0.32,1.63,48
+ZSamples,Tuba basse,2494,0.24,1.52,49
+ZSamples,Violon,1756,0.52,0.56,80
+ZSamples,Violoncelle,6832,0.43,0.84,69
+Xsamples,Basson,2039,0.49,0.87,66
+Xsamples,Clarinette basse en Sib,2082,0.49,0.77,73
+Xsamples,Clarinette en Sib,859,0.53,0.59,77
+Xsamples,Contrebasson,3986,0.42,1.33,55
+Xsamples,Cor anglais,463,0.53,0.72,68
+Xsamples,Cor en Fa,1319,0.52,0.84,69
+Xsamples,Flute basse,870,0.6,0.61,79
+Xsamples,Hautbois,573,0.32,0.7,67
+Xsamples,Trombone tenor,2063,0.55,1.64,45
+Xsamples,Trompette en Ut,730,0.41,0.73,68
+VO,Alto,597,0.64,0.71,77
+VO,Clarinette basse en Sib,736,0.27,1.15,58
+VO,Clarinette contrebasse en Sib,1275,0.26,1.86,42
+VO,Clarinette en Mib,230,0.6,0.52,84
+VO,Clarinette en Sib,303,0.6,0.61,84
+VO,Contrebasse,1580,0.33,1.16,58
+VO,Flute basse,229,0.7,0.65,84
+VO,Flute contrebasse,252,0.68,0.64,84
+VO,Flute,126,0.7,0.52,81
+VO,Petite flute,68,0.69,0.47,91
+VO,Trombone basse,700,0.17,1.55,46
+VO,Trombone tenor,697,0.26,1.63,45
+VO,Tuba basse,928,-0.02,2.46,33
+VO,Violon,427,0.62,0.59,83
+VO,Violoncelle,1215,0.59,0.75,75
+VN,Alto,959,0.5,0.68,75
+VN,Clarinette basse en Sib,2591,0.43,0.77,70
+VN,Contrebasson,3557,0.28,1.71,43
+VN,Cor anglais,916,0.38,0.69,74
+VN,Cor en Fa,768,0.46,0.94,61
+VN,Hautbois vibrato,329,0.31,0.77,68
+VN,Hautbois,659,0.23,0.71,68
+VN,Trompette en Ut,1012,0.32,1.33,52
+VN,Tuba basse,1475,0.23,1.22,57
+VN,Tuba contrebasse,1746,0.14,2.46,30
+VN,Violon,751,0.41,0.61,76
+VN,Violoncelle,1814,0.5,0.87,68

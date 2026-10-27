@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Les formants établis</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="bandeau"><h1>Les formants établis</h1></div>
+<p class="fil"><a href="../index.html">Sommaire</a> › Synthèses</p>
+<figure><img src="../figures/synthese-convergences.png" alt="Les formants retenus et leurs convergences." loading="lazy"><figcaption>Les formants retenus et leurs convergences.</figcaption></figure>
+<h1>Cinq corpus croisés</h1>
+<blockquote>
+<p><strong>À lire avec</strong> <code>_REPLICATION.md</code> (le critère à deux routes) et
+<code>_VERIFICATION-GRAVES.md</code> (la résolution au demi-ton).</p>
+</blockquote>
+<p>Trois banques nouvelles ont été versées le 25/10 : <strong>Xsamples</strong> (1 404 <code>.aif</code>), <strong>VO</strong>
+(1 938 <code>.AIF</code>) et <strong>VN</strong> (1 034 <code>.wav</code>, dix instruments). Avec SOL2020+Yan_Adds et ZSamples,
+cela fait <strong>cinq corpus indépendants</strong>. Mesures dans <code>Mesures/Xsamples/</code>,
+<code>Mesures/VO/</code> et <code>Mesures/VN/</code>.</p>
+<h2>Le résultat en une ligne</h2>
+<blockquote>
+<p><strong>23 formants établis par la route A, sur 13 instruments</strong> — contre 7 sur 5 instruments le
+24 octobre. Et trois instruments restent sans aucun accord malgré quatre corpus, ce qui est
+aussi un résultat.</p>
+</blockquote>
+<h2>⚠ VN est du VSL, et Yan_Adds aussi — une règle de provenance</h2>
+<p><strong>À lire avant tout le reste.</strong> Les abréviations de VN sont celles de VSL en allemand : KFA =
+<em>Kontrafagott</em>, KTU = <em>Kontratuba</em>, BKL = <em>Bassklarinette</em>, TU = <em>Tuba</em>, TrC = <em>Trumpet C</em>,
+EH, HO, VC, VA, VI. VN est donc un extrait de la <strong>Vienna Symphonic Library</strong>.</p>
+<p>Or <code>Yan_Adds-Divers</code>, qui fournit le côté « SOL » de dix instruments sur vingt-deux, contient
+du VSL. Vérification directe sur trois paires :</p>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Yan_Adds</th>
+<th>VN</th>
+<th>Corrélation des spectres</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Contrebasson</strong></td>
+<td>362 564 échantillons</td>
+<td><strong>362 564</strong></td>
+<td><strong>1,00000</strong></td>
+</tr>
+<tr>
+<td><strong>Tuba contrebasse</strong></td>
+<td>206 529 échantillons</td>
+<td><strong>206 529</strong></td>
+<td>0,99591</td>
+</tr>
+<tr>
+<td><strong>Cor anglais</strong></td>
+<td>432 187 échantillons</td>
+<td><strong>432 187</strong></td>
+<td>0,99863</td>
+</tr>
+</tbody>
+</table>
+<p>Nombre d'échantillons identique <strong>au sample près</strong>, corrélation jusqu'à 1,00000 : <strong>ce sont
+les mêmes enregistrements</strong>, à un gain de normalisation près. Un « accord entre deux corpus »
+y était la même bibliothèque comparée à elle-même.</p>
+<p><strong>Règle retenue : la paire (SOL, VN) ne compte pas lorsque la source SOL de l'instrument est
+<code>Yan_Adds-Divers</code>.</strong> Elle reste valide pour les douze instruments venus de <code>FullSOL2020</code>
+(IRCAM) : flûte, hautbois, basson, clarinette en Sib, cor, trompette, trombone ténor, tuba
+basse, violon, alto, violoncelle, contrebasse. Et VN reste comparable sans réserve à ZSamples,
+Xsamples et VO pour <strong>tous</strong> les instruments.</p>
+<p>Quatre formants annoncés plus tôt le 25/10 sont <strong>annulés</strong> par cette règle :</p>
+<table>
+<thead>
+<tr>
+<th>Formant annulé</th>
+<th>Pourquoi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Contrebasson 329 · 698 · 1 174 Hz</td>
+<td>la seule paire stricte était Yan_Adds ↔ VN</td>
+</tr>
+<tr>
+<td>Tuba contrebasse 1 396 Hz</td>
+<td>idem — et c'était son unique second corpus</td>
+</tr>
+</tbody>
+</table>
+<p>Le contrebasson redevient non répliqué, et le <strong>tuba contrebasse n'a toujours aucun second
+corpus</strong>. Ils sont exactement là où ils étaient le 24 octobre.</p>
+<p><strong>Audit de doublons sur les cinq banques</strong> : 750 fichiers indexés par durée exacte, dix paires
+de corpus testées. Une seule durée commune hors VSL, entre un alto de VO et un hautbois de VN —
+coïncidence. <strong>SOL/FullSOL2020, ZSamples, Xsamples et VO sont mutuellement indépendants.</strong></p>
+<p>À refaire pour toute banque future : avant de compter une réplication, <strong>vérifier que les deux
+corpus ne sont pas la même bibliothèque</strong>. La durée en échantillons est une empreinte
+suffisante et coûte quelques secondes.</p>
+<h2>Ce que chaque banque a imposé d'adapter</h2>
+<p>Aucune des trois ne se lisait en l'état. Le pilote <code>Scripts/v7-formants-2026/corpus.py</code> absorbe
+désormais les cinq nomenclatures sans qu'on touche à la chaîne de mesure : il écrit dans le
+fichier de spectres un <strong>nom normalisé au format SOL</strong>, et tout l'aval fonctionne.</p>
+<table>
+<thead>
+<tr>
+<th>Banque</th>
+<th>Structure</th>
+<th>Adaptation nécessaire</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SOL2020</td>
+<td><code>Instrument/technique/inst-tech-NOTE-dyn-N-N.wav</code></td>
+<td>aucune (référence)</td>
+</tr>
+<tr>
+<td>ZSamples</td>
+<td>technique dans le nom, <code>_string_N</code></td>
+<td>existante</td>
+</tr>
+<tr>
+<td><strong>Xsamples</strong></td>
+<td><code>instrument/DYNAMIQUE/code_note.aif</code></td>
+<td>notes en <strong>minuscules</strong> · dynamique et technique dans le <strong>dossier</strong> · <strong>H allemand</strong></td>
+</tr>
+<tr>
+<td><strong>VO</strong></td>
+<td><code>instrument/sourdine/ordinario/String-N/code-NOTE-dyn.AIF</code></td>
+<td>technique sur <strong>plusieurs niveaux</strong> de dossier · <strong>correction d'accord</strong></td>
+</tr>
+<tr>
+<td><strong>VN</strong></td>
+<td><code>Instrument/TAG_dyn/TAG_dyn_NOTE.wav</code></td>
+<td>dynamique <strong>avant</strong> la note</td>
+</tr>
+</tbody>
+</table>
+<h3>Le H allemand — 15 fichiers de Xsamples</h3>
+<p>Le cor et le trombone de Xsamples écrivent <code>Corf_h2</code>, <code>posf_h3</code> : <strong>H = si naturel</strong>, notation
+allemande. Tous les autres instruments de la même banque écrivent <code>b</code>. Vérifié mutuellement
+exclusif par dossier — aucune ambiguïté, <code>b</code> reste l'anglais. Sans ce correctif, 15 fichiers
+étaient perdus et le cor perdait son registre grave.</p>
+<h3>La correction d'accord — VO entière</h3>
+<p>C'est le point le plus sérieux. <code>harmoniques()</code> relève chaque harmonique dans une fenêtre de
+<strong>±2 bins</strong> (±21,5 Hz) autour de k·f0 <strong>calculé depuis le nom de fichier</strong>. Si la banque n'est
+pas accordée à La = 440, l'écart dépasse la fenêtre dès que k·f0 &gt; 21,5 / |r−1|, et tous les
+harmoniques au-dessus sont relevés <strong>dans un creux</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Instrument VO</th>
+<th>Écart</th>
+<th>Dernier harmonique correctement relevé</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Flûte, petite flûte</td>
+<td><strong>+30 / +35 cents</strong></td>
+<td><strong>k = 1</strong></td>
+</tr>
+<tr>
+<td>Flûte contrebasse</td>
+<td><strong>+48 cents</strong></td>
+<td>k = 3</td>
+</tr>
+<tr>
+<td>Clarinettes</td>
+<td>+15 cents</td>
+<td>k = 4 à 9</td>
+</tr>
+<tr>
+<td>Trombones, alto</td>
+<td>+20 cents</td>
+<td>k = 11 à 13</td>
+</tr>
+<tr>
+<td>Tuba basse</td>
+<td>+30 cents</td>
+<td>k = 12</td>
+</tr>
+<tr>
+<td>Violon, violoncelle, contrebasse</td>
+<td>+10 / −5 / −7 cents</td>
+<td>k = 5 à 33</td>
+</tr>
+</tbody>
+</table>
+<p>Les vents de VO sont accordés autour de <strong>La = 444</strong>, diapason d'orchestre courant, les flûtes
+plus haut encore ; les cordes sont à 440. <strong>La première série de mesures VO était invalide</strong>
+pour tous les vents. Correction : recalage du spectre en fréquence <strong>par échantillon</strong>, puis
+remise des formants dans le référentiel réel. Après correction, nomenclature = 1,000 sur les
+quinze configurations.</p>
+<p>À retenir pour toute banque future : <strong>une nomenclature dans la tolérance 0,97–1,03 n'est pas
+une garantie.</strong> Quinze cents passent le contrôle et détruisent la mesure au-dessus de 1 kHz.
+Le seuil utile est 0,2 %, soit 3 cents.</p>
+<h3>Qualité comparée des cinq banques</h3>
+<table>
+<thead>
+<tr>
+<th>Banque</th>
+<th>Accord</th>
+<th>σ</th>
+<th>Dynamiques</th>
+<th>Jugement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Xsamples</strong></td>
+<td><strong>1,0000</strong></td>
+<td>0,06–0,2 %</td>
+<td>3 (p / mf / f)</td>
+<td><strong>irréprochable</strong></td>
+</tr>
+<tr>
+<td><strong>VN</strong></td>
+<td><strong>1,0000</strong></td>
+<td>0,13 %</td>
+<td>3 à 4</td>
+<td><strong>irréprochable</strong></td>
+</tr>
+<tr>
+<td>SOL2020</td>
+<td>1,00</td>
+<td>—</td>
+<td>variable</td>
+<td>référence</td>
+</tr>
+<tr>
+<td>ZSamples</td>
+<td>1,00</td>
+<td>—</td>
+<td>4</td>
+<td>bonne, échantillonnage espacé</td>
+</tr>
+<tr>
+<td>VO</td>
+<td>1,003 à 1,028</td>
+<td>0,6–2,6 %</td>
+<td>3 (pp / mf / ff)</td>
+<td>exploitable <strong>après correction</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>Les 23 formants établis par la route A</h2>
+<p>Route A = au moins un <strong>couple</strong> de corpus sur le <strong>même point de grille</strong> (&lt; 0,5 demi-ton),
+de provenances distinctes.</p>
+<blockquote>
+<p><strong>Correction du 26/10/2026.</strong> Ce tableau en annonçait <strong>20 sur 12 instruments</strong>. Le comptage
+regroupait les valeurs en zones <em>en chaînant depuis la première</em>, de sorte que deux valeurs
+qui s'apparient pouvaient tomber dans des zones voisines sans jamais être confrontées.
+L'appariement refait sans regroupement, donc indépendant de l'ordre, en donne <strong>23 sur 13</strong>.
+Les trois retrouvés sont l'<strong>alto à 3 748 Hz</strong>, la <strong>clarinette basse à 2 225 Hz</strong> et le
+<strong>tuba basse à 498 Hz</strong>. Le tableau ci-dessous est généré depuis
+<code>Resultats-v7/formants-v7.csv</code>, lui-même produit par <code>exporter_csv.py</code> : il ne peut plus
+diverger des données.</p>
+</blockquote>
+<p>La colonne « portée par SOL » dit si une fiche d'instrument contient cette valeur. Sept zones
+sont établies par des couples qui n'incluent pas SOL : elles existent sans qu'aucune fiche ne
+les porte.</p>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Formant</th>
+<th>Corpus de la zone</th>
+<th>Portée par SOL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alto</td>
+<td><strong>3 748 Hz</strong> (La♯7)</td>
+<td>VO · ZSamples</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Basson</td>
+<td><strong>494 Hz</strong> (Si4)</td>
+<td>Xsamples · ZSamples</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Basson</td>
+<td><strong>1 108 Hz</strong> (Do♯6)</td>
+<td>SOL · ZSamples · Xsamples</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>Basson</td>
+<td><strong>1 974 Hz</strong> (Si6)</td>
+<td>SOL · ZSamples · Xsamples</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>Clarinette basse en Sib</td>
+<td><strong>1 244 Hz</strong> (Ré♯6)</td>
+<td>SOL · Xsamples · VN</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>Clarinette basse en Sib</td>
+<td><strong>2 225 Hz</strong> (Do♯7)</td>
+<td>VN · VO</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Clarinette contrebasse en Sib</td>
+<td><strong>1 759 Hz</strong> (La6)</td>
+<td>SOL · VO</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>Clarinette en Sib</td>
+<td><strong>3 517 Hz</strong> (La7)</td>
+<td>SOL · ZSamples · Xsamples</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>Contrebasse</td>
+<td><strong>2 635 Hz</strong> (Mi7)</td>
+<td>SOL · ZSamples</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>Cor en Fa</td>
+<td><strong>2 216 Hz</strong> (Do♯7)</td>
+<td>SOL · Xsamples · VN</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>Trombone basse</td>
+<td><strong>879 Hz</strong> (La5)</td>
+<td>SOL · ZSamples · VO</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>Trombone basse</td>
+<td><strong>1 759 Hz</strong> (La6)</td>
+<td>SOL · ZSamples · VO</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>Trombone ténor</td>
+<td><strong>830 Hz</strong> (Sol♯5)</td>
+<td>SOL · ZSamples · Xsamples · VO</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>Trompette en Ut</td>
+<td><strong>2 792 Hz</strong> (Fa7) · ⚠ non localisé</td>
+<td>SOL · VN</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>Trompette en Ut</td>
+<td><strong>4 695 Hz</strong> (Ré8)</td>
+<td>SOL · Xsamples · VN</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>Tuba basse</td>
+<td><strong>498 Hz</strong> (Si4)</td>
+<td>VO · ZSamples</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Tuba basse</td>
+<td><strong>659 Hz</strong> (Mi5)</td>
+<td>SOL · ZSamples · VN</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>Tuba basse</td>
+<td><strong>1 244 Hz</strong> (Ré♯6)</td>
+<td>VN · ZSamples</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Violon</td>
+<td><strong>2 348 Hz</strong> (Ré7)</td>
+<td>SOL · ZSamples · VN</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>Violon</td>
+<td><strong>3 959 Hz</strong> (Si7)</td>
+<td>VO · ZSamples</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Violoncelle</td>
+<td><strong>1 108 Hz</strong> (Do♯6)</td>
+<td>SOL · VN</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>Violoncelle</td>
+<td><strong>2 631 Hz</strong> (Mi7)</td>
+<td>VN · VO</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Violoncelle</td>
+<td><strong>3 948 Hz</strong> (Si7)</td>
+<td>SOL · VN</td>
+<td>oui</td>
+</tr>
+</tbody>
+</table>
+<h3>Les trois dossiers VSL ajoutés le 25/10</h3>
+<p>Tuba basse, trompette en ut et clarinette basse, tirés de
+<code>/Volumes/Samps/VSL/Samples/…/Einzelnoten/</code>, versés dans VN. Ils ont apporté quatre formants :</p>
+<ul>
+<li><strong>Trompette 2 792 Hz réhabilitée.</strong> Elle était tombée le matin même sur la comparaison
+  retenu contre retenu ; VN la rétablit par une paire stricte avec SOL, dont la trompette vient
+  de <code>FullSOL2020</code> — provenance indépendante, l'accord est donc valide.</li>
+<li><strong>Trompette 4 974 Hz</strong>, nouvelle, paire VN + Xsamples.</li>
+<li><strong>Tuba basse 698 et 1 244 Hz.</strong> C'était l'instrument où « la troisième source avait joué
+  contre » : VO contredisait les deux zones que SOL et ZSamples donnaient à un demi-ton. VN
+  tranche en donnant <strong>exactement les valeurs de ZSamples</strong> sur les deux. Le tuba basse passe
+  de deux indéterminés à deux formants établis.</li>
+<li>La <strong>clarinette basse</strong> ne peut pas être appariée à SOL (Yan_Adds = VSL), mais son 2 216 Hz
+  concorde à 0,15 demi-ton avec le 2 235 Hz de VO — à verser en route A après vérification.</li>
+</ul>
+<h2>Les cinq instruments que les nouvelles banques ont tranchés</h2>
+<h3>Le violoncelle — de « aucun accord » à trois zones strictes</h3>
+<p>Trois corpus ne partageaient aucune zone. VN donne <strong>1 108 · 2 635 · 3 948 Hz</strong> :</p>
+<ul>
+<li><strong>1 108 Hz</strong> — identique à SOL</li>
+<li><strong>3 948 Hz</strong> — identique à SOL</li>
+<li><strong>2 635 Hz</strong> — à 0,05 demi-ton du 2 627 Hz de VO</li>
+</ul>
+<p>Trois zones strictes d'un coup, par trois paires de corpus différentes.</p>
+<h3>Le violon — le <em>bridge hill</em> passe en route A</h3>
+<p>Il ne tenait qu'à un demi-ton entre SOL et ZSamples, et VO ne le voyait pas. <strong>VN donne
+2 216 Hz, exactement la valeur de ZSamples</strong>, SOL étant à un demi-ton avec 2 348 Hz. Trois
+corpus, une paire stricte : le rapprochement avec le <em>bridge hill</em> de la littérature
+acoustique est désormais appuyé par la route A et non plus par la seule corroboration.</p>
+<h3>Le cor — réhabilité</h3>
+<p>Classé <strong>« non répliqué, aucun formant établi »</strong>, ses valeurs SOL et ZSamples étant à
+5,0 demi-tons de moyenne. SOL et VN donnent tous deux <strong>2 216 Hz</strong>, Xsamples 2 348 Hz à un
+demi-ton. Le désaccord entre deux corpus ne suffisait pas à conclure.</p>
+<h3>Le tuba basse — de deux indéterminés à deux établis</h3>
+<p>SOL et ZSamples s'accordaient à un demi-ton sur 466–494 et 659–698, et <strong>VO contredisait les
+deux</strong> (282 · 502 · 845 · 1 341 Hz). VN donne <strong>698 et 1 244 Hz</strong>, soit exactement deux valeurs
+de ZSamples. Deux paires strictes, provenances indépendantes : établis.</p>
+<h3>Le tuba contrebasse — toujours sans second corpus</h3>
+<p>VN donnait <strong>392 · 932 · 1 396 · 2 091 Hz</strong> contre <strong>370 · 879 · 1 396 Hz</strong> pour SOL, dont
+1 396 Hz exact. Mais la source SOL de cet instrument est <code>Yan_Adds-Divers</code>, donc du VSL : c'est
+le même enregistrement (206 529 échantillons de part et d'autre, corrélation 0,996). <strong>Accord
+annulé.</strong> Le tuba contrebasse reste le seul instrument de l'étude sans aucun second corpus
+indépendant.</p>
+<h3>Le contrebasson — annulé lui aussi</h3>
+<p>VN et SOL donnaient <strong>329 · 698 · 1 174 Hz</strong> tous les deux, les trois formants au Hz près. La
+corrélation des spectres vaut <strong>1,00000</strong> : mêmes fichiers. Il redevient non répliqué —
+6,0 demi-tons entre SOL et ZSamples. Xsamples place 739 Hz à un demi-ton de 698 : c'est la
+seule piste réelle, et elle ne suffit pas.</p>
+<h2>Des convergences entre instruments, cette fois réelles</h2>
+<p>Celles de l'ancienne étude étaient des bins de FFT voisins. Celles-ci portent sur des formants
+établis <strong>chacun indépendamment</strong>, par route A, dans des corpus différents.</p>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>Instruments</th>
+<th>Statut de chacun</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>2 216 Hz</strong> (Do♯7)</td>
+<td><strong>cor · violon</strong></td>
+<td>route A tous les deux, par deux paires différentes (VN+SOL et VN+ZSamples)</td>
+</tr>
+<tr>
+<td><strong>1 108 Hz</strong> (Do♯6)</td>
+<td><strong>basson · violoncelle</strong></td>
+<td>route A tous les deux, 3 et 2 corpus</td>
+</tr>
+<tr>
+<td><strong>879 Hz</strong> (La5)</td>
+<td><strong>trombone ténor · trombone basse</strong></td>
+<td>route A tous les deux, 4 et 3 corpus</td>
+</tr>
+<tr>
+<td><strong>1 244 Hz</strong> (Ré♯6)</td>
+<td><strong>clarinette basse · tuba basse</strong></td>
+<td>route A tous les deux</td>
+</tr>
+<tr>
+<td><strong>3 948–3 960 Hz</strong></td>
+<td><strong>violon · violoncelle</strong></td>
+<td>route A tous les deux</td>
+</tr>
+</tbody>
+</table>
+<p>La convergence <strong>cor–violon à 2 216 Hz</strong> est la plus intéressante : deux familles, quatre
+corpus en tout, chacun validé séparément. Et elle n'a rien à voir avec la convergence à
+4 200 Hz annoncée puis écartée — celle-là reposait sur le cor et le hautbois dans le seul
+corpus SOL, et ni VN ni Xsamples ne la retrouvent (VN donne 4 695 Hz au cor, Xsamples 3 517).</p>
+<h2>Ce qui ne se résout pas, et c'est un résultat</h2>
+<h3>Le hautbois — quatre corpus, quatre réponses incompatibles</h3>
+<table>
+<thead>
+<tr>
+<th>Corpus</th>
+<th>Formants retenus</th>
+<th>ρ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SOL</td>
+<td>4 183 Hz</td>
+<td>—</td>
+</tr>
+<tr>
+<td>ZSamples</td>
+<td><strong>aucun</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td>Xsamples</td>
+<td>2 635 · 4 974 Hz</td>
+<td>0,72</td>
+</tr>
+<tr>
+<td>VN</td>
+<td>3 320 Hz</td>
+<td><strong>0,78</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Aucune zone commune.</strong> Quatre sources indépendantes, dont deux irréprochables d'accord, et
+pas deux valeurs à moins de quatre demi-tons. Avec un ρ de 0,72 et 0,78, le spectre du
+hautbois <strong>suit la hauteur</strong>.</p>
+<p>C'est un résultat fort et contre-intuitif : le hautbois est l'instrument auquel la littérature
+assigne un formant avec le plus d'assurance — Backus 1 300 Hz, Meyer et Giesler ~1 100 Hz. Nos
+quatre corpus ne le confirment pas. <strong>Il faut le reclasser en B</strong> et dire dans sa fiche que la
+notion de formant fixe ne s'y applique pas, comme pour les flûtes.</p>
+<h3>L'alto — un formant, mais pas celui de SOL</h3>
+<table>
+<thead>
+<tr>
+<th>Corpus</th>
+<th>Formants retenus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SOL</td>
+<td>1 318 · 2 091 · 3 517 · 4 974 Hz</td>
+</tr>
+<tr>
+<td>ZSamples</td>
+<td>2 348 · 3 726 · 5 583 Hz</td>
+</tr>
+<tr>
+<td>VO</td>
+<td>3 770 · 5 331 Hz</td>
+</tr>
+<tr>
+<td>VN</td>
+<td>1 759 · 4 432 Hz</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Correction du 26/10/2026.</strong> Cette section affirmait que l'alto était « le seul membre du
+quatuor sans formant établi ». <strong>C'est faux.</strong></p>
+</blockquote>
+<p><strong>VO donne 3 770 Hz et ZSamples 3 726 Hz : 0,20 demi-ton d'écart, deux provenances distinctes.
+C'est un couple strict, donc une route A, à 3 748 Hz (La♯7).</strong></p>
+<p>Ce qui reste vrai, et qui est la nuance à retenir : <strong>SOL ne le trouve pas.</strong> Sa valeur la plus
+proche, 3 517 Hz, est à 1,1 demi-ton du couple — au-delà du seuil. Le formant existe, mais ce
+n'est pas celui que mesure le corpus de l'IRCAM. La fiche de l'alto garde donc « indéterminé »
+pour sa propre valeur, et la zone établie est portée à part dans <code>Resultats-v7/formants-v7.csv</code>.</p>
+<p>L'autre zone, 5 331 (VO) / 5 583 (ZSamples), reste à un demi-ton sans couple strict.</p>
+<p>Et l'alto demeure le membre du quatuor le moins bien établi : un formant, contre deux au violon
+et trois au violoncelle, et aucun que SOL confirme.</p>
+<h3>La famille des flûtes — résultat négatif, désormais massif</h3>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Corpus</th>
+<th>Accord</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Petite flûte</strong></td>
+<td>SOL · ZSamples · VO</td>
+<td><strong>aucun formant dans les trois</strong></td>
+</tr>
+<tr>
+<td>Flûte</td>
+<td>SOL · ZSamples · VO</td>
+<td>aucun accord (SOL 3 320 Hz non répliqué)</td>
+</tr>
+<tr>
+<td>Flûte basse</td>
+<td>SOL · ZSamples · Xsamples · VO</td>
+<td>aucun accord</td>
+</tr>
+<tr>
+<td>Flûte contrebasse</td>
+<td>SOL · ZSamples · VO</td>
+<td>aucun accord</td>
+</tr>
+</tbody>
+</table>
+<p>Un résultat négatif répliqué ne souffre pas du problème de comparaisons multiples : il n'y a
+rien à apparier par hasard. <strong>Toute la famille des flûtes est confirmée sans formant fixe</strong>, et
+le piccolo l'est par trois corpus qui ne trouvent rien du tout. C'est la réponse définitive à
+l'anomalie initiale : le piccolo ne converge avec rien parce qu'il n'a pas de formant à faire
+converger.</p>
+<h3>Le tuba contrebasse et le contrebasson — sans second corpus indépendant</h3>
+<p>Le tuba contrebasse n'existe que dans SOL (via Yan_Adds). Le contrebasson existe dans trois
+corpus mais n'y trouve aucune zone commune hors la paire VSL annulée. Pour ces deux
+instruments, <strong>l'étude ne peut rien affirmer</strong>, et il faudrait une banque qui ne soit ni VSL ni
+ZSamples.</p>
+<h2>Une inconsistance du 24/10 qu'il faut acter</h2>
+<p>Les tableaux ci-dessus comparent, des deux côtés, les formants <strong>retenus</strong>. Le tableau du 24/10
+dans <code>_REPLICATION.md</code> comparait les formants retenus de SOL aux <strong>candidats</strong> de ZSamples,
+retenus ou non — plus permissif.</p>
+<p>Conséquence vérifiable : la <strong>trompette à 2 792 Hz</strong>, annoncée le 24/10 comme « le seul formant
+de cuivre aigu à passer la réplication », ne tient pas sur une comparaison retenu contre
+retenu — ZSamples ne retient que 1 479 Hz à cet endroit. <code>_REPLICATION.md</code> doit être repris sur
+ce point.</p>
+<h2>À faire</h2>
+<blockquote>
+<p>Les travaux restants sont <strong>tous</strong> dans <code>_PLAN-DE-REPRISE.md</code>, qui est la seule liste à tenir. Ne pas en ouvrir une ici : c'est ainsi que huit listes se sont contredites entre le 23 et le 26 octobre.</p>
+</blockquote>
+<h2>Le vibrato comme voie de mesure — testé, et écarté pour l'instant</h2>
+<blockquote>
+<p><strong>Ne pas réexplorer sans un corpus au vibrato plus profond.</strong> Noté ici pour éviter de
+refaire le test.</p>
+</blockquote>
+<p>L'idée est juste : le vibrato fait balayer chaque harmonique à travers le filtre, donc une
+<strong>seule note</strong> peut révéler la pente locale de la fonction de transfert — ce qui serait
+précieux pour les instruments de classe B, où aucune agrégation ne marche. Le principe est
+d'appartenir à la corrélation entre fréquence instantanée et amplitude d'un harmonique : si
+l'amplitude monte quand la fréquence monte, la résonance est au-dessus.</p>
+<p>Testé sur <code>15 Oboe/Einzelnoten/OB-L_pV_pA_sus</code> (68 fichiers).</p>
+<p><strong>1. La méthode 8 n'y gagne rien.</strong> Hautbois vibrato : 3 517 et 5 583 Hz, <strong>ρ = 0,80</strong> — le
+plus élevé des quatre mesures du hautbois, donc le vibrato ne réduit pas le caractère suiveur.
+Verdicts tous en critère assoupli. Rien dans la zone 1 100–1 500 Hz de Backus, Meyer et
+Giesler. Seul recoupement : 5 583 Hz, que ZSamples donne aussi mais en <em>fragile</em> des deux côtés.</p>
+<p><strong>2. Premier test de corrélation faussé, et pourquoi.</strong> Avec une fenêtre de 93 ms — une
+demi-période de vibrato — l'excursion est lissée et les corrélations se contredisent : +0,79 à
+1 761 Hz sur un La4, −0,77 à 1 759 Hz sur un La5. Deux causes : la fenêtre, et le <strong>couplage
+justesse–intensité</strong> que les instrumentistes produisent naturellement, qui affecte tous les
+harmoniques ensemble. Ce second effet se retire par un résidu local <strong>par trame</strong> (chaque
+harmonique moins la moyenne des harmoniques de la même trame).</p>
+<p><strong>3. La profondeur de vibrato est trop faible</strong> — c'est ce qui bloque. Fenêtre de 23 ms, pic
+interpolé par parabole, médiane sur les six premiers harmoniques :</p>
+<table>
+<thead>
+<tr>
+<th>Jeu</th>
+<th>Profondeur</th>
+<th>Lecture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Hautbois <code>pV</code></strong></td>
+<td><strong>±10,4 cents</strong></td>
+<td>réel, 4× le plancher, mais faible</td>
+</tr>
+<tr>
+<td>Hautbois <code>pA</code> sans vibrato</td>
+<td>±2,5 cents</td>
+<td>plancher de bruit de la mesure</td>
+</tr>
+<tr>
+<td>Cor anglais VN</td>
+<td>±1,4 cents</td>
+<td>plancher</td>
+</tr>
+<tr>
+<td><strong>Alto SOL2020</strong></td>
+<td><strong>±14,5 cents</strong></td>
+<td>le plus profond trouvé</td>
+</tr>
+<tr>
+<td>Violon SOL2020</td>
+<td>±11,5 cents</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Alto VN</td>
+<td>±4,2 cents</td>
+<td>quasi sans vibrato</td>
+</tr>
+<tr>
+<td>Violoncelle VN</td>
+<td>±6,1 cents (q75 31, max 100)</td>
+<td>bimodal — à vérifier, glissandos probables</td>
+</tr>
+</tbody>
+</table>
+<p>Un instrumentiste en concert fait ±30 à ±50 cents. <strong>Aucun corpus en main n'en approche.</strong> À
+±10 cents, sur une résonance large d'un tiers d'octave, la modulation d'amplitude attendue est
+de l'ordre de <strong>0,3 dB</strong> : détectable seulement par moyennage massif, et au prix du contrôle du
+couplage ci-dessus. Le rapport effort/rendement est mauvais.</p>
+<p><strong>Conclusion.</strong> La voie reste valable en principe et redeviendrait intéressante avec des
+enregistrements au vibrato franc — c'est une chose à demander si un enregistrement est
+commandé. En l'état, pour l'alto et le hautbois, <strong>la méthode 12 est la bonne réponse</strong> : elle
+ne suppose aucune résonance fixe, donc elle ne souffre pas de leur absence.</p>
+<h2>Reproduire</h2>
+<p><code>bash
+cd Scripts/v7-formants-2026
+python3 corpus.py --decrire "/chemin/Banque" &gt; /tmp/d.json
+python3 corpus.py --valider /tmp/d.json
+python3 corpus.py --mesurer /tmp/d.json</code></p>
+<p>VO exige <code>"corriger_accord": true</code>.</p>
+<h2>Journal</h2>
+<ul>
+<li><strong>2026-10-25 matin</strong> — Versement de Xsamples, VO et VN. Pilote générique <code>corpus.py</code> : trois
+  adaptations de nomenclature et une correction d'accord. Famille des flûtes confirmée sans
+  formant ; hautbois et alto non résolus malgré quatre corpus.</li>
+<li><strong>2026-10-25 après-midi</strong> — <strong>VN identifié comme un extrait VSL, et <code>Yan_Adds-Divers</code> aussi.</strong>
+  Trois paires de fichiers vérifiées identiques au sample près (corrélation jusqu'à 1,00000).
+  Règle de provenance instaurée ; quatre formants annulés (contrebasson ×3, tuba contrebasse).
+  Audit de doublons : SOL/FullSOL2020, ZSamples, Xsamples et VO sont mutuellement indépendants.</li>
+<li><strong>2026-10-25</strong> — Trois dossiers VSL ajoutés (tuba basse, trompette, clarinette basse).
+  Trompette 2 792 Hz réhabilitée, trompette 4 974 Hz et tuba basse 698 et 1 244 Hz établis.
+  Bilan net : <strong>23 formants par route A sur 13 instruments</strong>, contre 7 sur 5 la veille.</li>
+<li><strong>2026-10-26</strong> — Correction du comptage : le regroupement séquentiel en masquait trois, dont
+  celui de l'alto. Appariement refait sans regroupement. Le tableau est désormais généré depuis
+  <code>Resultats-v7/formants-v7.csv</code>.</li>
+</ul>
+<footer>Référence formantique de l'orchestre — Yan Maresz · page produite par <code>construire_site.py</code> depuis les fiches et <code>Resultats-v7/</code>.</footer>
+</body>
+</html>

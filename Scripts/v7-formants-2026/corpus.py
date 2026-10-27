@@ -53,6 +53,9 @@ Champs d'une configuration
     nom           nom d'instrument du projet (sert de nom de fichier de sortie)
     technique     technique imposée ; à défaut, lue dans le nom de fichier
     dossiers      sous-dossiers à FUSIONNER (chemins relatifs à la racine)
+    techniques    techniques acceptées, lues dans le NOM (le suffixe _string_N
+                  est ignoré pour la comparaison). Liste vide = tout accepter.
+                  OBLIGATOIRE dès qu'un dossier mélange les techniques.
     dyn_depuis    "nom" (défaut) | "dossier" — nom du dossier immédiat
     corde_depuis  null (défaut) | "dossier" | "nom" — active le test inter-cordes
 """
@@ -180,6 +183,7 @@ def collecter(desc, cfg):
     alias = {k.lower(): v for k, v in (desc.get('dyn_alias') or {}).items()}
     exclure = [e.lower() for e in desc.get('exclure', [])]
     tech_impose = cfg.get('technique')
+    techs = cfg.get('techniques') or []
     dyn_depuis = cfg.get('dyn_depuis', 'nom')
     corde_depuis = cfg.get('corde_depuis')
 
@@ -202,6 +206,14 @@ def collecter(desc, cfg):
             dyn = (dyn_de_dossier(f, alias) if dyn_depuis == 'dossier' else info['dyn'])
             if dyn is None:
                 dyn = info['dyn'] or dyn_de_dossier(f, alias)
+            # Filtre de technique. ABSENT entre deux versions du script le
+            # 25/10, ce qui a fait entrer dans ZSamples les sourdines, les
+            # multiphoniques et le flatterzunge : 597 fichiers de cor au lieu
+            # de 71. Indispensable dès qu'un dossier mélange les techniques.
+            lue, _c = FL.separer_corde(info['technique'])
+            if techs and lue not in techs:
+                rejets[f'technique hors liste: {lue or "(vide)"}'] += 1
+                continue
             tech = tech_impose or info['technique'] or 'ordinario'
             corde = corde_de(f, info, corde_depuis)
             paires.append((f, nom_normalise(cfg['nom'], tech, info['note'], dyn, corde)))
@@ -267,7 +279,7 @@ def decrire(racine):
     feuilles = sorted(d for d in par_dossier if par_dossier[d] >= 5)
     desc = dict(corpus=os.path.basename(os.path.normpath(racine)).strip(),
                 racine=os.path.abspath(racine),
-                sortie="Etude-Formants/Instruments/"
+                sortie="Etude-Formants/Mesures/"
                        + os.path.basename(os.path.normpath(racine)).strip(),
                 extensions=sorted({os.path.splitext(f)[1] for f in tous}),
                 separateurs=seps,
@@ -275,7 +287,7 @@ def decrire(racine):
                 exclure=["NoPitch"],
                 configurations=[dict(nom="A_RENOMMER_" + re.sub(r'[^0-9A-Za-z]+', '_', d),
                                      technique="ordinario", dossiers=[d],
-                                     dyn_depuis="nom")
+                                     techniques=["ordinario"], dyn_depuis="nom")
                                 for d in feuilles])
     print("\n# Descripteur proposé — RENOMMER les configurations avec les noms"
           "\n# d'instruments du projet et FUSIONNER les dossiers d'un même instrument.", file=E)
@@ -413,7 +425,8 @@ def fiche_markdown(nom, corpus, res, n):
     L += [f'version_mesure: {corpus}-2026-10-25', '---', '',
           f'# {nom} — corpus {corpus}', '',
           '> **Méthode 8** (enveloppe composite). Méthode et critères dans '
-          '`../00-METHODE.md`. Statut des formants dans `../_REPLICATION.md`.', '',
+          '`../../Instruments/00-METHODE.md`. Statut des formants dans '
+          '`../../Instruments/_REPLICATION.md`.', '',
           '## Formants', '', '| Zone | Résidu | Notes | Verdict |', '|---|---|---|---|']
     for x in f:
         L.append(f'| {_hz(x.get("hz"))} Hz | {x.get("residu")} dB | '
@@ -444,11 +457,12 @@ def fiche_markdown(nom, corpus, res, n):
     L += [
           '## Confrontation aux corpus existants — À RÉDIGER', '',
           'Comparer chaque formant ci-dessus à la fiche de l\'instrument nu '
-          '(`../NN-*.md`) et à ZSamples (`../../Instruments-ZSamples/`). **Ce corpus est '
-          'une troisième source : il peut faire basculer en établis les dix formants '
-          'classés « indéterminés » dans `../_REPLICATION.md`.** Route A = même point de '
-          'grille ; route B = deux familles de méthodes indépendantes. La grille est au '
-          'demi-ton : écrire « Ré7 (≈ 2 350 Hz) », pas une valeur au Hz près.', '',
+          '(`../../Instruments/FullSOL2020/` ou `Yan_Adds/`) et aux autres corpus '
+          '(`../ZSamples/`, `../Xsamples/`, `../VO/`, `../VN/`). **Route A** = même point '
+          'de grille dans deux corpus de provenances DISTINCTES — attention, Yan_Adds et VN '
+          'sont tous deux du VSL. **Route B** = deux familles de méthodes indépendantes. '
+          'Voir `../../Instruments/_CORPUS-CROISES.md`. La grille est au demi-ton : écrire '
+          '« Ré7 (≈ 2 350 Hz) », pas une valeur au Hz près.', '',
           '## Observations — À RÉDIGER', '', '## Journal', '',
           f'- **2026-10-25** — Mesure initiale, corpus {corpus}, {n} échantillons. '
           f'{len(ret)} formant(s) retenu(s) sur {len(f)} candidat(s). '
@@ -457,7 +471,7 @@ def fiche_markdown(nom, corpus, res, n):
 
 
 def mesurer(desc, seulement=None):
-    sortie = desc.get('sortie') or ('Instruments-' + desc['corpus'])
+    sortie = desc.get('sortie') or os.path.join('Mesures', desc['corpus'])
     os.makedirs(sortie, exist_ok=True)
     for cfg in desc['configurations']:
         if seulement and cfg['nom'] not in seulement:

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fusion, renforcement, homogénéité</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="bandeau"><h1>Fusion, renforcement, homogénéité</h1></div>
+<p class="fil"><a href="../index.html">Sommaire</a> › Synthèses</p>
+<figure><img src="../figures/synthese-melanges.png" alt="À gauche, la loi : l&#x27;écart de couleur entre deux instruments ordonne les quatre issues du mélange. La fusion croît, l&#x27;ho" loading="lazy"><figcaption>À gauche, la loi : l&#x27;écart de couleur entre deux instruments ordonne les quatre issues du mélange. La fusion croît, l&#x27;homogénéité décroît, le renforcement culmine au milieu. À droite, les 215 paires, colorées par leur issue majoritaire et dimensionnées par le nombre de hauteurs communes.</figcaption></figure>
+<h1>La méthode 12 sur les mélanges</h1>
+<p>C'est la question d'orchestration qui a lancé la reprise : <strong>quand deux instruments jouent
+ensemble, le mélange produit-il une couleur nouvelle, ou l'un ne fait-il que renforcer
+l'autre ?</strong></p>
+<h2>Le mélange n'est pas simulé, il est calculé</h2>
+<p>Nous n'avons pas d'enregistrements de mélanges d'instruments différents. Il se trouve que nous
+n'en avons pas besoin, et ce n'est pas un pis-aller : <strong>le motif d'excitation auditive est
+linéaire en puissance.</strong> Il vaut <code>étalement @ spectre²</code>, et deux sources jouant ensemble
+s'ajoutent en puissance, leur phase relative variant d'une note à l'autre et au cours du son.
+Donc</p>
+<blockquote>
+<p>motif(A + B) = motif(A) + motif(B), exactement, en échelle linéaire.</p>
+</blockquote>
+<p>Le mélange se calcule par une addition. C'est aussi ce qui rend la matrice complète abordable :
+215 paires et 12 926 cas sans un seul produit matriciel de plus que pour les instruments seuls.</p>
+<p><strong>Ce que le calcul ignore, et qu'il faut écrire avec les résultats</strong> : la cohérence de phase à
+l'unisson et les battements, la séparation spatiale des pupitres, et le fait que des musiciens
+qui jouent ensemble s'ajustent — justesse, nuance, vibrato. Le résultat porte sur le mélange
+<em>spectral</em>, qui est une condition nécessaire de la fusion timbrale, non sa totalité.</p>
+<p><strong>L'équilibre est un choix, pas une donnée.</strong> Les niveaux des banques sont arbitraires : sommer
+les spectres bruts laisserait l'échantillon le plus fort dominer pour une raison sans rapport
+avec la musique. Chaque parent est donc normalisé à énergie égale. La sensibilité à ce choix est
+mesurée en refaisant tout à 1:2 et 2:1 ; les colonnes sont dans le CSV.</p>
+<h2>Quatre issues, pas deux</h2>
+<p>La question posée opposait fusion et renforcement. La mesure en impose une troisième, et c'est
+la plus fréquente.</p>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Lecture</th>
+<th>Critère</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>homogène</strong></td>
+<td>les deux ont <strong>déjà</strong> la même couleur ; le mélange la garde</td>
+<td>écart entre parents &lt; 1 Bark</td>
+</tr>
+<tr>
+<td><strong>fusion</strong></td>
+<td>la couleur du mélange n'appartient à aucun des deux — elle est neuve</td>
+<td>mélange à ≥ 1 Bark des deux, sans maximum supplémentaire</td>
+</tr>
+<tr>
+<td><strong>renforcement</strong></td>
+<td>le mélange se lit comme l'un des deux ; l'autre apporte de l'énergie</td>
+<td>mélange à &lt; 1 Bark de l'un, ≥ 1 de l'autre</td>
+</tr>
+<tr>
+<td><strong>juxtaposition</strong></td>
+<td>le mélange porte plus de maxima que son parent le plus riche : on entend les deux</td>
+<td>Δn &gt; 0</td>
+</tr>
+</tbody>
+</table>
+<p>La première version du classement n'avait pas « homogène » et rangeait ces cas dans
+« indistinct », au même titre qu'une mesure manquante. C'était une erreur de fond : deux
+instruments de même couleur, c'est <strong>la forme la plus forte du fondu</strong>, par identité et non par
+émergence. Flûte + clarinette tombait ainsi dans la catégorie fourre-tout alors que c'est
+l'exemple d'école du mélange homogène.</p>
+<p>Un garde-fou a été ajouté ensuite : la <strong>chimère</strong> — un mélange qui prend son F1 d'un parent et
+son F2 de l'autre, donc un assemblage et non une fusion. Le critère de distance seul la manque.
+Vérification faite, elle ne domine aucune paire (0 à 1 %) : <strong>les cas classés en fusion sont de
+vraies fusions.</strong></p>
+<h2>La loi</h2>
+<p>Une seule variable ordonne presque tout : <strong>l'écart de couleur entre les deux instruments pris
+séparément</strong>, mesuré dans le plan (F1, F2) en Bark.</p>
+<table>
+<thead>
+<tr>
+<th>Écart (Bark)</th>
+<th>Paires</th>
+<th>Fusion</th>
+<th>Homogène</th>
+<th>Renforcement</th>
+<th>Juxtaposition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0,0 – 0,5</td>
+<td>10</td>
+<td>8 %</td>
+<td><strong>66 %</strong></td>
+<td>13 %</td>
+<td>6 %</td>
+</tr>
+<tr>
+<td>0,5 – 1,0</td>
+<td>31</td>
+<td>9 %</td>
+<td><strong>57 %</strong></td>
+<td>20 %</td>
+<td>5 %</td>
+</tr>
+<tr>
+<td>1,0 – 1,5</td>
+<td>51</td>
+<td>14 %</td>
+<td>39 %</td>
+<td>28 %</td>
+<td>6 %</td>
+</tr>
+<tr>
+<td>1,5 – 2,0</td>
+<td>44</td>
+<td>21 %</td>
+<td>29 %</td>
+<td>31 %</td>
+<td>7 %</td>
+</tr>
+<tr>
+<td>2,0 – 2,5</td>
+<td>34</td>
+<td>30 %</td>
+<td>22 %</td>
+<td><strong>32 %</strong></td>
+<td>6 %</td>
+</tr>
+<tr>
+<td>2,5 – 3,5</td>
+<td>32</td>
+<td>40 %</td>
+<td>14 %</td>
+<td>30 %</td>
+<td>11 %</td>
+</tr>
+<tr>
+<td>3,5 et plus</td>
+<td>13</td>
+<td><strong>55 %</strong></td>
+<td>14 %</td>
+<td>16 %</td>
+<td>12 %</td>
+</tr>
+</tbody>
+</table>
+<p>Trois mouvements, tous monotones :</p>
+<ol>
+<li><strong>La fusion croît avec l'écart</strong> — de 8 % à 55 %. Deux instruments de couleurs éloignées
+   produisent une couleur nouvelle.</li>
+<li><strong>L'homogénéité décroît symétriquement</strong> — de 66 % à 14 %.</li>
+<li><strong>Le renforcement culmine au milieu</strong>, vers 2 à 2,5 Bark, et retombe aux deux extrêmes. C'est
+   logique : il faut que les deux couleurs soient assez proches pour que l'une puisse absorber
+   l'autre, et assez distinctes pour qu'il y ait domination.</li>
+</ol>
+<p><strong>Il n'y a donc pas deux familles d'alliages mais un continuum, et une seule grandeur le
+gouverne.</strong> L'orchestrateur qui veut un fondu choisit deux instruments de même couleur ; celui
+qui veut une couleur neuve en choisit deux éloignées ; le renforcement est ce qu'on obtient
+entre les deux.</p>
+<h2>Les paires</h2>
+<p><strong>Les plus fusionnantes</strong> — une couleur qui n'est celle d'aucun des deux :</p>
+<table>
+<thead>
+<tr>
+<th>Paire</th>
+<th>Fusion</th>
+<th>Écart</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Trompette + Tuba basse</strong></td>
+<td><strong>89 %</strong></td>
+<td>4,31</td>
+</tr>
+<tr>
+<td>Trompette + Tuba contrebasse</td>
+<td>67 %</td>
+<td>3,82</td>
+</tr>
+<tr>
+<td>Hautbois + Tuba basse</td>
+<td>67 %</td>
+<td>6,37</td>
+</tr>
+<tr>
+<td>Clarinette contrebasse + Trompette</td>
+<td>67 %</td>
+<td>4,73</td>
+</tr>
+<tr>
+<td>Contrebasson + Trompette</td>
+<td>64 %</td>
+<td>3,54</td>
+</tr>
+<tr>
+<td><strong>Hautbois + Trombone ténor</strong></td>
+<td><strong>60 %</strong></td>
+<td>3,09</td>
+</tr>
+<tr>
+<td>Basson + Clarinette contrebasse</td>
+<td>58 %</td>
+<td>3,07</td>
+</tr>
+<tr>
+<td>Contrebasse + Hautbois</td>
+<td>56 %</td>
+<td>4,21</td>
+</tr>
+<tr>
+<td><strong>Cor + Trompette</strong></td>
+<td><strong>54 %</strong></td>
+<td>3,23</td>
+</tr>
+<tr>
+<td>Trombone basse + Violoncelle</td>
+<td>55 %</td>
+<td>3,41</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Les plus homogènes</strong> — même couleur au départ, le mélange la conserve :</p>
+<table>
+<thead>
+<tr>
+<th>Paire</th>
+<th>Homogène</th>
+<th>Écart</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Flûte contrebasse + Tuba basse</td>
+<td>79 %</td>
+<td>0,29</td>
+</tr>
+<tr>
+<td>Clarinette en Mi♭ + Tuba contrebasse</td>
+<td>79 %</td>
+<td>0,15</td>
+</tr>
+<tr>
+<td><strong>Flûte + Petite flûte</strong></td>
+<td>75 %</td>
+<td>0,36</td>
+</tr>
+<tr>
+<td><strong>Clarinette basse + Clarinette en Si♭</strong></td>
+<td>72 %</td>
+<td>0,39</td>
+</tr>
+<tr>
+<td>Tuba basse + Tuba contrebasse</td>
+<td>72 %</td>
+<td>0,64</td>
+</tr>
+<tr>
+<td><strong>Contrebasson + Cor</strong></td>
+<td>71 %</td>
+<td>0,66</td>
+</tr>
+<tr>
+<td><strong>Clarinette en Si♭ + Cor</strong></td>
+<td>61 %</td>
+<td>0,71</td>
+</tr>
+</tbody>
+</table>
+<p>Les familles se fondent avec elles-mêmes, ce qui est attendu et rassure sur la mesure. Mais la
+liste contient aussi des paires que rien ne rapproche sur le papier — <strong>clarinette en Mi♭ et tuba
+contrebasse à 0,15 Bark</strong>, aux deux extrémités de l'orchestre — et c'est le genre d'indication
+qu'une table de ce type peut apporter.</p>
+<p><strong>Les plus « renforcement »</strong>, avec qui l'emporte :</p>
+<table>
+<thead>
+<tr>
+<th>Paire</th>
+<th>Renforcement</th>
+<th>Domine</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Flûte contrebasse + Trombone basse</td>
+<td>54 %</td>
+<td>la flûte contrebasse</td>
+</tr>
+<tr>
+<td>Clarinette contrebasse + Clarinette en Si♭</td>
+<td>53 %</td>
+<td>la clarinette en Si♭</td>
+</tr>
+<tr>
+<td>Flûte contrebasse + Violon</td>
+<td>50 %</td>
+<td>le violon</td>
+</tr>
+<tr>
+<td><strong>Cor anglais + Flûte</strong></td>
+<td>49 %</td>
+<td><strong>le cor anglais</strong></td>
+</tr>
+<tr>
+<td><strong>Flûte + Violon</strong></td>
+<td>47 %</td>
+<td><strong>le violon</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Que le violon l'emporte sur la flûte, et le cor anglais sur la flûte, se lit dans tous les
+traités. On le mesure ici.</p>
+<h2>Par familles</h2>
+<table>
+<thead>
+<tr>
+<th>Couple de familles</th>
+<th>Fusion moyenne</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>anches doubles + clarinettes</td>
+<td>34 %</td>
+</tr>
+<tr>
+<td>anches doubles + cordes</td>
+<td>32 %</td>
+</tr>
+<tr>
+<td>cuivres + cuivres</td>
+<td>31 %</td>
+</tr>
+<tr>
+<td>anches doubles + cuivres</td>
+<td>30 %</td>
+</tr>
+<tr>
+<td>cordes + cuivres</td>
+<td>27 %</td>
+</tr>
+<tr>
+<td>clarinettes + cordes</td>
+<td>25 %</td>
+</tr>
+<tr>
+<td>anches doubles + flûtes</td>
+<td>18 %</td>
+</tr>
+<tr>
+<td>cordes + flûtes</td>
+<td>15 %</td>
+</tr>
+<tr>
+<td>cuivres + flûtes</td>
+<td>14 %</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Les anches doubles fusionnent avec tout ; les flûtes avec rien.</strong> Le hautbois et le basson
+sont les meilleurs agents de couleur nouvelle de l'orchestre, et la flûte le pire — elle se fait
+absorber plutôt qu'elle ne transforme. Cela rejoint, par une tout autre voie, ce que l'étude
+avait déjà trouvé sur les flûtes : pas de formant propre, une zone d'énergie qui est une coupure
+de rayonnement. Un instrument sans couleur propre ne peut pas en faire naître une nouvelle.</p>
+<p>Que les cuivres fusionnent fortement entre eux (31 %) alors qu'ils forment une famille est le
+résultat le plus contre-intuitif de la table. L'explication est dans l'écart : trompette et tuba
+sont à 4,3 Bark l'un de l'autre — plus loin que beaucoup de paires inter-familles. <strong>La famille
+d'orchestration n'est pas une famille de couleur.</strong></p>
+<h2>Limites, à écrire avec tout usage de cette table</h2>
+<ol>
+<li><strong>Unisson seulement.</strong> Les mélanges sont calculés à hauteur identique. Le doublage à l'octave,
+   qui est le cas le plus fréquent en orchestration, n'est pas couvert — et il changerait
+   probablement beaucoup, puisque l'instrument aigu ne recouvre alors plus les maxima graves de
+   l'autre. <strong>C'est la suite immédiate la plus utile.</strong></li>
+<li><strong>Un seul corpus</strong>, SOL. La méthode 12 étant stable entre corpus pour les instruments seuls,
+   on peut l'espérer ici, mais ce n'est pas vérifié.</li>
+<li><strong>Deux instruments à la fois.</strong> Un tutti n'est pas une somme de paires.</li>
+<li><strong>Le spectral n'est pas le perceptif.</strong> Pas de phase, pas d'espace, pas de musiciens qui
+   s'ajustent. La fusion spectrale est nécessaire, pas suffisante.</li>
+<li><strong>L'équilibre à énergie égale</strong> est une convention. Les colonnes à 1:2 et 2:1 sont dans le
+   CSV et n'ont pas été analysées.</li>
+</ol>
+<h2>Ce qui reste ouvert</h2>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Ce qui la trancherait</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Le doublage à l'octave</strong></td>
+<td>relancer avec un décalage de 12 demi-tons entre les deux parents. Tout est en place</td>
+</tr>
+<tr>
+<td>La table tient-elle sur un autre corpus ?</td>
+<td>les motifs se calculent de la même façon depuis les spectres de ZSamples, VO, VN</td>
+</tr>
+<tr>
+<td>Les trios et les tutti</td>
+<td>la linéarité vaut pour n sources : la machinerie existe, c'est la combinatoire qui explose</td>
+</tr>
+<tr>
+<td>L'écart de couleur prédit-il aussi la <strong>largeur</strong> du mélange, et pas seulement sa position ?</td>
+<td>la largeur du maximum fusionné est calculable ; elle dirait si le mélange est plus ou moins « focalisé » que ses parents</td>
+</tr>
+</tbody>
+</table>
+<h2>Journal</h2>
+<ul>
+<li><strong>2026-10-27</strong> — Tâche C9, la question d'origine. Deux corrections de fond en route : la
+  catégorie « homogène », absente du premier classement, qui rangeait le fondu par identité avec
+  les mesures manquantes ; et le garde-fou de la chimère, qui vérifie que les cas de fusion sont
+  des fusions et non des assemblages F1-de-l'un / F2-de-l'autre. Résultat principal : il n'y a
+  pas deux familles d'alliages mais un continuum, gouverné par l'écart de couleur entre les deux
+  instruments.</li>
+</ul>
+<footer>Référence formantique de l'orchestre — Yan Maresz · page produite par <code>construire_site.py</code> depuis les fiches et <code>Resultats-v7/</code>.</footer>
+</body>
+</html>

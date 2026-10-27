@@ -1,0 +1,281 @@
+{
+ "avant": {
+  "total": 23,
+  "instruments": [
+   "alto",
+   "basson",
+   "clarinette",
+   "clarinettebasse",
+   "clarinettecontrebasse",
+   "contrebasse",
+   "cor",
+   "trombonebasse",
+   "trombonetenor",
+   "trompette",
+   "tubabasse",
+   "violon",
+   "violoncelle"
+  ],
+  "unissons": [
+   [
+    1108,
+    [
+     "basson",
+     "violoncelle"
+    ]
+   ],
+   [
+    1244,
+    [
+     "clarinettebasse",
+     "tubabasse"
+    ]
+   ],
+   [
+    2216,
+    [
+     "cor",
+     "violon"
+    ]
+   ]
+  ],
+  "regions": [
+   [
+    494,
+    498,
+    [
+     "basson",
+     "tubabasse"
+    ]
+   ],
+   [
+    835,
+    879,
+    [
+     "trombonebasse",
+     "trombonetenor"
+    ]
+   ],
+   [
+    1669,
+    1761,
+    [
+     "clarinettecontrebasse",
+     "trombonebasse"
+    ]
+   ],
+   [
+    2216,
+    2225,
+    [
+     "clarinettebasse",
+     "cor",
+     "violon"
+    ]
+   ],
+   [
+    2631,
+    2792,
+    [
+     "contrebasse",
+     "trompette",
+     "violoncelle"
+    ]
+   ],
+   [
+    3748,
+    3959,
+    [
+     "alto",
+     "violon",
+     "violoncelle"
+    ]
+   ]
+  ]
+ },
+ "apres": {
+  "total": 23,
+  "instruments": [
+   "alto",
+   "basson",
+   "clarinette",
+   "clarinettebasse",
+   "clarinettecontrebasse",
+   "contrebasse",
+   "cor",
+   "trombonebasse",
+   "trombonetenor",
+   "trompette",
+   "tubabasse",
+   "violon",
+   "violoncelle"
+  ],
+  "unissons": [
+   [
+    1108,
+    [
+     "basson",
+     "violoncelle"
+    ]
+   ],
+   [
+    1244,
+    [
+     "clarinettebasse",
+     "tubabasse"
+    ]
+   ],
+   [
+    2216,
+    [
+     "cor",
+     "violon"
+    ]
+   ]
+  ],
+  "regions": [
+   [
+    494,
+    498,
+    [
+     "basson",
+     "tubabasse"
+    ]
+   ],
+   [
+    835,
+    879,
+    [
+     "trombonebasse",
+     "trombonetenor"
+    ]
+   ],
+   [
+    1669,
+    1761,
+    [
+     "clarinettecontrebasse",
+     "trombonebasse"
+    ]
+   ],
+   [
+    2216,
+    2225,
+    [
+     "clarinettebasse",
+     "cor",
+     "violon"
+    ]
+   ],
+   [
+    2631,
+    2792,
+    [
+     "contrebasse",
+     "trompette",
+     "violoncelle"
+    ]
+   ],
+   [
+    3748,
+    3959,
+    [
+     "alto",
+     "violon",
+     "violoncelle"
+    ]
+   ]
+  ]
+ },
+ "sol_apres": {
+  "alto": [
+   1318,
+   2091,
+   3517,
+   4974
+  ],
+  "basson": [
+   554,
+   1108,
+   1974
+  ],
+  "clarinettebasse": [
+   1244,
+   2487
+  ],
+  "clarinettecontrebasse": [
+   1759
+  ],
+  "clarinette": [
+   1567,
+   3517
+  ],
+  "contrebasse": [
+   466,
+   1396,
+   2635,
+   3948
+  ],
+  "contrebasson": [
+   329,
+   698,
+   1174
+  ],
+  "coranglais": [
+   2216,
+   4183
+  ],
+  "cor": [
+   739,
+   2216,
+   4183
+  ],
+  "flute": [
+   2216,
+   3320
+  ],
+  "flutebasse": [],
+  "flutecontrebasse": [
+   1759
+  ],
+  "hautbois": [
+   4183
+  ],
+  "petiteflute": [],
+  "trombonebasse": [
+   879,
+   1759
+  ],
+  "trombonetenor": [
+   830,
+   1567,
+   2091,
+   3134
+  ],
+  "trompette": [
+   2792,
+   4695
+  ],
+  "tubabasse": [
+   466,
+   659,
+   987,
+   1479
+  ],
+  "tubacontrebasse": [
+   370,
+   879,
+   1396
+  ],
+  "violon": [
+   2348,
+   4432
+  ],
+  "violoncelle": [
+   554,
+   1108,
+   2216,
+   3948
+  ]
+ }
+}

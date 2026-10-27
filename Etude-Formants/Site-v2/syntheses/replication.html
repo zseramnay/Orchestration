@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le critère de réplication</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="bandeau"><h1>Le critère de réplication</h1></div>
+<p class="fil"><a href="../index.html">Sommaire</a> › Synthèses</p>
+<figure><img src="../figures/synthese-rho-corpus.png" alt="ρ par corpus. L&#x27;étendue entre corpus mesure ce que le choix de la banque, à lui seul, fait varier." loading="lazy"><figcaption>ρ par corpus. L&#x27;étendue entre corpus mesure ce que le choix de la banque, à lui seul, fait varier.</figcaption></figure>
+<h1>Réplication entre deux corpus indépendants</h1>
+<p>Ce fichier est le plus important du dossier. Il dit <strong>ce qui est établi et ce qui ne l'est
+pas</strong>, et il doit être lu avant toute fiche d'instrument.</p>
+<h2>Pourquoi il existe</h2>
+<p>Jusqu'au 24 octobre 2026, l'étude reposait sur un seul corpus — SOL2020 pour les instruments
+solistes, Yan_Adds pour les auxiliaires. Les deux critères de rejet de <code>00-METHODE.md</code>
+(indépendance au rang harmonique, robustesse de fenêtre) sont <strong>internes à un corpus</strong> : ils
+vérifient la cohérence d'une mesure, pas sa généralité.</p>
+<p>C'est exactement la faiblesse qui avait produit l'étude antérieure : des chiffres
+internement cohérents, jamais confrontés à autre chose qu'eux-mêmes. La reprise d'octobre
+l'a reproduite d'un cran plus haut, avec des tests plus rigoureux mais toujours une seule
+source.</p>
+<p>L'arrivée du corpus <strong>ZSamples</strong> (<code>~/Documents/Instrumental_formants/Zsamples</code>, 3 540 fichiers
+retenus, 42 configurations) permet enfin la vérification.</p>
+<h2>Règle de lecture</h2>
+<p>La grille d'analyse est au <strong>douzième d'octave, soit le demi-ton</strong>. Un écart d'un demi-ton
+entre deux corpus n'est donc pas un désaccord : c'est la quantification de la grille
+elle-même. Seuil retenu : <strong>≤ 1 demi-ton = concordance</strong>, 2 demi-tons = proche,
+au-delà = non répliqué.</p>
+<blockquote>
+<h3>Révision du 24/10/2026 — recompte et test de permutation</h3>
+<p>Ce seuil a été mis en cause le 24/10, en découvrant que <strong>nos propres formants tombent tous
+sur des fréquences de notes tempérées</strong> (554 Hz = Do♯5, 2 348 = Ré7 ; voir
+<code>_VERIFICATION-GRAVES.md</code>). La résolution de la méthode 8 est donc d'un demi-ton, et le
+critère « ≤ 1 demi-ton » accepte un pas de grille adjacent — la même indulgence que le
+« Δ = 11 Hz » de l'ancienne étude, un niveau plus haut.</p>
+<p>Recompte sur les 40 formants retenus des deux corpus :</p>
+<table>
+<thead>
+<tr>
+<th>Critère</th>
+<th>Formants concordants</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>≤ 1 demi-ton (critère initial)</td>
+<td><strong>18 / 40</strong></td>
+</tr>
+<tr>
+<td><strong>Strict — même point de grille</strong></td>
+<td><strong>7 / 40</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Test de permutation</strong> (20 000 tirages, appariement instrument ↔ corpus mélangé) pour
+savoir si ces concordances dépassent le hasard :</p>
+<table>
+<thead>
+<tr>
+<th>Critère</th>
+<th>Observé</th>
+<th>Nul médian</th>
+<th>IC 95 % du nul</th>
+<th>p</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>≤ 1 demi-ton</td>
+<td><strong>18</strong></td>
+<td>9</td>
+<td>[4, 14]</td>
+<td><strong>0,0014</strong></td>
+</tr>
+<tr>
+<td>strict (= 0)</td>
+<td><strong>7</strong></td>
+<td>3</td>
+<td>[0, <strong>7</strong>]</td>
+<td>0,033</td>
+</tr>
+</tbody>
+</table>
+<p>Trois lectures, qui vont dans des sens différents et doivent toutes être retenues.</p>
+<p><strong>1. Le critère « ≤ 1 demi-ton » est justifié comme résultat d'ensemble.</strong> 18 concordances
+contre 9 attendues par hasard, p = 0,0014, et l'observé est très au-delà de l'IC du nul.
+La réplication entre corpus n'est pas un artefact de grille.</p>
+<p><strong>2. Mais la moitié des concordances individuelles est attendue par hasard.</strong> Le nul médian
+est de 9 sur 40. On ne peut donc <strong>pas</strong> affirmer les 18 un par un : l'excès est d'environ
+neuf formants, sans qu'on sache lesquels. <em>L'ensemble est établi, les éléments ne le sont
+pas tous.</em> C'est la correction la plus importante à apporter à ce fichier.</p>
+<p><strong>3. Le critère strict ne sauve pas la situation.</strong> 7 observés contre 3 attendus, mais
+l'observé tombe <strong>exactement sur la borne haute de l'IC du nul</strong> (p = 0,033). Le critère
+strict est plus exigeant mais statistiquement plus faible, parce qu'il travaille sur de
+trop petits nombres.</p>
+<p>Conclusion méthodologique : <strong>la réplication entre deux corpus ne suffit pas à établir un
+formant individuel.</strong> Il faut une seconde voie — voir « Deux routes » ci-dessous.</p>
+</blockquote>
+<h2>Instruments nus — distance moyenne entre corpus</h2>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Harm./note</th>
+<th>Formants SOL retenus</th>
+<th>Distances (demi-tons)</th>
+<th>Moyenne</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Basson</strong></td>
+<td>57</td>
+<td>1 974 · 554 · 1 108</td>
+<td>0,0 · 2,0 · 0,0</td>
+<td><strong>0,7</strong></td>
+</tr>
+<tr>
+<td><strong>Trombone basse</strong></td>
+<td>90</td>
+<td>1 759 · 3 320 · 879</td>
+<td>1,0 · 1,0 · 0,0</td>
+<td><strong>0,7</strong></td>
+</tr>
+<tr>
+<td>Trompette</td>
+<td>23</td>
+<td>4 695 · 2 792</td>
+<td>2,0 · 0,0</td>
+<td><strong>1,0</strong></td>
+</tr>
+<tr>
+<td>Violon</td>
+<td>15</td>
+<td>4 432 · 2 348</td>
+<td>2,0 · 1,0</td>
+<td><strong>1,5</strong></td>
+</tr>
+<tr>
+<td>Tuba basse</td>
+<td>85</td>
+<td>659 · 1 479 · 466 · 987</td>
+<td>1,0 · 1,0 · 1,0 · 4,0</td>
+<td>1,7</td>
+</tr>
+<tr>
+<td>Contrebasse</td>
+<td>83</td>
+<td>1 396 · 466 · 2 635 · 3 948</td>
+<td>0,0 · 1,0 · 0,0 · 7,0</td>
+<td>2,0</td>
+</tr>
+<tr>
+<td>Trombone ténor</td>
+<td>62</td>
+<td>3 134 · 1 567 · 830 · 2 091</td>
+<td>2,0 · 1,0 · 1,0 · 4,0</td>
+<td>2,0</td>
+</tr>
+<tr>
+<td>Clarinette contrebasse</td>
+<td>90</td>
+<td>1 759</td>
+<td>2,0</td>
+<td>2,0</td>
+</tr>
+<tr>
+<td>Violoncelle</td>
+<td>47</td>
+<td>2 216 · 1 108 · 3 948</td>
+<td>4,0 · 3,0 · 2,0</td>
+<td>3,0</td>
+</tr>
+<tr>
+<td>Alto</td>
+<td>22</td>
+<td>3 517 · 4 974 · 2 091 · 1 318</td>
+<td>1,0 · 2,0 · 2,0 · 10,0</td>
+<td>3,8</td>
+</tr>
+<tr>
+<td>Cor</td>
+<td>56</td>
+<td>739 · 2 216 · 4 183</td>
+<td>7,0 · 4,0 · 4,0</td>
+<td>5,0</td>
+</tr>
+<tr>
+<td>Hautbois</td>
+<td>17</td>
+<td>4 183</td>
+<td>5,0</td>
+<td>5,0</td>
+</tr>
+<tr>
+<td>Contrebasson</td>
+<td>90</td>
+<td>698 · 329 · 1 174</td>
+<td>2,0 · 15,0 · 1,0</td>
+<td>6,0</td>
+</tr>
+<tr>
+<td>Clarinette en Sib</td>
+<td>22</td>
+<td>1 567 · 3 517</td>
+<td>14,0 · 0,0</td>
+<td>7,0</td>
+</tr>
+<tr>
+<td>Flûte</td>
+<td>14</td>
+<td>3 320</td>
+<td>8,0</td>
+<td>8,0</td>
+</tr>
+<tr>
+<td>Petite flûte</td>
+<td>7</td>
+<td>aucun</td>
+<td>—</td>
+<td><strong>concordance sur le résultat négatif</strong></td>
+</tr>
+<tr>
+<td>Flûte basse · flûte contrebasse · cor anglais · clarinette en Mib</td>
+<td>—</td>
+<td>—</td>
+<td>aucun recoupement</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h2>Formants établis — deux routes</h2>
+<blockquote>
+<p><strong>Liste révisée le 24/10/2026.</strong> La liste de dix-sept formants qui figurait ici reposait sur
+la seule réplication à un demi-ton, dont le test de permutation montre qu'elle laisse passer
+environ neuf concordances fortuites. Elle est remplacée par deux routes distinctes.</p>
+</blockquote>
+<p>Un formant est <strong>établi</strong> s'il satisfait l'une des deux conditions suivantes :</p>
+<ul>
+<li><strong>Route A — réplication stricte.</strong> Même point de grille dans les deux corpus (écart nul).</li>
+<li><strong>Route B — corroboration par méthodes indépendantes.</strong> Concordance à ≤ 1 demi-ton avec au
+  moins deux familles de méthodes n'ayant aucune étape commune avec la méthode 8 : LPC et
+  cepstre d'ordre fixe (<code>Analyses_formants-mai26</code>), méthode 12 (carte vocalique), littérature
+  acoustique primaire.</li>
+</ul>
+<blockquote>
+<p><strong>La route B a été chiffrée le 27/10 (tâche C4), et elle ne vaut pas partout.</strong> Appariée note
+par note plutôt que liste contre liste, la corroboration LPC tient pour les cordes (79ᵉ
+centile), les clarinettes (78ᵉ), les flûtes (83ᵉ) et les cuivres (69ᵉ) — et <strong>échoue
+entièrement pour les anches doubles</strong> (15ᵉ centile, aucune au-dessus de la médiane), ce que le
+modèle tout-pôle du LPC prédit chez une anche couplée à la perce. Les formants du basson, du
+hautbois, du cor anglais et du contrebasson ne peuvent donc pas invoquer cette route. Voir
+<code>_APPARIEMENT-LPC.md</code>.</p>
+</blockquote>
+<h3>Route A — réplication stricte : 7 formants, 5 instruments</h3>
+<blockquote>
+<p><strong>Recompté le 27/10/2026 — ce tableau en annonce deux de trop (tâche D1).</strong></p>
+<p>Il comparait les formants <strong>retenus</strong> de SOL aux <strong>candidats</strong> de ZSamples, c'est-à-dire un
+critère exigeant d'un côté et permissif de l'autre. Retenu contre retenu, sur les
+14 instruments comparables et les 39 formants retenus de SOL :</p>
+<table>
+<thead>
+<tr>
+<th>Critère</th>
+<th>Concordances</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>strict — même point de grille</td>
+<td><strong>5 / 39</strong></td>
+</tr>
+<tr>
+<td>≤ 1 demi-ton</td>
+<td>13 / 39</td>
+</tr>
+</tbody>
+</table>
+<p>Les cinq : <strong>basson 1 108 et 1 974 Hz · clarinette en Si♭ 3 517 Hz · contrebasse 2 635 Hz ·
+trombone basse 879 Hz.</strong></p>
+<p>Deux tombent. La <strong>trompette à 2 792 Hz</strong> — le plan de reprise l'avait prévu — et la
+<strong>contrebasse à 1 396 Hz</strong>, qui ne l'était pas. Leur sort dans l'étude actuelle, à cinq
+corpus, diffère : la trompette <strong>tient par ailleurs</strong>, en route A via SOL + VN ; la
+contrebasse à 1 396 Hz est <strong>passée en « indéterminé »</strong> (SOL + VO).</p>
+<p><strong>Ce tableau est donc à lire comme une archive</strong>, celle d'un état à deux corpus. La liste qui
+fait foi est celle des <strong>23 formants route A sur 13 instruments</strong>, dans <code>_CORPUS-CROISES.md</code>
+et <code>Resultats-v7/formants-v7.csv</code>.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Formants</th>
+<th>Corroboration mai26</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Contrebasse</strong></td>
+<td><strong>1 396 Hz</strong></td>
+<td>cep-80 : 1 389 Hz (0,1 dt)</td>
+</tr>
+<tr>
+<td><strong>Contrebasse</strong></td>
+<td><strong>2 635 Hz</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Clarinette en Sib</strong></td>
+<td><strong>3 517 Hz</strong></td>
+<td>LPC F3 : 3 625 Hz (0,5 dt)</td>
+</tr>
+<tr>
+<td><strong>Trombone basse</strong></td>
+<td><strong>879 Hz</strong></td>
+<td>cep-80 : 926 Hz (0,9 dt)</td>
+</tr>
+<tr>
+<td><strong>Basson</strong></td>
+<td><strong>1 108 Hz</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Basson</strong></td>
+<td><strong>1 974 Hz</strong></td>
+<td>LPC F2 : 1 825 Hz (1,4 dt)</td>
+</tr>
+<tr>
+<td><strong>Trompette</strong></td>
+<td><strong>2 792 Hz</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>Trois d'entre eux — contrebasse 1 396, clarinette en Sib 3 517, trombone basse 879 — passent
+<strong>les deux routes</strong>. Ce sont les trois résultats les plus solides de toute l'étude.</p>
+<h3>Route B — corroboration multiple</h3>
+<table>
+<thead>
+<tr>
+<th>Formant</th>
+<th>Lignes de preuve indépendantes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Violon 2 348 Hz</strong> — le <em>bridge hill</em></td>
+<td>cep-80 : 2 455 Hz (0,8 dt) · LPC mai26 : 2 179 Hz · méthode 12 : F2 = 2 136 Hz à l'aigu fort · littérature acoustique du violon (2–3 kHz)</td>
+</tr>
+<tr>
+<td><strong>Violoncelle 1 108 Hz</strong></td>
+<td>cep-160 : 1 109 Hz (<strong>0,0 dt</strong>) · méthode 12 : F2 = 1 079 Hz au médium doux</td>
+</tr>
+<tr>
+<td><strong>Alto 2 091 Hz</strong></td>
+<td>cep-160 : 2 089 Hz (<strong>0,0 dt</strong>) · méthode 12 : F2 = 2 161 Hz au médium fort</td>
+</tr>
+<tr>
+<td><strong>Basson 554 Hz</strong></td>
+<td>cep-80 : 528 Hz (0,8 dt) · méthode 12 : F1 stable 470–590 Hz sur 12 cellules et sur deux corpus · littérature unanime (Backus 470, Giesler 500, Meyer 500)</td>
+</tr>
+<tr>
+<td><strong>Cor anglais 2 216 Hz</strong></td>
+<td>LPC F2 : 2 312 Hz (0,7 dt) · <strong>mais aucun formant dans ZSamples</strong> — corroboré par méthode, non répliqué par corpus</td>
+</tr>
+</tbody>
+</table>
+<p>Le cas du <strong>violon</strong> justifie à lui seul l'existence de la route B : son <em>bridge hill</em> échoue
+à la réplication stricte (1 demi-ton) mais réunit quatre lignes de preuve indépendantes, dont
+une validation externe par la littérature. Un critère à voie unique l'aurait écarté à tort.</p>
+<p>Le cas du <strong>cor anglais</strong> montre la limite symétrique : corroboré par le LPC, mais ZSamples
+n'y trouve rien. <strong>Les deux routes ne sont pas interchangeables</strong> — il faut dire par laquelle
+chaque formant passe.</p>
+<h3>Déclassés par la révision</h3>
+<table>
+<thead>
+<tr>
+<th>Formant</th>
+<th>Statut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trombone basse 1 759 · 3 320 Hz</td>
+<td>1 demi-ton, non corroborés → <strong>1 corpus</strong></td>
+</tr>
+<tr>
+<td>Contrebasse 466 Hz</td>
+<td>1 demi-ton, non corroboré → <strong>1 corpus</strong></td>
+</tr>
+<tr>
+<td>Tuba basse 466 · 659 · 1 479 Hz</td>
+<td>1 demi-ton, non corroborés → <strong>1 corpus</strong></td>
+</tr>
+<tr>
+<td>Trombone ténor 830 · 1 567 Hz</td>
+<td>1 demi-ton ; 2 091 Hz corroboré par LPC (0,2 dt) mais à 2 dt de réplication</td>
+</tr>
+<tr>
+<td>Alto 3 517 Hz</td>
+<td>1 demi-ton, non corroboré → <strong>1 corpus</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Ces dix formants ne sont pas réfutés : ils sont <strong>indéterminés</strong>. Ils concordent à un pas de
+grille, ce que le hasard produit dans environ un cas sur quatre. Les trancher demande une
+troisième source — un corpus supplémentaire, ou l'appariement note par note avec le LPC de
+mai26, qui reste à faire.</p>
+<h3>Le résultat négatif, inchangé</h3>
+<p>La <strong>petite flûte</strong> ne présente aucun formant dans les deux corpus, avec ρ = 0,96 et une pente
+de −21 dB/octave de part et d'autre. Un résultat négatif répliqué ne souffre pas du problème
+de comparaisons multiples : il n'y a rien à apparier par hasard. Il reste donc l'un des
+acquis les plus sûrs de l'étude — et c'est lui qui répond à l'anomalie initiale.</p>
+<p>S'y ajoute un résultat <strong>négatif</strong> répliqué, qui a autant de valeur : la petite flûte ne
+présente aucun formant dans les deux corpus, avec un ρ de 0,96 et une pente de −21 dB/octave
+de part et d'autre.</p>
+<h2>Ce qui n'est PAS établi</h2>
+<ul>
+<li><strong>Cor anglais, 2 216 et 4 183 Hz.</strong> Présentés dans la fiche comme « le résultat le plus
+  solide des anches doubles aiguës ». ZSamples n'y trouve <strong>aucun</strong> formant. Non établis.</li>
+<li><strong>La convergence inter-familles à 4 200 Hz</strong> (violon, cor, hautbois, cor anglais,
+  trompette), présentée comme la plus large de la reprise. Trois de ses cinq membres ne se
+  répliquent pas. <strong>Écartée.</strong> La fiche du violon posait la question d'un artefact de chaîne
+  de mesure : la réponse est probablement oui.</li>
+<li><strong>Hautbois 4 183 Hz</strong>, <strong>cor 739 / 2 216 / 4 183 Hz</strong>, <strong>contrebasson 329 Hz</strong>,
+  <strong>clarinette en Sib 1 567 Hz</strong>, <strong>flûte 3 320 Hz</strong> — tous à 4 demi-tons ou plus.</li>
+<li><strong>La pente spectrale comme descripteur d'instrument.</strong> Elle varie fortement d'un corpus à
+  l'autre : clarinette basse −9,4 contre −16,5 dB/octave. Elle dépend de la distance de
+  micro et du local. <strong>Comparable à l'intérieur d'un corpus seulement.</strong> Toute la description
+  des flûtes repose sur elle et doit être relue dans ce sens.</li>
+</ul>
+<h2>Sourdines — la réplication échoue</h2>
+<p>Dix-huit paires comparables, <strong>écart médian de 4,0 demi-tons</strong>. Cinq paires seulement sous
+2 demi-tons : trompette sèche (0,0), violon piombo (1,0), trombone sèche (1,7),
+cor avec sourdine (2,0), trombone wah ouvert (2,0). Les pires : tuba basse avec sourdine
+(8,3), trompette wah fermé (7,0), violoncelle piombo (5,5), trompette harmon (5,5).</p>
+<p><strong>Ce n'est probablement pas un échec de mesure, mais un fait.</strong> Une sourdine est un objet
+physique : matériau, forme, ajustement au pavillon varient d'un exemplaire et d'un
+instrumentiste à l'autre. Les formants d'une sourdine ne sont donc pas génériques. Il faut
+parler de « la sourdine sèche de cet instrument-là », non de « la sourdine sèche ».</p>
+<p>Conséquence pratique : <strong>les fiches de sourdines ne doivent pas être rédigées comme des
+résultats établis.</strong> Les 28 fiches prévues le 24/10 au matin sont suspendues.</p>
+<h2>Pourquoi les corpus diffèrent — quatre causes légitimes</h2>
+<ol>
+<li><strong>Ce ne sont pas les mêmes instruments ni les mêmes instrumentistes.</strong> Pour des résonances
+   de corps, une variation est attendue, en particulier sur les cordes et les sourdines.</li>
+<li><strong>Ni la même chaîne de prise de son.</strong> Micro, distance, local. Effet fort sur la pente,
+   modéré sur les positions.</li>
+<li><strong>Ni les mêmes notes.</strong> ZSamples échantillonne par pas espacés (environ une tierce
+   mineure), SOL chromatiquement. Les bandes ne sont pas éclairées de la même manière.</li>
+<li><strong>La fiabilité dépend du nombre d'harmoniques par note.</strong> Les instruments à plus de
+   40 harmoniques concordent à 2,0 demi-tons en médiane, ceux à moins de 25 à 4,4. Le lien
+   existe mais n'est pas une loi : le contrebasson a 90 harmoniques et concorde mal (6,0),
+   la trompette en a 23 et concorde bien (1,0).</li>
+</ol>
+<h2>Le test inter-cordes ne conclut pas</h2>
+<p>ZSamples organise les cordes par corde jouée (<code>string_I</code> à <code>string_V</code>), ce qui promettait un
+test d'indépendance plus fort que celui du rang harmonique : une même hauteur sur deux cordes
+différentes, c'est deux sources pour un même corps.</p>
+<p>Résultat : les formants mesurés sur l'ensemble des cordes ne se retrouvent que sur une à deux
+cordes sur quatre. <strong>Mais le test est structurellement biaisé et ne doit pas être lu comme
+une infirmation.</strong> Deux raisons :</p>
+<ul>
+<li>chaque corde ne compte que 21 à 40 échantillons, donc la mesure par corde est sous-dimensionnée ;</li>
+<li>surtout, une corde aiguë <strong>ne peut pas</strong> éclairer une bande à 3 700 Hz par ses harmoniques
+  d'ordre 5 à 15, alors qu'une corde grave le peut. Le défaut est le même que celui corrigé
+  pour les groupes de rang : il faut ne compter que les cordes capables d'éclairer la bande.</li>
+</ul>
+<p>Correction à apporter à <code>zsamples.py</code>, fonction <code>test_cordes()</code>.</p>
+<h2>Anomalie de corpus relevée</h2>
+<p>Le dossier <code>Zsamples/Clarinets/bass_clarinet_boehm_system</code> contient des fichiers nommés
+<code>bb_clarinet_boehm_system-*</code>, d'ambitus <strong>B3–A#6</strong> — celui de la clarinette en Sib, non d'une
+clarinette basse, qui descend à Ré2. Les deux mesures donnaient d'ailleurs des formants
+identiques (5 583 et 3 517 Hz). <strong>Il n'y a pas de clarinette basse dans ZSamples.</strong> Même
+schéma que le doublon <code>cor</code>/<code>horn</code> déjà relevé dans les analyses antérieures : à vérifier
+systématiquement sur tout nouveau corpus.</p>
+<h2>Faux positif du contrôle de nomenclature</h2>
+<p>Le contrôle a alerté sur la clarinette basse de ZSamples (rapport 1,118 au lieu de 1,00).
+C'était un <strong>faux positif</strong> : il cherchait le pic le plus proche de f0, or la clarinette a une
+fondamentale faible — c'est sa signature. Le contrôle est désormais fondé sur une estimation
+de f0 par <strong>somme harmonique</strong> (<code>f0_par_somme_harmonique</code> dans <code>formants_lib.py</code>), et rend
+1,00 partout, y compris là où il criait à tort.</p>
+<h2>Fichiers de données</h2>
+<ul>
+<li><code>synthese-formants-2026-10-23.csv</code> — les 54 configurations SOL/Yan_Adds.</li>
+<li><code>zsamples-2026-10-24/</code> et <code>../Mesures/ZSamples/</code> — les 42 configurations ZSamples,
+  mesures JSON et fiches pré-remplies.</li>
+</ul>
+<footer>Référence formantique de l'orchestre — Yan Maresz · page produite par <code>construire_site.py</code> depuis les fiches et <code>Resultats-v7/</code>.</footer>
+</body>
+</html>

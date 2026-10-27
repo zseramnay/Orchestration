@@ -79,7 +79,12 @@ des pics à 1 318 et 1 863 Hz pour le hautbois, qui se sont évanouis dès le pa
 redressement local.
 
 **Limite à connaître :** cette méthode est aveugle par construction aux résonances plus
-larges que ~1,5 octave. C'est le prix de l'immunité à l'artefact de pente, et c'est pourquoi
+larges que ~1,5 octave — **et, limite distincte corrigée le 27/10, elle ne mesure rien en
+dessous de 3,2 à 5,7 fois la fondamentale la plus grave du corpus**, parce qu'un harmonique
+n'entre dans le composite que si sa fenêtre contient trois harmoniques de la même note. Les deux
+limites ont été confondues : c'est la seconde, et non la première, qui fait manquer la résonance
+de caisse de l'alto et du violoncelle. Voir `_FENETRE-DE-REDRESSEMENT.md`. C'est le prix de
+l'immunité à l'artefact de pente, et c'est pourquoi
 les flûtes ressortent sans formant — leur zone d'énergie est une coupure de rayonnement
 large, non une résonance étroite.
 
@@ -224,11 +229,23 @@ C'est consigné ici pour que l'erreur ne soit pas refaite.
 La typologie a été révisée le 23/10/2026, après mesure des cordes. Deux classes ne
 suffisaient pas.
 
-| Classe | Définition | ρ | Formants retenus | Instruments |
-|---|---|---|---|---|
-| **A** | résonance fixe dominante | faible | oui | anches doubles, trombones, tubas |
-| **B** | spectre suiveur, pas de résonance étroite | élevé | non ou peu | flûtes, clarinettes |
-| **C** | résonances multiples étroites, aucune dominante | **élevé** | **oui, nombreuses** | cordes |
+| Classe | Définition | ρ annoncé | ρ mesuré | Formants retenus | Instruments |
+|---|---|---|---|---|---|
+| **A** | résonance fixe dominante | faible | **0,48 – 0,50** | oui | anches doubles *(sauf le hautbois)*, trombones, tubas |
+| **A/B** | intermédiaire | — | **0,57** | oui | **cor, trompette** |
+| **B** | spectre suiveur, pas de résonance étroite | élevé | **0,77 – 0,88** | non ou peu | flûtes, clarinettes, **hautbois** |
+| **C** | résonances multiples étroites, aucune dominante | **élevé** | **0,84** | **oui, nombreuses** | cordes |
+
+> **Vérifié le 27/10/2026 contre les ρ désormais mesurés sur les cinq corpus (tâche D3).** La
+> typologie tient : chaque classe retrouve le ρ qu'elle annonce, et les groupes ne se
+> chevauchent pas. Deux ajouts rendus nécessaires par la mesure :
+>
+> - **le cor et la trompette n'étaient dans aucune ligne.** Leur ρ, 0,55 et 0,58, tombe entre la
+>   classe A (0,48–0,50) et la classe B (0,77–0,88) : d'où le **A/B** que portent déjà leurs
+>   fiches, qui a maintenant une justification chiffrée et une ligne ;
+> - **le hautbois est en classe B** depuis le 26/10 — quatre corpus, quatre réponses
+>   formantiques incompatibles — alors que la ligne A citait les anches doubles en bloc.
+>   L'exception est désormais écrite.
 
 **Pourquoi une troisième classe.** La mesure ρ compare la position du pic *le plus
 proéminent* de l'enveloppe vraie à la hauteur jouée. Elle répond donc à la question : « un

@@ -304,9 +304,18 @@ trajectoire — montée de /ø/–/o/ au grave vers /ɛ/ à l'aigu, puis sortie 
 
 ### Et pour l'alto, une interprétation physique
 
-Au grave et au médium, l'alto n'est **pas** marqué `F1=f0` dans la plupart des cellules : son
-premier maximum n'est pas sa fondamentale. Et il se tient entre **347 et 498 Hz** sur trois
-corpus indépendants.
+> **Corrigé le 27/10/2026, tâche C1.** Ce paragraphe affirmait « au grave **et au médium** …
+> entre 347 et 498 Hz sur trois corpus ». Le test note par note (`resonance_caisse.py`) a
+> tranché : **la moitié médium est fausse**. Au médium, les quatre corpus donnent des pentes de
+> log2(F1) contre log2(f0) de +0,79, +0,85, +1,04 et +1,11 — F1 y suit la note, c'est
+> l'harmonique le plus fort et non une résonance. Le grave, lui, sort renforcé. Voir
+> `_RESONANCE-DE-CAISSE.md`.
+
+**Au grave seulement**, l'alto n'est **pas** marqué `F1=f0` : aucune cellule ne l'est, dans
+aucun des quatre corpus. Et son premier maximum se tient entre **374 et 395 Hz sur quatre
+corpus** — 0,9 demi-ton d'écart, l'accord inter-corpus le plus serré de toute l'étude — avec
+une pente médiane de **+0,01** sur sept demi-tons de fondamentale : F1 ne bouge pas pendant que
+la note se déplace.
 
 C'est la région de la **résonance principale de caisse** de l'alto, que la littérature
 acoustique situe vers 350–400 Hz. Autrement dit, la méthode 12 retrouve une résonance réelle
@@ -314,7 +323,11 @@ que la méthode 8 a entièrement manquée — celle-ci donnait 1 318 Hz comme fo
 de l'alto, valeur qui s'est révélée fausse de dix demi-tons sur ZSamples.
 
 L'explication tient à une limite connue de la méthode 8, écrite dans `residu_local()` : le
-redressement local à ±3/4 d'octave est **aveugle aux résonances plus larges que ~1,5 octave**.
+redressement local à ±3/4 d'octave **ne mesure rien en dessous de 3,2 à 5,7 fois la fondamentale
+la plus grave du corpus** — pour l'alto, entre 523 et 659 Hz selon le corpus, donc bien au-dessus
+de 384 Hz. La résonance n'est pas redressée : elle est hors du domaine calculé. (Corrigé le
+27/10/2026, tâche C2 : l'explication par la largeur, donnée ici le 24/10, visait la mauvaise
+limite. Voir `_FENETRE-DE-REDRESSEMENT.md`.)
 La zone de caisse d'un alto est large et plate ; elle est donc redressée avec le reste et
 disparaît. La méthode 12, qui ne redresse rien et lit la saillance du motif auditif, la voit.
 
@@ -326,7 +339,7 @@ hiérarchisées** : sur l'alto, la méthode 12 est la bonne et la méthode 8 se 
 | Instrument | Ce qu'on peut affirmer |
 |---|---|
 | **Hautbois** | Aucun formant fixe mesurable sur quatre corpus ; classe **B**. Sa couleur vocalique suit son registre : /a/–/œ/ au médium, **hors de l'espace vocalique du français dès l'aigu** (991 Hz dans trois corpus). Décrire par registre, jamais par un chiffre unique. |
-| **Alto** | Aucun formant établi par la méthode 8, mais **F1 entre 347 et 498 Hz au grave et au médium sur trois corpus**, compatible avec la résonance principale de caisse. Trajectoire /ø/–/o/ → **/ɛ/ à l'aigu (quatre corpus, 0,22–0,90 Bark)** → hors espace au suraigu. |
+| **Alto** | Aucun formant établi par la méthode 8, mais **F1 entre 374 et 395 Hz au grave sur quatre corpus, pente +0,01** — résonance fixe compatible avec le mode B1+ de la caisse. Au médium, F1 suit la note (pentes +0,79 à +1,11) : ne rien en conclure. Trajectoire /ø/–/o/ → **/ɛ/ à l'aigu (quatre corpus, 0,22–0,90 Bark)** → hors espace au suraigu. |
 
 Réserve commune : la dispersion de F2 reste forte sur l'alto (IQR de 2 à 5 Bark, marque
 `dispersé` sur neuf cellules sur douze dans VN), ce qui est la signature de la classe C déjà
@@ -340,11 +353,18 @@ au médium. C'est une différence de prise de son — plus de contenu aigu dans 
 « 1 max » n'est donc **pas** une propriété de l'instrument. Les classements en « hors espace
 par le bas » sont conservés pour mémoire mais devront être repris par une autre voie.
 
-**2. Le violon est instable au suraigu dans les deux corpus.** SOL donne F1 = 496 Hz au doux
-et 1 478 Hz au moyen ; ZSamples donne 977 Hz avec un **IQR de 8,6 Bark**, soit un tiers de
-l'échelle. Ce n'est pas un artefact d'un jeu d'échantillons : c'est un basculement du
-détecteur entre fondamentale et résonance de caisse. **À corriger avant toute publication de
-la ligne du violon.**
+**2. ~~Le violon est instable au suraigu dans les deux corpus.~~ — CORRIGÉ le 27/10/2026,
+tâche C3.** Le défaut était réel : SOL donnait F1 = 496 Hz au doux et 1 478 Hz au moyen,
+ZSamples 977 Hz avec un IQR de 8,6 Bark. Le diagnostic — un basculement du détecteur entre
+fondamentale et résonance de caisse — était juste, et il a livré la règle : **un spectre
+harmonique n'ayant aucun partiel sous f0, un maximum situé là n'est jamais un formant.** F1 est
+désormais cherché parmi les maxima situés à f0 ou au-dessus, à un demi-ton près.
+
+Un tiers des notes du suraigu du violon avaient un « F1 » sous leur propre fondamentale (et
+jusqu'à 57 % au violoncelle chez ZSamples). Après correction, les trois dynamiques du suraigu du
+violon s'accordent (1 610–1 665 Hz) et l'IQR tombe de 7,4 à 2,3 Bark chez SOL, de 9,0 à 3,4 chez
+ZSamples. Rien ne bouge au grave ni au médium : les résonances de caisse établies en C1 sont
+intactes au Hz près. Voir `_SURAIGU.md`.
 
 **3. Les grilles comparées ne sont pas toujours les mêmes.** ZSamples bascule souvent en repli
 registre seul, ses corpus par instrument étant plus petits. Pour les instruments où la
@@ -359,20 +379,9 @@ figure pas ici pour cette raison.
 estimation enfant. Un instrument classé /ɔ/ en référence masculine pourrait se classer
 autrement en référence féminine : à examiner, car cela change la lecture pédagogique.
 
-## Ce qui reste à faire
+## À faire
 
-1. **Corriger l'instabilité du violon au suraigu** — priorité, c'est le seul défaut de méthode
-   identifié qui soit reproductible.
-2. **Signaler les coïncidences F2 / formant établi** dans la sortie du script, comme critère de
-   confiance pour les cordes.
-3. **Reprendre les « hors espace par le bas »** par une autre voie que le comptage de maxima.
-4. **Tester la référence féminine** de Calliope, et décider laquelle sert de base.
-5. **Étendre la vérification** aux six instruments non encore comparés : tuba contrebasse
-   (absent de ZSamples), clarinette basse (étiquetage transposé), flûte contrebasse,
-   clarinette contrebasse.
-6. Les **registres de la trompette et des trombones** ont été étendus vers le grave le
-   24/10 — les mesures des cuivres sont donc à relancer pour intégrer les sons pédale, qui
-   formaient auparavant une catégorie « hors registre ».
+> Les travaux restants sont **tous** dans `_PLAN-DE-REPRISE.md`, qui est la seule liste à tenir. Ne pas en ouvrir une ici : c'est ainsi que huit listes se sont contredites entre le 23 et le 26 octobre.
 
 ## Fichiers de données
 

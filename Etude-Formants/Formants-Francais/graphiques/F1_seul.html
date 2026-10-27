@@ -19,7 +19,7 @@ input[type=checkbox]{accent-color:#2a78d6}
 <body>
 <main>
 <h1>Voyelles orales du français — F1 seul</h1>
-<p class="sub">Classement par aperture. Une ligne par voyelle, un couloir par voix : aucun point ne masque un autre.</p>
+<p class="sub">Notation API : voyelles entre barres obliques, mots-exemples en transcription phonétique entre crochets. Classement par aperture. Une ligne par voyelle, un couloir par voix : aucun point ne masque un autre.</p>
 <div class="card">
 <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;font-size:13px;color:var(--text-secondary);margin:0 0 8px;">
   <label style="display:flex;align-items:center;gap:6px"><input type="checkbox" class="sp" value="H" checked> Homme</label>
@@ -43,6 +43,7 @@ D.E={};for(const v in D.F)D.E[v]=Math.round(D.F[v]*1.15/5)*5;
 const G=[{n:'Fermées',v:['i','y','u']},{n:'Mi-fermées',v:['e','ø','o']},{n:'Mi-ouvertes',v:['ɛ','œ','ɔ']},{n:'Ouverte',v:['a']}];
 const C={i:'#2a78d6',e:'#2a78d6',ɛ:'#2a78d6',a:'#2a78d6',y:'#1baf7a',ø:'#1baf7a',œ:'#1baf7a',u:'#eb6834',o:'#eb6834',ɔ:'#eb6834'};
 const ex={i:'vie',e:'été',ɛ:'fête',a:'patte',y:'lune',ø:'feu',œ:'peur',u:'tout',o:'eau',ɔ:'or'};
+const api={i:'[vi]',e:'[ete]',ɛ:'[fɛt]',a:'[pat]',y:'[lyn]',ø:'[fø]',œ:'[pœʁ]',u:'[tu]',o:'[o]',ɔ:'[ɔʁ]'};
 const SPN={H:'Homme',F:'Femme',E:'Enfant (est.)'};
 const bark=f=>26.81*f/(1960+f)-0.53, hz=z=>1960*(z+0.53)/(26.28-z), fr=n=>n.toFixed(1).replace('.',',');
 const NN=['Do','Do♯','Ré','Ré♯','Mi','Fa','Fa♯','Sol','Sol♯','La','La♯','Si'];
@@ -68,11 +69,11 @@ function draw(){
   const gy0=y;
   for(const v of gr.v){
    const lanes=sps.length||1, lh=RH/(lanes+1);
-   g+=`<text x="${L-44}" y="${y+RH/2+6}" text-anchor="middle" style="font-size:17px;font-family:var(--font-voice);fill:${C[v]}">${v}</text><text x="${L-10}" y="${y+RH/2+4}" text-anchor="end" style="font-size:11px;fill:var(--text-muted)">${ex[v]}</text>`;
+   g+=`<text x="${L-66}" y="${y+RH/2+6}" text-anchor="middle" style="font-size:17px;font-family:var(--font-voice);fill:${C[v]}">${v}</text><text x="${L-10}" y="${y+RH/2}" text-anchor="end" style="font-size:13px;font-family:var(--font-voice);fill:var(--text-secondary)">${api[v]}</text><text x="${L-10}" y="${y+RH/2+14}" text-anchor="end" style="font-size:11px;fill:var(--text-muted)">${ex[v]}</text>`;
    const pts=sps.map((s,i)=>({s,f:D[s][v],x:X(D[s][v]),y:y+lh*(i+1)}));
    if(pts.length>1)m+=`<polyline points="${pts.map(p=>p.x+','+p.y).join(' ')}" fill="none" stroke="${C[v]}" stroke-width="1" opacity="0.45"/>`;
    for(const p of pts){
-    const tip=`/${v}/ « ${ex[v]} » — ${SPN[p.s]} : F1 ${p.f} Hz · ${fr(bark(p.f))} Bark · ${note(p.f)}`;
+    const tip=`/${v}/ ${api[v]} « ${ex[v]} » — ${SPN[p.s]} : F1 ${p.f} Hz · ${fr(bark(p.f))} Bark · ${note(p.f)}`;
     m+=`<g data-t="${tip}"><title>${tip}</title>${mk(p.s,p.x,p.y,C[v])}<circle cx="${p.x}" cy="${p.y}" r="9" fill="transparent"/></g>`;
     if(lm!=='no'){const t=lm==='hz'?p.f+' Hz':lm==='bk'?fr(bark(p.f)):note(p.f),w=t.length*6.1+8,right=p.x+10+w<=W-R;
      const lx=right?p.x+10:p.x-10-w;

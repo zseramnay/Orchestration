@@ -1,0 +1,30 @@
+
+.bandeau { background:#1a237e; color:#fff; padding:22px 26px; border-radius:8px; margin-bottom:26px; }
+.bandeau h1 { color:#fff; border:0; margin:0 0 6px; }
+.bandeau p { margin:2px 0; color:#c5cae9; }
+figure { margin:26px 0; }
+figure img { width:100%; max-width:860px; height:auto; display:block;
+              border:1px solid #e0e0e0; border-radius:6px; background:#fff; }
+figcaption { font-size:.88em; color:#555; margin-top:8px; max-width:860px;
+             line-height:1.45; }
+.sans-figure { font-size:.9em; color:#666; border-left:3px solid #ddd;
+               padding:8px 14px; margin:22px 0; background:#fafafa; }
+.fil { font-size:.9em; color:#666; margin-bottom:18px; }
+.fil a { color:#1a237e; }
+table.sommaire { width:100%; border-collapse:collapse; background:#fff; margin:14px 0 30px; }
+table.sommaire th { background:#1a237e; color:#fff; padding:8px 10px; text-align:left; font-size:.9em; }
+table.sommaire td { padding:7px 10px; border-bottom:1px solid #e0e0e0; font-size:.92em; }
+table.sommaire tr:hover td { background:#f0f3ff; }
+.pastille { display:inline-block; padding:1px 8px; border-radius:10px; font-size:.82em; font-weight:600; }
+.route-a   { background:#1b5e20; color:#fff; }
+.indet     { background:#f9a825; color:#222; }
+.uncorpus  { background:#eceff1; color:#555; }
+.aucun     { background:#b71c1c; color:#fff; }
+.cartes { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; }
+.carte { background:#fff; border:1px solid #ddd; border-left:5px solid #2e7d32; border-radius:6px; padding:16px 18px; }
+.carte h3 { margin:0 0 6px; }
+.carte p { margin:4px 0; font-size:.92em; color:#555; }
+blockquote { background:#fffde7; border-left:4px solid #f9a825; margin:16px 0; padding:10px 16px; }
+blockquote h2, blockquote h3 { margin-top:4px; }
+code { background:#eceff1; padding:1px 5px; border-radius:3px; font-size:.9em; }
+footer { margin-top:50px; padding-top:14px; border-top:1px solid #ddd; font-size:.82em; color:#777; }

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flûte basse</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="bandeau"><h1>Flûte basse</h1><p>Bass flute</p></div>
+<p class="fil"><a href="../index.html">Sommaire</a> › Les bois</p>
+<table class="sommaire"><tr><th>Classe</th><th>Provenance</th><th>Échantillons</th><th>Tessiture</th><th>Formants établis</th></tr><tr><td>B</td><td>VSL</td><td>39</td><td>C3–C6</td><td>0</td></tr></table><figure><img src="../figures/composite-flute-basse.png" alt="Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, ZSamples, Xsamples, VO). Un formant retenu est" loading="lazy"><figcaption>Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, ZSamples, Xsamples, VO). Un formant retenu est un maximum que deux corpus de provenances distinctes placent au même point de grille.</figcaption></figure>
+<figure><img src="../figures/vocalique-flute-basse.png" alt="Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyell" loading="lazy"><figcaption>Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyelles du français (Calliope, voix d&#x27;homme). Marqueur creux : cellule non assignable. Corpus : SOL.</figcaption></figure>
+<h1>Flûte basse</h1>
+<blockquote>
+<h2>Statut des formants — révision du 26/10/2026</h2>
+<p>Confrontation des <strong>cinq corpus</strong>. Provenance de ce corpus : <strong>VSL / ConTimbre / perso (Yan_Adds)</strong>.</p>
+<p>Aucun formant retenu. Si le résultat négatif est répliqué, c'est un acquis — voir <code>_CORPUS-CROISES.md</code>.</p>
+</blockquote>
+<h2>Aucun formant retenu — corpus insuffisant et classe B</h2>
+<blockquote>
+<p><strong>Méthode 8 appliquée — aucun formant retenu.</strong> Voir <code>00-METHODE.md</code>.</p>
+</blockquote>
+<p>Deux causes se cumulent, et il importe de ne pas les confondre.</p>
+<p><strong>Cause structurelle.</strong> La flûte basse est de classe B, ρ = 0,84 : son spectre suit la
+hauteur. L'écart-type de l'enveloppe vraie, σ = 776 Hz, est le deuxième plus élevé du
+corpus des bois après le piccolo. Comme pour toute la famille, l'invariant pertinent est la
+coupure, non une résonance de corps.</p>
+<p><strong>Cause contingente.</strong> Le corpus ne compte que <strong>39 échantillons</strong>. C'est trop peu pour
+peupler les groupes de rang harmonique du test d'indépendance : le seul candidat détecté
+n'atteint 4 notes distinctes dans aucun groupe, contre 5 requises. La conclusion « aucun
+formant » est donc ici moins solide que pour le piccolo, où elle reposait sur 111
+échantillons et sur un argument de principe. <strong>Un corpus élargi pourrait changer ce
+résultat.</strong></p>
+<h2>Candidat rejeté</h2>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>Résidu</th>
+<th>k = 4–7</th>
+<th>k = 8–15</th>
+<th>k ≥ 16</th>
+<th>Robustesse</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2 635 Hz</td>
+<td>+1,0 dB</td>
+<td>+0,1</td>
+<td>0,0</td>
+<td>+0,9</td>
+<td>non</td>
+<td><strong>rejeté</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Les résidus sont quasi nuls sur tous les groupes de rang : ce n'est pas un problème de
+couverture mais une absence de signal. Le rejet est franc.</p>
+<h2>Descripteurs valides</h2>
+<table>
+<thead>
+<tr>
+<th>Descripteur</th>
+<th>Valeur</th>
+<th>Lecture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Pente spectrale médiane</strong></td>
+<td><strong>−12,5 dB/octave</strong> (σ 4,7)</td>
+<td>près de deux fois plus plate que le piccolo</td>
+</tr>
+<tr>
+<td>Harmoniques par note</td>
+<td>29 [10–83]</td>
+<td>spectre riche</td>
+</tr>
+<tr>
+<td>Balance impair − pair</td>
+<td>−4,0 dB</td>
+<td>tuyau ouvert</td>
+</tr>
+<tr>
+<td>Enveloppe vraie</td>
+<td>420 Hz, σ 776</td>
+<td>σ considérable : pas de formant fixe</td>
+</tr>
+</tbody>
+</table>
+<p>La pente est le résultat le plus parlant. À −12,5 dB/octave contre −21,2 pour le piccolo et
+−18,3 pour la grande flûte, elle quantifie précisément ce que l'on décrit comme un « son
+chaud et soufflé, plus riche en harmoniques » : la flûte basse conserve beaucoup plus
+d'énergie dans l'aigu relatif. La dispersion σ = 4,7 traduit en outre une forte variation
+selon la dynamique et le souffle.</p>
+<p>C'est un bon exemple de ce que l'abandon du formant fait gagner : la pente décrit
+l'instrument mieux que ne le faisait un F1 de 301 Hz, qui était la zone de la fondamentale.</p>
+<h2>Comparaison avec la littérature</h2>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Valeur annoncée</th>
+<th>Notre mesure</th>
+<th>Lecture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Yan_Adds (ancien)</td>
+<td>F1 = 301 ± 92 Hz, /u/</td>
+<td>—</td>
+<td>zone de la fondamentale, pas un formant</td>
+</tr>
+<tr>
+<td>Ancien Fp</td>
+<td>1 338 Hz</td>
+<td>—</td>
+<td>artefact de fenêtre</td>
+</tr>
+<tr>
+<td>Backus, Giesler, Meyer</td>
+<td>aucune donnée</td>
+<td>—</td>
+<td>instrument non étudié dans les sources classiques</td>
+</tr>
+</tbody>
+</table>
+<p>Aucune source académique classique ne traite la flûte basse. Il n'y a donc rien à confirmer
+ni à contredire, et les valeurs antérieures ne reposaient que sur le pipeline <code>specenv</code>.</p>
+<h2>Registres</h2>
+<p>Non défini dans <code>Data/registres.md</code>. À établir.</p>
+<!-- DEBUT-TRAVAUX-27-10 -->
+<h2>Ce que les travaux du 27/10/2026 disent de cet instrument</h2>
+<h3>Dans la table des mélanges</h3>
+<p>18 paires calculées. <strong>Fusion moyenne : 15 %.</strong> Voir <code>../_MELANGES.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Couleur nouvelle avec</th>
+<th></th>
+<th>Se fond avec</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trombone basse</td>
+<td>42 %</td>
+<td>Clarinette en Sib</td>
+<td>61 %</td>
+</tr>
+<tr>
+<td>Hautbois</td>
+<td>30 %</td>
+<td>Clarinette basse en Sib</td>
+<td>61 %</td>
+</tr>
+<tr>
+<td>Trombone ténor</td>
+<td>30 %</td>
+<td>Cor en Fa</td>
+<td>53 %</td>
+</tr>
+</tbody>
+</table>
+<!-- FIN-TRAVAUX-27-10 -->
+
+<h2>Observations pour l'orchestration</h2>
+<p>À compléter. Pistes ouvertes :</p>
+<ul>
+<li>L'ancienne étude annonçait une « excellente » convergence flûte basse–clarinette basse à
+  Δ = 22 Hz (301 contre 323 Hz). Les deux valeurs étant des zones de fondamentale et non
+  des formants, cette convergence est à reprendre entièrement. Elle n'est ni confirmée ni
+  infirmée : elle n'a simplement jamais été mesurée.</li>
+<li>La pente très plate suggère un rôle de soutien harmonique plutôt que de projection
+  mélodique dans les mélanges, hypothèse à tester par la méthode 12.</li>
+</ul>
+<h2>Graphiques</h2>
+<p>Aucun à ce stade. Figures prévues dans <code>../Versions-html-and-docx/media/</code> :</p>
+<table>
+<thead>
+<tr>
+<th>Fichier prévu</th>
+<th>Contenu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>flute_basse_composite.png</code></td>
+<td>enveloppe composite, avec la couverture par bande montrant l'insuffisance du corpus</td>
+</tr>
+<tr>
+<td><code>flutes_pentes.png</code></td>
+<td>comparaison des quatre pentes de la famille (piccolo → contrebasse) — figure de famille</td>
+</tr>
+</tbody>
+</table>
+<p>La seconde figure est à partager avec les trois autres flûtes : c'est la pente, et non le
+formant, qui différencie la famille.</p>
+<h2>Journal</h2>
+<ul>
+<li><strong>2026-10-23</strong> — Aucun formant retenu. À distinguer du piccolo : ici la cause principale
+  est l'insuffisance du corpus (39 échantillons), non un argument de principe. À revoir si
+  le corpus est élargi.</li>
+</ul>
+<footer>Référence formantique de l'orchestre — Yan Maresz · page produite par <code>construire_site.py</code> depuis les fiches et <code>Resultats-v7/</code>.</footer>
+</body>
+</html>

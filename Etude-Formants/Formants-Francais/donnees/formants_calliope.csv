@@ -1,31 +1,31 @@
-voix,voyelle,exemple,aperture,classe,F1_Hz,F2_Hz,F1_Bark,F2_Bark,F2-F1_Bark,F1_note,source
-homme,i,vie,fermée,antérieure étirée,308,2064,3.11,13.22,10.11,Ré#3 -17c,Calliope (Tubach 1989)
-homme,e,été,mi-fermée,antérieure étirée,365,1961,3.68,12.88,9.20,Fa#3 -24c,Calliope (Tubach 1989)
-homme,ɛ,fête,mi-ouverte,antérieure étirée,530,1718,5.18,11.99,6.82,Do4 +22c,Calliope (Tubach 1989)
-homme,a,patte,ouverte,antérieure étirée,684,1256,6.41,9.94,3.53,Fa4 -36c,Calliope (Tubach 1989)
-homme,y,lune,fermée,antérieure arrondie,300,1750,3.03,12.12,9.09,Ré3 +37c,Calliope (Tubach 1989)
-homme,ø,feu,mi-fermée,antérieure arrondie,381,1417,3.83,10.72,6.89,Sol3 -49c,Calliope (Tubach 1989)
-homme,œ,peur,mi-ouverte,antérieure arrondie,517,1391,5.07,10.60,5.53,Do4 -21c,Calliope (Tubach 1989)
-homme,u,tout,fermée,postérieure,315,764,3.18,6.99,3.81,Ré#3 +21c,Calliope (Tubach 1989)
-homme,o,eau,mi-fermée,postérieure,383,793,3.85,7.19,3.34,Sol3 -40c,Calliope (Tubach 1989)
-homme,ɔ,or,mi-ouverte,postérieure,531,998,5.19,8.52,3.33,Do4 +25c,Calliope (Tubach 1989)
-femme,i,vie,fermée,antérieure étirée,306,2456,3.09,14.38,11.29,Ré#3 -29c,Calliope (Tubach 1989)
-femme,e,été,mi-fermée,antérieure étirée,417,2351,4.17,14.09,9.92,Sol#3 +7c,Calliope (Tubach 1989)
-femme,ɛ,fête,mi-ouverte,antérieure étirée,660,2080,6.22,13.27,7.05,Mi4 +2c,Calliope (Tubach 1989)
-femme,a,patte,ouverte,antérieure étirée,788,1503,7.16,11.11,3.95,Sol4 +9c,Calliope (Tubach 1989)
-femme,y,lune,fermée,antérieure arrondie,305,2046,3.08,13.16,10.08,Ré#3 -34c,Calliope (Tubach 1989)
-femme,ø,feu,mi-fermée,antérieure arrondie,469,1605,4.65,11.54,6.89,La#3 +11c,Calliope (Tubach 1989)
-femme,œ,peur,mi-ouverte,antérieure arrondie,647,1690,6.12,11.88,5.76,Mi4 -32c,Calliope (Tubach 1989)
-femme,u,tout,fermée,postérieure,311,804,3.14,7.27,4.13,Ré#3 -1c,Calliope (Tubach 1989)
-femme,o,eau,mi-fermée,postérieure,461,855,4.58,7.61,3.04,La#3 -19c,Calliope (Tubach 1989)
-femme,ɔ,or,mi-ouverte,postérieure,634,1180,6.02,9.55,3.52,Ré#4 +32c,Calliope (Tubach 1989)
-enfant_estime,i,vie,fermée,antérieure étirée,350,2825,3.53,15.30,11.77,Fa3 +4c,"extrapolation femme x 1,15 (non mesurée)"
-enfant_estime,e,été,mi-fermée,antérieure étirée,480,2705,4.74,15.02,10.27,Si3 -49c,"extrapolation femme x 1,15 (non mesurée)"
-enfant_estime,ɛ,fête,mi-ouverte,antérieure étirée,760,2390,6.96,14.20,7.24,Fa#4 +46c,"extrapolation femme x 1,15 (non mesurée)"
-enfant_estime,a,patte,ouverte,antérieure étirée,905,1730,7.94,12.04,4.10,La4 +48c,"extrapolation femme x 1,15 (non mesurée)"
-enfant_estime,y,lune,fermée,antérieure arrondie,350,2355,3.53,14.10,10.57,Fa3 +4c,"extrapolation femme x 1,15 (non mesurée)"
-enfant_estime,ø,feu,mi-fermée,antérieure arrondie,540,1845,5.26,12.47,7.21,Do#4 -45c,"extrapolation femme x 1,15 (non mesurée)"
-enfant_estime,œ,peur,mi-ouverte,antérieure arrondie,745,1945,6.85,12.82,5.97,Fa#4 +12c,"extrapolation femme x 1,15 (non mesurée)"
-enfant_estime,u,tout,fermée,postérieure,360,925,3.63,8.07,4.44,Fa#3 -47c,"extrapolation femme x 1,15 (non mesurée)"
-enfant_estime,o,eau,mi-fermée,postérieure,530,985,5.18,8.44,3.26,Do4 +22c,"extrapolation femme x 1,15 (non mesurée)"
-enfant_estime,ɔ,or,mi-ouverte,postérieure,730,1355,6.75,10.43,3.68,Fa#4 -24c,"extrapolation femme x 1,15 (non mesurée)"
+voix,voyelle,exemple,transcription_API,aperture,classe,F1_Hz,F2_Hz,F1_Bark,F2_Bark,F2-F1_Bark,F1_note,source
+homme,i,vie,[vi],fermée,antérieure étirée,308,2064,3.11,13.22,10.11,Ré#3 -17c,Calliope (Tubach 1989)
+homme,e,été,[ete],mi-fermée,antérieure étirée,365,1961,3.68,12.88,9.20,Fa#3 -24c,Calliope (Tubach 1989)
+homme,ɛ,fête,[fɛt],mi-ouverte,antérieure étirée,530,1718,5.18,11.99,6.82,Do4 +22c,Calliope (Tubach 1989)
+homme,a,patte,[pat],ouverte,antérieure étirée,684,1256,6.41,9.94,3.53,Fa4 -36c,Calliope (Tubach 1989)
+homme,y,lune,[lyn],fermée,antérieure arrondie,300,1750,3.03,12.12,9.09,Ré3 +37c,Calliope (Tubach 1989)
+homme,ø,feu,[fø],mi-fermée,antérieure arrondie,381,1417,3.83,10.72,6.89,Sol3 -49c,Calliope (Tubach 1989)
+homme,œ,peur,[pœʁ],mi-ouverte,antérieure arrondie,517,1391,5.07,10.60,5.53,Do4 -21c,Calliope (Tubach 1989)
+homme,u,tout,[tu],fermée,postérieure,315,764,3.18,6.99,3.81,Ré#3 +21c,Calliope (Tubach 1989)
+homme,o,eau,[o],mi-fermée,postérieure,383,793,3.85,7.19,3.34,Sol3 -40c,Calliope (Tubach 1989)
+homme,ɔ,or,[ɔʁ],mi-ouverte,postérieure,531,998,5.19,8.52,3.33,Do4 +25c,Calliope (Tubach 1989)
+femme,i,vie,[vi],fermée,antérieure étirée,306,2456,3.09,14.38,11.29,Ré#3 -29c,Calliope (Tubach 1989)
+femme,e,été,[ete],mi-fermée,antérieure étirée,417,2351,4.17,14.09,9.92,Sol#3 +7c,Calliope (Tubach 1989)
+femme,ɛ,fête,[fɛt],mi-ouverte,antérieure étirée,660,2080,6.22,13.27,7.05,Mi4 +2c,Calliope (Tubach 1989)
+femme,a,patte,[pat],ouverte,antérieure étirée,788,1503,7.16,11.11,3.95,Sol4 +9c,Calliope (Tubach 1989)
+femme,y,lune,[lyn],fermée,antérieure arrondie,305,2046,3.08,13.16,10.08,Ré#3 -34c,Calliope (Tubach 1989)
+femme,ø,feu,[fø],mi-fermée,antérieure arrondie,469,1605,4.65,11.54,6.89,La#3 +11c,Calliope (Tubach 1989)
+femme,œ,peur,[pœʁ],mi-ouverte,antérieure arrondie,647,1690,6.12,11.88,5.76,Mi4 -32c,Calliope (Tubach 1989)
+femme,u,tout,[tu],fermée,postérieure,311,804,3.14,7.27,4.13,Ré#3 -1c,Calliope (Tubach 1989)
+femme,o,eau,[o],mi-fermée,postérieure,461,855,4.58,7.61,3.04,La#3 -19c,Calliope (Tubach 1989)
+femme,ɔ,or,[ɔʁ],mi-ouverte,postérieure,634,1180,6.02,9.55,3.52,Ré#4 +32c,Calliope (Tubach 1989)
+enfant_estime,i,vie,[vi],fermée,antérieure étirée,350,2825,3.53,15.30,11.77,Fa3 +4c,"extrapolation femme x 1,15 (non mesurée)"
+enfant_estime,e,été,[ete],mi-fermée,antérieure étirée,480,2705,4.74,15.02,10.27,Si3 -49c,"extrapolation femme x 1,15 (non mesurée)"
+enfant_estime,ɛ,fête,[fɛt],mi-ouverte,antérieure étirée,760,2390,6.96,14.20,7.24,Fa#4 +46c,"extrapolation femme x 1,15 (non mesurée)"
+enfant_estime,a,patte,[pat],ouverte,antérieure étirée,905,1730,7.94,12.04,4.10,La4 +48c,"extrapolation femme x 1,15 (non mesurée)"
+enfant_estime,y,lune,[lyn],fermée,antérieure arrondie,350,2355,3.53,14.10,10.57,Fa3 +4c,"extrapolation femme x 1,15 (non mesurée)"
+enfant_estime,ø,feu,[fø],mi-fermée,antérieure arrondie,540,1845,5.26,12.47,7.21,Do#4 -45c,"extrapolation femme x 1,15 (non mesurée)"
+enfant_estime,œ,peur,[pœʁ],mi-ouverte,antérieure arrondie,745,1945,6.85,12.82,5.97,Fa#4 +12c,"extrapolation femme x 1,15 (non mesurée)"
+enfant_estime,u,tout,[tu],fermée,postérieure,360,925,3.63,8.07,4.44,Fa#3 -47c,"extrapolation femme x 1,15 (non mesurée)"
+enfant_estime,o,eau,[o],mi-fermée,postérieure,530,985,5.18,8.44,3.26,Do4 +22c,"extrapolation femme x 1,15 (non mesurée)"
+enfant_estime,ɔ,or,[ɔʁ],mi-ouverte,postérieure,730,1355,6.75,10.43,3.68,Fa#4 -24c,"extrapolation femme x 1,15 (non mesurée)"
