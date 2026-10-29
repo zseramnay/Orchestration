@@ -17,7 +17,9 @@
     "distance_bark": 1.52,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -34,7 +36,9 @@
     "distance_bark": 1.81,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -51,7 +55,9 @@
     "distance_bark": 1.77,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -69,7 +75,9 @@
     "marques": [
      "F1=f0",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -87,7 +95,9 @@
     "marques": [
      "F1=f0",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -105,7 +115,9 @@
     "marques": [
      "F1=f0",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -122,7 +134,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -139,7 +153,9 @@
     "distance_bark": 11.6,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -156,7 +172,9 @@
     "distance_bark": 11.57,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -173,7 +191,9 @@
     "statut": "non publiable",
     "marques": [
      "n<5"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -190,7 +210,9 @@
     "statut": "non publiable",
     "marques": [
      "n<5"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -207,7 +229,9 @@
     "statut": "non publiable",
     "marques": [
      "n<5"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    }
   ]
  },
@@ -229,7 +253,9 @@
     "distance_bark": 1.87,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -244,7 +270,9 @@
     "IQR2": 1.33,
     "voyelle": "œ",
     "distance_bark": 0.39,
-    "marques": []
+    "marques": [],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -259,7 +287,9 @@
     "IQR2": 0.71,
     "voyelle": "ɛ",
     "distance_bark": 0.32,
-    "marques": []
+    "marques": [],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -276,7 +306,9 @@
     "distance_bark": 1.13,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -293,7 +325,9 @@
     "distance_bark": 0.96,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -310,7 +344,9 @@
     "distance_bark": 1.06,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -328,7 +364,9 @@
     "marques": [
      "1 max",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -346,7 +384,9 @@
     "marques": [
      "F1=f0",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -364,7 +404,9 @@
     "marques": [
      "F1=f0",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -381,7 +423,9 @@
     "distance_bark": 10.18,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -398,7 +442,9 @@
     "statut": "non publiable",
     "marques": [
      "n<5"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -415,7 +461,9 @@
     "distance_bark": 10.1,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    }
   ]
  },
@@ -437,7 +485,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -452,7 +502,9 @@
     "IQR2": 1.36,
     "voyelle": "ɔ",
     "distance_bark": 1.24,
-    "marques": []
+    "marques": [],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -469,7 +521,9 @@
     "distance_bark": 0.56,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -486,7 +540,9 @@
     "statut": "non publiable",
     "marques": [
      "n<5"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    }
   ]
  },
@@ -508,7 +564,9 @@
     "statut": "non publiable",
     "marques": [
      "n<5"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -525,7 +583,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -542,7 +602,9 @@
     "distance_bark": 0.63,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -560,7 +622,9 @@
     "marques": [
      "F1=f0",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    }
   ]
  },
@@ -583,7 +647,9 @@
     "marques": [
      "1 max",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -600,7 +666,9 @@
     "distance_bark": 6.01,
     "marques": [
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -617,7 +685,9 @@
     "distance_bark": 6.12,
     "marques": [
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -634,7 +704,9 @@
     "distance_bark": 0.77,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -651,7 +723,9 @@
     "distance_bark": 0.76,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -668,7 +742,9 @@
     "distance_bark": 0.77,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -685,7 +761,9 @@
     "distance_bark": 3.57,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -702,7 +780,9 @@
     "distance_bark": 3.58,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -719,7 +799,9 @@
     "distance_bark": 3.58,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -736,7 +818,9 @@
     "distance_bark": 7.31,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -753,7 +837,9 @@
     "distance_bark": 7.18,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -770,7 +856,9 @@
     "distance_bark": 7.55,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    }
   ]
  },
@@ -792,7 +880,12 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": {
+     "hz": 494,
+     "ecart_demi_tons": 0.46
+    },
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -807,7 +900,9 @@
     "IQR2": 1.59,
     "voyelle": "ɛ",
     "distance_bark": 0.41,
-    "marques": []
+    "marques": [],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -822,7 +917,9 @@
     "IQR2": 1.98,
     "voyelle": "œ",
     "distance_bark": 0.84,
-    "marques": []
+    "marques": [],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "bas médium",
@@ -839,7 +936,12 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": {
+     "hz": 494,
+     "ecart_demi_tons": 0.14
+    },
+    "coincidence_F2": null
    },
    {
     "registre": "bas médium",
@@ -854,7 +956,9 @@
     "IQR2": 0.38,
     "voyelle": "œ",
     "distance_bark": 0.53,
-    "marques": []
+    "marques": [],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "bas médium",
@@ -869,7 +973,9 @@
     "IQR2": 0.79,
     "voyelle": "œ",
     "distance_bark": 1.1,
-    "marques": []
+    "marques": [],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "haut médium",
@@ -886,7 +992,12 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": {
+     "hz": 554,
+     "ecart_demi_tons": 0.41
+    },
+    "coincidence_F2": null
    },
    {
     "registre": "haut médium",
@@ -901,7 +1012,12 @@
     "IQR2": 0.4,
     "voyelle": "œ",
     "distance_bark": 0.86,
-    "marques": []
+    "marques": [],
+    "coincidence_F1": {
+     "hz": 554,
+     "ecart_demi_tons": 0.22
+    },
+    "coincidence_F2": null
    },
    {
     "registre": "haut médium",
@@ -916,7 +1032,12 @@
     "IQR2": 1.04,
     "voyelle": "ɔ",
     "distance_bark": 0.96,
-    "marques": []
+    "marques": [],
+    "coincidence_F1": {
+     "hz": 554,
+     "ecart_demi_tons": 0.18
+    },
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -933,7 +1054,12 @@
     "distance_bark": 0.36,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": {
+     "hz": 554,
+     "ecart_demi_tons": 0.0
+    },
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -950,7 +1076,12 @@
     "distance_bark": 0.67,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": {
+     "hz": 1108,
+     "ecart_demi_tons": 0.46
+    }
    },
    {
     "registre": "aigu",
@@ -968,7 +1099,12 @@
     "marques": [
      "F1=f0",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": {
+     "hz": 1108,
+     "ecart_demi_tons": 0.07
+    }
    }
   ]
  },
@@ -990,7 +1126,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -1007,7 +1145,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -1024,7 +1164,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "bas médium",
@@ -1041,7 +1183,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "bas médium",
@@ -1058,7 +1202,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "bas médium",
@@ -1075,7 +1221,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "haut médium",
@@ -1092,7 +1240,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "haut médium",
@@ -1109,7 +1259,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "haut médium",
@@ -1126,7 +1278,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -1143,7 +1297,9 @@
     "statut": "non publiable",
     "marques": [
      "n<5"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -1160,7 +1316,9 @@
     "statut": "non publiable",
     "marques": [
      "n<5"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -1177,7 +1335,9 @@
     "statut": "non publiable",
     "marques": [
      "n<5"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    }
   ]
  },
@@ -1200,7 +1360,9 @@
     "marques": [
      "F1=f0",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "gorge",
@@ -1215,7 +1377,9 @@
     "IQR2": 0.42,
     "voyelle": "ɛ",
     "distance_bark": 0.38,
-    "marques": []
+    "marques": [],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "clarine",
@@ -1232,7 +1396,9 @@
     "distance_bark": 3.1,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -1249,7 +1415,9 @@
     "distance_bark": 8.58,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    }
   ]
  },
@@ -1271,7 +1439,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "chalumeau",
@@ -1289,7 +1459,9 @@
     "marques": [
      "F1=f0",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "chalumeau",
@@ -1307,7 +1479,9 @@
     "marques": [
      "F1=f0",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "gorge",
@@ -1322,7 +1496,9 @@
     "IQR2": 0.4,
     "voyelle": "ø",
     "distance_bark": 1.23,
-    "marques": []
+    "marques": [],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "gorge",
@@ -1339,7 +1515,9 @@
     "distance_bark": 0.99,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "gorge",
@@ -1356,7 +1534,9 @@
     "distance_bark": 0.37,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "clarine",
@@ -1373,7 +1553,9 @@
     "distance_bark": 0.8,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "clarine",
@@ -1390,7 +1572,9 @@
     "distance_bark": 1.13,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "clarine",
@@ -1407,7 +1591,9 @@
     "distance_bark": 1.26,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -1424,7 +1610,9 @@
     "distance_bark": 5.29,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -1441,7 +1629,9 @@
     "distance_bark": 5.56,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -1458,7 +1648,9 @@
     "distance_bark": 5.5,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    }
   ]
  },
@@ -1480,7 +1672,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "chalumeau",
@@ -1497,7 +1691,9 @@
     "distance_bark": 2.09,
     "marques": [
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "chalumeau",
@@ -1514,7 +1710,9 @@
     "distance_bark": 2.14,
     "marques": [
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "gorge",
@@ -1531,7 +1729,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "gorge",
@@ -1548,7 +1748,9 @@
     "distance_bark": 1.31,
     "marques": [
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "gorge",
@@ -1565,7 +1767,9 @@
     "distance_bark": 0.33,
     "marques": [
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "clarine",
@@ -1582,7 +1786,9 @@
     "distance_bark": 1.5,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "clarine",
@@ -1599,7 +1805,9 @@
     "distance_bark": 1.86,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "clarine",
@@ -1617,7 +1825,9 @@
     "marques": [
      "F1=f0",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -1635,7 +1845,9 @@
     "marques": [
      "F1=f0",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -1653,7 +1865,9 @@
     "marques": [
      "F1=f0",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -1671,7 +1885,9 @@
     "marques": [
      "F1=f0",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    }
   ]
  },
@@ -1693,7 +1909,9 @@
     "distance_bark": 2.42,
     "marques": [
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "gorge",
@@ -1708,7 +1926,9 @@
     "IQR2": 1.78,
     "voyelle": "y",
     "distance_bark": 1.29,
-    "marques": []
+    "marques": [],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "clarine",
@@ -1723,7 +1943,9 @@
     "IQR2": 1.63,
     "voyelle": "ø",
     "distance_bark": 1.54,
-    "marques": []
+    "marques": [],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -1740,7 +1962,9 @@
     "distance_bark": 1.93,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    }
   ]
  },
@@ -1762,7 +1986,9 @@
     "statut": "non publiable",
     "marques": [
      "n<5"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -1779,7 +2005,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -1796,7 +2024,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -1811,7 +2041,9 @@
     "IQR2": 0.52,
     "voyelle": "ɛ",
     "distance_bark": 0.82,
-    "marques": []
+    "marques": [],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -1828,7 +2060,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -1845,7 +2079,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -1860,7 +2096,9 @@
     "IQR2": 0.92,
     "voyelle": "ɛ",
     "distance_bark": 0.81,
-    "marques": []
+    "marques": [],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -1877,7 +2115,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -1895,7 +2135,9 @@
     "marques": [
      "F1=f0",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -1912,7 +2154,9 @@
     "distance_bark": 0.53,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    }
   ]
  },
@@ -1934,7 +2178,9 @@
     "statut": "non publiable",
     "marques": [
      "n<5"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "sons pédale",
@@ -1951,7 +2197,9 @@
     "statut": "non publiable",
     "marques": [
      "n<5"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -1968,7 +2216,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -1985,7 +2235,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -2000,7 +2252,9 @@
     "IQR2": 0.58,
     "voyelle": "ɛ",
     "distance_bark": 3.17,
-    "marques": []
+    "marques": [],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -2017,7 +2271,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -2035,7 +2291,9 @@
     "marques": [
      "1 max",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -2052,7 +2310,9 @@
     "distance_bark": 3.87,
     "marques": [
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -2069,7 +2329,9 @@
     "distance_bark": 1.54,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -2086,7 +2348,9 @@
     "distance_bark": 1.89,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -2103,7 +2367,9 @@
     "distance_bark": 2.71,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -2120,7 +2386,9 @@
     "statut": "non publiable",
     "marques": [
      "n<5"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -2137,7 +2405,9 @@
     "statut": "non publiable",
     "marques": [
      "n<5"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    }
   ]
  },
@@ -2159,7 +2429,9 @@
     "statut": "non publiable",
     "marques": [
      "n<5"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "sons pédale",
@@ -2176,7 +2448,9 @@
     "statut": "non publiable",
     "marques": [
      "n<5"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "sons pédale",
@@ -2193,7 +2467,9 @@
     "statut": "non publiable",
     "marques": [
      "n<5"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -2210,7 +2486,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -2227,7 +2505,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -2244,7 +2524,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -2261,7 +2543,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -2278,7 +2562,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -2295,7 +2581,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -2310,7 +2598,9 @@
     "IQR2": 0.41,
     "voyelle": "ɔ",
     "distance_bark": 0.39,
-    "marques": []
+    "marques": [],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -2325,7 +2615,9 @@
     "IQR2": 0.53,
     "voyelle": "ɔ",
     "distance_bark": 0.33,
-    "marques": []
+    "marques": [],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -2342,7 +2634,9 @@
     "distance_bark": 0.87,
     "marques": [
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "hors registre",
@@ -2359,7 +2653,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "hors registre",
@@ -2376,7 +2672,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "hors registre",
@@ -2393,7 +2691,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    }
   ]
  },
@@ -2415,7 +2715,9 @@
     "statut": "non publiable",
     "marques": [
      "n<5"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "sons pédale",
@@ -2432,7 +2734,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "sons pédale",
@@ -2449,7 +2753,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -2466,7 +2772,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -2484,7 +2792,9 @@
     "marques": [
      "1 max",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -2502,7 +2812,9 @@
     "marques": [
      "1 max",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -2519,7 +2831,9 @@
     "statut": "non publiable",
     "marques": [
      "n<5"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -2536,7 +2850,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -2553,7 +2869,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -2570,7 +2888,9 @@
     "statut": "non publiable",
     "marques": [
      "n<5"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -2587,7 +2907,9 @@
     "statut": "non publiable",
     "marques": [
      "n<5"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -2604,7 +2926,9 @@
     "statut": "non publiable",
     "marques": [
      "n<5"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "hors registre",
@@ -2621,7 +2945,9 @@
     "statut": "non publiable",
     "marques": [
      "n<5"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "hors registre",
@@ -2638,7 +2964,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "hors registre",
@@ -2656,7 +2984,9 @@
     "marques": [
      "1 max",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    }
   ]
  },
@@ -2678,7 +3008,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -2695,7 +3027,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -2712,7 +3046,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -2729,7 +3065,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -2746,7 +3084,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -2763,7 +3103,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -2780,7 +3122,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -2797,7 +3141,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -2814,7 +3160,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -2831,7 +3179,9 @@
     "statut": "non publiable",
     "marques": [
      "n<5"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -2848,7 +3198,9 @@
     "statut": "non publiable",
     "marques": [
      "n<5"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -2865,7 +3217,9 @@
     "statut": "non publiable",
     "marques": [
      "n<5"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    }
   ]
  },
@@ -2887,7 +3241,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "extrême grave",
@@ -2904,7 +3260,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "extrême grave",
@@ -2921,7 +3279,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -2938,7 +3298,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -2955,7 +3317,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -2972,7 +3336,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -2989,7 +3355,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -3006,7 +3374,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -3023,7 +3393,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -3040,7 +3412,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -3057,7 +3431,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -3074,7 +3450,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -3091,7 +3469,9 @@
     "statut": "non publiable",
     "marques": [
      "n<5"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -3108,7 +3488,9 @@
     "statut": "non publiable",
     "marques": [
      "n<5"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -3125,7 +3507,9 @@
     "statut": "non publiable",
     "marques": [
      "n<5"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    }
   ]
  },
@@ -3147,7 +3531,9 @@
     "distance_bark": 0.8,
     "marques": [
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -3164,7 +3550,9 @@
     "distance_bark": 0.65,
     "marques": [
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -3181,7 +3569,9 @@
     "distance_bark": 1.26,
     "marques": [
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -3199,7 +3589,9 @@
     "marques": [
      "F1=f0",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -3217,7 +3609,9 @@
     "marques": [
      "F1=f0",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -3235,7 +3629,9 @@
     "marques": [
      "F1=f0",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -3253,7 +3649,12 @@
     "marques": [
      "F1=f0",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": {
+     "hz": 2348,
+     "ecart_demi_tons": 0.47
+    }
    },
    {
     "registre": "aigu",
@@ -3271,7 +3672,9 @@
     "marques": [
      "F1=f0",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -3289,7 +3692,9 @@
     "marques": [
      "F1=f0",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -3307,7 +3712,9 @@
     "marques": [
      "F1=f0",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -3325,7 +3732,9 @@
     "marques": [
      "F1=f0",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -3343,7 +3752,9 @@
     "marques": [
      "F1=f0",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    }
   ]
  },
@@ -3365,7 +3776,12 @@
     "distance_bark": 0.5,
     "marques": [
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": {
+     "hz": 1318,
+     "ecart_demi_tons": 0.02
+    }
    },
    {
     "registre": "grave",
@@ -3380,7 +3796,9 @@
     "IQR2": 1.67,
     "voyelle": "ø",
     "distance_bark": 0.85,
-    "marques": []
+    "marques": [],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -3395,7 +3813,9 @@
     "IQR2": 1.92,
     "voyelle": "ø",
     "distance_bark": 0.19,
-    "marques": []
+    "marques": [],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -3412,7 +3832,9 @@
     "distance_bark": 0.28,
     "marques": [
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -3429,7 +3851,9 @@
     "distance_bark": 0.92,
     "marques": [
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -3446,7 +3870,9 @@
     "distance_bark": 0.63,
     "marques": [
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -3463,7 +3889,9 @@
     "distance_bark": 0.25,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -3481,7 +3909,9 @@
     "marques": [
      "F1=f0",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -3498,7 +3928,9 @@
     "distance_bark": 0.55,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -3516,7 +3948,9 @@
     "marques": [
      "F1=f0",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -3534,7 +3968,9 @@
     "marques": [
      "F1=f0",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -3552,7 +3988,9 @@
     "marques": [
      "F1=f0",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    }
   ]
  },
@@ -3572,7 +4010,9 @@
     "IQR2": 1.03,
     "voyelle": "u",
     "distance_bark": 1.74,
-    "marques": []
+    "marques": [],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -3587,7 +4027,9 @@
     "IQR2": 0.64,
     "voyelle": "u",
     "distance_bark": 2.29,
-    "marques": []
+    "marques": [],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -3602,7 +4044,9 @@
     "IQR2": 1.3,
     "voyelle": "u",
     "distance_bark": 2.09,
-    "marques": []
+    "marques": [],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -3617,7 +4061,9 @@
     "IQR2": 1.35,
     "voyelle": "u",
     "distance_bark": 2.16,
-    "marques": []
+    "marques": [],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -3632,7 +4078,9 @@
     "IQR2": 1.89,
     "voyelle": "u",
     "distance_bark": 2.11,
-    "marques": []
+    "marques": [],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -3647,7 +4095,9 @@
     "IQR2": 1.44,
     "voyelle": "u",
     "distance_bark": 2.16,
-    "marques": []
+    "marques": [],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -3665,7 +4115,12 @@
     "marques": [
      "F1=f0",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": {
+     "hz": 1108,
+     "ecart_demi_tons": 0.07
+    }
    },
    {
     "registre": "aigu",
@@ -3682,7 +4137,9 @@
     "distance_bark": 0.51,
     "marques": [
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -3699,7 +4156,9 @@
     "distance_bark": 0.54,
     "marques": [
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -3716,7 +4175,9 @@
     "distance_bark": 2.56,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -3733,7 +4194,9 @@
     "distance_bark": 2.52,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -3750,7 +4213,9 @@
     "distance_bark": 2.52,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    }
   ]
  },
@@ -3772,7 +4237,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -3789,7 +4256,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -3804,7 +4273,9 @@
     "IQR2": 0.8,
     "voyelle": "ø",
     "distance_bark": 2.67,
-    "marques": []
+    "marques": [],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -3821,7 +4292,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -3838,7 +4311,9 @@
     "distance_bark": null,
     "marques": [
      "1 max"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -3855,7 +4330,9 @@
     "distance_bark": 2.66,
     "marques": [
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -3872,7 +4349,9 @@
     "distance_bark": 2.15,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -3889,7 +4368,9 @@
     "distance_bark": 2.15,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -3906,7 +4387,9 @@
     "distance_bark": 1.87,
     "marques": [
      "F1=f0"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -3923,7 +4406,9 @@
     "distance_bark": 0.51,
     "marques": [
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -3940,7 +4425,9 @@
     "distance_bark": 0.29,
     "marques": [
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "suraigu",
@@ -3957,7 +4444,9 @@
     "distance_bark": 0.29,
     "marques": [
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    }
   ]
  },
@@ -3979,7 +4468,9 @@
     "distance_bark": 0.94,
     "marques": [
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -3996,7 +4487,9 @@
     "distance_bark": 0.99,
     "marques": [
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "grave",
@@ -4013,7 +4506,9 @@
     "distance_bark": 1.2,
     "marques": [
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -4030,7 +4525,9 @@
     "distance_bark": 0.35,
     "marques": [
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -4047,7 +4544,9 @@
     "distance_bark": 1.09,
     "marques": [
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "médium",
@@ -4064,7 +4563,9 @@
     "distance_bark": 0.77,
     "marques": [
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -4082,7 +4583,9 @@
     "marques": [
      "F1=f0",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -4100,7 +4603,9 @@
     "marques": [
      "F1=f0",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    },
    {
     "registre": "aigu",
@@ -4118,7 +4623,9 @@
     "marques": [
      "F1=f0",
      "dispersé"
-    ]
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
    }
   ]
  }

@@ -227,6 +227,55 @@ Trois chiffres à retenir pour l'orchestration :
 
 Détail dans `_LARGEUR-PAR-REGISTRE.md`.
 
+### Et à nuance égale, l'accord entre corpus revient
+
+La section ci-dessus concluait que « toute mesure de cuivre agrégée sur plusieurs nuances est
+nécessairement étalée ». La tâche C7 a vérifié la réciproque : si l'étalement vient de là, le
+désaccord entre bibliothèques doit disparaître dès qu'on compare à nuance égale.
+
+| Comparaison de la couleur (F1) entre corpus de provenances distinctes | Accords stricts (< 0,5 demi-ton) |
+|---|---|
+| nuances réunies | **1**, et douteux — IQR de 14,4 demi-tons |
+| **à nuance égale** | **6** |
+
+Le cas le plus net est le **trombone basse au doux** : trois corpus de provenances distinctes —
+Yan_Adds, VO et ZSamples — donnent **412, 408 et 403 Hz**, soit **0,39 demi-ton d'étendue
+totale**, avec des pentes contre f0 de +0,07, +0,08 et +0,10. Il réplique aussi au fort, à 713
+et 695 Hz. **La dépendance à la nuance est donc elle-même répliquée** : le même instrument passe
+de ~408 à ~704 Hz dans deux bibliothèques indépendantes, ce qui écarte l'explication par la
+prise de son.
+
+**Quatre des six accords sont au doux.** Hypothèse la plus simple, à vérifier : au doux le
+spectre est pauvre et la couleur est dominée par la résonance propre de l'instrument, tandis
+qu'au fort elle dépend du souffle du joueur et du niveau d'enregistrement, qui varient d'une
+bibliothèque à l'autre. C'est cohérent avec le fait que ce soit au fort que les pics
+s'élargissent le plus.
+
+Conséquence de publication, et elle est directe : **la couleur d'un cuivre doit être publiée
+par nuance, jamais agrégée.** Agrégée, elle ne réplique pas ; par nuance, elle réplique sur
+trois bibliothèques à un tiers de demi-ton près.
+
+### Une borne de lecture : au-dessus du médium, la carte vocalique mesure la note
+
+Toujours C7, sur les six cuivres et tous corpus confondus. La pente de log2(F1) contre log2(f0)
+doit être nulle si F1 est une propriété du tuyau et valoir 1 si ce n'est que la hauteur jouée.
+
+| Registre | sons pédale | extrême grave | grave | médium | aigu | **suraigu** |
+|---|---|---|---|---|---|---|
+| F1 / f0 | **10,8** | 7,9 | 4,2 | 2,1 | 1,0 | **1,0** |
+| r² médian | 0,06 | 0,04 | 0,03 | 0,05 | 0,31 | **0,85** |
+| pente médiane | 0,44 | 0,21 | −0,07 | 0,16 | 0,42 | **1,03** |
+
+Dans le suraigu d'un cuivre, **la carte vocalique ne mesure pas une couleur, elle mesure la
+note** : pente 1,03 avec r² = 0,85. Dans l'aigu, six cellules sur dix-sept y sont déjà. Rien ne
+doit être lu au-dessus du médium.
+
+Et le renversement : le registre **pédale**, laissé jusqu'au 24 octobre dans une catégorie
+« hors registre », est le terrain le plus propre de tous — F1 y vaut onze fois f0, donc aucune
+confusion avec la fondamentale n'y est possible, et r² y tombe à 0,06.
+
+Détail dans `_REGISTRES-PEDALE.md`.
+
 ## 3. La géométrie du tuyau se lit dans le spectre
 
 La balance entre harmoniques impairs et pairs est positive chez toutes les clarinettes, et
@@ -265,8 +314,23 @@ formant étroit donne un effet qui dépend de la note, donc irrégulier le long 
 Et une mise en garde. Chez la **trompette**, la mesure sur l'enveloppe vraie donne une largeur
 égale à la fréquence centrale — Q ≈ 1. Cela signifie qu'il n'y a **aucun pic localisé** : ce
 qui réplique à 2 792 Hz est une région d'énergie, pas une résonance. Le modèle LPC y place
-pourtant un pôle étroit, parce qu'il y est contraint. Même situation au trombone basse vers
-1 670 Hz.
+pourtant un pôle étroit, parce qu'il y est contraint.
+
+**Répliqué le 28/10 sur les cinq corpus**, et c'est l'un des rares verdicts de l'étude à
+survivre tel quel : la trompette donne Q = 1,0 · 1,2 · 1,1 à 2 792 Hz et 1,1 · 1,1 · 1,0 à
+4 695 Hz, sur trois corpus de provenances distinctes. **C'est l'instrument, pas le corpus.**
+C'est aussi le seul cas où la mesure dit que la notion de pic ne s'applique pas, au lieu de
+donner une valeur.
+
+Le trombone basse, que nous mettions dans le même cas, **n'y résiste pas** : 1,1 · 1,1 · 8,4
+vers 1 759 Hz. Ni le trombone ténor vers 830 Hz : 1,5 · 2,4 · 3,9. À retirer.
+
+Et une leçon de méthode, qui vaut pour toute la partie : **un verdict de localisation ne doit
+pas être prononcé sur un seul corpus.** Sur quarante-deux formants, dix changent d'avis selon le
+corpus. Il a fallu en outre écarter Xsamples, qui rend les pics **37 % plus étroits** que SOL —
+comparaison appariée sur dix-huit formants, plus net dans quinze — et dont le Q ne descend jamais
+sous 3. Sans cette correction, la réplication paraissait échouer entièrement. Voir
+`_LOCALISATION.md`.
 
 ## 5. L'espace vocalique couvre ce que les formants ne couvrent pas
 
@@ -283,9 +347,17 @@ saillance du motif d'excitation auditive et la compare aux voyelles du français
 | Hors de l'espace dès le médium ou l'aigu | **petite flûte** · flûte · clarinettes Mib et Sib au suraigu |
 | Hors de l'espace par le bas, ou sans second maximum | contrebasson · les deux tubas · cor et trombones hors de l'aigu |
 
-**La frontière tombe vers 700 Hz de F1**, qui est exactement le plafond de /a/ chez l'homme —
-684 Hz. Au-delà, aucune voyelle française n'est atteignable : il n'y a rien au-dessus. C'est
-arithmétique, et c'est ce qui explique que le piccolo ne ressemble à aucune voyelle.
+**La frontière tombe vers 700 Hz de F1**, qui est exactement le plafond de /a/ **en voix
+d'homme** — 684 Hz. Au-delà, aucune voyelle française n'est atteignable : il n'y a rien
+au-dessus. C'est arithmétique, et c'est ce qui explique que le piccolo ne ressemble à aucune
+voyelle.
+
+> La voix doit être nommée, parce que la frontière en dépend : en voix de femme le plafond est
+> à **788 Hz**, et 51 des 176 cellules situées au-dessus du plafond masculin repassent dans
+> l'espace. Le **plancher**, lui, ne bouge pas — 300 Hz contre 305 — parce qu'il est le F1
+> d'une voyelle fermée, donc une résonance de Helmholtz presque indépendante de la longueur du
+> conduit. C'est ce qui rend le critère « hors espace par le bas » robuste et le critère « par
+> le haut » dépendant de la référence. Tâche C12, `_REFERENCE-FEMININE.md`.
 
 Les clarinettes offrent la régularité la plus frappante : **chacune monte de /u/ vers /a/** en
 gravissant ses registres, puis sort par le haut. Et plus l'instrument est grave, moins il monte.
@@ -365,6 +437,33 @@ Appliqué aux trois unissons, membre par membre :
 **Celui de 1 244 Hz est le seul dont les deux membres sont corroborés.** Les deux autres sont
 asymétriques, et le membre faible s'explique chaque fois.
 
+### Et une seconde corroboration, qui tombe exactement là où le LPC échoue
+
+La tâche C8 a demandé à la carte vocalique si ses maxima tombent sur les formants établis du
+même instrument. **La réponse générale est non** — 5,8 % contre 6,1 % pour un témoin fait des
+propres formants de l'instrument transposés de ±2 à ±6 demi-tons, et 3,6 % contre 4,0 % sur
+les seules cellules non marquées. Elle est non en particulier pour les cordes, pour qui la
+question avait été posée : violon ×1,4, violoncelle ×1,1, alto ×0,3.
+
+**Une exception, et elle est forte : le basson.** Son F1 tombe sur ses formants de 494 et
+554 Hz dans **seize cellules non marquées sur dix-sept** — ×7,0 contre son propre témoin — sur
+deux corpus de provenances distinctes, dans trois registres et aux trois nuances. Et son F2
+corrobore son **1 108 Hz**, c'est-à-dire sa part de l'unisson avec le violoncelle.
+
+Ce qui tombe juste est le lieu : **le LPC refusait ce membre-là** (29,4ᵉ centile), et la tâche
+C4 avait dit pourquoi — le modèle tout-pôle échoue sur les anches doubles, où l'anche couplée
+à la perce n'est pas une source blanche. Le basson à 1 108 Hz n'est donc pas un membre faible
+de l'unisson : c'est un membre qu'un des deux instruments de mesure ne pouvait pas voir, et
+qu'un troisième voit.
+
+La raison pour laquelle le cas est isolé est arithmétique, et elle vient de la section 6
+ci-dessus prise à l'envers : **l'écart médian de F1 au formant établi le plus proche est de
+15,5 demi-tons**, plus d'une octave — et de 22,6 chez les cordes. La méthode 8 ne mesure rien sous 3,2 à 5,7 fois
+f0_min, tandis que F1 vit juste au-dessus de la fondamentale. Les deux méthodes ne regardent
+pas la même région — sauf chez un instrument dont un formant est bas. Le basson en a deux.
+
+Détail dans `_COINCIDENCES-F2.md`.
+
 ---
 
 # III. Les mélanges
@@ -436,17 +535,89 @@ famille d'orchestration n'est pas une famille de couleur.**
 
 ## Ce que cette partie ne dit pas
 
-**Unisson seulement.** Les mélanges sont calculés à hauteur identique. Le doublage à l'octave,
-qui est le cas le plus fréquent en orchestration, n'est pas couvert — et il changerait
-probablement beaucoup, l'instrument aigu ne recouvrant alors plus les maxima graves de l'autre.
 Un seul corpus ; deux instruments à la fois, un tutti n'étant pas une somme de paires ; et le
 spectral n'est pas le perceptif.
 
 Détail et table complète dans `_MELANGES.md`.
 
+## À l'octave, la loi se retourne
+
+Le doublage à l'octave a été mesuré le 28/10 — 402 paires, et **orientées** : à l'unisson
+mélanger A et B ou B et A revient au même, à l'octave non. Flûte au-dessus du hautbois n'est pas
+hautbois au-dessus de la flûte, et l'écart médian de fusion entre les deux sens est de
+**14 points**.
+
+| | Unisson | Octave |
+|---|---|---|
+| Fusion | 23 % | 29 % |
+| Homogène | 33 % | **16 %** |
+| Juxtaposition | 7 % | **18 %** |
+| Écart de couleur médian | 1,65 Bark | **2,71 Bark** |
+
+Transposer un parent d'une octave écarte sa couleur de celle de l'autre : par la loi, la fusion
+monte et l'homogénéité s'effondre. Mais la juxtaposition est multipliée par 2,5, et c'est là que
+la loi se retourne.
+
+**La fusion culmine entre 3 et 4 Bark — 41 % — puis redescend à 35 %**, tandis que la
+juxtaposition continue de monter jusqu'à 28 %. À l'unisson ce plafond n'était pas visible, faute
+de paires assez éloignées. **C'est le seuil de Chistovich qui remonte à la surface** : deux
+maxima auditifs ne se fondent qu'à moins de 3,5 Bark ; au-delà ils restent deux.
+
+Donc **il existe une distance de couleur optimale pour créer**, et choisir deux instruments « le
+plus différents possible » n'est pas la bonne stratégie.
+
+Trois doublages, parmi ceux qu'on écrit réellement :
+
+| | Fusion | Juxtaposition | Renforcement | *unisson* |
+|---|---|---|---|---|
+| **Violoncelle ⇑ Violon** | **56 %** | 10 % | 26 % | *24 %* |
+| **Hautbois ⇑ Flûte** | 24 % | 12 % | **61 %** | *18 %* |
+| **Flûte ⇑ Petite flûte** | 15 % | **67 %** | 13 % | *0 %* |
+
+**Les cordes doublées à l'octave fusionnent** — violoncelle ⇑ violon 56 %, alto ⇑ violon 44 %,
+contre 24 et 19 % à l'unisson. C'est le seul groupe qui le fasse autant, et c'est sans doute le
+résultat le plus directement utilisable de l'étude. **La flûte au-dessus du hautbois renforce
+sans créer** (61 %). **Et la petite flûte ne se fond pas, elle se superpose** : 67 % de
+juxtaposition, le maximum de la table, alors qu'à l'unisson les deux instruments sont homogènes
+à 75 %. C'est ce qu'on entend d'un pupitre de petites flûtes.
+
+Enfin, une indication sur le sens : **le sens le plus fusionnant met le timbre le plus clair
+au-dessus dans 71 % des cas** — conséquence directe de la loi, puisque transposer vers le haut
+le plus clair écarte encore les deux couleurs. C'est une tendance et non une règle, et l'effet
+de registre s'y mêle.
+
+Détail dans `_MELANGES-OCTAVE.md`.
+
 ---
 
 # IV. Ce qui n'est pas mesurable, et c'est un résultat
+
+## Où s'arrête l'espace vocalique, et pourquoi la question était mal posée
+
+Un instrument était dit « hors espace par le bas » quand un seul maximum survivait à la fusion
+de Chistovich : sans second maximum, pas de couple (F1, F2). Ce critère dépend de la brillance
+de la prise de son — jusqu'à 60 points d'écart entre deux corpus pour le trombone basse.
+
+Le remplaçant compare **F1 au plancher de l'espace vocalique**, le plus bas F1 des dix voyelles
+de Calliope, celui de /y/ à 300 Hz. L'étendue moyenne entre corpus tombe de 24,3 à 9,5 points.
+Et il montre que l'ancien critère **confondait trois choses** :
+
+| | Instruments |
+|---|---|
+| **hors espace par le bas** — F1 sous 300 Hz dans la moitié des cellules | contrebasse, clarinette contrebasse, tuba contrebasse, tuba basse |
+| **hors espace dans le grave seulement** | violoncelle, clarinette basse, contrebasson, flûtes basse et contrebasse, clarinettes en Mi♭ et Si♭, cor |
+| **dans l'espace, mais sans second maximum** | trombone ténor, trombone basse, tuba basse |
+
+Les quatre premiers sont les instruments les plus graves de l'orchestre, et eux seuls : le
+résultat attendu, ce qui est un contrôle de la mesure. Mais les **trombones ne sont pas hors
+espace** — leur couleur est en plein milieu, F1 de 529 à 637 Hz ; ils n'ont pas de F2. Et à
+l'inverse la **contrebasse**, qui est réellement sous l'espace dans trois quarts de ses
+cellules, n'était que rarement signalée.
+
+Un dernier cas à ne pas confondre avec les autres : **chez la trompette et le cor, l'absence de
+second maximum est un effet de nuance** — 67 % et 100 % de cellules sans F2 au doux, **0 % au
+fort**. Les décrire d'après un corpus agrégé sur toutes les nuances revenait à les décrire au
+piano. Détail dans `_HORS-ESPACE.md`.
 
 Une étude qui ne dit pas où elle échoue n'est pas vérifiable.
 
@@ -528,10 +699,15 @@ pas la réponse que nous attendions. Nous cherchions des doublures expliquées p
 partagé ; ce sont au contraire les instruments **éloignés** qui produisent une couleur nouvelle,
 et les proches qui se fondent sans rien créer.
 
-La question qui la remplace est plus étroite et plus urgente : **tout cela est calculé à
-l'unisson, alors que l'orchestration double à l'octave.** Un instrument aigu doublant à l'octave
-ne recouvre plus les maxima graves de l'autre ; la table en serait sans doute profondément
-changée. Le calcul est en place et ne demande qu'un décalage de douze demi-tons.
+La question qui l'avait remplacée — le doublage à l'octave — **a été traitée le 28 octobre**, et
+elle a livré plus que prévu : non seulement l'octave change la table, mais elle révèle que **la
+loi a un maximum**, vers 3 à 4 Bark, invisible à l'unisson. Le seuil de fusion de Chistovich se
+lit donc au niveau de l'orchestre.
+
+Celle qui reste est la suivante dans la même direction : **le maximum de fusion se déplace-t-il
+avec l'intervalle ?** S'il se tient à 3–4 Bark à la quinte, à la double octave et à l'octave plus
+tierce comme il s'y tient à l'octave, alors c'est bien une propriété de l'oreille et non de
+l'octave. C'est le même paramètre à changer, et trois lancements.
 
 Et une réserve qui ne se lèvera pas par le calcul : ce qui est mesuré est le mélange **spectral**.
 La fusion timbrale en a besoin, mais elle demande aussi la phase, l'espace, et des musiciens qui

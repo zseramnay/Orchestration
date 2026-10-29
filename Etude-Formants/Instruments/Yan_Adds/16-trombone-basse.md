@@ -136,7 +136,7 @@ descend à A#0, soit plus bas que l'entrée générique.
 Mesure par registre : non effectuée.
 
 <!-- DEBUT-TRAVAUX-27-10 -->
-## Ce que les travaux du 27/10/2026 disent de cet instrument
+## Ce que les travaux des 27 et 28/10/2026 disent de cet instrument
 
 ### Corroboration par le LPC, note par note
 
@@ -159,6 +159,29 @@ Part de pics **non localisables** — l'enveloppe n'y redescend pas de 3 dB des 
 | hors registre | — | 43 % | 26 % |
 
 **Effet doux → fort : +54 points.** La localisation s'améliore en jeu fort.
+
+### La couleur dépend de la nuance, et ne se lit que jusqu'au médium
+
+F1 du motif d'excitation, notes **pédale + grave + médium** réunies : au-dessus du médium la mesure donne la fondamentale et non une couleur (F1/f0 = 1,0, pente contre f0 de 1,03 au suraigu). Voir `../_REGISTRES-PEDALE.md`.
+
+| Corpus | doux | moyen | fort | doux → fort |
+|---|---|---|---|---|
+| SOL | 412 Hz | 663 Hz | 713 Hz | **+9,5 dt** |
+| ZSamples | 403 Hz | — | 695 Hz | **+9,4 dt** |
+| VO | 408 Hz | 524 Hz | 611 Hz | **+7,0 dt** |
+
+**Ce qui réplique, à nuance égale** — paires de corpus de provenances distinctes accordées à moins d'un demi-ton :
+
+- **doux** : SOL 412 Hz / VO 408 Hz — **0,15 demi-ton**, pentes contre f0 +0,07 et +0,08
+- **doux** : VO 408 Hz / ZSamples 402 Hz — **0,24 demi-ton**, pentes contre f0 +0,08 et +0,10
+- **doux** : SOL 412 Hz / ZSamples 402 Hz — **0,39 demi-ton**, pentes contre f0 +0,07 et +0,10
+- **fort** : SOL 712 Hz / ZSamples 695 Hz — **0,43 demi-ton**, pentes contre f0 -0,09 et +0,19
+
+### La carte vocalique corrobore-t-elle les formants ?
+
+**Non.** F1 0,0 % contre 4,4 % au témoin — soit le hasard, ou moins. Les deux méthodes ne mesurent pas la même région du spectre : F1 se situe en médiane à 15,5 demi-tons du formant établi le plus proche, parce que la méthode 8 ne mesure rien sous 3,2 à 5,7 fois f0_min.
+
+Témoin : les propres formants de l'instrument transposés de ±2 à ±6 demi-tons, ce qui conserve leur nombre et leur espacement. Voir `../_COINCIDENCES-F2.md`.
 
 ### Dans la table des mélanges
 

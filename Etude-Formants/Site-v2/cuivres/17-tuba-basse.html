@@ -10,7 +10,7 @@
 <div class="bandeau"><h1>Tuba basse</h1><p>Bass tuba</p></div>
 <p class="fil"><a href="../index.html">Sommaire</a> › Les cuivres</p>
 <table class="sommaire"><tr><th>Classe</th><th>Provenance</th><th>Échantillons</th><th>Tessiture</th><th>Formants établis</th></tr><tr><td>A</td><td>IRCAM</td><td>108</td><td>F</td><td>3</td></tr></table><table class="sommaire"><tr><th>Formant</th><th>Note</th><th>Corpus</th><th>Localisation</th></tr><tr><td><b>498 Hz</b></td><td>Si4</td><td>VO ZSamples</td><td></td></tr><tr><td><b>659 Hz</b></td><td>Mi5</td><td>SOL ZSamples VN</td><td></td></tr><tr><td><b>1244 Hz</b></td><td>Ré♯6</td><td>VN ZSamples</td><td></td></tr></table><figure><img src="../figures/composite-tuba-basse.png" alt="Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, ZSamples, VO, VN). Un formant retenu est un ma" loading="lazy"><figcaption>Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, ZSamples, VO, VN). Un formant retenu est un maximum que deux corpus de provenances distinctes placent au même point de grille.</figcaption></figure>
-<p class="sans-figure"><b>Pas de carte vocalique.</b> un seul maximum survit dans 24 cellules sur 32 : il n&#x27;y a pas de couple (F1, F2) à lire. Ce n'est pas un défaut de mesure : l'instrument sort du triangle vocalique par le bas.</p>
+<p class="sans-figure"><b>Pas de carte vocalique.</b> un seul maximum survit dans 34 cellules sur 42 : il n&#x27;y a pas de couple (F1, F2) à lire. Ce n'est pas un défaut de mesure : l'instrument sort du triangle vocalique par le bas.</p>
 <h1>Tuba basse</h1>
 <blockquote>
 <h2>Statut des formants — révision du 26/10/2026</h2>
@@ -244,7 +244,7 @@ médium, puis 280 Hz à l'aigu et 334 Hz au suraigu. La « convergence exacte Δ
 violoncelle suraigu et avec la flûte grave reposait donc sur des rencontres de zones de
 fondamentale entre instruments de tessitures très différentes.</p>
 <!-- DEBUT-TRAVAUX-27-10 -->
-<h2>Ce que les travaux du 27/10/2026 disent de cet instrument</h2>
+<h2>Ce que les travaux des 27 et 28/10/2026 disent de cet instrument</h2>
 <h3>Corroboration par le LPC, note par note</h3>
 <p>Rang du formant dans son propre spectre : 50 % signifie que les deux méthodes ne s'accordent pas mieux là qu'ailleurs. Voir <code>../_APPARIEMENT-LPC.md</code>.</p>
 <table>
@@ -322,6 +322,56 @@ fondamentale entre instruments de tessitures très différentes.</p>
 </tbody>
 </table>
 <p><strong>Effet doux → fort : -9 points.</strong> Elle se dégrade en jeu fort — comportement inverse de celui des trombones et de la trompette.</p>
+<h3>La couleur dépend de la nuance, et ne se lit que jusqu'au médium</h3>
+<p>F1 du motif d'excitation, notes <strong>pédale + grave + médium</strong> réunies : au-dessus du médium la mesure donne la fondamentale et non une couleur (F1/f0 = 1,0, pente contre f0 de 1,03 au suraigu). Voir <code>../_REGISTRES-PEDALE.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Corpus</th>
+<th>doux</th>
+<th>moyen</th>
+<th>fort</th>
+<th>doux → fort</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SOL</td>
+<td>150 Hz</td>
+<td>245 Hz</td>
+<td>364 Hz</td>
+<td><strong>+15,4 dt</strong></td>
+</tr>
+<tr>
+<td>ZSamples</td>
+<td>250 Hz</td>
+<td>—</td>
+<td>325 Hz</td>
+<td><strong>+4,5 dt</strong></td>
+</tr>
+<tr>
+<td>VO</td>
+<td>147 Hz</td>
+<td>175 Hz</td>
+<td>261 Hz</td>
+<td><strong>+9,9 dt</strong></td>
+</tr>
+<tr>
+<td>VN</td>
+<td>231 Hz</td>
+<td>297 Hz</td>
+<td>349 Hz</td>
+<td><strong>+7,1 dt</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ce qui réplique, à nuance égale</strong> — paires de corpus de provenances distinctes accordées à moins d'un demi-ton :</p>
+<ul>
+<li><strong>doux</strong> : SOL 149 Hz / VO 147 Hz — <strong>0,3 demi-ton</strong>, pentes contre f0 -0,20 et -0,25</li>
+</ul>
+<h3>La carte vocalique corrobore-t-elle les formants ?</h3>
+<p><strong>Non.</strong> F1 0,0 % contre 3,2 % au témoin — soit le hasard, ou moins. Les deux méthodes ne mesurent pas la même région du spectre : F1 se situe en médiane à 15,5 demi-tons du formant établi le plus proche, parce que la méthode 8 ne mesure rien sous 3,2 à 5,7 fois f0_min.</p>
+<p>Témoin : les propres formants de l'instrument transposés de ±2 à ±6 demi-tons, ce qui conserve leur nombre et leur espacement. Voir <code>../_COINCIDENCES-F2.md</code>.</p>
 <h3>Dans la table des mélanges</h3>
 <p>20 paires calculées. <strong>Fusion moyenne : 24 %.</strong> Voir <code>../_MELANGES.md</code>.</p>
 <table>

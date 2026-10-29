@@ -51,6 +51,14 @@ SYNTHESES = [
     ('appariement-lpc', 'Corroboration par le LPC', '_APPARIEMENT-LPC.md'),
     ('largeur-par-registre', 'Largeur par registre et dynamique', '_LARGEUR-PAR-REGISTRE.md'),
     ('melanges', 'Fusion, renforcement, homogénéité', '_MELANGES.md'),
+    ('melanges-octave', "Le doublage à l'octave", '_MELANGES-OCTAVE.md'),
+    ('hors-espace', "Les bords de l'espace vocalique", '_HORS-ESPACE.md'),
+    ('localisation', 'La localisation, répliquée', '_LOCALISATION.md'),
+    ('coupure-benade', 'La coupure du réseau de trous', '_COUPURE-BENADE.md'),
+    ('registres-pedale', 'Les registres pédale des cuivres', '_REGISTRES-PEDALE.md'),
+    ('coincidences-f2', 'Les deux méthodes se corroborent-elles ?', '_COINCIDENCES-F2.md'),
+    ('reference-feminine', 'Voix d\'homme ou voix de femme ?', '_REFERENCE-FEMININE.md'),
+    ('verification-vocalique', 'La carte, corpus contre corpus', '_VERIFICATION-VOCALIQUE.md'),
     ('heritage', "L'ancienne étude, et pourquoi", '_VERIFICATION-GRAVES.md'),
 ]
 
@@ -93,6 +101,22 @@ FIGURES_SYNTHESE = {
         'issues du mélange. La fusion croît, l\'homogénéité décroît, le renforcement culmine '
         'au milieu. À droite, les 215 paires, colorées par leur issue majoritaire et '
         'dimensionnées par le nombre de hauteurs communes.')],
+    'melanges-octave': [('synthese-melanges-octave.png',
+        'À gauche, la loi à l\'unisson (pointillé) et à l\'octave (trait plein). La fusion '
+        'culmine entre 3 et 4 Bark puis redescend, tandis que la juxtaposition continue de '
+        'monter : c\'est le seuil de fusion de Chistovich. Le pointillé de l\'unisson monte '
+        'encore au-delà de 4 Bark, mais sur treize paires seulement — c\'est le manque de '
+        'paires éloignées qui cachait le maximum, et l\'octave qui le révèle en peuplant le '
+        'haut de l\'échelle. À droite, chaque paire portée par ses deux sens : si le sens ne '
+        'changeait rien, tous les points seraient sur la diagonale.')],
+    'registres-pedale': [('synthese-registres-pedale.png',
+        'À gauche, la borne de lecture : le rapport F1/f0 descend de 10,8 au registre pédale '
+        'à 1,0 à l\'aigu, où la mesure cesse d\'être une couleur pour devenir la note. Le '
+        'registre pédale, longtemps laissé « hors registre », est au contraire le plus propre. '
+        'À droite, la variable que la pente contre f0 ne peut pas voir : la couleur monte de '
+        '9,5 demi-tons en médiane du doux au fort, pour les six instruments et les quatre '
+        'corpus. Les cercles marquent les six accords stricts entre provenances distinctes, '
+        'qui n\'apparaissent qu\'à nuance égale — quatre d\'entre eux au doux.')],
     'replication': [('synthese-rho-corpus.png',
                      'ρ par corpus. L\'étendue entre corpus mesure ce que le choix '
                      'de la banque, à lui seul, fait varier.')],
@@ -244,6 +268,9 @@ def construire(racine, sortie, css_v6=''):
                 'Carte vocalique : chaque cellule est un registre à une dynamique, '
                 'placée dans le plan (F1, F2) en Bark contre les voyelles du français '
                 '(Calliope, voix d\'homme). Marqueur creux : cellule non assignable. '
+                'Le nom de la voyelle dépend de la référence : en voix de femme, '
+                '41 %% des cellules en changent et 11 instruments sur 20 changent de '
+                'voyelle dominante. Le plancher de l\'espace, lui, ne bouge pas. '
                 'Corpus : %s.' % ', '.join(fg['corpus'])))
         elif fg.get('absent'):
             entete.append('<p class="sans-figure"><b>Pas de carte vocalique.</b> %s. '

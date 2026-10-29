@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La carte, corpus contre corpus</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="bandeau"><h1>La carte, corpus contre corpus</h1></div>
+<p class="fil"><a href="../index.html">Sommaire</a> › Synthèses</p>
+<h1>Étendre la vérification vocalique aux instruments non comparés</h1>
+<h2>Le trou n'était pas un manque de données</h2>
+<p>Le plan portait depuis le 24 octobre trois instruments « sans second corpus » : clarinette
+basse, flûte contrebasse, clarinette contrebasse. <strong>Les spectres existaient pourtant dans
+deux à trois autres corpus chacun.</strong> Et ZSamples — vingt instruments mesurés — n'avait
+<strong>aucune carte vocalique du tout</strong>.</p>
+<p>La cause n'est pas la donnée mais le nom. Les corpus n'écrivent pas les instruments comme les
+fiches : accents absents (« Flute basse », « Trombone tenor », « Petite flute ») et
+transposition ajoutée (« Clarinette basse en Sib », « Cor en Fa », « Trompette en Ut »). La
+comparaison était une <strong>égalité exacte</strong>. Le script imprimait « absent » et passait.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Avant</th>
+<th>Après</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Couples instrument × corpus cartographiés, hors SOL</td>
+<td>21</td>
+<td><strong>56</strong></td>
+</tr>
+<tr>
+<td>ZSamples</td>
+<td><strong>0</strong></td>
+<td>20</td>
+</tr>
+<tr>
+<td>Xsamples</td>
+<td>5</td>
+<td>10</td>
+</tr>
+<tr>
+<td>VO</td>
+<td>8</td>
+<td>15</td>
+</tr>
+<tr>
+<td>VN</td>
+<td>8</td>
+<td>11</td>
+</tr>
+<tr>
+<td><strong>Instruments ayant au moins deux corpus</strong></td>
+<td>19</td>
+<td><strong>22 sur 22</strong></td>
+</tr>
+<tr>
+<td>dont deux corpus de <strong>provenances distinctes</strong></td>
+<td>—</td>
+<td><strong>21</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Seul le <strong>tuba contrebasse</strong> reste sans paire valide : ses deux corpus, SOL (<code>Yan_Adds</code>) et
+VN, sont la même bibliothèque, comme la règle de provenance du 25 octobre l'établit.</p>
+<blockquote>
+<p><strong>Une absence de données et une absence de correspondance se ressemblent trop</strong> pour qu'on
+s'en remette à l'œil sur une ligne de sortie. La résolution est désormais dans
+<code>carte_vocalique.resoudre_fichier</code>, avec sa garde : le nom suivi de « en » est accepté,
+un préfixe libre non — sans quoi « Flûte » attraperait « Flûte basse » et « Clarinette
+basse » attraperait « Clarinette contrebasse ». Et le script liste maintenant à la fin
+les instruments sans spectres, au lieu de le dire ligne à ligne au milieu du reste.</p>
+</blockquote>
+<p>Vérifié avant de conclure : sur les 21 cartes qui existaient déjà, <strong>les valeurs mesurées
+sont identiques au recalcul</strong>. Seul le champ de coïncidence de la tâche C8 bougeait au
+centième, parce qu'il partait du Hz arrondi et non du Bark — corrigé.</p>
+<h2>La vérification elle-même : un partage net</h2>
+<p>L'unité est la cellule — un registre à une nuance — ce qui apparie la nuance, comme la tâche
+C7 a montré qu'il le fallait chez les cuivres. 176 cellules comparables entre corpus de
+provenances distinctes.</p>
+<table>
+<thead>
+<tr>
+<th>Grandeur</th>
+<th>Écart médian entre corpus</th>
+<th>90ᵉ centile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>F1</strong></td>
+<td><strong>0,48 Bark</strong></td>
+<td>1,54</td>
+</tr>
+<tr>
+<td><strong>F2</strong></td>
+<td><strong>0,92 Bark</strong></td>
+<td>2,77</td>
+</tr>
+<tr>
+<td>distance dans le plan (F1, F2)</td>
+<td>1,16 Bark</td>
+<td>2,93</td>
+</tr>
+</tbody>
+</table>
+<p>Les seuils de lecture de la carte sont <strong>2,0 Bark</strong> pour qu'une cellule cesse d'être
+assignable à une voyelle, et <strong>3,5 Bark</strong> — le seuil de Chistovich — pour qu'elle sorte de
+l'espace vocalique.</p>
+<p><strong>F1 réplique : son écart entre corpus est quatre fois plus petit que le seuil qui déciderait
+quoi que ce soit.</strong> F2 ne réplique pas aussi bien, et dans un dixième des cellules les deux
+corpus placent l'instrument à près de 3 Bark l'un de l'autre.</p>
+<h3>Et le nom de la voyelle, qui a besoin des deux, ne réplique pas</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Cellules</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>comparées, avec voyelle dans au moins deux corpus</td>
+<td>124</td>
+</tr>
+<tr>
+<td><strong>les corpus nomment la même voyelle</strong></td>
+<td><strong>60 — soit 48 %</strong></td>
+</tr>
+<tr>
+<td>désaccord entre voyelles <strong>voisines</strong> (≤ 2 Bark)</td>
+<td>22</td>
+</tr>
+<tr>
+<td><strong>désaccord entre voyelles éloignées</strong> (&gt; 2 Bark)</td>
+<td><strong>42</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Les deux tiers des désaccords ne sont donc pas des effets de frontière mais des
+contradictions :</p>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Cellule</th>
+<th>Les corpus disent</th>
+<th>Écart</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Violoncelle</strong></td>
+<td>grave, fort</td>
+<td>/i/ et /u/</td>
+<td><strong>6,43 Bark</strong></td>
+</tr>
+<tr>
+<td><strong>Alto</strong></td>
+<td>grave, fort</td>
+<td>/e/, /o/, /ø/</td>
+<td>5,89 Bark</td>
+</tr>
+<tr>
+<td><strong>Cor anglais</strong></td>
+<td>grave, fort</td>
+<td>/a/, /u/, /ɔ/, /ɛ/</td>
+<td>5,58 Bark</td>
+</tr>
+<tr>
+<td>Violoncelle</td>
+<td>médium, fort</td>
+<td>/u/ et /y/</td>
+<td>5,36 Bark</td>
+</tr>
+<tr>
+<td>Clarinette basse</td>
+<td>gorge, fort</td>
+<td>/e/, /y/, /ɔ/</td>
+<td>4,72 Bark</td>
+</tr>
+</tbody>
+</table>
+<p>Par instrument, l'accord de voyelle va de <strong>75 %</strong> (clarinette en Mi♭) et 73 % (hautbois) à
+<strong>0 %</strong> (flûte contrebasse, trombone basse). Le basson, pourtant l'instrument le mieux
+corroboré de l'étude par la tâche C8, n'est qu'à 22 % — et c'est cohérent : son F1 s'accorde
+à 1,7 demi-ton entre corpus, son F2 à 2,5.</p>
+<p><strong>Conséquence : un nom de voyelle ne doit pas être publié sur la foi d'un seul corpus.</strong>
+C'est la troisième tâche à conclure ainsi, après C6 pour la localisation et C12 pour la
+référence vocalique. La règle est générale et devrait figurer dans la méthode.</p>
+<h2>Une erreur de tolérance, qu'il faut écrire</h2>
+<p>La première lecture de ces mêmes données donnait un désastre : écart médian de F1 de
+<strong>1,81 demi-ton</strong> entre corpus, et <strong>4 instruments sur 21</strong> seulement sous le demi-ton.</p>
+<p>C'était appliquer à la carte la tolérance de la <strong>route A</strong>, qui est celle des formants —
+des points d'une grille au douzième d'octave. Une cellule de carte n'est pas cela : c'est une
+médiane sur 5 à 49 notes, dont l'<strong>IQR interne vaut 5,1 demi-tons en médiane</strong>. Exiger que
+deux telles médianes s'accordent à un demi-ton n'a pas de sens.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Valeur médiane</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dispersion <strong>interne</strong> d'une cellule (IQR de F1)</td>
+<td><strong>5,07 demi-tons</strong></td>
+</tr>
+<tr>
+<td>écart <strong>entre corpus</strong></td>
+<td><strong>1,92 demi-ton</strong></td>
+</tr>
+<tr>
+<td>rapport</td>
+<td><strong>0,38</strong> — et sous 1 dans <strong>80 %</strong> des cellules</td>
+</tr>
+</tbody>
+</table>
+<p><strong>L'écart entre deux corpus vaut 38 % de la dispersion propre d'une cellule.</strong> La carte est
+donc reproductible à sa propre échelle ; c'est la tolérance empruntée qui ne l'était pas.</p>
+<blockquote>
+<p>Le piège a une forme connue dans cette étude : <strong>un test de non-régression doit employer la
+tolérance du résultat qu'il protège.</strong> On l'avait appris à l'envers le 27 octobre, quand un
+test de dégâts au tiers d'octave avait fait recommander une migration que la route A, au
+demi-ton, a démentie. Ici l'erreur est symétrique — une tolérance trop fine au lieu d'une
+tolérance trop lâche — et elle produit un faux négatif au lieu d'un faux positif.</p>
+</blockquote>
+<p>Et un dernier piège, qu'il faut signaler parce qu'il se lit à l'envers : <strong>les cellules
+marquées « F1=f0 » sont celles qui répliquent le mieux</strong> (0,96 demi-ton contre 1,61 pour les
+cellules sans marque). Ce n'est évidemment pas un gage de qualité — ces cellules mesurent la
+note jouée, qui est la même dans tous les corpus par construction. Un taux de réplication
+calculé sans écarter ces cellules-là flatterait la méthode exactement là où elle ne mesure
+rien.</p>
+<h2>Ce que la tâche laisse</h2>
+<ul>
+<li><strong>C13 est close sur la couverture</strong> : 22 instruments sur 22 ont au moins deux corpus,
+  21 en ont deux de provenances distinctes. Le tuba contrebasse reste seul, et seule une
+  sixième banque y changerait quelque chose.</li>
+<li>Le <strong>contrebasson</strong> gagne deux corpus indépendants pour la carte — Xsamples et ZSamples —
+  alors que le chapitre le range parmi les « deux instruments sur lesquels nous ne pouvons
+  rien dire ». Cette phrase vise les <strong>formants</strong> et reste vraie pour eux ; elle ne vaut plus
+  pour la carte vocalique.</li>
+<li><strong>F1 est publiable par corpus ; la voyelle ne l'est pas.</strong></li>
+</ul>
+<h2>Ce qui reste ouvert</h2>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Ce qui la trancherait</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Pourquoi F2 réplique-t-il deux fois moins bien que F1 ?</strong></td>
+<td>F2 est le second maximum survivant après la fusion de Chistovich : il dépend du contenu aigu, donc de la prise de son. La tâche C6 a déjà montré qu'un corpus (Xsamples) rend les pics 37 % plus étroits — même famille de cause, à vérifier sur les mêmes cellules</td>
+</tr>
+<tr>
+<td><strong>Faut-il publier la voyelle en médiane des corpus</strong> plutôt qu'en valeur d'un corpus ?</td>
+<td>les données sont là, cellule par cellule, dans <code>par-cellule.csv</code>. C'est une décision de présentation, mais elle supprimerait 42 contradictions</td>
+</tr>
+<tr>
+<td>Les 35 cartes neuves changent-elles un résultat déjà publié ?</td>
+<td><strong>oui, et les trois tâches qui lisent la carte ont été recalculées le jour même.</strong> C8 : conclusion inchangée et renforcée — le basson passe de ×4,7 à ×5,7 sur F1, le reste reste au niveau du hasard. C12 : inchangée, sauf que la dilatation optimale passe à ×1,15 et bat désormais les trois voix. <strong>C11 : trois instruments changent de classe</strong> — le cor quitte « hors espace dans le grave », le trombone ténor passe à « sans second maximum au doux seulement ». Les quatre instruments réellement sous l'espace n'ont pas bougé. Les documents correspondants portent leurs nouveaux chiffres</td>
+</tr>
+<tr>
+<td>La règle « jamais sur un seul corpus »</td>
+<td>elle vaut maintenant pour la localisation (C6), la référence vocalique (C12) et le nom de voyelle (C13). Elle mérite une entrée propre dans <code>00-METHODE.md</code> plutôt que trois mentions éparses</td>
+</tr>
+</tbody>
+</table>
+<h2>Journal</h2>
+<ul>
+<li><strong>2026-10-29</strong> — Tâche C13. <strong>Le trou n'était pas un manque de données mais un échec
+  d'appariement de noms</strong> : 35 cartes mesurables écartées en silence, dont les vingt de
+  ZSamples, parce que les corpus écrivent « Flute basse » et « Clarinette basse en Sib ». Avec
+  la résolution tolérante, <strong>22 instruments sur 22 ont au moins deux corpus</strong> et 21 en ont
+  deux de provenances distinctes. La vérification elle-même partage net : <strong>F1 réplique</strong>
+  (0,48 Bark d'écart médian, contre 2,0 Bark pour changer un verdict), <strong>F2 non</strong> (0,92, et
+  2,77 au 90ᵉ centile), et <strong>le nom de voyelle, qui a besoin des deux, ne s'accorde que dans
+  48 % des cellules</strong> — avec deux tiers de désaccords entre voyelles distantes de plus de
+  2 Bark, jusqu'à /i/ contre /u/ sur le grave fort du violoncelle. <strong>Et une erreur de
+  tolérance a dû être corrigée en cours de route</strong> : lue au demi-ton de la route A, la carte
+  paraissait ne jamais répliquer ; or la dispersion interne d'une cellule vaut 5,1 demi-tons,
+  et l'écart entre corpus 38 % de cela.</li>
+</ul>
+<footer>Référence formantique de l'orchestre — Yan Maresz · page produite par <code>construire_site.py</code> depuis les fiches et <code>Resultats-v7/</code>.</footer>
+</body>
+</html>

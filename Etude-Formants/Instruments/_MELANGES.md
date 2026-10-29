@@ -179,7 +179,7 @@ d'orchestration n'est pas une famille de couleur.**
 
 | Question | Ce qui la trancherait |
 |---|---|
-| **Le doublage à l'octave** | relancer avec un décalage de 12 demi-tons entre les deux parents. Tout est en place |
+| ~~Le doublage à l'octave~~ | ✅ **fait le 28/10**, voir `_MELANGES-OCTAVE.md`. 402 paires **orientées**. L'homogénéité est divisée par deux, la juxtaposition multipliée par 2,5, et surtout **la loi se révèle avoir un maximum vers 3–4 Bark** — le seuil de Chistovich — que l'unisson ne laissait pas voir |
 | La table tient-elle sur un autre corpus ? | les motifs se calculent de la même façon depuis les spectres de ZSamples, VO, VN |
 | Les trios et les tutti | la linéarité vaut pour n sources : la machinerie existe, c'est la combinatoire qui explose |
 | L'écart de couleur prédit-il aussi la **largeur** du mélange, et pas seulement sa position ? | la largeur du maximum fusionné est calculable ; elle dirait si le mélange est plus ou moins « focalisé » que ses parents |

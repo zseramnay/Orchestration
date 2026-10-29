@@ -159,6 +159,19 @@ centre à 2 792 Hz**, et **4 651 Hz pour un centre à 4 974 Hz**. Autrement dit 
 « résonance » occupe toute la région. Il n'y a **aucun pic localisé**. Même chose pour le
 trombone basse à 1 670 Hz (Q ≈ 1,1) et, de peu, le trombone ténor à 879 Hz (Q ≈ 1,4).
 
+> **Répliqué le 28/10/2026 sur les cinq corpus (tâche C6) : seule la trompette tient.**
+> Ses deux formants donnent Q = 1,0 · 1,2 · 1,1 et 1,1 · 1,1 · 1,0 sur SOL, ZSamples et VN —
+> trois corpus de provenances distinctes, sans biais démontré. **Le Q ≈ 1 de la trompette est
+> l'instrument, pas ce corpus-ci.**
+>
+> Les deux trombones, en revanche, sont **discordants** : 1,1 · 1,1 · 8,4 pour le trombone basse
+> vers 1 759 Hz, 1,5 · 2,4 · 3,9 pour le trombone ténor vers 830 Hz. SOL y est le corpus le plus
+> bas, et les autres remontent. Cette moitié de l'affirmation est donc à retirer.
+>
+> Un biais de corpus a dû être identifié au passage : **Xsamples rend les pics 37 % plus étroits
+> que SOL** — comparaison appariée sur dix-huit formants, plus net dans quinze — et son Q ne
+> descend jamais sous 3. Il est écarté du calcul des verdicts. Voir `_LOCALISATION.md`.
+
 Et ce n'est pas un résultat isolé : la fiche de la trompette le disait déjà sans l'expliquer —
 *« les bandes à −3 dB sont très larges, 1 318–5 915 Hz pour les trois candidats, signe que la
 méthode ne parvient pas à circonscrire les pics »*. Trois méthodes indépendantes convergent
@@ -245,6 +258,8 @@ Environ 198 000 mesures de pic d'enveloppe et 180 000 pôles LPC au total.
   mesurables par enveloppe, et seul le LPC en produit une, dépendante de l'ordre.
 - **2026-10-25** — Confrontation : un accord sur dix-neuf. **La trompette et le trombone basse
   n'ont aucun pic localisé** (Q ≈ 1), ce que trois méthodes indépendantes confirment.
+  *Corrigé le 28/10 (C6) : répliqué sur cinq corpus, seule la trompette tient ; les deux
+  trombones sont discordants.*
 - **2026-10-25 (soir)** — Correction de la segmentation : les deux méthodes relancées sur SOL
   avec l'onset détecté + 200 ms au lieu des 100 ms fixes de mai26, qui incluaient l'attaque
   pour 16,7 % des fichiers. **Les chiffres bougent jusqu'à 35 %, aucun verdict ne change.**

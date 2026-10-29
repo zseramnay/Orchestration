@@ -1,0 +1,1315 @@
+{
+ "Alto": {
+  "grille": "rd",
+  "cellules": [
+   {
+    "registre": "grave",
+    "dynamique": "doux",
+    "n": 4,
+    "F1_bark": null,
+    "F2_bark": null,
+    "F1_hz": null,
+    "F2_hz": null,
+    "IQR1": null,
+    "IQR2": null,
+    "voyelle": null,
+    "distance_bark": null,
+    "statut": "non publiable",
+    "marques": [
+     "n<5"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "grave",
+    "dynamique": "moyen",
+    "n": 4,
+    "F1_bark": null,
+    "F2_bark": null,
+    "F1_hz": null,
+    "F2_hz": null,
+    "IQR1": null,
+    "IQR2": null,
+    "voyelle": null,
+    "distance_bark": null,
+    "statut": "non publiable",
+    "marques": [
+     "n<5"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "grave",
+    "dynamique": "fort",
+    "n": 4,
+    "F1_bark": null,
+    "F2_bark": null,
+    "F1_hz": null,
+    "F2_hz": null,
+    "IQR1": null,
+    "IQR2": null,
+    "voyelle": null,
+    "distance_bark": null,
+    "statut": "non publiable",
+    "marques": [
+     "n<5"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "médium",
+    "dynamique": "doux",
+    "n": 10,
+    "statut": "assignable",
+    "F1_bark": 4.64,
+    "F2_bark": 11.65,
+    "F1_hz": 489,
+    "F2_hz": 1604,
+    "IQR1": 1.41,
+    "IQR2": 3.41,
+    "voyelle": "ɛ",
+    "distance_bark": 0.58,
+    "marques": [
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "médium",
+    "dynamique": "moyen",
+    "n": 10,
+    "statut": "assignable",
+    "F1_bark": 4.65,
+    "F2_bark": 11.85,
+    "F1_hz": 490,
+    "F2_hz": 1653,
+    "IQR1": 1.94,
+    "IQR2": 2.45,
+    "voyelle": "ɛ",
+    "distance_bark": 0.43,
+    "marques": [
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "médium",
+    "dynamique": "fort",
+    "n": 10,
+    "statut": "assignable",
+    "F1_bark": 4.21,
+    "F2_bark": 10.7,
+    "F1_hz": 440,
+    "F2_hz": 1394,
+    "IQR1": 3.46,
+    "IQR2": 1.08,
+    "voyelle": "ø",
+    "distance_bark": 0.55,
+    "marques": [
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "aigu",
+    "dynamique": "doux",
+    "n": 15,
+    "statut": "assignable",
+    "F1_bark": 5.5,
+    "F2_bark": 10.75,
+    "F1_hz": 590,
+    "F2_hz": 1402,
+    "IQR1": 1.38,
+    "IQR2": 1.19,
+    "voyelle": "œ",
+    "distance_bark": 0.62,
+    "marques": [
+     "F1=f0"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "aigu",
+    "dynamique": "moyen",
+    "n": 15,
+    "statut": "assignable",
+    "F1_bark": 5.5,
+    "F2_bark": 11.61,
+    "F1_hz": 590,
+    "F2_hz": 1595,
+    "IQR1": 1.38,
+    "IQR2": 2.06,
+    "voyelle": "ɛ",
+    "distance_bark": 0.71,
+    "marques": [
+     "F1=f0",
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "aigu",
+    "dynamique": "fort",
+    "n": 15,
+    "statut": "assignable",
+    "F1_bark": 5.5,
+    "F2_bark": 10.93,
+    "F1_hz": 590,
+    "F2_hz": 1442,
+    "IQR1": 1.38,
+    "IQR2": 0.95,
+    "voyelle": "œ",
+    "distance_bark": 0.66,
+    "marques": [
+     "F1=f0"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "suraigu",
+    "dynamique": "doux",
+    "n": 11,
+    "statut": "HORS ESPACE",
+    "F1_bark": 9.27,
+    "F2_bark": 14.45,
+    "F1_hz": 1124,
+    "F2_hz": 2476,
+    "IQR1": 2.67,
+    "IQR2": 2.43,
+    "voyelle": "ɛ",
+    "distance_bark": 4.87,
+    "marques": [
+     "F1=f0",
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "suraigu",
+    "dynamique": "moyen",
+    "n": 11,
+    "statut": "HORS ESPACE",
+    "F1_bark": 9.55,
+    "F2_bark": 14.4,
+    "F1_hz": 1173,
+    "F2_hz": 2455,
+    "IQR1": 2.65,
+    "IQR2": 2.11,
+    "voyelle": "ɛ",
+    "distance_bark": 5.1,
+    "marques": [
+     "F1=f0",
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "suraigu",
+    "dynamique": "fort",
+    "n": 11,
+    "statut": "HORS ESPACE",
+    "F1_bark": 9.55,
+    "F2_bark": 15.2,
+    "F1_hz": 1173,
+    "F2_hz": 2803,
+    "IQR1": 2.68,
+    "IQR2": 2.19,
+    "voyelle": "ɛ",
+    "distance_bark": 5.51,
+    "marques": [
+     "F1=f0",
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   }
+  ]
+ },
+ "Clarinette en Mib": {
+  "grille": "r",
+  "cellules": [
+   {
+    "registre": "chalumeau",
+    "dynamique": "toutes",
+    "n": 15,
+    "statut": "approximative",
+    "F1_bark": 2.7,
+    "F2_bark": 8.88,
+    "F1_hz": 277,
+    "F2_hz": 1060,
+    "IQR1": 0.9,
+    "IQR2": 2.43,
+    "voyelle": "u",
+    "distance_bark": 2.04,
+    "marques": [
+     "F1=f0",
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "gorge",
+    "dynamique": "toutes",
+    "n": 6,
+    "statut": "assignable",
+    "F1_bark": 5.2,
+    "F2_bark": 11.88,
+    "F1_hz": 554,
+    "F2_hz": 1660,
+    "IQR1": 0.56,
+    "IQR2": 0.78,
+    "voyelle": "ɛ",
+    "distance_bark": 0.31,
+    "marques": [],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "clarine",
+    "dynamique": "toutes",
+    "n": 12,
+    "statut": "approximative",
+    "F1_bark": 7.55,
+    "F2_bark": 13.84,
+    "F1_hz": 857,
+    "F2_hz": 2243,
+    "IQR1": 1.57,
+    "IQR2": 1.48,
+    "voyelle": "ɛ",
+    "distance_bark": 3.09,
+    "marques": [
+     "F1=f0"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "suraigu",
+    "dynamique": "toutes",
+    "n": 12,
+    "statut": "HORS ESPACE",
+    "F1_bark": 12.07,
+    "F2_bark": 16.87,
+    "F1_hz": 1710,
+    "F2_hz": 3737,
+    "IQR1": 1.71,
+    "IQR2": 1.64,
+    "voyelle": "ɛ",
+    "distance_bark": 8.53,
+    "marques": [
+     "F1=f0"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   }
+  ]
+ },
+ "Clarinette en Sib": {
+  "grille": "r",
+  "cellules": [
+   {
+    "registre": "chalumeau",
+    "dynamique": "toutes",
+    "n": 15,
+    "statut": "assignable",
+    "F1_bark": 2.85,
+    "F2_bark": 8.4,
+    "F1_hz": 293,
+    "F2_hz": 984,
+    "IQR1": 1.35,
+    "IQR2": 2.54,
+    "voyelle": "u",
+    "distance_bark": 1.54,
+    "marques": [
+     "F1=f0",
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "gorge",
+    "dynamique": "toutes",
+    "n": 6,
+    "statut": "—",
+    "F1_bark": 3.7,
+    "F2_bark": null,
+    "F1_hz": 384,
+    "F2_hz": null,
+    "IQR1": 1.58,
+    "IQR2": null,
+    "voyelle": null,
+    "distance_bark": null,
+    "marques": [
+     "1 max"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "clarine",
+    "dynamique": "toutes",
+    "n": 12,
+    "statut": "assignable",
+    "F1_bark": 5.93,
+    "F2_bark": 11.9,
+    "F1_hz": 642,
+    "F2_hz": 1665,
+    "IQR1": 1.34,
+    "IQR2": 0.68,
+    "voyelle": "ɛ",
+    "distance_bark": 0.95,
+    "marques": [
+     "F1=f0"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "suraigu",
+    "dynamique": "toutes",
+    "n": 21,
+    "statut": "HORS ESPACE",
+    "F1_bark": 11.9,
+    "F2_bark": 16.38,
+    "F1_hz": 1665,
+    "F2_hz": 3429,
+    "IQR1": 3.1,
+    "IQR2": 1.64,
+    "voyelle": "ɛ",
+    "distance_bark": 8.12,
+    "marques": [
+     "F1=f0",
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": {
+     "hz": 3517,
+     "ecart_demi_tons": 0.44
+    }
+   }
+  ]
+ },
+ "Trombone basse": {
+  "grille": "r",
+  "cellules": [
+   {
+    "registre": "sons pédale",
+    "dynamique": "toutes",
+    "n": 9,
+    "statut": "—",
+    "F1_bark": 5.29,
+    "F2_bark": null,
+    "F1_hz": 565,
+    "F2_hz": null,
+    "IQR1": 1.28,
+    "IQR2": null,
+    "voyelle": null,
+    "distance_bark": null,
+    "marques": [
+     "1 max"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "grave",
+    "dynamique": "toutes",
+    "n": 15,
+    "statut": "assignable",
+    "F1_bark": 4.36,
+    "F2_bark": 9.63,
+    "F1_hz": 457,
+    "F2_hz": 1187,
+    "IQR1": 1.42,
+    "IQR2": 2.88,
+    "voyelle": "œ",
+    "distance_bark": 1.18,
+    "marques": [
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "médium",
+    "dynamique": "toutes",
+    "n": 12,
+    "statut": "—",
+    "F1_bark": 5.13,
+    "F2_bark": null,
+    "F1_hz": 546,
+    "F2_hz": null,
+    "IQR1": 1.3,
+    "IQR2": null,
+    "voyelle": null,
+    "distance_bark": null,
+    "marques": [
+     "1 max"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "aigu",
+    "dynamique": "toutes",
+    "n": 12,
+    "statut": "assignable",
+    "F1_bark": 5.2,
+    "F2_bark": 11.06,
+    "F1_hz": 554,
+    "F2_hz": 1470,
+    "IQR1": 1.16,
+    "IQR2": 2.21,
+    "voyelle": "œ",
+    "distance_bark": 0.49,
+    "marques": [
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "hors registre",
+    "dynamique": "toutes",
+    "n": 9,
+    "statut": "assignable",
+    "F1_bark": 4.93,
+    "F2_bark": 11.75,
+    "F1_hz": 522,
+    "F2_hz": 1628,
+    "IQR1": 1.47,
+    "IQR2": 0.9,
+    "voyelle": "ɛ",
+    "distance_bark": 0.36,
+    "marques": [],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   }
+  ]
+ },
+ "Tuba basse": {
+  "grille": "r",
+  "cellules": [
+   {
+    "registre": "extrême grave",
+    "dynamique": "toutes",
+    "n": 16,
+    "statut": "—",
+    "F1_bark": 2.15,
+    "F2_bark": null,
+    "F1_hz": 219,
+    "F2_hz": null,
+    "IQR1": 0.94,
+    "IQR2": null,
+    "voyelle": null,
+    "distance_bark": null,
+    "marques": [
+     "1 max"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "grave",
+    "dynamique": "toutes",
+    "n": 12,
+    "statut": "—",
+    "F1_bark": 1.7,
+    "F2_bark": null,
+    "F1_hz": 173,
+    "F2_hz": null,
+    "IQR1": 1.06,
+    "IQR2": null,
+    "voyelle": null,
+    "distance_bark": null,
+    "marques": [
+     "1 max"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "médium",
+    "dynamique": "toutes",
+    "n": 12,
+    "statut": "—",
+    "F1_bark": 1.75,
+    "F2_bark": null,
+    "F1_hz": 178,
+    "F2_hz": null,
+    "IQR1": 0.92,
+    "IQR2": null,
+    "voyelle": null,
+    "distance_bark": null,
+    "marques": [
+     "1 max"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "aigu",
+    "dynamique": "toutes",
+    "n": 9,
+    "statut": "—",
+    "F1_bark": 2.85,
+    "F2_bark": null,
+    "F1_hz": 293,
+    "F2_hz": null,
+    "IQR1": 0.45,
+    "IQR2": null,
+    "voyelle": null,
+    "distance_bark": null,
+    "marques": [
+     "1 max"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "suraigu",
+    "dynamique": "toutes",
+    "n": 12,
+    "statut": "—",
+    "F1_bark": 4.33,
+    "F2_bark": null,
+    "F1_hz": 453,
+    "F2_hz": null,
+    "IQR1": 0.94,
+    "IQR2": null,
+    "voyelle": null,
+    "distance_bark": null,
+    "marques": [
+     "1 max"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   }
+  ]
+ },
+ "Violon": {
+  "grille": "rd",
+  "cellules": [
+   {
+    "registre": "grave",
+    "dynamique": "doux",
+    "n": 4,
+    "F1_bark": null,
+    "F2_bark": null,
+    "F1_hz": null,
+    "F2_hz": null,
+    "IQR1": null,
+    "IQR2": null,
+    "voyelle": null,
+    "distance_bark": null,
+    "statut": "non publiable",
+    "marques": [
+     "n<5"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "grave",
+    "dynamique": "moyen",
+    "n": 4,
+    "F1_bark": null,
+    "F2_bark": null,
+    "F1_hz": null,
+    "F2_hz": null,
+    "IQR1": null,
+    "IQR2": null,
+    "voyelle": null,
+    "distance_bark": null,
+    "statut": "non publiable",
+    "marques": [
+     "n<5"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "grave",
+    "dynamique": "fort",
+    "n": 4,
+    "F1_bark": null,
+    "F2_bark": null,
+    "F1_hz": null,
+    "F2_hz": null,
+    "IQR1": null,
+    "IQR2": null,
+    "voyelle": null,
+    "distance_bark": null,
+    "statut": "non publiable",
+    "marques": [
+     "n<5"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "médium",
+    "dynamique": "doux",
+    "n": 10,
+    "statut": "assignable",
+    "F1_bark": 4.58,
+    "F2_bark": 11.59,
+    "F1_hz": 482,
+    "F2_hz": 1591,
+    "IQR1": 1.09,
+    "IQR2": 1.92,
+    "voyelle": "ɛ",
+    "distance_bark": 0.66,
+    "marques": [
+     "F1=f0"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "médium",
+    "dynamique": "moyen",
+    "n": 10,
+    "statut": "assignable",
+    "F1_bark": 4.58,
+    "F2_bark": 12.51,
+    "F1_hz": 482,
+    "F2_hz": 1825,
+    "IQR1": 0.89,
+    "IQR2": 3.04,
+    "voyelle": "ɛ",
+    "distance_bark": 0.58,
+    "marques": [
+     "F1=f0",
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "médium",
+    "dynamique": "fort",
+    "n": 10,
+    "statut": "assignable",
+    "F1_bark": 4.83,
+    "F2_bark": 13.61,
+    "F1_hz": 510,
+    "F2_hz": 2165,
+    "IQR1": 1.08,
+    "IQR2": 2.27,
+    "voyelle": "e",
+    "distance_bark": 1.45,
+    "marques": [
+     "F1=f0",
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "aigu",
+    "dynamique": "doux",
+    "n": 14,
+    "statut": "approximative",
+    "F1_bark": 7.17,
+    "F2_bark": 13.55,
+    "F1_hz": 804,
+    "F2_hz": 2144,
+    "IQR1": 1.84,
+    "IQR2": 2.6,
+    "voyelle": "ɛ",
+    "distance_bark": 2.61,
+    "marques": [
+     "F1=f0",
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "aigu",
+    "dynamique": "moyen",
+    "n": 14,
+    "statut": "approximative",
+    "F1_bark": 7.2,
+    "F2_bark": 14.38,
+    "F1_hz": 808,
+    "F2_hz": 2450,
+    "IQR1": 1.91,
+    "IQR2": 2.06,
+    "voyelle": "ɛ",
+    "distance_bark": 3.17,
+    "marques": [
+     "F1=f0",
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "aigu",
+    "dynamique": "fort",
+    "n": 14,
+    "statut": "approximative",
+    "F1_bark": 7.18,
+    "F2_bark": 14.41,
+    "F1_hz": 805,
+    "F2_hz": 2459,
+    "IQR1": 1.88,
+    "IQR2": 1.74,
+    "voyelle": "ɛ",
+    "distance_bark": 3.17,
+    "marques": [
+     "F1=f0"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "suraigu",
+    "dynamique": "doux",
+    "n": 8,
+    "statut": "HORS ESPACE",
+    "F1_bark": 11.88,
+    "F2_bark": 16.18,
+    "F1_hz": 1659,
+    "F2_hz": 3310,
+    "IQR1": 2.0,
+    "IQR2": 1.31,
+    "voyelle": "ɛ",
+    "distance_bark": 7.99,
+    "marques": [
+     "F1=f0",
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "suraigu",
+    "dynamique": "moyen",
+    "n": 8,
+    "statut": "HORS ESPACE",
+    "F1_bark": 11.88,
+    "F2_bark": 16.41,
+    "F1_hz": 1659,
+    "F2_hz": 3445,
+    "IQR1": 2.01,
+    "IQR2": 0.96,
+    "voyelle": "ɛ",
+    "distance_bark": 8.11,
+    "marques": [
+     "F1=f0",
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "suraigu",
+    "dynamique": "fort",
+    "n": 8,
+    "statut": "HORS ESPACE",
+    "F1_bark": 11.88,
+    "F2_bark": 16.41,
+    "F1_hz": 1659,
+    "F2_hz": 3446,
+    "IQR1": 2.03,
+    "IQR2": 1.32,
+    "voyelle": "ɛ",
+    "distance_bark": 8.11,
+    "marques": [
+     "F1=f0",
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   }
+  ]
+ },
+ "Violoncelle": {
+  "grille": "rd",
+  "cellules": [
+   {
+    "registre": "grave",
+    "dynamique": "doux",
+    "n": 4,
+    "F1_bark": null,
+    "F2_bark": null,
+    "F1_hz": null,
+    "F2_hz": null,
+    "IQR1": null,
+    "IQR2": null,
+    "voyelle": null,
+    "distance_bark": null,
+    "statut": "non publiable",
+    "marques": [
+     "n<5"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "grave",
+    "dynamique": "moyen",
+    "n": 4,
+    "F1_bark": null,
+    "F2_bark": null,
+    "F1_hz": null,
+    "F2_hz": null,
+    "IQR1": null,
+    "IQR2": null,
+    "voyelle": null,
+    "distance_bark": null,
+    "statut": "non publiable",
+    "marques": [
+     "n<5"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "grave",
+    "dynamique": "fort",
+    "n": 4,
+    "F1_bark": null,
+    "F2_bark": null,
+    "F1_hz": null,
+    "F2_hz": null,
+    "IQR1": null,
+    "IQR2": null,
+    "voyelle": null,
+    "distance_bark": null,
+    "statut": "non publiable",
+    "marques": [
+     "n<5"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "médium",
+    "dynamique": "doux",
+    "n": 10,
+    "statut": "assignable",
+    "F1_bark": 1.83,
+    "F2_bark": 6.94,
+    "F1_hz": 186,
+    "F2_hz": 772,
+    "IQR1": 0.67,
+    "IQR2": 5.18,
+    "voyelle": "u",
+    "distance_bark": 1.24,
+    "marques": [
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "médium",
+    "dynamique": "moyen",
+    "n": 10,
+    "statut": "assignable",
+    "F1_bark": 2.18,
+    "F2_bark": 8.18,
+    "F1_hz": 223,
+    "F2_hz": 949,
+    "IQR1": 1.12,
+    "IQR2": 3.35,
+    "voyelle": "u",
+    "distance_bark": 1.57,
+    "marques": [
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "médium",
+    "dynamique": "fort",
+    "n": 10,
+    "statut": "approximative",
+    "F1_bark": 2.31,
+    "F2_bark": 8.85,
+    "F1_hz": 236,
+    "F2_hz": 1054,
+    "IQR1": 1.04,
+    "IQR2": 2.15,
+    "voyelle": "u",
+    "distance_bark": 2.11,
+    "marques": [
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "aigu",
+    "dynamique": "doux",
+    "n": 27,
+    "statut": "assignable",
+    "F1_bark": 4.1,
+    "F2_bark": 11.73,
+    "F1_hz": 428,
+    "F2_hz": 1624,
+    "IQR1": 2.3,
+    "IQR2": 2.17,
+    "voyelle": "ɛ",
+    "distance_bark": 0.97,
+    "marques": [
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "aigu",
+    "dynamique": "moyen",
+    "n": 27,
+    "statut": "assignable",
+    "F1_bark": 4.69,
+    "F2_bark": 11.62,
+    "F1_hz": 494,
+    "F2_hz": 1596,
+    "IQR1": 1.91,
+    "IQR2": 3.18,
+    "voyelle": "ɛ",
+    "distance_bark": 0.58,
+    "marques": [
+     "F1=f0",
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "aigu",
+    "dynamique": "fort",
+    "n": 27,
+    "statut": "assignable",
+    "F1_bark": 4.95,
+    "F2_bark": 11.45,
+    "F1_hz": 525,
+    "F2_hz": 1557,
+    "IQR1": 2.53,
+    "IQR2": 3.48,
+    "voyelle": "ɛ",
+    "distance_bark": 0.66,
+    "marques": [
+     "F1=f0",
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "suraigu",
+    "dynamique": "doux",
+    "n": 28,
+    "statut": "HORS ESPACE",
+    "F1_bark": 10.48,
+    "F2_bark": 13.81,
+    "F1_hz": 1348,
+    "F2_hz": 2235,
+    "IQR1": 4.34,
+    "IQR2": 2.09,
+    "voyelle": "a",
+    "distance_bark": 5.68,
+    "marques": [
+     "F1=f0",
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": {
+     "hz": 2216,
+     "ecart_demi_tons": 0.15
+    }
+   },
+   {
+    "registre": "suraigu",
+    "dynamique": "moyen",
+    "n": 28,
+    "statut": "HORS ESPACE",
+    "F1_bark": 9.75,
+    "F2_bark": 14.5,
+    "F1_hz": 1209,
+    "F2_hz": 2496,
+    "IQR1": 4.29,
+    "IQR2": 2.94,
+    "voyelle": "ɛ",
+    "distance_bark": 5.32,
+    "marques": [
+     "F1=f0",
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "suraigu",
+    "dynamique": "fort",
+    "n": 28,
+    "statut": "HORS ESPACE",
+    "F1_bark": 9.73,
+    "F2_bark": 14.5,
+    "F1_hz": 1204,
+    "F2_hz": 2496,
+    "IQR1": 4.25,
+    "IQR2": 2.69,
+    "voyelle": "ɛ",
+    "distance_bark": 5.3,
+    "marques": [
+     "F1=f0",
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   }
+  ]
+ },
+ "Contrebasse": {
+  "grille": "rd",
+  "cellules": [
+   {
+    "registre": "grave",
+    "dynamique": "doux",
+    "n": 5,
+    "statut": "—",
+    "F1_bark": 1.25,
+    "F2_bark": null,
+    "F1_hz": 127,
+    "F2_hz": null,
+    "IQR1": 0.1,
+    "IQR2": null,
+    "voyelle": null,
+    "distance_bark": null,
+    "marques": [
+     "1 max"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "grave",
+    "dynamique": "moyen",
+    "n": 5,
+    "statut": "—",
+    "F1_bark": 1.2,
+    "F2_bark": null,
+    "F1_hz": 122,
+    "F2_hz": null,
+    "IQR1": 0.4,
+    "IQR2": null,
+    "voyelle": null,
+    "distance_bark": null,
+    "marques": [
+     "1 max"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "grave",
+    "dynamique": "fort",
+    "n": 5,
+    "statut": "approximative",
+    "F1_bark": 1.1,
+    "F2_bark": 9.38,
+    "F1_hz": 112,
+    "F2_hz": 1142,
+    "IQR1": 0.35,
+    "IQR2": 2.75,
+    "voyelle": "ø",
+    "distance_bark": 2.95,
+    "marques": [
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "médium",
+    "dynamique": "doux",
+    "n": 14,
+    "statut": "approximative",
+    "F1_bark": 1.98,
+    "F2_bark": 9.54,
+    "F1_hz": 201,
+    "F2_hz": 1170,
+    "IQR1": 0.47,
+    "IQR2": 0.97,
+    "voyelle": "ø",
+    "distance_bark": 2.13,
+    "marques": [],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "médium",
+    "dynamique": "moyen",
+    "n": 14,
+    "statut": "approximative",
+    "F1_bark": 1.67,
+    "F2_bark": 9.45,
+    "F1_hz": 170,
+    "F2_hz": 1155,
+    "IQR1": 1.13,
+    "IQR2": 1.3,
+    "voyelle": "ø",
+    "distance_bark": 2.42,
+    "marques": [],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "médium",
+    "dynamique": "fort",
+    "n": 14,
+    "statut": "approximative",
+    "F1_bark": 1.8,
+    "F2_bark": 9.01,
+    "F1_hz": 183,
+    "F2_hz": 1081,
+    "IQR1": 0.56,
+    "IQR2": 2.22,
+    "voyelle": "u",
+    "distance_bark": 2.48,
+    "marques": [
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "aigu",
+    "dynamique": "doux",
+    "n": 16,
+    "statut": "assignable",
+    "F1_bark": 2.58,
+    "F2_bark": 9.61,
+    "F1_hz": 264,
+    "F2_hz": 1183,
+    "IQR1": 6.65,
+    "IQR2": 3.71,
+    "voyelle": "ø",
+    "distance_bark": 1.63,
+    "marques": [
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "aigu",
+    "dynamique": "moyen",
+    "n": 16,
+    "statut": "assignable",
+    "F1_bark": 2.28,
+    "F2_bark": 9.39,
+    "F1_hz": 232,
+    "F2_hz": 1144,
+    "IQR1": 0.88,
+    "IQR2": 1.36,
+    "voyelle": "ø",
+    "distance_bark": 2.0,
+    "marques": [
+     "F1=f0"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "aigu",
+    "dynamique": "fort",
+    "n": 16,
+    "statut": "approximative",
+    "F1_bark": 2.28,
+    "F2_bark": 9.22,
+    "F1_hz": 232,
+    "F2_hz": 1116,
+    "IQR1": 0.83,
+    "IQR2": 1.48,
+    "voyelle": "ø",
+    "distance_bark": 2.12,
+    "marques": [
+     "F1=f0"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "suraigu",
+    "dynamique": "doux",
+    "n": 8,
+    "statut": "—",
+    "F1_bark": 10.58,
+    "F2_bark": null,
+    "F1_hz": 1367,
+    "F2_hz": null,
+    "IQR1": 5.53,
+    "IQR2": null,
+    "voyelle": null,
+    "distance_bark": null,
+    "marques": [
+     "1 max",
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "suraigu",
+    "dynamique": "moyen",
+    "n": 9,
+    "statut": "assignable",
+    "F1_bark": 4.22,
+    "F2_bark": 10.94,
+    "F1_hz": 441,
+    "F2_hz": 1443,
+    "IQR1": 0.98,
+    "IQR2": 4.63,
+    "voyelle": "ø",
+    "distance_bark": 0.56,
+    "marques": [
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   },
+   {
+    "registre": "suraigu",
+    "dynamique": "fort",
+    "n": 9,
+    "statut": "assignable",
+    "F1_bark": 5.04,
+    "F2_bark": 11.22,
+    "F1_hz": 535,
+    "F2_hz": 1504,
+    "IQR1": 2.57,
+    "IQR2": 5.17,
+    "voyelle": "œ",
+    "distance_bark": 0.55,
+    "marques": [
+     "F1=f0",
+     "dispersé"
+    ],
+    "coincidence_F1": null,
+    "coincidence_F2": null
+   }
+  ]
+ }
+}

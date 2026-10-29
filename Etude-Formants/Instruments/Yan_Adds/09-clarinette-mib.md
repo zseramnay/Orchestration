@@ -107,7 +107,7 @@ chalumeau D3–D4 · gorge D#4–G#4 · clairon A4–A#5 · suraigu à partir de
 la Mib, ou à définir spécifiquement.
 
 <!-- DEBUT-TRAVAUX-27-10 -->
-## Ce que les travaux du 27/10/2026 disent de cet instrument
+## Ce que les travaux des 27 et 28/10/2026 disent de cet instrument
 
 ### Dans la table des mélanges
 

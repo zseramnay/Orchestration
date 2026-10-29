@@ -1,0 +1,23 @@
+instrument,n_corpus,n_cellules,pct_sous_plancher,pct_un_max,F1_median_hz,un_max_doux,un_max_moyen,un_max_fort,classement
+Contrebasse,3,34,76.5,20.6,198,30.76923076923077,37.5,0.0,hors espace par le bas
+Clarinette contrebasse,3,11,72.7,0.0,235,,,,hors espace par le bas
+Tuba contrebasse,2,24,66.7,100.0,294,100.0,100.0,100.0,hors espace par le bas
+Tuba basse,4,34,52.9,100.0,296,100.0,100.0,100.0,hors espace par le bas
+Violoncelle,4,41,46.3,2.4,395,6.666666666666667,0.0,0.0,hors espace dans le grave seulement
+Contrebasson,4,35,40.0,80.0,304,92.3076923076923,77.77777777777777,69.23076923076923,hors espace dans le grave seulement
+Clarinette basse,4,40,35.0,7.5,322,25.0,0.0,0.0,hors espace dans le grave seulement
+Flûte contrebasse,3,9,33.3,33.3,343,,,,hors espace dans le grave seulement
+Clarinette en Mib,3,14,28.6,0.0,860,0.0,,0.0,hors espace dans le grave seulement
+Clarinette en Sib,4,34,26.5,11.8,639,27.272727272727273,0.0,0.0,hors espace dans le grave seulement
+Flûte basse,4,21,23.8,23.8,485,25.0,0.0,25.0,hors espace dans le grave seulement
+Cor,4,25,8.0,56.0,458,100.0,75.0,0.0,sans second maximum au doux seulement
+Cor anglais,4,30,3.3,20.0,675,41.666666666666664,0.0,8.333333333333334,dans l'espace
+Alto,4,41,0.0,0.0,554,0.0,0.0,0.0,dans l'espace
+Trombone basse,3,19,0.0,73.7,565,100.0,100.0,100.0,"dans l'espace, sans second maximum"
+Violon,4,41,0.0,0.0,805,0.0,0.0,0.0,dans l'espace
+Petite flûte,3,15,0.0,20.0,1283,33.333333333333336,0.0,0.0,dans l'espace
+Flûte,3,18,0.0,16.7,664,25.0,0.0,0.0,dans l'espace
+Trombone ténor,4,39,0.0,51.3,599,69.23076923076923,37.5,38.46153846153846,sans second maximum au doux seulement
+Hautbois,4,40,0.0,12.5,991,25.0,8.333333333333334,8.333333333333334,dans l'espace
+Trompette,4,31,0.0,41.9,764,55.55555555555556,55.55555555555556,22.22222222222222,sans second maximum au doux seulement
+Basson,3,36,0.0,27.8,522,66.66666666666667,8.333333333333334,8.333333333333334,dans l'espace

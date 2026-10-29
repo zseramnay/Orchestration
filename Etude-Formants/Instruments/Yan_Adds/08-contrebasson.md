@@ -153,7 +153,7 @@ reprendre — il faudra mesurer les deux tubas par la même méthode avant de co
 Non défini dans `Data/registres.md`. À établir.
 
 <!-- DEBUT-TRAVAUX-27-10 -->
-## Ce que les travaux du 27/10/2026 disent de cet instrument
+## Ce que les travaux des 27 et 28/10/2026 disent de cet instrument
 
 ### Dans la table des mélanges
 

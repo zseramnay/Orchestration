@@ -159,7 +159,7 @@ tester, et c'est une piste méthodologique potentiellement importante.
 Mesure par registre : non effectuée.
 
 <!-- DEBUT-TRAVAUX-27-10 -->
-## Ce que les travaux du 27/10/2026 disent de cet instrument
+## Ce que les travaux des 27 et 28/10/2026 disent de cet instrument
 
 ### Corroboration par le LPC, note par note
 
@@ -185,6 +185,12 @@ Part de pics **non localisables** — l'enveloppe n'y redescend pas de 3 dB des 
 | suraigu | 4 % | 10 % | 3 % |
 
 **Effet doux → fort : +5 points.** Effet négligeable.
+
+### La carte vocalique corrobore-t-elle les formants ?
+
+**Non.** F1 0,0 % contre 0,0 % au témoin · F2 4,9 % contre 15,1 % au témoin — soit le hasard, ou moins. Les deux méthodes ne mesurent pas la même région du spectre : F1 se situe en médiane à 15,5 demi-tons du formant établi le plus proche, parce que la méthode 8 ne mesure rien sous 3,2 à 5,7 fois f0_min.
+
+Témoin : les propres formants de l'instrument transposés de ±2 à ±6 demi-tons, ce qui conserve leur nombre et leur espacement. Voir `../_COINCIDENCES-F2.md`.
 
 ### Dans la table des mélanges
 

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Les bords de l&#x27;espace vocalique</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="bandeau"><h1>Les bords de l&#x27;espace vocalique</h1></div>
+<p class="fil"><a href="../index.html">Sommaire</a> › Synthèses</p>
+<h1>« Hors espace par le bas »</h1>
+<h2>Le problème</h2>
+<p>La carte vocalique classait un instrument « hors espace par le bas » quand <strong>un seul maximum
+survivait</strong> à la fusion de Chistovich : sans second maximum, pas de couple (F1, F2), donc pas de
+voyelle. <code>_CARTE-VOCALIQUE.md</code> signalait déjà que ce critère ne tient pas :</p>
+<blockquote>
+<p>La présence d'un second maximum dépend du corpus, pas seulement de l'instrument. Le
+contrebasson n'en a aucun chez SOL et deux chez ZSamples. C'est une différence de prise de
+son — plus de contenu aigu dans un cas. Le critère « 1 max » n'est donc <strong>pas</strong> une propriété
+de l'instrument.</p>
+</blockquote>
+<p>Mesuré sur les treize instruments disposant d'au moins deux corpus, <strong>l'étendue médiane du
+critère entre corpus est de 17 points</strong>, et elle monte à 50 :</p>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Part de cellules « 1 max »</th>
+<th>Étendue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cor anglais</strong></td>
+<td>SOL 0 % · VN 22 % · Xsamples 50 %</td>
+<td><strong>50 pts</strong></td>
+</tr>
+<tr>
+<td><strong>Contrebasson</strong></td>
+<td>SOL 75 % · VN 75 % · Xsamples 33 %</td>
+<td><strong>42 pts</strong></td>
+</tr>
+<tr>
+<td>Tuba basse</td>
+<td>SOL 75 % · VN 67 % · VO 100 %</td>
+<td>33 pts</td>
+</tr>
+<tr>
+<td>Clarinette en Si♭</td>
+<td>SOL 8 % · VO 25 % · Xsamples 0 %</td>
+<td>25 pts</td>
+</tr>
+</tbody>
+</table>
+<p>Un critère qui dit « jamais » dans un corpus et « une fois sur deux » dans un autre ne décrit
+pas l'instrument.</p>
+<h2>Le critère de remplacement</h2>
+<p>Il était sous nos yeux. « Hors espace par le bas » veut dire que la couleur de l'instrument se
+trouve <strong>sous</strong> l'espace vocalique français. Or cet espace a un plancher mesurable : le plus bas
+F1 de ses dix voyelles, celui de /y/, à <strong>300 Hz, soit 2,92 Bark</strong>.</p>
+<p>On compare donc <strong>F1 au plancher</strong>, cellule par cellule, au lieu de compter les maxima. Deux
+avantages, et le second compte autant que le premier :</p>
+<ol>
+<li>F1 est la grandeur la plus stable que l'étude possède — la tâche C1 l'a vue s'accorder à un
+   demi-ton près sur quatre corpus ;</li>
+<li><strong>F1 existe même dans les cellules que l'ancien critère jetait.</strong> Une cellule « 1 max » a bien
+   un F1 ; c'est son F2 qui manque. L'ancien critère refusait de lire une donnée qu'il avait.</li>
+</ol>
+<blockquote>
+<p><strong>Note de méthode, et correction d'une première version de cette page.</strong> J'avais annoncé
+« 17 points contre 0 ». Les deux chiffres étaient calculés sur des ensembles de cellules
+différents — toutes les cellules d'un côté, seulement celles ayant un F1 de l'autre — et la
+comparaison ne valait rien. À dénominateur identique, et en prenant <strong>la moyenne et non la
+médiane</strong>, qui vaut zéro des deux côtés parce que la majorité des instruments sont à 0 % sur
+les deux critères :</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Critère</th>
+<th>Étendue <strong>moyenne</strong> entre corpus</th>
+<th>Pire cas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>« 1 max »</td>
+<td><strong>24,3 points</strong></td>
+<td>67</td>
+</tr>
+<tr>
+<td><strong>F1 sous le plancher</strong></td>
+<td><strong>9,5 points</strong></td>
+<td>40</td>
+</tr>
+</tbody>
+</table>
+<p><em>(Chiffres recalculés le 29/10 sur les 22 instruments et les cinq corpus, après que la tâche
+C13 eut ajouté 35 cartes. Le rapport entre les deux critères est inchangé — le nouveau est
+deux fois et demie plus stable — mais son pire cas n'est plus nul : il vaut 40 points, sur la
+clarinette contrebasse, qui n'a que onze cellules.)</em></p>
+<p>Le gain est net, et il porte précisément là où il faut — sur les instruments que l'ancien
+critère traitait le plus mal :</p>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>« 1 max » entre corpus</th>
+<th>F1 sous le plancher</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Trombone basse</strong></td>
+<td>40 % · 100 % → <strong>60 pts</strong></td>
+<td>0 % · 0 % → <strong>0 pt</strong></td>
+</tr>
+<tr>
+<td>Contrebasson</td>
+<td>100 % · 100 % · 44 % → 56 pts</td>
+<td>33 % · 33 % · 44 % → 11 pts</td>
+</tr>
+<tr>
+<td>Cor anglais</td>
+<td>22 % · 0 % · 50 % → 50 pts</td>
+<td>0 % · 0 % · 17 % → 17 pts</td>
+</tr>
+<tr>
+<td>Clarinette en Si♭</td>
+<td>25 % · 8 % · 0 % → 25 pts</td>
+<td>25 % · 25 % · 25 % → <strong>0 pt</strong></td>
+</tr>
+<tr>
+<td>Hautbois</td>
+<td>8 % · 8 % · 25 % → 17 pts</td>
+<td>0 % · 0 % · 0 % → <strong>0 pt</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Sept instruments sur treize donnent une valeur <strong>identique</strong> d'un corpus à l'autre avec le
+nouveau critère. La contrebasse : 75 % et 75 %. La clarinette en Si♭ : 25 % trois fois. Le
+critère est devenu une propriété de l'instrument.</p>
+<h2>Ce que le changement révèle : l'ancien critère confondait trois choses</h2>
+<p>C'est le vrai résultat de cette tâche. « Un seul maximum » et « sous l'espace vocalique » ne sont
+pas la même chose, et les mélanger produisait des classements faux dans les deux sens.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Sous le plancher</th>
+<th>« 1 max »</th>
+<th>Lecture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Contrebasse</strong></td>
+<td><strong>75 %</strong></td>
+<td>29 %</td>
+<td>hors espace, et l'ancien critère la manquait</td>
+</tr>
+<tr>
+<td><strong>Trombone basse</strong></td>
+<td><strong>0 %</strong></td>
+<td><strong>79 %</strong></td>
+<td>dans l'espace — l'ancien critère la déclarait dehors</td>
+</tr>
+<tr>
+<td><strong>Tuba basse</strong></td>
+<td>54 %</td>
+<td>100 %</td>
+<td>les deux à la fois</td>
+</tr>
+</tbody>
+</table>
+<h3>1. Hors espace par le bas — une propriété, stable</h3>
+<p>F1 sous le plancher dans au moins la moitié des cellules.</p>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Sous le plancher</th>
+<th>F1 médian</th>
+<th>Corpus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Contrebasse</td>
+<td>75 %</td>
+<td>205 Hz</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Clarinette contrebasse</td>
+<td>75 %</td>
+<td>220 Hz</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Tuba contrebasse</td>
+<td>67 %</td>
+<td>294 Hz</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Tuba basse</td>
+<td>54 %</td>
+<td>292 Hz</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>Les quatre instruments les plus graves de l'orchestre, et eux seuls. Le résultat est celui qu'on
+attend, ce qui est en soi un contrôle de la mesure.</p>
+<h3>2. Hors espace dans le grave seulement — par registre</h3>
+<p>Entre 20 et 50 % des cellules : violoncelle 45 %, clarinette basse 42 %, <strong>contrebasson 37 %
+(52 % en référence féminine : cas limite, voir <code>_REFERENCE-FEMININE.md</code>)</strong>,
+flûte basse et flûte contrebasse 33 %, clarinette en Mi♭ et en Si♭ 25 %, cor 22 %.</p>
+<p>Ce n'est pas un défaut de mesure : <strong>c'est leur registre grave qui sort de l'espace</strong>, pendant
+que le reste de leur tessiture y reste. Le critère étant calculé par cellule, il le dit tout seul
+— là où le comptage de maxima, agrégé, ne pouvait que trancher en bloc.</p>
+<h3>3. Dans l'espace, mais sans second maximum</h3>
+<p>Trois instruments ont une couleur parfaitement située — F1 de 529 à 764 Hz, en plein milieu de
+l'espace — et pourtant pas de F2 : <strong>trombone ténor, trombone basse, trompette.</strong> Les appeler
+« hors espace par le bas » était un contresens.</p>
+<p>Et ce troisième cas se dédouble selon la nuance :</p>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>doux</th>
+<th>moyen</th>
+<th>fort</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trombone basse</td>
+<td>100 %</td>
+<td>100 %</td>
+<td>100 %</td>
+<td><strong>sans F2 à toute nuance</strong></td>
+</tr>
+<tr>
+<td>Trombone ténor</td>
+<td>75 %</td>
+<td>75 %</td>
+<td>75 %</td>
+<td><strong>sans F2 à toute nuance</strong></td>
+</tr>
+<tr>
+<td>Tuba basse</td>
+<td>100 %</td>
+<td>100 %</td>
+<td>100 %</td>
+<td><strong>sans F2 à toute nuance</strong></td>
+</tr>
+<tr>
+<td><strong>Trompette</strong></td>
+<td>67 %</td>
+<td>67 %</td>
+<td><strong>0 %</strong></td>
+<td>le second maximum <strong>apparaît en jeu fort</strong></td>
+</tr>
+<tr>
+<td><strong>Cor</strong></td>
+<td>100 %</td>
+<td>67 %</td>
+<td><strong>0 %</strong></td>
+<td>le second maximum <strong>apparaît en jeu fort</strong></td>
+</tr>
+<tr>
+<td><em>Hautbois (témoin)</em></td>
+<td>25 %</td>
+<td>8 %</td>
+<td>8 %</td>
+<td>—</td>
+</tr>
+<tr>
+<td><em>Violon (témoin)</em></td>
+<td>0 %</td>
+<td>0 %</td>
+<td>0 %</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pour la trompette et le cor, l'absence de second maximum n'est pas une propriété : c'est un
+effet de nuance.</strong> Joués forte, ils en ont un. Les classer d'après un corpus agrégé sur toutes
+les nuances revenait à les décrire au piano.</p>
+<p>Pour les trombones et le tuba basse, en revanche, c'est constant : leur spectre ne présente pas
+de second renflement, quelle que soit la force de jeu.</p>
+<blockquote>
+<p>J'avais espéré que ces trois-là soient exactement les cuivres à perce cylindrique de la tâche
+C5 — trombones et trompette — et que l'effet soit le même phénomène vu deux fois. <strong>Ce n'est
+pas le cas</strong> : la trompette se comporte comme le cor et non comme les trombones, et le tuba
+basse, à perce conique, rejoint les trombones. La coïncidence partielle ne doit pas être
+publiée comme une loi.</p>
+</blockquote>
+<h2>Ce qu'il faut écrire dans les fiches</h2>
+<table>
+<thead>
+<tr>
+<th>Classement</th>
+<th>Instruments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>hors espace par le bas</strong></td>
+<td>contrebasse, clarinette contrebasse, tuba contrebasse, tuba basse</td>
+</tr>
+<tr>
+<td><strong>hors espace dans le grave seulement</strong></td>
+<td>violoncelle 46 %, <strong>contrebasson¹</strong> 40 %, clarinette basse 35 %, flûte contrebasse 33 %, clarinette en Mi♭ 29 %, clarinette en Si♭ 26 %, flûte basse 24 %</td>
+</tr>
+<tr>
+<td><strong>dans l'espace, sans second maximum à toute nuance</strong></td>
+<td>trombone basse</td>
+</tr>
+<tr>
+<td><strong>sans second maximum au doux seulement</strong></td>
+<td>cor, trombone ténor, trompette — à ne <strong>pas</strong> classer hors espace</td>
+</tr>
+<tr>
+<td>dans l'espace</td>
+<td>alto, violon, hautbois, basson, cor anglais, flûte, petite flûte</td>
+</tr>
+</tbody>
+</table>
+<p>¹ Le contrebasson est le seul <strong>cas limite</strong> : 40 % des cellules sous le plancher en voix
+d'homme, 51 % en voix de femme. Il est donc de part et d'autre du seuil de 50 % selon la
+référence, et ne doit pas être présenté comme tranché (tâche C12).</p>
+<blockquote>
+<p><strong>Trois instruments ont changé de classe le 29/10</strong>, quand la tâche C13 a porté la
+couverture de 19 à 22 instruments et jusqu'à quatre corpus chacun. Le <strong>cor</strong> quitte « hors
+espace dans le grave seulement » (22 % → 8 % de cellules sous le plancher) ; le <strong>trombone
+ténor</strong> quitte « sans second maximum à toute nuance » pour « au doux seulement » ; et le
+<strong>tuba basse</strong> reste « hors espace par le bas », où il figurait déjà. Les quatre instruments
+réellement sous l'espace et les sept qui y sont pleinement n'ont pas bougé. C'est la
+démonstration, par l'exemple, de la règle que la tâche C6 avait tirée : <strong>un verdict ne se
+prononce pas sur un seul corpus.</strong></p>
+</blockquote>
+<h2>Limites</h2>
+<ol>
+<li>~~<strong>Le plancher à 300 Hz vient de Calliope, voix d'homme.</strong> Une référence féminine le
+   déplacerait vers le haut et reclasserait sans doute quelques cas limites.~~ <strong>Levée le
+   29/10 par la tâche C12</strong> : la référence féminine donne un plancher de <strong>305 Hz, soit
+   0,29 demi-ton</strong>, et le critère n'est pas accidentellement robuste — le plancher est par
+   construction le F1 d'une voyelle fermée, c'est-à-dire une résonance de Helmholtz, la seule
+   grandeur de la référence qui ne dépende presque pas de la voix. <strong>Un seul reclassement</strong> :
+   le contrebasson passe de 37 % à 52 % et franchit le seuil, donc il est à traiter comme un
+   cas limite. Voir <code>_REFERENCE-FEMININE.md</code>.</li>
+<li><strong>Neuf instruments n'ont qu'un seul corpus</strong>, donc pas de contrôle de stabilité : clarinette
+   contrebasse, flûte basse, flûte contrebasse, cor, trompette, trombone ténor, flûte, petite
+   flûte, clarinette basse. Leur classement est à prendre comme provisoire.</li>
+<li>Le seuil de 50 % pour « hors espace » et celui de 20 % pour « par registre » sont des
+   conventions de lecture. Les valeurs continues sont dans les données et doivent primer sur la
+   case.</li>
+</ol>
+<h2>Journal</h2>
+<ul>
+<li><strong>2026-10-28</strong> — Tâche C11. Le critère de remplacement — F1 contre le plancher de l'espace
+  vocalique — fait tomber l'étendue <strong>moyenne</strong> entre corpus de 24,3 à 9,5 points, et le pire
+  cas de 60 à 0. La première version de cette page annonçait « 17 contre 0 » : deux
+  dénominateurs différents, et une médiane qui vaut zéro des deux côtés. Quatrième fois cette
+  semaine qu'un chiffre d'apparence décisive ne résistait pas à la question « comparé à quoi,
+  exactement ? ». Mais le résultat de fond
+  est ailleurs : l'ancien comptage de maxima <strong>confondait trois phénomènes</strong>, et se trompait dans
+  les deux sens. Il manquait la contrebasse, qui est réellement sous l'espace, et déclarait
+  dehors les trombones, qui sont en plein milieu.</li>
+</ul>
+<footer>Référence formantique de l'orchestre — Yan Maresz · page produite par <code>construire_site.py</code> depuis les fiches et <code>Resultats-v7/</code>.</footer>
+</body>
+</html>

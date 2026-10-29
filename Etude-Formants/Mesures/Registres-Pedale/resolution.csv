@@ -1,0 +1,18 @@
+corpus,instrument,n,n_sous_seuil,pct_harm_doubles,pct_sous_seuil,registres_touches
+SOL,Cor en Fa,134,17,4.5,13,grave 8; sons pédale 3
+Xsamples,Cor en Fa,87,9,1.1,10,grave 1
+VN,Cor en Fa,104,0,0.0,0,
+SOL,Trombone basse,144,46,16.2,32,hors registre 13; sons pédale 10
+ZSamples,Trombone basse,68,20,15.2,29,hors registre 9; sons pédale 8
+VO,Trombone basse,57,18,15.4,32,hors registre 7; sons pédale 6
+SOL,Trombone ténor,117,15,1.1,13,hors registre 3; sons pédale 1
+ZSamples,Trombone ténor,84,24,13.9,29,hors registre 11; sons pédale 11
+SOL,Trompette en Ut,96,0,0.0,0,
+Xsamples,Trompette en Ut,98,0,0.0,0,
+VN,Trompette en Ut,177,0,0.0,0,
+SOL,Tuba basse,108,27,5.0,25,grave 24
+ZSamples,Tuba basse,76,24,17.4,32,extrême grave 12; grave 8
+VO,Tuba basse,61,25,21.4,41,extrême grave 16; grave 7
+VN,Tuba basse,148,40,7.2,27,extrême grave 4; grave 29
+SOL,Tuba contrebasse,158,71,23.0,45,extrême grave 37; grave 9
+VN,Tuba contrebasse,111,51,19.6,46,extrême grave 23; grave 3

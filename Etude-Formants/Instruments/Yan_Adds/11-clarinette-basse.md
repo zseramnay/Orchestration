@@ -129,7 +129,7 @@ rejeté à 466 Hz correspond au registre médium : une analyse par registre dira
 résonance y existe réellement, ce que l'agrégation globale ne peut pas trancher.
 
 <!-- DEBUT-TRAVAUX-27-10 -->
-## Ce que les travaux du 27/10/2026 disent de cet instrument
+## Ce que les travaux des 27 et 28/10/2026 disent de cet instrument
 
 ### Corroboration par le LPC, note par note
 

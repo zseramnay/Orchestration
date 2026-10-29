@@ -268,6 +268,22 @@ Le principe d'indépendance de la convergence formantique à la hauteur vaut pou
 A et C. Pour la classe B, l'invariant pertinent n'est pas un formant mais la fréquence de
 coupure du réseau de trous latéraux (Benade) et la pente spectrale.
 
+> **Mesuré le 28/10/2026, tâche C10 — et la moitié de cette phrase est à retirer.** Le coude
+> spectral se mesure bien, et il est stable **chez les clarinettes seulement** : pente de
+> log2(coude) contre log2(f0) de 0,07 en médiane, et la clarinette en Si♭ donne 2 094 · 2 078 ·
+> 1 970 · 2 013 Hz sur quatre corpus, soit 1,1 demi-ton d'écart.
+>
+> **Chez les flûtes, il ne se mesure pas** — pente 1,22, c'est-à-dire un rang harmonique et non
+> une fréquence fixe. Elles cumulent trop peu d'harmoniques (7 par note pour la petite flûte),
+> une tessiture qui place leurs fondamentales au-dessus de la région de coupure, et une
+> enveloppe trop lisse. **Le descripteur promis aux instruments sans formant est précisément
+> celui qu'ils ne permettent pas de mesurer.** Pour elles, il reste la pente spectrale, et le
+> fait mesuré en C9 qu'elles ne fusionnent avec rien.
+>
+> Enfin, l'attribution au réseau de trous **n'est pas démontrée** : le violon, qui n'en a aucun,
+> donne le coude le plus stable de l'étude (pente 0,02). Publier « coude spectral, compatible
+> avec une coupure de réseau de trous ». Voir `_COUPURE-BENADE.md`.
+
 Validation indépendante : la balance impair − pair, mesurée sur les harmoniques 2 à 9, est
 **positive pour les quatre clarinettes seulement** (+0,7 à +5,1 dB) et croît vers le grave de
 la famille. C'est la signature du tuyau cylindrique fermé, mesurée et non postulée.
@@ -289,9 +305,50 @@ Chaque fichier d'instrument porte un champ `pertinence_formant` :
 - Corpus : 1 166 échantillons, 12 instruments, 0 erreur de lecture.
 - Concordance attaque incluse / exclue : les formants ne bougent que d'un à deux douzièmes
   d'octave. Les valeurs sont donc doublement validées.
-- **Non encore fait :** mesure par registre avec la nouvelle méthode ; fréquence de coupure
-  des flûtes ; méthode 12 ; vérification des valeurs de littérature aux sources primaires
-  (elles sont pour l'instant reprises des tableaux de l'étude antérieure).
+- **Non encore fait :** vérification des valeurs de littérature aux sources primaires — elles
+  sont pour l'instant reprises des tableaux de l'étude antérieure. *(Les trois autres points de
+  cette liste sont faits : la mesure par registre par les tâches C5 et C7, la méthode 12 par la
+  carte vocalique, et la coupure des flûtes par C10 — négativement, voir ci-dessus.)*
+
+### Résolution en fréquence : rien n'est séparable sous 75 Hz *(tâche C7, 28/10/2026)*
+
+L'analyse travaille à 10,77 Hz par bin, et `pic_proche` cherche le maximum des harmoniques
+dans ±2 bins autour de k·f0 — une fenêtre de 5 bins. **Quand l'écart entre deux harmoniques
+tombe sous cette largeur, les fenêtres de deux rangs voisins rendent le même pic**, et la
+liste des harmoniques contient des fréquences dupliquées.
+
+| Écart f0/bin | 1 | 2 | 3 | 4 | 5 | 6 | **≥ 7** |
+|---|---|---|---|---|---|---|---|
+| Notes avec doublon | 100 % | 100 % | 100 % | 74 % | 51 % | 28 % | **0 %** |
+
+Soit **f0 ≥ 75 Hz**. Cela touche 4,8 % des notes du corpus SOL, et jusqu'à 40 % des notes d'un
+seul instrument — clarinette contrebasse, tuba contrebasse, contrebasson, contrebasses, sons
+pédale et extrême grave des cuivres.
+
+**Conséquence mesurée sur les résultats publiés : aucune.** Dédoublonner sans retirer de note
+laisse la route A à 23 formants, les trois unissons et les six régions à l'identique :
+`residu_local` retranche une médiane locale, et un point compté deux fois la repondère sans
+la déplacer. Trois valeurs de statut « indéterminé » bougent d'un ou deux pas de grille
+(contrebasse 1 396, contrebasson 698, tuba contrebasse 879 Hz) et **doivent porter cette
+mention**. Le drapeau `FORMANTS_DEDOUBLONNER=1` rend la vérification reproductible ; il reste
+inactif, faute de gain.
+
+**Et surtout l'inverse est vrai** : *retirer* ces notes fait disparaître les formants graves
+(le tuba contrebasse perd 370 Hz, le cor 466, le contrebasson 329), non parce qu'ils étaient
+faux mais parce que le plancher de domaine de la méthode 8 vaut 3,2 à 5,7 fois f0_min. **Ce
+sont ces notes très graves qui portent les formants graves.** Voir `_REGISTRES-PEDALE.md`.
+
+### Les cuivres ne se lisent pas au-dessus du médium *(tâche C7)*
+
+Sur les six cuivres et tous corpus confondus, le rapport F1/f0 de la méthode 12 descend de
+10,8 au registre pédale à 1,0 à l'aigu, et la pente de log2(F1) contre log2(f0) atteint 1,03
+avec r² = 0,85 au suraigu : **la carte vocalique y mesure la note, pas une couleur.** Rien ne
+doit être lu au-dessus du médium pour cette famille. À l'inverse le registre pédale, longtemps
+classé « hors registre », est le terrain le plus propre — F1 y vaut onze fois f0.
+
+Et la couleur d'un cuivre dépend de la nuance au point que **comparer deux corpus sans
+apparier la nuance revient à comparer deux répartitions de nuances** : 1 seul accord strict
+entre provenances distinctes en nuances réunies, **6 à nuance égale**.
 - Quatre instruments reposent sur moins de 50 échantillons (flûte basse 39, flûte
   contrebasse 38, clarinette en Mib 45, clarinette contrebasse 45) : leurs résultats sont
   provisoires.

@@ -1,0 +1,4 @@
+corpus,f0min_avec,f0min_sans,gain_demi_tons,instrument,n_pedale,plancher_avec,plancher_sans,rang_avec,rang_sans,rapport_avec,rapport_sans
+SOL,29.1,29.1,0.0,Trombone basse,24,53.8,53.8,1,1,1.85,1.85
+ZSamples,32.7,32.7,0.0,Trombone basse,8,75.4,75.4,2,2,2.3,2.3
+VO,29.1,29.1,0.0,Trombone basse,9,53.8,53.8,1,1,1.85,1.85

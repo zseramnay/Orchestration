@@ -1,0 +1,18 @@
+corpus,instrument,n_aigu,n_extrême_grave,n_grave,n_hors_registre,n_médium,n_sons_pédale,n_suraigu
+SOL,Cor en Fa,39,,41,,51,3,
+Xsamples,Cor en Fa,26,,25,,34,2,
+VN,Cor en Fa,36,,,,68,,
+SOL,Trombone basse,12,,44,25,39,24,
+ZSamples,Trombone basse,12,,16,16,16,8,
+VO,Trombone basse,12,,15,9,12,9,
+SOL,Trombone ténor,24,,39,15,36,3,
+ZSamples,Trombone ténor,24,,16,16,16,12,
+SOL,Trompette en Ut,36,,18,,36,2,4
+Xsamples,Trompette en Ut,34,,18,,36,9,1
+VN,Trompette en Ut,72,,29,,72,4,
+SOL,Tuba basse,27,,36,,36,,9
+ZSamples,Tuba basse,12,12,16,,16,,20
+VO,Tuba basse,9,16,12,,12,,12
+VN,Tuba basse,36,4,48,,48,,12
+SOL,Tuba contrebasse,22,38,44,,44,,10
+VN,Tuba contrebasse,15,24,36,,36,,

@@ -30,6 +30,13 @@ def lire_csv(p):
 LPC = lire_csv(os.path.join(MES, 'Appariement-LPC', 'appariement-lpc.csv'))
 DYN = lire_csv(os.path.join(MES, 'Largeur-par-registre', 'largeur-par-registre.csv'))
 MEL = lire_csv(os.path.join(MES, 'Melanges', 'melanges.csv'))
+PED = lire_csv(os.path.join(MES, 'Registres-Pedale', 'par-nuance.csv'))
+# `_CORPUS-CROISES.md`, 25/10 : Yan_Adds-Divers et VN sont la même bibliothèque (VSL).
+# Pour ces instruments la paire (SOL, VN) est écartée — ce qui n'est PAS un désaccord.
+PROV_VSL = {'Trombone basse', 'Tuba contrebasse', 'Contrebasson', 'Cor anglais'}
+ACC = lire_csv(os.path.join(MES, 'Registres-Pedale', 'accords-stricts.csv'))
+COI = lire_csv(os.path.join(MES, 'Coincidences-F2', 'coincidences-detail.csv'))
+COIR = lire_csv(os.path.join(MES, 'Coincidences-F2', 'coincidences-par-instrument.csv'))
 RESUME_DYN = json.load(open(os.path.join(MES, 'Largeur-par-registre',
                                          'largeur-par-registre.json'),
                             encoding='utf-8'))['resume']
@@ -96,6 +103,109 @@ def bloc_dyn(nom):
             'la trompette.' if e <= -5 else 'Effet négligeable.'))]
     return '\n'.join(lignes)
 
+def bloc_pedale(nom):
+    """Tâche C7, cuivres seulement : la couleur (F1) par nuance, et ce qui réplique à
+    nuance égale. Le détail vit dans `_REGISTRES-PEDALE.md`."""
+    L = [r for r in PED if r['instrument'] == nom]
+    if not L:
+        return None
+    par = {(r['corpus'], r['nuance']): r for r in L}
+    corpus = sorted({r['corpus'] for r in L},
+                    key=lambda c: ['SOL', 'ZSamples', 'Xsamples', 'VO', 'VN'].index(c)
+                    if c in ('SOL', 'ZSamples', 'Xsamples', 'VO', 'VN') else 99)
+    lignes = ['### La couleur dépend de la nuance, et ne se lit que jusqu\'au médium',
+              '',
+              'F1 du motif d\'excitation, notes **pédale + grave + médium** réunies : au-dessus '
+              'du médium la mesure donne la fondamentale et non une couleur (F1/f0 = 1,0, pente '
+              'contre f0 de 1,03 au suraigu). Voir `../_REGISTRES-PEDALE.md`.',
+              '',
+              '| Corpus | doux | moyen | fort | doux → fort |', '|---|---|---|---|---|']
+    for c in corpus:
+        cel, bas, haut = [], None, None
+        for dy in ('doux', 'moyen', 'fort'):
+            r = par.get((c, dy))
+            cel.append('—' if not r else '{} Hz'.format(int(round(float(r['F1'])))))
+            if r and dy == 'doux':
+                bas = float(r['F1'])
+            if r and dy == 'fort':
+                haut = float(r['F1'])
+        import math as _m
+        ec = (('{:+.1f} dt'.format(12 * _m.log2(haut / bas))).replace('.', ',')
+              if bas and haut else '—')
+        lignes.append('| {} | {} | {} | {} | **{}** |'.format(c, *cel, ec))
+    A = [r for r in ACC if r['instrument'] == nom]
+    if A:
+        lignes += ['',
+                   '**Ce qui réplique, à nuance égale** — paires de corpus de provenances '
+                   'distinctes accordées à moins d\'un demi-ton :', '']
+        for r in sorted(A, key=lambda r: float(r['ecart_demi_tons'])):
+            lignes.append(('- **{}** : {} {} Hz / {} {} Hz — **{} demi-ton**, pentes contre '
+                           'f0 {:+.2f} et {:+.2f}').format(
+                              r['nuance'], r['corpus_a'], r['F1_a'], r['corpus_b'], r['F1_b'],
+                              r['ecart_demi_tons'], float(r['pente_a']),
+                              float(r['pente_b'])).replace('.', ','))
+    elif nom in PROV_VSL and set(corpus) <= {'SOL', 'VN'}:
+        lignes += ['',
+                   '**Aucune paire utilisable.** Les deux seuls corpus de cet instrument, SOL '
+                   '(`Yan_Adds-Divers`) et VN, sont **la même bibliothèque** — même nombre '
+                   'd\'échantillons au sample près, corrélation 0,996. Ils s\'accordent de fait '
+                   'à 0,06 demi-ton sur la tessiture basse, et **cela ne compte pas** : c\'est '
+                   'la même source comparée à elle-même. Voir la règle de provenance dans '
+                   '`../_CORPUS-CROISES.md`. La couleur de cet instrument reste **non '
+                   'répliquée**, faute de second corpus.']
+    else:
+        lignes += ['',
+                   '**Aucune paire de corpus ne s\'accorde à moins d\'un demi-ton**, à aucune '
+                   'nuance. La couleur de cet instrument n\'est pas répliquée.']
+    return '\n'.join(lignes)
+
+def bloc_coincidence(nom):
+    """Tâche C8 : la carte vocalique tombe-t-elle sur les formants établis du même
+    instrument ? Non en général — le bloc le dit aussi quand c'est non, pour qu'on ne
+    croie pas la question non posée."""
+    R = [r for r in COIR if r['instrument'] == nom and r['seuil'] == '0.5']
+    if not R:
+        return None
+    L = [r for r in COI if r['instrument'] == nom and float(r['ecart_demi_tons']) <= 1.0]
+    titre = '### La carte vocalique corrobore-t-elle les formants ?'
+    ref = ('Témoin : les propres formants de l\'instrument transposés de ±2 à ±6 demi-tons, '
+           'ce qui conserve leur nombre et leur espacement. Voir `../_COINCIDENCES-F2.md`.')
+    def fr(x, d=1):
+        return ('{:.%df}' % d).format(float(x)).replace('.', ',')
+    def mil(x):
+        n = int(float(x))
+        return '{:,}'.format(n).replace(',', '\u202f')
+    fort = [r for r in R if r['rapport'] and float(r['rapport']) >= 2.0]
+    if not fort or not L:
+        pires = ' · '.join('{} {} % contre {} % au témoin'.format(
+            r['maximum'], fr(r['taux']), fr(r['taux_temoin'])) for r in R)
+        return '\n'.join([
+            titre, '',
+            '**Non.** {} — soit le hasard, ou moins. Les deux méthodes ne mesurent pas la '
+            'même région du spectre : F1 se situe en médiane à 15,5 demi-tons du formant '
+            'établi le plus proche, parce que la méthode 8 ne mesure rien sous 3,2 à 5,7 fois '
+            'f0_min.'.format(pires), '', ref])
+    lignes = [titre, '',
+              '**Oui, et c\'est le seul cas de l\'étude.** Rapport mesure / témoin :', '',
+              '| Maximum | Mesure | Témoin | Rapport |', '|---|---|---|---|']
+    for r in R:
+        lignes.append('| {} | {} % | {} % | **×{}** |'.format(
+            r['maximum'], fr(r['taux']), fr(r['taux_temoin']), fr(r['rapport'])))
+    par = defaultdict(lambda: [0, 0, set()])
+    for r in L:
+        k = r['formant_hz']
+        par[k][0] += 1
+        par[k][1] += 1 if float(r['ecart_demi_tons']) <= 0.5 else 0
+        par[k][2].add(r['corpus'])
+    lignes += ['', 'Les cellules concernées, formant par formant :', '',
+               '| Formant | Cellules < 1,0 dt | dont < 0,5 dt | Corpus |', '|---|---|---|---|']
+    for k in sorted(par, key=lambda x: float(x)):
+        n, s, cs = par[k]
+        lignes.append('| **{} Hz** | {} | {} | {} |'.format(
+            mil(k), n, s, ' · '.join(sorted(cs))))
+    lignes += ['', ref]
+    return '\n'.join(lignes)
+
 def bloc_mel(nom):
     L = [r for r in MEL if nom in (r['A'], r['B'])]
     if not L:
@@ -127,10 +237,12 @@ def main():
         nom = re.search(r'^nom:\s*(.+)$', m.group(1), re.M).group(1).strip() if m else None
         if not nom:
             print('  !! sans nom :', os.path.basename(p)); continue
-        blocs = [b for b in (bloc_lpc(nom), bloc_dyn(nom), bloc_mel(nom)) if b]
+        blocs = [b for b in (bloc_lpc(nom), bloc_dyn(nom), bloc_pedale(nom),
+                             bloc_coincidence(nom), bloc_mel(nom)) if b]
         if not blocs:
             print('  — {:30s} aucune donnée'.format(nom)); continue
-        section = (DEBUT + '\n## Ce que les travaux du 27/10/2026 disent de cet instrument\n\n'
+        section = (DEBUT + '\n## Ce que les travaux des 27 et 28/10/2026 disent de cet '
+                   'instrument\n\n'
                    + '\n\n'.join(blocs) + '\n\n' + FIN + '\n\n')
         if DEBUT in t:
             t = re.sub(re.escape(DEBUT) + r'.*?' + re.escape(FIN) + r'\n\n',

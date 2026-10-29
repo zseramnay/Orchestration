@@ -10,7 +10,7 @@
 <div class="bandeau"><h1>Basson</h1><p>Bassoon</p></div>
 <p class="fil"><a href="../index.html">Sommaire</a> › Les bois</p>
 <table class="sommaire"><tr><th>Classe</th><th>Provenance</th><th>Échantillons</th><th>Tessiture</th><th>Formants établis</th></tr><tr><td>A</td><td>IRCAM</td><td>126</td><td>A</td><td>3</td></tr></table><table class="sommaire"><tr><th>Formant</th><th>Note</th><th>Corpus</th><th>Localisation</th></tr><tr><td><b>494 Hz</b></td><td>Si4</td><td>Xsamples ZSamples</td><td></td></tr><tr><td><b>1108 Hz</b></td><td>Do♯6</td><td>SOL ZSamples Xsamples</td><td>localisé</td></tr><tr><td><b>1974 Hz</b></td><td>Si6</td><td>SOL ZSamples Xsamples</td><td>localisé</td></tr></table><figure><img src="../figures/composite-basson.png" alt="Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, ZSamples, Xsamples). Un formant retenu est un " loading="lazy"><figcaption>Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, ZSamples, Xsamples). Un formant retenu est un maximum que deux corpus de provenances distinctes placent au même point de grille.</figcaption></figure>
-<figure><img src="../figures/vocalique-basson.png" alt="Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyell" loading="lazy"><figcaption>Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyelles du français (Calliope, voix d&#x27;homme). Marqueur creux : cellule non assignable. Corpus : SOL, Xsamples.</figcaption></figure>
+<figure><img src="../figures/vocalique-basson.png" alt="Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyell" loading="lazy"><figcaption>Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyelles du français (Calliope, voix d&#x27;homme). Marqueur creux : cellule non assignable. Le nom de la voyelle dépend de la référence : en voix de femme, 41 % des cellules en changent et 11 instruments sur 20 changent de voyelle dominante. Le plancher de l&#x27;espace, lui, ne bouge pas. Corpus : SOL, ZSamples, Xsamples.</figcaption></figure>
 <h1>Basson</h1>
 <blockquote>
 <h2>Statut des formants — révision du 26/10/2026</h2>
@@ -251,7 +251,7 @@ grave A#1–A2 · bas médium A#2–A3 · haut médium A#3–A4 · aigu à parti
 <p>Mesure par registre : <strong>non encore effectuée</strong> avec la nouvelle méthode. À faire, en
 particulier pour trancher le comportement de la bande 1 108 Hz dans le grave.</p>
 <!-- DEBUT-TRAVAUX-27-10 -->
-<h2>Ce que les travaux du 27/10/2026 disent de cet instrument</h2>
+<h2>Ce que les travaux des 27 et 28/10/2026 disent de cet instrument</h2>
 <h3>Corroboration par le LPC, note par note</h3>
 <p>Rang du formant dans son propre spectre : 50 % signifie que les deux méthodes ne s'accordent pas mieux là qu'ailleurs. Voir <code>../_APPARIEMENT-LPC.md</code>.</p>
 <table>
@@ -333,6 +333,64 @@ particulier pour trancher le comportement de la bande 1 108 Hz dans le grave.</p
 </tbody>
 </table>
 <p><strong>Effet doux → fort : +1 point.</strong> Effet négligeable.</p>
+<h3>La carte vocalique corrobore-t-elle les formants ?</h3>
+<p><strong>Oui, et c'est le seul cas de l'étude.</strong> Rapport mesure / témoin :</p>
+<table>
+<thead>
+<tr>
+<th>Maximum</th>
+<th>Mesure</th>
+<th>Témoin</th>
+<th>Rapport</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F1</td>
+<td>44,4 %</td>
+<td>7,8 %</td>
+<td><strong>×5,7</strong></td>
+</tr>
+<tr>
+<td>F2</td>
+<td>23,1 %</td>
+<td>3,1 %</td>
+<td><strong>×7,5</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Les cellules concernées, formant par formant :</p>
+<table>
+<thead>
+<tr>
+<th>Formant</th>
+<th>Cellules &lt; 1,0 dt</th>
+<th>dont &lt; 0,5 dt</th>
+<th>Corpus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>494 Hz</strong></td>
+<td>16</td>
+<td>8</td>
+<td>SOL · Xsamples · ZSamples</td>
+</tr>
+<tr>
+<td><strong>554 Hz</strong></td>
+<td>13</td>
+<td>8</td>
+<td>SOL · Xsamples · ZSamples</td>
+</tr>
+<tr>
+<td><strong>1 108 Hz</strong></td>
+<td>11</td>
+<td>6</td>
+<td>SOL · Xsamples · ZSamples</td>
+</tr>
+</tbody>
+</table>
+<p>Témoin : les propres formants de l'instrument transposés de ±2 à ±6 demi-tons, ce qui conserve leur nombre et leur espacement. Voir <code>../_COINCIDENCES-F2.md</code>.</p>
 <h3>Dans la table des mélanges</h3>
 <p>20 paires calculées. <strong>Fusion moyenne : 31 %.</strong> Voir <code>../_MELANGES.md</code>.</p>
 <table>

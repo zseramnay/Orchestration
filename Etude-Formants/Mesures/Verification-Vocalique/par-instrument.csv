@@ -1,0 +1,22 @@
+instrument,n_cellules,F1_median,F1_max,F2_median,pct_sous_seuil,accord_voyelle,n_voyelle
+Alto,12,1.12,6.69,4.92,17.0,33,12
+Basson,12,1.73,2.81,2.51,8.0,22,9
+Clarinette basse,12,3.95,15.57,2.0,25.0,36,11
+Clarinette contrebasse,4,0.29,10.42,2.48,75.0,50,4
+Clarinette en Mib,4,0.21,0.31,0.17,100.0,75,4
+Clarinette en Sib,12,0.71,2.13,1.96,50.0,64,11
+Contrebasse,12,4.34,17.66,2.48,0.0,44,9
+Contrebasson,9,3.08,4.84,,0.0,,0
+Cor,8,3.27,7.34,4.44,12.0,50,4
+Cor anglais,6,2.0,15.1,2.68,0.0,40,5
+Flûte,3,1.07,1.17,0.59,33.0,50,2
+Flûte basse,3,0.33,2.66,3.03,67.0,50,2
+Flûte contrebasse,3,1.7,7.81,5.68,33.0,0,2
+Hautbois,12,0.3,5.2,1.62,50.0,73,11
+Petite flûte,3,1.07,1.1,2.96,33.0,50,2
+Trombone basse,5,2.47,3.83,4.53,0.0,0,2
+Trombone ténor,13,3.73,10.81,1.67,8.0,60,5
+Trompette,9,1.81,4.09,1.2,11.0,60,5
+Tuba basse,10,4.28,8.87,,0.0,,0
+Violon,12,2.58,6.88,3.4,0.0,58,12
+Violoncelle,12,2.07,9.29,3.44,0.0,50,12

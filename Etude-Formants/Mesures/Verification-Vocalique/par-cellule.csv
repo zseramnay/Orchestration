@@ -1,0 +1,177 @@
+instrument,registre,dynamique,corpus,ecart_F1,ecart_F2,voyelles,accord_voyelle
+Alto,aigu,moyen,SOL VO VN,0.61,2.97,ɛ ɛ ɛ,True
+Alto,suraigu,doux,SOL ZSamples VO VN,0.46,2.45,ɛ ɛ ɛ ɛ,True
+Alto,aigu,doux,SOL ZSamples VO VN,1.09,6.08,ɛ œ œ ɛ,False
+Alto,médium,moyen,SOL VO VN,6.69,5.83,ɛ ɛ ø,False
+Alto,suraigu,fort,SOL ZSamples VO VN,0.92,1.51,ɛ ɛ ɛ ɛ,True
+Alto,aigu,fort,SOL ZSamples VO VN,1.09,4.01,ɛ œ œ ɛ,False
+Alto,grave,moyen,SOL VN,1.73,2.29,ø e,False
+Alto,médium,doux,SOL ZSamples VO VN,6.45,9.75,ø e ɛ o,False
+Alto,grave,doux,SOL ZSamples VN,1.16,6.76,ø y ø,False
+Alto,médium,fort,SOL ZSamples VO VN,2.58,7.59,ɛ e ø ɛ,False
+Alto,grave,fort,SOL ZSamples VN,1.66,9.87,ø e o,False
+Alto,suraigu,moyen,SOL VO VN,0.46,1.81,ɛ ɛ ɛ,True
+Basson,aigu,moyen,SOL ZSamples Xsamples,1.73,2.51,ɔ œ a,False
+Basson,aigu,doux,SOL ZSamples Xsamples,0.19,1.2,ɔ ɔ ɔ,True
+Basson,aigu,fort,SOL ZSamples Xsamples,0.77,2.09,ɔ a a,False
+Basson,grave,moyen,SOL ZSamples Xsamples,1.92,7.4,ɛ œ ɔ,False
+Basson,bas médium,moyen,SOL ZSamples Xsamples,1.86,3.8,œ ɔ,False
+Basson,haut médium,moyen,SOL ZSamples Xsamples,1.87,2.57,œ ɔ ɔ,False
+Basson,bas médium,doux,SOL ZSamples Xsamples,1.56,,,
+Basson,grave,doux,SOL ZSamples Xsamples,2.81,,,
+Basson,grave,fort,SOL ZSamples Xsamples,2.66,3.03,œ œ ɔ,False
+Basson,haut médium,doux,SOL ZSamples Xsamples,1.3,,ɔ,
+Basson,bas médium,fort,SOL ZSamples Xsamples,1.72,2.38,œ ɔ ɔ,False
+Basson,haut médium,fort,SOL ZSamples Xsamples,0.81,0.52,ɔ ɔ,True
+Clarinette basse,gorge,fort,SOL Xsamples VN,3.74,10.76,e ɔ y,False
+Clarinette basse,suraigu,doux,SOL Xsamples VN,3.95,4.35,a a a,True
+Clarinette basse,clarine,doux,SOL Xsamples VN,0.0,1.45,o o o,True
+Clarinette basse,suraigu,fort,SOL Xsamples VN,3.95,2.36,ɛ ɛ a,False
+Clarinette basse,clarine,fort,SOL Xsamples VN,0.42,2.0,ø ø o,False
+Clarinette basse,chalumeau,moyen,SOL Xsamples VN,10.36,3.14,ø ø u,False
+Clarinette basse,gorge,moyen,SOL Xsamples VN,6.39,5.04,ø o u,False
+Clarinette basse,chalumeau,doux,SOL Xsamples VN,15.57,,ø,
+Clarinette basse,chalumeau,fort,SOL Xsamples VN,6.77,1.67,ø ø ø,True
+Clarinette basse,gorge,doux,SOL Xsamples VN,1.51,1.09,u u,True
+Clarinette basse,suraigu,moyen,SOL Xsamples VN,3.95,1.27,a œ a,False
+Clarinette basse,clarine,moyen,SOL Xsamples VN,0.0,0.91,ø o o,False
+Clarinette contrebasse,gorge,toutes,SOL ZSamples VO,10.42,2.03,y y y,True
+Clarinette contrebasse,suraigu,toutes,SOL VO,0.17,0.14,ø ø,True
+Clarinette contrebasse,clarine,toutes,SOL ZSamples VO,0.0,6.01,ø u ø,False
+Clarinette contrebasse,chalumeau,toutes,SOL ZSamples VO,0.42,2.93,u ø ø,False
+Clarinette en Mib,gorge,toutes,SOL VO,0.28,1.28,ɛ ɛ,True
+Clarinette en Mib,suraigu,toutes,SOL VO,0.13,0.05,ɛ ɛ,True
+Clarinette en Mib,clarine,toutes,SOL VO,0.14,0.15,ɛ ɛ,True
+Clarinette en Mib,chalumeau,toutes,SOL VO,0.31,0.19,ø u,False
+Clarinette en Sib,gorge,fort,SOL Xsamples,0.14,2.23,ø ø,True
+Clarinette en Sib,suraigu,doux,SOL ZSamples Xsamples,2.13,3.62,ɛ ɛ ɛ,True
+Clarinette en Sib,clarine,doux,SOL ZSamples Xsamples,0.24,1.96,a ɛ,False
+Clarinette en Sib,suraigu,fort,SOL ZSamples Xsamples,2.07,2.44,ɛ ɛ ɛ,True
+Clarinette en Sib,clarine,fort,SOL ZSamples Xsamples,1.05,0.78,ɛ ɛ ɛ,True
+Clarinette en Sib,chalumeau,moyen,SOL Xsamples,0.0,2.63,u u,True
+Clarinette en Sib,gorge,moyen,SOL Xsamples,0.14,0.62,ø ø,True
+Clarinette en Sib,chalumeau,doux,SOL ZSamples Xsamples,1.11,,u,
+Clarinette en Sib,chalumeau,fort,SOL ZSamples Xsamples,0.37,3.79,ø o ø,False
+Clarinette en Sib,gorge,doux,SOL Xsamples,0.14,1.58,ø ɔ,False
+Clarinette en Sib,suraigu,moyen,SOL Xsamples,1.49,1.18,ɛ ɛ,True
+Clarinette en Sib,clarine,moyen,SOL Xsamples,1.05,1.8,œ ɛ,False
+Contrebasse,aigu,moyen,SOL VO,1.81,0.05,ø ø,True
+Contrebasse,suraigu,doux,SOL ZSamples VO,17.66,1.87,œ œ,True
+Contrebasse,aigu,doux,SOL ZSamples VO,5.12,1.13,ø ø ø,True
+Contrebasse,médium,moyen,SOL VO,8.18,,ø,
+Contrebasse,suraigu,fort,SOL ZSamples VO,4.72,1.77,ɛ a œ,False
+Contrebasse,aigu,fort,SOL ZSamples VO,3.56,2.48,ø u ø,False
+Contrebasse,grave,moyen,SOL VO,1.48,,,
+Contrebasse,médium,doux,SOL ZSamples VO,11.08,5.39,u ø,False
+Contrebasse,grave,doux,SOL ZSamples VO,3.97,,u,
+Contrebasse,médium,fort,SOL ZSamples VO,10.64,3.52,u u u,True
+Contrebasse,grave,fort,SOL ZSamples VO,0.95,7.45,ø u ø,False
+Contrebasse,suraigu,moyen,SOL VO,2.03,3.0,ɛ ø,False
+Contrebasson,haut médium,moyen,SOL Xsamples VN,3.11,,o,
+Contrebasson,bas médium,doux,SOL ZSamples Xsamples VN,1.68,,,
+Contrebasson,grave,doux,SOL ZSamples Xsamples VN,1.35,,,
+Contrebasson,grave,fort,SOL ZSamples Xsamples VN,2.44,,u,
+Contrebasson,haut médium,doux,SOL ZSamples Xsamples VN,3.52,,,
+Contrebasson,bas médium,fort,SOL ZSamples Xsamples VN,3.08,,e,
+Contrebasson,grave,moyen,SOL Xsamples VN,2.2,,,
+Contrebasson,bas médium,moyen,SOL Xsamples VN,4.84,,ø,
+Contrebasson,haut médium,fort,SOL ZSamples Xsamples VN,3.22,,o,
+Cor,aigu,moyen,SOL Xsamples VN,2.19,1.6,ɔ ɔ,True
+Cor,médium,fort,SOL Xsamples VN,5.18,3.2,ɛ ɛ ɛ,True
+Cor,aigu,doux,SOL VN,0.17,,,
+Cor,grave,fort,SOL Xsamples,0.73,5.69,ɛ œ,False
+Cor,médium,moyen,SOL Xsamples VN,7.34,,,
+Cor,aigu,fort,SOL Xsamples VN,3.22,7.54,ɛ œ ɔ,False
+Cor,grave,moyen,SOL Xsamples,3.33,,,
+Cor,médium,doux,SOL VN,5.83,,,
+Cor anglais,grave,doux,SOL ZSamples Xsamples VN,1.29,,a,
+Cor anglais,médium,fort,SOL ZSamples Xsamples VN,5.06,8.89,ɛ ɛ a,False
+Cor anglais,aigu,doux,SOL ZSamples Xsamples VN,2.0,2.63,a a a a,True
+Cor anglais,grave,fort,SOL ZSamples Xsamples VN,15.1,12.94,ɔ ɛ u a,False
+Cor anglais,aigu,fort,SOL ZSamples Xsamples VN,2.0,2.68,ɛ a a ɛ,False
+Cor anglais,médium,doux,SOL ZSamples Xsamples VN,0.97,0.68,ɔ ɔ,True
+Flûte,médium,toutes,ZSamples VO,1.07,0.93,a œ,False
+Flûte,grave,toutes,ZSamples VO,0.26,,,
+Flûte,aigu,toutes,ZSamples VO,1.17,0.24,ɛ ɛ,True
+Flûte basse,médium,toutes,SOL ZSamples VO,2.66,4.47,ɔ o,False
+Flûte basse,grave,toutes,SOL ZSamples VO,0.24,,u,
+Flûte basse,aigu,toutes,SOL ZSamples VO,0.33,1.59,a a a,True
+Flûte contrebasse,suraigu,toutes,SOL ZSamples VO,1.7,3.88,œ ɛ œ,False
+Flûte contrebasse,aigu,toutes,SOL ZSamples VO,7.81,7.48,o œ u,False
+Flûte contrebasse,médium,toutes,SOL ZSamples VO,0.43,,,
+Hautbois,aigu,moyen,SOL Xsamples VN,0.0,0.94,ɛ ɛ ɛ,True
+Hautbois,suraigu,doux,SOL Xsamples VN,0.96,2.32,ɛ ɛ ɛ,True
+Hautbois,aigu,doux,SOL Xsamples VN,0.0,2.03,ɛ ɛ ɛ,True
+Hautbois,médium,moyen,SOL Xsamples VN,0.09,2.2,œ a œ,False
+Hautbois,suraigu,fort,SOL Xsamples VN,1.03,3.5,ɛ ɛ ɛ,True
+Hautbois,aigu,fort,SOL Xsamples VN,0.0,1.4,ɛ ɛ ɛ,True
+Hautbois,grave,moyen,SOL Xsamples VN,4.26,1.18,ɛ ɛ,True
+Hautbois,médium,doux,SOL Xsamples VN,0.09,1.46,œ a œ,False
+Hautbois,grave,doux,SOL Xsamples VN,5.2,,,
+Hautbois,médium,fort,SOL Xsamples VN,0.09,1.27,œ a œ,False
+Hautbois,grave,fort,SOL Xsamples VN,3.93,1.62,ɛ ɛ,True
+Hautbois,suraigu,moyen,SOL Xsamples VN,0.51,2.94,ɛ ɛ ɛ,True
+Petite flûte,médium,toutes,ZSamples VO,1.1,1.09,ɛ ɛ,True
+Petite flûte,grave,toutes,ZSamples VO,0.0,4.82,a ɛ,False
+Petite flûte,aigu,toutes,ZSamples VO,1.07,,,
+Trombone basse,sons pédale,toutes,ZSamples VO,2.47,,,
+Trombone basse,aigu,toutes,ZSamples VO,0.93,4.37,ɔ œ,False
+Trombone basse,médium,toutes,ZSamples VO,3.83,,,
+Trombone basse,grave,toutes,ZSamples VO,3.36,4.7,ɛ œ,False
+Trombone basse,hors registre,toutes,ZSamples VO,2.45,,ɛ,
+Trombone ténor,hors registre,fort,SOL ZSamples,3.73,,,
+Trombone ténor,aigu,moyen,SOL Xsamples,0.4,1.67,ɔ ɔ,True
+Trombone ténor,sons pédale,fort,ZSamples Xsamples,2.64,,ɛ,
+Trombone ténor,aigu,doux,SOL ZSamples Xsamples,4.07,4.27,ɔ a a,False
+Trombone ténor,médium,moyen,SOL Xsamples,6.04,,a,
+Trombone ténor,aigu,fort,SOL ZSamples Xsamples,3.7,1.65,a a œ,False
+Trombone ténor,grave,moyen,SOL Xsamples,4.15,,ɛ,
+Trombone ténor,médium,doux,SOL ZSamples Xsamples,6.27,,,
+Trombone ténor,grave,doux,SOL ZSamples Xsamples,10.81,,ɛ,
+Trombone ténor,médium,fort,SOL ZSamples Xsamples,2.85,10.05,ɛ ɛ,True
+Trombone ténor,grave,fort,SOL ZSamples Xsamples,1.7,1.63,a a,True
+Trombone ténor,hors registre,doux,SOL ZSamples,1.29,,,
+Trombone ténor,sons pédale,doux,ZSamples Xsamples,6.73,,,
+Trompette,aigu,moyen,SOL Xsamples VN,0.53,1.2,ɛ a a,False
+Trompette,grave,doux,SOL Xsamples VN,1.81,,,
+Trompette,médium,fort,SOL Xsamples VN,4.09,1.26,a ɛ,False
+Trompette,aigu,doux,SOL Xsamples VN,0.53,0.2,a a a,True
+Trompette,grave,fort,SOL Xsamples VN,3.74,0.35,ɛ ɛ,True
+Trompette,médium,moyen,SOL Xsamples VN,2.02,,,
+Trompette,aigu,fort,SOL Xsamples VN,0.07,4.77,ɛ ɛ ɛ,True
+Trompette,grave,moyen,SOL Xsamples VN,2.6,,a,
+Trompette,médium,doux,SOL Xsamples VN,0.86,,a,
+Tuba basse,aigu,moyen,SOL VN,0.73,,,
+Tuba basse,suraigu,doux,ZSamples VN,4.7,,,
+Tuba basse,aigu,doux,SOL ZSamples VN,2.13,,,
+Tuba basse,médium,moyen,SOL VN,5.26,,,
+Tuba basse,aigu,fort,SOL ZSamples VN,1.54,,,
+Tuba basse,grave,moyen,SOL VN,1.54,,,
+Tuba basse,médium,doux,SOL ZSamples VN,8.68,,,
+Tuba basse,grave,doux,SOL ZSamples VN,8.87,,,
+Tuba basse,médium,fort,SOL ZSamples VN,4.6,,,
+Tuba basse,grave,fort,SOL ZSamples VN,3.96,,,
+Violon,aigu,moyen,SOL VO VN,0.94,1.67,ɛ ɛ ɛ,True
+Violon,suraigu,doux,SOL ZSamples VO VN,4.03,3.48,ɛ ɛ ɛ ɛ,True
+Violon,aigu,doux,SOL ZSamples VO VN,1.02,2.12,ɛ ɛ ɛ ɛ,True
+Violon,médium,moyen,SOL VO VN,1.94,2.61,ɛ ɛ ɛ,True
+Violon,suraigu,fort,SOL ZSamples VO VN,4.55,3.31,ɛ ɛ ɛ ɛ,True
+Violon,aigu,fort,SOL ZSamples VO VN,1.0,2.9,ɛ ɛ ɛ ɛ,True
+Violon,grave,moyen,SOL VN,2.19,5.26,ɛ e,False
+Violon,médium,doux,SOL ZSamples VO VN,2.96,6.11,ɛ œ ɛ ɛ,False
+Violon,grave,doux,SOL ZSamples VN,6.88,11.11,e ɔ ɛ,False
+Violon,médium,fort,SOL ZSamples VO VN,1.88,6.19,ɛ œ e ɛ,False
+Violon,grave,fort,SOL ZSamples VN,6.81,10.01,e ø ɛ,False
+Violon,suraigu,moyen,SOL VO VN,4.03,3.32,ɛ ɛ ɛ,True
+Violoncelle,aigu,moyen,SOL VO VN,1.54,2.77,œ ɛ ɛ,False
+Violoncelle,suraigu,doux,SOL ZSamples VO VN,9.29,2.18,ɛ ɛ a ɛ,False
+Violoncelle,aigu,doux,SOL ZSamples VO VN,4.42,6.56,ɔ ø ɛ ɔ,False
+Violoncelle,médium,moyen,SOL VO VN,0.63,1.68,u u u,True
+Violoncelle,suraigu,fort,SOL ZSamples VO VN,7.34,4.11,ɛ ɛ ɛ ɛ,True
+Violoncelle,aigu,fort,SOL ZSamples VO VN,4.93,1.88,œ ø ɛ œ,False
+Violoncelle,grave,moyen,SOL VN,0.95,0.13,u u,True
+Violoncelle,médium,doux,SOL ZSamples VO VN,2.18,5.8,u u u u,True
+Violoncelle,grave,doux,SOL ZSamples VN,1.95,1.93,u u,True
+Violoncelle,médium,fort,SOL ZSamples VO VN,1.37,7.1,u y u u,False
+Violoncelle,grave,fort,SOL ZSamples VN,1.93,12.55,u i u,False
+Violoncelle,suraigu,moyen,SOL VO VN,6.53,4.11,ɛ ɛ ɛ,True

@@ -137,7 +137,7 @@ médium et 431 Hz à l'aigu — une progression qui suit les fondamentales des r
 clarinette était donc la rencontre de deux zones de fondamentale.
 
 <!-- DEBUT-TRAVAUX-27-10 -->
-## Ce que les travaux du 27/10/2026 disent de cet instrument
+## Ce que les travaux des 27 et 28/10/2026 disent de cet instrument
 
 ### Corroboration par le LPC, note par note
 
@@ -159,6 +159,35 @@ Part de pics **non localisables** — l'enveloppe n'y redescend pas de 3 dB des 
 | hors registre | 67 % | 43 % | — |
 
 **Effet doux → fort : +48 points.** La localisation s'améliore en jeu fort.
+
+### La couleur dépend de la nuance, et ne se lit que jusqu'au médium
+
+F1 du motif d'excitation, notes **pédale + grave + médium** réunies : au-dessus du médium la mesure donne la fondamentale et non une couleur (F1/f0 = 1,0, pente contre f0 de 1,03 au suraigu). Voir `../_REGISTRES-PEDALE.md`.
+
+| Corpus | doux | moyen | fort | doux → fort |
+|---|---|---|---|---|
+| SOL | 375 Hz | 540 Hz | 716 Hz | **+11,2 dt** |
+| ZSamples | 436 Hz | — | 768 Hz | **+9,8 dt** |
+
+**Aucune paire de corpus ne s'accorde à moins d'un demi-ton**, à aucune nuance. La couleur de cet instrument n'est pas répliquée.
+
+### La carte vocalique corrobore-t-elle les formants ?
+
+**Oui, et c'est le seul cas de l'étude.** Rapport mesure / témoin :
+
+| Maximum | Mesure | Témoin | Rapport |
+|---|---|---|---|
+| F1 | 2,9 % | 5,0 % | **×0,6** |
+| F2 | 5,3 % | 2,6 % | **×2,0** |
+
+Les cellules concernées, formant par formant :
+
+| Formant | Cellules < 1,0 dt | dont < 0,5 dt | Corpus |
+|---|---|---|---|
+| **830 Hz** | 1 | 1 | ZSamples |
+| **3 134 Hz** | 1 | 1 | ZSamples |
+
+Témoin : les propres formants de l'instrument transposés de ±2 à ±6 demi-tons, ce qui conserve leur nombre et leur espacement. Voir `../_COINCIDENCES-F2.md`.
 
 ### Dans la table des mélanges
 

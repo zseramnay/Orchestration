@@ -1,0 +1,436 @@
+corpus,instrument,registre,dynamique,n,F1_hz,F2_hz,voyelle_homme,distance_homme,statut_homme,voyelle_autre,distance_autre,statut_autre,change
+SOL,Petite flûte,grave,doux,11,708,1834,ɛ,1.52,assignable,œ,0.73,assignable,True
+SOL,Petite flûte,grave,moyen,8,721,1980,ɛ,1.81,assignable,ɛ,0.57,assignable,False
+SOL,Petite flûte,grave,fort,8,718,1970,ɛ,1.78,assignable,ɛ,0.57,assignable,False
+SOL,Petite flûte,médium,doux,16,1283,2815,ɛ,6.03,HORS ESPACE,ɛ,4.49,HORS ESPACE,False
+SOL,Petite flûte,médium,moyen,12,1283,3024,ɛ,6.25,HORS ESPACE,ɛ,4.68,HORS ESPACE,False
+SOL,Petite flûte,médium,fort,12,1283,2838,ɛ,6.05,HORS ESPACE,ɛ,4.51,HORS ESPACE,False
+SOL,Petite flûte,aigu,moyen,12,2569,4967,ɛ,11.6,HORS ESPACE,ɛ,10.03,HORS ESPACE,False
+SOL,Petite flûte,aigu,fort,12,2569,4924,ɛ,11.58,HORS ESPACE,ɛ,10.0,HORS ESPACE,False
+SOL,Flûte,grave,doux,11,330,1076,ɔ,1.87,assignable,u,1.82,assignable,True
+SOL,Flûte,grave,moyen,11,502,1468,œ,0.39,assignable,ø,0.66,assignable,True
+SOL,Flûte,grave,fort,11,567,1723,ɛ,0.31,assignable,œ,0.67,assignable,True
+SOL,Flûte,médium,doux,12,639,1553,ɛ,1.13,assignable,œ,0.57,assignable,True
+SOL,Flûte,médium,moyen,12,645,1746,ɛ,0.96,assignable,œ,0.21,assignable,True
+SOL,Flûte,médium,fort,12,645,1604,ɛ,1.06,assignable,œ,0.35,assignable,True
+SOL,Flûte,aigu,moyen,12,1283,2561,ɛ,5.75,HORS ESPACE,ɛ,4.28,HORS ESPACE,False
+SOL,Flûte,aigu,fort,12,1283,2948,ɛ,6.17,HORS ESPACE,ɛ,4.61,HORS ESPACE,False
+SOL,Flûte,suraigu,doux,5,2094,4436,ɛ,10.18,HORS ESPACE,ɛ,8.6,HORS ESPACE,False
+SOL,Flûte,suraigu,fort,5,2094,4321,ɛ,10.1,HORS ESPACE,ɛ,8.52,HORS ESPACE,False
+SOL,Flûte basse,médium,toutes,12,434,1147,ɔ,1.24,assignable,ɔ,1.72,assignable,False
+SOL,Flûte basse,aigu,toutes,12,692,1365,a,0.56,assignable,a,0.97,assignable,False
+SOL,Flûte contrebasse,aigu,toutes,12,343,864,o,0.62,assignable,u,0.53,assignable,True
+SOL,Flûte contrebasse,suraigu,toutes,11,572,1287,œ,0.7,assignable,ɔ,0.77,assignable,True
+SOL,Hautbois,grave,moyen,10,1200,3130,ɛ,6.01,HORS ESPACE,ɛ,4.4,HORS ESPACE,False
+SOL,Hautbois,grave,fort,10,1210,3184,ɛ,6.12,HORS ESPACE,ɛ,4.51,HORS ESPACE,False
+SOL,Hautbois,médium,doux,12,608,1389,œ,0.77,assignable,ɔ,1.11,assignable,True
+SOL,Hautbois,médium,moyen,12,605,1427,œ,0.76,assignable,œ,1.19,assignable,False
+SOL,Hautbois,médium,fort,12,608,1396,œ,0.77,assignable,ɔ,1.14,assignable,True
+SOL,Hautbois,aigu,doux,7,991,1968,ɛ,3.57,HORS ESPACE,a,2.27,approximative,True
+SOL,Hautbois,aigu,moyen,7,991,1983,ɛ,3.58,HORS ESPACE,a,2.31,approximative,True
+SOL,Hautbois,aigu,fort,7,991,1983,ɛ,3.58,HORS ESPACE,a,2.31,approximative,True
+SOL,Hautbois,suraigu,doux,7,1478,3287,ɛ,7.31,HORS ESPACE,ɛ,5.74,HORS ESPACE,False
+SOL,Hautbois,suraigu,moyen,6,1435,3321,ɛ,7.18,HORS ESPACE,ɛ,5.6,HORS ESPACE,False
+SOL,Hautbois,suraigu,fort,7,1478,3533,ɛ,7.55,HORS ESPACE,ɛ,5.96,HORS ESPACE,False
+SOL,Basson,grave,moyen,12,525,1616,ɛ,0.41,assignable,ø,0.49,assignable,True
+SOL,Basson,grave,fort,12,519,1227,œ,0.84,assignable,ɔ,1.0,assignable,True
+SOL,Basson,bas médium,moyen,12,530,1288,œ,0.52,assignable,ɔ,1.05,assignable,True
+SOL,Basson,bas médium,fort,12,529,1182,œ,1.1,assignable,ɔ,0.88,assignable,True
+SOL,Basson,haut médium,moyen,7,547,1232,œ,0.85,assignable,ɔ,0.78,assignable,True
+SOL,Basson,haut médium,fort,7,548,1155,ɔ,0.96,assignable,ɔ,0.73,assignable,False
+SOL,Basson,aigu,doux,11,554,1046,ɔ,0.36,assignable,ɔ,1.03,assignable,False
+SOL,Basson,aigu,moyen,11,584,1079,ɔ,0.67,assignable,ɔ,0.72,assignable,False
+SOL,Basson,aigu,fort,11,590,1112,ɔ,0.86,assignable,ɔ,0.53,assignable,False
+SOL,Clarinette en Mib,chalumeau,toutes,15,282,1072,ø,2.07,approximative,u,1.81,assignable,True
+SOL,Clarinette en Mib,gorge,toutes,6,563,1787,ɛ,0.39,assignable,œ,0.78,assignable,True
+SOL,Clarinette en Mib,clarine,toutes,12,864,2224,ɛ,3.1,approximative,ɛ,1.59,assignable,False
+SOL,Clarinette en Mib,suraigu,toutes,12,1723,3748,ɛ,8.58,HORS ESPACE,ɛ,7.01,HORS ESPACE,False
+SOL,Clarinette en Sib,chalumeau,moyen,13,277,896,u,1.01,assignable,u,0.73,assignable,False
+SOL,Clarinette en Sib,chalumeau,fort,13,277,1127,ø,1.81,assignable,u,2.14,approximative,True
+SOL,Clarinette en Sib,gorge,doux,6,362,1182,ø,1.23,assignable,o,2.25,approximative,True
+SOL,Clarinette en Sib,gorge,moyen,6,362,1226,ø,0.98,assignable,ø,2.05,approximative,False
+SOL,Clarinette en Sib,gorge,fort,6,362,1350,ø,0.37,assignable,ø,1.51,assignable,False
+SOL,Clarinette en Sib,clarine,doux,14,645,1401,a,0.8,assignable,ɔ,1.15,assignable,True
+SOL,Clarinette en Sib,clarine,moyen,14,639,1498,œ,1.13,assignable,œ,0.81,assignable,False
+SOL,Clarinette en Sib,clarine,fort,14,679,1653,ɛ,1.26,assignable,œ,0.3,assignable,True
+SOL,Clarinette en Sib,suraigu,doux,9,1245,2284,ɛ,5.29,HORS ESPACE,ɛ,3.92,HORS ESPACE,False
+SOL,Clarinette en Sib,suraigu,moyen,9,1245,2549,ɛ,5.56,HORS ESPACE,ɛ,4.08,HORS ESPACE,False
+SOL,Clarinette en Sib,suraigu,fort,9,1245,2496,ɛ,5.5,HORS ESPACE,ɛ,4.04,HORS ESPACE,False
+SOL,Clarinette basse,chalumeau,moyen,17,216,1151,ø,2.09,approximative,u,2.42,approximative,True
+SOL,Clarinette basse,chalumeau,fort,23,230,1114,ø,2.14,approximative,u,2.18,approximative,True
+SOL,Clarinette basse,gorge,moyen,6,263,1274,ø,1.32,assignable,ø,2.45,approximative,False
+SOL,Clarinette basse,gorge,fort,8,361,1865,e,0.33,assignable,y,0.79,assignable,True
+SOL,Clarinette basse,clarine,doux,14,322,995,o,1.5,assignable,u,1.31,assignable,True
+SOL,Clarinette basse,clarine,moyen,14,322,1085,ø,1.86,assignable,u,1.87,assignable,True
+SOL,Clarinette basse,clarine,fort,19,330,1164,ø,1.4,assignable,o,2.3,approximative,True
+SOL,Clarinette basse,suraigu,doux,15,741,1548,a,1.47,assignable,a,0.4,assignable,False
+SOL,Clarinette basse,suraigu,moyen,15,741,1569,a,1.56,assignable,a,0.46,assignable,False
+SOL,Clarinette basse,suraigu,fort,19,741,1868,ɛ,1.79,assignable,ɛ,0.94,assignable,False
+SOL,Clarinette contrebasse,chalumeau,toutes,18,204,1088,u,2.42,approximative,u,2.14,approximative,False
+SOL,Clarinette contrebasse,gorge,toutes,6,200,1538,y,1.28,assignable,y,2.13,approximative,False
+SOL,Clarinette contrebasse,clarine,toutes,15,235,1276,ø,1.54,assignable,ø,2.66,approximative,False
+SOL,Clarinette contrebasse,suraigu,toutes,6,306,1081,ø,1.93,assignable,u,1.84,assignable,True
+SOL,Cor,grave,fort,13,439,1775,ɛ,0.82,assignable,ø,0.72,assignable,True
+SOL,Cor,médium,fort,17,439,1755,ɛ,0.81,assignable,ø,0.65,assignable,True
+SOL,Cor,aigu,moyen,13,490,1147,ɔ,0.97,assignable,ɔ,1.23,assignable,False
+SOL,Cor,aigu,fort,13,490,1617,ɛ,0.53,assignable,ø,0.19,assignable,True
+SOL,Trompette,grave,fort,6,820,2416,ɛ,3.17,approximative,ɛ,1.54,assignable,False
+SOL,Trompette,médium,fort,12,1073,1900,a,3.87,HORS ESPACE,a,2.47,approximative,False
+SOL,Trompette,aigu,doux,12,764,1551,a,1.54,assignable,a,0.27,assignable,False
+SOL,Trompette,aigu,moyen,12,764,1677,ɛ,1.89,assignable,a,0.76,assignable,True
+SOL,Trompette,aigu,fort,12,764,2326,ɛ,2.71,approximative,ɛ,1.07,assignable,False
+SOL,Trombone ténor,aigu,doux,8,490,973,ɔ,0.39,assignable,o,0.84,assignable,True
+SOL,Trombone ténor,aigu,moyen,8,567,1018,ɔ,0.33,assignable,ɔ,1.12,assignable,False
+SOL,Trombone ténor,aigu,fort,8,604,1150,a,0.87,assignable,ɔ,0.3,assignable,True
+SOL,Violon,grave,doux,9,451,2014,e,0.79,assignable,e,1.02,assignable,False
+SOL,Violon,grave,moyen,9,460,1659,ɛ,0.65,assignable,ø,0.24,assignable,True
+SOL,Violon,grave,fort,9,476,2209,e,1.26,assignable,e,0.66,assignable,False
+SOL,Violon,médium,doux,30,525,1906,ɛ,0.68,assignable,ø,1.24,assignable,True
+SOL,Violon,médium,moyen,30,525,1907,ɛ,0.68,assignable,ø,1.24,assignable,True
+SOL,Violon,médium,fort,30,507,1806,ɛ,0.39,assignable,ø,0.86,assignable,True
+SOL,Violon,aigu,doux,35,829,2413,ɛ,3.21,approximative,ɛ,1.58,assignable,False
+SOL,Violon,aigu,moyen,35,829,2492,ɛ,3.35,approximative,ɛ,1.71,assignable,False
+SOL,Violon,aigu,fort,35,829,2742,ɛ,3.78,HORS ESPACE,ɛ,2.14,approximative,False
+SOL,Violon,suraigu,doux,21,1665,3674,ɛ,8.33,HORS ESPACE,ɛ,6.75,HORS ESPACE,False
+SOL,Violon,suraigu,moyen,21,1665,3544,ɛ,8.22,HORS ESPACE,ɛ,6.66,HORS ESPACE,False
+SOL,Violon,suraigu,fort,20,1610,3624,ɛ,8.11,HORS ESPACE,ɛ,6.53,HORS ESPACE,False
+SOL,Alto,grave,doux,9,371,1317,ø,0.5,assignable,ø,1.59,assignable,False
+SOL,Alto,grave,moyen,9,381,1609,ø,0.85,assignable,ø,0.79,assignable,False
+SOL,Alto,grave,fort,9,374,1456,ø,0.19,assignable,ø,1.08,assignable,False
+SOL,Alto,médium,doux,30,399,1467,ø,0.29,assignable,ø,0.87,assignable,False
+SOL,Alto,médium,moyen,30,428,1658,ɛ,0.93,assignable,ø,0.42,assignable,True
+SOL,Alto,médium,fort,30,474,1619,ɛ,0.63,assignable,ø,0.07,assignable,True
+SOL,Alto,aigu,doux,40,554,1757,ɛ,0.26,assignable,œ,0.81,assignable,True
+SOL,Alto,aigu,moyen,40,584,1726,ɛ,0.46,assignable,œ,0.54,assignable,True
+SOL,Alto,aigu,fort,40,584,1801,ɛ,0.55,assignable,œ,0.67,assignable,True
+SOL,Alto,suraigu,doux,24,1142,2677,ɛ,5.21,HORS ESPACE,ɛ,3.66,HORS ESPACE,False
+SOL,Alto,suraigu,moyen,24,1142,2629,ɛ,5.16,HORS ESPACE,ɛ,3.62,HORS ESPACE,False
+SOL,Alto,suraigu,fort,24,1147,2569,ɛ,5.1,HORS ESPACE,ɛ,3.58,HORS ESPACE,False
+SOL,Violoncelle,grave,doux,9,168,907,u,1.74,assignable,u,1.55,assignable,False
+SOL,Violoncelle,grave,moyen,9,178,1038,u,2.29,approximative,u,2.03,approximative,False
+SOL,Violoncelle,grave,fort,9,178,998,u,2.09,approximative,u,1.84,assignable,False
+SOL,Violoncelle,médium,doux,30,211,1046,u,2.16,approximative,u,1.89,assignable,False
+SOL,Violoncelle,médium,moyen,30,225,1046,u,2.11,approximative,u,1.83,assignable,False
+SOL,Violoncelle,médium,fort,30,236,1062,u,2.16,approximative,u,1.87,assignable,False
+SOL,Violoncelle,aigu,doux,49,422,1112,ɔ,1.19,assignable,o,1.7,assignable,True
+SOL,Violoncelle,aigu,moyen,49,462,1360,œ,0.51,assignable,ø,1.12,assignable,True
+SOL,Violoncelle,aigu,fort,49,457,1409,œ,0.53,assignable,ø,0.88,assignable,True
+SOL,Violoncelle,suraigu,doux,9,829,1999,ɛ,2.56,approximative,ɛ,1.3,assignable,False
+SOL,Violoncelle,suraigu,moyen,9,829,1968,ɛ,2.52,approximative,ɛ,1.33,assignable,False
+SOL,Violoncelle,suraigu,fort,9,829,1968,ɛ,2.52,approximative,ɛ,1.33,assignable,False
+SOL,Contrebasse,grave,fort,13,106,1312,ø,2.67,approximative,y,3.52,HORS ESPACE,True
+SOL,Contrebasse,médium,fort,41,106,1017,u,2.66,approximative,u,2.45,approximative,False
+SOL,Contrebasse,aigu,doux,35,209,1147,ø,2.15,approximative,u,2.43,approximative,True
+SOL,Contrebasse,aigu,moyen,35,209,1147,ø,2.15,approximative,u,2.43,approximative,True
+SOL,Contrebasse,aigu,fort,35,219,1207,ø,1.87,assignable,u,2.71,approximative,True
+SOL,Contrebasse,suraigu,doux,14,493,1297,œ,0.51,assignable,ɔ,1.34,assignable,True
+SOL,Contrebasse,suraigu,moyen,14,496,1716,ɛ,0.3,assignable,ø,0.5,assignable,True
+SOL,Contrebasse,suraigu,fort,14,507,1666,ɛ,0.29,assignable,ø,0.41,assignable,True
+SOL,Cor anglais,grave,doux,18,596,1144,a,0.94,assignable,ɔ,0.37,assignable,True
+SOL,Cor anglais,grave,moyen,9,448,1108,ɔ,0.99,assignable,ɔ,1.63,assignable,False
+SOL,Cor anglais,grave,fort,9,440,1147,ɔ,1.2,assignable,ɔ,1.66,assignable,False
+SOL,Cor anglais,médium,doux,24,551,1046,ɔ,0.34,assignable,ɔ,1.05,assignable,False
+SOL,Cor anglais,médium,moyen,12,510,1177,ɔ,1.1,assignable,ɔ,1.03,assignable,False
+SOL,Cor anglais,médium,fort,12,605,1610,ɛ,0.76,assignable,œ,0.46,assignable,True
+SOL,Cor anglais,aigu,doux,22,741,1569,a,1.56,assignable,a,0.46,assignable,False
+SOL,Cor anglais,aigu,moyen,11,741,1569,a,1.56,assignable,a,0.46,assignable,False
+SOL,Cor anglais,aigu,fort,11,741,1685,ɛ,1.71,assignable,œ,0.73,assignable,True
+VN,Hautbois,grave,moyen,10,940,2923,ɛ,4.58,HORS ESPACE,ɛ,2.93,approximative,False
+VN,Hautbois,grave,fort,10,964,2899,ɛ,4.65,HORS ESPACE,ɛ,3.01,approximative,False
+VN,Hautbois,médium,doux,24,605,1344,œ,0.77,assignable,ɔ,0.9,assignable,True
+VN,Hautbois,médium,moyen,12,605,1426,œ,0.76,assignable,œ,1.19,assignable,False
+VN,Hautbois,médium,fort,12,605,1380,œ,0.74,assignable,ɔ,1.08,assignable,True
+VN,Hautbois,aigu,doux,14,991,2213,ɛ,3.83,HORS ESPACE,ɛ,2.41,approximative,False
+VN,Hautbois,aigu,moyen,7,991,2094,ɛ,3.69,HORS ESPACE,ɛ,2.38,approximative,False
+VN,Hautbois,aigu,fort,7,991,2150,ɛ,3.75,HORS ESPACE,ɛ,2.39,approximative,False
+VN,Hautbois,suraigu,doux,10,1398,2874,ɛ,6.58,HORS ESPACE,ɛ,5.06,HORS ESPACE,False
+VN,Hautbois,suraigu,moyen,5,1403,2803,ɛ,6.53,HORS ESPACE,ɛ,5.03,HORS ESPACE,False
+VN,Hautbois,suraigu,fort,5,1393,2948,ɛ,6.64,HORS ESPACE,ɛ,5.1,HORS ESPACE,False
+VN,Alto,grave,doux,8,347,1170,ø,1.32,assignable,o,2.25,approximative,True
+VN,Alto,grave,moyen,8,421,1837,e,0.67,assignable,ø,0.99,assignable,True
+VN,Alto,grave,fort,8,357,991,o,1.38,assignable,o,1.31,assignable,False
+VN,Alto,médium,doux,12,337,1038,o,1.71,assignable,u,1.6,assignable,True
+VN,Alto,médium,moyen,12,333,1184,ø,1.29,assignable,o,2.38,approximative,True
+VN,Alto,médium,fort,12,429,1729,ɛ,0.89,assignable,ø,0.61,assignable,True
+VN,Alto,aigu,doux,12,572,1867,ɛ,0.66,assignable,œ,0.91,assignable,True
+VN,Alto,aigu,moyen,12,605,1894,ɛ,0.9,assignable,ɛ,0.76,assignable,False
+VN,Alto,aigu,fort,12,572,1818,ɛ,0.51,assignable,œ,0.78,assignable,True
+VN,Alto,suraigu,doux,12,1142,2450,ɛ,4.94,HORS ESPACE,ɛ,3.47,approximative,False
+VN,Alto,suraigu,moyen,12,1142,2368,ɛ,4.85,HORS ESPACE,ɛ,3.41,approximative,False
+VN,Alto,suraigu,fort,12,1142,2684,ɛ,5.22,HORS ESPACE,ɛ,3.67,HORS ESPACE,False
+VN,Cor anglais,grave,moyen,9,672,1161,a,0.53,assignable,ɔ,0.33,assignable,True
+VN,Cor anglais,grave,fort,9,701,1545,a,1.4,assignable,a,0.68,assignable,False
+VN,Cor anglais,médium,moyen,12,512,1149,ɔ,0.93,assignable,ɔ,1.04,assignable,False
+VN,Cor anglais,médium,fort,12,604,1151,a,0.86,assignable,ɔ,0.29,assignable,True
+VN,Cor anglais,aigu,doux,22,741,1567,a,1.55,assignable,a,0.45,assignable,False
+VN,Cor anglais,aigu,moyen,11,741,1569,a,1.56,assignable,a,0.46,assignable,False
+VN,Cor anglais,aigu,fort,11,741,1694,ɛ,1.71,assignable,œ,0.73,assignable,True
+VN,Violon,grave,doux,8,543,1697,ɛ,0.14,assignable,ø,0.73,assignable,True
+VN,Violon,grave,moyen,8,522,2248,e,1.65,assignable,e,0.97,assignable,False
+VN,Violon,grave,fort,8,538,1759,ɛ,0.18,assignable,ø,0.86,assignable,True
+VN,Violon,médium,doux,12,572,1903,ɛ,0.76,assignable,ɛ,0.92,assignable,False
+VN,Violon,médium,moyen,12,539,2122,ɛ,1.38,assignable,ɛ,1.0,assignable,False
+VN,Violon,médium,fort,12,545,1894,ɛ,0.65,assignable,ɛ,1.13,assignable,False
+VN,Violon,aigu,doux,12,853,2227,ɛ,3.04,approximative,ɛ,1.52,assignable,False
+VN,Violon,aigu,moyen,12,853,2263,ɛ,3.1,approximative,ɛ,1.55,assignable,False
+VN,Violon,aigu,fort,12,853,2455,ɛ,3.42,approximative,ɛ,1.79,assignable,False
+VN,Violon,suraigu,doux,19,2094,4047,ɛ,9.9,HORS ESPACE,ɛ,8.34,HORS ESPACE,False
+VN,Violon,suraigu,moyen,19,2094,4173,ɛ,9.99,HORS ESPACE,ɛ,8.42,HORS ESPACE,False
+VN,Violon,suraigu,fort,19,2094,4173,ɛ,9.99,HORS ESPACE,ɛ,8.42,HORS ESPACE,False
+VN,Violoncelle,grave,doux,8,186,1014,u,2.12,approximative,u,1.86,assignable,False
+VN,Violoncelle,grave,moyen,8,188,1030,u,2.19,approximative,u,1.93,assignable,False
+VN,Violoncelle,grave,fort,8,196,1018,u,2.08,approximative,u,1.82,assignable,False
+VN,Violoncelle,médium,doux,12,205,1009,u,1.99,assignable,u,1.73,assignable,False
+VN,Violoncelle,médium,moyen,12,217,1035,u,2.08,approximative,u,1.8,assignable,False
+VN,Violoncelle,médium,fort,12,227,1038,u,2.05,approximative,u,1.77,assignable,False
+VN,Violoncelle,aigu,doux,20,510,1143,ɔ,0.9,assignable,ɔ,1.05,assignable,False
+VN,Violoncelle,aigu,moyen,20,505,1588,ɛ,0.57,assignable,ø,0.32,assignable,True
+VN,Violoncelle,aigu,fort,20,515,1524,œ,0.62,assignable,ø,0.53,assignable,True
+VN,Violoncelle,suraigu,doux,13,937,2120,ɛ,3.39,approximative,ɛ,2.03,approximative,False
+VN,Violoncelle,suraigu,moyen,13,930,2421,ɛ,3.77,HORS ESPACE,ɛ,2.2,approximative,False
+VN,Violoncelle,suraigu,fort,13,930,2222,ɛ,3.48,approximative,ɛ,2.02,approximative,False
+VN,Clarinette basse,chalumeau,moyen,17,218,1001,u,1.89,assignable,u,1.62,assignable,False
+VN,Clarinette basse,chalumeau,fort,17,237,1209,ø,1.72,assignable,u,2.67,approximative,True
+VN,Clarinette basse,gorge,doux,12,209,903,u,1.42,assignable,u,1.2,assignable,False
+VN,Clarinette basse,gorge,moyen,6,235,908,u,1.28,assignable,u,1.03,assignable,False
+VN,Clarinette basse,gorge,fort,6,332,1619,y,0.6,assignable,ø,1.25,assignable,True
+VN,Clarinette basse,clarine,doux,28,322,1024,o,1.67,assignable,u,1.49,assignable,True
+VN,Clarinette basse,clarine,moyen,14,322,981,o,1.42,assignable,u,1.22,assignable,True
+VN,Clarinette basse,clarine,fort,14,322,1019,o,1.64,assignable,u,1.46,assignable,True
+VN,Clarinette basse,suraigu,doux,26,702,1393,a,0.71,assignable,a,0.83,assignable,False
+VN,Clarinette basse,suraigu,moyen,13,702,1393,a,0.71,assignable,a,0.83,assignable,False
+VN,Clarinette basse,suraigu,fort,13,702,1505,a,1.22,assignable,a,0.65,assignable,False
+VN,Cor,médium,fort,17,592,2111,ɛ,1.44,assignable,ɛ,0.56,assignable,False
+VN,Cor,aigu,moyen,10,556,1046,ɔ,0.37,assignable,ɔ,1.02,assignable,False
+VN,Cor,aigu,fort,10,572,1046,ɔ,0.46,assignable,ɔ,0.94,assignable,False
+VN,Trompette,aigu,doux,36,764,1569,a,1.62,assignable,a,0.34,assignable,False
+VN,Trompette,aigu,moyen,12,761,1608,a,1.76,assignable,a,0.5,assignable,False
+VN,Trompette,aigu,fort,24,761,1795,ɛ,1.88,assignable,œ,0.97,assignable,True
+VO,Alto,médium,doux,10,489,1604,ɛ,0.58,assignable,ø,0.18,assignable,True
+VO,Alto,médium,moyen,10,490,1653,ɛ,0.43,assignable,ø,0.27,assignable,True
+VO,Alto,médium,fort,10,440,1394,ø,0.55,assignable,ø,0.99,assignable,False
+VO,Alto,aigu,doux,15,590,1402,œ,0.62,assignable,ɔ,1.22,assignable,True
+VO,Alto,aigu,moyen,15,590,1595,ɛ,0.71,assignable,œ,0.61,assignable,True
+VO,Alto,aigu,fort,15,590,1442,œ,0.66,assignable,œ,1.17,assignable,False
+VO,Alto,suraigu,doux,11,1124,2476,ɛ,4.87,HORS ESPACE,ɛ,3.38,approximative,False
+VO,Alto,suraigu,moyen,11,1173,2455,ɛ,5.1,HORS ESPACE,ɛ,3.63,HORS ESPACE,False
+VO,Alto,suraigu,fort,11,1173,2803,ɛ,5.51,HORS ESPACE,ɛ,3.94,HORS ESPACE,False
+VO,Clarinette en Mib,chalumeau,toutes,15,277,1060,u,2.04,approximative,u,1.74,assignable,False
+VO,Clarinette en Mib,gorge,toutes,6,554,1660,ɛ,0.31,assignable,ø,0.77,assignable,True
+VO,Clarinette en Mib,clarine,toutes,12,857,2243,ɛ,3.09,approximative,ɛ,1.56,assignable,False
+VO,Clarinette en Mib,suraigu,toutes,12,1710,3737,ɛ,8.53,HORS ESPACE,ɛ,6.95,HORS ESPACE,False
+VO,Clarinette en Sib,chalumeau,toutes,15,293,984,u,1.54,assignable,u,1.24,assignable,False
+VO,Clarinette en Sib,clarine,toutes,12,642,1665,ɛ,0.96,assignable,œ,0.1,assignable,True
+VO,Clarinette en Sib,suraigu,toutes,21,1665,3429,ɛ,8.12,HORS ESPACE,ɛ,6.57,HORS ESPACE,False
+VO,Trombone basse,grave,toutes,15,457,1187,œ,1.18,assignable,ɔ,1.5,assignable,True
+VO,Trombone basse,aigu,toutes,12,554,1470,œ,0.49,assignable,ø,0.94,assignable,True
+VO,Trombone basse,hors registre,toutes,9,522,1628,ɛ,0.36,assignable,ø,0.48,assignable,True
+VO,Violon,médium,doux,10,482,1591,ɛ,0.66,assignable,ø,0.13,assignable,True
+VO,Violon,médium,moyen,10,482,1825,ɛ,0.58,assignable,ø,0.86,assignable,True
+VO,Violon,médium,fort,10,510,2165,e,1.45,assignable,e,0.98,assignable,False
+VO,Violon,aigu,doux,14,804,2144,ɛ,2.61,approximative,ɛ,1.12,assignable,False
+VO,Violon,aigu,moyen,14,808,2450,ɛ,3.17,approximative,ɛ,1.52,assignable,False
+VO,Violon,aigu,fort,14,805,2459,ɛ,3.17,approximative,ɛ,1.53,assignable,False
+VO,Violon,suraigu,doux,8,1659,3310,ɛ,8.0,HORS ESPACE,ɛ,6.46,HORS ESPACE,False
+VO,Violon,suraigu,moyen,8,1659,3445,ɛ,8.12,HORS ESPACE,ɛ,6.56,HORS ESPACE,False
+VO,Violon,suraigu,fort,8,1659,3446,ɛ,8.12,HORS ESPACE,ɛ,6.56,HORS ESPACE,False
+VO,Violoncelle,médium,doux,10,186,772,u,1.23,assignable,u,1.22,assignable,False
+VO,Violoncelle,médium,moyen,10,223,949,u,1.57,assignable,u,1.32,assignable,False
+VO,Violoncelle,médium,fort,10,236,1054,u,2.11,approximative,u,1.82,assignable,False
+VO,Violoncelle,aigu,doux,27,428,1624,ɛ,0.97,assignable,ø,0.37,assignable,True
+VO,Violoncelle,aigu,moyen,27,494,1596,ɛ,0.57,assignable,ø,0.23,assignable,True
+VO,Violoncelle,aigu,fort,27,525,1557,ɛ,0.66,assignable,ø,0.53,assignable,True
+VO,Violoncelle,suraigu,doux,28,1348,2235,a,5.68,HORS ESPACE,a,4.3,HORS ESPACE,False
+VO,Violoncelle,suraigu,moyen,28,1209,2496,ɛ,5.32,HORS ESPACE,ɛ,3.85,HORS ESPACE,False
+VO,Violoncelle,suraigu,fort,28,1204,2496,ɛ,5.3,HORS ESPACE,ɛ,3.83,HORS ESPACE,False
+VO,Contrebasse,grave,fort,5,112,1142,ø,2.95,approximative,u,2.93,approximative,True
+VO,Contrebasse,médium,doux,14,201,1170,ø,2.12,approximative,u,2.59,approximative,True
+VO,Contrebasse,médium,moyen,14,170,1155,ø,2.42,approximative,u,2.65,approximative,True
+VO,Contrebasse,médium,fort,14,183,1081,u,2.48,approximative,u,2.21,approximative,False
+VO,Contrebasse,aigu,doux,16,264,1183,ø,1.63,assignable,u,2.48,approximative,True
+VO,Contrebasse,aigu,moyen,16,232,1144,ø,1.99,assignable,u,2.34,approximative,True
+VO,Contrebasse,aigu,fort,16,232,1116,ø,2.12,approximative,u,2.18,approximative,True
+VO,Contrebasse,suraigu,moyen,9,441,1443,ø,0.56,assignable,ø,0.75,assignable,False
+VO,Contrebasse,suraigu,fort,9,535,1504,œ,0.55,assignable,ø,0.72,assignable,True
+VO,Petite flûte,grave,toutes,9,702,1953,ɛ,1.64,assignable,ɛ,0.52,assignable,False
+VO,Petite flûte,médium,toutes,12,1278,2887,ɛ,6.08,HORS ESPACE,ɛ,4.53,HORS ESPACE,False
+VO,Flûte,médium,toutes,12,642,1473,œ,1.12,assignable,œ,0.92,assignable,False
+VO,Flûte,aigu,toutes,12,1278,2803,ɛ,5.99,HORS ESPACE,ɛ,4.46,HORS ESPACE,False
+VO,Flûte,suraigu,toutes,8,2340,5600,ɛ,11.54,HORS ESPACE,ɛ,9.93,HORS ESPACE,False
+VO,Flûte basse,aigu,toutes,12,679,1342,a,0.45,assignable,ɔ,0.93,assignable,True
+VO,Flûte contrebasse,aigu,toutes,12,330,836,u,0.54,assignable,u,0.29,assignable,False
+VO,Flûte contrebasse,suraigu,toutes,11,554,1254,œ,0.77,assignable,ɔ,0.77,assignable,True
+VO,Clarinette basse,chalumeau,toutes,18,137,1211,ø,2.55,approximative,u,3.08,approximative,True
+VO,Clarinette basse,gorge,toutes,6,205,1003,u,1.96,assignable,u,1.7,assignable,False
+VO,Clarinette basse,clarine,toutes,15,330,1310,ø,0.71,assignable,ø,1.86,assignable,False
+VO,Clarinette basse,suraigu,toutes,18,857,2218,ɛ,3.04,approximative,ɛ,1.53,assignable,False
+VO,Clarinette contrebasse,chalumeau,toutes,18,204,1091,ø,2.42,approximative,u,2.16,approximative,True
+VO,Clarinette contrebasse,gorge,toutes,6,195,1569,y,1.24,assignable,y,2.04,approximative,False
+VO,Clarinette contrebasse,clarine,toutes,15,235,1380,ø,1.38,assignable,ø,2.39,approximative,False
+VO,Clarinette contrebasse,suraigu,toutes,6,303,1072,ø,1.99,assignable,u,1.79,assignable,True
+VO,Trombone ténor,sons pédale,toutes,9,511,1703,ɛ,0.18,assignable,ø,0.54,assignable,True
+VO,Trombone ténor,aigu,toutes,18,657,1492,a,1.17,assignable,œ,0.84,assignable,True
+Xsamples,Hautbois,médium,doux,12,605,1277,a,0.65,assignable,ɔ,0.58,assignable,True
+Xsamples,Hautbois,médium,moyen,12,602,1257,a,0.66,assignable,ɔ,0.49,assignable,True
+Xsamples,Hautbois,médium,fort,12,605,1297,a,0.68,assignable,ɔ,0.67,assignable,True
+Xsamples,Hautbois,aigu,doux,7,991,2089,ɛ,3.69,HORS ESPACE,ɛ,2.38,approximative,False
+Xsamples,Hautbois,aigu,moyen,7,991,2068,ɛ,3.66,HORS ESPACE,ɛ,2.38,approximative,False
+Xsamples,Hautbois,aigu,fort,7,991,2094,ɛ,3.69,HORS ESPACE,ɛ,2.38,approximative,False
+Xsamples,Hautbois,suraigu,doux,6,1440,2887,ɛ,6.78,HORS ESPACE,ɛ,5.26,HORS ESPACE,False
+Xsamples,Hautbois,suraigu,moyen,6,1445,2887,ɛ,6.79,HORS ESPACE,ɛ,5.28,HORS ESPACE,False
+Xsamples,Hautbois,suraigu,fort,6,1440,2887,ɛ,6.78,HORS ESPACE,ɛ,5.26,HORS ESPACE,False
+Xsamples,Cor anglais,grave,fort,9,293,897,u,0.98,assignable,u,0.68,assignable,False
+Xsamples,Cor anglais,aigu,doux,9,702,1357,a,0.54,assignable,a,0.95,assignable,False
+Xsamples,Cor anglais,aigu,fort,9,702,1451,a,0.98,assignable,a,0.69,assignable,False
+Xsamples,Basson,grave,moyen,12,476,1054,ɔ,0.59,assignable,o,1.32,assignable,True
+Xsamples,Basson,grave,fort,12,445,1030,ɔ,0.78,assignable,o,1.17,assignable,True
+Xsamples,Basson,bas médium,moyen,12,476,1034,ɔ,0.54,assignable,o,1.2,assignable,True
+Xsamples,Basson,bas médium,fort,12,479,1030,ɔ,0.5,assignable,o,1.17,assignable,True
+Xsamples,Basson,haut médium,doux,7,539,1142,ɔ,0.88,assignable,ɔ,0.82,assignable,False
+Xsamples,Basson,haut médium,moyen,7,491,1062,ɔ,0.53,assignable,ɔ,1.39,assignable,False
+Xsamples,Basson,aigu,doux,13,554,1112,ɔ,0.73,assignable,ɔ,0.77,assignable,False
+Xsamples,Basson,aigu,moyen,13,599,1245,a,0.68,assignable,ɔ,0.46,assignable,True
+Xsamples,Basson,aigu,fort,13,617,1227,a,0.56,assignable,ɔ,0.3,assignable,True
+Xsamples,Contrebasson,grave,fort,12,264,702,u,0.68,assignable,u,0.89,assignable,False
+Xsamples,Contrebasson,bas médium,moyen,12,398,1600,ø,0.83,assignable,ø,0.64,assignable,False
+Xsamples,Contrebasson,bas médium,fort,12,364,1938,e,0.08,assignable,y,0.65,assignable,True
+Xsamples,Contrebasson,haut médium,moyen,12,395,829,o,0.28,assignable,o,0.62,assignable,False
+Xsamples,Contrebasson,haut médium,fort,12,342,967,o,1.27,assignable,u,1.17,assignable,True
+Xsamples,Clarinette en Sib,chalumeau,doux,13,225,747,u,0.86,assignable,u,0.92,assignable,False
+Xsamples,Clarinette en Sib,chalumeau,moyen,13,277,1043,u,1.94,assignable,u,1.64,assignable,False
+Xsamples,Clarinette en Sib,chalumeau,fort,13,277,1303,ø,1.13,assignable,ø,2.25,approximative,False
+Xsamples,Clarinette en Sib,gorge,doux,6,359,1079,ɔ,1.6,assignable,o,1.73,assignable,True
+Xsamples,Clarinette en Sib,gorge,moyen,6,359,1183,ø,1.22,assignable,o,2.27,approximative,True
+Xsamples,Clarinette en Sib,gorge,fort,6,359,1187,ø,1.2,assignable,ø,2.25,approximative,False
+Xsamples,Clarinette en Sib,clarine,doux,14,639,1569,ɛ,1.09,assignable,œ,0.5,assignable,True
+Xsamples,Clarinette en Sib,clarine,moyen,14,679,1662,ɛ,1.25,assignable,œ,0.28,assignable,True
+Xsamples,Clarinette en Sib,clarine,fort,14,639,1729,ɛ,0.91,assignable,œ,0.17,assignable,True
+Xsamples,Clarinette en Sib,suraigu,doux,12,1352,2548,ɛ,6.05,HORS ESPACE,ɛ,4.61,HORS ESPACE,False
+Xsamples,Clarinette en Sib,suraigu,moyen,12,1357,2729,ɛ,6.26,HORS ESPACE,ɛ,4.77,HORS ESPACE,False
+Xsamples,Clarinette en Sib,suraigu,fort,12,1357,2874,ɛ,6.41,HORS ESPACE,ɛ,4.88,HORS ESPACE,False
+Xsamples,Flûte basse,grave,moyen,10,234,689,u,0.96,assignable,u,1.14,assignable,False
+Xsamples,Flûte basse,grave,fort,10,491,1274,œ,0.64,assignable,ɔ,1.32,assignable,True
+Xsamples,Flûte basse,médium,doux,12,341,902,o,0.86,assignable,u,0.74,assignable,True
+Xsamples,Flûte basse,médium,moyen,12,449,923,ɔ,0.86,assignable,o,0.48,assignable,True
+Xsamples,Flûte basse,aigu,doux,12,639,1138,a,0.75,assignable,ɔ,0.24,assignable,True
+Xsamples,Flûte basse,aigu,moyen,12,639,1294,a,0.41,assignable,ɔ,0.62,assignable,True
+Xsamples,Flûte basse,aigu,fort,12,639,1235,a,0.38,assignable,ɔ,0.3,assignable,True
+Xsamples,Flûte basse,suraigu,doux,5,1046,2133,ɛ,4.06,HORS ESPACE,ɛ,2.73,approximative,False
+Xsamples,Flûte basse,suraigu,moyen,5,1046,1953,a,3.89,HORS ESPACE,a,2.46,approximative,False
+Xsamples,Flûte basse,suraigu,fort,5,1046,2213,ɛ,4.14,HORS ESPACE,ɛ,2.76,approximative,False
+Xsamples,Clarinette basse,chalumeau,doux,17,236,1095,ø,2.19,approximative,u,2.06,approximative,True
+Xsamples,Clarinette basse,chalumeau,moyen,17,393,1200,ø,1.12,assignable,ø,2.07,approximative,False
+Xsamples,Clarinette basse,chalumeau,fort,17,340,1227,ø,1.04,assignable,ø,2.15,approximative,False
+Xsamples,Clarinette basse,gorge,doux,6,228,848,u,1.03,assignable,u,0.85,assignable,False
+Xsamples,Clarinette basse,gorge,moyen,6,340,952,o,1.18,assignable,u,1.07,assignable,True
+Xsamples,Clarinette basse,gorge,fort,6,412,1002,ɔ,1.04,assignable,o,1.08,assignable,True
+Xsamples,Clarinette basse,clarine,doux,14,322,942,o,1.19,assignable,u,0.96,assignable,True
+Xsamples,Clarinette basse,clarine,moyen,14,322,1034,o,1.72,assignable,u,1.55,assignable,True
+Xsamples,Clarinette basse,clarine,fort,14,322,1144,ø,1.53,assignable,u,2.22,approximative,True
+Xsamples,Clarinette basse,suraigu,doux,7,590,1204,a,0.81,assignable,ɔ,0.39,assignable,True
+Xsamples,Clarinette basse,suraigu,moyen,7,590,1499,œ,0.8,assignable,œ,0.92,assignable,False
+Xsamples,Clarinette basse,suraigu,fort,7,590,1630,ɛ,0.61,assignable,œ,0.52,assignable,True
+Xsamples,Cor,grave,fort,11,458,1278,œ,0.77,assignable,ø,1.54,assignable,True
+Xsamples,Cor,médium,fort,17,511,1755,ɛ,0.21,assignable,ø,0.7,assignable,True
+Xsamples,Cor,aigu,fort,13,590,1391,œ,0.62,assignable,ɔ,1.16,assignable,True
+Xsamples,Trompette,grave,moyen,6,748,1342,a,0.66,assignable,a,0.82,assignable,False
+Xsamples,Trompette,grave,fort,6,946,2466,ɛ,3.93,HORS ESPACE,ɛ,2.35,approximative,False
+Xsamples,Trompette,médium,doux,12,629,1132,a,0.82,assignable,ɔ,0.27,assignable,True
+Xsamples,Trompette,médium,fort,12,847,1767,ɛ,2.49,approximative,a,1.16,assignable,True
+Xsamples,Trompette,aigu,doux,11,741,1569,a,1.56,assignable,a,0.46,assignable,False
+Xsamples,Trompette,aigu,moyen,11,741,1565,a,1.54,assignable,a,0.44,assignable,False
+Xsamples,Trompette,aigu,fort,12,761,1766,ɛ,1.86,assignable,œ,0.93,assignable,True
+Xsamples,Trombone ténor,sons pédale,moyen,7,668,1880,ɛ,1.28,assignable,ɛ,0.66,assignable,False
+Xsamples,Trombone ténor,sons pédale,fort,7,625,1909,ɛ,1.05,assignable,ɛ,0.62,assignable,False
+Xsamples,Trombone ténor,grave,doux,13,663,1550,ɛ,1.3,assignable,œ,0.59,assignable,True
+Xsamples,Trombone ténor,grave,moyen,13,675,1665,ɛ,1.21,assignable,œ,0.24,assignable,True
+Xsamples,Trombone ténor,grave,fort,13,651,1417,a,0.85,assignable,a,1.12,assignable,False
+Xsamples,Trombone ténor,médium,moyen,12,747,1580,a,1.62,assignable,a,0.46,assignable,False
+Xsamples,Trombone ténor,médium,fort,12,716,1729,ɛ,1.52,assignable,œ,0.56,assignable,True
+Xsamples,Trombone ténor,aigu,doux,7,599,1137,a,0.95,assignable,ɔ,0.38,assignable,True
+Xsamples,Trombone ténor,aigu,moyen,9,554,1121,ɔ,0.78,assignable,ɔ,0.74,assignable,False
+Xsamples,Trombone ténor,aigu,fort,9,554,1265,œ,0.72,assignable,ɔ,0.81,assignable,True
+ZSamples,Petite flûte,grave,toutes,16,702,1478,a,1.1,assignable,a,0.66,assignable,False
+ZSamples,Petite flûte,médium,toutes,16,1362,2711,ɛ,6.26,HORS ESPACE,ɛ,4.77,HORS ESPACE,False
+ZSamples,Flûte,médium,toutes,16,683,1396,a,0.7,assignable,a,0.95,assignable,False
+ZSamples,Flûte,aigu,toutes,16,1367,2764,ɛ,6.34,HORS ESPACE,ɛ,4.83,HORS ESPACE,False
+ZSamples,Flûte basse,grave,toutes,16,222,828,u,1.0,assignable,u,0.87,assignable,False
+ZSamples,Flûte basse,médium,toutes,16,373,886,o,0.67,assignable,u,0.82,assignable,True
+ZSamples,Flûte basse,aigu,toutes,16,683,1245,a,0.06,assignable,ɔ,0.53,assignable,True
+ZSamples,Flûte contrebasse,aigu,toutes,16,518,1288,œ,0.52,assignable,ɔ,1.13,assignable,True
+ZSamples,Flûte contrebasse,suraigu,toutes,16,611,1569,ɛ,0.92,assignable,œ,0.57,assignable,True
+ZSamples,Hautbois,grave,toutes,16,869,2973,ɛ,4.34,HORS ESPACE,ɛ,2.7,approximative,False
+ZSamples,Hautbois,médium,toutes,16,664,1374,a,0.63,assignable,ɔ,1.05,assignable,True
+ZSamples,Hautbois,aigu,toutes,8,1022,2046,ɛ,3.83,HORS ESPACE,ɛ,2.58,approximative,False
+ZSamples,Hautbois,suraigu,toutes,12,1580,3595,ɛ,7.97,HORS ESPACE,ɛ,6.39,HORS ESPACE,False
+ZSamples,Cor anglais,grave,fort,6,693,1894,ɛ,1.48,assignable,ɛ,0.66,assignable,False
+ZSamples,Cor anglais,médium,doux,8,521,1006,ɔ,0.1,assignable,o,1.14,assignable,True
+ZSamples,Cor anglais,médium,fort,8,713,1923,ɛ,1.67,assignable,ɛ,0.66,assignable,False
+ZSamples,Cor anglais,aigu,doux,10,788,1580,a,1.73,assignable,a,0.34,assignable,False
+ZSamples,Cor anglais,aigu,fort,10,788,1637,a,1.95,assignable,a,0.58,assignable,False
+ZSamples,Basson,grave,moyen,12,470,1200,œ,1.07,assignable,ɔ,1.4,assignable,True
+ZSamples,Basson,grave,fort,22,496,1191,œ,1.06,assignable,ɔ,1.16,assignable,True
+ZSamples,Basson,bas médium,fort,24,496,1030,ɔ,0.37,assignable,o,1.2,assignable,True
+ZSamples,Basson,haut médium,moyen,19,521,1104,ɔ,0.66,assignable,ɔ,1.04,assignable,False
+ZSamples,Basson,haut médium,fort,14,523,1121,ɔ,0.75,assignable,ɔ,0.98,assignable,False
+ZSamples,Basson,aigu,doux,27,560,1121,ɔ,0.79,assignable,ɔ,0.7,assignable,False
+ZSamples,Basson,aigu,moyen,25,542,1247,œ,0.76,assignable,ɔ,0.85,assignable,True
+ZSamples,Basson,aigu,fort,26,590,1255,a,0.76,assignable,ɔ,0.55,assignable,True
+ZSamples,Contrebasson,aigu,doux,6,277,761,u,0.36,assignable,u,0.46,assignable,False
+ZSamples,Contrebasson,aigu,fort,6,277,836,u,0.64,assignable,u,0.4,assignable,False
+ZSamples,Clarinette en Mib,chalumeau,doux,10,282,998,u,1.65,assignable,u,1.36,assignable,False
+ZSamples,Clarinette en Mib,chalumeau,fort,10,277,978,u,1.54,assignable,u,1.24,assignable,False
+ZSamples,Clarinette en Mib,clarine,doux,8,864,1938,ɛ,2.72,approximative,ɛ,1.6,assignable,False
+ZSamples,Clarinette en Mib,clarine,fort,8,864,1947,ɛ,2.73,approximative,ɛ,1.59,assignable,False
+ZSamples,Clarinette en Mib,suraigu,doux,8,1716,3723,ɛ,8.54,HORS ESPACE,ɛ,6.97,HORS ESPACE,False
+ZSamples,Clarinette en Mib,suraigu,fort,8,1723,3562,ɛ,8.42,HORS ESPACE,ɛ,6.86,HORS ESPACE,False
+ZSamples,Clarinette en Sib,chalumeau,fort,10,283,1047,u,1.96,assignable,u,1.66,assignable,False
+ZSamples,Clarinette en Sib,clarine,fort,8,645,1685,ɛ,0.96,assignable,œ,0.02,assignable,True
+ZSamples,Clarinette en Sib,suraigu,doux,10,1408,2815,ɛ,6.57,HORS ESPACE,ɛ,5.07,HORS ESPACE,False
+ZSamples,Clarinette en Sib,suraigu,fort,10,1403,2803,ɛ,6.53,HORS ESPACE,ɛ,5.03,HORS ESPACE,False
+ZSamples,Clarinette contrebasse,chalumeau,toutes,23,209,1289,ø,1.74,assignable,ø,2.83,approximative,False
+ZSamples,Clarinette contrebasse,gorge,toutes,8,356,1729,y,0.54,assignable,ø,1.13,assignable,True
+ZSamples,Clarinette contrebasse,clarine,toutes,20,235,975,u,1.66,assignable,u,1.38,assignable,False
+ZSamples,Cor,aigu,toutes,20,504,1212,œ,0.93,assignable,ɔ,1.11,assignable,True
+ZSamples,Trompette,sons pédale,toutes,34,470,1142,ɔ,1.03,assignable,ɔ,1.41,assignable,False
+ZSamples,Trompette,médium,toutes,16,528,1391,œ,0.09,assignable,ø,1.09,assignable,True
+ZSamples,Trompette,aigu,toutes,15,747,1688,ɛ,1.76,assignable,œ,0.78,assignable,True
+ZSamples,Trombone ténor,grave,fort,8,707,1557,a,1.45,assignable,a,0.66,assignable,False
+ZSamples,Trombone ténor,médium,fort,8,831,3090,ɛ,4.37,HORS ESPACE,ɛ,2.75,approximative,False
+ZSamples,Trombone ténor,aigu,doux,12,620,1245,a,0.51,assignable,ɔ,0.38,assignable,True
+ZSamples,Trombone ténor,aigu,fort,12,686,1243,a,0.07,assignable,ɔ,0.54,assignable,True
+ZSamples,Trombone basse,grave,toutes,16,555,1557,ɛ,0.69,assignable,ø,0.77,assignable,True
+ZSamples,Trombone basse,aigu,toutes,12,525,1142,ɔ,0.88,assignable,ɔ,0.94,assignable,False
+ZSamples,Violon,grave,doux,10,365,1060,ɔ,1.53,assignable,o,1.61,assignable,True
+ZSamples,Violon,grave,fort,10,363,1239,ø,0.91,assignable,ø,1.98,assignable,False
+ZSamples,Violon,médium,doux,22,495,1339,œ,0.32,assignable,ø,1.23,assignable,True
+ZSamples,Violon,médium,fort,22,489,1514,œ,0.62,assignable,ø,0.43,assignable,True
+ZSamples,Violon,aigu,doux,30,829,2135,ɛ,2.75,approximative,ɛ,1.29,assignable,False
+ZSamples,Violon,aigu,fort,30,836,2319,ɛ,3.09,approximative,ɛ,1.5,assignable,False
+ZSamples,Violon,suraigu,doux,20,1749,3630,ɛ,8.57,HORS ESPACE,ɛ,7.01,HORS ESPACE,False
+ZSamples,Violon,suraigu,fort,20,1762,3769,ɛ,8.73,HORS ESPACE,ɛ,7.16,HORS ESPACE,False
+ZSamples,Alto,grave,doux,10,357,1729,y,0.55,assignable,ø,1.12,assignable,True
+ZSamples,Alto,grave,fort,10,393,1753,e,0.78,assignable,ø,0.9,assignable,True
+ZSamples,Alto,médium,doux,22,429,1823,e,0.75,assignable,ø,0.92,assignable,True
+ZSamples,Alto,médium,fort,22,498,2161,e,1.35,assignable,e,0.89,assignable,False
+ZSamples,Alto,aigu,doux,30,557,1314,œ,0.51,assignable,ɔ,0.96,assignable,True
+ZSamples,Alto,aigu,fort,30,554,1519,œ,0.68,assignable,ø,0.82,assignable,True
+ZSamples,Alto,suraigu,doux,18,1112,2324,ɛ,4.64,HORS ESPACE,ɛ,3.21,approximative,False
+ZSamples,Alto,suraigu,fort,18,1112,2599,ɛ,4.97,HORS ESPACE,ɛ,3.43,approximative,False
+ZSamples,Violoncelle,grave,fort,14,199,2061,i,1.05,assignable,y,1.02,assignable,True
+ZSamples,Violoncelle,médium,doux,36,206,1079,u,2.36,approximative,u,2.08,approximative,False
+ZSamples,Violoncelle,médium,fort,36,218,1564,y,1.08,assignable,y,1.95,assignable,False
+ZSamples,Violoncelle,aigu,doux,64,395,1347,ø,0.37,assignable,ø,1.36,assignable,False
+ZSamples,Violoncelle,aigu,fort,64,395,1397,ø,0.16,assignable,ø,1.15,assignable,False
+ZSamples,Violoncelle,suraigu,doux,14,788,1971,ɛ,2.24,approximative,ɛ,1.04,assignable,False
+ZSamples,Violoncelle,suraigu,fort,14,788,2289,ɛ,2.77,approximative,ɛ,1.15,assignable,False
+ZSamples,Contrebasse,grave,doux,18,112,850,u,2.06,approximative,u,1.95,assignable,False
+ZSamples,Contrebasse,grave,fort,19,112,853,u,2.07,approximative,u,1.96,assignable,False
+ZSamples,Contrebasse,médium,doux,38,189,857,u,1.38,assignable,u,1.22,assignable,False
+ZSamples,Contrebasse,médium,fort,38,196,882,u,1.42,assignable,u,1.23,assignable,False
+ZSamples,Contrebasse,aigu,doux,18,281,1108,ø,1.88,assignable,u,2.03,approximative,True
+ZSamples,Contrebasse,aigu,fort,18,269,1046,u,1.97,assignable,u,1.68,assignable,False
+ZSamples,Contrebasse,suraigu,doux,14,602,1445,œ,0.76,assignable,œ,1.11,assignable,False
+ZSamples,Contrebasse,suraigu,fort,14,666,1519,a,1.28,assignable,œ,0.73,assignable,True
+ZSamples,Contrebasse,hors registre,doux,6,106,836,u,2.08,approximative,u,1.99,assignable,False
+ZSamples,Contrebasse,hors registre,fort,5,106,695,u,2.08,approximative,u,2.14,approximative,False

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La coupure du réseau de trous</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="bandeau"><h1>La coupure du réseau de trous</h1></div>
+<p class="fil"><a href="../index.html">Sommaire</a> › Synthèses</p>
+<h1>La coupure du réseau de trous latéraux</h1>
+<h2>Ce qu'on en attendait</h2>
+<p><code>00-METHODE.md</code> l'annonce depuis le 23 octobre sans l'avoir jamais mesurée : « pour la classe B,
+l'invariant pertinent n'est pas un formant mais la fréquence de coupure du réseau de trous
+latéraux (Benade) et la pente spectrale ». La fiche de la petite flûte va plus loin : « pas de
+formant. Le descripteur à développer est la fréquence de coupure de Benade. »</p>
+<p>C'était une promesse faite aux flûtes, qui n'ont aucun formant retenu. <strong>Elle ne peut pas être
+tenue</strong>, et cette page explique pourquoi — puis montre où le descripteur fonctionne quand même.</p>
+<h2>La mesure</h2>
+<p>Le réseau de trous latéraux d'un bois se comporte en filtre : sous la coupure il réfléchit,
+au-dessus il laisse passer. Les harmoniques sous la coupure sont portés par des résonances d'air
+fortes, ceux au-dessus ne le sont plus et l'enveloppe y tombe plus vite. La signature
+observable est donc <strong>un coude dans l'enveloppe spectrale</strong>.</p>
+<p>Note par note, sur les amplitudes harmoniques en dB contre le log de la fréquence, on ajuste un
+<strong>bâton brisé</strong> : deux droites se rejoignant en un point libre. Le coude n'est retenu que si la
+pente du haut est plus raide que celle du bas d'au moins 4 dB par octave.</p>
+<p><strong>Le test qui décide</strong> est celui de la tâche C1 : une coupure est une propriété du tuyau, pas de
+la note. La pente de log2(coude) contre log2(f0) doit donc être nulle. Si elle vaut 1, le coude
+n'est qu'un rang harmonique déguisé.</p>
+<h2>Premier essai, et un témoin négatif qui s'effondre</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Pente contre f0</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Petite flûte</strong></td>
+<td>0,79 · 1,08</td>
+<td>suit la note</td>
+</tr>
+<tr>
+<td><strong>Flûte</strong></td>
+<td>1,03 · 1,01</td>
+<td>suit la note</td>
+</tr>
+<tr>
+<td><strong>Violon</strong></td>
+<td><strong>0,13 · 0,12</strong></td>
+<td><strong>coupure stable</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Les flûtes, qui ont un réseau de trous, suivent la note. Le violon, qui n'en a pas, donne une
+coupure stable.</strong> C'est l'inverse exact de l'hypothèse, et cela condamne la première version de
+la mesure.</p>
+<p>Le diagnostic est arithmétique. Une coupure vers 2 kHz n'est mesurable que si <strong>plusieurs
+harmoniques l'encadrent</strong>. Or la petite flûte a <strong>sept harmoniques par note</strong> et sa note la plus
+grave est à 587 Hz : la moitié de sa tessiture a sa <em>fondamentale</em> au-dessus de toute coupure
+plausible. Le bâton brisé n'a alors plus qu'un rang harmonique fixe à trouver, qui suit f0 par
+construction.</p>
+<h2>Second essai, en ne gardant que les notes graves</h2>
+<p>En restreignant aux notes dont la fondamentale est sous 600 Hz, le tableau se range par
+famille — et il se range d'une façon qu'on n'attendait pas.</p>
+<table>
+<thead>
+<tr>
+<th>Famille</th>
+<th>Instruments</th>
+<th>Pente médiane contre f0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Clarinettes</strong></td>
+<td>4</td>
+<td><strong>0,07</strong></td>
+</tr>
+<tr>
+<td>Sans trous latéraux <em>(cordes, cuivres)</em></td>
+<td>10</td>
+<td>0,47</td>
+</tr>
+<tr>
+<td>Anches doubles</td>
+<td>4</td>
+<td>0,65</td>
+</tr>
+<tr>
+<td><strong>Flûtes</strong></td>
+<td>2</td>
+<td><strong>1,22</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Seules les clarinettes donnent un coude qui ne bouge pas avec la note.</strong> Et il réplique :</p>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Coude par corpus (Hz)</th>
+<th>Étendue</th>
+<th>Pente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Clarinette en Si♭</strong></td>
+<td>2 094 · 2 078 · 1 970 · 2 013</td>
+<td><strong>1,1 demi-ton</strong></td>
+<td>0,27</td>
+</tr>
+<tr>
+<td><strong>Clarinette contrebasse</strong></td>
+<td>2 116 · 2 218</td>
+<td><strong>0,8 demi-ton</strong></td>
+<td>0,07</td>
+</tr>
+<tr>
+<td>Clarinette basse</td>
+<td>1 669 · 1 852 · 2 358 · 1 314</td>
+<td>10,1 dt</td>
+<td><strong>0,07</strong></td>
+</tr>
+<tr>
+<td>Clarinette en Mi♭</td>
+<td>3 348 · 1 986 · 3 607</td>
+<td>10,3 dt</td>
+<td>−0,02</td>
+</tr>
+</tbody>
+</table>
+<p><strong>La clarinette en Si♭ à 2 000 Hz, sur quatre corpus de provenances distinctes et à un demi-ton
+près, est une grandeur neuve de cette étude.</strong> Et le fait que les quatre clarinettes se tiennent
+entre 1 300 et 2 400 Hz <strong>sans s'ordonner par taille</strong> est ce que le modèle des trous latéraux
+prédit : la coupure dépend de la géométrie des trous relativement à la perce, et les facteurs
+visent une coupure voisine quelle que soit la taille de l'instrument.</p>
+<h2>Ce qu'il ne faut pas en conclure</h2>
+<p><strong>Un coude stable n'est pas une preuve de coupure de Benade.</strong> Le témoin négatif le dit sans
+ambiguïté : le <strong>violon</strong>, qui n'a aucun trou latéral, donne le coude le plus stable de tout le
+corpus — pente 0,02, à 3 100–4 200 Hz selon le corpus. C'est vraisemblablement le <em>bridge hill</em>
+ou la transition de rayonnement de la caisse, mais la mesure ne peut pas le dire.</p>
+<p>Ce que la méthode trouve est donc <strong>une transition spectrale fixe</strong>, pas une coupure de réseau
+de trous. L'attribution demanderait un levier indépendant, que cette étude n'a pas :</p>
+<ul>
+<li>la coupure devrait disparaître quand on ferme tous les trous (note la plus grave) ;</li>
+<li>elle devrait se déplacer entre un instrument et sa version à perce modifiée ;</li>
+<li>ou se comparer à une mesure d'impédance d'entrée, qui n'est pas dans nos moyens.</li>
+</ul>
+<p>Tant que l'un des trois n'est pas fait, le chiffre doit être publié comme <strong>« coude spectral,
+compatible avec une coupure de réseau de trous »</strong> et non comme une coupure mesurée.</p>
+<h2>La promesse faite aux flûtes doit être retirée</h2>
+<p>C'est la conclusion qui compte, parce qu'elle corrige deux documents.</p>
+<table>
+<thead>
+<tr>
+<th>Flûte</th>
+<th>Pente contre f0</th>
+<th>Notes utilisables</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Petite flûte</td>
+<td>0,79 · 1,08</td>
+<td><strong>4</strong> sous 600 Hz, sur 111</td>
+</tr>
+<tr>
+<td>Flûte</td>
+<td>0,71 · 1,70</td>
+<td>39 et 14</td>
+</tr>
+<tr>
+<td>Flûte basse</td>
+<td>—</td>
+<td><strong>2</strong> coudes nets sur 27 notes graves</td>
+</tr>
+<tr>
+<td>Flûte contrebasse</td>
+<td>1,23</td>
+<td>4 et 14</td>
+</tr>
+</tbody>
+</table>
+<p>Les flûtes cumulent les trois handicaps : <strong>peu d'harmoniques</strong> (7 par note pour la petite
+flûte, contre 22 pour la clarinette en Si♭), <strong>une tessiture haute</strong> qui place leurs
+fondamentales au-dessus de la région de coupure, et <strong>une enveloppe trop lisse</strong> pour qu'un
+coude s'y détache — la flûte basse n'en montre que deux sur vingt-sept notes graves.</p>
+<p>Autrement dit : <strong>le descripteur promis aux instruments sans formant est précisément celui
+qu'ils ne permettent pas de mesurer.</strong> Il faut cesser de l'annoncer dans <code>00-METHODE.md</code> et dans
+la fiche de la petite flûte, et chercher ailleurs ce qui décrira les flûtes.</p>
+<h2>Ce qui reste ouvert</h2>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Ce qui la trancherait</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Que publier pour les flûtes, alors ?</strong></td>
+<td>la pente spectrale et son écart-type sont déjà mesurés et répliqués ; c'est peu, mais c'est honnête. La tâche C9 leur a ajouté un trait positif : <strong>elles ne fusionnent avec rien</strong> (14 à 18 %), ce qui est un fait d'orchestration utilisable</td>
+</tr>
+<tr>
+<td>Attribuer le coude de la clarinette</td>
+<td>le mesurer sur la note la plus grave, tous trous fermés : la coupure devrait y disparaître</td>
+</tr>
+<tr>
+<td>Le coude du violon à 3 100–4 200 Hz</td>
+<td>est-ce le <em>bridge hill</em> ? Le comparer entre violons avec et sans sourdine, qui charge le chevalet</td>
+</tr>
+<tr>
+<td>Pourquoi les anches doubles échouent (pente 0,65)</td>
+<td>hypothèse à tester : la résonance propre de l'anche fait partie de la source et impose sa propre cassure — ce qui recoupe l'échec du LPC sur cette famille (tâche C4)</td>
+</tr>
+</tbody>
+</table>
+<h2>Journal</h2>
+<ul>
+<li><strong>2026-10-28</strong> — Tâche C10. Le descripteur <strong>existe et se mesure</strong> — la clarinette en Si♭ à
+  2 000 Hz sur quatre corpus, à un demi-ton près — mais <strong>pas chez les flûtes, à qui il avait été
+  promis</strong>. Le témoin négatif a servi deux fois : d'abord en condamnant la première version de la
+  mesure, ensuite en interdisant l'attribution du coude au réseau de trous, puisque le violon,
+  qui n'en a pas, donne le coude le plus stable de l'étude.</li>
+</ul>
+<footer>Référence formantique de l'orchestre — Yan Maresz · page produite par <code>construire_site.py</code> depuis les fiches et <code>Resultats-v7/</code>.</footer>
+</body>
+</html>

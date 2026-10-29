@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La localisation, répliquée</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="bandeau"><h1>La localisation, répliquée</h1></div>
+<p class="fil"><a href="../index.html">Sommaire</a> › Synthèses</p>
+<h1>La localisation, répliquée sur cinq corpus</h1>
+<h2>La question</h2>
+<p><code>statut_formants.py</code> marque « aucun pic localisé » un formant dont le Q de l'enveloppe vraie
+tombe sous 2 : la bosse est si large qu'elle ne sélectionne rien. La trompette et le trombone
+basse avaient été classés ainsi — <strong>sur la foi de SOL seul</strong>. Le plan de reprise posait la bonne
+question : <em>le Q ≈ 1 de la trompette est-il l'instrument, ou ce corpus ?</em></p>
+<p>Les largeurs d'enveloppe existaient déjà pour les cinq corpus, dans <code>Largeurs/Enveloppe/</code>, et
+n'avaient jamais été croisées. Quarante-deux formants, mesurés dans deux à cinq corpus chacun.</p>
+<h2>Premier résultat, décourageant</h2>
+<table>
+<thead>
+<tr>
+<th>Verdict sur les cinq corpus</th>
+<th>Formants</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>localisé (Q ≥ 2) partout</td>
+<td>32</td>
+</tr>
+<tr>
+<td><strong>non localisé partout</strong></td>
+<td><strong>0</strong></td>
+</tr>
+<tr>
+<td>verdict qui change selon le corpus</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Aucun formant n'est « non localisé » dans tous les corpus.</strong> Pris au pied de la lettre, le
+verdict publié ne réplique nulle part.</p>
+<p>Et la trompette, au cœur de la question :</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>SOL</th>
+<th>ZSamples</th>
+<th>Xsamples</th>
+<th>VN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2 792 Hz</td>
+<td>Q 0,97</td>
+<td>Q 1,16</td>
+<td><strong>Q 6,92</strong></td>
+<td>Q 1,11</td>
+</tr>
+<tr>
+<td>4 695 Hz</td>
+<td>Q 1,10</td>
+<td>Q 1,13</td>
+<td><strong>Q 9,28</strong></td>
+<td>Q 1,03</td>
+</tr>
+</tbody>
+</table>
+<p>Trois corpus serrés autour de 1, un seul très au-dessus. Avant de conclure, il fallait demander
+ce que fait Xsamples.</p>
+<h2>Un corpus est biaisé, et cela se démontre</h2>
+<p>Comparaison <strong>appariée</strong> — pour chaque formant présent dans SOL et dans l'autre corpus, le
+rapport des deux Q :</p>
+<table>
+<thead>
+<tr>
+<th>Corpus</th>
+<th>Formants comparés</th>
+<th>Rapport médian des Q</th>
+<th>Plus net que SOL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ZSamples</td>
+<td>39</td>
+<td>1,06</td>
+<td>22 / 39</td>
+</tr>
+<tr>
+<td><strong>Xsamples</strong></td>
+<td>18</td>
+<td><strong>1,37</strong></td>
+<td><strong>15 / 18</strong></td>
+</tr>
+<tr>
+<td>VO</td>
+<td>31</td>
+<td>1,03</td>
+<td>16 / 31</td>
+</tr>
+<tr>
+<td>VN</td>
+<td>26</td>
+<td>0,96</td>
+<td>11 / 26</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Xsamples rend les pics 37 % plus étroits que SOL, et plus étroits dans quinze formants sur
+dix-huit.</strong> Sa part de pics ouverts est de 4 %, contre 10 à 16 % partout ailleurs, et <strong>son Q ne
+descend jamais en dessous de 3</strong>, sur aucun instrument. Ce corpus ne peut structurellement pas
+produire un verdict de non-localisation.</p>
+<p>Les trois autres sont sans biais mesurable par rapport à SOL — 1,06, 1,03 et 0,96.</p>
+<h2>Second résultat, en écartant le corpus biaisé</h2>
+<table>
+<thead>
+<tr>
+<th>Verdict sur SOL, ZSamples, VO et VN</th>
+<th>Formants</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>localisé partout</td>
+<td>32</td>
+</tr>
+<tr>
+<td><strong>non localisé partout</strong></td>
+<td><strong>2</strong></td>
+</tr>
+<tr>
+<td>discordant</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+<p>Et les deux non localisés sont <strong>les deux formants de la trompette</strong> :</p>
+<table>
+<thead>
+<tr>
+<th>Formant</th>
+<th>SOL</th>
+<th>ZSamples</th>
+<th>VN</th>
+<th>Médian</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>2 792 Hz</strong> (route A)</td>
+<td>1,0</td>
+<td>1,2</td>
+<td>1,1</td>
+<td><strong>1,1</strong></td>
+</tr>
+<tr>
+<td><strong>4 695 Hz</strong> (route A)</td>
+<td>1,1</td>
+<td>1,1</td>
+<td>1,0</td>
+<td><strong>1,1</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Le Q ≈ 1 de la trompette est l'instrument, pas le corpus.</strong> Trois corpus de provenances
+distinctes, sans biais démontré, s'accordent à 0,2 près sur les deux formants. L'affirmation
+publiée sur la foi de SOL seul est donc confirmée, et elle l'est maintenant par réplication.</p>
+<p>C'est aussi le seul cas de l'étude où la mesure dit <strong>que la notion de pic ne s'applique pas</strong>,
+plutôt que de donner une valeur. Chez la trompette, la largeur égale la fréquence centrale : la
+« résonance » occupe toute la région et ne sélectionne rien.</p>
+<h2>Ce qui ne réplique pas : le trombone basse</h2>
+<p><code>_LARGEURS-DE-BANDE.md</code> écrit : « la trompette <strong>et le trombone basse</strong> n'ont aucun pic
+localisé », en visant le trombone basse <strong>vers 1 670 Hz</strong>, et ajoute « et, de peu, le trombone
+ténor à 879 Hz (Q ≈ 1,4) ». Ces deux-là ne répliquent pas.</p>
+<table>
+<thead>
+<tr>
+<th>Formant</th>
+<th>SOL</th>
+<th>ZSamples</th>
+<th>VO</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trombone basse <strong>1 759 Hz</strong> <em>(le 1 670 Hz du document)</em></td>
+<td>1,1</td>
+<td>1,1</td>
+<td>8,4</td>
+<td><strong>discordant</strong></td>
+</tr>
+<tr>
+<td>Trombone ténor <strong>830 Hz</strong> <em>(le 879 Hz du document)</em></td>
+<td>1,5</td>
+<td>2,4</td>
+<td>3,9</td>
+<td><strong>discordant</strong></td>
+</tr>
+<tr>
+<td><em>Trombone basse 879 Hz, pour mémoire</em></td>
+<td>2,9</td>
+<td>2,3</td>
+<td>4,8</td>
+<td>localisé dans les trois</td>
+</tr>
+</tbody>
+</table>
+<p>Dans les deux cas, SOL donne Q ≈ 1,1 à 1,5 et les autres corpus montent jusqu'à 8,4 et 3,9 : rien
+n'est tranché. <strong>Seule la trompette survit à la réplication.</strong> Et le formant du trombone basse
+que le CSV publie — 879 Hz, celui qui porte l'unisson avec le trombone ténor — est localisé dans
+les trois corpus, ce que le CSV disait déjà.</p>
+<h2>Les huit discordants</h2>
+<table>
+<thead>
+<tr>
+<th>Formant</th>
+<th>Q selon les corpus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trombone ténor 3 134 Hz</td>
+<td>9,9 · 1,0 · 20,8</td>
+</tr>
+<tr>
+<td>Trombone basse 1 759 Hz</td>
+<td>1,1 · 1,1 · 8,4</td>
+</tr>
+<tr>
+<td>Tuba basse 659 Hz</td>
+<td>1,2 · 2,8 · 6,1 · 5,1</td>
+</tr>
+<tr>
+<td>Trombone ténor 830 Hz</td>
+<td>1,5 · 2,4 · 3,9</td>
+</tr>
+<tr>
+<td>Cor 739 Hz</td>
+<td>1,3 · 2,0 · 3,6</td>
+</tr>
+<tr>
+<td>Violoncelle 554 Hz</td>
+<td>4,7 · 4,0 · 1,6 · 4,0</td>
+</tr>
+<tr>
+<td>Alto 1 318 Hz</td>
+<td>3,7 · 3,5 · 3,5 · 1,4</td>
+</tr>
+<tr>
+<td>Tuba basse 498 Hz</td>
+<td>2,0 · 3,9 · 3,6 · 3,9</td>
+</tr>
+</tbody>
+</table>
+<p>Sept des huit sont des cuivres, et c'est cohérent avec la tâche C5 : chez eux la largeur dépend
+fortement de la nuance, et les corpus n'ont pas la même répartition de nuances. Les deux
+exceptions, violoncelle 554 Hz et alto 1 318 Hz, sont deux valeurs déjà signalées comme fragiles
+ailleurs dans l'étude.</p>
+<h2>Conséquence pour la méthode</h2>
+<p><strong>Un verdict de localisation ne doit pas être prononcé sur un seul corpus.</strong> Sur les
+42 formants, 10 changent d'avis selon le corpus, soit près d'un quart. La règle à suivre :</p>
+<ul>
+<li>prononcer sur la <strong>médiane des corpus non biaisés</strong>, et non sur un corpus ;</li>
+<li>exclure Xsamples de ce calcul, ou le pondérer, tant que son biais de +37 % n'est pas expliqué ;</li>
+<li>écrire « discordant » quand les corpus ne s'accordent pas, plutôt que de retenir celui qui
+  arrange.</li>
+</ul>
+<p>Le biais de Xsamples mériterait d'être compris plutôt que seulement écarté : il est régulier, il
+va toujours dans le même sens, et il n'affecte pas la <strong>position</strong> des formants — seulement leur
+largeur. Une normalisation ou un traitement dynamique en amont est l'hypothèse la plus simple.</p>
+<h2>Journal</h2>
+<ul>
+<li><strong>2026-10-28</strong> — Tâche C6. La question est tranchée : <strong>le Q ≈ 1 de la trompette est bien
+  l'instrument</strong>, confirmé sur trois corpus indépendants. Mais la route pour y arriver a demandé
+  d'identifier un biais de corpus — Xsamples rend les pics 37 % plus étroits et ne descend jamais
+  sous Q = 3 — sans quoi la réplication paraissait échouer entièrement. <strong>Et la moitié de
+  l'affirmation publiée tombe</strong> : le trombone basse à 879 Hz est localisé dans les trois corpus.</li>
+</ul>
+<footer>Référence formantique de l'orchestre — Yan Maresz · page produite par <code>construire_site.py</code> depuis les fiches et <code>Resultats-v7/</code>.</footer>
+</body>
+</html>

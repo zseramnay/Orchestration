@@ -143,6 +143,64 @@ def f1_f2(spectre, f0):
         marques.append("F1=f0")
     return z1, z2, h1, h2, marques
 
+
+# ───────── coïncidences avec les formants établis (tâche C8, 29/10/2026) ────
+SEUIL_COINCIDENCE = 0.5       # demi-ton, le seuil strict de l'étude
+_FORMANTS = None
+
+def formants_etablis(chemin=None):
+    """{instrument: [hz, …]} depuis `formants-v7.csv`, statuts « route A » et « 1 corpus ».
+    Rend {} si le fichier est absent : la carte doit rester calculable sans lui."""
+    global _FORMANTS
+    if _FORMANTS is not None:
+        return _FORMANTS
+    if chemin is None:
+        ici = os.path.dirname(os.path.abspath(__file__))
+        chemin = os.path.join(os.path.dirname(os.path.dirname(ici)),
+                              'Etude-Formants', 'Resultats-v7', 'formants-v7.csv')
+    F = {}
+    try:
+        import csv as _csv
+        with open(chemin, encoding='utf-8') as f:
+            for r in _csv.DictReader(f):
+                if r['statut'] in ('route A', '1 corpus'):
+                    F.setdefault(r['instrument'], []).append(float(r['hz']))
+    except Exception:
+        F = {}
+    _FORMANTS = {k: sorted(v) for k, v in F.items()}
+    return _FORMANTS
+
+def coincidence(hz, instrument, seuil=SEUIL_COINCIDENCE):
+    """Le formant établi du MÊME instrument le plus proche de `hz`, s'il est à moins de
+    `seuil` demi-ton. Rend {'hz': …, 'ecart_demi_tons': …} ou None.
+
+    CE N'EST PAS UN INDICE DE CONFIANCE, et il ne faut pas le lire comme tel. La tâche C8
+    l'a mesuré sur les 632 cellules des cinq corpus, contre un témoin qui partage le
+    confondant — les propres formants de l'instrument, transposés de ±2 à ±6 demi-tons,
+    ce qui conserve leur nombre et leur espacement :
+
+        F2, tous instruments      5,8 %  contre  6,1 % au témoin   →  rien
+        F2, cordes                6,0 %  contre  8,2 %             →  rien
+        cellules non marquées     3,6 %  contre  4,0 %             →  rien
+
+    La coïncidence n'existe pas en général, et surtout pas chez les cordes, pour qui le
+    plan l'avait demandée. **Une seule exception, et elle est forte : le basson**, dont F1
+    tombe sur ses formants de 494 et 554 Hz dans 16 cellules non marquées sur 17, contre
+    13,5 % au témoin. Voir `_COINCIDENCES-F2.md`.
+
+    La raison structurelle est dans la tâche C2 : la méthode 8 ne mesure rien sous 3,2 à
+    5,7 fois f0_min, si bien que F1 vit en médiane à 15,5 demi-tons — plus d'une octave —
+    du formant établi le plus proche. Les deux méthodes ne regardent pas la même
+    région, sauf là où un instrument a un formant bas. Le basson en a un.
+    """
+    F = formants_etablis()
+    if not hz or instrument not in F:
+        return None
+    e, fc = min((abs(12.0 * math.log2(hz / x)), x) for x in F[instrument])
+    if e > seuil:
+        return None
+    return {'hz': int(round(fc)), 'ecart_demi_tons': round(e, 2)}
+
 # ───────────────────── registres : lecture de registres.md ──────────────────
 _NOTE_RE = re.compile(r'\b([A-G]#?)(-?\d{1,2})\b')
 _SEMI = {'C': 0, 'D': 2, 'E': 4, 'F': 5, 'G': 7, 'A': 9, 'B': 11}
@@ -208,7 +266,8 @@ def voyelle_proche(z1, z2):
     return d[0][1], round(d[0][0], 2)
 
 # ───────────────────────────── agrégation ──────────────────────────────────
-def carte(chemin_spectres, nom_registres, chemin_registres, forcer_grille=None):
+def carte(chemin_spectres, nom_registres, chemin_registres, forcer_grille=None,
+          instrument=None):
     """forcer_grille : None = choix automatique, "rd" = registre x dynamique,
     "r" = registre seul. Le repli est automatique si n/12 < MIN_N_CELLULE : en dessous
     d'environ 80 echantillons, les 12 cellules ne se remplissent pas. On ne baisse PAS
@@ -243,6 +302,7 @@ def carte(chemin_spectres, nom_registres, chemin_registres, forcer_grille=None):
             res.append(dict(registre=reg, dynamique=dy, n=len(v), F1_bark=None, F2_bark=None,
                             F1_hz=None, F2_hz=None, IQR1=None, IQR2=None, voyelle=None,
                             distance_bark=None, statut="non publiable",
+                            coincidence_F1=None, coincidence_F2=None,
                             marques=[f"n<{MIN_N_CELLULE}"]))
             continue
         z1 = np.array([x[0] for x in v])
@@ -265,12 +325,49 @@ def carte(chemin_spectres, nom_registres, chemin_registres, forcer_grille=None):
         if n1max > len(v) / 2: marques.append("1 max")
         if nf0 > len(v) / 2:   marques.append("F1=f0")
         if i1 > 2.0 or (i2 is not None and i2 > 2.0): marques.append("dispersé")
+        co1 = coincidence(bark_vers_hz(m1), instrument) if instrument else None
+        co2 = (coincidence(bark_vers_hz(m2), instrument)
+               if instrument and m2 is not None else None)
         res.append(dict(registre=reg, dynamique=dy, n=len(v), statut=statut_distance(dist),
+                        coincidence_F1=co1, coincidence_F2=co2,
                         F1_bark=round(m1, 2), F2_bark=None if m2 is None else round(m2, 2),
                         F1_hz=round(bark_vers_hz(m1)), F2_hz=None if m2 is None else round(bark_vers_hz(m2)),
                         IQR1=round(i1, 2), IQR2=None if i2 is None else round(i2, 2),
                         voyelle=voy, distance_bark=dist, marques=marques))
     return dict(grille=grille, cellules=res)
+
+# ───────── résolution des noms de fichiers par corpus (tâche C13) ──────────
+def _sans_accents(s):
+    import unicodedata
+    s = unicodedata.normalize('NFD', s or '')
+    return re.sub(r'\s+', ' ', ''.join(c for c in s if unicodedata.category(c) != 'Mn')
+                  ).strip().lower()
+
+def resoudre_fichier(nom, disponibles):
+    """Le fichier de spectres correspondant à `nom` parmi `disponibles`, ou None.
+
+    Les corpus ne nomment pas les instruments de la même façon : accents absents
+    (« Flute basse », « Trombone tenor ») et transposition ajoutée (« Clarinette basse
+    en Sib », « Cor en Fa », « Trompette en Ut »). Jusqu'au 29/10/2026 la comparaison
+    était une égalité exacte, et **35 cartes mesurables ont été silencieusement
+    écartées** — dont les trois instruments que le plan croyait sans second corpus.
+    Le script imprimait « absent » et passait : une absence de données et une absence
+    de correspondance se ressemblent trop pour qu'on s'en remette à l'œil.
+
+    Deux règles, dans cet ordre, et la seconde est gardée :
+      1. égalité une fois accents et casse retirés ;
+      2. le fichier commence par le nom suivi de « en » — la transposition.
+
+    La garde du point 2 est indispensable : un préfixe libre ferait correspondre
+    « Flûte » à « Flûte basse » et « Clarinette basse » à « Clarinette contrebasse ».
+    Exiger « en » après le nom l'interdit, puisque aucune taille d'instrument ne
+    s'écrit ainsi. Une correspondance ambiguë (plusieurs candidats) est refusée."""
+    n = _sans_accents(nom)
+    for f in disponibles:
+        if _sans_accents(f) == n:
+            return f
+    c = [f for f in disponibles if _sans_accents(f).startswith(n + ' en ')]
+    return c[0] if len(c) == 1 else None
 
 INSTRUMENTS = {                 # nom affiché : (fichier de spectres, clé dans registres.md)
     "Petite flûte":           ("Piccolo",                 "piccolo"),
@@ -314,12 +411,23 @@ if __name__ == "__main__":
         if a.startswith("--sortie="): sortie = a.split("=",1)[1]
         if a.startswith("--motif="):  motif  = a.split("=",1)[1]
     tout = {}
+    # noms de fichiers réellement présents, pour la résolution tolérante (tâche C13)
+    import glob as _glob
+    suffixe = motif.format(fich='', nom='')
+    dispo = [os.path.basename(x)[:-len(suffixe)] if suffixe else os.path.basename(x)
+             for x in _glob.glob(os.path.join(base, '*' + suffixe))] if suffixe else []
+    manquants = []
     for nom, (fich, cle) in INSTRUMENTS.items():
         if lot and nom not in lot: continue
         p = os.path.join(base, motif.format(fich=fich, nom=nom))
+        if not os.path.exists(p) and dispo:
+            r = resoudre_fichier(nom, dispo)
+            if r:
+                p = os.path.join(base, motif.format(fich=r, nom=r))
+                print(f"{nom} : résolu en « {r} »")
         if not os.path.exists(p):
-            print(f"{nom} : {p} absent"); continue
-        out = carte(p, cle, chreg)
+            manquants.append(nom); continue
+        out = carte(p, cle, chreg, instrument=nom)
         r = out["cellules"]; tout[nom] = out
         gl = "registre x dynamique" if out["grille"] == "rd" else "REGISTRE SEUL (repli, corpus restreint)"
         print("\n=== {}   grille : {}".format(nom, gl))
@@ -340,6 +448,8 @@ if __name__ == "__main__":
                 c["registre"], c["dynamique"], c["n"], c["F1_bark"], c["F1_hz"], f2, iq,
                 c["voyelle"] or TIRET, d, c["statut"], marq))
 
+    if manquants:
+        print("\nsans spectres dans ce corpus : " + ", ".join(manquants))
     if os.path.exists(sortie):
         try: tout = {**json.load(open(sortie)), **tout}
         except Exception: pass

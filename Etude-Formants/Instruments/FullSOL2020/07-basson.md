@@ -147,7 +147,7 @@ Mesure par registre : **non encore effectuée** avec la nouvelle méthode. À fa
 particulier pour trancher le comportement de la bande 1 108 Hz dans le grave.
 
 <!-- DEBUT-TRAVAUX-27-10 -->
-## Ce que les travaux du 27/10/2026 disent de cet instrument
+## Ce que les travaux des 27 et 28/10/2026 disent de cet instrument
 
 ### Corroboration par le LPC, note par note
 
@@ -175,6 +175,25 @@ Part de pics **non localisables** — l'enveloppe n'y redescend pas de 3 dB des 
 | aigu | 0 % | 0 % | 10 % |
 
 **Effet doux → fort : +1 point.** Effet négligeable.
+
+### La carte vocalique corrobore-t-elle les formants ?
+
+**Oui, et c'est le seul cas de l'étude.** Rapport mesure / témoin :
+
+| Maximum | Mesure | Témoin | Rapport |
+|---|---|---|---|
+| F1 | 44,4 % | 7,8 % | **×5,7** |
+| F2 | 23,1 % | 3,1 % | **×7,5** |
+
+Les cellules concernées, formant par formant :
+
+| Formant | Cellules < 1,0 dt | dont < 0,5 dt | Corpus |
+|---|---|---|---|
+| **494 Hz** | 16 | 8 | SOL · Xsamples · ZSamples |
+| **554 Hz** | 13 | 8 | SOL · Xsamples · ZSamples |
+| **1 108 Hz** | 11 | 6 | SOL · Xsamples · ZSamples |
+
+Témoin : les propres formants de l'instrument transposés de ±2 à ±6 demi-tons, ce qui conserve leur nombre et leur espacement. Voir `../_COINCIDENCES-F2.md`.
 
 ### Dans la table des mélanges
 

@@ -116,7 +116,7 @@ le corpus actuel » tout en affichant « Fp = 1 320 Hz ».
 Non défini dans `Data/registres.md`. À établir.
 
 <!-- DEBUT-TRAVAUX-27-10 -->
-## Ce que les travaux du 27/10/2026 disent de cet instrument
+## Ce que les travaux des 27 et 28/10/2026 disent de cet instrument
 
 ### Dans la table des mélanges
 
@@ -181,4 +181,11 @@ mesurable.
   qui a déclenché la remise en cause de toute la chaîne de mesure.
 - **2026-10-23** — Conclusion assumée : pas de formant. Le descripteur à développer est la
   fréquence de coupure de Benade.
+- **2026-10-28** — **Cette promesse est retirée (tâche C10).** La coupure n'est pas mesurable
+  sur la petite flûte : **sept harmoniques par note**, et une note la plus grave déjà à 587 Hz,
+  ce qui ne laisse que **quatre notes sur cent onze** sous 600 Hz. Le coude trouvé suit la note
+  (pente 0,79 et 1,08) au lieu de rester fixe : c'est un rang harmonique, pas une coupure. Ce
+  qu'on peut publier à la place : la pente spectrale, et le fait qu'elle **ne fusionne avec
+  presque rien** — 0 % de fusion à l'unisson avec la flûte, 67 % de juxtaposition à l'octave
+  (tâche C9). Voir `../_COUPURE-BENADE.md`.
 - **2026-10-23 (soir)** — Critère assoupli appliqué (voir `00-METHODE.md`).

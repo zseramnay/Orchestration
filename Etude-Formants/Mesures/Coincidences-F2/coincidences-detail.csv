@@ -1,0 +1,80 @@
+instrument,corpus,registre,dynamique,n,maximum,hz,formant_hz,ecart_demi_tons,marques
+Flûte,SOL,suraigu,doux,5,F1,2094,2216,0.98,F1=f0
+Flûte,SOL,suraigu,fort,5,F1,2094,2216,0.98,F1=f0
+Basson,SOL,grave,doux,12,F1,507,494,0.45,1 max
+Basson,SOL,grave,moyen,12,F1,525,554,0.93,
+Basson,SOL,grave,fort,12,F1,519,494,0.85,
+Basson,SOL,bas médium,doux,12,F1,499,494,0.17,1 max
+Basson,SOL,bas médium,moyen,12,F1,530,554,0.77,
+Basson,SOL,bas médium,fort,12,F1,529,554,0.8,
+Basson,SOL,haut médium,doux,7,F1,541,554,0.41,1 max
+Basson,SOL,haut médium,moyen,7,F1,547,554,0.22,
+Basson,SOL,haut médium,fort,7,F1,548,554,0.19,
+Basson,SOL,haut médium,fort,7,F2,1155,1108,0.72,
+Basson,SOL,aigu,doux,11,F1,554,554,0.0,F1=f0
+Basson,SOL,aigu,doux,11,F2,1046,1108,1.0,F1=f0
+Basson,SOL,aigu,moyen,11,F1,584,554,0.91,F1=f0
+Basson,SOL,aigu,moyen,11,F2,1079,1108,0.46,F1=f0
+Basson,SOL,aigu,fort,11,F2,1112,1108,0.06,"F1=f0,dispersé"
+Clarinette en Sib,SOL,clarine,moyen,14,F2,1498,1567,0.78,F1=f0
+Clarinette en Sib,SOL,clarine,fort,14,F2,1653,1567,0.92,F1=f0
+Violon,SOL,aigu,doux,35,F2,2413,2348,0.47,"F1=f0,dispersé"
+Alto,SOL,grave,doux,9,F2,1317,1318,0.01,dispersé
+Violoncelle,SOL,médium,doux,30,F2,1046,1108,1.0,
+Violoncelle,SOL,médium,moyen,30,F2,1046,1108,1.0,
+Violoncelle,SOL,médium,fort,30,F2,1062,1108,0.73,
+Violoncelle,SOL,aigu,doux,49,F2,1112,1108,0.06,"F1=f0,dispersé"
+Violon,VN,grave,moyen,8,F2,2248,2348,0.75,dispersé
+Violon,VN,aigu,doux,12,F2,2227,2348,0.92,F1=f0
+Violon,VN,aigu,moyen,12,F2,2263,2348,0.64,F1=f0
+Violon,VN,aigu,fort,12,F2,2455,2348,0.77,F1=f0
+Violon,VN,suraigu,doux,19,F2,4047,3959,0.38,"F1=f0,dispersé"
+Violon,VN,suraigu,moyen,19,F2,4173,3959,0.91,"F1=f0,dispersé"
+Violon,VN,suraigu,fort,19,F2,4173,3959,0.91,"F1=f0,dispersé"
+Violoncelle,VN,aigu,doux,20,F2,1143,1108,0.54,dispersé
+Violoncelle,VN,suraigu,doux,13,F2,2120,2216,0.77,"F1=f0,dispersé"
+Violoncelle,VN,suraigu,fort,13,F2,2222,2216,0.05,"F1=f0,dispersé"
+Alto,VO,médium,fort,10,F2,1394,1318,0.97,dispersé
+Clarinette en Sib,VO,suraigu,toutes,21,F2,3429,3517,0.44,"F1=f0,dispersé"
+Violon,VO,aigu,moyen,14,F2,2450,2348,0.74,"F1=f0,dispersé"
+Violon,VO,aigu,fort,14,F2,2459,2348,0.8,F1=f0
+Violoncelle,VO,médium,fort,10,F2,1054,1108,0.86,dispersé
+Violoncelle,VO,aigu,fort,27,F1,525,554,0.93,"F1=f0,dispersé"
+Violoncelle,VO,suraigu,doux,28,F2,2235,2216,0.15,"F1=f0,dispersé"
+Violoncelle,VO,suraigu,moyen,28,F2,2496,2631,0.91,"F1=f0,dispersé"
+Violoncelle,VO,suraigu,fort,28,F2,2496,2631,0.91,"F1=f0,dispersé"
+Flûte,VO,suraigu,toutes,8,F1,2340,2216,0.94,"F1=f0,dispersé"
+Basson,Xsamples,grave,moyen,12,F1,476,494,0.64,
+Basson,Xsamples,grave,moyen,12,F2,1054,1108,0.86,
+Basson,Xsamples,bas médium,moyen,12,F1,476,494,0.64,
+Basson,Xsamples,bas médium,fort,12,F1,479,494,0.53,
+Basson,Xsamples,haut médium,doux,7,F1,539,554,0.48,
+Basson,Xsamples,haut médium,doux,7,F2,1142,1108,0.52,
+Basson,Xsamples,haut médium,moyen,7,F1,491,494,0.11,
+Basson,Xsamples,haut médium,moyen,7,F2,1062,1108,0.73,
+Basson,Xsamples,haut médium,fort,7,F1,538,554,0.51,1 max
+Basson,Xsamples,aigu,doux,13,F1,554,554,0.0,F1=f0
+Basson,Xsamples,aigu,doux,13,F2,1112,1108,0.06,F1=f0
+Clarinette en Sib,Xsamples,clarine,doux,14,F2,1569,1567,0.02,F1=f0
+Basson,ZSamples,grave,doux,23,F1,490,494,0.14,1 max
+Basson,ZSamples,grave,moyen,12,F1,470,494,0.86,
+Basson,ZSamples,grave,fort,22,F1,496,494,0.07,
+Basson,ZSamples,bas médium,doux,24,F1,480,494,0.5,1 max
+Basson,ZSamples,bas médium,moyen,32,F1,511,494,0.59,1 max
+Basson,ZSamples,bas médium,fort,24,F1,496,494,0.07,
+Basson,ZSamples,haut médium,doux,15,F1,502,494,0.28,1 max
+Basson,ZSamples,haut médium,moyen,19,F1,521,494,0.92,
+Basson,ZSamples,haut médium,moyen,19,F2,1104,1108,0.06,
+Basson,ZSamples,haut médium,fort,14,F1,523,494,0.99,
+Basson,ZSamples,haut médium,fort,14,F2,1121,1108,0.2,
+Basson,ZSamples,aigu,doux,27,F1,560,554,0.19,"F1=f0,dispersé"
+Basson,ZSamples,aigu,doux,27,F2,1121,1108,0.2,"F1=f0,dispersé"
+Basson,ZSamples,aigu,moyen,25,F1,542,554,0.38,"F1=f0,dispersé"
+Trombone ténor,ZSamples,médium,fort,8,F1,831,830,0.02,dispersé
+Trombone ténor,ZSamples,médium,fort,8,F2,3090,3134,0.24,dispersé
+Violon,ZSamples,aigu,fort,30,F2,2319,2348,0.22,F1=f0
+Violon,ZSamples,suraigu,fort,20,F2,3769,3959,0.85,"F1=f0,dispersé"
+Alto,ZSamples,médium,fort,22,F2,2161,2091,0.57,dispersé
+Alto,ZSamples,aigu,doux,30,F2,1314,1318,0.05,"F1=f0,dispersé"
+Violoncelle,ZSamples,médium,doux,36,F2,1079,1108,0.46,dispersé
+Violoncelle,ZSamples,suraigu,fort,14,F2,2289,2216,0.56,"F1=f0,dispersé"

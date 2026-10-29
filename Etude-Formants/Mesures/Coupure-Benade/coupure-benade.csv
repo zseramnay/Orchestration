@@ -1,0 +1,64 @@
+instrument,corpus,n_notes,n_total,pct_avec_coude,coude_median_hz,coude_q1,coude_q3,iqr_demi_tons,pente,r2,pente_bas,pente_haut,sans_trous,f0_max,verdict
+Alto,SOL,192,192,100,2358,2099,2929,5.8,0.22,0.17,-5.7,-23.5,True,600.0,COUPURE STABLE
+Alto,ZSamples,104,104,100,2498,2199,3093,5.9,0.52,0.29,-6.9,-22.1,True,600.0,intermédiaire
+Alto,VO,62,69,90,1976,1572,2638,9.0,0.59,0.32,-2.8,-19.6,True,600.0,intermédiaire
+Alto,VN,80,81,99,2309,1922,2939,7.4,0.26,0.17,-5.2,-22.2,True,600.0,intermédiaire
+Basson,SOL,80,123,65,576,495,829,8.9,0.71,0.59,2.3,-17.1,False,600.0,intermédiaire
+Basson,ZSamples,115,249,46,474,361,786,13.5,1.03,0.83,6.4,-16.6,False,600.0,suit la note
+Basson,Xsamples,88,123,72,544,441,829,10.9,0.84,0.8,2.9,-17.2,False,600.0,suit la note
+Clarinette basse en Sib,SOL,134,137,98,1669,1314,2199,8.9,-0.02,0.0,-4.4,-22.7,False,600.0,COUPURE STABLE
+Clarinette basse en Sib,Xsamples,121,123,98,1852,1292,2498,11.4,0.18,0.07,-4.2,-22.5,False,600.0,COUPURE STABLE
+Clarinette basse en Sib,VO,33,42,79,2358,1863,2799,7.1,-0.06,0.01,-2.8,-21.7,False,600.0,COUPURE STABLE
+Clarinette basse en Sib,VN,160,164,98,1314,1163,1941,8.9,0.15,0.04,-6.5,-23.1,False,600.0,COUPURE STABLE
+Clarinette contrebasse en Sib,SOL,38,45,84,2116,1793,2950,8.6,0.04,0.01,-3.1,-21.2,False,600.0,COUPURE STABLE
+Clarinette contrebasse en Sib,VO,40,45,89,2218,1951,3179,8.4,0.1,0.04,-3.4,-20.0,False,600.0,COUPURE STABLE
+Clarinette en Mib,SOL,13,21,62,3348,2121,3704,9.7,-0.23,0.05,-2.4,-31.4,False,600.0,COUPURE STABLE
+Clarinette en Mib,ZSamples,16,28,57,1986,1537,2258,6.7,0.68,0.42,-3.7,-25.8,False,600.0,intermédiaire
+Clarinette en Mib,VO,15,21,71,3607,3413,3919,2.4,-0.02,0.0,-3.0,-31.1,False,600.0,COUPURE STABLE
+Clarinette en Sib,SOL,50,75,67,2094,1550,2867,10.6,0.35,0.15,-3.7,-24.4,False,600.0,intermédiaire
+Clarinette en Sib,ZSamples,23,36,64,2078,1895,2492,4.7,0.28,0.13,-6.4,-22.5,False,600.0,intermédiaire
+Clarinette en Sib,Xsamples,67,75,89,1970,1647,2692,8.5,0.13,0.01,-4.4,-23.3,False,600.0,COUPURE STABLE
+Clarinette en Sib,VO,18,27,67,2013,1456,2460,9.1,0.26,0.12,-2.8,-22.8,False,600.0,intermédiaire
+Contrebasse,SOL,273,309,88,1292,1174,1453,3.7,0.17,0.07,-8.0,-15.6,True,600.0,COUPURE STABLE
+Contrebasse,ZSamples,136,180,76,743,460,958,12.7,0.61,0.29,-5.4,-15.8,True,600.0,intermédiaire
+Contrebasse,VO,116,132,88,1335,1163,2659,14.3,0.83,0.35,-7.9,-16.5,True,600.0,suit la note
+Contrebasson,SOL,98,110,89,388,312,657,12.9,0.64,0.31,-2.0,-17.0,False,600.0,intermédiaire
+Contrebasson,ZSamples,48,60,80,334,269,560,12.7,1.23,0.57,8.1,-15.6,False,600.0,suit la note
+Contrebasson,Xsamples,98,114,86,415,291,608,12.8,0.61,0.39,2.3,-14.3,False,600.0,intermédiaire
+Contrebasson,VN,99,111,89,388,312,668,13.2,0.66,0.31,-2.1,-17.0,False,600.0,intermédiaire
+Cor anglais,SOL,92,92,100,4753,1445,7047,27.4,0.4,0.04,-9.7,-29.4,False,600.0,intermédiaire
+Cor anglais,ZSamples,32,32,100,2105,937,4347,26.6,1.38,0.44,-4.8,-23.6,False,600.0,suit la note
+Cor anglais,Xsamples,43,46,93,1174,931,1615,9.5,0.9,0.96,-2.6,-24.1,False,600.0,suit la note
+Cor anglais,VN,91,92,99,6277,1244,7407,30.9,0.29,0.02,-12.0,-33.3,False,600.0,intermédiaire
+Cor en Fa,SOL,81,125,65,1755,398,3155,35.8,1.29,0.66,-5.8,-23.4,True,600.0,suit la note
+Cor en Fa,Xsamples,60,81,74,668,581,1782,19.4,1.1,0.59,1.9,-23.3,True,600.0,suit la note
+Cor en Fa,VN,85,104,82,2186,1174,3521,19.0,0.51,0.12,-7.7,-30.8,True,600.0,intermédiaire
+Flûte,SOL,39,48,81,1755,1486,2024,5.4,0.71,0.75,-7.2,-21.7,False,600.0,intermédiaire
+Flûte,ZSamples,14,24,58,1400,1104,1946,9.8,1.7,0.59,-8.8,-19.2,False,600.0,suit la note
+Flûte contrebasse,ZSamples,14,44,32,1222,982,1583,8.3,1.23,0.67,-8.2,-18.5,False,600.0,suit la note
+Hautbois,SOL,51,51,100,1766,1491,1986,5.0,0.56,0.41,1.4,-24.2,False,600.0,intermédiaire
+Hautbois,ZSamples,24,24,100,2094,1666,3292,11.8,0.38,0.07,-3.5,-27.4,False,600.0,intermédiaire
+Hautbois,Xsamples,51,51,100,1475,1276,1911,7.0,0.79,0.87,1.0,-26.9,False,600.0,suit la note
+Hautbois,VN,68,68,100,1766,1400,2945,12.9,0.61,0.14,-2.1,-25.8,False,600.0,intermédiaire
+Trombone basse,SOL,127,141,90,1174,937,1367,6.5,0.29,0.43,3.3,-21.7,True,600.0,intermédiaire
+Trombone basse,ZSamples,54,68,79,764,471,1217,16.4,0.56,0.59,6.6,-17.6,True,600.0,intermédiaire
+Trombone basse,VO,43,54,80,1324,851,1809,13.1,0.43,0.37,1.1,-22.9,True,600.0,intermédiaire
+Trombone ténor,SOL,75,117,64,991,587,1863,20.0,0.82,0.51,1.0,-19.6,True,600.0,suit la note
+Trombone ténor,ZSamples,60,72,83,872,549,1354,15.6,0.57,0.44,4.2,-18.9,True,600.0,intermédiaire
+Trompette en Ut,SOL,62,62,100,2396,1585,4105,16.5,0.44,0.09,-1.8,-22.9,True,600.0,intermédiaire
+Trompette en Ut,Xsamples,69,69,100,2089,1453,2767,11.1,0.43,0.16,-1.4,-31.3,True,600.0,intermédiaire
+Trompette en Ut,VN,117,117,100,1960,1647,2466,7.0,0.45,0.33,-2.1,-31.4,True,600.0,intermédiaire
+Tuba basse,SOL,50,108,46,673,291,1389,27.1,1.29,0.76,-0.2,-21.9,True,600.0,suit la note
+Tuba basse,ZSamples,40,72,56,458,342,560,8.5,0.94,0.39,7.7,-24.6,True,600.0,suit la note
+Tuba basse,VO,28,60,47,382,258,519,12.1,0.51,0.61,2.9,-21.2,True,600.0,intermédiaire
+Tuba basse,VN,134,148,91,651,441,991,14.0,0.83,0.51,-3.1,-25.5,True,600.0,suit la note
+Tuba contrebasse,SOL,98,158,62,463,345,708,12.5,0.46,0.16,1.3,-24.1,True,600.0,intermédiaire
+Tuba contrebasse,VN,82,111,74,554,388,826,13.1,0.55,0.13,0.5,-25.7,True,600.0,intermédiaire
+Violon,SOL,117,117,100,4177,3951,4210,1.1,-0.01,0.0,-6.1,-28.9,True,600.0,COUPURE STABLE
+Violon,ZSamples,63,64,98,3090,2713,3537,4.6,0.08,0.02,-6.9,-23.0,True,600.0,COUPURE STABLE
+Violon,VO,42,42,100,3391,2939,3531,3.2,0.06,0.01,-5.0,-26.0,True,600.0,COUPURE STABLE
+Violon,VN,60,60,100,3822,3521,4188,3.0,-0.12,0.04,-5.7,-27.2,True,600.0,COUPURE STABLE
+Violoncelle,SOL,261,261,100,1873,1432,2067,6.4,0.27,0.21,-6.6,-17.0,True,600.0,intermédiaire
+Violoncelle,ZSamples,227,228,100,2336,2035,2595,4.2,0.33,0.15,-7.8,-18.5,True,600.0,intermédiaire
+Violoncelle,VO,81,117,69,1863,1572,2099,5.0,0.43,0.32,-5.7,-17.3,True,600.0,intermédiaire
+Violoncelle,VN,117,117,100,2315,2078,2638,4.1,0.1,0.09,-6.2,-19.8,True,600.0,COUPURE STABLE

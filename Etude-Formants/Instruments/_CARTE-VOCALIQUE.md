@@ -350,8 +350,18 @@ discutée. Son aperture est bien définie, son timbre antéro-postérieur flotte
 **1. La présence d'un second maximum dépend du corpus, pas seulement de l'instrument.** Le
 contrebasson n'en a aucun chez SOL et deux chez ZSamples ; la contrebasse de même au grave et
 au médium. C'est une différence de prise de son — plus de contenu aigu dans un cas. Le critère
-« 1 max » n'est donc **pas** une propriété de l'instrument. Les classements en « hors espace
-par le bas » sont conservés pour mémoire mais devront être repris par une autre voie.
+« 1 max » n'est donc **pas** une propriété de l'instrument.
+
+> **Repris le 28/10/2026, tâche C11.** Le critère de remplacement compare **F1 au plancher de
+> l'espace vocalique** — le plus bas F1 des dix voyelles de Calliope, celui de /y/ à 300 Hz —
+> au lieu de compter les maxima. L'étendue moyenne entre corpus tombe de 24,3 à 9,5 points, et
+> le pire cas de 60 à 0.
+>
+> Surtout, il révèle que l'ancien comptage **confondait trois phénomènes** et se trompait dans
+> les deux sens : il manquait la contrebasse, qui est réellement sous l'espace (75 % de ses
+> cellules) sans être souvent « 1 max » ; et il déclarait dehors les trombones, dont la couleur
+> est en plein milieu de l'espace (F1 529 à 637 Hz) et qui n'ont simplement pas de second
+> maximum. Voir `_HORS-ESPACE.md`.
 
 **2. ~~Le violon est instable au suraigu dans les deux corpus.~~ — CORRIGÉ le 27/10/2026,
 tâche C3.** Le défaut était réel : SOL donnait F1 = 496 Hz au doux et 1 478 Hz au moyen,
@@ -374,10 +384,24 @@ nécessairement grossière.
 **4. La pente spectrale n'est pas comparable entre corpus** (voir `_REPLICATION.md`). Elle ne
 figure pas ici pour cette raison.
 
-**5. Les voyelles de référence sont celles de la voix d'homme** (Calliope, Tubach 1989). Le CSV
-`Formants-Francais/donnees/formants_calliope.csv` contient aussi la voix de femme et une
-estimation enfant. Un instrument classé /ɔ/ en référence masculine pourrait se classer
-autrement en référence féminine : à examiner, car cela change la lecture pédagogique.
+**5. Les voyelles de référence sont celles de la voix d'homme** (Calliope, Tubach 1989), et
+**ce choix est maintenant mesuré** (tâche C12, 29/10) plutôt que subi.
+
+L'inquiétude était fondée, et au-delà : en référence féminine, **42 % des cellules changent de
+voyelle et 11 instruments sur 20 changent de voyelle dominante**. Tout nom de voyelle publié
+doit donc porter la mention « voix d'homme » — ce n'est pas une propriété de l'instrument mais
+d'un couple instrument × référence. Survivent : le basson garde /ɔ/, et les instruments les
+plus graves virent tous vers /u/, c'est-à-dire vers plus fermé et plus postérieur — le même
+fait dit autrement.
+
+Deux choses en revanche ne bougent pas, et ce sont celles sur lesquelles l'étude s'appuie :
+**le plancher de l'espace** (300 → 305 Hz, 0,29 demi-ton), parce qu'il est le F1 d'une voyelle
+fermée donc une résonance de Helmholtz presque indépendante de la longueur du conduit ; et la
+conclusion que l'orchestre se situe **au-dessus** de l'espace vocalique, qu'aucun changement de
+référence ne renverse.
+
+La référence reste donc la voix d'homme, et non parce qu'elle ajuste le mieux — elle ajuste le
+moins bien, et le critère d'ajustement a été montré invalide. Voir `_REFERENCE-FEMININE.md`.
 
 ## À faire
 

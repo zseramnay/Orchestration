@@ -142,7 +142,7 @@ Mesure par registre : non effectuée. **Priorité moindre que l'analyse par dyna
 cet instrument (voir ci-dessus).
 
 <!-- DEBUT-TRAVAUX-27-10 -->
-## Ce que les travaux du 27/10/2026 disent de cet instrument
+## Ce que les travaux des 27 et 28/10/2026 disent de cet instrument
 
 ### Corroboration par le LPC, note par note
 
@@ -167,6 +167,18 @@ Part de pics **non localisables** — l'enveloppe n'y redescend pas de 3 dB des 
 | aigu | 40 % | 25 % | 15 % |
 
 **Effet doux → fort : -8 points.** Elle se dégrade en jeu fort — comportement inverse de celui des trombones et de la trompette.
+
+### La couleur dépend de la nuance, et ne se lit que jusqu'au médium
+
+F1 du motif d'excitation, notes **pédale + grave + médium** réunies : au-dessus du médium la mesure donne la fondamentale et non une couleur (F1/f0 = 1,0, pente contre f0 de 1,03 au suraigu). Voir `../_REGISTRES-PEDALE.md`.
+
+| Corpus | doux | moyen | fort | doux → fort |
+|---|---|---|---|---|
+| SOL | 291 Hz | 351 Hz | 439 Hz | **+7,1 dt** |
+| Xsamples | — | 434 Hz | 508 Hz | **—** |
+| VN | 402 Hz | 553 Hz | 592 Hz | **+6,7 dt** |
+
+**Aucune paire de corpus ne s'accorde à moins d'un demi-ton**, à aucune nuance. La couleur de cet instrument n'est pas répliquée.
 
 ### Dans la table des mélanges
 

@@ -326,6 +326,18 @@ segmentation du projet (onset + 200 ms). <code>Q_env</code> = formant / largeur 
 centre à 2 792 Hz</strong>, et <strong>4 651 Hz pour un centre à 4 974 Hz</strong>. Autrement dit <strong>Q ≈ 1</strong> : la
 « résonance » occupe toute la région. Il n'y a <strong>aucun pic localisé</strong>. Même chose pour le
 trombone basse à 1 670 Hz (Q ≈ 1,1) et, de peu, le trombone ténor à 879 Hz (Q ≈ 1,4).</p>
+<blockquote>
+<p><strong>Répliqué le 28/10/2026 sur les cinq corpus (tâche C6) : seule la trompette tient.</strong>
+Ses deux formants donnent Q = 1,0 · 1,2 · 1,1 et 1,1 · 1,1 · 1,0 sur SOL, ZSamples et VN —
+trois corpus de provenances distinctes, sans biais démontré. <strong>Le Q ≈ 1 de la trompette est
+l'instrument, pas ce corpus-ci.</strong></p>
+<p>Les deux trombones, en revanche, sont <strong>discordants</strong> : 1,1 · 1,1 · 8,4 pour le trombone basse
+vers 1 759 Hz, 1,5 · 2,4 · 3,9 pour le trombone ténor vers 830 Hz. SOL y est le corpus le plus
+bas, et les autres remontent. Cette moitié de l'affirmation est donc à retirer.</p>
+<p>Un biais de corpus a dû être identifié au passage : <strong>Xsamples rend les pics 37 % plus étroits
+que SOL</strong> — comparaison appariée sur dix-huit formants, plus net dans quinze — et son Q ne
+descend jamais sous 3. Il est écarté du calcul des verdicts. Voir <code>_LOCALISATION.md</code>.</p>
+</blockquote>
 <p>Et ce n'est pas un résultat isolé : la fiche de la trompette le disait déjà sans l'expliquer —
 <em>« les bandes à −3 dB sont très larges, 1 318–5 915 Hz pour les trois candidats, signe que la
 méthode ne parvient pas à circonscrire les pics »</em>. Trois méthodes indépendantes convergent
@@ -450,7 +462,9 @@ n'est pas fait ici.</p>
   résonance plus étroite que son espacement harmonique. Les largeurs étroites ne sont donc pas
   mesurables par enveloppe, et seul le LPC en produit une, dépendante de l'ordre.</li>
 <li><strong>2026-10-25</strong> — Confrontation : un accord sur dix-neuf. <strong>La trompette et le trombone basse
-  n'ont aucun pic localisé</strong> (Q ≈ 1), ce que trois méthodes indépendantes confirment.</li>
+  n'ont aucun pic localisé</strong> (Q ≈ 1), ce que trois méthodes indépendantes confirment.
+  <em>Corrigé le 28/10 (C6) : répliqué sur cinq corpus, seule la trompette tient ; les deux
+  trombones sont discordants.</em></li>
 <li><strong>2026-10-25 (soir)</strong> — Correction de la segmentation : les deux méthodes relancées sur SOL
   avec l'onset détecté + 200 ms au lieu des 100 ms fixes de mai26, qui incluaient l'attaque
   pour 16,7 % des fichiers. <strong>Les chiffres bougent jusqu'à 35 %, aucun verdict ne change.</strong>

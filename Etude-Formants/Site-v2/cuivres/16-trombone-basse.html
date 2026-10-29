@@ -10,7 +10,7 @@
 <div class="bandeau"><h1>Trombone basse</h1><p>Bass trombone</p></div>
 <p class="fil"><a href="../index.html">Sommaire</a> › Les cuivres</p>
 <table class="sommaire"><tr><th>Classe</th><th>Provenance</th><th>Échantillons</th><th>Tessiture</th><th>Formants établis</th></tr><tr><td>A</td><td>VSL</td><td>144</td><td>A</td><td>2</td></tr></table><table class="sommaire"><tr><th>Formant</th><th>Note</th><th>Corpus</th><th>Localisation</th></tr><tr><td><b>879 Hz</b></td><td>La5</td><td>SOL ZSamples VO</td><td>localisé</td></tr><tr><td><b>1759 Hz</b></td><td>La6</td><td>SOL ZSamples VO</td><td></td></tr></table><figure><img src="../figures/composite-trombone-basse.png" alt="Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, ZSamples, VO). Un formant retenu est un maximu" loading="lazy"><figcaption>Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, ZSamples, VO). Un formant retenu est un maximum que deux corpus de provenances distinctes placent au même point de grille.</figcaption></figure>
-<figure><img src="../figures/vocalique-trombone-basse.png" alt="Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyell" loading="lazy"><figcaption>Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyelles du français (Calliope, voix d&#x27;homme). Marqueur creux : cellule non assignable. Corpus : SOL, VO.</figcaption></figure>
+<figure><img src="../figures/vocalique-trombone-basse.png" alt="Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyell" loading="lazy"><figcaption>Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyelles du français (Calliope, voix d&#x27;homme). Marqueur creux : cellule non assignable. Le nom de la voyelle dépend de la référence : en voix de femme, 41 % des cellules en changent et 11 instruments sur 20 changent de voyelle dominante. Le plancher de l&#x27;espace, lui, ne bouge pas. Corpus : SOL, ZSamples, VO.</figcaption></figure>
 <h1>Trombone basse</h1>
 <blockquote>
 <h2>Statut des formants — révision du 26/10/2026</h2>
@@ -221,7 +221,7 @@ médium E3–E4 · aigu au-dessus. À affiner pour le trombone basse, dont la te
 descend à A#0, soit plus bas que l'entrée générique.</p>
 <p>Mesure par registre : non effectuée.</p>
 <!-- DEBUT-TRAVAUX-27-10 -->
-<h2>Ce que les travaux du 27/10/2026 disent de cet instrument</h2>
+<h2>Ce que les travaux des 27 et 28/10/2026 disent de cet instrument</h2>
 <h3>Corroboration par le LPC, note par note</h3>
 <p>Rang du formant dans son propre spectre : 50 % signifie que les deux méthodes ne s'accordent pas mieux là qu'ailleurs. Voir <code>../_APPARIEMENT-LPC.md</code>.</p>
 <table>
@@ -285,6 +285,52 @@ descend à A#0, soit plus bas que l'entrée générique.</p>
 </tbody>
 </table>
 <p><strong>Effet doux → fort : +54 points.</strong> La localisation s'améliore en jeu fort.</p>
+<h3>La couleur dépend de la nuance, et ne se lit que jusqu'au médium</h3>
+<p>F1 du motif d'excitation, notes <strong>pédale + grave + médium</strong> réunies : au-dessus du médium la mesure donne la fondamentale et non une couleur (F1/f0 = 1,0, pente contre f0 de 1,03 au suraigu). Voir <code>../_REGISTRES-PEDALE.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Corpus</th>
+<th>doux</th>
+<th>moyen</th>
+<th>fort</th>
+<th>doux → fort</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SOL</td>
+<td>412 Hz</td>
+<td>663 Hz</td>
+<td>713 Hz</td>
+<td><strong>+9,5 dt</strong></td>
+</tr>
+<tr>
+<td>ZSamples</td>
+<td>403 Hz</td>
+<td>—</td>
+<td>695 Hz</td>
+<td><strong>+9,4 dt</strong></td>
+</tr>
+<tr>
+<td>VO</td>
+<td>408 Hz</td>
+<td>524 Hz</td>
+<td>611 Hz</td>
+<td><strong>+7,0 dt</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ce qui réplique, à nuance égale</strong> — paires de corpus de provenances distinctes accordées à moins d'un demi-ton :</p>
+<ul>
+<li><strong>doux</strong> : SOL 412 Hz / VO 408 Hz — <strong>0,15 demi-ton</strong>, pentes contre f0 +0,07 et +0,08</li>
+<li><strong>doux</strong> : VO 408 Hz / ZSamples 402 Hz — <strong>0,24 demi-ton</strong>, pentes contre f0 +0,08 et +0,10</li>
+<li><strong>doux</strong> : SOL 412 Hz / ZSamples 402 Hz — <strong>0,39 demi-ton</strong>, pentes contre f0 +0,07 et +0,10</li>
+<li><strong>fort</strong> : SOL 712 Hz / ZSamples 695 Hz — <strong>0,43 demi-ton</strong>, pentes contre f0 -0,09 et +0,19</li>
+</ul>
+<h3>La carte vocalique corrobore-t-elle les formants ?</h3>
+<p><strong>Non.</strong> F1 0,0 % contre 4,4 % au témoin — soit le hasard, ou moins. Les deux méthodes ne mesurent pas la même région du spectre : F1 se situe en médiane à 15,5 demi-tons du formant établi le plus proche, parce que la méthode 8 ne mesure rien sous 3,2 à 5,7 fois f0_min.</p>
+<p>Témoin : les propres formants de l'instrument transposés de ±2 à ±6 demi-tons, ce qui conserve leur nombre et leur espacement. Voir <code>../_COINCIDENCES-F2.md</code>.</p>
 <h3>Dans la table des mélanges</h3>
 <p>20 paires calculées. <strong>Fusion moyenne : 31 %.</strong> Voir <code>../_MELANGES.md</code>.</p>
 <table>

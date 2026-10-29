@@ -211,8 +211,29 @@ def pic_proche(spectre, f, tol):
     j = lo + int(np.argmax(spectre[lo:hi]))
     return j * BW, spectre[j]
 
+# ───────────────────── résolution : les notes très graves ───────────────────
+RESOL_MIN = 7.0          # bins d'écart minimal entre deux harmoniques (tâche C7)
+#   `pic_proche` cherche le maximum dans ±2 bins autour de k·f0, soit une fenêtre de
+#   5 bins. Quand f0/BW tombe sous cette largeur, les fenêtres de deux rangs voisins se
+#   recouvrent et RENDENT LE MÊME PIC : la liste contient des fréquences dupliquées.
+#   Mesuré sur les 6 920 notes de SOL : 0 % de notes touchées au-dessus de 7 bins,
+#   28 % à 6, 51 % à 5, 74 % à 4, 100 % à 3 et moins. Soit un seuil à f0 >= 75 Hz.
+#   Concerne 4,8 % du corpus, et jusqu'à 40 % des notes d'un instrument (clarinette
+#   contrebasse, tuba contrebasse, contrebasson, contrebasses, sons pédale des cuivres).
+#   CONSÉQUENCE MESURÉE : aucune. Dédoublonner laisse les formants en place (contrôle de
+#   la tâche C7, sur neuf instruments ; voir `_REGISTRES-PEDALE.md`), parce que
+#   `residu_local` retranche une médiane locale et qu'un point compté deux fois la
+#   repondère sans la déplacer. Ne pas confondre avec le fait de RETIRER ces notes, qui
+#   supprime le domaine grave et fait disparaître les formants bas : ce sont bien ces
+#   notes-là qui les portent.
+DEDOUBLONNER = os.environ.get('FORMANTS_DEDOUBLONNER') == '1'
+
 def harmoniques(spectre, f0, kmax=90):
-    """Amplitudes en dB des harmoniques, pic local autour de k·f0."""
+    """Amplitudes en dB des harmoniques, pic local autour de k·f0.
+
+    Sous RESOL_MIN bins d'écart (f0 < 75 Hz) la liste peut contenir des fréquences
+    dupliquées — voir ci-dessus. DEDOUBLONNER=1 les écarte ; par défaut non, pour que
+    les résultats publiés restent reproductibles à l'identique."""
     fr, am = [], []
     for k in range(1, kmax + 1):
         f = k * f0
@@ -222,7 +243,12 @@ def harmoniques(spectre, f0, kmax=90):
         if r is None:
             break
         fr.append(r[0]); am.append(20 * math.log10(r[1] + 1e-12))
-    return np.array(fr), np.array(am)
+    fr, am = np.array(fr), np.array(am)
+    if DEDOUBLONNER and fr.size:
+        _, i = np.unique(fr, return_index=True)
+        i = np.sort(i)
+        fr, am = fr[i], am[i]
+    return fr, am
 
 def residu_local(fr, am, demi_fenetre=HALFWIN):
     """Retire à chaque harmonique la médiane locale des amplitudes de la MÊME

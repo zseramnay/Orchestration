@@ -140,17 +140,26 @@ def classer(dA, dB, dn, dAB, chim=False):
         return 'renforcement'
     return 'indistinct'
 
-def paire(MA, MB, poids=(0.5, 0.5)):
-    communes = sorted(set(MA) & set(MB))
+def paire(MA, MB, poids=(0.5, 0.5), decalage=0):
+    """decalage : nombre de demi-tons dont B est transposé par rapport à A.
+    0 = unisson. 12 = B double A à l'octave supérieure.
+
+    À l'unisson la paire est symétrique et un seul calcul suffit. **Dès que le
+    décalage n'est pas nul elle cesse de l'être** : flûte au-dessus du violon n'est
+    pas flûte en dessous, et les deux sens doivent être calculés séparément. C'est
+    pourquoi le pilote énumère des permutations et non des combinaisons quand
+    `--octave` est donné."""
+    communes = sorted(k for k in MA if (k[0] + decalage, k[1]) in MB)
     cas = []
     for k in communes:
-        a, b = MA[k], MB[k]
+        a, b = MA[k], MB[(k[0] + decalage, k[1])]
         mix = poids[0] * a + poids[1] * b
         la, lb, lm = lire(a), lire(b), lire(mix)
         dA, dB = distance(lm, la), distance(lm, lb)
         dAB = distance(la, lb)
         dn = lm[0] - max(la[0], lb[0])
-        cas.append(dict(midi=k[0], dyn=k[1], n_A=la[0], n_B=lb[0], n_mix=lm[0],
+        cas.append(dict(midi=k[0], midi_B=k[0] + decalage, dyn=k[1],
+                        n_A=la[0], n_B=lb[0], n_mix=lm[0],
                         dA=None if dA is None else round(dA, 2),
                         dB=None if dB is None else round(dB, 2),
                         dAB=None if dAB is None else round(dAB, 2),
@@ -195,6 +204,10 @@ def main():
     ap.add_argument('--instruments', default='')
     ap.add_argument('--sortie', default=os.path.join(ETUDE, 'Mesures', 'Melanges'))
     ap.add_argument('--recalculer', action='store_true')
+    ap.add_argument('--octave', type=int, default=0, metavar='DEMI-TONS',
+                    help='transposition de B par rapport à A ; 12 = doublage à '
+                         "l'octave supérieure. Rend la paire ORIENTÉE : les deux sens "
+                         'sont alors calculés séparément.')
     a = ap.parse_args()
     os.makedirs(a.sortie, exist_ok=True)
 
@@ -223,6 +236,8 @@ def main():
         for p in a.paires.split(','):
             x, y = p.split('+')
             couples.append((x.strip(), y.strip()))
+    elif a.octave:
+        couples = list(itertools.permutations(sorted(M), 2))
     else:
         couples = list(itertools.combinations(sorted(M), 2))
 
@@ -230,13 +245,14 @@ def main():
     for x, y in couples:
         if x not in M or y not in M:
             continue
-        cas = paire(M[x], M[y])
+        cas = paire(M[x], M[y], decalage=a.octave)
         if len(cas) < MIN_HAUTEURS:
             continue
         r = resumer(x, y, cas)
+        r['decalage_dt'] = a.octave
         # sensibilité à l'équilibre
         for w, lib in (((0.33, 0.67), '1_2'), ((0.67, 0.33), '2_1')):
-            c2 = paire(M[x], M[y], w)
+            c2 = paire(M[x], M[y], w, a.octave)
             nf = sum(1 for z in c2 if z['classe'] == 'fusion')
             r['pct_fusion_' + lib] = int(round(100 * nf / len(c2))) if c2 else None
         res.append(r)
@@ -244,6 +260,8 @@ def main():
             detail.append(dict(A=x, B=y, **z))
 
     res.sort(key=lambda r: -((r['pct_fusion'] or 0) + (r['pct_homogene'] or 0)))
+    print('\n{}'.format('B joue {:+d} demi-tons au-dessus de A — paires ORIENTÉES'
+                        .format(a.octave) if a.octave else 'À l\'unisson'))
     print('\n{:22s} {:22s} {:>4s} {:>6s} {:>6s} {:>6s} {:>6s} {:>6s} {:>6s}  {}'.format(
         'A', 'B', 'n', 'fusion', 'chimèr', 'homog', 'renfor', 'juxta', 'écart', 'dominante'))
     for r in res[:40]:

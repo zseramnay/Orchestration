@@ -141,7 +141,7 @@ plus encore que pour le cor : c'est le seul instrument de l'orchestre dont la li
 nos mesures s'accordent sur une dépendance dynamique d'une octave.
 
 <!-- DEBUT-TRAVAUX-27-10 -->
-## Ce que les travaux du 27/10/2026 disent de cet instrument
+## Ce que les travaux des 27 et 28/10/2026 disent de cet instrument
 
 ### Corroboration par le LPC, note par note
 
@@ -164,6 +164,20 @@ Part de pics **non localisables** — l'enveloppe n'y redescend pas de 3 dB des 
 | aigu | 0 % | 0 % | 5 % |
 
 **Effet doux → fort : +31 points.** La localisation s'améliore en jeu fort.
+
+### La couleur dépend de la nuance, et ne se lit que jusqu'au médium
+
+F1 du motif d'excitation, notes **pédale + grave + médium** réunies : au-dessus du médium la mesure donne la fondamentale et non une couleur (F1/f0 = 1,0, pente contre f0 de 1,03 au suraigu). Voir `../_REGISTRES-PEDALE.md`.
+
+| Corpus | doux | moyen | fort | doux → fort |
+|---|---|---|---|---|
+| SOL | 654 Hz | 862 Hz | 950 Hz | **+6,5 dt** |
+| Xsamples | 594 Hz | 653 Hz | 794 Hz | **+5,0 dt** |
+| VN | 658 Hz | 814 Hz | 989 Hz | **+7,0 dt** |
+
+**Ce qui réplique, à nuance égale** — paires de corpus de provenances distinctes accordées à moins d'un demi-ton :
+
+- **doux** : SOL 653 Hz / VN 658 Hz — **0,12 demi-ton**, pentes contre f0 -0,19 et -0,18
 
 ### Dans la table des mélanges
 

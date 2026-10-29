@@ -126,7 +126,18 @@ spécifiquement.
 Mesure par registre : non effectuée.
 
 <!-- DEBUT-TRAVAUX-27-10 -->
-## Ce que les travaux du 27/10/2026 disent de cet instrument
+## Ce que les travaux des 27 et 28/10/2026 disent de cet instrument
+
+### La couleur dépend de la nuance, et ne se lit que jusqu'au médium
+
+F1 du motif d'excitation, notes **pédale + grave + médium** réunies : au-dessus du médium la mesure donne la fondamentale et non une couleur (F1/f0 = 1,0, pente contre f0 de 1,03 au suraigu). Voir `../_REGISTRES-PEDALE.md`.
+
+| Corpus | doux | moyen | fort | doux → fort |
+|---|---|---|---|---|
+| SOL | 245 Hz | 303 Hz | 309 Hz | **+4,0 dt** |
+| VN | 269 Hz | 290 Hz | 282 Hz | **+0,8 dt** |
+
+**Aucune paire utilisable.** Les deux seuls corpus de cet instrument, SOL (`Yan_Adds-Divers`) et VN, sont **la même bibliothèque** — même nombre d'échantillons au sample près, corrélation 0,996. Ils s'accordent de fait à 0,06 demi-ton sur la tessiture basse, et **cela ne compte pas** : c'est la même source comparée à elle-même. Voir la règle de provenance dans `../_CORPUS-CROISES.md`. La couleur de cet instrument reste **non répliquée**, faute de second corpus.
 
 ### Dans la table des mélanges
 
