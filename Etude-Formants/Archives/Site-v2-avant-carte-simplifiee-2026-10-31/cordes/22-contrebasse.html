@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contrebasse</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="bandeau"><h1>Contrebasse</h1><p>Contrabass</p></div>
+<p class="fil"><a href="../index.html">Sommaire</a> › Les cordes</p>
+<table class="sommaire"><tr><th>Classe</th><th>Provenance</th><th>Échantillons</th><th>Tessiture</th><th>Formants établis</th></tr><tr><td>C</td><td>IRCAM</td><td>309</td><td>E1–C5</td><td>1</td></tr></table><table class="sommaire"><tr><th>Formant</th><th>Note</th><th>Corpus</th><th>Localisation</th></tr><tr><td><b>2635 Hz</b></td><td>Mi7</td><td>SOL ZSamples</td><td>localisé</td></tr></table><figure><img src="../figures/composite-contrebasse.png" alt="Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, ZSamples, VO). Un formant retenu est un maximu" loading="lazy"><figcaption>Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, ZSamples, VO). Un formant retenu est un maximum que deux corpus de provenances distinctes placent au même point de grille.</figcaption></figure>
+<figure><img src="../figures/vocalique-contrebasse.png" alt="Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyell" loading="lazy"><figcaption>Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyelles du français (Calliope, voix d&#x27;homme). Marqueur creux : cellule non assignable. Le nom de la voyelle dépend de la référence : en voix de femme, 41 % des cellules en changent et 11 instruments sur 20 changent de voyelle dominante. Le plancher de l&#x27;espace, lui, ne bouge pas. Corpus : SOL, ZSamples, VO.</figcaption></figure>
+<h1>Contrebasse</h1>
+<blockquote>
+<h2>Statut des formants — révision du 26/10/2026</h2>
+<p>Confrontation des <strong>cinq corpus</strong>. Provenance de ce corpus : <strong>IRCAM (FullSOL2020)</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Formant</th>
+<th>Statut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>466 Hz</strong></td>
+<td><strong>indéterminé</strong> — concordance à un demi-ton avec ZSamples mais aucun couple au même point de grille. Environ une concordance sur quatre à ce seuil est fortuite.</td>
+</tr>
+<tr>
+<td><strong>1396 Hz</strong></td>
+<td><strong>indéterminé</strong> — concordance à un demi-ton avec VO mais aucun couple au même point de grille. Environ une concordance sur quatre à ce seuil est fortuite.</td>
+</tr>
+<tr>
+<td><strong>2635 Hz</strong></td>
+<td><strong>route A</strong> — SOL + ZSamples au même point de grille, 2635 Hz · zone vue par SOL, ZSamples · pic localisé, Q = 15.3</td>
+</tr>
+<tr>
+<td><strong>3948 Hz</strong></td>
+<td>présent dans le seul corpus SOL</td>
+</tr>
+</tbody>
+</table>
+<p><code>etendue_residu</code> dans l'en-tête <strong>n'est pas une largeur de bande</strong> : c'est l'étendue du résidu de la méthode 8, souvent une butée de plage. Les largeurs mesurées sont dans <code>_LARGEURS-DE-BANDE.md</code>.</p>
+</blockquote>
+<h2>Classe C — quatre formants retenus, dont deux très bien circonscrits</h2>
+<blockquote>
+<p><strong>Méthode 8 — quatre formants retenus, aucun rejeté.</strong> Voir <code>00-METHODE.md</code>, section
+« Typologie — trois classes ».</p>
+</blockquote>
+<p>La contrebasse présente le <strong>ρ le plus élevé des cordes, 0,90</strong>, à égalité avec les flûtes —
+et pourtant les quatre candidats détectés passent tous les deux tests, dont deux avec des
+bandes à −3 dB étroites (392–587 Hz et 1 174–1 660 Hz). C'est, avec le violon, la
+démonstration la plus claire que ρ seul ne peut pas servir d'indice d'absence de formant.</p>
+<p>Conditions de mesure optimales : 309 échantillons, une médiane de <strong>83 harmoniques par
+note</strong>, une tessiture descendant à 41 Hz entièrement sous la limite de validité des méthodes
+à ordre fixe, et une pente très régulière (σ = 1,7 dB/octave).</p>
+<h2>Formants</h2>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>Résidu</th>
+<th>Largeur −3 dB</th>
+<th>Notes distinctes</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>466 Hz</strong></td>
+<td>+3,5 dB</td>
+<td>392–587 Hz</td>
+<td>9</td>
+<td><strong>retenu</strong></td>
+</tr>
+<tr>
+<td><strong>1 396 Hz</strong></td>
+<td>+6,2 dB</td>
+<td>1 174–1 660 Hz</td>
+<td>29</td>
+<td><strong>retenu</strong></td>
+</tr>
+<tr>
+<td><strong>2 635 Hz</strong></td>
+<td>+3,4 dB</td>
+<td>987–4 695 Hz</td>
+<td>37</td>
+<td><strong>retenu</strong></td>
+</tr>
+<tr>
+<td><strong>3 948 Hz</strong></td>
+<td>+2,5 dB</td>
+<td>large</td>
+<td>39</td>
+<td><strong>retenu</strong> (faible)</td>
+</tr>
+</tbody>
+</table>
+<h2>Tests de rejet</h2>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>k = 2–3</th>
+<th>k = 4–7</th>
+<th>k = 8–15</th>
+<th>k ≥ 16</th>
+<th>Robustesse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>466 Hz</td>
+<td>+4,3</td>
+<td>+3,9</td>
+<td>+2,5</td>
+<td>—</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>1 396 Hz</td>
+<td>—</td>
+<td>+6,7</td>
+<td>+7,4</td>
+<td>+7,5</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>2 635 Hz</td>
+<td>—</td>
+<td>+4,1</td>
+<td>+4,1</td>
+<td>+2,9</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>3 948 Hz</td>
+<td>—</td>
+<td>—</td>
+<td>+1,6</td>
+<td>+1,8</td>
+<td>oui</td>
+</tr>
+</tbody>
+</table>
+<p>Le formant à <strong>1 396 Hz</strong> est le mieux établi : résidu croissant régulièrement de +6,7 à
++7,5 dB sur trois groupes de rang, avec une bande étroite (1 174–1 660 Hz, moins d'une
+demi-octave). C'est l'un des formants les plus nets de tout le corpus des cordes.</p>
+<h2>Descripteurs globaux</h2>
+<table>
+<thead>
+<tr>
+<th>Descripteur</th>
+<th>Valeur</th>
+<th>Lecture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pente spectrale médiane</td>
+<td>−12,8 dB/octave (σ 1,7)</td>
+<td>la plus plate des cordes</td>
+</tr>
+<tr>
+<td><strong>Harmoniques par note</strong></td>
+<td><strong>83 [20–90]</strong></td>
+<td>quasi au plafond de mesure</td>
+</tr>
+<tr>
+<td>Balance impair − pair</td>
+<td>−2,8 dB</td>
+<td>corde frottée</td>
+</tr>
+<tr>
+<td>Enveloppe vraie (méthode 6)</td>
+<td>151 Hz, σ 236</td>
+<td>σ supérieur à la valeur</td>
+</tr>
+<tr>
+<td><strong>ρ(pic, f0)</strong></td>
+<td><strong>0,90</strong></td>
+<td>le plus élevé des cordes</td>
+</tr>
+</tbody>
+</table>
+<h2>Comparaison avec la littérature</h2>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Valeur annoncée</th>
+<th>Notre mesure</th>
+<th>Lecture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Backus, Giesler, Meyer</td>
+<td>pas de valeur propre à la contrebasse dans les tableaux de l'étude</td>
+<td>—</td>
+<td>à chercher aux sources primaires</td>
+</tr>
+<tr>
+<td>Ancien pipeline <code>specenv</code></td>
+<td>F1 = 172 Hz, zone /u/</td>
+<td>—</td>
+<td>zone de la fondamentale (rapport 1,36)</td>
+</tr>
+<tr>
+<td>Cepstre mai 2026 (ordre 80)</td>
+<td>1 388 Hz, σ 840</td>
+<td><strong>1 396 Hz</strong></td>
+<td><strong>excellent accord</strong></td>
+</tr>
+<tr>
+<td>Cepstre mai 2026, <strong>ensemble</strong></td>
+<td>344 Hz, σ 1 050</td>
+<td>—</td>
+<td>incohérent avec le soliste</td>
+</tr>
+</tbody>
+</table>
+<p>Le cepstre de mai 2026 donnait <strong>1 388 Hz</strong> pour la contrebasse soliste, à 8 Hz de notre
+formant retenu à 1 396 Hz. C'est le meilleur accord entre l'ancienne et la nouvelle méthode
+de tout le corpus. L'explication est la même que pour le trombone basse : la tessiture de la
+contrebasse étant presque entièrement sous 276 Hz, le cepstre d'ordre fixe 80 <strong>était
+valide</strong> pour cet instrument, et seulement 4 % de ses pics tombaient sur un harmonique.</p>
+<p>En revanche, l'ancienne étude avait publié le F1 de 172 Hz et placé la contrebasse dans la
+ligne /u/ « 200–400 Hz » du tableau vocalique — alors que 172 Hz est <strong>en dehors</strong> de la
+plage de sa propre ligne. Cette incohérence était visible sans aucune mesure.</p>
+<p>L'ancienne étude relevait aussi que « le Fp du trombone converge avec la contrebasse
+(Fp ≈ 1 283–1 297 Hz) dans tous les registres ». Nos mesures donnent 1 396 Hz pour la
+contrebasse et 1 567 Hz pour le trombone ténor : la convergence existe mais est moins serrée
+qu'annoncé, et elle portait sur une grandeur qui n'était pas un formant.</p>
+<h2>Registres</h2>
+<p><code>Data/registres.md</code> : grave C1–C2 · médium C2–C3 · aigu C3–C4 · suraigu C4 et au-dessus.</p>
+<p>Mesure par registre : non effectuée.</p>
+<h2>Résonance de caisse : non mesurable par la méthode 12</h2>
+<p><strong>Constaté le 27/10/2026, tâche C1.</strong> Le test appliqué avec succès au violoncelle ne donne rien
+ici, et les trois raisons sont identifiables — elles valent avis de ne pas réessayer par cette
+voie.</p>
+<ol>
+<li><strong>Les corpus ne s'accordent pas.</strong> Au grave, F1 médian vaut 106, 112 et 122 Hz selon le
+   corpus, soit 2,4 demi-tons ; les pentes vont de −0,70 à +0,84. Au médium, SOL donne 106 Hz
+   avec une pente de +1,41 et <strong>70 % de cellules marquées <code>F1=f0</code></strong> — chez SOL, F1 au médium
+   <em>est</em> la fondamentale — pendant que ZSamples et VO donnent 184 et 192 Hz.</li>
+<li><strong>Un tiers du registre grave est sous le plancher du calcul.</strong> Le masque du motif
+   d'excitation commence à 50 Hz ; <strong>31 des 91 notes du registre grave, soit 34 %, ont une
+   fondamentale en dessous</strong> (Mi1 = 41 Hz). Leur fondamentale est partiellement exclue du motif,
+   ce qui pousse F1 vers le haut. Le registre grave de la contrebasse est <strong>hors du domaine de
+   validité de la méthode 12 telle qu'elle est réglée</strong>.</li>
+<li><strong>Les modes attendus coïncident avec les fondamentales.</strong> La littérature place le corps de la
+   contrebasse vers 70–110 Hz, c'est-à-dire <em>à l'intérieur</em> de son propre registre médium.
+   Résonance et fondamentale ne sont alors pas séparables par un détecteur de maximum.</li>
+</ol>
+<p>Ce qui débloquerait : abaisser le plancher du masque sous 50 Hz et refaire la mesure. Sans cela
+la question restera sans réponse par cette voie. Voir <code>../_RESONANCE-DE-CAISSE.md</code>.</p>
+<!-- DEBUT-TRAVAUX-27-10 -->
+<h2>Ce que les travaux des 27 et 28/10/2026 disent de cet instrument</h2>
+<h3>Corroboration par le LPC, note par note</h3>
+<p>Rang du formant dans son propre spectre : 50 % signifie que les deux méthodes ne s'accordent pas mieux là qu'ailleurs. Voir <code>../_APPARIEMENT-LPC.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Formant</th>
+<th>Statut</th>
+<th>Rang</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2635 Hz</td>
+<td>route A</td>
+<td>90,4 %</td>
+</tr>
+<tr>
+<td>3948 Hz</td>
+<td>1 corpus</td>
+<td>82,7 %</td>
+</tr>
+</tbody>
+</table>
+<h3>Effet de la nuance sur la localisation</h3>
+<p>Part de pics <strong>non localisables</strong> — l'enveloppe n'y redescend pas de 3 dB des deux côtés, donc le formant n'a pas de largeur mesurable. Voir <code>../_LARGEUR-PAR-REGISTRE.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>doux</th>
+<th>moyen</th>
+<th>fort</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>tous registres</strong></td>
+<td>11 %</td>
+<td>11 %</td>
+<td>8 %</td>
+</tr>
+<tr>
+<td>grave</td>
+<td>7 %</td>
+<td>16 %</td>
+<td>7 %</td>
+</tr>
+<tr>
+<td>médium</td>
+<td>11 %</td>
+<td>7 %</td>
+<td>8 %</td>
+</tr>
+<tr>
+<td>aigu</td>
+<td>16 %</td>
+<td>15 %</td>
+<td>10 %</td>
+</tr>
+<tr>
+<td>suraigu</td>
+<td>12 %</td>
+<td>19 %</td>
+<td>4 %</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Effet doux → fort : +3 points.</strong> Effet négligeable.</p>
+<h3>La carte vocalique corrobore-t-elle les formants ?</h3>
+<p><strong>Non.</strong> F1 0,0 % contre 0,0 % au témoin · F2 0,0 % contre 0,0 % au témoin — soit le hasard, ou moins. Les deux méthodes ne mesurent pas la même région du spectre : F1 se situe en médiane à 15,5 demi-tons du formant établi le plus proche, parce que la méthode 8 ne mesure rien sous 3,2 à 5,7 fois f0_min.</p>
+<p>Témoin : les propres formants de l'instrument transposés de ±2 à ±6 demi-tons, ce qui conserve leur nombre et leur espacement. Voir <code>../_COINCIDENCES-F2.md</code>.</p>
+<h3>Dans la table des mélanges</h3>
+<p>20 paires calculées. <strong>Fusion moyenne : 27 %.</strong> Voir <code>../_MELANGES.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Couleur nouvelle avec</th>
+<th></th>
+<th>Se fond avec</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hautbois</td>
+<td>56 %</td>
+<td>Flûte basse</td>
+<td>48 %</td>
+</tr>
+<tr>
+<td>Trombone basse</td>
+<td>53 %</td>
+<td>Clarinette en Mib</td>
+<td>44 %</td>
+</tr>
+<tr>
+<td>Trompette en Ut</td>
+<td>50 %</td>
+<td>Tuba basse</td>
+<td>44 %</td>
+</tr>
+</tbody>
+</table>
+<!-- FIN-TRAVAUX-27-10 -->
+
+<h2>Observations pour l'orchestration</h2>
+<p>À compléter. Éléments acquis :</p>
+<ul>
+<li>La zone <strong>466 Hz est commune à la contrebasse et au tuba basse</strong> (466 Hz, exactement),
+  tous deux validés indépendamment. Convergence précise entre les deux fondations graves de
+  l'orchestre, cordes et cuivres.</li>
+<li>La zone <strong>1 396 Hz est commune à la contrebasse et au tuba contrebasse</strong> (1 396 Hz,
+  exactement) et proche du tuba basse (1 479 Hz). Trois instruments, deux familles.</li>
+<li>La zone <strong>3 948 Hz est commune à la contrebasse et au violoncelle</strong> (3 948 Hz,
+  exactement) : parenté de famille mesurée.</li>
+<li>L'ancienne étude annonçait la contrebasse comme « fondation » convergeant avec le
+  contrebasson (Δ = 54 Hz), le trombone basse (Δ = 86 Hz) et la clarinette basse (Δ = 0 Hz
+  dans le registre grave). Tous ces écarts portaient sur des zones de fondamentale. Ils sont
+  à reprendre, mais les correspondances réelles à 466 et 1 396 Hz pourraient les remplacer —
+  et elles sont, elles, mesurées.</li>
+</ul>
+<h2>Graphiques</h2>
+<p>Aucun à ce stade. Figures prévues dans <code>../Versions-html-and-docx/media/</code> :</p>
+<table>
+<thead>
+<tr>
+<th>Fichier prévu</th>
+<th>Contenu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>contrebasse_composite.png</code></td>
+<td>enveloppe composite — quatre formants retenus</td>
+</tr>
+<tr>
+<td><code>contrebasse_1396.png</code></td>
+<td>résidu par rang à 1 396 Hz : +6,7 → +7,5 dB, formant le plus net des cordes</td>
+</tr>
+<tr>
+<td><code>graves_466.png</code></td>
+<td>convergence contrebasse / tuba basse à 466 Hz</td>
+</tr>
+<tr>
+<td><code>cordes_composite.png</code></td>
+<td>figure de famille partagée : les quatre cordes solistes</td>
+</tr>
+</tbody>
+</table>
+<h2>Journal</h2>
+<ul>
+<li><strong>2026-10-23</strong> — Quatre formants retenus (466, 1 396, 2 635, 3 948 Hz), aucun rejet.</li>
+<li><strong>2026-10-23</strong> — ρ = 0,90, le plus élevé des cordes, et pourtant quatre formants retenus :
+  confirmation décisive de la nécessité de la classe C.</li>
+<li><strong>2026-10-23</strong> — Meilleur accord ancienne/nouvelle méthode du corpus : cepstre mai 2026 à
+  1 388 Hz contre 1 396 Hz mesuré, l'ordre fixe 80 étant valide pour cette tessiture.</li>
+<li><strong>2026-10-23</strong> — Convergences exactes relevées : 466 Hz avec le tuba basse, 1 396 Hz avec
+  le tuba contrebasse, 3 948 Hz avec le violoncelle.</li>
+</ul>
+<footer>Référence formantique de l'orchestre — Yan Maresz · page produite par <code>construire_site.py</code> depuis les fiches et <code>Resultats-v7/</code>.</footer>
+</body>
+</html>

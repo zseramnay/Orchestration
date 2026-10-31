@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hautbois</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="bandeau"><h1>Hautbois</h1><p>Oboe</p></div>
+<p class="fil"><a href="../index.html">Sommaire</a> › Les bois</p>
+<table class="sommaire"><tr><th>Classe</th><th>Provenance</th><th>Échantillons</th><th>Tessiture</th><th>Formants établis</th></tr><tr><td>B</td><td>IRCAM</td><td>107</td><td>A</td><td>0</td></tr></table><figure><img src="../figures/composite-hautbois.png" alt="Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, ZSamples, Xsamples, VN). Un formant retenu est" loading="lazy"><figcaption>Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, ZSamples, Xsamples, VN). Un formant retenu est un maximum que deux corpus de provenances distinctes placent au même point de grille.</figcaption></figure>
+<figure><img src="../figures/vocalique-hautbois.png" alt="Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyell" loading="lazy"><figcaption>Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyelles du français (Calliope, voix d&#x27;homme). Marqueur creux : cellule non assignable. Le nom de la voyelle dépend de la référence : en voix de femme, 41 % des cellules en changent et 11 instruments sur 20 changent de voyelle dominante. Le plancher de l&#x27;espace, lui, ne bouge pas. Corpus : SOL, ZSamples, Xsamples, VN.</figcaption></figure>
+<h1>Hautbois</h1>
+<blockquote>
+<h2>Statut des formants — révision du 26/10/2026</h2>
+<p>Confrontation des <strong>cinq corpus</strong>. Provenance de ce corpus : <strong>IRCAM (FullSOL2020)</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Formant</th>
+<th>Statut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>4183 Hz</strong></td>
+<td>présent dans le seul corpus SOL</td>
+</tr>
+</tbody>
+</table>
+<p><code>etendue_residu</code> dans l'en-tête <strong>n'est pas une largeur de bande</strong> : c'est l'étendue du résidu de la méthode 8, souvent une butée de plage. Les largeurs mesurées sont dans <code>_LARGEURS-DE-BANDE.md</code>.</p>
+</blockquote>
+<h2>Reclassement en classe B — révision du 26/10/2026</h2>
+<p>Le hautbois était classé <strong>A</strong>, résonance fixe dominante, sur la foi de son ρ de <strong>0,26</strong> dans
+le corpus SOL. Les quatre corpus ajoutés depuis le contredisent :</p>
+<table>
+<thead>
+<tr>
+<th>Corpus</th>
+<th>ρ</th>
+<th>n</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SOL</strong></td>
+<td><strong>0,26</strong></td>
+<td>107</td>
+</tr>
+<tr>
+<td>ZSamples</td>
+<td>0,80</td>
+<td>52</td>
+</tr>
+<tr>
+<td>Xsamples</td>
+<td>0,72</td>
+<td>105</td>
+</tr>
+<tr>
+<td>VN</td>
+<td>0,78</td>
+<td>136</td>
+</tr>
+</tbody>
+</table>
+<p><strong>C'est l'étendue de ρ la plus forte de tout le corpus — 0,54, contre une médiane de 0,14.</strong>
+SOL est l'exception, trois corpus sur quatre donnent un spectre franchement suiveur.</p>
+<p>Et aucun formant ne se réplique : SOL donne 4 183 Hz, ZSamples <strong>aucun</strong>, Xsamples 2 635 et
+4 974, VN 3 320. Quatre sources indépendantes, quatre réponses incompatibles, pas deux valeurs
+à moins de quatre demi-tons.</p>
+<p>C'est contre-intuitif, et il faut l'assumer : le hautbois est l'instrument auquel la
+littérature assigne un formant avec le plus d'assurance — Backus 1 300 Hz, Meyer et Giesler
+~1 100 Hz. Nos quatre corpus ne le confirment pas.</p>
+<p><strong>Sa description passe donc par la carte vocalique</strong>, qui elle réplique : /a/–/œ/ au médium
+dans trois corpus, et <strong>991 Hz à l'aigu, au Hz près dans trois corpus</strong>, hors de l'espace
+vocalique du français. Voir <code>_CARTE-VOCALIQUE.md</code>.</p>
+<p>Réserve à ne pas oublier : ces cellules portent la marque <code>F1=f0</code>. La carte décrit <strong>où se
+trouve sa tessiture</strong>, non une invariance de timbre.</p>
+<h2>Méthode retenue, et pourquoi</h2>
+<blockquote>
+<p><strong>Méthode 8 — un formant retenu, un fragile. Résultat partiellement contre-intuitif.</strong>
+Voir <code>00-METHODE.md</code>.</p>
+</blockquote>
+<p>Le hautbois est l'instrument des bois dont le caractère de classe A est le mieux établi :
+<strong>ρ = 0,26</strong>, la valeur la plus basse du corpus. Son spectre ne suit pas la hauteur, ce qui
+est attendu d'une anche double sur tuyau conique. La mesure formantique est donc pleinement
+pertinente, et l'enveloppe vraie note par note est également exploitable, avec des ordres
+adaptatifs de 8 à 66.</p>
+<p>Mais le résultat de l'agrégation est inattendu, et il faut le signaler plutôt que le lisser :
+<strong>les formants retenus se situent dans l'aigu, à 4 183 Hz, et non dans la zone 1 100–1 500 Hz
+annoncée par Meyer et Giesler.</strong> C'est le point méthodologique le plus sérieux encore ouvert
+pour cette famille, et il est détaillé plus bas.</p>
+<h2>Formants</h2>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>Résidu</th>
+<th>Largeur −3 dB</th>
+<th>Notes distinctes</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>4 183 Hz</strong></td>
+<td>+6,2 dB</td>
+<td>3 517–5 915 Hz</td>
+<td>17</td>
+<td><strong>retenu</strong></td>
+</tr>
+<tr>
+<td>5 583 Hz</td>
+<td>+6,7 dB</td>
+<td>3 517–5 915 Hz</td>
+<td>20</td>
+<td>fragile</td>
+</tr>
+</tbody>
+</table>
+<h2>Tests de rejet</h2>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>k = 2–3</th>
+<th>k = 4–7</th>
+<th>k = 8–15</th>
+<th>k ≥ 16</th>
+<th>Robustesse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4 183 Hz</td>
+<td>+2,6</td>
+<td>+3,9</td>
+<td>+8,4</td>
+<td>+9,6</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>5 583 Hz</td>
+<td>—</td>
+<td>+10,4</td>
+<td>+6,8</td>
+<td>+6,9</td>
+<td><strong>non</strong></td>
+</tr>
+<tr>
+<td>2 792 Hz</td>
+<td>+5,7</td>
+<td>0,0</td>
+<td><strong>−3,0</strong></td>
+<td>—</td>
+<td>non</td>
+</tr>
+</tbody>
+</table>
+<p>Le formant à 4 183 Hz est solide : résidu croissant avec le rang harmonique, positif sur
+quatre groupes, robuste au changement de fenêtre. La zone à 5 583 Hz présente des résidus
+plus forts encore mais échoue à la robustesse ; les deux se recouvrent largement
+(bande −3 dB identique), et il s'agit probablement d'une seule région de renforcement entre
+3 500 et 6 000 Hz dont la méthode ne sépare pas encore les composantes.</p>
+<p>Le rejet de 2 792 Hz est instructif : +5,7 dB aux rangs 2–3 mais <strong>−3,0 dB</strong> aux rangs 8–15.
+Un vrai formant ne change pas de signe selon le rang qui l'éclaire. C'était un effet de
+hauteur.</p>
+<h2>La question ouverte : la zone médiane</h2>
+<p>Meyer et Giesler situent tous deux le formant principal du hautbois autour de 1 100 Hz, et
+Giesler ajoute un second vers 2 800 Hz. Backus donne ~1 300 Hz. Notre agrégation globale ne
+retrouve <strong>aucun</strong> de ces trois.</p>
+<p>Trois éléments à verser au dossier avant de trancher.</p>
+<p><strong>Premier élément — un artefact écarté.</strong> Un premier essai avec redressement linéaire en
+log-fréquence produisait précisément des pics à 1 318 et 1 863 Hz, apparemment en bon accord
+avec la littérature. Ils se sont évanouis dès le passage au redressement local. Sur un
+spectre concave, un redressement linéaire fabrique une bosse médiane artificielle. <strong>L'accord
+avec la littérature était donc, dans cet essai, un artefact.</strong> C'est une raison de prudence
+dans les deux sens.</p>
+<p><strong>Deuxième élément — la zone apparaît en sous-ensemble.</strong> L'analyse de la moitié grave de la
+tessiture fait ressortir 1 660 Hz à <strong>+7,4 dB</strong>, et les dynamiques douces donnent 1 759 Hz à
++8,4 dB. Le signal existe donc, mais il ne s'impose pas dans l'agrégation globale.</p>
+<p><strong>Troisième élément — une différence de protocole.</strong> Meyer et Giesler mesurent sur des plages
+restreintes, alors que l'agrégation porte ici sur toute la tessiture. Un formant marqué dans
+le grave et absent dans l'aigu se dilue dans une moyenne globale.</p>
+<p><strong>À faire pour trancher :</strong> mesure par registre avec la nouvelle méthode. C'est la tâche
+prioritaire de cette famille.</p>
+<h2>Descripteurs globaux</h2>
+<table>
+<thead>
+<tr>
+<th>Descripteur</th>
+<th>Valeur</th>
+<th>Lecture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pente spectrale médiane</td>
+<td>−18,9 dB/octave (σ 3,7)</td>
+<td>raide pour une anche double</td>
+</tr>
+<tr>
+<td>Harmoniques par note</td>
+<td>17 [6–47]</td>
+<td>correct, mais le plus faible des anches doubles</td>
+</tr>
+<tr>
+<td>Balance impair − pair</td>
+<td>−4,9 dB</td>
+<td>la plus négative des anches doubles</td>
+</tr>
+<tr>
+<td>Enveloppe vraie (méthode 6)</td>
+<td>1 453 Hz, σ 701</td>
+<td>compatible avec Backus (~1 300)</td>
+</tr>
+</tbody>
+</table>
+<p>L'enveloppe vraie à 1 453 Hz est à noter : elle tombe, elle, dans la zone de la littérature.
+Avec un σ de 701 Hz, elle reste trop dispersée pour conclure, mais elle va dans le sens de
+l'existence d'une résonance médiane.</p>
+<h2>Comparaison avec la littérature</h2>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Valeur annoncée</th>
+<th>Notre mesure</th>
+<th>Accord</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Meyer (2009)</td>
+<td>~1 100 Hz, /a/</td>
+<td>non retrouvé globalement ; 1 660 Hz dans le grave</td>
+<td><strong>à trancher</strong></td>
+</tr>
+<tr>
+<td>Giesler (1985)</td>
+<td>~1 100 et ~2 800 Hz</td>
+<td>non retrouvés ; 2 792 Hz rejeté</td>
+<td><strong>désaccord</strong></td>
+</tr>
+<tr>
+<td>Backus (1969)</td>
+<td>~1 300 Hz</td>
+<td>enveloppe vraie 1 453 Hz</td>
+<td>plausible</td>
+</tr>
+<tr>
+<td>Ancien pipeline <code>specenv</code></td>
+<td>F1 = 743 Hz</td>
+<td>—</td>
+<td>hauteur médiane de tessiture (rapport 1,16)</td>
+</tr>
+<tr>
+<td>Ancien Fp</td>
+<td>1 485 Hz</td>
+<td>—</td>
+<td>artefact de fenêtre, mais proche de notre enveloppe vraie</td>
+</tr>
+</tbody>
+</table>
+<p>Rappel : le F1 de 742,9 Hz publié était identique à celui de la flûte, au bin près. C'est
+l'origine de la fausse « convergence quasi-parfaite Δ = 0 Hz ★ » entre les deux instruments.
+Elle est écartée. L'expérience d'orchestration la contredisait d'ailleurs : à l'unisson, le
+hautbois domine la flûte plus qu'il ne fusionne avec elle.</p>
+<h2>Registres</h2>
+<p><code>Data/registres.md</code> : grave A#3–G4 · médium G4–G5 · aigu G5–D6 · suraigu au-dessus.</p>
+<p>Mesure par registre : <strong>non effectuée, et prioritaire</strong> — c'est elle qui tranchera la
+question de la zone médiane.</p>
+<!-- DEBUT-TRAVAUX-27-10 -->
+<h2>Ce que les travaux des 27 et 28/10/2026 disent de cet instrument</h2>
+<h3>Corroboration par le LPC, note par note</h3>
+<p>Rang du formant dans son propre spectre : 50 % signifie que les deux méthodes ne s'accordent pas mieux là qu'ailleurs. Voir <code>../_APPARIEMENT-LPC.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Formant</th>
+<th>Statut</th>
+<th>Rang</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4183 Hz</td>
+<td>1 corpus</td>
+<td>28,6 %</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Cet instrument est une anche double, et le LPC y échoue par construction</strong> : il suppose une source filtrée par une cavité séparable, alors que l'anche et la perce sont couplées et que la résonance de l'anche fait partie de la source. Les six formants des anches doubles sont tous sous la médiane. <strong>Ses formants restent établis par la route A — le critère le plus exigeant — mais ne peuvent pas revendiquer de corroboration LPC.</strong></p>
+</blockquote>
+<h3>Effet de la nuance sur la localisation</h3>
+<p>Part de pics <strong>non localisables</strong> — l'enveloppe n'y redescend pas de 3 dB des deux côtés, donc le formant n'a pas de largeur mesurable. Voir <code>../_LARGEUR-PAR-REGISTRE.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>doux</th>
+<th>moyen</th>
+<th>fort</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>tous registres</strong></td>
+<td>12 %</td>
+<td>0 %</td>
+<td>3 %</td>
+</tr>
+<tr>
+<td>grave</td>
+<td>12 %</td>
+<td>0 %</td>
+<td>0 %</td>
+</tr>
+<tr>
+<td>médium</td>
+<td>—</td>
+<td>0 %</td>
+<td>0 %</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Effet doux → fort : +9 points.</strong> Effet négligeable.</p>
+<h3>La carte vocalique corrobore-t-elle les formants ?</h3>
+<p><strong>Non.</strong> F1 0,0 % contre 0,0 % au témoin · F2 0,0 % contre 4,0 % au témoin — soit le hasard, ou moins. Les deux méthodes ne mesurent pas la même région du spectre : F1 se situe en médiane à 15,5 demi-tons du formant établi le plus proche, parce que la méthode 8 ne mesure rien sous 3,2 à 5,7 fois f0_min.</p>
+<p>Témoin : les propres formants de l'instrument transposés de ±2 à ±6 demi-tons, ce qui conserve leur nombre et leur espacement. Voir <code>../_COINCIDENCES-F2.md</code>.</p>
+<h3>Dans la table des mélanges</h3>
+<p>20 paires calculées. <strong>Fusion moyenne : 36 %.</strong> Voir <code>../_MELANGES.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Couleur nouvelle avec</th>
+<th></th>
+<th>Se fond avec</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tuba basse</td>
+<td>67 %</td>
+<td>Clarinette en Sib</td>
+<td>54 %</td>
+</tr>
+<tr>
+<td>Trombone ténor</td>
+<td>60 %</td>
+<td>Clarinette basse en Sib</td>
+<td>50 %</td>
+</tr>
+<tr>
+<td>Contrebasse</td>
+<td>56 %</td>
+<td>Flûte</td>
+<td>46 %</td>
+</tr>
+</tbody>
+</table>
+<!-- FIN-TRAVAUX-27-10 -->
+
+<h2>Observations pour l'orchestration</h2>
+<p>À compléter. Éléments acquis :</p>
+<ul>
+<li>La convergence flûte–hautbois de l'ancienne étude est écartée.</li>
+<li>La région de renforcement 3 500–6 000 Hz, bien attestée, est une piste pour expliquer la
+  capacité de projection et le caractère « nasal et pénétrant » du hautbois : cette zone
+  correspond au maximum de sensibilité de l'oreille, ce qui lui donne un poids perceptif
+  supérieur à son poids énergétique. À quantifier par la méthode 12.</li>
+</ul>
+<h2>Graphiques</h2>
+<p>Aucun à ce stade. Figures prévues dans <code>../Versions-html-and-docx/media/</code> :</p>
+<table>
+<thead>
+<tr>
+<th>Fichier prévu</th>
+<th>Contenu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>hautbois_composite.png</code></td>
+<td>enveloppe composite globale</td>
+</tr>
+<tr>
+<td><code>hautbois_registres.png</code></td>
+<td>enveloppes composites par registre — <strong>figure clé</strong> pour la question ouverte</td>
+</tr>
+<tr>
+<td><code>hautbois_artefact.png</code></td>
+<td>comparaison redressement linéaire / local, démonstration de l'artefact</td>
+</tr>
+</tbody>
+</table>
+<p>La troisième figure a une valeur pédagogique propre : elle montre comment un choix de
+normalisation peut fabriquer un accord avec la littérature.</p>
+<h2>Journal</h2>
+<ul>
+<li><strong>2026-10-23</strong> — ρ = 0,26, le plus faible du corpus : classe A confirmée.</li>
+<li><strong>2026-10-23</strong> — Les pics médians à 1 318 et 1 863 Hz du premier essai identifiés comme
+  artefact du redressement linéaire sur spectre concave.</li>
+<li><strong>2026-10-23</strong> — Question ouverte consignée : la zone 1 100–1 700 Hz de Meyer et Giesler
+  n'apparaît qu'en sous-ensembles (moitié grave, dynamiques douces). Mesure par registre
+  requise avant toute publication sur ce point.</li>
+<li><strong>2026-10-24</strong> — Confrontation au corpus ZSamples : voir la bannière en tête et <code>_REPLICATION.md</code>.</li>
+</ul>
+<footer>Référence formantique de l'orchestre — Yan Maresz · page produite par <code>construire_site.py</code> depuis les fiches et <code>Resultats-v7/</code>.</footer>
+</body>
+</html>

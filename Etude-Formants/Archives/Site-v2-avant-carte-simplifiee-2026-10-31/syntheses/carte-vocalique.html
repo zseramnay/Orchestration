@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carte vocalique</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="bandeau"><h1>Carte vocalique</h1></div>
+<p class="fil"><a href="../index.html">Sommaire</a> › Synthèses</p>
+<figure><img src="../figures/vocalique-alto.png" alt="L&#x27;alto, mesuré sur trois corpus de provenances distinctes. C&#x27;est le seul instrument où la carte vocalique réplique là où" loading="lazy"><figcaption>L&#x27;alto, mesuré sur trois corpus de provenances distinctes. C&#x27;est le seul instrument où la carte vocalique réplique là où la méthode 8 ne retient rien : la résonance de caisse est trop large pour le redressement à ±3/4 d&#x27;octave.</figcaption></figure>
+<figure><img src="../figures/vocalique-hautbois.png" alt="Le hautbois, sur trois corpus. Classé en B : quatre corpus donnent quatre réponses formantiques incompatibles, alors que" loading="lazy"><figcaption>Le hautbois, sur trois corpus. Classé en B : quatre corpus donnent quatre réponses formantiques incompatibles, alors que la carte vocalique, elle, tient.</figcaption></figure>
+<h1>Carte vocalique de l'orchestre</h1>
+<blockquote>
+<p><strong>À lire d'abord :</strong> <code>00-METHODE.md</code> pour la méthode, <code>_REPLICATION.md</code> pour la distinction
+entre formants établis et non établis. Ce fichier répond à une question <strong>différente</strong> de
+celle des formants, et les deux ne se superposent pas.</p>
+</blockquote>
+<h2>La question, et pourquoi elle n'est pas celle des formants</h2>
+<p>Un formant est une propriété du <strong>filtre</strong> : une résonance du corps, indépendante de la note.
+Une voyelle, non. Quand on dit qu'un basson sonne /o/, on ne compare pas deux filtres : on
+constate que son spectre <strong>rayonné</strong> a son énergie là où /o/ a la sienne. Les voyelles de
+Calliope sont elles aussi mesurées sur le son, pas sur le conduit vocal.</p>
+<p>D'où une méthode qui ne sépare jamais source et filtre — donc applicable à <strong>tout</strong>
+instrument, y compris ceux dont la méthode 8 ne peut rien tirer.</p>
+<p>Conséquence qu'il faut assumer : <strong>la voyelle s'attache à un registre, pas à un instrument.</strong>
+Un piccolo au contre-ut ne sonne pas /o/, et c'est vrai, non un défaut de mesure. L'erreur de
+l'étude antérieure était d'assigner une voyelle par instrument ; celle de la reprise d'octobre
+a été de chercher un jeu de formants par instrument. Les deux supposaient qu'un instrument a
+une couleur unique.</p>
+<h2>Comment lire une cellule</h2>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Sens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F1, F2</td>
+<td>les deux maxima du motif d'excitation auditive, après fusion à 3,5 Bark</td>
+</tr>
+<tr>
+<td>IQR</td>
+<td>dispersion interquartile, en Bark, à l'intérieur de la cellule</td>
+</tr>
+<tr>
+<td>distance</td>
+<td>distance en Bark à la voyelle française la plus proche (Calliope, voix d'homme)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Statut</th>
+<th>Critère</th>
+<th>Lecture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>assignable</strong></td>
+<td>distance ≤ 2 Bark</td>
+<td>la voyelle est nommable</td>
+</tr>
+<tr>
+<td><strong>approximative</strong></td>
+<td>2 à 3,5 Bark</td>
+<td>voisinage, à ne pas publier comme une voyelle</td>
+</tr>
+<tr>
+<td><strong>hors espace</strong></td>
+<td>&gt; 3,5 Bark — le seuil de Chistovich</td>
+<td>l'instrument est en dehors de l'espace vocalique du français</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Marque</th>
+<th>Sens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1 max</strong></td>
+<td>un seul maximum survit : il n'y a pas de couple (F1, F2) à lire</td>
+</tr>
+<tr>
+<td><strong>F1=f0</strong></td>
+<td>F1 coïncide avec la fondamentale : la « voyelle » n'est que la hauteur</td>
+</tr>
+<tr>
+<td><strong>dispersé</strong></td>
+<td>IQR &gt; 2 Bark sur un axe : le registre n'a pas de couleur stable</td>
+</tr>
+</tbody>
+</table>
+<p>Une cellule marquée n'est pas publiable comme une voyelle.</p>
+<h2>Les quatre comportements</h2>
+<p>C'est une typologie <strong>distincte</strong> de celle des formants (classes A, B, C de <code>00-METHODE.md</code>).
+Un instrument peut n'avoir aucun formant et une voyelle très nette, et l'inverse.</p>
+<table>
+<thead>
+<tr>
+<th>Comportement</th>
+<th>Instruments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Voyelle unique et stable</strong> sur toute la tessiture</td>
+<td><strong>basson</strong> — seul cas</td>
+</tr>
+<tr>
+<td><strong>Traverse l'espace</strong> en montant, puis en sort par le haut</td>
+<td>flûtes, clarinettes, cordes, hautbois</td>
+</tr>
+<tr>
+<td><strong>Hors espace par le haut</strong></td>
+<td>piccolo dès le médium · flûte, clarinettes Mib et Sib, violon et alto au suraigu</td>
+</tr>
+<tr>
+<td><strong>Hors espace par le bas, ou sans second maximum</strong></td>
+<td>contrebasson · les deux tubas · cor et trombones hors de l'aigu · contrebasse au grave</td>
+</tr>
+</tbody>
+</table>
+<h2>I. Le basson — le seul instrument à voyelle unique</h2>
+<table>
+<thead>
+<tr>
+<th>Registre</th>
+<th>Dyn.</th>
+<th>F1</th>
+<th>F2</th>
+<th>IQR</th>
+<th>Voyelle</th>
+<th>Dist.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>grave</td>
+<td>moyen</td>
+<td>525 Hz</td>
+<td>1 616 Hz</td>
+<td>0,4 / 1,6</td>
+<td>ɛ</td>
+<td>0,41</td>
+</tr>
+<tr>
+<td>grave</td>
+<td>fort</td>
+<td>519 Hz</td>
+<td>1 227 Hz</td>
+<td>0,7 / 2,0</td>
+<td>œ</td>
+<td>0,84</td>
+</tr>
+<tr>
+<td>bas médium</td>
+<td>moyen</td>
+<td>530 Hz</td>
+<td>1 288 Hz</td>
+<td>0,5 / 0,4</td>
+<td><strong>œ</strong></td>
+<td>0,53</td>
+</tr>
+<tr>
+<td>bas médium</td>
+<td>fort</td>
+<td>529 Hz</td>
+<td>1 182 Hz</td>
+<td>0,6 / 0,8</td>
+<td>œ</td>
+<td>1,10</td>
+</tr>
+<tr>
+<td>haut médium</td>
+<td>moyen</td>
+<td>547 Hz</td>
+<td>1 232 Hz</td>
+<td>0,8 / 0,4</td>
+<td>œ</td>
+<td>0,86</td>
+</tr>
+<tr>
+<td>aigu</td>
+<td>moyen</td>
+<td>584 Hz</td>
+<td>1 079 Hz</td>
+<td>1,2 / 1,3</td>
+<td>ɔ</td>
+<td>0,67</td>
+</tr>
+</tbody>
+</table>
+<p><strong>F1 reste entre 499 et 590 Hz sur les douze cellules</strong>, IQR de 0,4 à 1,3 Bark. Le basson tient
+/œ/–/ɔ/ d'un bout à l'autre de sa tessiture et de sa dynamique.</p>
+<p><strong>Vérification ZSamples : F1 de 470 à 590 Hz, voyelles /œ/, /ɔ/, /a/, distances 0,37 à 1,07.</strong>
+Écart inférieur à un demi-Bark sur les douze cellules.</p>
+<p>Et le lien avec la méthode 8 est direct : le formant établi du basson est à <strong>554 Hz</strong>,
+répliqué dans les deux corpus. La méthode 12 retrouve donc comme saillance stable du motif
+auditif ce que la méthode 8 trouvait comme résonance du filtre. <strong>C'est le test de calibration
+de la méthode 12, et il passe.</strong></p>
+<h2>II. Les flûtes — hors de l'espace vocalique par le haut</h2>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Registre</th>
+<th>F1</th>
+<th>Statut</th>
+<th>ZSamples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Petite flûte</strong></td>
+<td>grave</td>
+<td>708–721 Hz</td>
+<td>ɛ · assignable (1,5)</td>
+<td><strong>a · 702 Hz (1,10)</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>médium</td>
+<td>1 283 Hz</td>
+<td><strong>hors espace</strong> (6,0)</td>
+<td><strong>hors espace · 1 362 Hz</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>aigu</td>
+<td>2 378–2 569 Hz</td>
+<td>hors espace (10,5)</td>
+<td>hors espace · 2 517 Hz</td>
+</tr>
+<tr>
+<td></td>
+<td>suraigu</td>
+<td>3 959 Hz</td>
+<td>hors espace (15,2)</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Flûte</strong></td>
+<td>médium</td>
+<td>645 Hz</td>
+<td>ɛ · assignable (1,0)</td>
+<td><strong>a · 683 Hz (0,71)</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>aigu</td>
+<td>1 283 Hz</td>
+<td><strong>hors espace</strong> (5,8)</td>
+<td><strong>hors espace · 1 367 Hz</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>suraigu</td>
+<td>2 094 Hz</td>
+<td>hors espace (10,1)</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Flûte basse</strong></td>
+<td>grave</td>
+<td>219 Hz</td>
+<td>1 max</td>
+<td>u · 222 Hz (1,00)</td>
+</tr>
+<tr>
+<td></td>
+<td>médium</td>
+<td>434 Hz</td>
+<td>ɔ · assignable (1,24)</td>
+<td>o · 373 Hz (0,67)</td>
+</tr>
+<tr>
+<td></td>
+<td>aigu</td>
+<td>692 Hz</td>
+<td>a · assignable (0,56)</td>
+<td><strong>a · 683 Hz (0,06)</strong></td>
+</tr>
+<tr>
+<td><strong>Flûte contrebasse</strong></td>
+<td>aigu</td>
+<td>343 Hz</td>
+<td>o · assignable (0,63)</td>
+<td>œ · 518 Hz (0,52)</td>
+</tr>
+<tr>
+<td></td>
+<td>suraigu</td>
+<td>572 Hz</td>
+<td>œ · assignable (0,70)</td>
+<td>ɛ · 611 Hz (0,91)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>La frontière tombe autour de 700 Hz de F1</strong>, ce qui est exactement le plafond de /a/ chez
+l'homme (684 Hz, soit 6,4 Bark). Dès que F1 dépasse cette valeur, aucune voyelle française
+n'est atteignable : il n'y a rien au-dessus. C'est arithmétique, et cela répond à l'anomalie
+du piccolo autrement que par un défaut de mesure.</p>
+<p><strong>Réplication excellente</strong> : F1 à moins d'un demi-Bark, et le <em>statut</em> réplique parfaitement —
+assignable reste assignable, hors espace reste hors espace, avec la frontière au même endroit.
+Les voyelles nommées glissent parfois d'un cran, /ɛ/ contre /a/, mais ce sont des voisines
+immédiates.</p>
+<h2>III. Les clarinettes — la famille traverse l'espace</h2>
+<table>
+<thead>
+<tr>
+<th>Registre</th>
+<th>Cl. contrebasse</th>
+<th>Cl. basse</th>
+<th>Cl. en Sib</th>
+<th>Cl. en Mib</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>chalumeau</td>
+<td><strong>u</strong> · 204 Hz</td>
+<td>ø · 216–230 Hz</td>
+<td><strong>u</strong> · 277 Hz</td>
+<td>ø · 282 Hz</td>
+</tr>
+<tr>
+<td>gorge</td>
+<td><strong>y</strong> · 200 Hz</td>
+<td>ø / e · 263–361 Hz</td>
+<td><strong>ø</strong> · 362 Hz</td>
+<td><strong>ɛ</strong> · 563 Hz</td>
+</tr>
+<tr>
+<td>clarine</td>
+<td>ø · 235 Hz</td>
+<td>o / ø · 322–330 Hz</td>
+<td><strong>a / œ / ɛ</strong> · 639–679 Hz</td>
+<td>ɛ · 864 Hz</td>
+</tr>
+<tr>
+<td>suraigu</td>
+<td>ø · 306 Hz</td>
+<td><strong>a / ɛ</strong> · 741 Hz</td>
+<td>hors espace · 1 245 Hz</td>
+<td>hors espace · 1 723 Hz</td>
+</tr>
+</tbody>
+</table>
+<p>Deux régularités. <strong>Chaque clarinette monte de /u/ vers /a/</strong> en gravissant ses registres, puis
+sort de l'espace par le haut quand elle y arrive. Et <strong>plus l'instrument est grave, moins il
+monte</strong> : la contrebasse reste entre /u/, /y/ et /ø/ et n'atteint jamais /a/ ; la Mib part de
+/ø/ et sort au suraigu. C'est une même trajectoire, décalée selon la taille.</p>
+<p>Cela recoupe l'écoute : chalumeau sombre et fermé, clarine ouvert.</p>
+<p><strong>Prudence sur le chalumeau</strong> : marqué « dispersé » sur les quatre instruments, IQR de F2 de
+2,3 à 5,7 Bark. Conséquence directe de la dominance des harmoniques impairs, mesurée par
+ailleurs : le second maximum y est mal défini. Les voyelles du chalumeau sont indicatives.</p>
+<p><strong>Vérification ZSamples</strong> : chalumeau /u/ et suraigu hors espace de part et d'autre, frontière
+au même endroit. La clarinette basse de ZSamples est <strong>inutilisable</strong> — ses noms de fichiers
+sont transposés de 16 demi-tons (voir <code>_REPLICATION.md</code>).</p>
+<h2>IV. Les anches doubles aiguës — les deux cas problématiques</h2>
+<p><strong>Hautbois</strong> — SOL : grave et médium assignables, puis hors espace à partir de l'aigu
+(991 Hz, distance 3,57). ZSamples : seul le médium assignable (664 Hz, /a/, 0,62), le grave
+<strong>hors espace</strong> à 869 Hz. Le médium concorde, le grave non. Avec le désaccord déjà constaté
+sur ses formants, le hautbois reste l'anche double la moins fiable.</p>
+<p><strong>Cor anglais</strong> — ses neuf cellules SOL sont assignables, distances de 0,35 à 1,71, voyelles
+/ɔ/, /a/, /ɛ/ plausibles. <strong>Mais toutes sont marquées « dispersé », IQR de 1,6 à 5,1 Bark.</strong>
+Un IQR de 5 Bark est un cinquième de l'échelle : la médiane n'a plus de sens. ZSamples montre
+la même dispersion, 1,4 à 4,6 Bark. <strong>C'est donc l'instrument, pas l'échantillon</strong> : le cor
+anglais a réellement une couleur instable à l'intérieur d'un registre.</p>
+<p>Point notable : <strong>sa voyelle médiane, elle, réplique</strong> — /ɔ/ au médium et /a/ à l'aigu dans
+les deux corpus, distances 0,10 à 1,73 — alors que ses formants ne répliquaient pas du tout.
+Pour cet instrument, <strong>la méthode 12 est plus robuste que la méthode 8.</strong></p>
+<p><strong>Contrebasson</strong> — SOL : « 1 max » sur ses douze cellules, donc pas de voyelle. ZSamples :
+/u/ à l'aigu, 277 Hz, distances 0,36 et 0,64 — très propres. Les deux corpus ne s'accordent
+pas sur la présence d'un second maximum. Classé ici en « hors espace par le bas », <strong>à
+analyser autrement</strong> (voir les limites).</p>
+<h2>V. Les cuivres — une voyelle seulement en jeu fort</h2>
+<p><strong>C'est le résultat principal de cette famille.</strong> Sur les 45 cellules publiables des six
+cuivres, <strong>36 portent la marque « 1 max »</strong> : pas de second maximum, donc pas de voyelle. Et
+la répartition est nette — le second maximum n'apparaît <strong>qu'au fort</strong>, et seulement chez le
+cor, la trompette et les trombones à l'aigu. Les deux tubas n'en ont jamais, sur aucune de
+leurs 24 cellules.</p>
+<p>Physiquement cohérent : en nuance douce le spectre d'un cuivre est pauvre en harmoniques et
+l'énergie forme une seule masse ; en forte, l'enrichissement crée une seconde saillance.</p>
+<h3>La dynamique déplace F1 de près d'une octave</h3>
+<table>
+<thead>
+<tr>
+<th>Instrument · registre</th>
+<th>doux</th>
+<th>moyen</th>
+<th>fort</th>
+<th>facteur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Trombone ténor · grave</strong></td>
+<td>355 Hz</td>
+<td>531 Hz</td>
+<td><strong>718 Hz</strong></td>
+<td>×2,02</td>
+</tr>
+<tr>
+<td>Trompette · médium</td>
+<td>639 Hz</td>
+<td>880 Hz</td>
+<td><strong>1 073 Hz</strong></td>
+<td>×1,68</td>
+</tr>
+<tr>
+<td>Tuba basse · grave</td>
+<td>160 Hz</td>
+<td>279 Hz</td>
+<td><strong>406 Hz</strong></td>
+<td>×2,54</td>
+</tr>
+<tr>
+<td>Tuba basse · médium</td>
+<td>129 Hz</td>
+<td>214 Hz</td>
+<td><strong>350 Hz</strong></td>
+<td>×2,71</td>
+</tr>
+<tr>
+<td>Cor · médium</td>
+<td>287 Hz</td>
+<td>362 Hz</td>
+<td>439 Hz</td>
+<td>×1,53</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Vérification ZSamples sur le trombone ténor : 359 → 707 Hz au grave, contre 355 → 718 chez
+SOL.</strong> Les deux corpus concordent à moins d'un demi-Bark sur cet effet. C'est le résultat le
+plus solide des cuivres, et il justifie rétrospectivement la grille registre × dynamique :
+avec une grille par registre seul, ces valeurs auraient été moyennées en un chiffre sans sens.</p>
+<p>Il explique aussi pourquoi le cor à 466 Hz et la trompette à 1 479 Hz étaient « fragiles » en
+méthode 8 : la bande agrégée sur toutes les dynamiques est nécessairement étalée.</p>
+<h3>Les cellules exploitables</h3>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Cellule</th>
+<th>Voyelle</th>
+<th>Dist.</th>
+<th>ZSamples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trombone ténor</td>
+<td>aigu doux</td>
+<td>ɔ</td>
+<td>0,39</td>
+<td><strong>a · 0,52</strong></td>
+</tr>
+<tr>
+<td>Trombone ténor</td>
+<td>aigu moyen</td>
+<td>ɔ</td>
+<td>0,33</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Trombone ténor</td>
+<td>aigu fort</td>
+<td>a</td>
+<td>0,87</td>
+<td><strong>a · 0,07</strong></td>
+</tr>
+<tr>
+<td>Cor</td>
+<td>grave fort</td>
+<td>ɛ</td>
+<td>0,82</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Cor</td>
+<td>aigu fort</td>
+<td>ɛ</td>
+<td>0,53</td>
+<td>œ · 0,93</td>
+</tr>
+<tr>
+<td>Trompette</td>
+<td>aigu doux</td>
+<td>a</td>
+<td>1,54</td>
+<td>ɛ · 1,76</td>
+</tr>
+<tr>
+<td>Trompette</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>médium <strong>œ · 0,09</strong></td>
+</tr>
+<tr>
+<td>Trombone basse</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>grave ɛ · 0,69 · aigu ɔ · 0,88</td>
+</tr>
+</tbody>
+</table>
+<p>Le <strong>cor</strong> est le cuivre le moins stable : SOL donne /ɛ/ et /ɔ/ au fort, ZSamples /œ/ à l'aigu
+et « 1 max » partout ailleurs. Troisième désaccord pour cet instrument, après ses formants non
+répliqués et son ρ contradictoire.</p>
+<h2>VI. Les cordes — le quatuor couvre l'espace de bas en haut</h2>
+<table>
+<thead>
+<tr>
+<th>Registre</th>
+<th>Contrebasse</th>
+<th>Violoncelle</th>
+<th>Alto</th>
+<th>Violon</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>grave</td>
+<td>— (1 max) · 101 Hz</td>
+<td><strong>u</strong> · 168 Hz</td>
+<td><strong>ø</strong> · 371 Hz</td>
+<td><strong>e / ɛ</strong> · 451 Hz</td>
+</tr>
+<tr>
+<td>médium</td>
+<td>— (1 max) · 106 Hz</td>
+<td>u · 211 Hz</td>
+<td><strong>ø</strong> · 399 Hz</td>
+<td><strong>ɛ</strong> · 525 Hz</td>
+</tr>
+<tr>
+<td>aigu</td>
+<td>ø · 209 Hz</td>
+<td><strong>ɔ / œ</strong> · 422–462 Hz</td>
+<td><strong>ɛ</strong> · 554 Hz</td>
+<td>ɛ puis hors espace · 664–788 Hz</td>
+</tr>
+<tr>
+<td>suraigu</td>
+<td>œ / ɛ · 480–507 Hz</td>
+<td>ɛ · 702–741 Hz</td>
+<td>hors espace · 1 042 Hz</td>
+<td>hors espace · 1 478 Hz</td>
+</tr>
+</tbody>
+</table>
+<p>C'est la famille la plus régulière. Chaque instrument monte de /u/–/ø/ vers /ɛ/, et <strong>le
+quatuor empilé couvre tout l'espace vocalique sans trou</strong>. Aucune autre famille ne le fait.</p>
+<p>L'<strong>alto</strong> est l'instrument le plus franchement assignable après le basson : neuf cellules sur
+douze, distances de 0,19 à 0,92 Bark.</p>
+<p><strong>Vérification ZSamples</strong> : F1 réplique à 0,2–0,8 Bark, et la structure de famille tient —
+contrebasse sur /u/, violoncelle sur /u/–/ø/, alto sur /e/–/œ/, violon sur /œ/–/ɛ/ puis hors
+espace. Les voyelles glissent d'un cran, /ɛ/ contre /œ/, mais les distances restent sous
+1 Bark.</p>
+<h3>F2 des cordes et les formants établis — intégration du <em>bridge hill</em></h3>
+<p>Les cordes sont de <strong>classe C</strong> : plusieurs résonances de caisse, aucune dominante. Cela
+explique la forte dispersion de leur F2 — IQR de 3 à 5,4 Bark sur la plupart des cellules,
+alors que F1 est stable. Le détecteur verrouille tantôt sur une résonance, tantôt sur une
+autre, selon la note.</p>
+<p>Et les formants <strong>établis</strong> par la méthode 8 disent quels candidats existent. La correspondance
+est directe :</p>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Formants établis (répliqués)</th>
+<th>F2 de la carte vocalique</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Violon</td>
+<td><strong>2 348 Hz</strong> — le <em>bridge hill</em> de la littérature acoustique</td>
+<td>2 136 Hz à l'aigu fort</td>
+</tr>
+<tr>
+<td>Alto</td>
+<td><strong>1 318</strong> · 2 091 Hz</td>
+<td>1 314 Hz à l'aigu · 2 161 Hz au médium fort</td>
+</tr>
+<tr>
+<td>Violoncelle</td>
+<td><strong>1 108</strong> · 2 216 Hz</td>
+<td>1 079 Hz au médium doux · 2 061 Hz au grave fort</td>
+</tr>
+<tr>
+<td>Contrebasse</td>
+<td><strong>1 396</strong> Hz</td>
+<td>1 445–1 519 Hz au suraigu</td>
+</tr>
+</tbody>
+</table>
+<p><strong>La dispersion de F2 n'est donc pas du bruit : c'est la signature de la multiplicité des
+résonances de caisse.</strong> Les deux méthodes se rejoignent ici, et la méthode 8 sert à interpréter
+la méthode 12 plutôt qu'à la concurrencer. Le <em>bridge hill</em> du violon, en particulier, est le
+seul formant de corde dont la littérature acoustique parle, et il est retrouvé par les deux
+voies.</p>
+<p>À faire : vérifier systématiquement, cellule par cellule, si F2 tombe sur un formant établi,
+et le signaler dans la sortie. Ce serait un critère de confiance supplémentaire pour les cordes.</p>
+<h2>Alto et hautbois — la méthode 12 réussit là où la méthode 8 échoue</h2>
+<blockquote>
+<p>Ajouté le 25/10/2026, sur quatre corpus. Voir <code>_CORPUS-CROISES.md</code> pour les corpus et la
+règle de provenance.</p>
+</blockquote>
+<p>Ce sont les deux instruments que <strong>quatre corpus indépendants</strong> laissent sans aucun formant
+commun : le hautbois donne 4 183 Hz dans SOL, rien dans ZSamples, 2 635 et 4 974 dans Xsamples,
+3 320 dans VN ; l'alto n'a aucune paire stricte. La méthode 8 n'a rien à en dire.</p>
+<p>La carte vocalique, elle, <strong>réplique sur les quatre</strong>.</p>
+<h3>Hautbois — F1 par registre, quatre corpus</h3>
+<table>
+<thead>
+<tr>
+<th>Registre</th>
+<th>SOL</th>
+<th>ZSamples</th>
+<th>Xsamples</th>
+<th>VN</th>
+<th>Statut concordant</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>grave</td>
+<td>assignable</td>
+<td>869 Hz · hors</td>
+<td>790–980 Hz · 1 max</td>
+<td>768–964 Hz · 1 max/hors</td>
+<td>instable</td>
+</tr>
+<tr>
+<td><strong>médium</strong></td>
+<td>assignable</td>
+<td><strong>664 Hz · /a/ (0,62)</strong></td>
+<td><strong>605 Hz · /a/ (0,65)</strong></td>
+<td><strong>605 Hz · /œ/ (0,74)</strong></td>
+<td><strong>assignable</strong></td>
+</tr>
+<tr>
+<td><strong>aigu</strong></td>
+<td><strong>991 Hz</strong> · hors (3,57)</td>
+<td>1 022 Hz · hors (3,83)</td>
+<td><strong>991 Hz</strong> · hors (3,66)</td>
+<td><strong>991 Hz</strong> · hors (3,69)</td>
+<td><strong>hors espace</strong></td>
+</tr>
+<tr>
+<td>suraigu</td>
+<td>1 435–1 478 Hz · hors</td>
+<td>1 580 Hz · hors</td>
+<td>1 440 Hz · hors</td>
+<td>1 393–1 403 Hz · hors</td>
+<td><strong>hors espace</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>991 Hz à l'aigu dans trois corpus, au Hz près</strong>, et la même distance de 3,7 Bark. Le médium
+donne /a/ ou /œ/ — voisines immédiates — entre 605 et 664 Hz, soit 0,4 Bark d'écart maximum sur
+trois corpus. Et les quatre s'accordent sur le fait que l'instrument <strong>sort de l'espace
+vocalique dès l'aigu</strong>.</p>
+<p>C'est exactement le cas du cor anglais, en plus net : <em>la voyelle réplique quand les formants ne
+répliquent pas.</em></p>
+<p><strong>Mais il faut lire la marque <code>F1=f0</code>.</strong> Elle est présente sur <strong>toutes</strong> les cellules du
+médium, de l'aigu et du suraigu : le premier maximum du hautbois coïncide avec sa
+fondamentale. Ce que la carte décrit, pour cet instrument, est donc <strong>où se trouve sa
+tessiture</strong>, non une invariance de timbre. C'est cohérent avec son ρ de 0,72 à 0,80 : son
+spectre suit la hauteur.</p>
+<p>La formulation juste est donc : <em>le hautbois sonne /a/ au médium parce que sa fondamentale y
+occupe l'aperture de /a/</em>, et non <em>le hautbois a un formant dans la zone /a/</em>. La carte
+réplique parce que la tessiture réplique. C'est un résultat plus faible que celui du basson,
+dont le F1 reste à 554 Hz d'un bout à l'autre, mais c'est un résultat, et il est utile en
+orchestration : il dit dans quel registre l'instrument apporte quelle couleur.</p>
+<h3>Alto — F1 par registre, quatre corpus</h3>
+<table>
+<thead>
+<tr>
+<th>Registre</th>
+<th>SOL</th>
+<th>ZSamples</th>
+<th>VO</th>
+<th>VN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>grave</td>
+<td>371–381 Hz · /ø/</td>
+<td>357–393 Hz · /y/–/e/</td>
+<td>n &lt; 5</td>
+<td>347–421 Hz · /ø/–/o/</td>
+</tr>
+<tr>
+<td>médium</td>
+<td>399–474 Hz · /ø/–/ɛ/</td>
+<td>429–498 Hz · /e/</td>
+<td>440–490 Hz · /ɛ/–/ø/</td>
+<td>333–429 Hz · /o/–/ɛ/</td>
+</tr>
+<tr>
+<td><strong>aigu</strong></td>
+<td><strong>554–584 Hz · /ɛ/</strong></td>
+<td><strong>554–557 Hz · /œ/</strong></td>
+<td><strong>590 Hz · /œ/–/ɛ/</strong></td>
+<td><strong>539–605 Hz · /ɛ/</strong></td>
+</tr>
+<tr>
+<td>suraigu</td>
+<td>1 042–1 147 · hors</td>
+<td>860–1 026 · approx/hors</td>
+<td>829–878 · approx</td>
+<td>1 142 · hors</td>
+</tr>
+</tbody>
+</table>
+<p><strong>L'aigu est le meilleur accord de toute la carte vocalique : quatre corpus entre 539 et
+605 Hz, voyelle /ɛ/ ou /œ/, distances de 0,22 à 0,90 Bark.</strong> Et les quatre décrivent la même
+trajectoire — montée de /ø/–/o/ au grave vers /ɛ/ à l'aigu, puis sortie par le haut.</p>
+<h3>Et pour l'alto, une interprétation physique</h3>
+<blockquote>
+<p><strong>Corrigé le 27/10/2026, tâche C1.</strong> Ce paragraphe affirmait « au grave <strong>et au médium</strong> …
+entre 347 et 498 Hz sur trois corpus ». Le test note par note (<code>resonance_caisse.py</code>) a
+tranché : <strong>la moitié médium est fausse</strong>. Au médium, les quatre corpus donnent des pentes de
+log2(F1) contre log2(f0) de +0,79, +0,85, +1,04 et +1,11 — F1 y suit la note, c'est
+l'harmonique le plus fort et non une résonance. Le grave, lui, sort renforcé. Voir
+<code>_RESONANCE-DE-CAISSE.md</code>.</p>
+</blockquote>
+<p><strong>Au grave seulement</strong>, l'alto n'est <strong>pas</strong> marqué <code>F1=f0</code> : aucune cellule ne l'est, dans
+aucun des quatre corpus. Et son premier maximum se tient entre <strong>374 et 395 Hz sur quatre
+corpus</strong> — 0,9 demi-ton d'écart, l'accord inter-corpus le plus serré de toute l'étude — avec
+une pente médiane de <strong>+0,01</strong> sur sept demi-tons de fondamentale : F1 ne bouge pas pendant que
+la note se déplace.</p>
+<p>C'est la région de la <strong>résonance principale de caisse</strong> de l'alto, que la littérature
+acoustique situe vers 350–400 Hz. Autrement dit, la méthode 12 retrouve une résonance réelle
+que la méthode 8 a entièrement manquée — celle-ci donnait 1 318 Hz comme formant le plus grave
+de l'alto, valeur qui s'est révélée fausse de dix demi-tons sur ZSamples.</p>
+<p>L'explication tient à une limite connue de la méthode 8, écrite dans <code>residu_local()</code> : le
+redressement local à ±3/4 d'octave <strong>ne mesure rien en dessous de 3,2 à 5,7 fois la fondamentale
+la plus grave du corpus</strong> — pour l'alto, entre 523 et 659 Hz selon le corpus, donc bien au-dessus
+de 384 Hz. La résonance n'est pas redressée : elle est hors du domaine calculé. (Corrigé le
+27/10/2026, tâche C2 : l'explication par la largeur, donnée ici le 24/10, visait la mauvaise
+limite. Voir <code>_FENETRE-DE-REDRESSEMENT.md</code>.)
+La zone de caisse d'un alto est large et plate ; elle est donc redressée avec le reste et
+disparaît. La méthode 12, qui ne redresse rien et lit la saillance du motif auditif, la voit.</p>
+<p><strong>C'est le premier cas où les deux méthodes ne sont pas seulement complémentaires mais
+hiérarchisées</strong> : sur l'alto, la méthode 12 est la bonne et la méthode 8 se trompe.</p>
+<h3>Ce qu'il faut en écrire</h3>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Ce qu'on peut affirmer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Hautbois</strong></td>
+<td>Aucun formant fixe mesurable sur quatre corpus ; classe <strong>B</strong>. Sa couleur vocalique suit son registre : /a/–/œ/ au médium, <strong>hors de l'espace vocalique du français dès l'aigu</strong> (991 Hz dans trois corpus). Décrire par registre, jamais par un chiffre unique.</td>
+</tr>
+<tr>
+<td><strong>Alto</strong></td>
+<td>Aucun formant établi par la méthode 8, mais <strong>F1 entre 374 et 395 Hz au grave sur quatre corpus, pente +0,01</strong> — résonance fixe compatible avec le mode B1+ de la caisse. Au médium, F1 suit la note (pentes +0,79 à +1,11) : ne rien en conclure. Trajectoire /ø/–/o/ → <strong>/ɛ/ à l'aigu (quatre corpus, 0,22–0,90 Bark)</strong> → hors espace au suraigu.</td>
+</tr>
+</tbody>
+</table>
+<p>Réserve commune : la dispersion de F2 reste forte sur l'alto (IQR de 2 à 5 Bark, marque
+<code>dispersé</code> sur neuf cellules sur douze dans VN), ce qui est la signature de la classe C déjà
+discutée. Son aperture est bien définie, son timbre antéro-postérieur flotte.</p>
+<h2>Limites de la méthode</h2>
+<p><strong>1. La présence d'un second maximum dépend du corpus, pas seulement de l'instrument.</strong> Le
+contrebasson n'en a aucun chez SOL et deux chez ZSamples ; la contrebasse de même au grave et
+au médium. C'est une différence de prise de son — plus de contenu aigu dans un cas. Le critère
+« 1 max » n'est donc <strong>pas</strong> une propriété de l'instrument.</p>
+<blockquote>
+<p><strong>Repris le 28/10/2026, tâche C11.</strong> Le critère de remplacement compare <strong>F1 au plancher de
+l'espace vocalique</strong> — le plus bas F1 des dix voyelles de Calliope, celui de /y/ à 300 Hz —
+au lieu de compter les maxima. L'étendue moyenne entre corpus tombe de 24,3 à 9,5 points, et
+le pire cas de 60 à 0.</p>
+<p>Surtout, il révèle que l'ancien comptage <strong>confondait trois phénomènes</strong> et se trompait dans
+les deux sens : il manquait la contrebasse, qui est réellement sous l'espace (75 % de ses
+cellules) sans être souvent « 1 max » ; et il déclarait dehors les trombones, dont la couleur
+est en plein milieu de l'espace (F1 529 à 637 Hz) et qui n'ont simplement pas de second
+maximum. Voir <code>_HORS-ESPACE.md</code>.</p>
+</blockquote>
+<p><strong>2. ~~Le violon est instable au suraigu dans les deux corpus.~~ — CORRIGÉ le 27/10/2026,
+tâche C3.</strong> Le défaut était réel : SOL donnait F1 = 496 Hz au doux et 1 478 Hz au moyen,
+ZSamples 977 Hz avec un IQR de 8,6 Bark. Le diagnostic — un basculement du détecteur entre
+fondamentale et résonance de caisse — était juste, et il a livré la règle : <strong>un spectre
+harmonique n'ayant aucun partiel sous f0, un maximum situé là n'est jamais un formant.</strong> F1 est
+désormais cherché parmi les maxima situés à f0 ou au-dessus, à un demi-ton près.</p>
+<p>Un tiers des notes du suraigu du violon avaient un « F1 » sous leur propre fondamentale (et
+jusqu'à 57 % au violoncelle chez ZSamples). Après correction, les trois dynamiques du suraigu du
+violon s'accordent (1 610–1 665 Hz) et l'IQR tombe de 7,4 à 2,3 Bark chez SOL, de 9,0 à 3,4 chez
+ZSamples. Rien ne bouge au grave ni au médium : les résonances de caisse établies en C1 sont
+intactes au Hz près. Voir <code>_SURAIGU.md</code>.</p>
+<p><strong>3. Les grilles comparées ne sont pas toujours les mêmes.</strong> ZSamples bascule souvent en repli
+registre seul, ses corpus par instrument étant plus petits. Pour les instruments où la
+dynamique déplace F1 d'une octave — les cuivres — la comparaison entre corpus est donc
+nécessairement grossière.</p>
+<p><strong>4. La pente spectrale n'est pas comparable entre corpus</strong> (voir <code>_REPLICATION.md</code>). Elle ne
+figure pas ici pour cette raison.</p>
+<p><strong>5. Les voyelles de référence sont celles de la voix d'homme</strong> (Calliope, Tubach 1989), et
+<strong>ce choix est maintenant mesuré</strong> (tâche C12, 29/10) plutôt que subi.</p>
+<p>L'inquiétude était fondée, et au-delà : en référence féminine, <strong>42 % des cellules changent de
+voyelle et 11 instruments sur 20 changent de voyelle dominante</strong>. Tout nom de voyelle publié
+doit donc porter la mention « voix d'homme » — ce n'est pas une propriété de l'instrument mais
+d'un couple instrument × référence. Survivent : le basson garde /ɔ/, et les instruments les
+plus graves virent tous vers /u/, c'est-à-dire vers plus fermé et plus postérieur — le même
+fait dit autrement.</p>
+<p>Deux choses en revanche ne bougent pas, et ce sont celles sur lesquelles l'étude s'appuie :
+<strong>le plancher de l'espace</strong> (300 → 305 Hz, 0,29 demi-ton), parce qu'il est le F1 d'une voyelle
+fermée donc une résonance de Helmholtz presque indépendante de la longueur du conduit ; et la
+conclusion que l'orchestre se situe <strong>au-dessus</strong> de l'espace vocalique, qu'aucun changement de
+référence ne renverse.</p>
+<p>La référence reste donc la voix d'homme, et non parce qu'elle ajuste le mieux — elle ajuste le
+moins bien, et le critère d'ajustement a été montré invalide. Voir <code>_REFERENCE-FEMININE.md</code>.</p>
+<h2>À faire</h2>
+<blockquote>
+<p>Les travaux restants sont <strong>tous</strong> dans <code>_PLAN-DE-REPRISE.md</code>, qui est la seule liste à tenir. Ne pas en ouvrir une ici : c'est ainsi que huit listes se sont contredites entre le 23 et le 26 octobre.</p>
+</blockquote>
+<h2>Fichiers de données</h2>
+<ul>
+<li><code>carte-vocalique-SOL-2026-10-24.json</code> — les 22 instruments, SOL2020 + Yan_Adds.</li>
+<li>Vérification ZSamples : 16 instruments, à verser au dépôt.</li>
+<li>Script : <code>../../Scripts/v7-formants-2026/carte_vocalique.py</code>.
+  Relance : <code>python3 carte_vocalique.py &lt;dossier de spectres&gt; ../../Data/registres.md
+  [--motif={nom}.spectres.txt] [--seulement=…] [--sortie=…]</code></li>
+</ul>
+<footer>Référence formantique de l'orchestre — Yan Maresz · page produite par <code>construire_site.py</code> depuis les fiches et <code>Resultats-v7/</code>.</footer>
+</body>
+</html>

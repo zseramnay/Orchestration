@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le plancher de la fondamentale</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="bandeau"><h1>Le plancher de la fondamentale</h1></div>
+<p class="fil"><a href="../index.html">Sommaire</a> › Synthèses</p>
+<h1>Le plancher de la fondamentale</h1>
+<h2>Le défaut</h2>
+<p><code>_CARTE-VOCALIQUE.md</code> le donnait comme <strong>le seul défaut de méthode reproductible identifié</strong> :</p>
+<blockquote>
+<p>Le violon est instable au suraigu dans les deux corpus. SOL donne F1 = 496 Hz au doux et
+1 478 Hz au moyen ; ZSamples donne 977 Hz avec un IQR de 8,6 Bark, soit un tiers de l'échelle.
+Ce n'est pas un artefact d'un jeu d'échantillons : c'est un basculement du détecteur entre
+fondamentale et résonance de caisse. <strong>À corriger avant toute publication de la ligne du
+violon.</strong></p>
+</blockquote>
+<p>Le diagnostic était juste. Il restait à en tirer une règle.</p>
+<h2>La règle</h2>
+<p><code>f1_f2()</code> prenait pour F1 <strong>le maximum survivant le plus bas</strong>, sans borne inférieure. Or un
+spectre harmonique <strong>n'a aucun partiel en dessous de f0</strong>. Ce qui se trouve là est du bruit
+d'archet, la réponse de la caisse à une excitation large bande, ou la jupe de la fonction
+d'étalement de Schroeder — jamais un formant au sens vocalique, puisque la lecture (F1, F2)
+suppose une source harmonique filtrée par des résonances.</p>
+<p>Tant que f0 reste <strong>sous</strong> la zone de résonance, la question ne se pose pas : à l'alto grave
+(f0 131–196 Hz) la caisse est à 375–395 Hz, donc au-dessus de toute fondamentale du registre.
+Mais au suraigu du violon (f0 ≥ 1 175 Hz), la fondamentale a dépassé la caisse (~530 Hz) : le
+détecteur a alors le choix entre deux maxima sans rapport l'un avec l'autre, et bascule de l'un
+à l'autre selon la dynamique.</p>
+<p><strong>Correctif : F1 est cherché parmi les maxima situés à f0 ou au-dessus</strong>, à un demi-ton de
+tolérance près (<code>PLANCHER_F0</code> dans <code>carte_vocalique.py</code>). Quand des maxima sont écartés, la
+cellule porte la marque <code>sous f0 écarté</code> — l'information n'est pas perdue en silence.</p>
+<h2>Combien de notes étaient concernées</h2>
+<p>C'est le chiffre qui justifie la règle à lui seul : <strong>entre un quart et plus de la moitié des
+notes du suraigu avaient un « F1 » situé sous leur propre fondamentale.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>SOL</th>
+<th>ZSamples</th>
+<th>VO</th>
+<th>VN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Violon, suraigu</td>
+<td>37 %</td>
+<td>32 %</td>
+<td>21 %</td>
+<td>4 %</td>
+</tr>
+<tr>
+<td>Alto, suraigu</td>
+<td>15 %</td>
+<td>28 %</td>
+<td><strong>45 %</strong></td>
+<td>25 %</td>
+</tr>
+<tr>
+<td>Violoncelle, suraigu</td>
+<td>26 %</td>
+<td><strong>57 %</strong></td>
+<td>31 %</td>
+<td>13 %</td>
+</tr>
+<tr>
+<td>tous, registres grave et médium</td>
+<td><strong>0 %</strong></td>
+<td><strong>0 %</strong></td>
+<td><strong>0 %</strong></td>
+<td><strong>0 %</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Aucune cellule ne devient vide : la règle ne détruit aucune mesure, elle en écarte une partie
+impossible.</p>
+<h2>Ce que la règle change</h2>
+<h3>Le violon, cas par cas</h3>
+<table>
+<thead>
+<tr>
+<th>Registre · dynamique</th>
+<th>F1 avant</th>
+<th>F1 après</th>
+<th>IQR avant</th>
+<th>IQR après</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>grave, les trois</td>
+<td>451 · 460 · 476</td>
+<td><strong>identiques</strong></td>
+<td>—</td>
+<td>identiques</td>
+</tr>
+<tr>
+<td>médium, les trois</td>
+<td>507 · 525 · 525</td>
+<td><strong>identiques</strong></td>
+<td>—</td>
+<td>identiques</td>
+</tr>
+<tr>
+<td>aigu : doux · moyen · fort</td>
+<td>664 · 741 · 788</td>
+<td><strong>829 · 829 · 829</strong></td>
+<td>2,57</td>
+<td>2,05</td>
+</tr>
+<tr>
+<td>suraigu : doux · moyen · fort</td>
+<td><strong>496</strong> · 1 478 · 1 569</td>
+<td><strong>1 665 · 1 665 · 1 610</strong></td>
+<td>0,50</td>
+<td>2,25</td>
+</tr>
+</tbody>
+</table>
+<p>Le cas qui avait motivé la tâche — 496 Hz au doux contre 1 478 Hz au moyen — disparaît : les
+trois dynamiques s'accordent. L'IQR par cellule au suraigu tombe de <strong>7,4 à 2,3 Bark chez SOL</strong>
+et de <strong>9,0 à 3,4 chez ZSamples</strong>.</p>
+<p>On notera que l'IQR de la cellule « suraigu doux » <em>monte</em> de 0,50 à 2,25. Ce n'est pas une
+dégradation : l'ancien 0,50 était la cohérence d'une réponse constamment fausse, le détecteur se
+verrouillant sur la caisse pour toutes les notes de la cellule.</p>
+<h3>L'accord entre corpus s'améliore partout où la règle agit</h3>
+<p>C'est le gain le plus utile, parce qu'il porte sur la réplication et non sur une dispersion
+interne.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Avant (étendue inter-corpus)</th>
+<th>Après</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Violon, aigu</td>
+<td>702–854 Hz · 3,4 dt</td>
+<td><strong>807–854 Hz · 1,0 dt</strong></td>
+</tr>
+<tr>
+<td>Violon, suraigu</td>
+<td>1 317–2 094 Hz · 8,0 dt</td>
+<td>1 659–2 094 Hz · 4,0 dt</td>
+</tr>
+<tr>
+<td>Alto, suraigu</td>
+<td>829–1 108 Hz · 5,0 dt</td>
+<td><strong>1 112–1 173 Hz · 1,0 dt</strong></td>
+</tr>
+<tr>
+<td>Violoncelle, suraigu</td>
+<td>311–878 Hz · 18,0 dt</td>
+<td>788–1 245 Hz · 8,0 dt</td>
+</tr>
+</tbody>
+</table>
+<p>Le suraigu de l'alto passe d'un éparpillement sur cinq demi-tons à un accord à un demi-ton sur
+quatre corpus. C'est un <strong>résultat neuf</strong>, produit par le correctif.</p>
+<h3>Et ailleurs : presque rien</h3>
+<p>Vérifié cellule par cellule sur les cinq corpus avant adoption.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>SOL (206 cellules)</th>
+<th>ZSamples + Xsamples + VO + VN (≈ 440 cellules)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F1 déplacé de plus d'un demi-ton</td>
+<td>9 · <strong>4 %</strong></td>
+<td>23 · <strong>5 %</strong></td>
+</tr>
+<tr>
+<td>Voyelle changée</td>
+<td>1 · <strong>0 %</strong></td>
+<td>9 · <strong>2 %</strong></td>
+</tr>
+<tr>
+<td>Dispersion améliorée / dégradée</td>
+<td>8 / 3</td>
+<td>18 / 14</td>
+</tr>
+</tbody>
+</table>
+<p>Et la répartition par registre montre que le correctif est <strong>exactement ciblé</strong> :</p>
+<table>
+<thead>
+<tr>
+<th>Registre</th>
+<th>Cellules dont F1 bouge</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>suraigu</td>
+<td>27 % (SOL) · 28 % (autres)</td>
+<td>là où était le défaut</td>
+</tr>
+<tr>
+<td>aigu</td>
+<td>14 % · 10 %</td>
+<td>registre de transition</td>
+</tr>
+<tr>
+<td>médium</td>
+<td>0 % · 1 %</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>grave</strong></td>
+<td><strong>0 %</strong> · <strong>0 %</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>chalumeau, gorge, clarine, bas et haut médium, sons pédale, extrême grave</td>
+<td><strong>0 %</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Les acquis de C1 sont intacts</strong>, ce qui était la condition d'adoption : la caisse de l'alto au
+grave (371 · 374 · 381 Hz selon la dynamique) et celle du violoncelle au médium
+(211 · 225 · 236 Hz) sont inchangées au Hz près. C'est attendu : ces résonances sont au-dessus
+de la fondamentale de leur registre, donc la borne ne les touche pas.</p>
+<h2>Deux effets de bord, tous deux favorables</h2>
+<p><strong>1. Le cor anglais revenait manquant de chaque régénération.</strong> Son entrée avait été retirée de
+<code>carte_vocalique.INSTRUMENTS</code> avec le commentaire « ABSENT de registres.md — registres à définir
+avant mesure ». Ses registres y ont été ajoutés depuis (grave Mi2–Do4, médium Do4–Do5, aigu
+Do5–Do6, suraigu au-dessus) mais le commentaire est resté, si bien que la carte retombait à 21
+instruments à chaque relance. Réintégré.</p>
+<p><strong>2. Dix-sept cartes par corpus gagnées.</strong> Les cartes des nouvelles banques ne couvraient que le
+hautbois et l'alto — les deux instruments pour lesquels elles avaient été lancées explicitement
+en octobre. En relançant le script complet : Xsamples passe de 1 à 5 instruments, VO de 1 à 8,
+VN de 2 à 8. Aucun n'est perdu. <strong>Cela avance la tâche C13</strong> (étendre la vérification vocalique
+aux instruments non comparés) sans qu'on l'ait cherché.</p>
+<p>Conséquence directe : <strong>le contrebasson et le trombone basse ont maintenant une carte
+vocalique</strong>, alors qu'ils figuraient parmi les quatre « hors espace par le bas » sans couple
+(F1, F2). Il n'en reste que deux, le tuba basse et le tuba contrebasse. Cela confirme la
+limite n° 1 déjà écrite dans <code>_CARTE-VOCALIQUE.md</code> : <em>la présence d'un second maximum dépend du
+corpus, pas seulement de l'instrument</em>. Le classement « hors espace par le bas » n'est donc
+toujours pas une propriété d'instrument — c'est la tâche <strong>C11</strong>.</p>
+<h2>Ce qui reste ouvert</h2>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Ce qui la trancherait</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Le suraigu du violoncelle reste dispersé (8 dt entre corpus, IQR 3,1 à 4,5)</td>
+<td>il descend de 18 dt, donc le correctif agit, mais pas assez. À regarder après C11</td>
+</tr>
+<tr>
+<td>Faut-il marquer les cellules où la fondamentale a dépassé la zone de résonance ?</td>
+<td>elles n'ont plus de « voyelle » au sens propre : F1 y est la hauteur jouée. La marque <code>F1=f0</code> le dit déjà en partie ; un marquage explicite « hors espace par le haut » serait plus clair</td>
+</tr>
+<tr>
+<td>Le plancher doit-il valoir aussi pour F2 ?</td>
+<td>F2 est déjà au-dessus de F1, donc au-dessus de f0 par construction. Sans objet</td>
+</tr>
+</tbody>
+</table>
+<h2>Journal</h2>
+<ul>
+<li><strong>2026-10-27</strong> — Tâche C3. Le défaut est corrigé par une borne physique et non par un
+  réglage : aucun partiel n'existe sous la fondamentale, donc aucun maximum n'y est un formant.
+  Mesuré avant adoption sur les cinq corpus — 4 à 5 % des cellules bougent, 0 à 2 % changent de
+  voyelle, rien au grave ni au médium. Cartes des cinq corpus régénérées, anciennes conservées
+  dans <code>Archives/cartes-avant-C3-2026-10-27/</code>.</li>
+</ul>
+<footer>Référence formantique de l'orchestre — Yan Maresz · page produite par <code>construire_site.py</code> depuis les fiches et <code>Resultats-v7/</code>.</footer>
+</body>
+</html>

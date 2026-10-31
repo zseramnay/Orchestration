@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Les registres pédale des cuivres</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="bandeau"><h1>Les registres pédale des cuivres</h1></div>
+<p class="fil"><a href="../index.html">Sommaire</a> › Synthèses</p>
+<figure><img src="../figures/synthese-registres-pedale.png" alt="À gauche, la borne de lecture : le rapport F1/f0 descend de 10,8 au registre pédale à 1,0 à l&#x27;aigu, où la mesure cesse d" loading="lazy"><figcaption>À gauche, la borne de lecture : le rapport F1/f0 descend de 10,8 au registre pédale à 1,0 à l&#x27;aigu, où la mesure cesse d&#x27;être une couleur pour devenir la note. Le registre pédale, longtemps laissé « hors registre », est au contraire le plus propre. À droite, la variable que la pente contre f0 ne peut pas voir : la couleur monte de 9,5 demi-tons en médiane du doux au fort, pour les six instruments et les quatre corpus. Les cercles marquent les six accords stricts entre provenances distinctes, qui n&#x27;apparaissent qu&#x27;à nuance égale — quatre d&#x27;entre eux au doux.</figcaption></figure>
+<h1>Les cuivres, relancés avec leurs registres pédale</h1>
+<h2>Ce que la tâche demandait, et ce qu'elle a trouvé</h2>
+<p><code>registres.md</code> a reçu le 24 octobre une définition des sons pédale pour le cor, la trompette
+et les trombones, et un « extrême grave » pour les tubas. Avant cela ces notes tombaient dans
+la catégorie fourre-tout « hors registre » et personne ne les lisait.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Résultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ce qui était demandé</strong></td>
+<td>les pédales sont assignées, mais <strong>81 échantillons de trombone restent hors registre</strong>, et les cellules pédale sont trop minces pour la carte vocalique</td>
+</tr>
+<tr>
+<td><strong>Résultat de méthode</strong></td>
+<td>la carte vocalique d'un cuivre <strong>ne se lit que jusqu'au médium</strong> : au-dessus, son F1 <em>est</em> la fondamentale</td>
+</tr>
+<tr>
+<td><strong>Résultat de fond</strong></td>
+<td><strong>le désaccord des cuivres entre corpus était un désaccord de nuances.</strong> À nuance égale, 6 accords stricts entre provenances distinctes au lieu de 1</td>
+</tr>
+<tr>
+<td><strong>Grandeur neuve</strong></td>
+<td><strong>trombone basse, F1 = 403–412 Hz au doux</strong>, trois corpus de provenances distinctes, <strong>0,39 demi-ton</strong> — et elle n'apparaît qu'à nuance égale</td>
+</tr>
+<tr>
+<td><strong>Limite de la chaîne</strong></td>
+<td>sous 75 Hz les harmoniques ne sont plus séparables. Conséquence mesurée sur les résultats publiés : <strong>aucune</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>1. La couverture est incomplète, et la cause est nommée dans le fichier lui-même</h2>
+<p><code>registres.md</code> écrit : « trombones : sons pédale E1-A#1, grave E2-E3 (<strong>trou B1-D#2 sans
+barillet</strong>), médium E3-E4, aigu au-dessus ». Deux défauts en découlent.</p>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Corpus</th>
+<th>Notes hors registre</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trombone basse</td>
+<td>SOL</td>
+<td>25 — La#0, Do#1, Ré#1, <strong>Si1, Do2, Do#2, Ré2, Ré#2</strong></td>
+</tr>
+<tr>
+<td>Trombone basse</td>
+<td>ZSamples</td>
+<td>16 — Do1, Ré#1, <strong>Do2, Ré#2</strong></td>
+</tr>
+<tr>
+<td>Trombone basse</td>
+<td>VO</td>
+<td>9 — La#0, Do#1, <strong>Do#2</strong></td>
+</tr>
+<tr>
+<td>Trombone ténor</td>
+<td>SOL</td>
+<td>15 — <strong>Si1, Do2, Do#2, Ré2, Ré#2</strong></td>
+</tr>
+<tr>
+<td>Trombone ténor</td>
+<td>ZSamples</td>
+<td>16 — Si0, Do1, Ré#1, <strong>Do2, Ré#2</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Le trou B1-D#2 est réel sur le trombone ténor sans barillet, et il ne l'est pas sur le
+trombone basse</strong>, qui possède le barillet et joue ces notes. La ligne est écrite pour le ténor
+et appliquée aux deux. Second défaut, indépendant : <strong>les pédales des deux trombones descendent
+sous E1</strong> — le corpus contient La#0, Si0, Do1, Do#1, Ré#1, toutes sous la borne.</p>
+<blockquote>
+<p>Ce n'est pas une erreur de <code>registres.md</code> mais une ambiguïté de ce qu'il décrit : la
+tessiture <strong>notée</strong> d'un instrument conventionnel, ou l'étendue <strong>échantillonnée</strong> du corpus.
+Les deux ne coïncident pas, et la carte vocalique a besoin de la seconde. Proposition :
+une ligne par trombone, et des bornes de pédale prises sur le corpus.</p>
+</blockquote>
+<h2>2. Les cellules pédale sont trop minces — sauf une</h2>
+<p>La carte exige cinq notes par cellule et deux maxima survivants. Dynamiques réunies, le
+registre pédale pèse : trombone basse <strong>24 · 8 · 9</strong> notes selon le corpus, trombone ténor
+<strong>3 · 12</strong>, cor <strong>3 · 2</strong>, trompette <strong>2 · 9 · 4</strong>. Cellule par cellule — registre × nuance —
+presque tout retombe sous le seuil ou ne donne qu'un seul maximum.</p>
+<p><strong>Définir le registre pédale n'a donc pas ouvert de cellules lisibles</strong>, hors le trombone
+basse. C'est la réponse honnête à la tâche telle qu'elle était posée. Ce qui suit est ce que
+la relance a trouvé en plus.</p>
+<h2>3. Au-dessus du médium, F1 <em>est</em> la fondamentale</h2>
+<p>Test de la tâche C1 appliqué registre par registre aux six cuivres, tous corpus confondus : la
+pente de log2(F1) contre log2(f0) doit être nulle si F1 est une propriété du tuyau, et valoir 1
+si ce n'est que la hauteur jouée.</p>
+<table>
+<thead>
+<tr>
+<th>Registre</th>
+<th>Cellules</th>
+<th>Pente méd.</th>
+<th>r² méd.</th>
+<th>F1/f0</th>
+<th>r² ≥ 0,5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>sons pédale</strong></td>
+<td>5</td>
+<td>0,44</td>
+<td><strong>0,06</strong></td>
+<td><strong>10,8</strong></td>
+<td>0 / 5</td>
+</tr>
+<tr>
+<td><strong>extrême grave</strong></td>
+<td>4</td>
+<td>0,21</td>
+<td><strong>0,04</strong></td>
+<td>7,9</td>
+<td>0 / 4</td>
+</tr>
+<tr>
+<td><strong>grave</strong></td>
+<td>16</td>
+<td>−0,07</td>
+<td><strong>0,03</strong></td>
+<td>4,2</td>
+<td>0 / 16</td>
+</tr>
+<tr>
+<td><strong>médium</strong></td>
+<td>17</td>
+<td>0,16</td>
+<td><strong>0,05</strong></td>
+<td>2,1</td>
+<td>1 / 17</td>
+</tr>
+<tr>
+<td>aigu</td>
+<td>17</td>
+<td>0,42</td>
+<td>0,31</td>
+<td><strong>1,0</strong></td>
+<td>6 / 17</td>
+</tr>
+<tr>
+<td><strong>suraigu</strong></td>
+<td>5</td>
+<td><strong>1,03</strong></td>
+<td><strong>0,85</strong></td>
+<td><strong>1,0</strong></td>
+<td>3 / 5</td>
+</tr>
+</tbody>
+</table>
+<p>Le tableau se lit en une ligne : <strong>F1/f0 descend de 10,8 à 1,0, et au bout du chemin la pente
+vaut 1 avec r² = 0,85.</strong> Dans le suraigu d'un cuivre, la carte vocalique ne mesure pas une
+couleur, elle mesure la note. Dans l'aigu, six cellules sur dix-sept y sont déjà.</p>
+<p>La carte marquait déjà « F1=f0 » cellule par cellule. Ce qui est neuf est que <strong>c'est une
+propriété de registre, pas un accident de cellule</strong>, et qu'elle a une frontière : le haut du
+médium. Toute la suite ne porte donc que sur pédale + grave + médium.</p>
+<p>Et le renversement : <strong>le registre pédale est le terrain le plus propre de tous.</strong> F1 y vaut
+onze fois f0 — aucune confusion avec la fondamentale n'y est possible — et r² y tombe à 0,06.
+Le registre qu'on avait laissé « hors registre » est celui où la mesure est la moins ambiguë.</p>
+<h2>4. Mon premier verdict était vrai et trompeur</h2>
+<p>En réunissant pédale + grave + médium, f0 couvre 1,3 à 3,3 octaves — le levier maximal du test
+de pente. Le résultat est net : <strong>quinze mesures sur dix-sept donnent une pente dans ±0,25</strong>,
+donc une propriété indépendante de la note. Seule la trompette échoue, avec des pentes de signe
+non constant (−0,29 · +0,28 · −0,32).</p>
+<p>J'ai d'abord écrit que cela établissait une propriété fixe de l'instrument. <strong>C'est faux, et
+l'erreur est exactement celle que cette étude a déjà commise quatre fois : le contrôle ne
+partage pas le confondant de ce qu'il contrôle.</strong> La pente contre f0 contrôle la <em>note</em>. Elle
+ne dit rien de la <em>nuance</em>, puisque les nuances sont réunies dans chaque régression.</p>
+<table>
+<thead>
+<tr>
+<th>Instrument, corpus SOL</th>
+<th>doux</th>
+<th>moyen</th>
+<th>fort</th>
+<th><strong>doux → fort</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tuba basse</td>
+<td>149 Hz</td>
+<td>244 Hz</td>
+<td>364 Hz</td>
+<td><strong>15,5 dt</strong></td>
+</tr>
+<tr>
+<td>Trombone ténor</td>
+<td>374 Hz</td>
+<td>539 Hz</td>
+<td>716 Hz</td>
+<td><strong>11,2 dt</strong></td>
+</tr>
+<tr>
+<td>Trombone basse</td>
+<td>412 Hz</td>
+<td>663 Hz</td>
+<td>713 Hz</td>
+<td><strong>9,5 dt</strong></td>
+</tr>
+<tr>
+<td>Cor</td>
+<td>291 Hz</td>
+<td>350 Hz</td>
+<td>439 Hz</td>
+<td>7,1 dt</td>
+</tr>
+<tr>
+<td>Trompette</td>
+<td>653 Hz</td>
+<td>861 Hz</td>
+<td>950 Hz</td>
+<td>6,5 dt</td>
+</tr>
+<tr>
+<td>Tuba contrebasse</td>
+<td>245 Hz</td>
+<td>303 Hz</td>
+<td>308 Hz</td>
+<td>4,0 dt</td>
+</tr>
+</tbody>
+</table>
+<p><strong>F1 est plat contre la note et monte de 9,5 demi-tons en médiane avec la nuance.</strong> La
+progression est monotone pour les six instruments, dans les quatre corpus. Une grandeur peut
+donc avoir une pente nulle contre f0 et bouger de plus d'une octave : la platitude contre la
+note ne prouve pas qu'on mesure l'instrument.</p>
+<p><strong>Et l'étude le savait déjà.</strong> La partie II du chapitre de synthèse ouvre sa section 2 par
+« la dynamique déplace le spectre des cuivres de près d'une octave — c'est le résultat le plus
+robuste de la famille », avec le trombone ténor au grave à 355 → 718 Hz, soit ×2,02, répliqué
+sur un corpus indépendant à 359 → 707. Mon erreur n'a donc pas été d'ignorer un fait inconnu,
+mais de <strong>ne pas voir qu'un résultat déjà publié invalidait ma lecture du test de pente</strong>. Les
+chiffres ci-dessus ne sont pas une découverte : ce sont les mêmes, étendus aux six cuivres, à
+quatre corpus et aux trois registres bas réunis.</p>
+<p>Ce qui est neuf est la <strong>conséquence</strong>, que le chapitre énonçait sans l'exploiter : « toute
+mesure de cuivre agrégée sur plusieurs nuances est nécessairement étalée ». Si l'étalement
+vient de là, alors le désaccord entre corpus doit disparaître à nuance égale. C'est la section
+suivante, et c'est le résultat de cette tâche.</p>
+<h2>5. À nuance égale, la réplication apparaît</h2>
+<p>Si la nuance est la variable cachée, alors comparer deux corpus revient à comparer deux
+répartitions de nuances, et non deux instruments. On refait donc la comparaison <strong>nuance par
+nuance</strong>, en appliquant la règle de provenance de <code>_CORPUS-CROISES.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Accords stricts (&lt; 0,5 dt) entre provenances distinctes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nuances réunies</td>
+<td><strong>1</strong> — et douteux : tuba basse SOL/VN à 0,26 dt, mais IQR de 14,4 et 7,4 dt</td>
+</tr>
+<tr>
+<td><strong>à nuance égale</strong></td>
+<td><strong>6</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Les six :</p>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Nuance</th>
+<th>Les deux corpus</th>
+<th>Écart</th>
+<th>Pentes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Trombone basse</strong></td>
+<td><strong>doux</strong></td>
+<td>SOL 412 Hz (n=12) · <strong>VO</strong> 408 Hz (n=12)</td>
+<td><strong>0,15 dt</strong></td>
+<td>+0,07 · +0,08</td>
+</tr>
+<tr>
+<td><strong>Trombone basse</strong></td>
+<td><strong>doux</strong></td>
+<td><strong>VO</strong> 408 Hz · <strong>ZSamples</strong> 403 Hz (n=20)</td>
+<td><strong>0,24 dt</strong></td>
+<td>+0,08 · +0,10</td>
+</tr>
+<tr>
+<td><strong>Trombone basse</strong></td>
+<td><strong>doux</strong></td>
+<td>SOL 412 Hz · <strong>ZSamples</strong> 403 Hz</td>
+<td><strong>0,39 dt</strong></td>
+<td>+0,07 · +0,10</td>
+</tr>
+<tr>
+<td>Trombone basse</td>
+<td>fort</td>
+<td>SOL 713 Hz (n=63) · ZSamples 695 Hz</td>
+<td>0,43 dt</td>
+<td>−0,09 · +0,19</td>
+</tr>
+<tr>
+<td>Trompette</td>
+<td>doux</td>
+<td>SOL 654 Hz (n=19) · VN 658 Hz (n=57)</td>
+<td>0,12 dt</td>
+<td>−0,19 · −0,18</td>
+</tr>
+<tr>
+<td>Tuba basse</td>
+<td>doux</td>
+<td>SOL 150 Hz (n=24) · VO 147 Hz (n=13)</td>
+<td>0,30 dt</td>
+<td>−0,20 · −0,25</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Le trombone basse au doux est le résultat de cette tâche.</strong> Trois corpus de provenances
+distinctes — Yan_Adds (VSL), VO et ZSamples — donnent 412, 408 et 403 Hz : <strong>0,39 demi-ton
+d'étendue totale</strong>, avec des IQR de 2,6, 2,5 et 6,4 demi-tons et des pentes contre f0 de +0,07,
++0,08 et +0,10. Plat contre la note, serré, et répliqué trois fois.</p>
+<p>Et il réplique aussi au fort, à 713 et 695 Hz. <strong>La dépendance à la nuance est elle-même
+répliquée</strong> : le même instrument passe de ~408 à ~704 Hz, soit 9,5 demi-tons, dans deux
+bibliothèques indépendantes. Ce n'est donc pas un artefact de prise de son.</p>
+<p><strong>Quatre des six accords sont au doux.</strong> L'hypothèse la plus simple : au doux le spectre est
+pauvre et la couleur est dominée par la résonance propre de l'instrument ; au fort elle dépend
+du souffle du joueur et du niveau d'enregistrement, qui varient d'une bibliothèque à l'autre.
+À vérifier, mais le sens de l'effet est cohérent avec C5, où c'est au fort que les pics
+s'élargissent le plus.</p>
+<h2>6. La trompette : correction d'une corroboration trop vite écrite</h2>
+<p>J'avais écrit que l'échec de la trompette au test de pente corroborait son Q ≈ 1 de la tâche
+C6 — deux méthodes concluant qu'elle n'a pas de couleur localisée. <strong>C'est à retirer.</strong></p>
+<p>À nuance égale, la trompette au doux donne des pentes de −0,19 et −0,18 et un accord SOL/VN à
+<strong>0,12 demi-ton</strong>. Elle est donc plate et répliquée, comme les autres. Son échec en nuances
+réunies est un <strong>effet de nuance</strong>, pas une absence de couleur.</p>
+<p>Les deux mesures ne portent du reste pas sur la même chose : C6 mesure la <strong>largeur</strong> du pic
+(Q ≈ 1 : il ne sélectionne rien), celle-ci sa <strong>position</strong>. Un pic large peut avoir un centre
+parfaitement stable. Les deux résultats coexistent sans se corroborer.</p>
+<blockquote>
+<p>Cela recoupe directement le quatrième cas de la tâche C11 : chez la trompette et le cor,
+l'absence de second maximum est un effet de nuance — 0 % au fort. Trois tâches trouvent
+maintenant la même chose par trois chemins : <strong>chez les cuivres, rien ne doit être publié
+sans la nuance.</strong></p>
+</blockquote>
+<h2>7. Le tuba contrebasse : le piège que l'étude avait elle-même posé</h2>
+<p>Mesuré sur SOL et VN, le tuba contrebasse donne 280 et 279 Hz — <strong>0,06 demi-ton</strong>, sur 126 et
+96 notes et 3,3 et 2,6 octaves de fondamentale. C'est le plus bel accord de toute la tâche.</p>
+<p><strong>Il ne compte pas.</strong> <code>_CORPUS-CROISES.md</code> l'écrit depuis le 25 octobre : le côté « SOL » du
+tuba contrebasse vient de <code>Yan_Adds-Divers</code>, qui est du VSL, et VN est du VSL — 206 529
+échantillons de part et d'autre, corrélation 0,99591. <strong>Ce sont les mêmes enregistrements.</strong>
+La règle retenue est que la paire (SOL, VN) ne compte pas lorsque la source SOL est Yan_Adds,
+et c'est le cas ici. Le tuba contrebasse n'a toujours aucun second corpus.</p>
+<p>J'ai écrit la première version de ce document en annonçant ce chiffre comme une grandeur
+neuve, avant de vérifier la provenance. Le garde-fou a fonctionné parce qu'il était écrit ;
+c'est l'argument pour continuer à écrire les règles négatives au même rang que les résultats.</p>
+<h2>8. Une limite de la chaîne d'analyse, trouvée par accident</h2>
+<p><code>pic_proche</code> cherche le maximum dans ±2 bins autour de k·f0, soit une fenêtre de 5 bins de
+10,77 Hz. Quand l'écart entre deux harmoniques tombe sous cette largeur, les fenêtres de deux
+rangs voisins <strong>rendent le même pic</strong> : la liste des harmoniques contient des fréquences
+dupliquées.</p>
+<table>
+<thead>
+<tr>
+<th>Écart f0/bin</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th><strong>≥ 7</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Notes avec doublon</td>
+<td>100 %</td>
+<td>100 %</td>
+<td>100 %</td>
+<td>74 %</td>
+<td>51 %</td>
+<td>28 %</td>
+<td><strong>0 %</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Soit <strong>f0 ≥ 75 Hz</strong>. En dessous la mesure est contaminée, au-dessus jamais. Cela touche
+<strong>4,8 % des notes du corpus SOL</strong>, mais jusqu'à 40 % des notes d'un seul instrument :
+clarinette contrebasse 40 %, tuba basse avec sourdine et ensemble de contrebasses 34 %, tuba
+contrebasse et contrebasson 29 %, tuba basse 22 %, contrebasse avec sourdine 19 %, trombone
+basse 16 %, contrebasse et cor 8 %. Chez les cuivres, les registres touchés sont exactement
+les pédales et l'extrême grave.</p>
+<h3>Le contrôle doit partager le confondant de ce qu'il contrôle</h3>
+<p>Première tentative : retirer les notes sous 75 Hz et comparer les listes de formants. Huit
+instruments sur neuf changent, et <strong>le formant le plus grave disparaît chaque fois</strong> — le tuba
+contrebasse perd 370 Hz, le cor 466, le contrebasson 329. Conclusion apparente : les notes
+graves fabriquent de faux formants bas.</p>
+<p><strong>C'est faux.</strong> Retirer ces notes retire aussi le domaine grave : la tâche C2 a montré que le
+plancher de la méthode 8 vaut 3,2 à 5,7 fois f0_min. Le formant bas disparaît faute de
+données, pas faute de validité — et l'inverse est vrai, <strong>ce sont ces notes-là qui le portent</strong>.</p>
+<p>Le contrôle correct <strong>garde les notes et n'écarte que les fréquences répétées</strong> :</p>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Tel que publié</th>
+<th>Dédoublonné, mêmes notes</th>
+<th>Notes retirées <em>(confondu)</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cor</td>
+<td>466 739 2216 4183</td>
+<td><strong>466 739 2216 4183</strong></td>
+<td>739 987 2348 4183</td>
+</tr>
+<tr>
+<td>Trombone basse</td>
+<td>879 1759 3320</td>
+<td><strong>879 1759 3320</strong></td>
+<td>879 1759 3320</td>
+</tr>
+<tr>
+<td>Tuba basse</td>
+<td>466 659 987 1479</td>
+<td><strong>466 659 987 1479</strong></td>
+<td>698 987 1479 3134</td>
+</tr>
+<tr>
+<td>Clarinette contrebasse</td>
+<td>1108 1759 2635 4432</td>
+<td><strong>1108 1759 2635 4432</strong></td>
+<td>1660 2635 4695</td>
+</tr>
+<tr>
+<td>Tuba contrebasse</td>
+<td>370 879 1396</td>
+<td>370 <strong>932</strong> 1396 1974</td>
+<td>879 1567 2348 4695</td>
+</tr>
+<tr>
+<td>Contrebasson</td>
+<td>329 698 1174 4432</td>
+<td>329 <strong>659</strong> 1174 <strong>1863</strong></td>
+<td>698 1174 2635 4432</td>
+</tr>
+<tr>
+<td>Contrebasse</td>
+<td>466 1396 2635 3948</td>
+<td>466 <strong>1318</strong> 2635 3948</td>
+<td>1396 1974 2792 3948</td>
+</tr>
+</tbody>
+</table>
+<p>Et le test de non-régression, à la tolérance du résultat qu'il protège — <code>evaluer_migration.py</code>,
+celui-là même qui avait démenti la migration de fenêtre du 27 octobre :</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Référence</th>
+<th>Avec dédoublonnage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Formants route A</td>
+<td>23 sur 13 instruments</td>
+<td><strong>23 sur 13 instruments</strong></td>
+</tr>
+<tr>
+<td>Unissons formantiques</td>
+<td>3 — 1 108, 1 244, 2 216 Hz</td>
+<td><strong>3, les mêmes</strong></td>
+</tr>
+<tr>
+<td>Régions de convergence</td>
+<td>6</td>
+<td><strong>6</strong></td>
+</tr>
+<tr>
+<td>Instruments perdus / gagnés</td>
+<td>—</td>
+<td><strong>aucun</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Le dédoublonnage ne touche rien de ce qui est publié comme établi.</strong> Il déplace trois valeurs
+d'un ou deux pas de grille, toutes de statut « indéterminé », et toutes chez les trois
+instruments les plus graves. La raison est mécanique : <code>residu_local</code> retranche une médiane
+locale, et un point compté deux fois la repondère sans la déplacer.</p>
+<h3>Décision</h3>
+<p><code>DEDOUBLONNER</code> reste <strong>inactif par défaut</strong>, activable par <code>FORMANTS_DEDOUBLONNER=1</code>.</p>
+<p>Le motif est celui que la migration de fenêtre a appris : <strong>on ne migre pas sans gain.</strong> Le
+gain est nul sur tout ce qui est établi, et le coût ne l'est pas — il faudrait remesurer les
+cinq corpus et repropager vingt-deux fiches pour déplacer trois valeurs déjà marquées
+indéterminées. Le drapeau existe pour que la vérification soit reproductible, et le seuil est
+documenté dans <code>formants_lib.py</code> au point exact où il mord.</p>
+<p>En revanche les trois valeurs concernées — contrebasse 1 396, contrebasson 698, tuba
+contrebasse 879 Hz — <strong>doivent porter la mention</strong> qu'elles sont mesurées en partie sur des
+notes dont les harmoniques ne sont pas séparables.</p>
+<h2>Ce qui reste ouvert</h2>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Ce qui la trancherait</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Pourquoi quatre accords sur six sont-ils au doux ?</strong></td>
+<td>hypothèse : au fort la couleur dépend du joueur et du niveau. Testable en comparant l'écart entre corpus au doux et au fort sur les autres familles, où C5 ne trouve pas d'effet de nuance — si l'écart y est le même aux deux nuances, l'explication tient</td>
+</tr>
+<tr>
+<td><strong>Faut-il republier la carte vocalique des cuivres par nuance ?</strong></td>
+<td>oui selon ce document, et C11 le dit pour une autre raison. C'est une décision de publication, pas de mesure : les cellules existent déjà, c'est l'agrégation qui les réunit à tort</td>
+</tr>
+<tr>
+<td><strong>Le trou B1-D#2 des trombones</strong></td>
+<td>une ligne <code>registres.md</code> par trombone, bornes prises sur le corpus. Décision à prendre : le fichier décrit-il l'instrument ou l'échantillon ?</td>
+</tr>
+<tr>
+<td><strong>Le cor s'étale sur 6,8 demi-tons entre corpus</strong> et ne donne aucun accord strict, à aucune nuance</td>
+<td>c'est le cuivre le moins bien couvert de l'étude : la tâche C4 a montré qu'il manquait aussi à l'analyse LPC de mai</td>
+</tr>
+<tr>
+<td><strong>Le tuba basse donne 147–150 Hz au doux (SOL, VO) et 231–249 Hz (VN, ZSamples)</strong></td>
+<td>un écart de 7,5 demi-tons à nuance égale entre deux paires qui s'accordent chacune en interne : il y a vraisemblablement deux instruments différents sous le même nom</td>
+</tr>
+<tr>
+<td>La résolution de 10,77 Hz par bin</td>
+<td>fixée par NFFT ; une analyse à fenêtre plus longue sur les seules notes graves lèverait la limite, au prix d'une chaîne parallèle</td>
+</tr>
+</tbody>
+</table>
+<h2>Journal</h2>
+<ul>
+<li><strong>2026-10-28</strong> — Tâche C7. La demande — assigner les pédales — <strong>n'ouvre aucune cellule
+  lisible</strong> hors le trombone basse, et laisse 81 échantillons de trombone hors registre, la
+  ligne <code>registres.md</code> étant écrite pour le ténor sans barillet et appliquée aussi à la basse,
+  qui en a un. Mais la relance donne quatre choses. <strong>La carte vocalique d'un cuivre ne se lit
+  que jusqu'au médium</strong> (F1/f0 passe de 10,8 à 1,0, pente 1,03 et r² 0,85 au suraigu), et le
+  registre pédale est au contraire le plus propre. <strong>Mon premier verdict — quinze mesures fixes
+  sur dix-sept — était vrai et trompeur</strong> : la pente contre f0 contrôle la note et non la
+  nuance, et F1 monte de 9,5 demi-tons en médiane du doux au fort. <strong>À nuance égale la
+  réplication apparaît</strong> : six accords stricts contre un, et le trombone basse au doux donne
+  412 · 408 · 403 Hz sur trois provenances distinctes, soit 0,39 demi-ton. <strong>Deux corrections
+  de ma propre main</strong> : la corroboration trompette/C6 est retirée (son instabilité est un effet
+  de nuance, et C6 mesure la largeur quand ceci mesure la position) ; et le superbe accord du
+  tuba contrebasse à 0,06 demi-ton <strong>ne compte pas</strong>, SOL et VN étant la même bibliothèque —
+  la règle de provenance du 25 octobre l'avait prévu. Enfin une <strong>limite de résolution à 75 Hz</strong>
+  qui contamine jusqu'à 40 % des notes d'un instrument sans rien déplacer de ce qui est publié.</li>
+</ul>
+<footer>Référence formantique de l'orchestre — Yan Maresz · page produite par <code>construire_site.py</code> depuis les fiches et <code>Resultats-v7/</code>.</footer>
+</body>
+</html>

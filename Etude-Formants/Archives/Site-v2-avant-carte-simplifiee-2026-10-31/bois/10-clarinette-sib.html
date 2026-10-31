@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clarinette en Sib</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="bandeau"><h1>Clarinette en Sib</h1><p>Bb clarinet</p></div>
+<p class="fil"><a href="../index.html">Sommaire</a> › Les bois</p>
+<table class="sommaire"><tr><th>Classe</th><th>Provenance</th><th>Échantillons</th><th>Tessiture</th><th>Formants établis</th></tr><tr><td>B</td><td>IRCAM</td><td>126</td><td>D3–G6</td><td>1</td></tr></table><table class="sommaire"><tr><th>Formant</th><th>Note</th><th>Corpus</th><th>Localisation</th></tr><tr><td><b>3517 Hz</b></td><td>La7</td><td>SOL ZSamples Xsamples</td><td></td></tr></table><figure><img src="../figures/composite-clarinette-sib.png" alt="Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, ZSamples, Xsamples, VO). Un formant retenu est" loading="lazy"><figcaption>Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, ZSamples, Xsamples, VO). Un formant retenu est un maximum que deux corpus de provenances distinctes placent au même point de grille.</figcaption></figure>
+<figure><img src="../figures/vocalique-clarinette-sib.png" alt="Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyell" loading="lazy"><figcaption>Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyelles du français (Calliope, voix d&#x27;homme). Marqueur creux : cellule non assignable. Le nom de la voyelle dépend de la référence : en voix de femme, 41 % des cellules en changent et 11 instruments sur 20 changent de voyelle dominante. Le plancher de l&#x27;espace, lui, ne bouge pas. Corpus : SOL, ZSamples, Xsamples, VO.</figcaption></figure>
+<h1>Clarinette en Sib</h1>
+<blockquote>
+<h2>Statut des formants — révision du 26/10/2026</h2>
+<p>Confrontation des <strong>cinq corpus</strong>. Provenance de ce corpus : <strong>IRCAM (FullSOL2020)</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Formant</th>
+<th>Statut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1567 Hz</strong></td>
+<td>présent dans le seul corpus SOL</td>
+</tr>
+<tr>
+<td><strong>3517 Hz</strong></td>
+<td><strong>route A</strong> — SOL + ZSamples au même point de grille, 3517 Hz · zone vue par SOL, Xsamples, ZSamples</td>
+</tr>
+</tbody>
+</table>
+<p><code>etendue_residu</code> dans l'en-tête <strong>n'est pas une largeur de bande</strong> : c'est l'étendue du résidu de la méthode 8, souvent une butée de plage. Les largeurs mesurées sont dans <code>_LARGEURS-DE-BANDE.md</code>.</p>
+</blockquote>
+<h2>Méthode retenue, et pourquoi</h2>
+<blockquote>
+<p><strong>Méthode 8 — deux formants retenus. Réconcilie deux sources que l'ancienne étude
+croyait contradictoires.</strong> Voir <code>00-METHODE.md</code>.</p>
+</blockquote>
+<p>La clarinette en Sib est de classe B — ρ = 0,77, son spectre suit largement la hauteur, et
+l'ancienne étude avait raison sur ce point : « pas de formant fixe » au sens d'une résonance
+de corps unique. Mais avec 126 échantillons et une médiane de 22 harmoniques par note,
+l'agrégation détecte des zones de renforcement réelles, d'où la mention « partielle ».</p>
+<p>Le résultat le plus important de cet instrument est une réconciliation. L'ancienne étude
+présentait Backus et Meyer (1 500 Hz) comme contredisant Giesler (3 000–4 000 Hz), et
+expliquait l'écart par le fait que chaque source « capturait un registre différent ». La
+mesure montre autre chose : <strong>les deux sources mesuraient deux formants réels et distincts
+du même instrument.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Valeur</th>
+<th>Notre mesure</th>
+<th>Accord</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Backus (1969) et Meyer (2009)</td>
+<td>1 500 Hz</td>
+<td><strong>1 567 Hz</strong></td>
+<td><strong>excellent</strong></td>
+</tr>
+<tr>
+<td>Giesler (1985)</td>
+<td>3 000–4 000 Hz</td>
+<td><strong>3 517 Hz</strong></td>
+<td><strong>excellent</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Les deux passent les deux tests de rejet indépendamment. Il n'y avait pas de désaccord à
+expliquer, seulement deux formants à distinguer.</p>
+<h2>Formants</h2>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>Résidu</th>
+<th>Largeur −3 dB</th>
+<th>Notes distinctes</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1 567 Hz</strong></td>
+<td>+6,7 dB</td>
+<td>1 108–1 759 Hz</td>
+<td>8</td>
+<td><strong>retenu</strong></td>
+</tr>
+<tr>
+<td><strong>3 517 Hz</strong></td>
+<td>+4,9 dB</td>
+<td>2 792–5 915 Hz</td>
+<td>22</td>
+<td><strong>retenu</strong></td>
+</tr>
+<tr>
+<td>4 974 Hz</td>
+<td>+4,0 dB</td>
+<td>2 635–5 915 Hz</td>
+<td>26</td>
+<td>fragile</td>
+</tr>
+</tbody>
+</table>
+<h2>Tests de rejet</h2>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>k = 2–3</th>
+<th>k = 4–7</th>
+<th>k = 8–15</th>
+<th>k ≥ 16</th>
+<th>Robustesse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 567 Hz</td>
+<td>+11,3</td>
+<td>+6,6</td>
+<td>+5,1</td>
+<td>—</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>3 517 Hz</td>
+<td>+7,5</td>
+<td>+5,0</td>
+<td>+3,8</td>
+<td>+6,8</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>4 974 Hz</td>
+<td>—</td>
+<td>+5,9</td>
+<td>+5,5</td>
+<td>+2,8</td>
+<td><strong>non</strong></td>
+</tr>
+<tr>
+<td>1 108 Hz</td>
+<td><strong>+15,4</strong></td>
+<td>+4,3</td>
+<td>—</td>
+<td>—</td>
+<td><strong>non</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Le rejet de 1 108 Hz mérite attention. Son résidu de +15,4 dB aux rangs 2–3 est le plus
+élevé de tout le corpus, mais il s'effondre à +4,3 dB aux rangs 4–7 et n'est robuste à aucun
+changement de fenêtre. C'est la signature d'un effet de hauteur : les notes dont
+l'harmonique 2 ou 3 tombe vers 1 100 Hz sont les notes du registre de gorge et du clairon,
+et c'est leur propre comportement qui est mesuré, non une résonance de l'instrument. Noter
+que 1 108 Hz se situe par ailleurs dans la bande à −3 dB du formant retenu à 1 567 Hz : il
+peut aussi s'agir du flanc de celui-ci.</p>
+<h2>Descripteurs globaux</h2>
+<table>
+<thead>
+<tr>
+<th>Descripteur</th>
+<th>Valeur</th>
+<th>Lecture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pente spectrale médiane</td>
+<td>−18,5 dB/octave (σ 5,4)</td>
+<td>forte dispersion : registres contrastés</td>
+</tr>
+<tr>
+<td>Harmoniques par note</td>
+<td>22 [7–74]</td>
+<td>correct</td>
+</tr>
+<tr>
+<td><strong>Balance impair − pair</strong></td>
+<td><strong>+0,7 dB</strong></td>
+<td>positive, mais la plus faible des clarinettes</td>
+</tr>
+<tr>
+<td>Enveloppe vraie (méthode 6)</td>
+<td>678 Hz, σ 531</td>
+<td>σ élevé : classe B confirmée</td>
+</tr>
+</tbody>
+</table>
+<p>La balance de +0,7 dB seulement est un résultat à souligner : la clarinette en Sib est, des
+quatre clarinettes, celle dont la dominance des harmoniques impairs est la <strong>moins</strong> marquée
+(+0,7 contre +4,2, +4,5 et +5,1 dB). Mesurée sur toute la tessiture, la dominance impaire
+s'atténue parce que le registre du clairon et le suraigu, où l'instrument joue sur le
+troisième mode, y contribuent autant que le chalumeau. C'est une raison supplémentaire de
+mener l'analyse par registre.</p>
+<h2>Comparaison avec la littérature</h2>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Valeur annoncée</th>
+<th>Notre mesure</th>
+<th>Accord</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Backus (1969)</td>
+<td>1 500 Hz</td>
+<td>1 567 Hz</td>
+<td><strong>excellent</strong></td>
+</tr>
+<tr>
+<td>Meyer (2009)</td>
+<td>1 500 Hz</td>
+<td>1 567 Hz</td>
+<td><strong>excellent</strong></td>
+</tr>
+<tr>
+<td>Giesler (1985)</td>
+<td>3 000–4 000 Hz, <em>i-ähnlich</em></td>
+<td>3 517 Hz</td>
+<td><strong>excellent</strong></td>
+</tr>
+<tr>
+<td>Ancien pipeline <code>specenv</code></td>
+<td>F1 = 463 Hz, zone /o/</td>
+<td>—</td>
+<td>hauteur médiane (rapport 0,88)</td>
+</tr>
+<tr>
+<td>Ancien Fp</td>
+<td>1 412 Hz</td>
+<td>1 567 Hz</td>
+<td>proche</td>
+</tr>
+<tr>
+<td>Cepstre mai 2026 (ordre 80)</td>
+<td>1 442 Hz, 44 % sur un harmonique</td>
+<td>1 567 Hz</td>
+<td>proche mais non valide</td>
+</tr>
+</tbody>
+</table>
+<p>L'ancien F1 de 463 Hz plaçait la clarinette dans la zone /o/, et c'est ce qui fondait sa
+« convergence quasi-parfaite Δ = 11 Hz » avec le cor anglais (452 Hz). Les deux valeurs
+étant des médianes de tessiture dans des bins voisins, cette convergence est écartée.</p>
+<h2>Registres</h2>
+<p><code>Data/registres.md</code> : chalumeau D3–D4 · gorge D#4–G#4 · clairon A4–A#5 · suraigu à partir
+de B5.</p>
+<p>Mesure par registre : <strong>non effectuée, et prioritaire pour cet instrument</strong> — c'est la
+famille où la dispersion de pente et la variation de la balance impair/pair l'exigent le
+plus.</p>
+<p>L'ancienne analyse par registre donnait F1 = 215 Hz au chalumeau, 355 Hz à la gorge, 581 Hz
+au clairon et 1 152 Hz au suraigu : une progression qui suit exactement les fondamentales
+des registres. Ce n'étaient pas des formants.</p>
+<!-- DEBUT-TRAVAUX-27-10 -->
+<h2>Ce que les travaux des 27 et 28/10/2026 disent de cet instrument</h2>
+<h3>Corroboration par le LPC, note par note</h3>
+<p>Rang du formant dans son propre spectre : 50 % signifie que les deux méthodes ne s'accordent pas mieux là qu'ailleurs. Voir <code>../_APPARIEMENT-LPC.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Formant</th>
+<th>Statut</th>
+<th>Rang</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1567 Hz</td>
+<td>1 corpus</td>
+<td>29,4 %</td>
+</tr>
+<tr>
+<td>3517 Hz</td>
+<td>route A</td>
+<td>73,5 %</td>
+</tr>
+</tbody>
+</table>
+<h3>Effet de la nuance sur la localisation</h3>
+<p>Part de pics <strong>non localisables</strong> — l'enveloppe n'y redescend pas de 3 dB des deux côtés, donc le formant n'a pas de largeur mesurable. Voir <code>../_LARGEUR-PAR-REGISTRE.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>doux</th>
+<th>moyen</th>
+<th>fort</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>tous registres</strong></td>
+<td>15 %</td>
+<td>20 %</td>
+<td>0 %</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Effet doux → fort : +15 points.</strong> La localisation s'améliore en jeu fort.</p>
+<h3>La carte vocalique corrobore-t-elle les formants ?</h3>
+<p><strong>Non.</strong> F2 6,7 % contre 5,7 % au témoin — soit le hasard, ou moins. Les deux méthodes ne mesurent pas la même région du spectre : F1 se situe en médiane à 15,5 demi-tons du formant établi le plus proche, parce que la méthode 8 ne mesure rien sous 3,2 à 5,7 fois f0_min.</p>
+<p>Témoin : les propres formants de l'instrument transposés de ±2 à ±6 demi-tons, ce qui conserve leur nombre et leur espacement. Voir <code>../_COINCIDENCES-F2.md</code>.</p>
+<h3>Dans la table des mélanges</h3>
+<p>21 paires calculées. <strong>Fusion moyenne : 18 %.</strong> Voir <code>../_MELANGES.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Couleur nouvelle avec</th>
+<th></th>
+<th>Se fond avec</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Basson</td>
+<td>42 %</td>
+<td>Clarinette basse en Sib</td>
+<td>72 %</td>
+</tr>
+<tr>
+<td>Violon</td>
+<td>32 %</td>
+<td>Tuba basse</td>
+<td>65 %</td>
+</tr>
+<tr>
+<td>Trompette en Ut</td>
+<td>28 %</td>
+<td>Tuba contrebasse</td>
+<td>62 %</td>
+</tr>
+</tbody>
+</table>
+<!-- FIN-TRAVAUX-27-10 -->
+
+<h2>Observations pour l'orchestration</h2>
+<p>À compléter. Éléments acquis et pistes :</p>
+<ul>
+<li><strong>Flûte–clarinette à l'octave, flûte au-dessus</strong>, l'une des doublures les plus employées
+  du répertoire classique : la fondamentale de la flûte tombe sur l'harmonique 2 de la
+  clarinette, précisément le partiel pair affaibli par le tuyau cylindrique fermé. La flûte
+  comble le spectre lacunaire de la clarinette. La balance mesurée, −4,2 dB pour la flûte
+  contre +0,7 dB pour la clarinette, donne la base quantitative du raisonnement. Ce mécanisme
+  est invisible à toute comparaison F1 contre F1.</li>
+<li><strong>Flûte–clarinette à l'unisson</strong> : deux instruments de classe B jouant la même note ont par
+  construction le même pic suiveur. La convergence est réelle et triviale, et l'ancienne
+  matrice ne pouvait pas la voir puisqu'elle comparait des médianes globales.</li>
+<li>Le formant à 3 517 Hz est proche du candidat de la clarinette en Mib (3 320 Hz) : parenté
+  de famille probable, à confirmer quand le corpus de la Mib sera élargi.</li>
+<li>La convergence cor anglais–clarinette Sib de l'ancienne étude est écartée.</li>
+</ul>
+<h2>Graphiques</h2>
+<p>Aucun à ce stade. Figures prévues dans <code>../Versions-html-and-docx/media/</code> :</p>
+<table>
+<thead>
+<tr>
+<th>Fichier prévu</th>
+<th>Contenu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>clarinette_sib_composite.png</code></td>
+<td>enveloppe composite avec les deux formants retenus</td>
+</tr>
+<tr>
+<td><code>clarinette_sib_registres.png</code></td>
+<td>enveloppes par registre — <strong>prioritaire</strong></td>
+</tr>
+<tr>
+<td><code>clarinette_sib_litterature.png</code></td>
+<td>positions de Backus/Meyer et de Giesler reportées sur l'enveloppe composite — figure de réconciliation</td>
+</tr>
+<tr>
+<td><code>flute_clarinette_peigne.png</code></td>
+<td>partagée avec la flûte : peignes harmoniques à l'octave</td>
+</tr>
+</tbody>
+</table>
+<p>La figure de réconciliation a une valeur pédagogique forte : elle montre que deux sources
+jugées contradictoires pendant toute l'étude antérieure décrivaient en fait deux formants
+distincts du même instrument.</p>
+<h2>Journal</h2>
+<ul>
+<li><strong>2026-10-23</strong> — Deux formants retenus : 1 567 Hz (Backus, Meyer) et 3 517 Hz (Giesler).
+  Le désaccord supposé entre ces sources est levé : ce sont deux formants réels.</li>
+<li><strong>2026-10-23</strong> — Candidat à 1 108 Hz rejeté malgré un résidu de +15,4 dB aux rangs 2–3 :
+  effet de hauteur caractéristique, ou flanc du formant à 1 567 Hz.</li>
+<li><strong>2026-10-23</strong> — Balance impair/pair de +0,7 dB seulement, la plus faible des clarinettes,
+  parce que la mesure porte sur toute la tessiture et non sur le seul chalumeau.</li>
+</ul>
+<footer>Référence formantique de l'orchestre — Yan Maresz · page produite par <code>construire_site.py</code> depuis les fiches et <code>Resultats-v7/</code>.</footer>
+</body>
+</html>

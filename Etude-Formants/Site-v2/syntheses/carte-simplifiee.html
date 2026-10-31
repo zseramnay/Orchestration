@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carte vocalique simplifiée — pour l&#x27;enseignement</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="bandeau"><h1>Carte vocalique simplifiée — pour l&#x27;enseignement</h1></div>
+<p class="fil"><a href="../index.html">Sommaire</a> › Synthèses</p>
+<figure><img src="../figures/simple-synthese-bois.png" alt="Les bois, registre par registre, devant les six zones vocaliques de la première étude. Barre pleine : zone stable. Hachu" loading="lazy"><figcaption>Les bois, registre par registre, devant les six zones vocaliques de la première étude. Barre pleine : zone stable. Hachurée : la zone suit la note. Contour : non tranché. Barre claire : zone secondaire. Trait gris : tessiture du registre.</figcaption></figure>
+<figure><img src="../figures/simple-synthese-cuivres.png" alt="Les cuivres, avec deux lignes par registre — p (doux) et f (fort) : la nuance y déplace la zone principale de près d&#x27;une" loading="lazy"><figcaption>Les cuivres, avec deux lignes par registre — p (doux) et f (fort) : la nuance y déplace la zone principale de près d&#x27;une octave.</figcaption></figure>
+<figure><img src="../figures/simple-synthese-cordes.png" alt="Les cordes. Résonance de caisse stable à l&#x27;alto au grave et au violoncelle au médium ; au-dessus, la zone suit la note." loading="lazy"><figcaption>Les cordes. Résonance de caisse stable à l&#x27;alto au grave et au violoncelle au médium ; au-dessus, la zone suit la note.</figcaption></figure>
+<h1>Carte vocalique simplifiée</h1>
+<blockquote>
+<p><strong>Aucune mesure nouvelle.</strong> Ces figures reprennent les valeurs de la
+<a href="carte-vocalique.html">carte vocalique</a> (méthode 12) et des <a href="formants-etablis.html">formants
+établis</a>. Seule la présentation change : un axe des
+fréquences en hertz, les six zones vocaliques de la première étude en fond,
+à la manière de Meyer, de Reuter ou de McCarty. C'est la figure du cours
+d'orchestration ; la carte en Bark reste la figure de l'étude.</p>
+</blockquote>
+<h2>Comment la lire</h2>
+<p>Chaque ligne est un <strong>registre</strong> de l'instrument, tel que le définit
+<code>registres.md</code>. Pour les bois et les cordes, les dynamiques sont réunies : leur
+effet y est faible. Pour les <strong>cuivres</strong>, chaque registre a deux lignes, <strong>p</strong>
+(doux) et <strong>f</strong> (fort), parce que la dynamique y déplace la zone principale de
+près d'une octave — une moyenne n'aurait pas de sens.</p>
+<table>
+<thead>
+<tr>
+<th>Signe</th>
+<th>Sens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>barre pleine</strong></td>
+<td>zone principale <strong>stable</strong> : elle ne bouge pas quand la note change. C'est ce que l'orchestrateur appelle un formant.</td>
+</tr>
+<tr>
+<td><strong>barre hachurée</strong></td>
+<td>la zone principale <strong>suit la note jouée</strong> : c'est la fondamentale, ou l'harmonique le plus fort. La couleur du registre est sa hauteur, non une résonance de l'instrument.</td>
+</tr>
+<tr>
+<td><strong>contour seul</strong></td>
+<td><strong>non tranché</strong> : la zone ne suit pas visiblement la note, mais sa stabilité n'est pas montrée. À lire comme une tendance.</td>
+</tr>
+<tr>
+<td><strong>barre claire</strong></td>
+<td>zone secondaire</td>
+</tr>
+<tr>
+<td><strong>trait gris</strong></td>
+<td>tessiture du registre : les fondamentales qu'il couvre. Quand la barre principale est posée dessus, elle suit la note.</td>
+</tr>
+<tr>
+<td><strong>losange / tireté</strong></td>
+<td>formant fixe établi par deux corpus de provenances distinctes</td>
+</tr>
+<tr>
+<td><strong>*</strong> ou <em>(instable)</em></td>
+<td>la zone varie de plus de 2 Bark à l'intérieur du registre : la valeur est une tendance</td>
+</tr>
+</tbody>
+</table>
+<p>La largeur d'une barre est la dispersion interquartile mesurée dans le
+registre, reconvertie en hertz. Elle est plafonnée à 3 Bark à l'affichage.</p>
+<p><strong>Comment « stable » est décidé.</strong> Une zone est dite stable quand elle reste à
+trois demi-tons près d'un registre au registre voisin, à nuance égale, alors que
+les fondamentales y montent d'environ une octave. Pour les cordes, les
+conclusions du test de pente note par note (<code>_RESONANCE-DE-CAISSE.md</code>) priment :
+alto au grave et violoncelle au médium stables, alto au médium qui suit la note,
+violon, violoncelle et contrebasse au grave non tranchés. Pour les cuivres, l'aigu et le
+suraigu sont toujours lus comme « suit la note » : F1 y vaut la fondamentale à
+peu près (borne de lecture établie en C7, <code>_REGISTRES-PEDALE.md</code>). Une zone « suit la
+note » quand la carte vocalique la marque <code>F1=f0</code>, ou, pour les cellules à un
+seul maximum où ce test n'existe pas, quand elle tombe dans la tessiture du
+registre sans tenir d'un registre à l'autre.</p>
+<h2>Ce que la carte montre d'un coup d'œil</h2>
+<p><strong>Le basson est le cas d'école.</strong> Sa zone principale reste entre 500 et 590 Hz
+sur toute sa tessiture, dans la zone <strong>o — Plénitude</strong> : c'est le formant de
+basson de la littérature. Seuls le contrebasson et la clarinette contrebasse
+tiennent eux aussi une zone fixe, plus bas, dans la zone <strong>u</strong>.</p>
+<p><strong>La plupart des bois aigus n'ont pas de voyelle propre.</strong> Flûte, hautbois,
+clarinettes au-dessus du chalumeau : la zone principale est hachurée. Ces
+instruments prennent la couleur de la zone où se trouve la note. On
+l'orchestre par le registre, non par un formant.</p>
+<p><strong>Les cuivres changent de zone avec la nuance.</strong> Au registre grave, le trombone
+ténor est vers 350 Hz (<strong>u</strong>) au doux et vers 720 Hz (<strong>å</strong>) au fort. Ce n'est
+pas la note qui monte : c'est le spectre qui s'enrichit. Au fort, la zone tient
+d'un registre à l'autre — cor vers 440 Hz, trombones vers 700 Hz, tubas vers
+300–400 Hz.</p>
+<p><strong>Les cordes ont une résonance de caisse là où leur tessiture passe sous elle.</strong>
+Alto au grave (vers 375–395 Hz), violoncelle au médium (vers 215–220 Hz). Plus
+haut, elles suivent la note comme les bois.</p>
+<h2>Ce que la carte ne dit pas</h2>
+<p><strong>Les noms de zone ne sont pas les voyelles françaises du site.</strong> La première
+étude, comme Meyer, nomme une voyelle d'après <strong>une</strong> zone d'énergie. La carte
+vocalique du site nomme la voyelle française la plus proche d'après le
+<strong>couple</strong> (F1, F2), en voix d'homme. Le basson est ici dans la zone <strong>o</strong> ;
+sur la carte en Bark, sa voyelle est /œ/–/ɔ/. Les deux lectures ne se
+contredisent pas : elles ne répondent pas à la même question.</p>
+<p><strong>Les registres trop peu peuplés sont absents</strong> (moins de cinq échantillons) :
+suraigu du piccolo, aigu du contrebasson, aigu du trombone basse.</p>
+<p><strong>Un seul corpus.</strong> Les figures sont tracées sur SOL2020 + Yan_Adds. La
+comparaison entre corpus est sur la page <a href="verification-vocalique.html">La carte, corpus contre
+corpus</a>.</p>
+<footer>Référence formantique de l'orchestre — Yan Maresz · page produite par <code>construire_site.py</code> depuis les fiches et <code>Resultats-v7/</code>.</footer>
+</body>
+</html>

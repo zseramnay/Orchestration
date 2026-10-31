@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cor en Fa</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="bandeau"><h1>Cor en Fa</h1><p>Horn in F</p></div>
+<p class="fil"><a href="../index.html">Sommaire</a> › Les cuivres</p>
+<table class="sommaire"><tr><th>Classe</th><th>Provenance</th><th>Échantillons</th><th>Tessiture</th><th>Formants établis</th></tr><tr><td>A/B</td><td>IRCAM</td><td>134</td><td>G1–F5</td><td>1</td></tr></table><table class="sommaire"><tr><th>Formant</th><th>Note</th><th>Corpus</th><th>Localisation</th></tr><tr><td><b>2216 Hz</b></td><td>Do♯7</td><td>SOL Xsamples VN</td><td></td></tr></table><figure><img src="../figures/composite-cor.png" alt="Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, ZSamples, Xsamples, VN). Un formant retenu est" loading="lazy"><figcaption>Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, ZSamples, Xsamples, VN). Un formant retenu est un maximum que deux corpus de provenances distinctes placent au même point de grille.</figcaption></figure>
+<figure><img src="../figures/vocalique-cor.png" alt="Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyell" loading="lazy"><figcaption>Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyelles du français (Calliope, voix d&#x27;homme). Marqueur creux : cellule non assignable. Le nom de la voyelle dépend de la référence : en voix de femme, 41 % des cellules en changent et 11 instruments sur 20 changent de voyelle dominante. Le plancher de l&#x27;espace, lui, ne bouge pas. Corpus : SOL, ZSamples, Xsamples, VN.</figcaption></figure>
+<h1>Cor en Fa</h1>
+<blockquote>
+<h2>Statut des formants — révision du 26/10/2026</h2>
+<p>Confrontation des <strong>cinq corpus</strong>. Provenance de ce corpus : <strong>IRCAM (FullSOL2020)</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Formant</th>
+<th>Statut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>739 Hz</strong></td>
+<td>présent dans le seul corpus SOL</td>
+</tr>
+<tr>
+<td><strong>2216 Hz</strong></td>
+<td><strong>route A</strong> — SOL + VN au même point de grille, 2216 Hz · zone vue par SOL, VN, Xsamples</td>
+</tr>
+<tr>
+<td><strong>4183 Hz</strong></td>
+<td>présent dans le seul corpus SOL</td>
+</tr>
+</tbody>
+</table>
+<p><code>etendue_residu</code> dans l'en-tête <strong>n'est pas une largeur de bande</strong> : c'est l'étendue du résidu de la méthode 8, souvent une butée de plage. Les largeurs mesurées sont dans <code>_LARGEURS-DE-BANDE.md</code>.</p>
+</blockquote>
+<h2>Méthode retenue, et pourquoi</h2>
+<blockquote>
+<p><strong>Méthode 8 — trois formants retenus.</strong> Voir <code>00-METHODE.md</code>.</p>
+</blockquote>
+<p>Le cor présente un profil singulier qu'il faut signaler d'emblée : <strong>ρ = 0,71</strong>, une valeur
+élevée, qui le classerait parmi les instruments suiveurs. Pourtant, son enveloppe vraie
+note par note donne <strong>388 Hz avec σ = 131 Hz seulement</strong> — une stabilité comparable à celle
+du basson. Les deux indicateurs semblent se contredire.</p>
+<p>L'explication tient à la nature du spectre des cuivres : leur enrichissement harmonique
+dépend fortement de la <strong>dynamique</strong> plus que du registre. Le pic de l'enveloppe vraie se
+déplace donc avec la force de jeu, et comme les échantillons couvrent toutes les dynamiques
+sur toute la tessiture, la corrélation avec f0 capte en partie cet effet. Le ρ élevé n'indique
+pas ici un spectre suiveur au sens des flûtes, mais une dépendance à la dynamique.</p>
+<p>C'est pourquoi la classe est notée <strong>A/B</strong> et la pertinence formantique maintenue
+« pertinente » : les trois formants détectés passent les deux tests, et l'instrument offre
+une médiane de <strong>56 harmoniques par note</strong>, ce qui rend l'agrégation très fiable.</p>
+<p>Conséquence méthodologique : pour les cuivres, une analyse <strong>par dynamique</strong> est plus
+nécessaire qu'une analyse par registre. C'est l'inverse des clarinettes.</p>
+<h2>Formants</h2>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>Résidu</th>
+<th>Largeur −3 dB</th>
+<th>Notes distinctes</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>739 Hz</strong></td>
+<td>+5,4 dB</td>
+<td>554–1 174 Hz</td>
+<td>12</td>
+<td><strong>retenu</strong></td>
+</tr>
+<tr>
+<td><strong>2 216 Hz</strong></td>
+<td>+3,7 dB</td>
+<td>large</td>
+<td>32</td>
+<td><strong>retenu</strong></td>
+</tr>
+<tr>
+<td><strong>4 183 Hz</strong></td>
+<td>+3,6 dB</td>
+<td>large</td>
+<td>41</td>
+<td><strong>retenu</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>Tests de rejet</h2>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>k = 2–3</th>
+<th>k = 4–7</th>
+<th>k = 8–15</th>
+<th>k ≥ 16</th>
+<th>Robustesse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>739 Hz</td>
+<td>+6,9</td>
+<td>+5,3</td>
+<td>+7,2</td>
+<td>—</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>2 216 Hz</td>
+<td>—</td>
+<td>+3,8</td>
+<td>+2,3</td>
+<td>+3,9</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>4 183 Hz</td>
+<td>—</td>
+<td>+6,8</td>
+<td>+4,9</td>
+<td>+4,1</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>466 Hz</td>
+<td>+4,5</td>
+<td>+2,5</td>
+<td>+3,3</td>
+<td>—</td>
+<td><strong>non</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Le formant à 739 Hz est le mieux circonscrit : bande à −3 dB de 554 à 1 174 Hz, résidu
+supérieur à +5 dB sur trois groupes de rang.</p>
+<p>Le rejet de 466 Hz est un cas limite : ses résidus sont positifs et cohérents sur trois
+groupes, mais il ne survit pas au changement de fenêtre de redressement. Il se situe par
+ailleurs dans la bande du formant à 739 Hz, dont il pourrait être le flanc. <strong>À revoir lors
+de l'analyse par dynamique</strong>, car c'est la zone où l'ancien pipeline plaçait le F1 du cor
+(388 Hz) et où toutes les sources classiques le situent.</p>
+<h2>Descripteurs globaux</h2>
+<table>
+<thead>
+<tr>
+<th>Descripteur</th>
+<th>Valeur</th>
+<th>Lecture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pente spectrale médiane</td>
+<td>−16,8 dB/octave (σ 2,9)</td>
+<td>régulière</td>
+</tr>
+<tr>
+<td>Harmoniques par note</td>
+<td>56 [15–90]</td>
+<td>spectre très riche</td>
+</tr>
+<tr>
+<td>Balance impair − pair</td>
+<td>−3,8 dB</td>
+<td>tuyau conique à pavillon</td>
+</tr>
+<tr>
+<td><strong>Enveloppe vraie (méthode 6)</strong></td>
+<td><strong>388 Hz, σ 131</strong></td>
+<td>très stable, malgré un ρ élevé</td>
+</tr>
+</tbody>
+</table>
+<h2>Comparaison avec la littérature</h2>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Valeur annoncée</th>
+<th>Notre mesure</th>
+<th>Accord</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Backus (1969)</td>
+<td>400–500 Hz</td>
+<td>env. vraie 388 Hz ; candidat 466 rejeté</td>
+<td><strong>plausible</strong></td>
+</tr>
+<tr>
+<td>Giesler (1985)</td>
+<td>250–500 Hz, <em>o-ähnlich</em></td>
+<td>env. vraie 388 Hz</td>
+<td><strong>bon</strong></td>
+</tr>
+<tr>
+<td>Meyer (2009)</td>
+<td>~450 Hz, /o/</td>
+<td>env. vraie 388 Hz ; candidat 466 rejeté</td>
+<td><strong>plausible</strong></td>
+</tr>
+<tr>
+<td>Ancien pipeline <code>specenv</code></td>
+<td>F1 = 388 Hz</td>
+<td>env. vraie 388 Hz</td>
+<td><strong>identique</strong></td>
+</tr>
+<tr>
+<td>Ancien Fp</td>
+<td>738 Hz</td>
+<td><strong>formant retenu à 739 Hz</strong></td>
+<td><strong>identique</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Ce cas est le plus favorable de tout le corpus aux mesures antérieures, et il faut le dire :
+l'ancien F1 (388 Hz) coïncide exactement avec notre enveloppe vraie, et l'ancien Fp (738 Hz)
+coïncide exactement avec notre premier formant retenu (739 Hz).</p>
+<p>L'explication est cohérente avec le diagnostic général. D'une part, la tessiture du cor
+descend à 49 Hz et sa majeure partie reste sous la limite de validité du lissage Orchidea
+(276 Hz), contrairement aux instruments aigus. D'autre part, le rapport entre l'ancien F1 et
+le milieu géométrique de la tessiture valait <strong>1,87</strong> pour le cor, l'un des plus élevés du
+corpus : c'était le signe que la valeur mesurait une résonance réelle et non la hauteur
+médiane. Les anciens chiffres du cor étaient donc justes — par chance de configuration, non
+par validité de méthode.</p>
+<p>Les formants à 2 216 et 4 183 Hz sont en revanche inédits.</p>
+<h2>Registres</h2>
+<p><code>Data/registres.md</code> : sons pédale F1–A1 · grave A#1–B2 · médium C3–E4 · aigu F4–F5 ·
+suraigu à partir de F#5.</p>
+<p>Mesure par registre : non effectuée. <strong>Priorité moindre que l'analyse par dynamique</strong> pour
+cet instrument (voir ci-dessus).</p>
+<!-- DEBUT-TRAVAUX-27-10 -->
+<h2>Ce que les travaux des 27 et 28/10/2026 disent de cet instrument</h2>
+<h3>Corroboration par le LPC, note par note</h3>
+<p>Rang du formant dans son propre spectre : 50 % signifie que les deux méthodes ne s'accordent pas mieux là qu'ailleurs. Voir <code>../_APPARIEMENT-LPC.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Formant</th>
+<th>Statut</th>
+<th>Rang</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>739 Hz</td>
+<td>1 corpus</td>
+<td>84,6 %</td>
+</tr>
+<tr>
+<td>2216 Hz</td>
+<td>route A</td>
+<td>30,8 %</td>
+</tr>
+<tr>
+<td>4183 Hz</td>
+<td>1 corpus</td>
+<td>0,0 %</td>
+</tr>
+</tbody>
+</table>
+<h3>Effet de la nuance sur la localisation</h3>
+<p>Part de pics <strong>non localisables</strong> — l'enveloppe n'y redescend pas de 3 dB des deux côtés, donc le formant n'a pas de largeur mesurable. Voir <code>../_LARGEUR-PAR-REGISTRE.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>doux</th>
+<th>moyen</th>
+<th>fort</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>tous registres</strong></td>
+<td>28 %</td>
+<td>31 %</td>
+<td>36 %</td>
+</tr>
+<tr>
+<td>sons pédale</td>
+<td>—</td>
+<td>24 %</td>
+<td>—</td>
+</tr>
+<tr>
+<td>grave</td>
+<td>33 %</td>
+<td>32 %</td>
+<td>47 %</td>
+</tr>
+<tr>
+<td>médium</td>
+<td>16 %</td>
+<td>38 %</td>
+<td>40 %</td>
+</tr>
+<tr>
+<td>aigu</td>
+<td>40 %</td>
+<td>25 %</td>
+<td>15 %</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Effet doux → fort : -8 points.</strong> Elle se dégrade en jeu fort — comportement inverse de celui des trombones et de la trompette.</p>
+<h3>La couleur dépend de la nuance, et ne se lit que jusqu'au médium</h3>
+<p>F1 du motif d'excitation, notes <strong>pédale + grave + médium</strong> réunies : au-dessus du médium la mesure donne la fondamentale et non une couleur (F1/f0 = 1,0, pente contre f0 de 1,03 au suraigu). Voir <code>../_REGISTRES-PEDALE.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Corpus</th>
+<th>doux</th>
+<th>moyen</th>
+<th>fort</th>
+<th>doux → fort</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SOL</td>
+<td>291 Hz</td>
+<td>351 Hz</td>
+<td>439 Hz</td>
+<td><strong>+7,1 dt</strong></td>
+</tr>
+<tr>
+<td>Xsamples</td>
+<td>—</td>
+<td>434 Hz</td>
+<td>508 Hz</td>
+<td><strong>—</strong></td>
+</tr>
+<tr>
+<td>VN</td>
+<td>402 Hz</td>
+<td>553 Hz</td>
+<td>592 Hz</td>
+<td><strong>+6,7 dt</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Aucune paire de corpus ne s'accorde à moins d'un demi-ton</strong>, à aucune nuance. La couleur de cet instrument n'est pas répliquée.</p>
+<h3>Dans la table des mélanges</h3>
+<p>21 paires calculées. <strong>Fusion moyenne : 17 %.</strong> Voir <code>../_MELANGES.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Couleur nouvelle avec</th>
+<th></th>
+<th>Se fond avec</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trompette en Ut</td>
+<td>54 %</td>
+<td>Contrebasson</td>
+<td>71 %</td>
+</tr>
+<tr>
+<td>Hautbois</td>
+<td>40 %</td>
+<td>Tuba contrebasse</td>
+<td>67 %</td>
+</tr>
+<tr>
+<td>Cor anglais</td>
+<td>37 %</td>
+<td>Clarinette en Sib</td>
+<td>61 %</td>
+</tr>
+</tbody>
+</table>
+<!-- FIN-TRAVAUX-27-10 -->
+
+<h2>Observations pour l'orchestration</h2>
+<p>À compléter. Éléments acquis :</p>
+<ul>
+<li>Le formant à <strong>4 183 Hz est commun au cor, au hautbois et au cor anglais</strong> — trois
+  instruments de deux familles différentes, chacun validé indépendamment par les deux tests.
+  C'est la convergence inter-familles la mieux établie de cette reprise, et elle pourrait
+  fonder acoustiquement la fusion cor–bois, bien connue des orchestrateurs.</li>
+<li>L'ancienne étude annonçait une convergence « quasi-parfaite » cor–alto à Δ = 11 Hz
+  (388 contre 377 Hz) et un « super-cluster à 323 Hz » entre cor, trompette et alto dans le
+  registre médium. Ces valeurs tombaient dans des bins voisins ; la convergence cor–alto
+  reste plausible puisque le F1 du cor était ici une mesure valide, mais elle doit être
+  reprise avec les cordes mesurées par la même méthode.</li>
+<li>Le formant à 739 Hz, confirmé par deux voies, est un bon candidat pour expliquer le
+  caractère « rond et chaleureux » : il se situe dans la zone /o/–/a/ et la bande est large.</li>
+</ul>
+<h2>Graphiques</h2>
+<p>Aucun à ce stade. Figures prévues dans <code>../Versions-html-and-docx/media/</code> :</p>
+<table>
+<thead>
+<tr>
+<th>Fichier prévu</th>
+<th>Contenu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cor_composite.png</code></td>
+<td>enveloppe composite avec les trois formants</td>
+</tr>
+<tr>
+<td><code>cor_dynamiques.png</code></td>
+<td><strong>prioritaire</strong> : enveloppes composites par dynamique (p / mf / ff)</td>
+</tr>
+<tr>
+<td><code>cuivres_rho.png</code></td>
+<td>figure de famille : ρ des six cuivres, montrant l'effet dynamique</td>
+</tr>
+<tr>
+<td><code>convergence_4183.png</code> (ÉCARTÉE 24/10)</td>
+<td>figure inter-familles : cor, hautbois, cor anglais à 4 183 Hz</td>
+</tr>
+</tbody>
+</table>
+<h2>Révision du 23/10/2026 — critère assoupli</h2>
+<p>La zone à <strong>466 Hz</strong> passe de <em>rejetée</em> à <strong>fragile-cr</strong>, et c'est important pour cet
+instrument. Le bootstrap donne +3,0 dB [IC +2,4] en dessous du rang 5 et +3,2 dB [IC +2,7]
+au-dessus : le test d'indépendance au rang est <strong>franchement passé des deux côtés</strong>. Seule la
+robustesse de fenêtre échoue encore.</p>
+<p>Or c'est précisément la zone où <strong>les trois sources classiques situent le formant du cor</strong> —
+Backus 400–500 Hz, Giesler 250–500 Hz, Meyer ~450 Hz — et où l'ancien pipeline donnait
+F1 = 388 Hz, valeur que notre enveloppe vraie confirme. Le rejet initial était donc trop
+sévère.</p>
+<p>Ce fichier signalait déjà ce candidat comme « cas limite » à revoir lors de l'analyse par
+dynamique. Cette analyse reste à faire, et elle devrait trancher : si la résonance est
+réelle mais sa position dépend de la force de jeu, la bande globale est nécessairement
+étalée, ce qui expliquerait l'échec de robustesse sans infirmer le formant.</p>
+<h2>Journal</h2>
+<ul>
+<li><strong>2026-10-23</strong> — Trois formants retenus (739, 2 216, 4 183 Hz).</li>
+<li><strong>2026-10-23</strong> — Contradiction apparente entre ρ = 0,71 et σ(enveloppe vraie) = 131 Hz
+  résolue : pour les cuivres, la dépendance est à la dynamique plus qu'au registre. Analyse
+  par dynamique à mener en priorité pour toute la famille.</li>
+<li><strong>2026-10-23</strong> — Seul instrument du corpus dont les deux valeurs antérieures (F1 = 388 et
+  Fp = 738) sont confirmées. Configuration favorable, non validité de la méthode ancienne.</li>
+<li><strong>2026-10-23 (soir)</strong> — Critère assoupli appliqué (voir <code>00-METHODE.md</code>).</li>
+<li><strong>2026-10-24</strong> — Confrontation au corpus ZSamples : voir la bannière en tête et <code>_REPLICATION.md</code>.</li>
+</ul>
+<footer>Référence formantique de l'orchestre — Yan Maresz · page produite par <code>construire_site.py</code> depuis les fiches et <code>Resultats-v7/</code>.</footer>
+</body>
+</html>

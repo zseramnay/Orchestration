@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Violon</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="bandeau"><h1>Violon</h1><p>Violin</p></div>
+<p class="fil"><a href="../index.html">Sommaire</a> › Les cordes</p>
+<table class="sommaire"><tr><th>Classe</th><th>Provenance</th><th>Échantillons</th><th>Tessiture</th><th>Formants établis</th></tr><tr><td>C</td><td>IRCAM</td><td>284</td><td>G3–E7</td><td>2</td></tr></table><table class="sommaire"><tr><th>Formant</th><th>Note</th><th>Corpus</th><th>Localisation</th></tr><tr><td><b>2348 Hz</b></td><td>Ré7</td><td>SOL ZSamples VN</td><td></td></tr><tr><td><b>3959 Hz</b></td><td>Si7</td><td>VO ZSamples</td><td></td></tr></table><figure><img src="../figures/composite-violon.png" alt="Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, ZSamples, VO, VN). Un formant retenu est un ma" loading="lazy"><figcaption>Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, ZSamples, VO, VN). Un formant retenu est un maximum que deux corpus de provenances distinctes placent au même point de grille.</figcaption></figure>
+<figure><img src="../figures/vocalique-violon.png" alt="Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyell" loading="lazy"><figcaption>Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyelles du français (Calliope, voix d&#x27;homme). Marqueur creux : cellule non assignable. Le nom de la voyelle dépend de la référence : en voix de femme, 41 % des cellules en changent et 11 instruments sur 20 changent de voyelle dominante. Le plancher de l&#x27;espace, lui, ne bouge pas. Corpus : SOL, ZSamples, VO, VN.</figcaption></figure>
+<h1>Violon</h1>
+<blockquote>
+<h2>Statut des formants — révision du 26/10/2026</h2>
+<p>Confrontation des <strong>cinq corpus</strong>. Provenance de ce corpus : <strong>IRCAM (FullSOL2020)</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Formant</th>
+<th>Statut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>2348 Hz</strong></td>
+<td><strong>route A</strong> — VN + ZSamples au même point de grille, 2216 Hz · zone vue par SOL, VN, ZSamples. ⚠ La valeur de cette fiche, 2348 Hz, est à +1.0 demi-ton du couple : c'est <strong>2216 Hz</strong> qui est établi</td>
+</tr>
+<tr>
+<td><strong>4432 Hz</strong></td>
+<td><strong>indéterminé</strong> — concordance à un demi-ton avec VN mais aucun couple au même point de grille. Environ une concordance sur quatre à ce seuil est fortuite.</td>
+</tr>
+</tbody>
+</table>
+<p><code>etendue_residu</code> dans l'en-tête <strong>n'est pas une largeur de bande</strong> : c'est l'étendue du résidu de la méthode 8, souvent une butée de plage. Les largeurs mesurées sont dans <code>_LARGEURS-DE-BANDE.md</code>.</p>
+</blockquote>
+<h2>Classe C — résonances multiples, aucune dominante</h2>
+<blockquote>
+<p><strong>Méthode 8 — deux formants retenus, un fragile.</strong> Voir <code>00-METHODE.md</code>, section
+« Typologie — trois classes ».</p>
+</blockquote>
+<p>Le violon est l'instrument qui a imposé la révision de la typologie. Son ρ vaut <strong>0,78</strong>,
+aussi élevé que celui des flûtes, et son enveloppe vraie est extrêmement dispersée :
+2 003 Hz avec <strong>σ = 1 474 Hz</strong>, le plus fort écart-type de tout le corpus. Note par note, la
+mesure n'a aucun sens.</p>
+<p>Et pourtant l'agrégation retient deux formants nets, dont un à <strong>+7,3 dB</strong> — le deuxième
+résidu le plus fort de tout le corpus mesuré, après le contrebasson. Les deux situations ne
+peuvent pas être confondues : la flûte, avec un ρ comparable, ne livre aucun formant.</p>
+<p>L'explication est acoustique. La caisse du violon possède <strong>de nombreuses résonances
+étroites</strong> — résonance d'air, modes de table, « bridge hill » — dont aucune ne domine assez
+pour qu'un détecteur de pic unique s'y fixe. Le pic le plus proéminent retombe donc sur la
+fondamentale, d'où le ρ élevé, alors que les résonances existent bel et bien et ressortent
+dès qu'on agrège.</p>
+<p>C'est le diagnostic que l'ancienne étude avait approché sans le formuler, en constatant que
+« le F1 du violon présente un écart-type atteignant σ = 651 Hz selon le registre ». Elle en
+avait tiré la nécessité du Fp ; la bonne conclusion était qu'il faut agréger.</p>
+<h2>Formants</h2>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>Résidu</th>
+<th>Largeur −3 dB</th>
+<th>Notes distinctes</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>2 348 Hz</strong></td>
+<td>+3,2 dB</td>
+<td>1 660–2 958 Hz</td>
+<td>11</td>
+<td><strong>retenu</strong></td>
+</tr>
+<tr>
+<td><strong>4 432 Hz</strong></td>
+<td>+7,3 dB</td>
+<td>3 948–4 974 Hz</td>
+<td>21</td>
+<td><strong>retenu</strong></td>
+</tr>
+<tr>
+<td>5 583 Hz</td>
+<td>+3,8 dB</td>
+<td>3 320–5 915 Hz</td>
+<td>25</td>
+<td>fragile</td>
+</tr>
+</tbody>
+</table>
+<h2>Corroboration par la méthode 12 — le <em>bridge hill</em> retrouvé par une seconde voie</h2>
+<blockquote>
+<p>Ajouté le 24/10/2026. Voir <code>_CARTE-VOCALIQUE.md</code>.</p>
+</blockquote>
+<p>La carte vocalique mesure le <strong>F2 du motif d'excitation auditive</strong> à <strong>2 136 Hz</strong> dans la
+cellule aigu/fort — à un demi-ton du formant établi à 2 348 Hz. Les deux méthodes, qui ne
+partagent aucune étape de traitement, pointent la même région.</p>
+<p>Cette corroboration vaut pour toute la famille :</p>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Formant établi (méthode 8)</th>
+<th>F2 de la carte vocalique (méthode 12)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Violon</strong></td>
+<td><strong>2 348 Hz</strong> — <em>bridge hill</em></td>
+<td>2 136 Hz à l'aigu fort</td>
+</tr>
+<tr>
+<td>Alto</td>
+<td>1 318 · 2 091 Hz</td>
+<td>1 314 Hz à l'aigu · 2 161 Hz au médium fort</td>
+</tr>
+<tr>
+<td>Violoncelle</td>
+<td>1 108 · 2 216 Hz</td>
+<td>1 079 Hz au médium doux · 2 061 Hz au grave fort</td>
+</tr>
+<tr>
+<td>Contrebasse</td>
+<td>1 396 Hz</td>
+<td>1 445–1 519 Hz au suraigu</td>
+</tr>
+</tbody>
+</table>
+<p>Et cela éclaire enfin la <strong>dispersion de F2</strong> dans la carte vocalique (IQR de 3 à 5,4 Bark
+sur les cordes, alors que F1 est stable à moins d'un Bark) : ce n'est pas du bruit, c'est la
+<strong>signature de la classe C</strong>. Le détecteur de la méthode 12 verrouille tantôt sur une
+résonance de caisse, tantôt sur une autre, selon la note — et les formants établis par la
+méthode 8 disent précisément quels candidats existent.</p>
+<p>La méthode 12 ne remplace donc pas la méthode 8 sur les cordes : <strong>la méthode 8 fournit la
+liste des résonances, la méthode 12 dit laquelle domine dans tel registre à telle dynamique.</strong>
+C'est la seule famille où les deux méthodes se complètent de cette manière.</p>
+<h2>Tests de rejet</h2>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>k = 2–3</th>
+<th>k = 4–7</th>
+<th>k = 8–15</th>
+<th>k ≥ 16</th>
+<th>Robustesse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2 348 Hz</td>
+<td>+2,5</td>
+<td>+3,2</td>
+<td>+4,1</td>
+<td>—</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>4 432 Hz</td>
+<td>+6,6</td>
+<td>+7,6</td>
+<td><strong>+10,2</strong></td>
+<td>+8,8</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>5 583 Hz</td>
+<td>+3,9</td>
+<td>+2,3</td>
+<td>+1,5</td>
+<td>+1,1</td>
+<td><strong>non</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Le formant à <strong>4 432 Hz</strong> est l'un des mieux établis de tout le corpus : positif et supérieur
+à +6 dB sur les quatre groupes de rang, avec un maximum de +10,2 dB, et une bande à −3 dB
+étroite (3 948–4 974 Hz, soit un peu plus d'un tiers d'octave).</p>
+<p>Le pic à 5 583 Hz présente des résidus décroissant régulièrement avec le rang et échoue à la
+robustesse : il s'agit probablement du flanc supérieur du précédent.</p>
+<h2>Descripteurs globaux</h2>
+<table>
+<thead>
+<tr>
+<th>Descripteur</th>
+<th>Valeur</th>
+<th>Lecture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pente spectrale médiane</td>
+<td>−13,5 dB/octave (σ 2,5)</td>
+<td>décroissance modérée</td>
+</tr>
+<tr>
+<td>Harmoniques par note</td>
+<td>15 [4–56]</td>
+<td>faible dans l'aigu : tessiture très étendue</td>
+</tr>
+<tr>
+<td>Balance impair − pair</td>
+<td>−2,8 dB</td>
+<td>corde frottée, série complète</td>
+</tr>
+<tr>
+<td><strong>Enveloppe vraie (méthode 6)</strong></td>
+<td>2 003 Hz, <strong>σ 1 474</strong></td>
+<td>record de dispersion du corpus</td>
+</tr>
+</tbody>
+</table>
+<h2>Comparaison avec la littérature</h2>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Valeur annoncée</th>
+<th>Notre mesure</th>
+<th>Lecture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Acoustique du violon (littérature générale)</td>
+<td>« bridge hill » ~2–3 kHz</td>
+<td><strong>formant retenu à 2 348 Hz</strong></td>
+<td><strong>très cohérent</strong></td>
+</tr>
+<tr>
+<td>Meyer (2009)</td>
+<td><em>Hauptformant</em> des cordes</td>
+<td>—</td>
+<td>à vérifier aux sources primaires</td>
+</tr>
+<tr>
+<td>Ancien pipeline <code>specenv</code></td>
+<td>F1 = 506 Hz, zone /o/</td>
+<td>—</td>
+<td>hauteur médiane (rapport 0,79)</td>
+</tr>
+<tr>
+<td>Ancien Fp</td>
+<td>893 Hz</td>
+<td>—</td>
+<td>artefact de fenêtre</td>
+</tr>
+<tr>
+<td>LPC mai 2026</td>
+<td>F1 médian 2 179 Hz, σ 642</td>
+<td>2 348 Hz</td>
+<td><strong>convergent</strong></td>
+</tr>
+<tr>
+<td>Cepstre mai 2026 (ordre 80)</td>
+<td>2 454 Hz, σ 1 118, 60 % sur un harmonique</td>
+<td>2 348 Hz</td>
+<td>proche, mais non valide</td>
+</tr>
+</tbody>
+</table>
+<p>Deux points importants.</p>
+<p>Le formant à 2 348 Hz correspond à la région que la littérature acoustique du violon nomme
+le <strong>« bridge hill »</strong>, zone de résonance du chevalet classiquement située entre 2 et 3 kHz.
+C'est une validation externe forte, et elle n'avait jamais été rapprochée de cette étude.</p>
+<p>Le <strong>LPC de mai 2026 tombait juste</strong> : 2 179 Hz, à un demi-ton de notre mesure. L'ancienne
+étude l'avait écarté au motif que son σ de 642 Hz était trop élevé, et avait préféré le Fp.
+C'était l'inverse qu'il fallait faire : le LPC pointait la bonne région avec une forte
+dispersion, le Fp pointait une région fausse avec une faible dispersion. La stabilité d'une
+mesure ne garantit pas sa justesse.</p>
+<h2>Registres</h2>
+<p><code>Data/registres.md</code> : grave G3–C4 · médium C4–C5 · aigu C5–C6 · suraigu C6 et au-dessus.</p>
+<p>Mesure par registre : non effectuée.</p>
+<p>Note sur l'ancienne analyse : la « convergence exacte Δ = 0 Hz » annoncée entre le violon
+médium/aigu et le registre de gorge de la clarinette (355 Hz), présentée comme « base de la
+doublure clarinette-violon », reposait sur deux zones de fondamentale.</p>
+<!-- DEBUT-TRAVAUX-27-10 -->
+<h2>Ce que les travaux des 27 et 28/10/2026 disent de cet instrument</h2>
+<h3>Corroboration par le LPC, note par note</h3>
+<p>Rang du formant dans son propre spectre : 50 % signifie que les deux méthodes ne s'accordent pas mieux là qu'ailleurs. Voir <code>../_APPARIEMENT-LPC.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Formant</th>
+<th>Statut</th>
+<th>Rang</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2348 Hz</td>
+<td>route A</td>
+<td>70,8 %</td>
+</tr>
+<tr>
+<td>3959 Hz</td>
+<td>route A</td>
+<td>79,2 %</td>
+</tr>
+</tbody>
+</table>
+<h3>Effet de la nuance sur la localisation</h3>
+<p>Part de pics <strong>non localisables</strong> — l'enveloppe n'y redescend pas de 3 dB des deux côtés, donc le formant n'a pas de largeur mesurable. Voir <code>../_LARGEUR-PAR-REGISTRE.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>doux</th>
+<th>moyen</th>
+<th>fort</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>tous registres</strong></td>
+<td>3 %</td>
+<td>1 %</td>
+<td>0 %</td>
+</tr>
+<tr>
+<td>grave</td>
+<td>0 %</td>
+<td>0 %</td>
+<td>0 %</td>
+</tr>
+<tr>
+<td>médium</td>
+<td>3 %</td>
+<td>1 %</td>
+<td>0 %</td>
+</tr>
+<tr>
+<td>aigu</td>
+<td>3 %</td>
+<td>0 %</td>
+<td>0 %</td>
+</tr>
+<tr>
+<td>suraigu</td>
+<td>8 %</td>
+<td>0 %</td>
+<td>0 %</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Effet doux → fort : +3 points.</strong> Effet négligeable.</p>
+<h3>La carte vocalique corrobore-t-elle les formants ?</h3>
+<p><strong>Non.</strong> F1 0,0 % contre 0,0 % au témoin · F2 7,3 % contre 5,4 % au témoin — soit le hasard, ou moins. Les deux méthodes ne mesurent pas la même région du spectre : F1 se situe en médiane à 15,5 demi-tons du formant établi le plus proche, parce que la méthode 8 ne mesure rien sous 3,2 à 5,7 fois f0_min.</p>
+<p>Témoin : les propres formants de l'instrument transposés de ±2 à ±6 demi-tons, ce qui conserve leur nombre et leur espacement. Voir <code>../_COINCIDENCES-F2.md</code>.</p>
+<h3>Dans la table des mélanges</h3>
+<p>21 paires calculées. <strong>Fusion moyenne : 28 %.</strong> Voir <code>../_MELANGES.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Couleur nouvelle avec</th>
+<th></th>
+<th>Se fond avec</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hautbois</td>
+<td>42 %</td>
+<td>Trombone ténor</td>
+<td>43 %</td>
+</tr>
+<tr>
+<td>Contrebasse</td>
+<td>41 %</td>
+<td>Clarinette en Mib</td>
+<td>42 %</td>
+</tr>
+<tr>
+<td>Clarinette basse en Sib</td>
+<td>40 %</td>
+<td>Petite flûte</td>
+<td>42 %</td>
+</tr>
+</tbody>
+</table>
+<!-- FIN-TRAVAUX-27-10 -->
+
+<h2>Observations pour l'orchestration</h2>
+<p>À compléter. Éléments acquis :</p>
+<ul>
+<li>La zone <strong>4 432 Hz est commune au violon, au cor (4 183 Hz), au hautbois (4 183 Hz), au
+  cor anglais (4 183 Hz) et à la trompette (4 695 Hz)</strong>. Cinq instruments de trois familles,
+  chacun validé indépendamment, dans une région de moins d'un demi-ton d'écart pour trois
+  d'entre eux. Cette région correspond au maximum de sensibilité de l'oreille, et c'est la
+  convergence inter-familles la plus large de toute la reprise. À examiner en priorité par la
+  méthode 12 : est-ce une propriété des instruments à forte projection, ou un effet de la
+  chaîne de mesure ?</li>
+<li>L'ancienne étude annonçait une convergence « quasi-parfaite Δ = 11 Hz » violon–basson
+  (506 contre 495 Hz). Les deux valeurs étaient des hauteurs médianes de tessiture. Les
+  formants réels sont 2 348 et 4 432 Hz pour le violon, 554, 1 108 et 1 974 Hz pour le
+  basson : <strong>aucune coïncidence</strong>. Cette convergence est écartée.</li>
+<li>Les doublures violon–flûte, violon–hautbois et violon–trompette annoncées
+  antérieurement reposaient toutes sur le F1 de 506 Hz et sont à reprendre.</li>
+</ul>
+<h2>Graphiques</h2>
+<p>Aucun à ce stade. Figures prévues dans <code>../Versions-html-and-docx/media/</code> :</p>
+<table>
+<thead>
+<tr>
+<th>Fichier prévu</th>
+<th>Contenu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>violon_composite.png</code></td>
+<td>enveloppe composite — formant à 4 432 Hz bien circonscrit</td>
+</tr>
+<tr>
+<td><code>violon_te_dispersion.png</code></td>
+<td>pic d'enveloppe vraie contre f0 : σ = 1 474 Hz, illustration de la classe C</td>
+</tr>
+<tr>
+<td><code>violon_bridge_hill.png</code></td>
+<td>zone 2 348 Hz rapprochée du « bridge hill » de la littérature</td>
+</tr>
+<tr>
+<td><code>convergence_4200.png</code></td>
+<td>~~figure majeure~~ <strong>ÉCARTÉE le 24/10</strong> : les cinq instruments de la région 4 183–4 695 Hz</td>
+</tr>
+</tbody>
+</table>
+<h2>Journal</h2>
+<ul>
+<li><strong>2026-10-23</strong> — Deux formants retenus (2 348 et 4 432 Hz). Le second présente le résidu
+  le plus fort du corpus après le contrebasson (+7,3 dB, jusqu'à +10,2 dB par rang).</li>
+<li><strong>2026-10-23</strong> — Cet instrument a imposé la <strong>révision de la typologie</strong> : ρ élevé (0,78)
+  et formants nombreux sont compatibles. Création de la classe C.</li>
+<li><strong>2026-10-23</strong> — Le formant à 2 348 Hz correspond au « bridge hill » de la littérature
+  acoustique, validation externe jamais rapprochée de cette étude.</li>
+<li><strong>2026-10-23</strong> — Le LPC de mai 2026 (2 179 Hz) visait juste et avait été écarté à tort au
+  profit du Fp. Leçon : une mesure stable n'est pas nécessairement juste.</li>
+<li><strong>2026-10-24</strong> — Confrontation au corpus ZSamples : voir la bannière en tête et <code>_REPLICATION.md</code>.</li>
+<li><strong>2026-10-24</strong> — Le <em>bridge hill</em> est retrouvé par la méthode 12 (F2 = 2 136 Hz à l'aigu
+  fort, soit un demi-ton de 2 348 Hz). Corroboration par deux méthodes indépendantes, étendue
+  à toute la famille des cordes. La forte dispersion de F2 dans la carte vocalique s'explique
+  comme signature de la classe C, non comme un défaut de mesure.</li>
+<li><strong>2026-10-24</strong> — Défaut de méthode identifié au <strong>suraigu</strong> : F1 instable dans les deux
+  corpus (IQR 8,6 Bark chez ZSamples), probable basculement du détecteur entre fondamentale et
+  résonance de caisse. À corriger avant publication de la ligne du violon.</li>
+</ul>
+<footer>Référence formantique de l'orchestre — Yan Maresz · page produite par <code>construire_site.py</code> depuis les fiches et <code>Resultats-v7/</code>.</footer>
+</body>
+</html>

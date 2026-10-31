@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Violoncelle</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="bandeau"><h1>Violoncelle</h1><p>Violoncello</p></div>
+<p class="fil"><a href="../index.html">Sommaire</a> › Les cordes</p>
+<table class="sommaire"><tr><th>Classe</th><th>Provenance</th><th>Échantillons</th><th>Tessiture</th><th>Formants établis</th></tr><tr><td>C</td><td>IRCAM</td><td>291</td><td>C2–C6</td><td>3</td></tr></table><table class="sommaire"><tr><th>Formant</th><th>Note</th><th>Corpus</th><th>Localisation</th></tr><tr><td><b>1108 Hz</b></td><td>Do♯6</td><td>SOL VN</td><td>localisé</td></tr><tr><td><b>2631 Hz</b></td><td>Mi7</td><td>VN VO</td><td></td></tr><tr><td><b>3948 Hz</b></td><td>Si7</td><td>SOL VN</td><td>localisé</td></tr></table><figure><img src="../figures/composite-violoncelle.png" alt="Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, ZSamples, VO, VN). Un formant retenu est un ma" loading="lazy"><figcaption>Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, ZSamples, VO, VN). Un formant retenu est un maximum que deux corpus de provenances distinctes placent au même point de grille.</figcaption></figure>
+<figure><img src="../figures/vocalique-violoncelle.png" alt="Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyell" loading="lazy"><figcaption>Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyelles du français (Calliope, voix d&#x27;homme). Marqueur creux : cellule non assignable. Le nom de la voyelle dépend de la référence : en voix de femme, 41 % des cellules en changent et 11 instruments sur 20 changent de voyelle dominante. Le plancher de l&#x27;espace, lui, ne bouge pas. Corpus : SOL, ZSamples, VO, VN.</figcaption></figure>
+<h1>Violoncelle</h1>
+<blockquote>
+<h2>Statut des formants — révision du 26/10/2026</h2>
+<p>Confrontation des <strong>cinq corpus</strong>. Provenance de ce corpus : <strong>IRCAM (FullSOL2020)</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Formant</th>
+<th>Statut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>554 Hz</strong></td>
+<td>présent dans le seul corpus SOL</td>
+</tr>
+<tr>
+<td><strong>1108 Hz</strong></td>
+<td><strong>route A</strong> — SOL + VN au même point de grille, 1108 Hz · zone vue par SOL, VN · pic localisé, Q = 6.4</td>
+</tr>
+<tr>
+<td><strong>2216 Hz</strong></td>
+<td>présent dans le seul corpus SOL</td>
+</tr>
+<tr>
+<td><strong>3948 Hz</strong></td>
+<td><strong>route A</strong> — SOL + VN au même point de grille, 3948 Hz · zone vue par SOL, VN · pic localisé, Q = 18.3</td>
+</tr>
+</tbody>
+</table>
+<p><code>etendue_residu</code> dans l'en-tête <strong>n'est pas une largeur de bande</strong> : c'est l'étendue du résidu de la méthode 8, souvent une butée de plage. Les largeurs mesurées sont dans <code>_LARGEURS-DE-BANDE.md</code>.</p>
+</blockquote>
+<h2>Classe C — trois formants retenus, bien circonscrits</h2>
+<blockquote>
+<p><strong>Méthode 8 — trois formants retenus, un fragile.</strong> Voir <code>00-METHODE.md</code>, section
+« Typologie — trois classes ».</p>
+</blockquote>
+<p>Classe C, ρ = 0,82, enveloppe vraie dispersée (312 Hz, σ = 554 Hz). Mais trois formants
+passent les deux tests, et deux d'entre eux sont <strong>remarquablement bien circonscrits</strong> :
+932–1 174 Hz pour le premier, 1 863–2 635 Hz pour le second, soit moins d'une demi-octave
+chacun. Pour une corde, c'est la signature nette de résonances de caisse.</p>
+<p>Conditions de mesure favorables : 291 échantillons, une médiane de <strong>47 harmoniques par
+note</strong>, et la <strong>pente la plus régulière de tout le corpus</strong> — σ = 1,4 dB/octave.</p>
+<h2>Formants</h2>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>Résidu</th>
+<th>Largeur −3 dB</th>
+<th>Notes distinctes</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1 108 Hz</strong></td>
+<td>+4,3 dB</td>
+<td>932–1 174 Hz</td>
+<td>15</td>
+<td><strong>retenu</strong></td>
+</tr>
+<tr>
+<td><strong>2 216 Hz</strong></td>
+<td>+6,6 dB</td>
+<td>1 863–2 635 Hz</td>
+<td>28</td>
+<td><strong>retenu</strong></td>
+</tr>
+<tr>
+<td><strong>3 948 Hz</strong></td>
+<td>+4,1 dB</td>
+<td>1 759–5 915 Hz</td>
+<td>38</td>
+<td><strong>retenu</strong></td>
+</tr>
+<tr>
+<td>554 Hz</td>
+<td>+3,4 dB</td>
+<td>494–622 Hz</td>
+<td>6</td>
+<td>fragile</td>
+</tr>
+</tbody>
+</table>
+<h2>Tests de rejet</h2>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>k = 2–3</th>
+<th>k = 4–7</th>
+<th>k = 8–15</th>
+<th>k ≥ 16</th>
+<th>Robustesse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 108 Hz</td>
+<td>+0,9</td>
+<td>+4,6</td>
+<td>+4,4</td>
+<td>+6,4</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>2 216 Hz</td>
+<td>—</td>
+<td>+4,1</td>
+<td>+6,0</td>
+<td>+4,9</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>3 948 Hz</td>
+<td>—</td>
+<td>+1,2</td>
+<td>+4,2</td>
+<td>+6,6</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>554 Hz</td>
+<td>+4,3</td>
+<td><strong>+7,3</strong></td>
+<td>+9,4 (2 notes)</td>
+<td>—</td>
+<td>oui</td>
+</tr>
+</tbody>
+</table>
+<p>Le cas de <strong>554 Hz</strong> mérite attention. Il passe le test de robustesse de fenêtre et ses
+résidus sont forts et croissants (+4,3 puis +7,3 puis +9,4 dB), mais il n'est alimenté que
+par 6 notes distinctes et son groupe k = 8–15 ne compte que 2 notes. Le verdict « fragile »
+résulte donc d'un manque de couverture, non d'une contradiction.</p>
+<p>Or cette zone est précisément celle où l'on attendrait la résonance principale de caisse du
+violoncelle, et elle coïncide <strong>exactement</strong> avec le premier formant du basson (554 Hz). Sa
+bande à −3 dB est l'une des plus étroites du corpus (494–622 Hz). <strong>Mon avis est qu'il est
+réel et qu'il sera confirmé</strong> : à vérifier par une mesure restreinte au registre grave, où
+les notes alimentant cette bande par leurs harmoniques 2 à 7 sont les plus nombreuses.</p>
+<h2>Descripteurs globaux</h2>
+<table>
+<thead>
+<tr>
+<th>Descripteur</th>
+<th>Valeur</th>
+<th>Lecture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Pente spectrale médiane</strong></td>
+<td>−13,3 dB/octave (<strong>σ 1,4</strong>)</td>
+<td><strong>la plus régulière du corpus</strong></td>
+</tr>
+<tr>
+<td>Harmoniques par note</td>
+<td>47 [10–90]</td>
+<td>spectre riche</td>
+</tr>
+<tr>
+<td>Balance impair − pair</td>
+<td>−2,6 dB</td>
+<td>corde frottée</td>
+</tr>
+<tr>
+<td>Enveloppe vraie (méthode 6)</td>
+<td>312 Hz, σ 554</td>
+<td>inexploitable note par note</td>
+</tr>
+</tbody>
+</table>
+<p>La régularité de la pente (σ = 1,4) est le record du corpus, devant l'alto (1,8) et le
+basson (1,7). Elle signifie que le comportement spectral du violoncelle varie très peu d'une
+note et d'une dynamique à l'autre, ce qui est cohérent avec sa réputation d'homogénéité sur
+toute la tessiture.</p>
+<h2>Comparaison avec la littérature</h2>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Valeur annoncée</th>
+<th>Notre mesure</th>
+<th>Lecture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Backus, Giesler, Meyer</td>
+<td>pas de valeur propre au violoncelle dans les tableaux de l'étude</td>
+<td>—</td>
+<td>à chercher aux sources primaires</td>
+</tr>
+<tr>
+<td>Ancien pipeline <code>specenv</code></td>
+<td>F1 = 205 Hz, zone /u/</td>
+<td>—</td>
+<td>zone de la fondamentale (rapport 0,78)</td>
+</tr>
+<tr>
+<td>Cepstre mai 2026 (ordre 80)</td>
+<td>1 991 Hz, σ 915</td>
+<td>2 216 Hz</td>
+<td>proche</td>
+</tr>
+<tr>
+<td>Cepstre mai 2026, <strong>ensemble</strong></td>
+<td>355 Hz, σ <strong>16</strong></td>
+<td>—</td>
+<td>voir ci-dessous</td>
+</tr>
+</tbody>
+</table>
+<p>Le même phénomène que pour l'alto se retrouve, et de façon encore plus spectaculaire : le
+cepstre de mai 2026 donnait <strong>1 991 Hz avec σ = 915 Hz pour le violoncelle soliste</strong> mais
+<strong>355 Hz avec σ = 16 Hz pour l'ensemble de violoncelles</strong>. Un même corps de résonance ne peut
+pas avoir un formant qui saute de deux octaves et demie entre soliste et pupitre, ni une
+dispersion divisée par 57.</p>
+<p>J'avais relevé cette incohérence comme un défaut de l'estimateur. Elle peut aussi être un
+résultat : dans un pupitre, les légers désaccords entre instrumentistes densifient le spectre
+et révèlent le filtre, là où un soliste ne l'éclaire qu'aux positions de ses harmoniques. À
+tester en priorité, car si l'hypothèse se vérifie, <strong>les ensembles sont de meilleurs témoins
+formantiques que les solistes</strong> et il faudra les privilégier.</p>
+<h2>Registres</h2>
+<p><code>Data/registres.md</code> : grave C2–G2 · médium G2–G3 · aigu G3–G4 · suraigu G4 et au-dessus.</p>
+<p>Mesure par registre : non effectuée. <strong>Prioritaire pour cet instrument</strong>, afin de confirmer
+la zone 554 Hz.</p>
+<h2>Résonance de caisse vers 215–220 Hz — méthode 12, quatre corpus</h2>
+<p><strong>Acquis le 27/10/2026, tâche C1.</strong> Dans le registre médium (Sol2–Sol3, f0 de 104 à 196 Hz),
+le premier maximum du motif d'excitation auditive se tient entre <strong>209 et 223 Hz sur quatre
+corpus de provenances distinctes</strong> — 1,1 demi-ton d'écart — avec une pente de log2(F1) contre
+log2(f0) de <strong>−0,04</strong> sur onze demi-tons de fondamentale. <strong>F1 ne bouge pas pendant que la note
+parcourt presque une octave</strong> : c'est une résonance, pas un harmonique.</p>
+<table>
+<thead>
+<tr>
+<th>Corpus</th>
+<th>n</th>
+<th>F1 médian</th>
+<th>Pente</th>
+<th>F1 − centroïde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SOL</td>
+<td>90</td>
+<td>223 Hz</td>
+<td>+0,50</td>
+<td>−2,5 dt</td>
+</tr>
+<tr>
+<td>ZSamples</td>
+<td>72</td>
+<td>209 Hz</td>
+<td>0,00</td>
+<td>−3,4 dt</td>
+</tr>
+<tr>
+<td>VO</td>
+<td>30</td>
+<td>223 Hz</td>
+<td>−0,38</td>
+<td>−4,1 dt</td>
+</tr>
+<tr>
+<td>VN</td>
+<td>36</td>
+<td>217 Hz</td>
+<td>−0,08</td>
+<td>−4,0 dt</td>
+</tr>
+</tbody>
+</table>
+<p>Le rang harmonique médian passe de 2,1 en bas du registre à 1,1 en haut : la même résonance est
+excitée par l'harmonique 2 puis par l'harmonique 1. La valeur tombe dans la zone B1 que la
+littérature acoustique donne au violoncelle (180–250 Hz).</p>
+<p><strong>Aucun des quatre formants retenus par la méthode 8 n'est dans cette zone.</strong> C'est le second
+cas, après l'alto, où la méthode 12 voit une résonance que la méthode 8 manque par
+construction : la zone de caisse est large et plate, donc redressée avec le reste par
+<code>residu_local()</code>.</p>
+<p><strong>Réserve à publier avec le résultat.</strong> 220 Hz est aussi la corde de La à vide, et les luthiers
+accordent volontiers le mode B1+ au voisinage de cette corde. La mesure établit qu'il y a là une
+résonance qui ne suit pas la note ; elle <strong>ne sépare pas</strong> le mode de caisse de la résonance
+sympathique de la corde à vide. Pour l'orchestrateur la conséquence est la même ; l'attribution
+physique reste ouverte. Voir <code>../_RESONANCE-DE-CAISSE.md</code>.</p>
+<p>Le registre <strong>grave</strong> (Do2–Sol2), lui, ne donne rien : pentes de −1,33 à +0,36 selon le corpus,
+médianes de 178 à 238 Hz sur 5 demi-tons d'écart.</p>
+<!-- DEBUT-TRAVAUX-27-10 -->
+<h2>Ce que les travaux des 27 et 28/10/2026 disent de cet instrument</h2>
+<h3>Corroboration par le LPC, note par note</h3>
+<p>Rang du formant dans son propre spectre : 50 % signifie que les deux méthodes ne s'accordent pas mieux là qu'ailleurs. Voir <code>../_APPARIEMENT-LPC.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Formant</th>
+<th>Statut</th>
+<th>Rang</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>554 Hz</td>
+<td>1 corpus</td>
+<td>91,2 %</td>
+</tr>
+<tr>
+<td>1108 Hz</td>
+<td>route A</td>
+<td>67,6 %</td>
+</tr>
+<tr>
+<td>2216 Hz</td>
+<td>1 corpus</td>
+<td>88,2 %</td>
+</tr>
+<tr>
+<td>2631 Hz</td>
+<td>route A</td>
+<td>91,2 %</td>
+</tr>
+<tr>
+<td>3948 Hz</td>
+<td>route A</td>
+<td>91,2 %</td>
+</tr>
+</tbody>
+</table>
+<h3>Effet de la nuance sur la localisation</h3>
+<p>Part de pics <strong>non localisables</strong> — l'enveloppe n'y redescend pas de 3 dB des deux côtés, donc le formant n'a pas de largeur mesurable. Voir <code>../_LARGEUR-PAR-REGISTRE.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>doux</th>
+<th>moyen</th>
+<th>fort</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>tous registres</strong></td>
+<td>8 %</td>
+<td>7 %</td>
+<td>10 %</td>
+</tr>
+<tr>
+<td>grave</td>
+<td>6 %</td>
+<td>4 %</td>
+<td>11 %</td>
+</tr>
+<tr>
+<td>médium</td>
+<td>7 %</td>
+<td>7 %</td>
+<td>12 %</td>
+</tr>
+<tr>
+<td>aigu</td>
+<td>11 %</td>
+<td>8 %</td>
+<td>8 %</td>
+</tr>
+<tr>
+<td>suraigu</td>
+<td>0 %</td>
+<td>0 %</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Effet doux → fort : -2 points.</strong> Effet négligeable.</p>
+<h3>La carte vocalique corrobore-t-elle les formants ?</h3>
+<p><strong>Non.</strong> F1 0,0 % contre 1,7 % au témoin · F2 10,0 % contre 9,5 % au témoin — soit le hasard, ou moins. Les deux méthodes ne mesurent pas la même région du spectre : F1 se situe en médiane à 15,5 demi-tons du formant établi le plus proche, parce que la méthode 8 ne mesure rien sous 3,2 à 5,7 fois f0_min.</p>
+<p>Témoin : les propres formants de l'instrument transposés de ±2 à ±6 demi-tons, ce qui conserve leur nombre et leur espacement. Voir <code>../_COINCIDENCES-F2.md</code>.</p>
+<h3>Dans la table des mélanges</h3>
+<p>21 paires calculées. <strong>Fusion moyenne : 23 %.</strong> Voir <code>../_MELANGES.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Couleur nouvelle avec</th>
+<th></th>
+<th>Se fond avec</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trombone basse</td>
+<td>52 %</td>
+<td>Tuba basse</td>
+<td>52 %</td>
+</tr>
+<tr>
+<td>Basson</td>
+<td>42 %</td>
+<td>Tuba contrebasse</td>
+<td>51 %</td>
+</tr>
+<tr>
+<td>Hautbois</td>
+<td>41 %</td>
+<td>Flûte basse</td>
+<td>49 %</td>
+</tr>
+</tbody>
+</table>
+<!-- FIN-TRAVAUX-27-10 -->
+
+<h2>Observations pour l'orchestration</h2>
+<p>À compléter. Éléments acquis :</p>
+<ul>
+<li>La zone <strong>554 Hz (fragile) coïncide exactement avec le premier formant du basson</strong>
+  (554 Hz, retenu). Si elle se confirme, ce serait la convergence la plus précise de toute
+  la reprise, et elle rendrait compte acoustiquement d'une parenté timbrale
+  basson–violoncelle que les orchestrateurs connaissent bien. <strong>À confirmer en priorité.</strong></li>
+<li>La zone <strong>2 216 Hz est commune au violoncelle, au cor (2 216 Hz), au cor anglais
+  (2 216 Hz) et au trombone ténor (2 091 Hz)</strong> — quatre instruments de trois familles, tous
+  validés indépendamment.</li>
+<li>L'ancienne étude proposait des doublures à l'octave avec le cor anglais (Δ = 247 Hz) et le
+  cor (Δ = 183 Hz), décrites comme « complémentarité /o/–/u/ ». Ces écarts portaient sur des
+  zones de fondamentale. Elles sont à reprendre, mais la correspondance réelle à 2 216 Hz
+  pourrait les justifier autrement — et mieux.</li>
+</ul>
+<h2>Graphiques</h2>
+<p>Aucun à ce stade. Figures prévues dans <code>../Versions-html-and-docx/media/</code> :</p>
+<table>
+<thead>
+<tr>
+<th>Fichier prévu</th>
+<th>Contenu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>violoncelle_composite.png</code></td>
+<td>enveloppe composite — formants bien circonscrits</td>
+</tr>
+<tr>
+<td><code>violoncelle_554.png</code></td>
+<td>zone 554 Hz : résidus par rang et couverture, pour trancher le cas fragile</td>
+</tr>
+<tr>
+<td><code>violoncelle_soliste_vs_ensemble.png</code></td>
+<td><strong>piste méthodologique</strong> : 1 991 Hz σ 915 contre 355 Hz σ 16</td>
+</tr>
+<tr>
+<td><code>basson_violoncelle_554.png</code></td>
+<td>la coïncidence à 554 Hz, si confirmée</td>
+</tr>
+</tbody>
+</table>
+<h2>Révision du 23/10/2026 — critère assoupli</h2>
+<p><strong>La zone à 554 Hz est confirmée</strong> : elle passe de <em>fragile</em> à <strong>retenu-cr</strong>. Le bootstrap
+par note donne +2,4 dB [IC +2,0] en dessous du rang 4 et +4,7 dB [IC +3,9] au-dessus, sur 70
+et 50 points. Les deux bornes basses sont nettement positives.</p>
+<p>Ce fichier avançait que ce candidat « est réel et sera confirmé ». Il l'est. Son statut
+fragile résultait bien d'un manque de couverture dans les groupes de rang étroits, non d'une
+contradiction.</p>
+<p>Conséquence : <strong>la coïncidence exacte avec le premier formant du basson (554 Hz, retenu)
+devient un résultat et non une hypothèse.</strong> Deux instruments de familles différentes, chacun
+validé indépendamment, partagent une résonance à la même fréquence au Hz près. C'est la
+convergence la plus précise de toute la reprise, et elle rend compte acoustiquement d'une
+parenté timbrale basson–violoncelle que les orchestrateurs connaissent de longue date. À
+examiner en priorité par la méthode 12.</p>
+<p>Les trois autres formants (1 108, 2 216, 3 948 Hz) sont tous confirmés.</p>
+<h2>Journal</h2>
+<ul>
+<li><strong>2026-10-23</strong> — Trois formants retenus (1 108, 2 216, 3 948 Hz), bien circonscrits.</li>
+<li><strong>2026-10-23</strong> — Pente la plus régulière du corpus (σ 1,4 dB/octave).</li>
+<li><strong>2026-10-23</strong> — Zone 554 Hz fragile par manque de couverture, mais coïncidant exactement
+  avec le premier formant du basson. Jugée probable, à confirmer par registre.</li>
+<li><strong>2026-10-23</strong> — L'incohérence soliste/ensemble des données de mai 2026 (1 991 Hz σ 915
+  contre 355 Hz σ 16) est reclassée : d'un défaut d'estimateur en hypothèse à tester.</li>
+<li><strong>2026-10-23 (soir)</strong> — Critère assoupli appliqué (voir <code>00-METHODE.md</code>).</li>
+<li><strong>2026-10-27</strong> — Tâche C1 : résonance de caisse vers 215–220 Hz établie au médium sur quatre
+  corpus par la méthode 12, invisible à la méthode 8. Réserve sur la corde de La à vide.</li>
+</ul>
+<footer>Référence formantique de l'orchestre — Yan Maresz · page produite par <code>construire_site.py</code> depuis les fiches et <code>Resultats-v7/</code>.</footer>
+</body>
+</html>

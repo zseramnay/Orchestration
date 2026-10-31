@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tuba contrebasse</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="bandeau"><h1>Tuba contrebasse</h1><p>Contrabass tuba</p></div>
+<p class="fil"><a href="../index.html">Sommaire</a> › Les cuivres</p>
+<table class="sommaire"><tr><th>Classe</th><th>Provenance</th><th>Échantillons</th><th>Tessiture</th><th>Formants établis</th></tr><tr><td>A</td><td>VSL</td><td>158</td><td>C</td><td>0</td></tr></table><figure><img src="../figures/composite-tuba-contrebasse.png" alt="Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, VN). Un formant retenu est un maximum que deux" loading="lazy"><figcaption>Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, VN). Un formant retenu est un maximum que deux corpus de provenances distinctes placent au même point de grille.</figcaption></figure>
+<p class="sans-figure"><b>Pas de carte vocalique.</b> un seul maximum survit dans 24 cellules sur 27 : il n&#x27;y a pas de couple (F1, F2) à lire. Ce n'est pas un défaut de mesure : l'instrument sort du triangle vocalique par le bas.</p>
+<h1>Tuba contrebasse</h1>
+<blockquote>
+<h2>Statut des formants — révision du 26/10/2026</h2>
+<p>Confrontation des <strong>cinq corpus</strong>. Provenance de ce corpus : <strong>VSL / ConTimbre / perso (Yan_Adds)</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Formant</th>
+<th>Statut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>370 Hz</strong></td>
+<td><strong>indéterminé</strong> — concordance à un demi-ton avec VN mais aucun couple au même point de grille. Environ une concordance sur quatre à ce seuil est fortuite.</td>
+</tr>
+<tr>
+<td><strong>879 Hz</strong></td>
+<td><strong>indéterminé</strong> — concordance à un demi-ton avec VN mais aucun couple au même point de grille. Environ une concordance sur quatre à ce seuil est fortuite.</td>
+</tr>
+<tr>
+<td><strong>1396 Hz</strong></td>
+<td><strong>indéterminé</strong> — le seul couple strict est SOL + VN, or les deux sont du VSL (voir <code>_CORPUS-CROISES.md</code>)</td>
+</tr>
+</tbody>
+</table>
+<p><code>etendue_residu</code> dans l'en-tête <strong>n'est pas une largeur de bande</strong> : c'est l'étendue du résidu de la méthode 8, souvent une butée de plage. Les largeurs mesurées sont dans <code>_LARGEURS-DE-BANDE.md</code>.</p>
+</blockquote>
+<h2>Méthode retenue, et pourquoi</h2>
+<blockquote>
+<p><strong>Méthode 8 — trois formants retenus, aucun rejeté.</strong> Voir <code>00-METHODE.md</code>.</p>
+</blockquote>
+<p>Classe A, ρ = 0,50. C'est l'instrument au corpus le plus fourni des cuivres,
+<strong>158 échantillons</strong>, et à la tessiture la plus étendue de tout le corpus mesuré :
+de 17,3 Hz (C#0) à 554 Hz, soit cinq octaves. Avec <strong>90 harmoniques par note</strong> au plafond de
+mesure et une pente des plus régulières (σ = 2,3 dB/octave), les conditions sont optimales.</p>
+<p>Les trois candidats détectés passent tous les deux tests.</p>
+<p>Une remarque sur la fondamentale la plus grave : à 17,3 Hz, elle est sous le seuil
+d'audition tonale. Pour ces notes, c'est l'ensemble des harmoniques qui porte la hauteur
+perçue, et l'enveloppe composite y est particulièrement bien échantillonnée — chaque note
+fournit ses 90 harmoniques dans la plage d'analyse.</p>
+<h2>Formants</h2>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>Résidu</th>
+<th>Largeur −3 dB</th>
+<th>Notes distinctes</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>370 Hz</strong></td>
+<td>+5,0 dB</td>
+<td>329–2 487 Hz</td>
+<td>15</td>
+<td><strong>retenu</strong></td>
+</tr>
+<tr>
+<td><strong>879 Hz</strong></td>
+<td>+4,1 dB</td>
+<td>293–2 792 Hz</td>
+<td>27</td>
+<td><strong>retenu</strong></td>
+</tr>
+<tr>
+<td><strong>1 396 Hz</strong></td>
+<td>+4,7 dB</td>
+<td>311–2 635 Hz</td>
+<td>36</td>
+<td><strong>retenu</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>Tests de rejet</h2>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>k = 2–3</th>
+<th>k = 4–7</th>
+<th>k = 8–15</th>
+<th>k ≥ 16</th>
+<th>Robustesse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>370 Hz</td>
+<td>+4,2</td>
+<td>+6,8</td>
+<td>+5,6</td>
+<td>+5,8</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>879 Hz</td>
+<td>—</td>
+<td>+5,9</td>
+<td>+5,9</td>
+<td>+2,1</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>1 396 Hz</td>
+<td>—</td>
+<td>+4,4</td>
+<td>+3,6</td>
+<td>+4,8</td>
+<td>oui</td>
+</tr>
+</tbody>
+</table>
+<p>Le formant à <strong>370 Hz est le seul du corpus des cuivres à être positif et supérieur à +4 dB
+sur les quatre groupes de rang</strong>. C'est le cas le plus complet : la bande reste élevée qu'elle
+soit éclairée par l'harmonique 2 ou par l'harmonique 40. Aucune ambiguïté possible avec un
+effet de hauteur.</p>
+<h2>Descripteurs globaux</h2>
+<table>
+<thead>
+<tr>
+<th>Descripteur</th>
+<th>Valeur</th>
+<th>Lecture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pente spectrale médiane</td>
+<td>−17,7 dB/octave (σ 2,3)</td>
+<td>la plus raide des cuivres graves</td>
+</tr>
+<tr>
+<td><strong>Harmoniques par note</strong></td>
+<td><strong>90 [19–90]</strong></td>
+<td>plafond de mesure</td>
+</tr>
+<tr>
+<td>Balance impair − pair</td>
+<td>−2,9 dB</td>
+<td>harmoniques pairs favorisés</td>
+</tr>
+<tr>
+<td>Enveloppe vraie (méthode 6)</td>
+<td>269 Hz, σ 110</td>
+<td>stable ; ordres adaptatifs jusqu'à 529</td>
+</tr>
+<tr>
+<td>Tessiture mesurée</td>
+<td><strong>5 octaves</strong></td>
+<td>la plus étendue du corpus</td>
+</tr>
+</tbody>
+</table>
+<h2>Comparaison avec la littérature</h2>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Valeur annoncée</th>
+<th>Notre mesure</th>
+<th>Accord</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Backus (1969), pour le tuba</td>
+<td>200–400 Hz</td>
+<td><strong>formant retenu à 370 Hz</strong></td>
+<td><strong>très bon</strong></td>
+</tr>
+<tr>
+<td>Giesler (1985), pour le tuba</td>
+<td>200–350 Hz, <em>u-ähnlich</em></td>
+<td><strong>formant retenu à 370 Hz</strong></td>
+<td><strong>bon</strong></td>
+</tr>
+<tr>
+<td>Meyer (2009), pour le tuba</td>
+<td>210–250 Hz, /u/</td>
+<td>env. vraie 269 Hz</td>
+<td><strong>bon</strong></td>
+</tr>
+<tr>
+<td>Ancien pipeline <code>specenv</code></td>
+<td>F1 = 226 Hz</td>
+<td>env. vraie 269 Hz</td>
+<td>proche</td>
+</tr>
+<tr>
+<td>Ancien Fp</td>
+<td>1 214 Hz <em>(mesuré sur Bass_Tuba)</em></td>
+<td>formant retenu 1 396 Hz</td>
+<td>proche</td>
+</tr>
+</tbody>
+</table>
+<p>C'est l'un des rares cas où un formant <strong>retenu</strong> par les deux tests tombe directement dans
+la plage annoncée par deux sources classiques. Le rapport entre l'ancien F1 (226 Hz) et le
+milieu géométrique de la tessiture valait <strong>2,59</strong>, le plus élevé de tout le corpus : c'était
+le signe le plus net possible que cette valeur mesurait une résonance réelle.</p>
+<p>Rappel de l'avertissement consigné dans <code>methodology-learnings</code> : les fichiers <code>cor</code> et
+<code>horn</code> des analyses antérieures étaient des doublons pointant sur les mêmes fichiers Hn. Il
+faudra vérifier qu'une confusion analogue n'affecte pas les deux tubas dans les anciens CSV,
+leurs valeurs publiées étant identiques au bin près (226 Hz pour les deux).</p>
+<h2>Registres</h2>
+<p><code>Data/registres.md</code>, entrée commune « tubas » : extrême grave en dessous de F1 · grave F1–F2 ·
+médium F2–F3 · aigu F3–D4 · suraigu au-dessus de D#4.</p>
+<p>Cette entrée est <strong>inadaptée</strong> au tuba contrebasse, dont la tessiture mesurée descend à C#0,
+soit bien en dessous de F1, et monte à C#5, soit au-dessus de D#4. À redéfinir
+spécifiquement.</p>
+<p>Mesure par registre : non effectuée.</p>
+<!-- DEBUT-TRAVAUX-27-10 -->
+<h2>Ce que les travaux des 27 et 28/10/2026 disent de cet instrument</h2>
+<h3>La couleur dépend de la nuance, et ne se lit que jusqu'au médium</h3>
+<p>F1 du motif d'excitation, notes <strong>pédale + grave + médium</strong> réunies : au-dessus du médium la mesure donne la fondamentale et non une couleur (F1/f0 = 1,0, pente contre f0 de 1,03 au suraigu). Voir <code>../_REGISTRES-PEDALE.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Corpus</th>
+<th>doux</th>
+<th>moyen</th>
+<th>fort</th>
+<th>doux → fort</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SOL</td>
+<td>245 Hz</td>
+<td>303 Hz</td>
+<td>309 Hz</td>
+<td><strong>+4,0 dt</strong></td>
+</tr>
+<tr>
+<td>VN</td>
+<td>269 Hz</td>
+<td>290 Hz</td>
+<td>282 Hz</td>
+<td><strong>+0,8 dt</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Aucune paire utilisable.</strong> Les deux seuls corpus de cet instrument, SOL (<code>Yan_Adds-Divers</code>) et VN, sont <strong>la même bibliothèque</strong> — même nombre d'échantillons au sample près, corrélation 0,996. Ils s'accordent de fait à 0,06 demi-ton sur la tessiture basse, et <strong>cela ne compte pas</strong> : c'est la même source comparée à elle-même. Voir la règle de provenance dans <code>../_CORPUS-CROISES.md</code>. La couleur de cet instrument reste <strong>non répliquée</strong>, faute de second corpus.</p>
+<h3>Dans la table des mélanges</h3>
+<p>20 paires calculées. <strong>Fusion moyenne : 20 %.</strong> Voir <code>../_MELANGES.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Couleur nouvelle avec</th>
+<th></th>
+<th>Se fond avec</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trompette en Ut</td>
+<td>67 %</td>
+<td>Clarinette en Mib</td>
+<td>79 %</td>
+</tr>
+<tr>
+<td>Cor anglais</td>
+<td>47 %</td>
+<td>Tuba basse</td>
+<td>72 %</td>
+</tr>
+<tr>
+<td>Hautbois</td>
+<td>44 %</td>
+<td>Clarinette contrebasse en Sib</td>
+<td>71 %</td>
+</tr>
+</tbody>
+</table>
+<!-- FIN-TRAVAUX-27-10 -->
+
+<h2>Observations pour l'orchestration</h2>
+<p>À compléter. Éléments acquis :</p>
+<ul>
+<li><strong>Homogénéité du pupitre des tubas, mesurée.</strong> Tuba basse 1 479 Hz contre tuba contrebasse
+  1 396 Hz, soit un écart d'un demi-ton ; et tuba basse 987 Hz contre tuba contrebasse
+  879 Hz. Les quatre valeurs sont validées indépendamment. L'ancienne étude affirmait cette
+  homogénéité par un « Δ = 0 Hz » entre deux F1 à 226 Hz, dans le même bin : la conclusion
+  était juste, la preuve ne l'était pas.</li>
+<li>La zone <strong>879 Hz est commune au tuba contrebasse et au trombone basse</strong> (879 Hz,
+  exactement), tous deux validés. Convergence précise entre les deux instruments les plus
+  graves des cuivres.</li>
+<li>L'« unisson formantique parfait » avec le contrebasson et le tuba basse à 226 Hz est
+  écarté (voir <code>17-tuba-basse.md</code>). Il subsiste toutefois une correspondance réelle, non
+  annoncée celle-là : tuba contrebasse 370 Hz contre contrebasson 329 Hz.</li>
+<li>L'ancienne étude proposait aussi une doublure avec la contrebasse (F1 = 172 Hz) et la
+  flûte contrebasse (F1 = 334 Hz) sur des « zones graves /u/ partagées ». À reprendre quand
+  les cordes auront été mesurées.</li>
+</ul>
+<h2>Graphiques</h2>
+<p>Aucun à ce stade. Figures prévues dans <code>../Versions-html-and-docx/media/</code> :</p>
+<table>
+<thead>
+<tr>
+<th>Fichier prévu</th>
+<th>Contenu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tuba_cb_composite.png</code></td>
+<td>enveloppe composite — le formant à 370 Hz, positif sur quatre groupes de rang</td>
+</tr>
+<tr>
+<td><code>tubas_pupitre.png</code></td>
+<td>figure partagée : superposition des deux tubas</td>
+</tr>
+<tr>
+<td><code>tuba_cb_rangs.png</code></td>
+<td>résidu par groupe de rang à 370 Hz — meilleure illustration du test d'indépendance</td>
+</tr>
+</tbody>
+</table>
+<h2>Journal</h2>
+<ul>
+<li><strong>2026-10-23</strong> — Trois formants retenus (370, 879, 1 396 Hz), aucun rejet.</li>
+<li><strong>2026-10-23</strong> — Le formant à 370 Hz est le seul des cuivres positif et supérieur à +4 dB
+  sur les quatre groupes de rang : cas le plus complet du test d'indépendance.</li>
+<li><strong>2026-10-23</strong> — Zone 879 Hz identique à celle du trombone basse.</li>
+<li><strong>2026-10-23</strong> — À vérifier : les anciens CSV donnaient 226 Hz pour les deux tubas, valeur
+  identique au bin près. Risque de doublon analogue à celui déjà constaté entre <code>cor</code> et
+  <code>horn</code>.</li>
+<li><strong>2026-10-23</strong> — L'entrée « tubas » de <code>registres.md</code> est inadaptée à cet instrument
+  (tessiture mesurée C#0–C#5).</li>
+</ul>
+<footer>Référence formantique de l'orchestre — Yan Maresz · page produite par <code>construire_site.py</code> depuis les fiches et <code>Resultats-v7/</code>.</footer>
+</body>
+</html>

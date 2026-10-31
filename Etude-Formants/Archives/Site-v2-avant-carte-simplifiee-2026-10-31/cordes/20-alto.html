@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alto</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="bandeau"><h1>Alto</h1><p>Viola</p></div>
+<p class="fil"><a href="../index.html">Sommaire</a> › Les cordes</p>
+<table class="sommaire"><tr><th>Classe</th><th>Provenance</th><th>Échantillons</th><th>Tessiture</th><th>Formants établis</th></tr><tr><td>C</td><td>IRCAM</td><td>309</td><td>C3–C7</td><td>1</td></tr></table><table class="sommaire"><tr><th>Formant</th><th>Note</th><th>Corpus</th><th>Localisation</th></tr><tr><td><b>3748 Hz</b></td><td>La♯7</td><td>VO ZSamples</td><td></td></tr></table><figure><img src="../figures/composite-alto.png" alt="Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, ZSamples, VO, VN). Un formant retenu est un ma" loading="lazy"><figcaption>Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, ZSamples, VO, VN). Un formant retenu est un maximum que deux corpus de provenances distinctes placent au même point de grille.</figcaption></figure>
+<figure><img src="../figures/vocalique-alto.png" alt="Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyell" loading="lazy"><figcaption>Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyelles du français (Calliope, voix d&#x27;homme). Marqueur creux : cellule non assignable. Le nom de la voyelle dépend de la référence : en voix de femme, 41 % des cellules en changent et 11 instruments sur 20 changent de voyelle dominante. Le plancher de l&#x27;espace, lui, ne bouge pas. Corpus : SOL, ZSamples, VO, VN.</figcaption></figure>
+<h1>Alto</h1>
+<blockquote>
+<h2>Statut des formants — révision du 26/10/2026</h2>
+<p>Confrontation des <strong>cinq corpus</strong>. Provenance de ce corpus : <strong>IRCAM (FullSOL2020)</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Formant</th>
+<th>Statut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1318 Hz</strong></td>
+<td>présent dans le seul corpus SOL</td>
+</tr>
+<tr>
+<td><strong>2091 Hz</strong></td>
+<td>présent dans le seul corpus SOL</td>
+</tr>
+<tr>
+<td><strong>3517 Hz</strong></td>
+<td><strong>indéterminé</strong> — concordance à un demi-ton avec ZSamples mais aucun couple au même point de grille. Environ une concordance sur quatre à ce seuil est fortuite.</td>
+</tr>
+<tr>
+<td><strong>4974 Hz</strong></td>
+<td>présent dans le seul corpus SOL</td>
+</tr>
+</tbody>
+</table>
+<p><code>etendue_residu</code> dans l'en-tête <strong>n'est pas une largeur de bande</strong> : c'est l'étendue du résidu de la méthode 8, souvent une butée de plage. Les largeurs mesurées sont dans <code>_LARGEURS-DE-BANDE.md</code>.</p>
+</blockquote>
+<h2>Un formant établi, que SOL ne trouve pas — 26/10/2026</h2>
+<p>L'alto a été présenté le 25/10 comme <strong>le seul membre du quatuor sans formant établi</strong>. C'était
+une erreur de comptage, corrigée ici.</p>
+<table>
+<thead>
+<tr>
+<th>Corpus</th>
+<th>Formants retenus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SOL</td>
+<td>1 318 · 2 091 · <strong>3 517</strong> · 4 974 Hz</td>
+</tr>
+<tr>
+<td>ZSamples</td>
+<td>2 348 · <strong>3 726</strong> · 5 583 Hz</td>
+</tr>
+<tr>
+<td>VO</td>
+<td><strong>3 770</strong> · 5 331 Hz</td>
+</tr>
+<tr>
+<td>VN</td>
+<td>1 759 · 4 432 Hz</td>
+</tr>
+</tbody>
+</table>
+<p><strong>VO et ZSamples s'accordent à 0,20 demi-ton — 3 770 contre 3 726 Hz.</strong> Deux provenances
+distinctes, même point de grille : c'est une route A, à <strong>3 748 Hz (La♯7)</strong>.</p>
+<p>Mais <strong>SOL ne le retrouve pas.</strong> Sa valeur la plus proche, 3 517 Hz, est à <strong>1,1 demi-ton</strong> du
+couple, au-delà du seuil. D'où le statut « indéterminé » qui figure en tête pour cette valeur :
+<em>le formant de l'alto est établi, mais ce n'est pas celui que mesure ce corpus-ci.</em></p>
+<p>La zone 5 331 / 5 583 Hz reste à un demi-ton, sans couple strict.</p>
+<h3>Ce qu'il faut en écrire</h3>
+<p>L'alto reste le membre du quatuor le moins bien établi — <strong>un</strong> formant, contre deux au violon
+et trois au violoncelle, et aucun que SOL confirme. Son ρ est élevé et stable partout, de 0,74
+à 0,87 sur quatre corpus.</p>
+<p>Et c'est pour lui que la <strong>méthode 12 l'emporte sur la méthode 8</strong> : elle retrouve <strong>au grave</strong> une F1
+entre 374 et 395 Hz sur quatre corpus — 0,9 demi-ton d'écart, pente +0,01 — compatible avec le
+mode B1+ de la caisse, que la littérature situe vers 350–450 Hz, et que le redressement à
+±3/4 d'octave de la méthode 8 efface parce qu'il est trop large.</p>
+<p><strong>Au médium, en revanche, F1 suit la note</strong> : pentes de +0,79 à +1,11 sur les quatre corpus.
+L'affirmation publiée le 24/10, qui couvrait « le grave et le médium », a été corrigée de
+moitié le 27/10. Voir <code>../_RESONANCE-DE-CAISSE.md</code> et <code>../_CARTE-VOCALIQUE.md</code>.</p>
+<h2>Classe C — quatre formants retenus, aucun rejeté</h2>
+<blockquote>
+<p><strong>Méthode 8 — quatre formants retenus.</strong> Voir <code>00-METHODE.md</code>, section
+« Typologie — trois classes ».</p>
+</blockquote>
+<p>L'alto est l'illustration la plus nette de la classe C. Son ρ atteint <strong>0,87</strong>, aussi élevé
+que celui de la clarinette basse, et son enveloppe vraie est très dispersée (538 Hz,
+σ = 970 Hz). Pourtant <strong>les quatre candidats détectés passent tous les deux tests de rejet</strong>,
+sans aucun rejet ni cas fragile — performance que seuls le trombone ténor et le tuba basse
+égalent dans tout le corpus.</p>
+<p>Conditions de mesure favorables : 309 échantillons, le deuxième corpus le plus fourni, et une
+pente d'une régularité exceptionnelle, σ = 1,8 dB/octave.</p>
+<h2>Formants</h2>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>Résidu</th>
+<th>Largeur −3 dB</th>
+<th>Notes distinctes</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1 318 Hz</strong></td>
+<td>+1,8 dB</td>
+<td>large</td>
+<td>8</td>
+<td><strong>retenu</strong> (faible)</td>
+</tr>
+<tr>
+<td><strong>2 091 Hz</strong></td>
+<td>+3,6 dB</td>
+<td>large</td>
+<td>15</td>
+<td><strong>retenu</strong></td>
+</tr>
+<tr>
+<td><strong>3 517 Hz</strong></td>
+<td>+5,8 dB</td>
+<td>2 792–5 915 Hz</td>
+<td>24</td>
+<td><strong>retenu</strong></td>
+</tr>
+<tr>
+<td><strong>4 974 Hz</strong></td>
+<td>+4,1 dB</td>
+<td>large</td>
+<td>30</td>
+<td><strong>retenu</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>Tests de rejet</h2>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>k = 2–3</th>
+<th>k = 4–7</th>
+<th>k = 8–15</th>
+<th>k ≥ 16</th>
+<th>Robustesse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 318 Hz</td>
+<td>+1,5</td>
+<td>+2,1</td>
+<td>+4,7</td>
+<td>—</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>2 091 Hz</td>
+<td>+3,5</td>
+<td>+4,4</td>
+<td>+6,1</td>
+<td>—</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>3 517 Hz</td>
+<td>+2,2</td>
+<td>+4,6</td>
+<td>+5,1</td>
+<td>+5,1</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>4 974 Hz</td>
+<td>+3,6</td>
+<td>+2,1</td>
+<td>+1,9</td>
+<td>+1,8</td>
+<td>oui</td>
+</tr>
+</tbody>
+</table>
+<p>Les quatre formants sont stables, sans changement de signe. Le plus fort, à 3 517 Hz, voit
+son résidu croître avec le rang harmonique puis se stabiliser à +5,1 dB, ce qui est le
+comportement attendu d'une résonance de caisse éclairée par des harmoniques de plus en plus
+serrés.</p>
+<h2>Descripteurs globaux</h2>
+<table>
+<thead>
+<tr>
+<th>Descripteur</th>
+<th>Valeur</th>
+<th>Lecture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pente spectrale médiane</td>
+<td>−15,6 dB/octave (<strong>σ 1,8</strong>)</td>
+<td>la deuxième plus régulière du corpus</td>
+</tr>
+<tr>
+<td>Harmoniques par note</td>
+<td>22 [5–83]</td>
+<td>correct</td>
+</tr>
+<tr>
+<td>Balance impair − pair</td>
+<td>−3,6 dB</td>
+<td>corde frottée</td>
+</tr>
+<tr>
+<td>Enveloppe vraie (méthode 6)</td>
+<td>538 Hz, σ 970</td>
+<td>inexploitable note par note</td>
+</tr>
+</tbody>
+</table>
+<h2>Comparaison avec la littérature</h2>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Valeur annoncée</th>
+<th>Notre mesure</th>
+<th>Lecture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Backus, Giesler, Meyer</td>
+<td>pas de valeur propre à l'alto dans les tableaux de l'étude</td>
+<td>—</td>
+<td>à chercher aux sources primaires</td>
+</tr>
+<tr>
+<td>Ancien pipeline <code>specenv</code></td>
+<td>F1 = 377 Hz, zone /o/</td>
+<td>—</td>
+<td>hauteur médiane (rapport 0,91)</td>
+</tr>
+<tr>
+<td>Ancien Fp</td>
+<td>— (non publié séparément)</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Cepstre mai 2026 (ordre 80)</td>
+<td>409 Hz, σ <strong>1 191</strong></td>
+<td>—</td>
+<td>σ supérieur à la valeur : inexploitable</td>
+</tr>
+</tbody>
+</table>
+<p>Aucune source classique ne donne de valeur spécifique à l'alto dans les tableaux de l'étude
+antérieure, qui le plaçait dans la zone /o/ à 377 Hz sur la seule base du pipeline <code>specenv</code>.
+Les quatre formants mesurés ici sont donc <strong>entièrement inédits</strong>.</p>
+<p>Point d'attention relevé dans les données de mai 2026 : le cepstre d'ordre 80 donnait 409 Hz
+pour l'alto soliste mais <strong>393 Hz pour l'ensemble d'altos avec un σ de 25 Hz seulement</strong>,
+contre σ = 1 191 Hz pour le soliste. Cet écart de dispersion d'un facteur 48 entre soliste et
+pupitre est une anomalie qui mérite examen : il suggère que les légers désaccords d'un
+pupitre « remplissent » l'espace entre harmoniques et révèlent mieux le corps de résonance.
+<strong>Les ensembles seraient alors de meilleurs témoins formantiques que les solistes.</strong> À
+tester, et c'est une piste méthodologique potentiellement importante.</p>
+<h2>Registres</h2>
+<p><code>Data/registres.md</code> : grave C3–G3 · médium G3–G4 · aigu G4–G5 · suraigu G5 et au-dessus.</p>
+<p>Mesure par registre : non effectuée.</p>
+<!-- DEBUT-TRAVAUX-27-10 -->
+<h2>Ce que les travaux des 27 et 28/10/2026 disent de cet instrument</h2>
+<h3>Corroboration par le LPC, note par note</h3>
+<p>Rang du formant dans son propre spectre : 50 % signifie que les deux méthodes ne s'accordent pas mieux là qu'ailleurs. Voir <code>../_APPARIEMENT-LPC.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Formant</th>
+<th>Statut</th>
+<th>Rang</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1318 Hz</td>
+<td>1 corpus</td>
+<td>75,0 %</td>
+</tr>
+<tr>
+<td>2091 Hz</td>
+<td>1 corpus</td>
+<td>75,0 %</td>
+</tr>
+<tr>
+<td>3748 Hz</td>
+<td>route A</td>
+<td>15,0 %</td>
+</tr>
+<tr>
+<td>4974 Hz</td>
+<td>1 corpus</td>
+<td>25,0 %</td>
+</tr>
+</tbody>
+</table>
+<h3>Effet de la nuance sur la localisation</h3>
+<p>Part de pics <strong>non localisables</strong> — l'enveloppe n'y redescend pas de 3 dB des deux côtés, donc le formant n'a pas de largeur mesurable. Voir <code>../_LARGEUR-PAR-REGISTRE.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>doux</th>
+<th>moyen</th>
+<th>fort</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>tous registres</strong></td>
+<td>12 %</td>
+<td>12 %</td>
+<td>7 %</td>
+</tr>
+<tr>
+<td>grave</td>
+<td>12 %</td>
+<td>18 %</td>
+<td>11 %</td>
+</tr>
+<tr>
+<td>médium</td>
+<td>14 %</td>
+<td>15 %</td>
+<td>8 %</td>
+</tr>
+<tr>
+<td>aigu</td>
+<td>10 %</td>
+<td>5 %</td>
+<td>5 %</td>
+</tr>
+<tr>
+<td>suraigu</td>
+<td>4 %</td>
+<td>10 %</td>
+<td>3 %</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Effet doux → fort : +5 points.</strong> Effet négligeable.</p>
+<h3>La carte vocalique corrobore-t-elle les formants ?</h3>
+<p><strong>Non.</strong> F1 0,0 % contre 0,0 % au témoin · F2 4,9 % contre 15,1 % au témoin — soit le hasard, ou moins. Les deux méthodes ne mesurent pas la même région du spectre : F1 se situe en médiane à 15,5 demi-tons du formant établi le plus proche, parce que la méthode 8 ne mesure rien sous 3,2 à 5,7 fois f0_min.</p>
+<p>Témoin : les propres formants de l'instrument transposés de ±2 à ±6 demi-tons, ce qui conserve leur nombre et leur espacement. Voir <code>../_COINCIDENCES-F2.md</code>.</p>
+<h3>Dans la table des mélanges</h3>
+<p>21 paires calculées. <strong>Fusion moyenne : 22 %.</strong> Voir <code>../_MELANGES.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Couleur nouvelle avec</th>
+<th></th>
+<th>Se fond avec</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trombone basse</td>
+<td>46 %</td>
+<td>Petite flûte</td>
+<td>55 %</td>
+</tr>
+<tr>
+<td>Cor anglais</td>
+<td>40 %</td>
+<td>Flûte</td>
+<td>54 %</td>
+</tr>
+<tr>
+<td>Trompette en Ut</td>
+<td>35 %</td>
+<td>Contrebasson</td>
+<td>48 %</td>
+</tr>
+</tbody>
+</table>
+<!-- FIN-TRAVAUX-27-10 -->
+
+<h2>Observations pour l'orchestration</h2>
+<p>À compléter. Éléments acquis :</p>
+<ul>
+<li>La zone <strong>3 517 Hz est identique à celle de la clarinette en Sib</strong> (3 517 Hz, exactement)
+  et proche de celle du trombone basse (3 320 Hz) et du basson (3 320 Hz). Quatre
+  instruments de trois familles, tous validés.</li>
+<li>La zone <strong>2 091 Hz est identique à celle du trombone ténor</strong> (2 091 Hz) et proche de
+  celles du cor (2 216 Hz) et du cor anglais (2 216 Hz).</li>
+<li>L'ancienne étude annonçait une convergence « quasi-parfaite Δ = 11 Hz » cor–alto
+  (388 contre 377 Hz), fondement supposé de « la fusion cor-cordes ». Le F1 du cor était une
+  mesure valide (rapport 1,87), celui de l'alto non (rapport 0,91) : la convergence reposait
+  donc sur une valeur juste et une valeur fausse, et elle est <strong>écartée</strong>. Mais une
+  correspondance réelle subsiste ailleurs, à 2 091–2 216 Hz, et elle pourrait rendre compte
+  du même phénomène perceptif. À vérifier.</li>
+<li>La convergence alto–clarinette Sib annoncée à Δ = 86 Hz (377 contre 463 Hz) est écartée,
+  mais remplacée par une coïncidence exacte à 3 517 Hz.</li>
+</ul>
+<h2>Graphiques</h2>
+<p>Aucun à ce stade. Figures prévues dans <code>../Versions-html-and-docx/media/</code> :</p>
+<table>
+<thead>
+<tr>
+<th>Fichier prévu</th>
+<th>Contenu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>alto_composite.png</code></td>
+<td>enveloppe composite — quatre formants retenus, bonne figure de classe C</td>
+</tr>
+<tr>
+<td><code>alto_soliste_vs_ensemble.png</code></td>
+<td><strong>piste méthodologique</strong> : dispersion soliste (σ 1 191) contre pupitre (σ 25)</td>
+</tr>
+<tr>
+<td><code>cordes_composite.png</code></td>
+<td>figure de famille : les quatre cordes solistes superposées</td>
+</tr>
+</tbody>
+</table>
+<p>La deuxième figure concerne une hypothèse qui pourrait changer la méthode : si les pupitres
+sont de meilleurs témoins que les solistes, il faudra privilégier les ensembles.</p>
+<h2>Journal</h2>
+<ul>
+<li><strong>2026-10-23</strong> — Quatre formants retenus, aucun rejet. Avec le trombone ténor et le tuba
+  basse, l'un des trois seuls cas du corpus.</li>
+<li><strong>2026-10-23</strong> — Les quatre formants sont inédits : aucune source classique ne traite
+  l'alto spécifiquement.</li>
+<li><strong>2026-10-23</strong> — Anomalie relevée dans les données de mai 2026 : σ de 1 191 Hz pour le
+  soliste contre 25 Hz pour le pupitre. Hypothèse à tester — les ensembles révéleraient mieux
+  le corps de résonance.</li>
+</ul>
+<footer>Référence formantique de l'orchestre — Yan Maresz · page produite par <code>construire_site.py</code> depuis les fiches et <code>Resultats-v7/</code>.</footer>
+</body>
+</html>

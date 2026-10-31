@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Basson</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="bandeau"><h1>Basson</h1><p>Bassoon</p></div>
+<p class="fil"><a href="../index.html">Sommaire</a> › Les bois</p>
+<table class="sommaire"><tr><th>Classe</th><th>Provenance</th><th>Échantillons</th><th>Tessiture</th><th>Formants établis</th></tr><tr><td>A</td><td>IRCAM</td><td>126</td><td>A</td><td>3</td></tr></table><table class="sommaire"><tr><th>Formant</th><th>Note</th><th>Corpus</th><th>Localisation</th></tr><tr><td><b>494 Hz</b></td><td>Si4</td><td>Xsamples ZSamples</td><td></td></tr><tr><td><b>1108 Hz</b></td><td>Do♯6</td><td>SOL ZSamples Xsamples</td><td>localisé</td></tr><tr><td><b>1974 Hz</b></td><td>Si6</td><td>SOL ZSamples Xsamples</td><td>localisé</td></tr></table><figure><img src="../figures/composite-basson.png" alt="Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, ZSamples, Xsamples). Un formant retenu est un " loading="lazy"><figcaption>Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, ZSamples, Xsamples). Un formant retenu est un maximum que deux corpus de provenances distinctes placent au même point de grille.</figcaption></figure>
+<figure><img src="../figures/vocalique-basson.png" alt="Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyell" loading="lazy"><figcaption>Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyelles du français (Calliope, voix d&#x27;homme). Marqueur creux : cellule non assignable. Le nom de la voyelle dépend de la référence : en voix de femme, 41 % des cellules en changent et 11 instruments sur 20 changent de voyelle dominante. Le plancher de l&#x27;espace, lui, ne bouge pas. Corpus : SOL, ZSamples, Xsamples.</figcaption></figure>
+<h1>Basson</h1>
+<blockquote>
+<h2>Statut des formants — révision du 26/10/2026</h2>
+<p>Confrontation des <strong>cinq corpus</strong>. Provenance de ce corpus : <strong>IRCAM (FullSOL2020)</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Formant</th>
+<th>Statut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>554 Hz</strong></td>
+<td>présent dans le seul corpus SOL</td>
+</tr>
+<tr>
+<td><strong>1108 Hz</strong></td>
+<td><strong>route A</strong> — SOL + Xsamples + ZSamples au même point de grille, 1108 Hz · zone vue par SOL, Xsamples, ZSamples · pic localisé, Q = 4.0</td>
+</tr>
+<tr>
+<td><strong>1974 Hz</strong></td>
+<td><strong>route A</strong> — SOL + ZSamples au même point de grille, 1974 Hz · zone vue par SOL, Xsamples, ZSamples · pic localisé, Q = 7.8</td>
+</tr>
+</tbody>
+</table>
+<p><code>etendue_residu</code> dans l'en-tête <strong>n'est pas une largeur de bande</strong> : c'est l'étendue du résidu de la méthode 8, souvent une butée de plage. Les largeurs mesurées sont dans <code>_LARGEURS-DE-BANDE.md</code>.</p>
+</blockquote>
+<h2>Méthode retenue, et pourquoi</h2>
+<blockquote>
+<p><strong>Méthode 8 — enveloppe composite par agrégation des amplitudes harmoniques.</strong>
+Mesure sur les 126 échantillons <em>ordinario</em>, spectres moyens recalculés depuis
+les WAV en excluant le transitoire d'attaque (onset + 200 ms, fenêtre de 1,5 s).</p>
+</blockquote>
+<p>Le basson est le cas idéal pour cette méthode, pour une raison quantifiable : avec
+une médiane de <strong>57 harmoniques par note</strong> (de 17 à 90 selon le registre), chaque note
+échantillonne densément la réponse du tuyau sur toute la plage analysée. L'agrégation
+des 126 notes éclaire donc le filtre par autant de sources différentes, ce qui est la
+définition physique même du formant.</p>
+<p>La notion de formant est ici <strong>pleinement pertinente</strong>. Trois arguments convergent :</p>
+<ol>
+<li><strong>ρ = 0,40</strong> entre le pic de l'enveloppe vraie et la hauteur jouée — la valeur la plus
+   basse des bois après le hautbois et le cor anglais. Le spectre ne suit pas la note.</li>
+<li>Les quatre candidats détectés passent le test d'indépendance au rang harmonique :
+   le résidu reste positif quel que soit le rang qui vient éclairer la bande.</li>
+<li><strong>Pente σ = 1,7 dB/octave</strong>, la plus régulière de toute la famille des bois : le
+   comportement spectral de l'instrument varie très peu d'une note à l'autre.</li>
+</ol>
+<p>La méthode 6 (enveloppe vraie à ordre cepstral adaptatif) est utilisable note par note,
+avec des ordres allant de 24 à 264 selon la hauteur. Elle donne <strong>538 Hz, σ = 87 Hz</strong>,
+en accord direct avec le premier formant composite.</p>
+<h2>Formants validés</h2>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>Résidu</th>
+<th>Largeur −3 dB</th>
+<th>Notes distinctes</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>554 Hz</strong></td>
+<td>+7,5 dB</td>
+<td>523–659 Hz</td>
+<td>7</td>
+<td><strong>retenu</strong></td>
+</tr>
+<tr>
+<td><strong>1 108 Hz</strong></td>
+<td>+4,7 dB</td>
+<td>987–1 396 Hz</td>
+<td>18</td>
+<td><strong>retenu</strong></td>
+</tr>
+<tr>
+<td><strong>1 974 Hz</strong></td>
+<td>+7,6 dB</td>
+<td>1 759–2 216 Hz</td>
+<td>26</td>
+<td><strong>retenu</strong></td>
+</tr>
+<tr>
+<td>3 320 Hz</td>
+<td>+2,5 dB</td>
+<td>très large</td>
+<td>34</td>
+<td>fragile</td>
+</tr>
+</tbody>
+</table>
+<p>Le résidu est l'écart, en dB, entre l'amplitude mesurée d'un harmonique et la médiane
+locale des harmoniques de la même note dans une fenêtre de ±3/4 d'octave. Un résidu
+positif signale une résonance plus étroite que ~1,5 octave.</p>
+<h2>Tests de rejet</h2>
+<p>Chaque bande doit rester élevée <strong>quel que soit le rang harmonique</strong> qui y tombe : c'est
+le test direct de l'indépendance à la hauteur. Un pic qui ne serait qu'un effet de
+hauteur s'effondre dès que le rang change.</p>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>k = 2–3</th>
+<th>k = 4–7</th>
+<th>k = 8–15</th>
+<th>k ≥ 16</th>
+<th>Robustesse fenêtre</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>554 Hz</td>
+<td>+10,4</td>
+<td>+8,1</td>
+<td>+6,3</td>
+<td>—</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>1 108 Hz</td>
+<td>+5,3</td>
+<td>+2,1</td>
+<td>+5,9</td>
+<td>−2,2</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>1 974 Hz</td>
+<td>—</td>
+<td>+7,7</td>
+<td>+8,3</td>
+<td>+9,1</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>3 320 Hz</td>
+<td>—</td>
+<td>+0,4</td>
+<td>+1,2</td>
+<td>+2,1</td>
+<td><strong>non</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Le pic à 3 320 Hz est classé fragile : ses résidus sont faibles et il ne survit pas au
+changement de fenêtre de redressement (±1/2 et ±1 octave). Il traduit probablement une
+tendance large plutôt qu'une résonance.</p>
+<p>Le cas de 1 108 Hz mérite une note : le résidu devient négatif aux rangs ≥ 16, c'est-à-dire
+pour les notes les plus graves de la tessiture. La résonance est donc bien réelle mais
+moins marquée dans le registre grave — à vérifier par une mesure par registre.</p>
+<h2>Descripteurs globaux</h2>
+<table>
+<thead>
+<tr>
+<th>Descripteur</th>
+<th>Valeur</th>
+<th>Lecture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pente spectrale médiane</td>
+<td><strong>−14,7 dB/octave</strong> (σ 1,7)</td>
+<td>décroissance modérée et très régulière</td>
+</tr>
+<tr>
+<td>Harmoniques par note</td>
+<td>57 [17–90]</td>
+<td>spectre très riche, mesure densément échantillonnée</td>
+</tr>
+<tr>
+<td>Balance impair − pair</td>
+<td>−3,3 dB</td>
+<td>tuyau conique : harmoniques pairs présents</td>
+</tr>
+<tr>
+<td>Enveloppe vraie (méthode 6)</td>
+<td>538 Hz, σ 87</td>
+<td>confirme le premier formant</td>
+</tr>
+</tbody>
+</table>
+<h2>Comparaison avec la littérature</h2>
+<p>Valeurs de la littérature telles que relevées dans les tableaux de l'étude précédente
+(à revérifier aux sources primaires).</p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Valeur annoncée</th>
+<th>Notre mesure</th>
+<th>Accord</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Backus (1969)</td>
+<td>440–500 Hz</td>
+<td>554 Hz</td>
+<td>proche</td>
+</tr>
+<tr>
+<td>Giesler (1985)</td>
+<td>500 Hz, <em>o-ähnlich</em></td>
+<td>554 Hz</td>
+<td><strong>bon</strong></td>
+</tr>
+<tr>
+<td>Meyer (2009)</td>
+<td>~500 Hz et ~1 000 Hz</td>
+<td>554 et 1 108 Hz</td>
+<td><strong>bon sur les deux</strong></td>
+</tr>
+<tr>
+<td>Cepstre mai 2026</td>
+<td>527 Hz</td>
+<td>554 Hz</td>
+<td><strong>bon</strong></td>
+</tr>
+<tr>
+<td>Ancien pipeline <code>specenv</code></td>
+<td>F1 = 495 Hz</td>
+<td>554 Hz</td>
+<td>proche</td>
+</tr>
+</tbody>
+</table>
+<p>C'est le seul instrument dont la valeur de l'ancien pipeline ressort intacte, et pour une
+raison précise : avec un f0 maximal de 622 Hz, une grande partie de la tessiture du basson
+reste sous la limite de validité du lissage Orchidea à l'ordre 160 (276 Hz), et le reste
+n'en est pas très loin. Le formant à 1 974 Hz, en revanche, est nouveau et n'apparaît dans
+aucune source consultée.</p>
+<h2>Registres</h2>
+<p>Découpage de référence (<code>Data/registres.md</code>) :
+grave A#1–A2 · bas médium A#2–A3 · haut médium A#3–A4 · aigu à partir de A#4.</p>
+<p>Mesure par registre : <strong>non encore effectuée</strong> avec la nouvelle méthode. À faire, en
+particulier pour trancher le comportement de la bande 1 108 Hz dans le grave.</p>
+<!-- DEBUT-TRAVAUX-27-10 -->
+<h2>Ce que les travaux des 27 et 28/10/2026 disent de cet instrument</h2>
+<h3>Corroboration par le LPC, note par note</h3>
+<p>Rang du formant dans son propre spectre : 50 % signifie que les deux méthodes ne s'accordent pas mieux là qu'ailleurs. Voir <code>../_APPARIEMENT-LPC.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Formant</th>
+<th>Statut</th>
+<th>Rang</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>494 Hz</td>
+<td>route A</td>
+<td>2,9 %</td>
+</tr>
+<tr>
+<td>554 Hz</td>
+<td>1 corpus</td>
+<td>0,0 %</td>
+</tr>
+<tr>
+<td>1108 Hz</td>
+<td>route A</td>
+<td>29,4 %</td>
+</tr>
+<tr>
+<td>1974 Hz</td>
+<td>route A</td>
+<td>5,9 %</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Cet instrument est une anche double, et le LPC y échoue par construction</strong> : il suppose une source filtrée par une cavité séparable, alors que l'anche et la perce sont couplées et que la résonance de l'anche fait partie de la source. Les six formants des anches doubles sont tous sous la médiane. <strong>Ses formants restent établis par la route A — le critère le plus exigeant — mais ne peuvent pas revendiquer de corroboration LPC.</strong></p>
+</blockquote>
+<h3>Effet de la nuance sur la localisation</h3>
+<p>Part de pics <strong>non localisables</strong> — l'enveloppe n'y redescend pas de 3 dB des deux côtés, donc le formant n'a pas de largeur mesurable. Voir <code>../_LARGEUR-PAR-REGISTRE.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>doux</th>
+<th>moyen</th>
+<th>fort</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>tous registres</strong></td>
+<td>10 %</td>
+<td>9 %</td>
+<td>9 %</td>
+</tr>
+<tr>
+<td>grave</td>
+<td>17 %</td>
+<td>13 %</td>
+<td>11 %</td>
+</tr>
+<tr>
+<td>bas médium</td>
+<td>5 %</td>
+<td>10 %</td>
+<td>9 %</td>
+</tr>
+<tr>
+<td>haut médium</td>
+<td>4 %</td>
+<td>5 %</td>
+<td>0 %</td>
+</tr>
+<tr>
+<td>aigu</td>
+<td>0 %</td>
+<td>0 %</td>
+<td>10 %</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Effet doux → fort : +1 point.</strong> Effet négligeable.</p>
+<h3>La carte vocalique corrobore-t-elle les formants ?</h3>
+<p><strong>Oui, et c'est le seul cas de l'étude.</strong> Rapport mesure / témoin :</p>
+<table>
+<thead>
+<tr>
+<th>Maximum</th>
+<th>Mesure</th>
+<th>Témoin</th>
+<th>Rapport</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F1</td>
+<td>44,4 %</td>
+<td>7,8 %</td>
+<td><strong>×5,7</strong></td>
+</tr>
+<tr>
+<td>F2</td>
+<td>23,1 %</td>
+<td>3,1 %</td>
+<td><strong>×7,5</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Les cellules concernées, formant par formant :</p>
+<table>
+<thead>
+<tr>
+<th>Formant</th>
+<th>Cellules &lt; 1,0 dt</th>
+<th>dont &lt; 0,5 dt</th>
+<th>Corpus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>494 Hz</strong></td>
+<td>16</td>
+<td>8</td>
+<td>SOL · Xsamples · ZSamples</td>
+</tr>
+<tr>
+<td><strong>554 Hz</strong></td>
+<td>13</td>
+<td>8</td>
+<td>SOL · Xsamples · ZSamples</td>
+</tr>
+<tr>
+<td><strong>1 108 Hz</strong></td>
+<td>11</td>
+<td>6</td>
+<td>SOL · Xsamples · ZSamples</td>
+</tr>
+</tbody>
+</table>
+<p>Témoin : les propres formants de l'instrument transposés de ±2 à ±6 demi-tons, ce qui conserve leur nombre et leur espacement. Voir <code>../_COINCIDENCES-F2.md</code>.</p>
+<h3>Dans la table des mélanges</h3>
+<p>20 paires calculées. <strong>Fusion moyenne : 31 %.</strong> Voir <code>../_MELANGES.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Couleur nouvelle avec</th>
+<th></th>
+<th>Se fond avec</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clarinette contrebasse en Sib</td>
+<td>58 %</td>
+<td>Trombone ténor</td>
+<td>51 %</td>
+</tr>
+<tr>
+<td>Clarinette en Mib</td>
+<td>57 %</td>
+<td>Cor anglais</td>
+<td>39 %</td>
+</tr>
+<tr>
+<td>Tuba basse</td>
+<td>48 %</td>
+<td>Flûte basse</td>
+<td>33 %</td>
+</tr>
+</tbody>
+</table>
+<!-- FIN-TRAVAUX-27-10 -->
+
+<h2>Observations pour l'orchestration</h2>
+<p>À compléter. Pistes ouvertes, non encore mesurées :</p>
+<ul>
+<li>La doublure <strong>flûte deux octaves au-dessus du basson</strong>, préférée de Mozart : pour un
+  basson entre D3 et D4, la flûte joue entre 587 et 1 175 Hz, donc sa fondamentale tombe
+  exactement entre les formants mesurés à 554 et 1 108 Hz, et sur l'harmonique 4 du basson.
+  Convergence de type « fondamentale suiveuse × formant fixe », à valider par la méthode 12.</li>
+<li>Le formant à 1 974 Hz, inédit, est le plus fort de l'instrument (+7,6 dB) et le mieux
+  attesté (26 notes, positif sur trois groupes de rang). Son rôle dans la projection du
+  basson reste à examiner.</li>
+<li>Zone 1 108 Hz commune au basson et au contrebasson (1 174 Hz) : parenté de famille
+  mesurée, et non postulée.</li>
+</ul>
+<h2>Graphiques</h2>
+<p>Aucun graphique produit à ce stade (décision du 23/10/2026 : tableaux d'abord).
+Figures prévues, à placer dans <code>../Versions-html-and-docx/media/</code> :</p>
+<table>
+<thead>
+<tr>
+<th>Fichier prévu</th>
+<th>Contenu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>basson_composite.png</code></td>
+<td>enveloppe composite : résidu médian par bande de 1/12 d'octave, avec couverture</td>
+</tr>
+<tr>
+<td><code>basson_rangs.png</code></td>
+<td>résidu par groupe de rang harmonique, pour chaque formant retenu</td>
+</tr>
+<tr>
+<td><code>basson_te_registres.png</code></td>
+<td>enveloppes vraies superposées, une par registre</td>
+</tr>
+</tbody>
+</table>
+<h2>Journal</h2>
+<ul>
+<li><strong>2026-10-23</strong> — Reprise complète. Abandon des <code>specenv</code> d'Orchidea (lissage cepstral
+  à ordre fixe 160, non valide au-dessus de 276 Hz) et du Fp par centroïde (grandeur bornée
+  par sa propre fenêtre d'analyse, ne mesure pas une résonance). Passage à la méthode 8 sur
+  les fichiers <code>spectrum</code> non lissés, puis recalcul depuis les WAV avec exclusion de l'attaque.</li>
+<li><strong>2026-10-23</strong> — Les deux mesures (attaque incluse / exclue) concordent à un ou deux
+  douzièmes d'octave près : 554 / 1 174 / 1 974 contre 554 / 1 108 / 1 974.</li>
+<li><strong>2026-10-23</strong> — Premier essai avec redressement linéaire en log-fréquence abandonné :
+  sur un spectre concave, il fabrique une bosse médiane artificielle. Remplacé par un
+  redressement local à ±3/4 d'octave.</li>
+</ul>
+<footer>Référence formantique de l'orchestre — Yan Maresz · page produite par <code>construire_site.py</code> depuis les fiches et <code>Resultats-v7/</code>.</footer>
+</body>
+</html>

@@ -259,3 +259,12 @@ Coché le 26/10, pour qu'on ne le redemande pas.
   `Resultats-v7/formants-v7.csv`.
 - **2026-10-26** — Consolidation : les listes des sept autres documents sont fusionnées ici.
   Le bloc A (mise à jour des fiches) est terminé. La forme du chapitre est tranchée.
+- **2026-10-31** — Carte vocalique simplifiée, pour l'enseignement. Les cartes en Bark sont
+  illisibles en cours ; ajout d'une lecture en hertz devant les six zones vocaliques de la V1
+  (u Profondeur → i Brillance), à la manière de Meyer et McCarty. **Aucune mesure nouvelle** :
+  F1, F2 et leur dispersion viennent de la carte vocalique SOL. Trois états par registre :
+  stable, suit la note, non tranché. Les verdicts de `_RESONANCE-DE-CAISSE.md` et la borne de
+  lecture des cuivres (C7) priment sur la règle générale. Script `Scripts/v7-site/fig_simplifiee.py`
+  (25 figures `simple-*`), page `_CARTE-SIMPLIFIEE.md`, branchement par `patch_simplifiee.py`.
+  Site reconstruit : 21 synthèses, zéro lien cassé ; version antérieure dans
+  `Archives/Site-v2-avant-carte-simplifiee-2026-10-31/`.

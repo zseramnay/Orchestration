@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trompette en Ut</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="bandeau"><h1>Trompette en Ut</h1><p>Trumpet in C</p></div>
+<p class="fil"><a href="../index.html">Sommaire</a> › Les cuivres</p>
+<table class="sommaire"><tr><th>Classe</th><th>Provenance</th><th>Échantillons</th><th>Tessiture</th><th>Formants établis</th></tr><tr><td>A/B</td><td>IRCAM</td><td>96</td><td>F</td><td>2</td></tr></table><table class="sommaire"><tr><th>Formant</th><th>Note</th><th>Corpus</th><th>Localisation</th></tr><tr><td><b>2792 Hz</b></td><td>Fa7</td><td>SOL VN</td><td>non localisé</td></tr><tr><td><b>4695 Hz</b></td><td>Ré8</td><td>SOL Xsamples VN</td><td></td></tr></table><figure><img src="../figures/composite-trompette.png" alt="Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, ZSamples, Xsamples, VN). Un formant retenu est" loading="lazy"><figcaption>Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, ZSamples, Xsamples, VN). Un formant retenu est un maximum que deux corpus de provenances distinctes placent au même point de grille.</figcaption></figure>
+<figure><img src="../figures/vocalique-trompette.png" alt="Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyell" loading="lazy"><figcaption>Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyelles du français (Calliope, voix d&#x27;homme). Marqueur creux : cellule non assignable. Le nom de la voyelle dépend de la référence : en voix de femme, 41 % des cellules en changent et 11 instruments sur 20 changent de voyelle dominante. Le plancher de l&#x27;espace, lui, ne bouge pas. Corpus : SOL, ZSamples, Xsamples, VN.</figcaption></figure>
+<h1>Trompette en Ut</h1>
+<blockquote>
+<h2>Statut des formants — révision du 26/10/2026</h2>
+<p>Confrontation des <strong>cinq corpus</strong>. Provenance de ce corpus : <strong>IRCAM (FullSOL2020)</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Formant</th>
+<th>Statut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>2792 Hz</strong></td>
+<td><strong>route A</strong> — SOL + VN au même point de grille, 2792 Hz · zone vue par SOL, VN · ⚠ <strong>aucun pic localisé</strong> : Q = 1.0 sur l'enveloppe vraie, c'est une région d'énergie et non une résonance</td>
+</tr>
+<tr>
+<td><strong>4695 Hz</strong></td>
+<td><strong>route A</strong> — VN + Xsamples au même point de grille, 4974 Hz · zone vue par SOL, VN, Xsamples. ⚠ La valeur de cette fiche, 4695 Hz, est à -1.0 demi-ton du couple : c'est <strong>4974 Hz</strong> qui est établi</td>
+</tr>
+</tbody>
+</table>
+<p><code>etendue_residu</code> dans l'en-tête <strong>n'est pas une largeur de bande</strong> : c'est l'étendue du résidu de la méthode 8, souvent une butée de plage. Les largeurs mesurées sont dans <code>_LARGEURS-DE-BANDE.md</code>.</p>
+</blockquote>
+<h2>Méthode retenue, et pourquoi</h2>
+<blockquote>
+<p><strong>Méthode 8 — deux formants retenus, un fragile. Pertinence partielle.</strong>
+Voir <code>00-METHODE.md</code>.</p>
+</blockquote>
+<p>La trompette est le cuivre le plus difficile à mesurer, et l'ancienne étude l'avait déjà
+noté sans en tirer les conséquences. Trois éléments l'expliquent.</p>
+<p><strong>La dépendance à la dynamique est maximale.</strong> C'est le résultat le plus solide concernant
+cet instrument, déjà établi dans les travaux antérieurs : le F1 variait de 523 Hz en <em>pp</em> à
+1 134 Hz en <em>ff</em>, soit plus d'une octave. Notre <strong>dispersion de pente, σ = 5,0 dB/octave</strong>,
+la plus forte des cuivres, confirme quantitativement ce comportement. Le spectre de la
+trompette n'est pas une propriété fixe de l'instrument mais une fonction de la force de jeu.</p>
+<p><strong>Le corpus est le plus petit des cuivres</strong> : 96 échantillons, avec une médiane de seulement
+23 harmoniques par note — le plus faible de la famille, la tessiture étant la plus aiguë.</p>
+<p><strong>Les bandes à −3 dB sont très larges</strong> (1 318–5 915 Hz pour les trois candidats), signe que
+la méthode ne parvient pas à circonscrire les pics. Les résidus sont modestes, de +2,8 à
++4,2 dB, contre +5,4 pour le cor et +5,8 pour le tuba basse.</p>
+<p>D'où la mention « partielle » : les deux formants retenus passent les tests, mais ils
+décrivent des régions de renforcement larges plutôt que des résonances nettes.</p>
+<h2>Formants</h2>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>Résidu</th>
+<th>Largeur −3 dB</th>
+<th>Notes distinctes</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>4 695 Hz</strong></td>
+<td>+4,2 dB</td>
+<td>large</td>
+<td>22</td>
+<td><strong>retenu</strong></td>
+</tr>
+<tr>
+<td><strong>2 792 Hz</strong></td>
+<td>+3,0 dB</td>
+<td>large</td>
+<td>14</td>
+<td><strong>retenu</strong></td>
+</tr>
+<tr>
+<td>2 091 Hz</td>
+<td>+2,8 dB</td>
+<td>large</td>
+<td>9</td>
+<td>fragile</td>
+</tr>
+</tbody>
+</table>
+<h2>Tests de rejet</h2>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>k = 2–3</th>
+<th>k = 4–7</th>
+<th>k = 8–15</th>
+<th>k ≥ 16</th>
+<th>Robustesse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4 695 Hz</td>
+<td>—</td>
+<td>+4,9</td>
+<td>+4,6</td>
+<td>+4,2</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>2 792 Hz</td>
+<td>+2,4</td>
+<td>+3,0</td>
+<td>+2,6</td>
+<td>—</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>2 091 Hz</td>
+<td>—</td>
+<td>+2,2</td>
+<td>+2,3</td>
+<td>—</td>
+<td><strong>non</strong></td>
+</tr>
+<tr>
+<td>1 479 Hz</td>
+<td>+1,9</td>
+<td>+1,4</td>
+<td>—</td>
+<td>—</td>
+<td>non</td>
+</tr>
+</tbody>
+</table>
+<p>Le formant à 4 695 Hz est le plus régulier : résidu stable autour de +4,5 dB sur trois
+groupes de rang. C'est aussi la zone où l'on attendrait le « brillant » caractéristique de
+l'instrument, située au maximum de sensibilité de l'oreille.</p>
+<h2>Descripteurs globaux</h2>
+<table>
+<thead>
+<tr>
+<th>Descripteur</th>
+<th>Valeur</th>
+<th>Lecture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pente spectrale médiane</td>
+<td>−16,8 dB/octave (<strong>σ 5,0</strong>)</td>
+<td>la plus dispersée des cuivres</td>
+</tr>
+<tr>
+<td>Harmoniques par note</td>
+<td>23 [9–59]</td>
+<td>la plus faible des cuivres</td>
+</tr>
+<tr>
+<td>Balance impair − pair</td>
+<td>−3,1 dB</td>
+<td>tuyau cylindrique mais à pavillon</td>
+</tr>
+<tr>
+<td>Enveloppe vraie (méthode 6)</td>
+<td>1 034 Hz, σ 498</td>
+<td>dispersion élevée</td>
+</tr>
+<tr>
+<td>Fraction de pics sur un harmonique</td>
+<td><strong>0 %</strong></td>
+<td>l'ordre adaptatif fonctionne parfaitement</td>
+</tr>
+</tbody>
+</table>
+<p>Le dernier chiffre mérite un mot : avec l'ordre cepstral adapté à f0, <strong>aucun</strong> des 96 pics
+détectés ne tombe sur un harmonique. À comparer aux 33 % de la clarinette en Sib et aux 44 %
+qu'obtenait le cepstre d'ordre fixe 80 de mai 2026 sur ce même instrument. C'est une
+validation directe de la méthode 6.</p>
+<h2>Comparaison avec la littérature</h2>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Valeur annoncée</th>
+<th>Notre mesure</th>
+<th>Accord</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Backus (1969)</td>
+<td>1 000–1 500 Hz et ~2 000 Hz</td>
+<td>2 091 Hz (fragile)</td>
+<td><strong>partiel</strong></td>
+</tr>
+<tr>
+<td>Giesler (1985)</td>
+<td>1 200–1 500 Hz, <em>e-ähnlich</em></td>
+<td>1 479 Hz <strong>rejeté</strong></td>
+<td>désaccord</td>
+</tr>
+<tr>
+<td>Meyer (2009)</td>
+<td>~1 000 Hz, /a/–/e/</td>
+<td>env. vraie 1 034 Hz</td>
+<td><strong>bon</strong></td>
+</tr>
+<tr>
+<td>Ancien pipeline <code>specenv</code></td>
+<td>F1 = 786 Hz</td>
+<td>—</td>
+<td>hauteur médiane (rapport 1,79)</td>
+</tr>
+<tr>
+<td>Ancien Fp</td>
+<td>1 046 Hz</td>
+<td>env. vraie 1 034 Hz</td>
+<td><strong>convergent</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Le second formant de Backus (~2 000 Hz) correspond à notre candidat fragile à 2 091 Hz, et
+Meyer (~1 000 Hz) à notre enveloppe vraie (1 034 Hz). En revanche la zone 1 200–1 500 Hz de
+Giesler est rejetée par les tests.</p>
+<p>L'ancienne étude affirmait que « les sources divergent fortement car chaque source capture un
+registre différent » et que « Fp = 1 046 Hz est la mesure la plus représentative ». La
+première partie est probablement juste, mais la cause réelle est la <strong>dynamique</strong> plus que le
+registre. La seconde partie se trouve partiellement corroborée, puisque notre enveloppe vraie
+tombe à 1 034 Hz — mais, ici encore, cela ne réhabilite pas le Fp comme mesure de résonance.</p>
+<h2>Registres</h2>
+<p><code>Data/registres.md</code> : grave F#3–C3 <em>(coquille probable dans la source : lire F#3–C4)</em> ·
+médium C3–G4 · aigu G4–C5 · suraigu au-dessus.</p>
+<p>Mesure par registre : non effectuée. <strong>L'analyse par dynamique est ici la priorité absolue</strong>,
+plus encore que pour le cor : c'est le seul instrument de l'orchestre dont la littérature et
+nos mesures s'accordent sur une dépendance dynamique d'une octave.</p>
+<!-- DEBUT-TRAVAUX-27-10 -->
+<h2>Ce que les travaux des 27 et 28/10/2026 disent de cet instrument</h2>
+<h3>Corroboration par le LPC, note par note</h3>
+<p>Rang du formant dans son propre spectre : 50 % signifie que les deux méthodes ne s'accordent pas mieux là qu'ailleurs. Voir <code>../_APPARIEMENT-LPC.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Formant</th>
+<th>Statut</th>
+<th>Rang</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2792 Hz</td>
+<td>route A</td>
+<td>23,1 %</td>
+</tr>
+<tr>
+<td>4695 Hz</td>
+<td>route A</td>
+<td>0,0 %</td>
+</tr>
+</tbody>
+</table>
+<h3>Effet de la nuance sur la localisation</h3>
+<p>Part de pics <strong>non localisables</strong> — l'enveloppe n'y redescend pas de 3 dB des deux côtés, donc le formant n'a pas de largeur mesurable. Voir <code>../_LARGEUR-PAR-REGISTRE.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>doux</th>
+<th>moyen</th>
+<th>fort</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>tous registres</strong></td>
+<td>37 %</td>
+<td>11 %</td>
+<td>6 %</td>
+</tr>
+<tr>
+<td>grave</td>
+<td>58 %</td>
+<td>40 %</td>
+<td>6 %</td>
+</tr>
+<tr>
+<td>médium</td>
+<td>35 %</td>
+<td>0 %</td>
+<td>7 %</td>
+</tr>
+<tr>
+<td>aigu</td>
+<td>0 %</td>
+<td>0 %</td>
+<td>5 %</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Effet doux → fort : +31 points.</strong> La localisation s'améliore en jeu fort.</p>
+<h3>La couleur dépend de la nuance, et ne se lit que jusqu'au médium</h3>
+<p>F1 du motif d'excitation, notes <strong>pédale + grave + médium</strong> réunies : au-dessus du médium la mesure donne la fondamentale et non une couleur (F1/f0 = 1,0, pente contre f0 de 1,03 au suraigu). Voir <code>../_REGISTRES-PEDALE.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Corpus</th>
+<th>doux</th>
+<th>moyen</th>
+<th>fort</th>
+<th>doux → fort</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SOL</td>
+<td>654 Hz</td>
+<td>862 Hz</td>
+<td>950 Hz</td>
+<td><strong>+6,5 dt</strong></td>
+</tr>
+<tr>
+<td>Xsamples</td>
+<td>594 Hz</td>
+<td>653 Hz</td>
+<td>794 Hz</td>
+<td><strong>+5,0 dt</strong></td>
+</tr>
+<tr>
+<td>VN</td>
+<td>658 Hz</td>
+<td>814 Hz</td>
+<td>989 Hz</td>
+<td><strong>+7,0 dt</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ce qui réplique, à nuance égale</strong> — paires de corpus de provenances distinctes accordées à moins d'un demi-ton :</p>
+<ul>
+<li><strong>doux</strong> : SOL 653 Hz / VN 658 Hz — <strong>0,12 demi-ton</strong>, pentes contre f0 -0,19 et -0,18</li>
+</ul>
+<h3>Dans la table des mélanges</h3>
+<p>21 paires calculées. <strong>Fusion moyenne : 36 %.</strong> Voir <code>../_MELANGES.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Couleur nouvelle avec</th>
+<th></th>
+<th>Se fond avec</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tuba basse</td>
+<td>89 %</td>
+<td>Cor anglais</td>
+<td>47 %</td>
+</tr>
+<tr>
+<td>Tuba contrebasse</td>
+<td>67 %</td>
+<td>Hautbois</td>
+<td>45 %</td>
+</tr>
+<tr>
+<td>Clarinette contrebasse en Sib</td>
+<td>67 %</td>
+<td>Petite flûte</td>
+<td>43 %</td>
+</tr>
+</tbody>
+</table>
+<!-- FIN-TRAVAUX-27-10 -->
+
+<h2>Observations pour l'orchestration</h2>
+<p>À compléter. Éléments acquis :</p>
+<ul>
+<li>L'ancienne étude annonçait une convergence « excellente » trompette–hautbois à Δ = 43 Hz
+  (786 contre 743 Hz). Les deux valeurs étaient des hauteurs médianes de tessiture dans des
+  bins voisins. Cette convergence est <strong>écartée</strong> : les formants mesurés sont 2 792 et
+  4 695 Hz pour la trompette, 4 183 Hz pour le hautbois.</li>
+<li>Le « super-cluster à 323 Hz » entre trompette, cor et alto dans le registre médium
+  reposait sur des F1 identiques au bin près, qui suivaient les fondamentales. À reprendre.</li>
+<li>Une piste réelle en revanche : la zone 4 183–4 695 Hz rapproche la trompette du cor
+  (4 183 Hz), du hautbois (4 183 Hz) et du cor anglais (4 183 Hz). À examiner par la
+  méthode 12 : s'agit-il d'une région de renforcement partagée par les instruments à forte
+  projection ?</li>
+</ul>
+<h2>Graphiques</h2>
+<p>Aucun à ce stade. Figures prévues dans <code>../Versions-html-and-docx/media/</code> :</p>
+<table>
+<thead>
+<tr>
+<th>Fichier prévu</th>
+<th>Contenu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>trompette_composite.png</code></td>
+<td>enveloppe composite — montrer la largeur des bandes</td>
+</tr>
+<tr>
+<td><code>trompette_dynamiques.png</code></td>
+<td><strong>prioritaire</strong> : enveloppes composites par dynamique, pp / mf / ff</td>
+</tr>
+<tr>
+<td><code>trompette_te_vs_cepstre80.png</code></td>
+<td>comparaison ordre adaptatif / ordre fixe 80 : 0 % contre 44 % de pics sur un harmonique</td>
+</tr>
+</tbody>
+</table>
+<p>La troisième figure est une bonne démonstration méthodologique de l'apport de l'ordre
+adaptatif.</p>
+<h2>Révision du 23/10/2026 — critère assoupli</h2>
+<p>La zone à <strong>1 479 Hz</strong> passe de <em>rejetée</em> à <strong>fragile-cr</strong> : +2,1 dB [IC +1,4] en dessous du
+rang 5 et +1,7 dB [IC +1,3] au-dessus. Le test d'indépendance au rang est passé, la
+robustesse de fenêtre échoue.</p>
+<p>C'est la zone que <strong>Giesler situe à 1 200–1 500 Hz</strong>, et ce fichier la donnait en désaccord
+avec nos mesures. Ce désaccord est à nuancer : le signal existe, il est indépendant du rang,
+mais il n'est pas localisable par le test de fenêtre. Pour un instrument dont le spectre se
+déplace d'une octave entre <em>pp</em> et <em>ff</em>, c'est exactement ce que l'on attend : la résonance
+existe mais sa position dépend de la dynamique, donc la bande agrégée est étalée.</p>
+<p><strong>L'analyse par dynamique devient donc le test décisif pour cet instrument</strong>, et non une
+simple amélioration. La zone à 2 091 Hz (Backus ~2 000) reste fragile pour le même motif.</p>
+<h2>Journal</h2>
+<ul>
+<li><strong>2026-10-23</strong> — Deux formants retenus (2 792 et 4 695 Hz), bandes larges, résidus modestes.</li>
+<li><strong>2026-10-23</strong> — Dispersion de pente la plus forte des cuivres (σ 5,0), confirmant la
+  dépendance dynamique déjà relevée dans les travaux antérieurs.</li>
+<li><strong>2026-10-23</strong> — Zéro pic sur un harmonique avec l'ordre adaptatif, contre 44 % avec
+  l'ordre fixe 80 : validation de la méthode 6.</li>
+<li><strong>2026-10-23</strong> — Convergence trompette–hautbois de l'ancienne étude écartée.</li>
+<li><strong>2026-10-23 (soir)</strong> — Critère assoupli appliqué (voir <code>00-METHODE.md</code>).</li>
+<li><strong>2026-10-24</strong> — Confrontation au corpus ZSamples : voir la bannière en tête et <code>_REPLICATION.md</code>.</li>
+</ul>
+<footer>Référence formantique de l'orchestre — Yan Maresz · page produite par <code>construire_site.py</code> depuis les fiches et <code>Resultats-v7/</code>.</footer>
+</body>
+</html>

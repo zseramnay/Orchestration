@@ -43,6 +43,8 @@ SYNTHESES = [
     ('convergences', 'Synthèse — le chapitre', None),
     ('formants-etablis', 'Les formants établis', '_CORPUS-CROISES.md'),
     ('replication', 'Le critère de réplication', '_REPLICATION.md'),
+    ('carte-simplifiee', 'Carte vocalique simplifiée — pour l\'enseignement',
+     '_CARTE-SIMPLIFIEE.md'),
     ('carte-vocalique', 'Carte vocalique', '_CARTE-VOCALIQUE.md'),
     ('largeurs', 'Largeurs de bande', '_LARGEURS-DE-BANDE.md'),
     ('resonance-de-caisse', 'Résonances de caisse des cordes', '_RESONANCE-DE-CAISSE.md'),
@@ -82,6 +84,17 @@ FIGURES_SYNTHESE = {
                   'reste de l\'orchestre : ce sont les seules valeurs positives.'),
                  ('synthese-pentes.png',
                   'La décroissance spectrale par instrument.')],
+    'carte-simplifiee': [
+        ('simple-synthese-bois.png',
+         'Les bois, registre par registre, devant les six zones vocaliques de la première '
+         'étude. Barre pleine : zone stable. Hachurée : la zone suit la note. Contour : '
+         'non tranché. Barre claire : zone secondaire. Trait gris : tessiture du registre.'),
+        ('simple-synthese-cuivres.png',
+         'Les cuivres, avec deux lignes par registre — p (doux) et f (fort) : la nuance y '
+         'déplace la zone principale de près d\'une octave.'),
+        ('simple-synthese-cordes.png',
+         'Les cordes. Résonance de caisse stable à l\'alto au grave et au violoncelle au '
+         'médium ; au-dessus, la zone suit la note.')],
     'carte-vocalique': [
         ('vocalique-alto.png',
          'L\'alto, mesuré sur trois corpus de provenances distinctes. C\'est le seul '
@@ -256,6 +269,13 @@ def construire(racine, sortie, css_v6=''):
                               f'<td>{html.escape(f["localisation"])}</td></tr>')
             entete.append('</table>')
         m = MANIF.get(ident, {})
+        if os.path.exists(os.path.join(sortie, 'figures', 'simple-%s.png' % ident)):
+            entete.append(figure('simple-%s.png' % ident,
+                'Carte vocalique simplifiée : pour chaque registre, la zone principale '
+                '(barre pleine : stable ; hachurée : suit la note ; contour : non tranché) '
+                'et la zone secondaire, devant les six zones vocaliques de la première '
+                'étude. Mêmes mesures que la carte en Bark ci-dessous, lecture en hertz. '
+                'Voir la page « Carte vocalique simplifiée ».'))
         fg = m.get('composite', {})
         if fg.get('fichier'):
             entete.append(figure(fg['fichier'],

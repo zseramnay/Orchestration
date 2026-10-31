@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clarinette basse en Sib</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="bandeau"><h1>Clarinette basse en Sib</h1><p>Bass clarinet</p></div>
+<p class="fil"><a href="../index.html">Sommaire</a> › Les bois</p>
+<table class="sommaire"><tr><th>Classe</th><th>Provenance</th><th>Échantillons</th><th>Tessiture</th><th>Formants établis</th></tr><tr><td>B</td><td>VSL</td><td>173</td><td>A</td><td>2</td></tr></table><table class="sommaire"><tr><th>Formant</th><th>Note</th><th>Corpus</th><th>Localisation</th></tr><tr><td><b>1244 Hz</b></td><td>Ré♯6</td><td>SOL Xsamples VN</td><td>localisé</td></tr><tr><td><b>2225 Hz</b></td><td>Do♯7</td><td>VN VO</td><td></td></tr></table><figure><img src="../figures/composite-clarinette-basse.png" alt="Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, Xsamples, VO, VN). Un formant retenu est un ma" loading="lazy"><figcaption>Enveloppe composite : le résidu local médian, une courbe par corpus (SOL, Xsamples, VO, VN). Un formant retenu est un maximum que deux corpus de provenances distinctes placent au même point de grille.</figcaption></figure>
+<figure><img src="../figures/vocalique-clarinette-basse.png" alt="Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyell" loading="lazy"><figcaption>Carte vocalique : chaque cellule est un registre à une dynamique, placée dans le plan (F1, F2) en Bark contre les voyelles du français (Calliope, voix d&#x27;homme). Marqueur creux : cellule non assignable. Le nom de la voyelle dépend de la référence : en voix de femme, 41 % des cellules en changent et 11 instruments sur 20 changent de voyelle dominante. Le plancher de l&#x27;espace, lui, ne bouge pas. Corpus : SOL, Xsamples, VO, VN.</figcaption></figure>
+<h1>Clarinette basse en Sib</h1>
+<blockquote>
+<h2>Statut des formants — révision du 26/10/2026</h2>
+<p>Confrontation des <strong>cinq corpus</strong>. Provenance de ce corpus : <strong>VSL / ConTimbre / perso (Yan_Adds)</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Formant</th>
+<th>Statut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1244 Hz</strong></td>
+<td><strong>route A</strong> — SOL + Xsamples au même point de grille, 1244 Hz · zone vue par SOL, VN, Xsamples · pic localisé, Q = 7.2</td>
+</tr>
+<tr>
+<td><strong>2487 Hz</strong></td>
+<td>présent dans le seul corpus SOL</td>
+</tr>
+</tbody>
+</table>
+<p><code>etendue_residu</code> dans l'en-tête <strong>n'est pas une largeur de bande</strong> : c'est l'étendue du résidu de la méthode 8, souvent une butée de plage. Les largeurs mesurées sont dans <code>_LARGEURS-DE-BANDE.md</code>.</p>
+</blockquote>
+<h2>Méthode retenue, et pourquoi</h2>
+<blockquote>
+<p><strong>Méthode 8 — trois formants retenus. Corpus le plus fourni de la famille.</strong>
+Voir <code>00-METHODE.md</code>.</p>
+</blockquote>
+<p>Avec <strong>173 échantillons</strong>, c'est le corpus le plus riche des douze bois, et avec une médiane
+de 44 harmoniques par note, l'agrégation est bien alimentée. L'instrument reste de classe B
+— ρ = 0,88, le plus élevé des clarinettes — mais la combinaison d'un grand corpus et d'une
+tessiture descendant à 58 Hz permet de détecter des résonances réelles. D'où la mention
+« partielle ».</p>
+<p>Cet instrument fournit en outre l'illustration la plus nette du fonctionnement du filtre de
+rejet, avec le cas du candidat à 466 Hz détaillé plus bas.</p>
+<h2>Formants</h2>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>Résidu</th>
+<th>Largeur −3 dB</th>
+<th>Notes distinctes</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1 244 Hz</strong></td>
+<td>+3,2 dB</td>
+<td>783–5 915 Hz</td>
+<td>19</td>
+<td><strong>retenu</strong></td>
+</tr>
+<tr>
+<td><strong>2 487 Hz</strong></td>
+<td>+5,5 dB</td>
+<td>1 759–3 726 Hz</td>
+<td>31</td>
+<td><strong>retenu</strong></td>
+</tr>
+<tr>
+<td><strong>5 270 Hz</strong></td>
+<td>+2,1 dB</td>
+<td>très large</td>
+<td>42</td>
+<td><strong>retenu</strong> (faible)</td>
+</tr>
+</tbody>
+</table>
+<h2>Tests de rejet</h2>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>k = 2–3</th>
+<th>k = 4–7</th>
+<th>k = 8–15</th>
+<th>k ≥ 16</th>
+<th>Robustesse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 244 Hz</td>
+<td>—</td>
+<td>+6,3</td>
+<td>+7,7</td>
+<td>+2,7</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>2 487 Hz</td>
+<td>+8,5</td>
+<td>+10,0</td>
+<td>+5,4</td>
+<td>+4,4</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>5 270 Hz</td>
+<td>—</td>
+<td>+6,8</td>
+<td>+4,1</td>
+<td>+1,8</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>466 Hz</td>
+<td><strong>+11,3</strong></td>
+<td><strong>0,0</strong></td>
+<td>—</td>
+<td>—</td>
+<td><strong>non</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Le cas de <strong>466 Hz est exemplaire</strong> et mérite d'être conservé comme illustration de la
+méthode. Son résidu atteint +11,3 dB lorsque la bande est éclairée par les harmoniques 2 et
+3, et tombe exactement à <strong>0,0 dB</strong> lorsqu'elle est éclairée par les harmoniques 4 à 7.
+Un formant est une propriété du filtre : il ne peut pas dépendre du rang harmonique qui le
+révèle. Ce pic était donc un effet de hauteur — les notes dont l'harmonique 2 tombe vers
+466 Hz, soit le registre autour de D3–E3 — et non une résonance.</p>
+<p>C'est précisément ce type de pic que l'ancienne méthode retenait sans contrôle. Le F1 publié
+pour cet instrument était d'ailleurs 323 Hz, dans la même région.</p>
+<p>Le formant à 2 487 Hz est en revanche le mieux établi : positif sur les quatre groupes de
+rang, avec un maximum de +10,0 dB, et 31 notes distinctes.</p>
+<h2>Descripteurs globaux</h2>
+<table>
+<thead>
+<tr>
+<th>Descripteur</th>
+<th>Valeur</th>
+<th>Lecture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pente spectrale médiane</td>
+<td>−16,5 dB/octave (σ 5,7)</td>
+<td>forte dispersion, comme toute la famille</td>
+</tr>
+<tr>
+<td>Harmoniques par note</td>
+<td>44 [8–90]</td>
+<td>spectre riche</td>
+</tr>
+<tr>
+<td><strong>Balance impair − pair</strong></td>
+<td><strong>+4,5 dB</strong></td>
+<td>dominance impaire marquée</td>
+</tr>
+<tr>
+<td>Enveloppe vraie (méthode 6)</td>
+<td>323 Hz, σ 504</td>
+<td>σ supérieur à la valeur : inexploitable note par note</td>
+</tr>
+</tbody>
+</table>
+<p>L'écart-type de l'enveloppe vraie (504 Hz) dépasse la valeur médiane elle-même (323 Hz).
+C'est la démonstration la plus brutale du caractère suiveur : note par note, la mesure n'a
+aucun sens pour cet instrument. Seule l'agrégation en a.</p>
+<h2>Comparaison avec la littérature</h2>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Valeur annoncée</th>
+<th>Notre mesure</th>
+<th>Lecture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Yan_Adds (ancien)</td>
+<td>F1 = 323 ± 87 Hz, /u/</td>
+<td>466 Hz <strong>rejeté</strong></td>
+<td>effet de hauteur, écarté</td>
+</tr>
+<tr>
+<td>Ancien Fp</td>
+<td>1 204 Hz</td>
+<td>1 244 Hz</td>
+<td><strong>convergent</strong></td>
+</tr>
+<tr>
+<td>Cepstre mai 2026 (ordre 80)</td>
+<td>1 195 Hz, 24 % sur un harmonique</td>
+<td>1 244 Hz</td>
+<td>proche</td>
+</tr>
+<tr>
+<td>Backus, Giesler, Meyer</td>
+<td>aucune donnée</td>
+<td>—</td>
+<td>instrument non étudié</td>
+</tr>
+</tbody>
+</table>
+<p>Le Fp de 1 204 Hz et le cepstre de 1 195 Hz encadrent notre formant retenu à 1 244 Hz. Trois
+méthodes différentes convergent donc sur cette zone, ce qui la rend solide malgré un résidu
+modeste de +3,2 dB.</p>
+<h2>Registres</h2>
+<p><code>Data/registres.md</code> : grave A#1–D3 · médium D#3–G#3 · aigu A3–A#4 · suraigu à partir de B4.</p>
+<p>Mesure par registre : <strong>non effectuée.</strong> Elle est d'autant plus souhaitable que le candidat
+rejeté à 466 Hz correspond au registre médium : une analyse par registre dirait si une
+résonance y existe réellement, ce que l'agrégation globale ne peut pas trancher.</p>
+<!-- DEBUT-TRAVAUX-27-10 -->
+<h2>Ce que les travaux des 27 et 28/10/2026 disent de cet instrument</h2>
+<h3>Corroboration par le LPC, note par note</h3>
+<p>Rang du formant dans son propre spectre : 50 % signifie que les deux méthodes ne s'accordent pas mieux là qu'ailleurs. Voir <code>../_APPARIEMENT-LPC.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Formant</th>
+<th>Statut</th>
+<th>Rang</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1244 Hz</td>
+<td>route A</td>
+<td>75,6 %</td>
+</tr>
+<tr>
+<td>2225 Hz</td>
+<td>route A</td>
+<td>86,7 %</td>
+</tr>
+<tr>
+<td>2487 Hz</td>
+<td>1 corpus</td>
+<td>82,2 %</td>
+</tr>
+</tbody>
+</table>
+<h3>Effet de la nuance sur la localisation</h3>
+<p>Part de pics <strong>non localisables</strong> — l'enveloppe n'y redescend pas de 3 dB des deux côtés, donc le formant n'a pas de largeur mesurable. Voir <code>../_LARGEUR-PAR-REGISTRE.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>doux</th>
+<th>moyen</th>
+<th>fort</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>tous registres</strong></td>
+<td>12 %</td>
+<td>5 %</td>
+<td>2 %</td>
+</tr>
+<tr>
+<td>chalumeau</td>
+<td>12 %</td>
+<td>7 %</td>
+<td>2 %</td>
+</tr>
+<tr>
+<td>gorge</td>
+<td>11 %</td>
+<td>4 %</td>
+<td>3 %</td>
+</tr>
+<tr>
+<td>clarine</td>
+<td>21 %</td>
+<td>4 %</td>
+<td>0 %</td>
+</tr>
+<tr>
+<td>suraigu</td>
+<td>0 %</td>
+<td>0 %</td>
+<td>0 %</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Effet doux → fort : +10 points.</strong> La localisation s'améliore en jeu fort.</p>
+<h3>Dans la table des mélanges</h3>
+<p>21 paires calculées. <strong>Fusion moyenne : 20 %.</strong> Voir <code>../_MELANGES.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Couleur nouvelle avec</th>
+<th></th>
+<th>Se fond avec</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trombone basse</td>
+<td>44 %</td>
+<td>Clarinette en Sib</td>
+<td>72 %</td>
+</tr>
+<tr>
+<td>Violon</td>
+<td>40 %</td>
+<td>Flûte basse</td>
+<td>61 %</td>
+</tr>
+<tr>
+<td>Basson</td>
+<td>37 %</td>
+<td>Clarinette en Mib</td>
+<td>58 %</td>
+</tr>
+</tbody>
+</table>
+<!-- FIN-TRAVAUX-27-10 -->
+
+<h2>Observations pour l'orchestration</h2>
+<p>À compléter. Éléments acquis :</p>
+<ul>
+<li>Le formant à 2 487 Hz, bien établi, n'a pas d'équivalent connu dans la littérature pour
+  cet instrument.</li>
+<li>Les doublures annoncées antérieurement — trombone basse à Δ = 65 Hz, contrebasson à
+  Δ = 97 Hz, flûte basse à Δ = 22 Hz décrite comme « excellente » — reposaient toutes sur des
+  zones de fondamentale et sont à reprendre intégralement.</li>
+<li>La dominance impaire de +4,5 dB en fait, avec la clarinette contrebasse, le meilleur
+  candidat pour la doublure de comblement par un instrument à spectre complet (flûte,
+  basson) : le partiel pair manquant y est le plus manquant.</li>
+</ul>
+<h2>Graphiques</h2>
+<p>Aucun à ce stade. Figures prévues dans <code>../Versions-html-and-docx/media/</code> :</p>
+<table>
+<thead>
+<tr>
+<th>Fichier prévu</th>
+<th>Contenu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>clarinette_basse_composite.png</code></td>
+<td>enveloppe composite avec les trois formants</td>
+</tr>
+<tr>
+<td><code>clarinette_basse_466.png</code></td>
+<td><strong>figure méthodologique</strong> : résidu à 466 Hz par groupe de rang, +11,3 dB puis 0,0 dB</td>
+</tr>
+<tr>
+<td><code>clarinette_basse_registres.png</code></td>
+<td>enveloppes par registre</td>
+</tr>
+<tr>
+<td><code>clarinettes_balance.png</code></td>
+<td>figure de famille partagée</td>
+</tr>
+</tbody>
+</table>
+<p>La deuxième figure est la meilleure illustration pédagogique du test d'indépendance au rang
+harmonique de tout le corpus : elle montre en un coup d'œil la différence entre un formant
+et un effet de hauteur.</p>
+<h2>Révision du 23/10/2026 — critère assoupli</h2>
+<p>Deux résultats, de sens opposé.</p>
+<p><strong>Le cas de référence tient.</strong> La zone à 466 Hz reste <strong>rejetée</strong> sous le critère assoupli :
++9,4 dB [IC +3,6] en dessous du rang 5, mais <strong>−0,3 dB [IC −2,0]</strong> au-dessus. Ce cas est
+devenu le test de validité de l'assouplissement lui-même, et il le passe. Un critère qui
+l'aurait retenu aurait été à rejeter.</p>
+<p><strong>Un déclassement.</strong> La zone à 5 270 Hz passe de <em>retenue</em> à <strong>fragile-cr</strong> : +4,7 dB
+[IC +4,2] en dessous du rang 47, mais +0,0 dB [IC −0,6] au-dessus. Le découpage adaptatif au
+rang médian révèle ce que les quatre groupes fixes masquaient. Le critère assoupli est donc
+ici <strong>plus</strong> discriminant que le strict.</p>
+<h2>Journal</h2>
+<ul>
+<li><strong>2026-10-23</strong> — Trois formants retenus (1 244, 2 487, 5 270 Hz). Trois méthodes
+  indépendantes convergent sur la zone 1 200–1 250 Hz.</li>
+<li><strong>2026-10-23</strong> — Candidat à 466 Hz rejeté : +11,3 dB aux rangs 2–3, 0,0 dB aux rangs 4–7.
+  Cas retenu comme illustration de référence du filtre de rejet.</li>
+<li><strong>2026-10-23 (soir)</strong> — Critère assoupli appliqué (voir <code>00-METHODE.md</code>).</li>
+</ul>
+<footer>Référence formantique de l'orchestre — Yan Maresz · page produite par <code>construire_site.py</code> depuis les fiches et <code>Resultats-v7/</code>.</footer>
+</body>
+</html>

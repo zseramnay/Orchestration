@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Largeurs de bande</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="bandeau"><h1>Largeurs de bande</h1></div>
+<p class="fil"><a href="../index.html">Sommaire</a> › Synthèses</p>
+<figure><img src="../figures/synthese-largeurs.png" alt="La même largeur mesurée deux fois : pôle LPC et enveloppe vraie à −3 dB. L&#x27;écart n&#x27;est pas du bruit — c&#x27;est le modèle to" loading="lazy"><figcaption>La même largeur mesurée deux fois : pôle LPC et enveloppe vraie à −3 dB. L&#x27;écart n&#x27;est pas du bruit — c&#x27;est le modèle tout-pôle qui répond là où le signal ne dit rien.</figcaption></figure>
+<figure><img src="../figures/synthese-balance-impair-pair.png" alt="La balance impair − pair sépare la famille de la clarinette du reste de l&#x27;orchestre : ce sont les seules valeurs positiv" loading="lazy"><figcaption>La balance impair − pair sépare la famille de la clarinette du reste de l&#x27;orchestre : ce sont les seules valeurs positives.</figcaption></figure>
+<figure><img src="../figures/synthese-pentes.png" alt="La décroissance spectrale par instrument." loading="lazy"><figcaption>La décroissance spectrale par instrument.</figcaption></figure>
+<h1>Largeurs de bande des formants</h1>
+<blockquote>
+<p>Un formant, c'est une fréquence centrale <strong>et</strong> une largeur. L'étude ne publiait que la
+première. Ce document dit pourquoi la seconde est beaucoup plus difficile qu'il n'y paraît,
+et ce qu'on peut malgré tout en affirmer.</p>
+</blockquote>
+<h2>Résumé</h2>
+<blockquote>
+<p><strong>Sur dix-neuf formants établis confrontés par deux méthodes indépendantes : un seul accord.</strong>
+Dix sont indéterminés — l'enveloppe est à son propre plancher de résolution. Huit divergent,
+et parmi eux la trompette et le trombone basse n'ont <strong>aucun pic localisé</strong> : seul le modèle
+LPC y place une résonance étroite, parce qu'il y est obligé.</p>
+</blockquote>
+<h2>Deux méthodes, deux hypothèses</h2>
+<h3>Le LPC — un modèle, et lequel</h3>
+<p>Le LPC suppose un système <strong>tout-pôle source-filtre</strong> : une source indépendante excitant un
+résonateur passif. C'est un modèle du <strong>conduit vocal</strong>, et il y excelle. Chez un instrument à
+vent, l'anche et la colonne d'air sont <strong>couplées</strong> — le résonateur impose l'oscillation au lieu
+de filtrer une source autonome.</p>
+<p>Et le LPC rend toujours <code>ordre/2</code> résonances, qu'elles existent ou non. <strong>Il ne peut pas dire
+« il n'y a pas de formant ici »</strong>, ce que nous devons pouvoir dire.</p>
+<p>La largeur s'y lit sur le <strong>module</strong> du pôle : <code>BW = −(fe/π)·ln|r|</code>.
+<code>Analyses_formants-mai26/formant_analysis.py</code> calculait les racines (ligne 175) et n'en gardait
+que l'<strong>angle</strong>. Le module était dans la même variable et n'a jamais été sauvegardé.
+<code>largeurs_lpc.py</code> le récupère sur exactement le même ensemble de fichiers — 4 934 notes,
+~180 000 pôles.</p>
+<p><strong>Correction apportée au passage.</strong> Mai26 utilisait l'ordre 18 à 44 100 Hz sans décimation :
+neuf paires de pôles pour couvrir 22 kHz, soit une résonance tous les 2 400 Hz. Le modèle est
+sous-dimensionné et attribue donc une largeur excessive à chaque pôle. Vérifié sur le basson :
+la même résonance mesure <strong>150 Hz</strong> ainsi et <strong>45 Hz</strong> après décimation à 12 kHz. <em>C'est
+l'artefact qui fait que le LPC « trouve toujours quelque chose » et qu'on le représente en
+ellipses larges.</em></p>
+<h3>L'enveloppe vraie — aucun modèle, mais une résolution</h3>
+<p>Le cepstre ne suppose rien : il sépare la variation lente du log-spectre de la variation rapide
+du peigne harmonique. Mais un ordre <strong>fixe</strong> porte le défaut d'Orchidea — l'ordre N ne retire le
+peigne que si f0 &lt; fe/N. Ordre 160 → sous 276 Hz. <strong>Ordre 80 → sous 551 Hz.</strong> Mesuré sur la
+trompette : 44 % des pics tombent sur un harmonique avec l'ordre fixe 80, <strong>0 %</strong> avec l'ordre
+adapté à f0.</p>
+<p>D'où l'enveloppe vraie de la méthode 6, et la largeur lue directement à −3 dB sur la courbe,
+sans modèle de pôles et sans nombre de résonances imposé. Une largeur n'est retenue que si le
+niveau redescend de 3 dB <strong>des deux côtés</strong> ; sinon le pic est marqué <code>ouvert</code> et rien n'est
+publié.</p>
+<p>198 000 mesures de pic sur <strong>cinq corpus</strong>, 102 configurations.</p>
+<h2>La segmentation, et la question de l'attaque</h2>
+<p>Les deux mesures ont d'abord été faites avec la segmentation de mai26 — <strong>100 ms fixes depuis
+le début du fichier</strong>, fenêtre de 500 ms — pour que LPC et enveloppe portent sur des segments
+identiques. Ce n'est pas la convention du projet, et c'est un défaut : sur SOL l'onset médian
+est à 25 ms, mais <strong>16,7 % des fichiers ont leur onset après 100 ms</strong>, de sorte que le segment
+commence avant le son et contient l'attaque entière ; 0,7 % ne contiennent pas la note du tout.</p>
+<p>Les deux scripts acceptent donc <code>--segment v7</code> — <strong>onset détecté + 200 ms, fenêtre de
+1 500 ms</strong>, la convention du projet — et tout a été relancé ainsi. Les quatre autres corpus
+l'utilisaient déjà, leurs mesures venant des fichiers de spectres.</p>
+<blockquote>
+<p><strong>Les chiffres bougent de 0 à 35 %, aucun verdict ne change.</strong> La valeur la plus déplacée est
+le LPC du violon à 2 216 Hz (165 → 104 Hz) ; les cas de plancher restent au plancher, les
+divergences restent des divergences, et le seul accord reste le seul accord. C'est un test de
+robustesse qui passe.</p>
+</blockquote>
+<p>Les deux jeux sont conservés : <code>Largeurs/LPC/</code> et <code>Largeurs/Enveloppe/SOL/</code> pour la
+segmentation mai26, <code>Largeurs/LPC-v7/</code> et <code>Largeurs/Enveloppe/SOL-v7/</code> pour celle du projet.</p>
+<h2>Le contrôle qui change tout</h2>
+<p>L'ordre cepstral étant adapté à f0, la <strong>résolution de l'enveloppe dépend de la note jouée</strong> :
+elle vaut environ <code>(fe/2)/C</code>, où <code>C = 0,7·QCOMB·BW/f0</code>. Une note grave autorise une mesure fine,
+une note aiguë non.</p>
+<p>Contrôle sur les <strong>102 configurations des cinq corpus</strong> :</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ρ(largeur, f0) positive dans</td>
+<td><strong>100 cas sur 102</strong> · médiane <strong>+0,41</strong></td>
+</tr>
+<tr>
+<td>largeur / résolution, médiane</td>
+<td><strong>0,80</strong> — <em>sous le plancher</em></td>
+</tr>
+<tr>
+<td>mesures au plancher, médiane</td>
+<td><strong>68 %</strong></td>
+</tr>
+</tbody>
+</table>
+<p>La largeur mesurée suit donc la hauteur jouée, et pour la configuration médiane elle est
+<strong>en dessous de la résolution de la méthode</strong>. La mesure n'est pas valide en général.</p>
+<p>Les huit configurations les mieux résolues, tous corpus confondus :</p>
+<table>
+<thead>
+<tr>
+<th>Corpus</th>
+<th>Instrument</th>
+<th>n</th>
+<th>largeur/résolution</th>
+<th>% au plancher</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SOL</td>
+<td><strong>Trombone basse</strong></td>
+<td>1 314</td>
+<td><strong>3,77</strong></td>
+<td>24 %</td>
+</tr>
+<tr>
+<td>ZSamples</td>
+<td><strong>Trombone basse</strong></td>
+<td>524</td>
+<td><strong>3,01</strong></td>
+<td>28 %</td>
+</tr>
+<tr>
+<td>ZSamples</td>
+<td><strong>Trombone ténor</strong></td>
+<td>9 936</td>
+<td>2,84</td>
+<td>31 %</td>
+</tr>
+<tr>
+<td>SOL</td>
+<td><strong>Tuba contrebasse</strong></td>
+<td>2 785</td>
+<td>2,55</td>
+<td>31 %</td>
+</tr>
+<tr>
+<td>SOL</td>
+<td>Trompette</td>
+<td>596</td>
+<td>2,50</td>
+<td>40 %</td>
+</tr>
+<tr>
+<td>VO</td>
+<td><strong>Tuba basse</strong></td>
+<td>928</td>
+<td>2,46</td>
+<td>33 %</td>
+</tr>
+<tr>
+<td>VN</td>
+<td><strong>Tuba contrebasse</strong></td>
+<td>1 746</td>
+<td>2,46</td>
+<td>30 %</td>
+</tr>
+<tr>
+<td>SOL</td>
+<td><strong>Trombone ténor</strong></td>
+<td>751</td>
+<td>2,26</td>
+<td>34 %</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Les huit sont des cuivres graves, et ils viennent de quatre corpus différents.</strong> Le constat
+se réplique donc : ce sont les seuls instruments dont les formants sont assez larges pour que
+l'enveloppe puisse les résoudre.</p>
+<h3>La raison est fondamentale, pas un défaut de code</h3>
+<p><strong>Une seule note ne peut pas révéler une résonance plus étroite que son propre espacement
+harmonique.</strong> L'enveloppe interpole entre les harmoniques ; entre deux points, elle ne sait
+rien. C'est une borne physique, pas un réglage.</p>
+<p>Conséquence : la mesure note par note ne peut atteindre que les formants <strong>larges</strong>. Et
+l'enveloppe composite de la méthode 8, qui agrège toutes les notes, est sur une grille au
+douzième d'octave, soit 0,083 octave — elle ne résout donc pas non plus un formant de Q &gt; 12.</p>
+<p><strong>Pour les formants étroits, aucune de nos méthodes d'enveloppe ne donne de largeur. Seul le
+LPC en produit une, et elle dépend de l'ordre choisi.</strong></p>
+<h2>La confrontation, formant par formant</h2>
+<p>LPC à l'ordre 24 après décimation à 12 kHz · enveloppe sur les mêmes notes du même corpus ·
+segmentation du projet (onset + 200 ms). <code>Q_env</code> = formant / largeur d'enveloppe.</p>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Formant</th>
+<th>LPC</th>
+<th>Enveloppe</th>
+<th>Q_env</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Clarinette contrebasse</strong></td>
+<td>1 761 Hz</td>
+<td>244 Hz</td>
+<td>269 Hz</td>
+<td>6,5</td>
+<td><strong>ACCORD</strong></td>
+</tr>
+<tr>
+<td>Basson</td>
+<td>1 974 Hz</td>
+<td>146 Hz</td>
+<td>253 Hz</td>
+<td>7,8</td>
+<td>divergence ×1,7</td>
+</tr>
+<tr>
+<td>Basson</td>
+<td>1 108 Hz</td>
+<td>88 Hz</td>
+<td>280 Hz</td>
+<td>4,0</td>
+<td>divergence ×3,2</td>
+</tr>
+<tr>
+<td>Trombone basse</td>
+<td>879 Hz</td>
+<td>194 Hz</td>
+<td>328 Hz</td>
+<td>2,7</td>
+<td>divergence ×1,7</td>
+</tr>
+<tr>
+<td><strong>Trombone ténor</strong></td>
+<td>879 Hz</td>
+<td>204 Hz</td>
+<td>646 Hz</td>
+<td><strong>1,4</strong></td>
+<td>divergence ×3,2</td>
+</tr>
+<tr>
+<td><strong>Trombone basse</strong></td>
+<td>1 670 Hz</td>
+<td>373 Hz</td>
+<td><strong>1 583 Hz</strong></td>
+<td><strong>1,1</strong></td>
+<td>divergence ×4,2</td>
+</tr>
+<tr>
+<td><strong>Trompette</strong></td>
+<td>2 792 Hz</td>
+<td>339 Hz</td>
+<td><strong>2 880 Hz</strong></td>
+<td><strong>1,0</strong></td>
+<td>divergence <strong>×8,5</strong></td>
+</tr>
+<tr>
+<td><strong>Trompette</strong></td>
+<td>4 974 Hz</td>
+<td>325 Hz</td>
+<td><strong>3 386 Hz</strong></td>
+<td><strong>1,5</strong></td>
+<td>divergence <strong>×10,4</strong></td>
+</tr>
+<tr>
+<td>Basson</td>
+<td>494 Hz</td>
+<td>40 Hz</td>
+<td>162 Hz</td>
+<td>3,1</td>
+<td>plancher</td>
+</tr>
+<tr>
+<td>Violoncelle</td>
+<td>1 108 · 2 631 · 3 948 Hz</td>
+<td>143 · 203 · 193</td>
+<td>172 · 205 · 215</td>
+<td>6,4–18,3</td>
+<td>plancher</td>
+</tr>
+<tr>
+<td>Violon</td>
+<td>2 216 · 3 960 Hz</td>
+<td>104 · 110</td>
+<td>484 · 635</td>
+<td>4,6–6,2</td>
+<td>plancher</td>
+</tr>
+<tr>
+<td>Tuba basse</td>
+<td>698 · 1 244 Hz</td>
+<td>238 · 331</td>
+<td>603 · 135</td>
+<td>1,2 · 9,2</td>
+<td>plancher</td>
+</tr>
+<tr>
+<td>Clarinette en Sib</td>
+<td>3 517 Hz</td>
+<td>209 Hz</td>
+<td>571 Hz</td>
+<td>6,2</td>
+<td>plancher</td>
+</tr>
+<tr>
+<td>Clarinette basse</td>
+<td>1 244 Hz</td>
+<td>110 Hz</td>
+<td>172 Hz</td>
+<td>7,2</td>
+<td>plancher</td>
+</tr>
+<tr>
+<td>Contrebasse</td>
+<td>2 635 Hz</td>
+<td>268 Hz</td>
+<td>172 Hz</td>
+<td>15,3</td>
+<td>plancher</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Un accord sur dix-neuf.</strong></p>
+<h2>Le résultat le plus important — la trompette n'a pas de pic</h2>
+<p>Regardez les deux lignes de la trompette. L'enveloppe donne une largeur de <strong>2 762 Hz pour un
+centre à 2 792 Hz</strong>, et <strong>4 651 Hz pour un centre à 4 974 Hz</strong>. Autrement dit <strong>Q ≈ 1</strong> : la
+« résonance » occupe toute la région. Il n'y a <strong>aucun pic localisé</strong>. Même chose pour le
+trombone basse à 1 670 Hz (Q ≈ 1,1) et, de peu, le trombone ténor à 879 Hz (Q ≈ 1,4).</p>
+<blockquote>
+<p><strong>Répliqué le 28/10/2026 sur les cinq corpus (tâche C6) : seule la trompette tient.</strong>
+Ses deux formants donnent Q = 1,0 · 1,2 · 1,1 et 1,1 · 1,1 · 1,0 sur SOL, ZSamples et VN —
+trois corpus de provenances distinctes, sans biais démontré. <strong>Le Q ≈ 1 de la trompette est
+l'instrument, pas ce corpus-ci.</strong></p>
+<p>Les deux trombones, en revanche, sont <strong>discordants</strong> : 1,1 · 1,1 · 8,4 pour le trombone basse
+vers 1 759 Hz, 1,5 · 2,4 · 3,9 pour le trombone ténor vers 830 Hz. SOL y est le corpus le plus
+bas, et les autres remontent. Cette moitié de l'affirmation est donc à retirer.</p>
+<p>Un biais de corpus a dû être identifié au passage : <strong>Xsamples rend les pics 37 % plus étroits
+que SOL</strong> — comparaison appariée sur dix-huit formants, plus net dans quinze — et son Q ne
+descend jamais sous 3. Il est écarté du calcul des verdicts. Voir <code>_LOCALISATION.md</code>.</p>
+</blockquote>
+<p>Et ce n'est pas un résultat isolé : la fiche de la trompette le disait déjà sans l'expliquer —
+<em>« les bandes à −3 dB sont très larges, 1 318–5 915 Hz pour les trois candidats, signe que la
+méthode ne parvient pas à circonscrire les pics »</em>. Trois méthodes indépendantes convergent
+donc : <strong>il n'y a rien de localisé là</strong>.</p>
+<p>Le LPC, lui, annonce 249 Hz. Il le fait parce qu'il n'a pas le choix : il doit placer ses
+pôles quelque part.</p>
+<blockquote>
+<p><strong>L'enveloppe vraie n'est pas un instrument de mesure de largeur. C'est un détecteur de
+localisation.</strong> Là où elle donne Q ≈ 1, la valeur LPC est une fabrication du modèle.</p>
+</blockquote>
+<h3>Ce que cela fait aux formants établis</h3>
+<p>La trompette à <strong>2 792 Hz</strong> est établie par la route A — paire stricte VN + SOL, provenances
+indépendantes, écart nul. Sa position <strong>réplique</strong>. Et pourtant aucune note n'y montre de pic
+localisé.</p>
+<p>Les deux constats ne se contredisent pas, et c'est instructif : deux corpus peuvent placer le
+maximum de l'enveloppe composite au même point de grille <strong>sans qu'aucune note n'ait de
+résonance localisée à cet endroit</strong>. Ce qui réplique alors est une région d'énergie, pas une
+résonance.</p>
+<p><strong>À inscrire dans la fiche de la trompette et dans celle du trombone basse.</strong> Un formant établi
+en position n'est pas nécessairement un formant au sens physique.</p>
+<h2>Ce qu'on peut publier</h2>
+<table>
+<thead>
+<tr>
+<th>Catégorie</th>
+<th>Formants</th>
+<th>Ce qu'on écrit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Largeur mesurée</strong></td>
+<td>clarinette contrebasse 1 761 Hz</td>
+<td>231–307 Hz, soit Q ≈ 6 — deux méthodes concordantes</td>
+</tr>
+<tr>
+<td><strong>Large, non localisé</strong></td>
+<td>trompette 2 792 et 4 974 · trombone basse 1 670 · trombone ténor 879</td>
+<td><strong>Pas de pic.</strong> Région d'énergie, non résonance. Ne pas publier de largeur</td>
+</tr>
+<tr>
+<td><strong>Large, localisé</strong></td>
+<td>basson 1 108 et 1 974 · trombone basse 879</td>
+<td>Q entre 3 et 7 selon la méthode. Donner la fourchette, jamais un chiffre</td>
+</tr>
+<tr>
+<td><strong>Étroit, non mesurable</strong></td>
+<td>violon · violoncelle · clarinettes · contrebasse · tuba basse</td>
+<td><strong>Borne supérieure seulement</strong> : plus étroit que la résolution, soit Q &gt; 8 environ</td>
+</tr>
+</tbody>
+</table>
+<p>C'est moins que ce qu'on espérait et c'est défendable. Meyer dessinait des triangles sans
+échelle ; nous pouvons dire lesquels de ces triangles correspondent à un pic et lesquels non,
+ce qu'aucune source ne fait.</p>
+<h2>Reproduire</h2>
+<p>```bash
+cd Scripts/v7-formants-2026
+python3 largeurs_lpc.py --mai26 ../../Etude-Formants/Analyses_formants-mai26 \
+  --corpus ~/kDrive/Samples/Orchidea-dbs/OrchideaSOL_and_friends \
+  --sortie ../../Etude-Formants/Largeurs-LPC</p>
+<p>python3 largeurs_enveloppe.py --mai26 ../../Etude-Formants/Analyses_formants-mai26 \
+  --corpus ~/kDrive/Samples/Orchidea-dbs/OrchideaSOL_and_friends \
+  --sortie ../../Etude-Formants/Largeurs/Enveloppe/SOL
+python3 largeurs_enveloppe.py --spectres ../../Etude-Formants/Instruments/VN \
+  --etiquette VN --sortie ../../Etude-Formants/Largeurs/Enveloppe/VN
+```</p>
+<p>Les CSV sont en format long — une ligne par pôle ou par pic, avec note, dynamique, segmentation,
+ordre, fréquence, largeur, et pour l'enveloppe le drapeau <code>ouvert</code> et l'ordre cepstral employé,
+qui donne la résolution. La granularité permet de reprendre la question <strong>par registre</strong>, ce qui
+n'est pas fait ici.</p>
+<h3>Ce qui est sur le disque</h3>
+<table>
+<thead>
+<tr>
+<th>Dossier</th>
+<th>Contenu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Largeurs/LPC/</code></td>
+<td>45 configurations, segmentation mai26, configurations <em>fidèle</em> et <em>corrigée</em></td>
+</tr>
+<tr>
+<td><code>Largeurs/LPC-v7/</code></td>
+<td>idem, segmentation du projet (onset + 200 ms)</td>
+</tr>
+<tr>
+<td><code>Largeurs/Enveloppe/SOL/</code> · <code>SOL-v7/</code></td>
+<td>45 configurations, les deux segmentations</td>
+</tr>
+<tr>
+<td><code>Largeurs/Enveloppe/{ZSamples,Xsamples,VO,VN}/</code></td>
+<td>57 configurations, segmentation du projet</td>
+</tr>
+<tr>
+<td><code>Largeurs/Comparaison/confrontation_lpc_enveloppe.csv</code></td>
+<td>le tableau de confrontation ci-dessus</td>
+</tr>
+<tr>
+<td><code>Largeurs/Comparaison/controle_resolution.csv</code></td>
+<td>le contrôle de résolution, 102 lignes</td>
+</tr>
+<tr>
+<td><code>Mesures/ZSamples/</code></td>
+<td>spectres de ZSamples, régénérés le 25/10</td>
+</tr>
+</tbody>
+</table>
+<p>Environ 198 000 mesures de pic d'enveloppe et 180 000 pôles LPC au total.</p>
+<h2>À faire</h2>
+<blockquote>
+<p>Les travaux restants sont <strong>tous</strong> dans <code>_PLAN-DE-REPRISE.md</code>, qui est la seule liste à tenir. Ne pas en ouvrir une ici : c'est ainsi que huit listes se sont contredites entre le 23 et le 26 octobre.</p>
+</blockquote>
+<h2>Journal</h2>
+<ul>
+<li><strong>2026-10-25</strong> — Récupération des largeurs LPC, jamais sauvegardées depuis mai 2026. Mise au
+  jour du sous-dimensionnement du modèle de mai26, qui gonflait les largeurs d'un facteur trois.</li>
+<li><strong>2026-10-25</strong> — Mesure des largeurs à −3 dB sur l'enveloppe vraie, cinq corpus,
+  198 000 pics. <strong>La résolution note par note est bornée par f0</strong> : une note ne peut révéler une
+  résonance plus étroite que son espacement harmonique. Les largeurs étroites ne sont donc pas
+  mesurables par enveloppe, et seul le LPC en produit une, dépendante de l'ordre.</li>
+<li><strong>2026-10-25</strong> — Confrontation : un accord sur dix-neuf. <strong>La trompette et le trombone basse
+  n'ont aucun pic localisé</strong> (Q ≈ 1), ce que trois méthodes indépendantes confirment.
+  <em>Corrigé le 28/10 (C6) : répliqué sur cinq corpus, seule la trompette tient ; les deux
+  trombones sont discordants.</em></li>
+<li><strong>2026-10-25 (soir)</strong> — Correction de la segmentation : les deux méthodes relancées sur SOL
+  avec l'onset détecté + 200 ms au lieu des 100 ms fixes de mai26, qui incluaient l'attaque
+  pour 16,7 % des fichiers. <strong>Les chiffres bougent jusqu'à 35 %, aucun verdict ne change.</strong>
+  Contrôle de résolution étendu aux 102 configurations des cinq corpus : ρ(largeur, f0)
+  positive dans <strong>100 cas sur 102</strong>, et les huit configurations les mieux résolues sont <strong>toutes
+  des cuivres graves, venus de quatre corpus différents</strong>. Tableaux sauvegardés dans
+  <code>Largeurs/Comparaison/</code>.</li>
+</ul>
+<footer>Référence formantique de l'orchestre — Yan Maresz · page produite par <code>construire_site.py</code> depuis les fiches et <code>Resultats-v7/</code>.</footer>
+</body>
+</html>
